@@ -1,0 +1,900 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		68D2807C15AB6297F5C6C314 /* Pods_DiabetesAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A4E09F5E1DA83F9C92B5F1 /* Pods_DiabetesAppTests.framework */; };
+		7CE2E923C9FD73F3D69C525F /* Pods_DiabetesApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3577034BE1BCFB6477C4BE61 /* Pods_DiabetesApp.framework */; };
+		8FC5F6BA1E0A89E10086326D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC5F6B91E0A89E10086326D /* AppDelegate.swift */; };
+		8FC5F6BF1E0A89E10086326D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FC5F6BD1E0A89E10086326D /* Main.storyboard */; };
+		8FC5F6C21E0A89E10086326D /* DiabetesApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8FC5F6C01E0A89E10086326D /* DiabetesApp.xcdatamodeld */; };
+		8FC5F6C41E0A89E10086326D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FC5F6C31E0A89E10086326D /* Assets.xcassets */; };
+		8FC5F6C71E0A89E10086326D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FC5F6C51E0A89E10086326D /* LaunchScreen.storyboard */; };
+		8FC5F6D21E0A89E10086326D /* DiabetesAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC5F6D11E0A89E10086326D /* DiabetesAppTests.swift */; };
+		8FC5F6DD1E0A89E10086326D /* DiabetesAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC5F6DC1E0A89E10086326D /* DiabetesAppUITests.swift */; };
+		8FC5F6F91E0A8FF40086326D /* ServicesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC5F6F81E0A8FF40086326D /* ServicesManager.swift */; };
+		8FC5F7011E0A97EF0086326D /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC5F7001E0A97EF0086326D /* NotificationService.swift */; };
+		8FC5F7031E0A981E0086326D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8FC5F7021E0A981E0086326D /* Localizable.strings */; };
+		8FC5F7051E0A999B0086326D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC5F7041E0A999B0086326D /* Constants.swift */; };
+		8FC5F70E1E0A99DD0086326D /* MPGNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC5F7081E0A99DD0086326D /* MPGNotification.m */; };
+		8FC5F70F1E0A99DD0086326D /* QMMessageNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC5F70B1E0A99DD0086326D /* QMMessageNotification.m */; };
+		8FC5F7101E0A99DD0086326D /* QMMessageNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC5F70D1E0A99DD0086326D /* QMMessageNotificationManager.m */; };
+		8FC5F7151E0AA1900086326D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC5F7141E0AA1900086326D /* LoginViewController.swift */; };
+		8FC5F7181E0AA8C90086326D /* RecentChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC5F7171E0AA8C90086326D /* RecentChatsViewController.swift */; };
+		8FC5F71B1E0AA92C0086326D /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC5F71A1E0AA92C0086326D /* HomeTabBarController.swift */; };
+		8FC5F71D1E0AAB810086326D /* DialogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC5F71C1E0AAB810086326D /* DialogsViewController.swift */; };
+		8FC5F71F1E0AADF30086326D /* DialogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC5F71E1E0AADF30086326D /* DialogTableViewCell.swift */; };
+		8FC5F7221E0AB0880086326D /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC5F7211E0AB0880086326D /* ContactListViewController.swift */; };
+		8FC5F7251E0AB6E70086326D /* ContactObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC5F7241E0AB6E70086326D /* ContactObj.swift */; };
+		B2BDE8F8164FAAA29C2BD711 /* Pods_DiabetesAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F074C404F9C0031406DBE54B /* Pods_DiabetesAppUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8FC5F6CE1E0A89E10086326D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8FC5F6AE1E0A89E10086326D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8FC5F6B51E0A89E10086326D;
+			remoteInfo = DiabetesApp;
+		};
+		8FC5F6D91E0A89E10086326D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8FC5F6AE1E0A89E10086326D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8FC5F6B51E0A89E10086326D;
+			remoteInfo = DiabetesApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		184F489D7EB5E7FF95BEE6DA /* Pods-DiabetesAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiabetesAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DiabetesAppUITests/Pods-DiabetesAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3577034BE1BCFB6477C4BE61 /* Pods_DiabetesApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DiabetesApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		39034DAFEA1B356AF0046ACF /* Pods-DiabetesAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiabetesAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DiabetesAppTests/Pods-DiabetesAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3EB40E02B151E094E399136F /* Pods-DiabetesAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiabetesAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DiabetesAppTests/Pods-DiabetesAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		425EBD36CDA6FC13DB798558 /* Pods-DiabetesAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiabetesAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DiabetesAppUITests/Pods-DiabetesAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		77A4E09F5E1DA83F9C92B5F1 /* Pods_DiabetesAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DiabetesAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FC5F6B61E0A89E10086326D /* DiabetesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiabetesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FC5F6B91E0A89E10086326D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8FC5F6BE1E0A89E10086326D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8FC5F6C11E0A89E10086326D /* DiabetesApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DiabetesApp.xcdatamodel; sourceTree = "<group>"; };
+		8FC5F6C31E0A89E10086326D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8FC5F6C61E0A89E10086326D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8FC5F6C81E0A89E10086326D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8FC5F6CD1E0A89E10086326D /* DiabetesAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DiabetesAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FC5F6D11E0A89E10086326D /* DiabetesAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiabetesAppTests.swift; sourceTree = "<group>"; };
+		8FC5F6D31E0A89E10086326D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8FC5F6D81E0A89E10086326D /* DiabetesAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DiabetesAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FC5F6DC1E0A89E10086326D /* DiabetesAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiabetesAppUITests.swift; sourceTree = "<group>"; };
+		8FC5F6DE1E0A89E10086326D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8FC5F6F81E0A8FF40086326D /* ServicesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesManager.swift; sourceTree = "<group>"; };
+		8FC5F6FC1E0A92EF0086326D /* DiabetesApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DiabetesApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		8FC5F7001E0A97EF0086326D /* NotificationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		8FC5F7021E0A981E0086326D /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = DiabetesApp/Localizable.strings; sourceTree = "<group>"; };
+		8FC5F7041E0A999B0086326D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8FC5F7071E0A99DD0086326D /* MPGNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPGNotification.h; sourceTree = "<group>"; };
+		8FC5F7081E0A99DD0086326D /* MPGNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPGNotification.m; sourceTree = "<group>"; };
+		8FC5F70A1E0A99DD0086326D /* QMMessageNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMMessageNotification.h; sourceTree = "<group>"; };
+		8FC5F70B1E0A99DD0086326D /* QMMessageNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMMessageNotification.m; sourceTree = "<group>"; };
+		8FC5F70C1E0A99DD0086326D /* QMMessageNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMMessageNotificationManager.h; sourceTree = "<group>"; };
+		8FC5F70D1E0A99DD0086326D /* QMMessageNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMMessageNotificationManager.m; sourceTree = "<group>"; };
+		8FC5F7141E0AA1900086326D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Login/LoginViewController.swift; sourceTree = "<group>"; };
+		8FC5F7171E0AA8C90086326D /* RecentChatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecentChatsViewController.swift; path = RecentChats/RecentChatsViewController.swift; sourceTree = "<group>"; };
+		8FC5F71A1E0AA92C0086326D /* HomeTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeTabBarController.swift; path = HomeTabBar/HomeTabBarController.swift; sourceTree = "<group>"; };
+		8FC5F71C1E0AAB810086326D /* DialogsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogsViewController.swift; sourceTree = "<group>"; };
+		8FC5F71E1E0AADF30086326D /* DialogTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogTableViewCell.swift; sourceTree = "<group>"; };
+		8FC5F7211E0AB0880086326D /* ContactListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactListViewController.swift; path = ContactList/ContactListViewController.swift; sourceTree = "<group>"; };
+		8FC5F7241E0AB6E70086326D /* ContactObj.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactObj.swift; path = Modal/ContactObj.swift; sourceTree = "<group>"; };
+		C18890C246A66537DB0E341B /* Pods-DiabetesApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiabetesApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DiabetesApp/Pods-DiabetesApp.release.xcconfig"; sourceTree = "<group>"; };
+		C560AD7C0A8289E6573799A3 /* Pods-DiabetesApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiabetesApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DiabetesApp/Pods-DiabetesApp.debug.xcconfig"; sourceTree = "<group>"; };
+		F074C404F9C0031406DBE54B /* Pods_DiabetesAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DiabetesAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8FC5F6B31E0A89E10086326D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7CE2E923C9FD73F3D69C525F /* Pods_DiabetesApp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8FC5F6CA1E0A89E10086326D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68D2807C15AB6297F5C6C314 /* Pods_DiabetesAppTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8FC5F6D51E0A89E10086326D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2BDE8F8164FAAA29C2BD711 /* Pods_DiabetesAppUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8FC5F6AD1E0A89E10086326D = {
+			isa = PBXGroup;
+			children = (
+				8FC5F7021E0A981E0086326D /* Localizable.strings */,
+				8FC5F6B81E0A89E10086326D /* DiabetesApp */,
+				8FC5F6D01E0A89E10086326D /* DiabetesAppTests */,
+				8FC5F6DB1E0A89E10086326D /* DiabetesAppUITests */,
+				8FC5F6B71E0A89E10086326D /* Products */,
+				C871D333B036BFB522640F87 /* Pods */,
+				E5F596C9A2B868A57AE3143C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		8FC5F6B71E0A89E10086326D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8FC5F6B61E0A89E10086326D /* DiabetesApp.app */,
+				8FC5F6CD1E0A89E10086326D /* DiabetesAppTests.xctest */,
+				8FC5F6D81E0A89E10086326D /* DiabetesAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8FC5F6B81E0A89E10086326D /* DiabetesApp */ = {
+			isa = PBXGroup;
+			children = (
+				8FC5F7231E0AB6B60086326D /* Modal */,
+				8FC5F7201E0AB0400086326D /* ContactList */,
+				8FC5F7191E0AA90A0086326D /* HomeTabBar */,
+				8FC5F7161E0AA8AD0086326D /* RecentChats */,
+				8FC5F7131E0AA16D0086326D /* AppDelegate */,
+				8FC5F7121E0AA1670086326D /* Login */,
+				8FC5F7111E0A9FFA0086326D /* ThirdParty */,
+				8FC5F7041E0A999B0086326D /* Constants.swift */,
+				8FC5F6BD1E0A89E10086326D /* Main.storyboard */,
+				8FC5F6C31E0A89E10086326D /* Assets.xcassets */,
+				8FC5F6C51E0A89E10086326D /* LaunchScreen.storyboard */,
+				8FC5F6C81E0A89E10086326D /* Info.plist */,
+				8FC5F6C01E0A89E10086326D /* DiabetesApp.xcdatamodeld */,
+				8FC5F6FC1E0A92EF0086326D /* DiabetesApp-Bridging-Header.h */,
+			);
+			path = DiabetesApp;
+			sourceTree = "<group>";
+		};
+		8FC5F6D01E0A89E10086326D /* DiabetesAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				8FC5F6D11E0A89E10086326D /* DiabetesAppTests.swift */,
+				8FC5F6D31E0A89E10086326D /* Info.plist */,
+			);
+			path = DiabetesAppTests;
+			sourceTree = "<group>";
+		};
+		8FC5F6DB1E0A89E10086326D /* DiabetesAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8FC5F6DC1E0A89E10086326D /* DiabetesAppUITests.swift */,
+				8FC5F6DE1E0A89E10086326D /* Info.plist */,
+			);
+			path = DiabetesAppUITests;
+			sourceTree = "<group>";
+		};
+		8FC5F7061E0A99DD0086326D /* MPGNotification */ = {
+			isa = PBXGroup;
+			children = (
+				8FC5F7071E0A99DD0086326D /* MPGNotification.h */,
+				8FC5F7081E0A99DD0086326D /* MPGNotification.m */,
+			);
+			path = MPGNotification;
+			sourceTree = "<group>";
+		};
+		8FC5F7091E0A99DD0086326D /* QMMessageNotificationManager */ = {
+			isa = PBXGroup;
+			children = (
+				8FC5F70A1E0A99DD0086326D /* QMMessageNotification.h */,
+				8FC5F70B1E0A99DD0086326D /* QMMessageNotification.m */,
+				8FC5F70C1E0A99DD0086326D /* QMMessageNotificationManager.h */,
+				8FC5F70D1E0A99DD0086326D /* QMMessageNotificationManager.m */,
+			);
+			path = QMMessageNotificationManager;
+			sourceTree = "<group>";
+		};
+		8FC5F7111E0A9FFA0086326D /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				8FC5F7001E0A97EF0086326D /* NotificationService.swift */,
+				8FC5F6F81E0A8FF40086326D /* ServicesManager.swift */,
+				8FC5F7061E0A99DD0086326D /* MPGNotification */,
+				8FC5F7091E0A99DD0086326D /* QMMessageNotificationManager */,
+			);
+			name = ThirdParty;
+			sourceTree = "<group>";
+		};
+		8FC5F7121E0AA1670086326D /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				8FC5F7141E0AA1900086326D /* LoginViewController.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		8FC5F7131E0AA16D0086326D /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				8FC5F6B91E0A89E10086326D /* AppDelegate.swift */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		8FC5F7161E0AA8AD0086326D /* RecentChats */ = {
+			isa = PBXGroup;
+			children = (
+				8FC5F71E1E0AADF30086326D /* DialogTableViewCell.swift */,
+				8FC5F71C1E0AAB810086326D /* DialogsViewController.swift */,
+				8FC5F7171E0AA8C90086326D /* RecentChatsViewController.swift */,
+			);
+			name = RecentChats;
+			sourceTree = "<group>";
+		};
+		8FC5F7191E0AA90A0086326D /* HomeTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				8FC5F71A1E0AA92C0086326D /* HomeTabBarController.swift */,
+			);
+			name = HomeTabBar;
+			sourceTree = "<group>";
+		};
+		8FC5F7201E0AB0400086326D /* ContactList */ = {
+			isa = PBXGroup;
+			children = (
+				8FC5F7211E0AB0880086326D /* ContactListViewController.swift */,
+			);
+			name = ContactList;
+			sourceTree = "<group>";
+		};
+		8FC5F7231E0AB6B60086326D /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				8FC5F7241E0AB6E70086326D /* ContactObj.swift */,
+			);
+			name = Modal;
+			sourceTree = "<group>";
+		};
+		C871D333B036BFB522640F87 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C560AD7C0A8289E6573799A3 /* Pods-DiabetesApp.debug.xcconfig */,
+				C18890C246A66537DB0E341B /* Pods-DiabetesApp.release.xcconfig */,
+				39034DAFEA1B356AF0046ACF /* Pods-DiabetesAppTests.debug.xcconfig */,
+				3EB40E02B151E094E399136F /* Pods-DiabetesAppTests.release.xcconfig */,
+				425EBD36CDA6FC13DB798558 /* Pods-DiabetesAppUITests.debug.xcconfig */,
+				184F489D7EB5E7FF95BEE6DA /* Pods-DiabetesAppUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E5F596C9A2B868A57AE3143C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3577034BE1BCFB6477C4BE61 /* Pods_DiabetesApp.framework */,
+				77A4E09F5E1DA83F9C92B5F1 /* Pods_DiabetesAppTests.framework */,
+				F074C404F9C0031406DBE54B /* Pods_DiabetesAppUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8FC5F6B51E0A89E10086326D /* DiabetesApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8FC5F6E11E0A89E10086326D /* Build configuration list for PBXNativeTarget "DiabetesApp" */;
+			buildPhases = (
+				609D084E2005F75487CCF409 /* [CP] Check Pods Manifest.lock */,
+				8FC5F6B21E0A89E10086326D /* Sources */,
+				8FC5F6B31E0A89E10086326D /* Frameworks */,
+				8FC5F6B41E0A89E10086326D /* Resources */,
+				B7735649FD6DF3F88102F01D /* [CP] Embed Pods Frameworks */,
+				10B4C9907FE0915577EEA72A /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DiabetesApp;
+			productName = DiabetesApp;
+			productReference = 8FC5F6B61E0A89E10086326D /* DiabetesApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8FC5F6CC1E0A89E10086326D /* DiabetesAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8FC5F6E41E0A89E10086326D /* Build configuration list for PBXNativeTarget "DiabetesAppTests" */;
+			buildPhases = (
+				6BEC02E781B1601E85436D49 /* [CP] Check Pods Manifest.lock */,
+				8FC5F6C91E0A89E10086326D /* Sources */,
+				8FC5F6CA1E0A89E10086326D /* Frameworks */,
+				8FC5F6CB1E0A89E10086326D /* Resources */,
+				9E8FFBCCD9CAB2472A6C0905 /* [CP] Embed Pods Frameworks */,
+				690A5AFF4F53CAC01F6562C6 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8FC5F6CF1E0A89E10086326D /* PBXTargetDependency */,
+			);
+			name = DiabetesAppTests;
+			productName = DiabetesAppTests;
+			productReference = 8FC5F6CD1E0A89E10086326D /* DiabetesAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8FC5F6D71E0A89E10086326D /* DiabetesAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8FC5F6E71E0A89E10086326D /* Build configuration list for PBXNativeTarget "DiabetesAppUITests" */;
+			buildPhases = (
+				6F1742D91561982F2C26BE7F /* [CP] Check Pods Manifest.lock */,
+				8FC5F6D41E0A89E10086326D /* Sources */,
+				8FC5F6D51E0A89E10086326D /* Frameworks */,
+				8FC5F6D61E0A89E10086326D /* Resources */,
+				A78EFB4267DCF13B9E7F829C /* [CP] Embed Pods Frameworks */,
+				B10A49D28FE54262DB3D4C47 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8FC5F6DA1E0A89E10086326D /* PBXTargetDependency */,
+			);
+			name = DiabetesAppUITests;
+			productName = DiabetesAppUITests;
+			productReference = 8FC5F6D81E0A89E10086326D /* DiabetesAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8FC5F6AE1E0A89E10086326D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = Visions;
+				TargetAttributes = {
+					8FC5F6B51E0A89E10086326D = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = E2K34DPS6D;
+						LastSwiftMigration = 0810;
+						ProvisioningStyle = Automatic;
+					};
+					8FC5F6CC1E0A89E10086326D = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = E2K34DPS6D;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 8FC5F6B51E0A89E10086326D;
+					};
+					8FC5F6D71E0A89E10086326D = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = E2K34DPS6D;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 8FC5F6B51E0A89E10086326D;
+					};
+				};
+			};
+			buildConfigurationList = 8FC5F6B11E0A89E10086326D /* Build configuration list for PBXProject "DiabetesApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8FC5F6AD1E0A89E10086326D;
+			productRefGroup = 8FC5F6B71E0A89E10086326D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8FC5F6B51E0A89E10086326D /* DiabetesApp */,
+				8FC5F6CC1E0A89E10086326D /* DiabetesAppTests */,
+				8FC5F6D71E0A89E10086326D /* DiabetesAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8FC5F6B41E0A89E10086326D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FC5F6C71E0A89E10086326D /* LaunchScreen.storyboard in Resources */,
+				8FC5F7031E0A981E0086326D /* Localizable.strings in Resources */,
+				8FC5F6C41E0A89E10086326D /* Assets.xcassets in Resources */,
+				8FC5F6BF1E0A89E10086326D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8FC5F6CB1E0A89E10086326D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8FC5F6D61E0A89E10086326D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		10B4C9907FE0915577EEA72A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DiabetesApp/Pods-DiabetesApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		609D084E2005F75487CCF409 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		690A5AFF4F53CAC01F6562C6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DiabetesAppTests/Pods-DiabetesAppTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6BEC02E781B1601E85436D49 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6F1742D91561982F2C26BE7F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9E8FFBCCD9CAB2472A6C0905 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DiabetesAppTests/Pods-DiabetesAppTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A78EFB4267DCF13B9E7F829C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DiabetesAppUITests/Pods-DiabetesAppUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B10A49D28FE54262DB3D4C47 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DiabetesAppUITests/Pods-DiabetesAppUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B7735649FD6DF3F88102F01D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DiabetesApp/Pods-DiabetesApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8FC5F6B21E0A89E10086326D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FC5F6C21E0A89E10086326D /* DiabetesApp.xcdatamodeld in Sources */,
+				8FC5F70E1E0A99DD0086326D /* MPGNotification.m in Sources */,
+				8FC5F71B1E0AA92C0086326D /* HomeTabBarController.swift in Sources */,
+				8FC5F7101E0A99DD0086326D /* QMMessageNotificationManager.m in Sources */,
+				8FC5F6BA1E0A89E10086326D /* AppDelegate.swift in Sources */,
+				8FC5F7221E0AB0880086326D /* ContactListViewController.swift in Sources */,
+				8FC5F70F1E0A99DD0086326D /* QMMessageNotification.m in Sources */,
+				8FC5F7251E0AB6E70086326D /* ContactObj.swift in Sources */,
+				8FC5F7011E0A97EF0086326D /* NotificationService.swift in Sources */,
+				8FC5F6F91E0A8FF40086326D /* ServicesManager.swift in Sources */,
+				8FC5F71D1E0AAB810086326D /* DialogsViewController.swift in Sources */,
+				8FC5F7181E0AA8C90086326D /* RecentChatsViewController.swift in Sources */,
+				8FC5F71F1E0AADF30086326D /* DialogTableViewCell.swift in Sources */,
+				8FC5F7151E0AA1900086326D /* LoginViewController.swift in Sources */,
+				8FC5F7051E0A999B0086326D /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8FC5F6C91E0A89E10086326D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FC5F6D21E0A89E10086326D /* DiabetesAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8FC5F6D41E0A89E10086326D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FC5F6DD1E0A89E10086326D /* DiabetesAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8FC5F6CF1E0A89E10086326D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8FC5F6B51E0A89E10086326D /* DiabetesApp */;
+			targetProxy = 8FC5F6CE1E0A89E10086326D /* PBXContainerItemProxy */;
+		};
+		8FC5F6DA1E0A89E10086326D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8FC5F6B51E0A89E10086326D /* DiabetesApp */;
+			targetProxy = 8FC5F6D91E0A89E10086326D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8FC5F6BD1E0A89E10086326D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8FC5F6BE1E0A89E10086326D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8FC5F6C51E0A89E10086326D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8FC5F6C61E0A89E10086326D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8FC5F6DF1E0A89E10086326D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8FC5F6E01E0A89E10086326D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8FC5F6E21E0A89E10086326D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C560AD7C0A8289E6573799A3 /* Pods-DiabetesApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = E2K34DPS6D;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/QMCVDevelopment",
+					"$(PROJECT_DIR)/QMServicesDevelopment",
+				);
+				INFOPLIST_FILE = DiabetesApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.visions.DiabetesApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DiabetesApp/DiabetesApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		8FC5F6E31E0A89E10086326D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C18890C246A66537DB0E341B /* Pods-DiabetesApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = E2K34DPS6D;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/QMCVDevelopment",
+					"$(PROJECT_DIR)/QMServicesDevelopment",
+				);
+				INFOPLIST_FILE = DiabetesApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.visions.DiabetesApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DiabetesApp/DiabetesApp-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		8FC5F6E51E0A89E10086326D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39034DAFEA1B356AF0046ACF /* Pods-DiabetesAppTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = E2K34DPS6D;
+				INFOPLIST_FILE = DiabetesAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.visions.DiabetesAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DiabetesApp.app/DiabetesApp";
+			};
+			name = Debug;
+		};
+		8FC5F6E61E0A89E10086326D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3EB40E02B151E094E399136F /* Pods-DiabetesAppTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = E2K34DPS6D;
+				INFOPLIST_FILE = DiabetesAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.visions.DiabetesAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DiabetesApp.app/DiabetesApp";
+			};
+			name = Release;
+		};
+		8FC5F6E81E0A89E10086326D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 425EBD36CDA6FC13DB798558 /* Pods-DiabetesAppUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = E2K34DPS6D;
+				INFOPLIST_FILE = DiabetesAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.visions.DiabetesAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = DiabetesApp;
+			};
+			name = Debug;
+		};
+		8FC5F6E91E0A89E10086326D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 184F489D7EB5E7FF95BEE6DA /* Pods-DiabetesAppUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = E2K34DPS6D;
+				INFOPLIST_FILE = DiabetesAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.visions.DiabetesAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = DiabetesApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8FC5F6B11E0A89E10086326D /* Build configuration list for PBXProject "DiabetesApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8FC5F6DF1E0A89E10086326D /* Debug */,
+				8FC5F6E01E0A89E10086326D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8FC5F6E11E0A89E10086326D /* Build configuration list for PBXNativeTarget "DiabetesApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8FC5F6E21E0A89E10086326D /* Debug */,
+				8FC5F6E31E0A89E10086326D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8FC5F6E41E0A89E10086326D /* Build configuration list for PBXNativeTarget "DiabetesAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8FC5F6E51E0A89E10086326D /* Debug */,
+				8FC5F6E61E0A89E10086326D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8FC5F6E71E0A89E10086326D /* Build configuration list for PBXNativeTarget "DiabetesAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8FC5F6E81E0A89E10086326D /* Debug */,
+				8FC5F6E91E0A89E10086326D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8FC5F6C01E0A89E10086326D /* DiabetesApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8FC5F6C11E0A89E10086326D /* DiabetesApp.xcdatamodel */,
+			);
+			currentVersion = 8FC5F6C11E0A89E10086326D /* DiabetesApp.xcdatamodel */;
+			path = DiabetesApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 8FC5F6AE1E0A89E10086326D /* Project object */;
+}
