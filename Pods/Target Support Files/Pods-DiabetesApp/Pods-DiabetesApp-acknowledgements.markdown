@@ -120,6 +120,12 @@ Copyright (c) 2014 QuickBlox
 
 
 
+## Quickblox-WebRTC
+
+QuickBlox iOS SDK is licensed under the QuickBlox SDK License.
+
+
+
 ## SDWebImage
 
 Copyright (c) 2016 Olivier Poitrey rs@dailymotion.com

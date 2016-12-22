@@ -10,6 +10,7 @@ import UIKit
 import QMServices
 import SVProgressHUD
 
+
 class DialogTableViewCellModel: NSObject {
     
     var detailTextLabelText: String = ""
@@ -81,7 +82,7 @@ class DialogTableViewCellModel: NSObject {
     }
 }
 
-class DialogsViewController: UITableViewController, QMChatServiceDelegate, QMChatConnectionDelegate, QMAuthServiceDelegate {
+class DialogsViewController: UITableViewController, QMChatServiceDelegate, QMChatConnectionDelegate, QMAuthServiceDelegate,QBRTCClientDelegate {
     private var didEnterBackgroundDate: NSDate?
     private var observer: NSObjectProtocol?
     // MARK: - ViewController overrides
@@ -117,15 +118,15 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QMCha
         super.viewWillAppear(animated)
         
         self.tableView.reloadData()
+        //self .callWithConferenceType(conferenceType: .video)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        
         if segue.identifier == "SA_STR_SEGUE_GO_TO_CHAT".localized {
-//            if let chatVC = segue.destination as? ChatViewController {
-//                chatVC.dialog = sender as? QBChatDialog
-//            }
+            if let chatVC = segue.destination as? ChatViewController {
+                chatVC.dialog = sender as? QBChatDialog
+            }
         }
     }
     
@@ -272,16 +273,34 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QMCha
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
+        let chatDialog = self.dialogs()?[indexPath.row]
         
-        if (ServicesManager.instance().isProcessingLogOut!) {
-            return
-        }
+        print(chatDialog)
         
-        guard let dialog = self.dialogs()?[indexPath.row] else {
-            return
-        }
         
-        self.performSegue(withIdentifier: "SA_STR_SEGUE_GO_TO_CHAT".localized , sender: dialog)
+        
+        
+//        QBRTCClient.instance().add(self) // self class must conform to QBRTCClientDelegate protocol
+//        
+//        // 2123, 2123, 3122 - opponent's
+//        let opponentsIDs = [3245, 2123, 3122]
+//        let newSession = QBRTCClient.instance().createNewSession(withOpponents: opponentsIDs, with: QBRTCConferenceType.video)
+//        // userInfo - the custom user information dictionary for the call. May be nil.
+//        let userInfo :[String:String] = ["key":"value"]
+//        newSession?.startCall(userInfo)
+        
+        
+        
+        
+//        if (ServicesManager.instance().isProcessingLogOut!) {
+//            return
+//        }
+//        
+//        guard let dialog = self.dialogs()?[indexPath.row] else {
+//            return
+//        }
+//        
+//        self.performSegue(withIdentifier: "SA_STR_SEGUE_GO_TO_CHAT".localized , sender: dialog)
     }
 
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -423,11 +442,72 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QMCha
             self.tableView.reloadData()
         }
     }
+    
+//    - (void)callWithConferenceType:(QBRTCConferenceType)conferenceType {
+//    
+//    if ([self usersToCall]) {
+//    
+//    NSParameterAssert(!self.currentSession);
+//    NSParameterAssert(!self.nav);
+//    
+//    NSArray *opponentsIDs = [UsersDataSource.instance idsWithUsers:self.selectedUsers];
+//    //Create new session
+//    QBRTCSession *session = [QBRTCClient.instance createNewSessionWithOpponents:opponentsIDs withConferenceType:conferenceType];
+//    
+//    if (session) {
+//    
+//    self.currentSession = session;
+//    CallViewController *callViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"CallViewController"];
+//    callViewController.session = self.currentSession;
+//    
+//    self.nav = [[UINavigationController alloc] initWithRootViewController:callViewController];
+//    self.nav.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+//    
+//    [self presentViewController:self.nav animated:NO completion:nil];
+//    }
+//    else {
+//    
+//    [SVProgressHUD showErrorWithStatus:@"You should login to use chat API. Session hasn’t been created. Please try to relogin the chat."];
+//    }
+//    }
+//    }
+    
+    //MARK: - Webrtc
+//    
+//    func callWithConferenceType(conferenceType:QBRTCConferenceType)  {
+//        
+//        QBRTCClient.instance().add(self) // self class must conform to QBRTCClientDelegate protocol
+//        
+//        // 2123, 2123, 3122 - opponent's
+//        let opponentsIDs = [21236626]
+//        let newSession = QBRTCClient.instance().createNewSession(withOpponents: opponentsIDs, with: conferenceType)
+//        print((newSession?.initiatorID)! as NSNumber )
+//        
+//        if (newSession != nil) {
+//            
+//            //self.currentSession = newSession;
+//             let callViewController: CallViewController = self.storyboard?.instantiateViewController(withIdentifier: "CallViewController") as! CallViewController
+//            
+//           // CallViewController *callViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"CallViewController"];
+//            callViewController.session = newSession
+//            
+//            self.navigationController?.pushViewController(callViewController, animated: true)
+//            //self.nav = [[UINavigationController alloc] initWithRootViewController:callViewController];
+//           // self.nav.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+//            
+//            //[self presentViewController:self.nav animated:NO completion:nil];
+//        }
+//         userInfo - the custom user information dictionary for the call. May be nil.
+//        let userInfo :[String:String] = ["key":"value"]
+//        newSession?.startCall(userInfo)
+//    }
+    
+     //MARK:- Selected users
+    
+
+//    func usersToCall() -> Bool {
+//        let isOK : Bool =
+//        
+//    }
 }
 
-extension String {
-    var localized: String {
-        //🖕Fuck the translators team, they don’t deserve comments
-        return NSLocalizedString(self, comment: "")
-    }
-}

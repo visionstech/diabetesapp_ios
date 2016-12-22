@@ -13,18 +13,13 @@ import SVProgressHUD
 
 class LoginViewController: UIViewController {
     
-    struct userType {
-        static let doctor = 1
-        static let patient = 0
-    }
-
     
     //MARK: - Outlets
     @IBOutlet weak var usernameTxtFld: UITextField!
     @IBOutlet weak var passwordTxtFld: UITextField!
     @IBOutlet weak var doctorBtn: UIButton!
     @IBOutlet weak var patientBtn: UIButton!
-
+    
     //MARK: - var
     var selectedUserType: Int = 1
     
@@ -32,28 +27,71 @@ class LoginViewController: UIViewController {
     //MARK: - View Load Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        checkLoginStatus()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    //MARK: - Custom Methods
+    func checkLoginStatus() {
+        
+        // If Already logged in
+        if UserDefaults.standard.bool(forKey: userDefaults.isLoggedIn) == true {
+            
+            SVProgressHUD.show(withStatus: "Please wait...")
+            if !QBChat.instance().isConnected {
+                
+                let selectedUser = QBUUser()
+                selectedUser.email = UserDefaults.standard.value(forKey: userDefaults.loggedInUserEmail) as! String!
+                selectedUser.password = UserDefaults.standard.value(forKey: userDefaults.loggedInUserEmail) as! String!
+                
+                ServicesManager.instance().logIn(with: selectedUser, completion:{
+                    [unowned self] (success, errorMessage) -> Void in
+                    
+                    SVProgressHUD.dismiss()
+                    
+                    UserDefaults.standard.set(true, forKey: userDefaults.isLoggedIn)
+                    
+                    guard success else {
+                        SVProgressHUD.showError(withStatus: errorMessage)
+                        return
+                    }
+                    self.navigateToNextScreen()
+                })
+            }
+                
+            else {
+                navigateToNextScreen()
+            }
+        }
+    }
+    
+    func navigateToNextScreen() {
+        SVProgressHUD.dismiss()
+        
+        let viewController: DialogsViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.dialogsViewController) as! DialogsViewController
+        
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    //MARK: - IBAction Methods
     @IBAction func SelectUserTypBtns_Click(_ sender: Any) {
         if (sender as AnyObject).tag == selectedUserType {
             return
         }
         
         if (sender as AnyObject).tag == userType.doctor {
-            doctorBtn.backgroundColor = UIColor(red: 0/255.0, green: 122/255.0, blue: 255/255.0, alpha: 1)
+            doctorBtn.backgroundColor = Colors.userTypeSelectedColor
             patientBtn.backgroundColor = UIColor.lightGray
         }
             
         else {
             doctorBtn.backgroundColor = UIColor.lightGray
-            patientBtn.backgroundColor = UIColor(red: 0/255.0, green: 122/255.0, blue: 255/255.0, alpha: 1)
+            patientBtn.backgroundColor = Colors.userTypeSelectedColor
         }
         selectedUserType = (sender as AnyObject).tag
         
@@ -64,37 +102,50 @@ class LoginViewController: UIViewController {
         
         self.view.endEditing(true)
         
-        if usernameTxtFld.text != "" && passwordTxtFld.text != "" {
+        let username = usernameTxtFld.text!.trimmingCharacters(in: CharacterSet.whitespaces)
+        let password = passwordTxtFld.text!.trimmingCharacters(in: CharacterSet.whitespaces)
+        
+        if username.isEmpty || password.isEmpty {
+            self.present(UtilityClass.displayAlertMessage(message: "Username and password required.", title: "Error", viewController: self), animated: true, completion: nil)
             
-            Alamofire.request("http://192.168.25.43:3000/getdataios?username=bhishamtrehan&password=bhishamtrehan&typeid=1").responseJSON { response in
-               
-                if let JSON = response.result.value {
+            
+        }
+        else {
+            SVProgressHUD.show(withStatus: "SA_STR_LOGGING_IN_AS".localized, maskType: SVProgressHUDMaskType.clear)
+            
+            //http://192.168.25.43:3000/getdataios?username=bhishamtrehan&password=bhishamtrehan&typeid=1
+            Alamofire.request("\(baseUrl)\(ApiMethods.login)?username=\(username)&password=\(password)&typeid=1").responseJSON { response in
+                
+                if let JSON: NSDictionary = response.result.value as! NSDictionary? {
                     print("JSON: \(JSON)")
                     
-//                    QBUUser *selectedUser = [QBUUser user];
-//                    selectedUser.email = @"bhishamtrehan@gmsil.com";
-//                    selectedUser.password = @"bhishamtrehan@gmsil.com";
-                    
                     let selectedUser = QBUUser()
-                    selectedUser.email = "bhishamtrehan@gmsil.com"
-                    selectedUser.password = "bhishamtrehan@gmsil.com"
-                    
-                    SVProgressHUD.show(withStatus: "SA_STR_LOGGING_IN_AS".localizedLowercase + selectedUser.email!, maskType: SVProgressHUDMaskType.clear)
+                    selectedUser.email = JSON.value(forKey: "email") as! String!
+                    selectedUser.password = selectedUser.email 
                     
                     // Logging to Quickblox REST API and chat.
                     ServicesManager.instance().logIn(with: selectedUser, completion:{
                         [unowned self] (success, errorMessage) -> Void in
-                        
-                        SVProgressHUD.dismiss()
                         
                         guard success else {
                             SVProgressHUD.showError(withStatus: errorMessage)
                             return
                         }
                         
-                        print(selectedUser) ;
+                        SVProgressHUD.dismiss()
                         
-                        let viewController: DialogsViewController = self.storyboard?.instantiateViewController(withIdentifier: "DialogsViewController") as! DialogsViewController
+                        let email: String = JSON.value(forKey: "email") as! String!
+                        let id: String = JSON.value(forKey: "_id") as! String!
+                        
+                        UserDefaults.standard.set(true, forKey: userDefaults.isLoggedIn)
+                        UserDefaults.standard.setValue(id , forKey: userDefaults.loggedInUserID)
+                        UserDefaults.standard.setValue(username, forKey: userDefaults.loggedInUsername)
+                        UserDefaults.standard.setValue(email, forKey: userDefaults.loggedInUserEmail)
+                        UserDefaults.standard.setValue(password, forKey: userDefaults.loggedInUserPassword)
+                        UserDefaults.standard.synchronize()
+                        
+                        
+                        let viewController: DialogsViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.dialogsViewController) as! DialogsViewController
                         
                         if self.selectedUserType == userType.doctor {
                             
@@ -104,39 +155,13 @@ class LoginViewController: UIViewController {
                         else {
                             
                             // TabBar
-                            let tabBarController: HomeTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "TabBarView") as! HomeTabBarController
+                            let tabBarController: HomeTabBarController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.tabBarViewController) as! HomeTabBarController
                             self.navigationController?.pushViewController(tabBarController, animated: true)
                         }
-                        
-                        
-                        //self.registerForRemoteNotification()
-                        //self.performSegue(withIdentifier: "SA_STR_SEGUE_GO_TO_DIALOGS".localized, sender: nil)
-                        //SVProgressHUD.showSuccess(withStatus: "SA_STR_LOGGED_IN".localized)
-                        
                     })
                     
                 }
             }
-            
-//            Alamofire.request(.GET, url, parameters: dict as? [String : AnyObject]).responseJSON(completionHandler: { (response) in
-//                
-//                print("response \(response)")
-//            })
-            
-            //            let viewController: RecentChatsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("RecentChatsView") as! RecentChatsViewController
-            //
-            //            if selectedUserType == userType.doctor {
-            //
-            //                self.navigationController?.pushViewController(viewController, animated: true)
-            //            }
-            //
-            //            else {
-            //
-            //                // TabBar
-            //                let tabBarController: HomeTabBarController = self.storyboard?.instantiateViewControllerWithIdentifier("TabBarView") as! HomeTabBarController
-            //                self.navigationController?.pushViewController(tabBarController, animated: true)
-            //            }
-            
         }
         
     }
@@ -149,15 +174,15 @@ class LoginViewController: UIViewController {
         }
         return true
     }
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

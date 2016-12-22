@@ -13,6 +13,12 @@ let kQBApplicationID:UInt = 47247
 let kQBAuthKey = "wbtMCF5p5c3yC-S"
 let kQBAuthSecret = "kSJ29gCrnWTjZFW"
 let kQBAccountKey = "QwJxtpozqbEi58QT1Qm9"
+// Video Calling Values
+
+let kQBRingThickness : CGFloat = 1.0
+let kQBAnswerTimeInterval :TimeInterval = 60.0
+let kQBRTCDisconnectTimeInterval :TimeInterval = 60.0
+let kQBDialingTimeInterval :TimeInterval = 60.0
 
 
 @UIApplicationMain
@@ -43,6 +49,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        if (remoteNotification != nil) {
 //            ServicesManager.instance().notificationService.pushDialogID = remoteNotification["SA_STR_PUSH_NOTIFICATION_DIALOG_ID".localized] as? String
 //        }
+        
+        // Initialize QuickbloxWebRTC and configure signaling
+        // You should call this method before any interact with QuickbloxWebRTC
+        
+    
+        //QuickbloxWebRTC preferences
+        QBRTCConfig .setAnswerTimeInterval(kQBAnswerTimeInterval)
+        QBRTCConfig .setDisconnectTimeInterval(kQBRTCDisconnectTimeInterval)
+        QBRTCConfig .setDialingTimeInterval(kQBDialingTimeInterval)
+        QBRTCClient.initializeRTC()
         
         return true
     }

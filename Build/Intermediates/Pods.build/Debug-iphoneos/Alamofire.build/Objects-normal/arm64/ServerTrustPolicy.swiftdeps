@@ -12,47 +12,47 @@ provides-member:
 - ["CSo10URLSession", "serverTrustPolicyManager"]
 provides-dynamic-lookup:
 depends-top-level:
+- !private "Set"
 - "SecCertificate"
-- !private "SecTrustSetPolicies"
-- !private "SecTrustResultType"
-- !private "CFString"
-- !private "AnyObject"
-- !private "SecTrustGetCertificateCount"
-- "CastingPrecedence"
-- !private "SecTrustSetAnchorCertificates"
-- "Bundle"
-- !private "SecTrustCopyPublicKey"
-- !private "errSecSuccess"
-- "AssignmentPrecedence"
-- !private "CFArray"
-- !private "=="
-- !private "SecPolicyCreateSSL"
-- !private "SecCertificateCreateWithData"
-- !private "..<"
-- !private "SecTrustEvaluate"
-- "TernaryPrecedence"
-- !private "SecCertificateCopyData"
-- "Bool"
-- !private "objc_getAssociatedObject"
-- "ServerTrustPolicyManager"
-- !private "Data"
-- !private "Array"
-- !private "SecTrustGetCertificateAtIndex"
-- !private "BooleanLiteralType"
-- !private "||"
-- !private "URL"
-- !private "SecTrustSetAnchorCertificatesOnly"
 - "SecKey"
-- !private "CFData"
-- !private "objc_setAssociatedObject"
+- "CastingPrecedence"
+- !private "Array"
+- "ServerTrustPolicy"
+- !private "objc_getAssociatedObject"
+- !private "SecCertificateCopyData"
+- !private "SecTrustGetCertificateCount"
+- "AssignmentPrecedence"
+- !private "SecTrustSetPolicies"
+- "URLSession"
+- "Bool"
+- !private "AnyObject"
+- "SecTrust"
+- !private "SecTrustSetAnchorCertificates"
+- !private "CFArray"
+- "TernaryPrecedence"
+- !private "SecTrustCopyPublicKey"
+- !private "=="
+- "ServerTrustPolicyManager"
+- !private "errSecSuccess"
+- !private "URL"
+- !private "CFString"
+- !private "SecTrustResultType"
 - !private "SecPolicyCreateBasicX509"
 - "String"
-- "ServerTrustPolicy"
-- "StringLiteralType"
-- !private "Set"
+- !private "..<"
+- !private "BooleanLiteralType"
+- !private "objc_setAssociatedObject"
+- !private "SecCertificateCreateWithData"
 - !private "SecTrustCreateWithCertificates"
-- "URLSession"
-- "SecTrust"
+- !private "SecTrustGetCertificateAtIndex"
+- !private "SecTrustSetAnchorCertificatesOnly"
+- !private "SecTrustEvaluate"
+- !private "||"
+- !private "CFData"
+- "StringLiteralType"
+- !private "SecPolicyCreateSSL"
+- "Bundle"
+- !private "Data"
 depends-member:
 - !private ["Ps9AnyObject", "AssociatedKeys"]
 - ["Ps9AnyObject", "deinit"]
@@ -66,6 +66,9 @@ depends-member:
 - ["Ps9AnyObject", "serverTrustPolicyManager"]
 - ["Ps9AnyObject", ""]
 - !private ["Sa", "Element"]
+- !private ["Sa", "Index"]
+- !private ["Sa", "IndexDistance"]
+- !private ["Sa", "Indices"]
 - !private ["Sa", "Iterator"]
 - !private ["Sa", "SubSequence"]
 - !private ["Sa", "_Element"]
@@ -73,7 +76,16 @@ depends-member:
 - ["Sa", "deinit"]
 - !private ["Sa", "joined"]
 - !private ["Sa", "map"]
+- !private ["Vs10ArraySlice", "Index"]
+- !private ["Vs10ArraySlice", "IndexDistance"]
+- !private ["Vs10ArraySlice", "Indices"]
+- !private ["Vs10ArraySlice", "Iterator"]
+- !private ["Vs10ArraySlice", "SubSequence"]
+- !private ["Vs10ArraySlice", "_Element"]
 - !private ["Ps23BidirectionalCollection", "Element"]
+- !private ["Ps23BidirectionalCollection", "Index"]
+- !private ["Ps23BidirectionalCollection", "IndexDistance"]
+- !private ["Ps23BidirectionalCollection", "Indices"]
 - !private ["Ps23BidirectionalCollection", "Iterator"]
 - !private ["Ps23BidirectionalCollection", "SubSequence"]
 - !private ["Ps23BidirectionalCollection", "_Element"]
@@ -82,6 +94,9 @@ depends-member:
 - !private ["Ps23BidirectionalCollection", "joined"]
 - !private ["Ps23BidirectionalCollection", "map"]
 - !private ["Ps22BidirectionalIndexable", "Element"]
+- !private ["Ps22BidirectionalIndexable", "Index"]
+- !private ["Ps22BidirectionalIndexable", "IndexDistance"]
+- !private ["Ps22BidirectionalIndexable", "Indices"]
 - !private ["Ps22BidirectionalIndexable", "Iterator"]
 - !private ["Ps22BidirectionalIndexable", "SubSequence"]
 - !private ["Ps22BidirectionalIndexable", "_Element"]
@@ -103,6 +118,8 @@ depends-member:
 - !private ["Ps7CVarArg", "AssociatedKeys"]
 - !private ["Ps7CVarArg", "Element"]
 - !private ["Ps7CVarArg", "Index"]
+- !private ["Ps7CVarArg", "IndexDistance"]
+- !private ["Ps7CVarArg", "Indices"]
 - !private ["Ps7CVarArg", "IntegerLiteralType"]
 - !private ["Ps7CVarArg", "Iterator"]
 - !private ["Ps7CVarArg", "Stride"]
@@ -121,6 +138,8 @@ depends-member:
 - !private ["Ps7CVarArg", "subscript"]
 - !private ["Ps10Collection", "Element"]
 - !private ["Ps10Collection", "Index"]
+- !private ["Ps10Collection", "IndexDistance"]
+- !private ["Ps10Collection", "Indices"]
 - !private ["Ps10Collection", "Iterator"]
 - !private ["Ps10Collection", "SubSequence"]
 - !private ["Ps10Collection", "_Element"]
@@ -130,16 +149,21 @@ depends-member:
 - !private ["Ps10Collection", "map"]
 - !private ["Ps10Collection", "subscript"]
 - !private ["Ps10Comparable", "IntegerLiteralType"]
-- !private ["Ps10Comparable", "Iterator"]
 - !private ["Ps10Comparable", "Stride"]
 - !private ["Ps10Comparable", "_DisabledRangeIndex"]
 - !private ["Ps10Comparable", "init"]
+- !private ["Vs14CountableRange", "Index"]
+- !private ["Vs14CountableRange", "IndexDistance"]
+- !private ["Vs14CountableRange", "Indices"]
 - !private ["Vs14CountableRange", "Iterator"]
+- !private ["Vs14CountableRange", "SubSequence"]
 - !private ["Vs14CountableRange", "_Element"]
 - !private ["Vs14CountableRange", "deinit"]
 - !private ["Ps28CustomDebugStringConvertible", "AssociatedKeys"]
 - !private ["Ps28CustomDebugStringConvertible", "Element"]
 - !private ["Ps28CustomDebugStringConvertible", "Index"]
+- !private ["Ps28CustomDebugStringConvertible", "IndexDistance"]
+- !private ["Ps28CustomDebugStringConvertible", "Indices"]
 - !private ["Ps28CustomDebugStringConvertible", "Iterator"]
 - !private ["Ps28CustomDebugStringConvertible", "SubSequence"]
 - !private ["Ps28CustomDebugStringConvertible", "_Element"]
@@ -154,13 +178,14 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "serverTrustPolicyManager"]
 - !private ["Ps28CustomDebugStringConvertible", "subscript"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "IntegerLiteralType"]
-- !private ["Ps29CustomPlaygroundQuickLookable", "Iterator"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "Stride"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "_DisabledRangeIndex"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "init"]
 - !private ["Ps17CustomReflectable", "Element"]
 - !private ["Ps17CustomReflectable", "Index"]
+- !private ["Ps17CustomReflectable", "IndexDistance"]
+- !private ["Ps17CustomReflectable", "Indices"]
 - !private ["Ps17CustomReflectable", "IntegerLiteralType"]
 - !private ["Ps17CustomReflectable", "Iterator"]
 - !private ["Ps17CustomReflectable", "Stride"]
@@ -176,6 +201,8 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "AssociatedKeys"]
 - !private ["Ps23CustomStringConvertible", "Element"]
 - !private ["Ps23CustomStringConvertible", "Index"]
+- !private ["Ps23CustomStringConvertible", "IndexDistance"]
+- !private ["Ps23CustomStringConvertible", "Indices"]
 - !private ["Ps23CustomStringConvertible", "IntegerLiteralType"]
 - !private ["Ps23CustomStringConvertible", "Iterator"]
 - !private ["Ps23CustomStringConvertible", "Stride"]
@@ -201,11 +228,15 @@ depends-member:
 - !private ["Vs10Dictionary", "subscript"]
 - !private ["Ps9Equatable", "AssociatedKeys"]
 - !private ["Ps9Equatable", "Element"]
+- !private ["Ps9Equatable", "Index"]
+- !private ["Ps9Equatable", "IndexDistance"]
+- !private ["Ps9Equatable", "Indices"]
 - !private ["Ps9Equatable", "IntegerLiteralType"]
 - !private ["Ps9Equatable", "Iterator"]
 - !private ["Ps9Equatable", "OBJC_ASSOCIATION_RETAIN_NONATOMIC"]
 - !private ["Ps9Equatable", "RawValue"]
 - !private ["Ps9Equatable", "Stride"]
+- !private ["Ps9Equatable", "SubSequence"]
 - !private ["Ps9Equatable", "_DisabledRangeIndex"]
 - !private ["Ps9Equatable", "_Element"]
 - !private ["Ps9Equatable", "_getBuiltinLogicValue"]
@@ -219,6 +250,9 @@ depends-member:
 - ["Ps9Equatable", "serverTrustPolicyManager"]
 - !private ["Ps9Equatable", "unspecified"]
 - !private ["Ps25ExpressibleByArrayLiteral", "Element"]
+- !private ["Ps25ExpressibleByArrayLiteral", "Index"]
+- !private ["Ps25ExpressibleByArrayLiteral", "IndexDistance"]
+- !private ["Ps25ExpressibleByArrayLiteral", "Indices"]
 - !private ["Ps25ExpressibleByArrayLiteral", "Iterator"]
 - !private ["Ps25ExpressibleByArrayLiteral", "SubSequence"]
 - !private ["Ps25ExpressibleByArrayLiteral", "_Element"]
@@ -230,16 +264,12 @@ depends-member:
 - !private ["Ps30ExpressibleByDictionaryLiteral", "Index"]
 - !private ["Ps30ExpressibleByDictionaryLiteral", "SubSequence"]
 - !private ["Ps30ExpressibleByDictionaryLiteral", "subscript"]
-- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "Iterator"]
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
 - !private ["Ps27ExpressibleByIntegerLiteral", "IntegerLiteralType"]
 - !private ["Ps27ExpressibleByIntegerLiteral", "Stride"]
 - !private ["Ps27ExpressibleByIntegerLiteral", "_DisabledRangeIndex"]
-- !private ["Ps32ExpressibleByStringInterpolation", "Iterator"]
 - !private ["Ps32ExpressibleByStringInterpolation", "init"]
-- !private ["Ps26ExpressibleByStringLiteral", "Iterator"]
 - !private ["Ps26ExpressibleByStringLiteral", "init"]
-- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "Iterator"]
 - !private ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
 - !private ["Vs30FlattenBidirectionalCollection", "Iterator"]
 - ["Vs30FlattenBidirectionalCollection", "deinit"]
@@ -267,6 +297,8 @@ depends-member:
 - ["SQ", "deinit"]
 - !private ["Ps9Indexable", "Element"]
 - !private ["Ps9Indexable", "Index"]
+- !private ["Ps9Indexable", "IndexDistance"]
+- !private ["Ps9Indexable", "Indices"]
 - !private ["Ps9Indexable", "Iterator"]
 - !private ["Ps9Indexable", "SubSequence"]
 - !private ["Ps9Indexable", "_Element"]
@@ -277,6 +309,8 @@ depends-member:
 - !private ["Ps9Indexable", "subscript"]
 - !private ["Ps13IndexableBase", "Element"]
 - !private ["Ps13IndexableBase", "Index"]
+- !private ["Ps13IndexableBase", "IndexDistance"]
+- !private ["Ps13IndexableBase", "Indices"]
 - !private ["Ps13IndexableBase", "Iterator"]
 - !private ["Ps13IndexableBase", "SubSequence"]
 - !private ["Ps13IndexableBase", "_Element"]
@@ -298,15 +332,16 @@ depends-member:
 - !private ["Ps17IntegerArithmetic", "Stride"]
 - !private ["Ps17IntegerArithmetic", "_DisabledRangeIndex"]
 - !private ["Ps16IteratorProtocol", "Element"]
-- !private ["Ps25LosslessStringConvertible", "Iterator"]
 - !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
 - !private ["Ps25LosslessStringConvertible", "init"]
 - !private ["Ps10MirrorPath", "IntegerLiteralType"]
-- !private ["Ps10MirrorPath", "Iterator"]
 - !private ["Ps10MirrorPath", "Stride"]
 - !private ["Ps10MirrorPath", "_DisabledRangeIndex"]
 - !private ["Ps10MirrorPath", "init"]
 - !private ["Ps17MutableCollection", "Element"]
+- !private ["Ps17MutableCollection", "Index"]
+- !private ["Ps17MutableCollection", "IndexDistance"]
+- !private ["Ps17MutableCollection", "Indices"]
 - !private ["Ps17MutableCollection", "Iterator"]
 - !private ["Ps17MutableCollection", "SubSequence"]
 - !private ["Ps17MutableCollection", "_Element"]
@@ -315,6 +350,9 @@ depends-member:
 - !private ["Ps17MutableCollection", "joined"]
 - !private ["Ps17MutableCollection", "map"]
 - !private ["Ps16MutableIndexable", "Element"]
+- !private ["Ps16MutableIndexable", "Index"]
+- !private ["Ps16MutableIndexable", "IndexDistance"]
+- !private ["Ps16MutableIndexable", "Indices"]
 - !private ["Ps16MutableIndexable", "Iterator"]
 - !private ["Ps16MutableIndexable", "SubSequence"]
 - !private ["Ps16MutableIndexable", "_Element"]
@@ -344,6 +382,9 @@ depends-member:
 - !private ["CSo8NSString", "init"]
 - ["Sq", "deinit"]
 - !private ["Ps22RandomAccessCollection", "Element"]
+- !private ["Ps22RandomAccessCollection", "Index"]
+- !private ["Ps22RandomAccessCollection", "IndexDistance"]
+- !private ["Ps22RandomAccessCollection", "Indices"]
 - !private ["Ps22RandomAccessCollection", "Iterator"]
 - !private ["Ps22RandomAccessCollection", "SubSequence"]
 - !private ["Ps22RandomAccessCollection", "_Element"]
@@ -352,6 +393,9 @@ depends-member:
 - !private ["Ps22RandomAccessCollection", "joined"]
 - !private ["Ps22RandomAccessCollection", "map"]
 - !private ["Ps21RandomAccessIndexable", "Element"]
+- !private ["Ps21RandomAccessIndexable", "Index"]
+- !private ["Ps21RandomAccessIndexable", "IndexDistance"]
+- !private ["Ps21RandomAccessIndexable", "Indices"]
 - !private ["Ps21RandomAccessIndexable", "Iterator"]
 - !private ["Ps21RandomAccessIndexable", "SubSequence"]
 - !private ["Ps21RandomAccessIndexable", "_Element"]
@@ -361,6 +405,9 @@ depends-member:
 - !private ["Ps21RandomAccessIndexable", "map"]
 - !private ["Vs5Range", "deinit"]
 - !private ["Ps26RangeReplaceableCollection", "Element"]
+- !private ["Ps26RangeReplaceableCollection", "Index"]
+- !private ["Ps26RangeReplaceableCollection", "IndexDistance"]
+- !private ["Ps26RangeReplaceableCollection", "Indices"]
 - !private ["Ps26RangeReplaceableCollection", "Iterator"]
 - !private ["Ps26RangeReplaceableCollection", "SubSequence"]
 - !private ["Ps26RangeReplaceableCollection", "_Element"]
@@ -369,6 +416,9 @@ depends-member:
 - !private ["Ps26RangeReplaceableCollection", "joined"]
 - !private ["Ps26RangeReplaceableCollection", "map"]
 - !private ["Ps25RangeReplaceableIndexable", "Element"]
+- !private ["Ps25RangeReplaceableIndexable", "Index"]
+- !private ["Ps25RangeReplaceableIndexable", "IndexDistance"]
+- !private ["Ps25RangeReplaceableIndexable", "Indices"]
 - !private ["Ps25RangeReplaceableIndexable", "Iterator"]
 - !private ["Ps25RangeReplaceableIndexable", "SubSequence"]
 - !private ["Ps25RangeReplaceableIndexable", "_Element"]
@@ -393,6 +443,8 @@ depends-member:
 - !private ["OSC18SecTrustResultType", "unspecified"]
 - !private ["Ps8Sequence", "Element"]
 - !private ["Ps8Sequence", "Index"]
+- !private ["Ps8Sequence", "IndexDistance"]
+- !private ["Ps8Sequence", "Indices"]
 - !private ["Ps8Sequence", "Iterator"]
 - !private ["Ps8Sequence", "SubSequence"]
 - !private ["Ps8Sequence", "_Element"]
@@ -468,16 +520,12 @@ depends-member:
 - !private ["Ps10Strideable", "IntegerLiteralType"]
 - !private ["Ps10Strideable", "Stride"]
 - !private ["Ps10Strideable", "_DisabledRangeIndex"]
-- !private ["SS", "Iterator"]
 - ["SS", "deinit"]
 - !private ["SS", "init"]
-- !private ["Ps16TextOutputStream", "Iterator"]
 - !private ["Ps16TextOutputStream", "init"]
-- !private ["Ps20TextOutputStreamable", "Iterator"]
 - !private ["Ps20TextOutputStreamable", "init"]
 - ["V10Foundation3URL", "deinit"]
 - !private ["V10Foundation3URL", "init"]
-- !private ["P9Alamofire14URLConvertible", "Iterator"]
 - !private ["P9Alamofire14URLConvertible", "init"]
 - !private ["CSo10URLSession", "AssociatedKeys"]
 - ["CSo10URLSession", "ServerTrustPolicyManager"]
@@ -486,6 +534,9 @@ depends-member:
 - !private ["CSo10URLSession", "objc_setAssociatedObject"]
 - ["CSo10URLSession", "serverTrustPolicyManager"]
 - !private ["Ps14_ArrayProtocol", "Element"]
+- !private ["Ps14_ArrayProtocol", "Index"]
+- !private ["Ps14_ArrayProtocol", "IndexDistance"]
+- !private ["Ps14_ArrayProtocol", "Indices"]
 - !private ["Ps14_ArrayProtocol", "Iterator"]
 - !private ["Ps14_ArrayProtocol", "SubSequence"]
 - !private ["Ps14_ArrayProtocol", "_Element"]
@@ -493,6 +544,9 @@ depends-member:
 - !private ["Ps14_ArrayProtocol", "joined"]
 - !private ["Ps14_ArrayProtocol", "map"]
 - !private ["Ps24_DestructorSafeContainer", "Element"]
+- !private ["Ps24_DestructorSafeContainer", "Index"]
+- !private ["Ps24_DestructorSafeContainer", "IndexDistance"]
+- !private ["Ps24_DestructorSafeContainer", "Indices"]
 - !private ["Ps24_DestructorSafeContainer", "Iterator"]
 - !private ["Ps24_DestructorSafeContainer", "SubSequence"]
 - !private ["Ps24_DestructorSafeContainer", "_Element"]
@@ -500,16 +554,12 @@ depends-member:
 - !private ["Ps24_DestructorSafeContainer", "joined"]
 - !private ["Ps24_DestructorSafeContainer", "map"]
 - !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
-- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "Iterator"]
 - !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
 - !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "IntegerLiteralType"]
 - !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "Stride"]
 - !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "_DisabledRangeIndex"]
-- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "Iterator"]
 - !private ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
-- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "Iterator"]
 - !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
-- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "Iterator"]
 - !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
 - !private ["Ps34_ExpressibleByFileReferenceLiteral", "init"]
 - !private ["Ps35_HasCustomAnyHashableRepresentation", "init"]
@@ -543,6 +593,8 @@ depends-member:
 - !private ["P10Foundation18_MutablePairBoxing", "init"]
 - !private ["Ps21_ObjectiveCBridgeable", "Element"]
 - !private ["Ps21_ObjectiveCBridgeable", "Index"]
+- !private ["Ps21_ObjectiveCBridgeable", "IndexDistance"]
+- !private ["Ps21_ObjectiveCBridgeable", "Indices"]
 - !private ["Ps21_ObjectiveCBridgeable", "IntegerLiteralType"]
 - !private ["Ps21_ObjectiveCBridgeable", "Iterator"]
 - !private ["Ps21_ObjectiveCBridgeable", "Stride"]
@@ -566,6 +618,7 @@ depends-member:
 depends-nominal:
 - "Ps9AnyObject"
 - "Sa"
+- !private "Vs10ArraySlice"
 - !private "Ps23BidirectionalCollection"
 - !private "Ps22BidirectionalIndexable"
 - !private "Ps17BitwiseOperations"
@@ -670,8 +723,8 @@ depends-dynamic-lookup:
 - !private "isEqual"
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
-- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/Target Support Files/Alamofire/Alamofire-umbrella.h"
-- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Intermediates/Pods.build/Debug-iphoneos/Alamofire.build/unextended-module.modulemap"
+- "/Users/IPHONE/Deepak/DiabetesApp/Pods/Target Support Files/Alamofire/Alamofire-umbrella.h"
+- "/Users/IPHONE/Deepak/DiabetesApp/Build/Intermediates/Pods.build/Debug-iphoneos/Alamofire.build/unextended-module.modulemap"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
