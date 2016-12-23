@@ -28,7 +28,7 @@ const NSTimeInterval kRefreshTimeInterval = 1.f;
 
 @interface CallViewController ()
 
-<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, QBRTCClientDelegate, LocalVideoViewDelegate>
+<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, QBRTCClientDelegate,  LocalVideoViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *opponentsCollectionView;
 @property (weak, nonatomic) IBOutlet QBToolBar *toolbar;
@@ -46,6 +46,9 @@ const NSTimeInterval kRefreshTimeInterval = 1.f;
 
 @property (strong, nonatomic) QBButton *videoEnabled;
 @property (weak, nonatomic) LocalVideoView *localVideoView;
+
+
+
 
 @end
 
@@ -75,15 +78,17 @@ const NSTimeInterval kRefreshTimeInterval = 1.f;
     
     self.view.backgroundColor = self.opponentsCollectionView.backgroundColor =
     [UIColor colorWithRed:0.1465 green:0.1465 blue:0.1465 alpha:1.0];
+    NSLog(@"%@", self.currentUser) ;
     
     NSMutableArray *users = [NSMutableArray arrayWithCapacity:self.session.opponentsIDs.count + 1];
-    [users insertObject:Core.currentUser atIndex:0];
+    [users insertObject:self.currentUser atIndex:0];
     
     for (NSNumber *uID in self.session.opponentsIDs) {
         
-        if (Core.currentUser.ID == uID.integerValue) {
+        if (self.currentUser.ID == uID.integerValue) {
             
-            QBUUser *initiator = [self.usersDatasource userWithID:self.session.initiatorID.unsignedIntegerValue];
+            //QBUUser *initiator = [self.usersDatasource userWithID:self.session.initiatorID.unsignedIntegerValue];
+            QBUUser *initiator = [self.qbUsersArray firstObject] ;
             
             if (!initiator) {
                 
@@ -96,7 +101,8 @@ const NSTimeInterval kRefreshTimeInterval = 1.f;
             continue;
         }
         
-        QBUUser *user = [self.usersDatasource userWithID:uID.integerValue];
+        //QBUUser *user = [self.usersDatasource userWithID:uID.integerValue];
+        QBUUser *user = [self.qbUsersArray firstObject] ;
         if (!user) {
             user = [QBUUser user];
             user.ID = uID.integerValue;
@@ -108,7 +114,8 @@ const NSTimeInterval kRefreshTimeInterval = 1.f;
     
     [QBRTCSoundRouter.instance initialize];
 
-    BOOL isInitiator = (Core.currentUser.ID == self.session.initiatorID.unsignedIntegerValue);
+    
+    BOOL isInitiator = (self.currentUser.ID == self.session.initiatorID.unsignedIntegerValue);
     isInitiator ? [self startCall] : [self acceptCall];
     
     self.title = @"Connecting...";
@@ -130,7 +137,7 @@ const NSTimeInterval kRefreshTimeInterval = 1.f;
     
     id result = self.videoViews[opponentID];
     
-    if (Core.currentUser.ID == opponentID.integerValue) {//Local preview
+    if (self.currentUser.ID == opponentID.integerValue) {//Local preview
         
         if (!result) {
             
@@ -164,7 +171,9 @@ const NSTimeInterval kRefreshTimeInterval = 1.f;
 }
 
 - (void)startCall {
-    //Begin play calling sound
+    
+    
+   // Begin play calling sound
     self.beepTimer = [NSTimer scheduledTimerWithTimeInterval:[QBRTCConfig dialingTimeInterval]
                                                       target:self
                                                     selector:@selector(playCallingSound:)
@@ -181,6 +190,7 @@ const NSTimeInterval kRefreshTimeInterval = 1.f;
 
 - (void)acceptCall {
     
+    NSLog(@"acceptCall") ;
     [QMSysPlayer stopAllSounds];
     //Accept call
     NSDictionary *userInfo = @{@"acceptCall" : @"userInfo"};
@@ -216,14 +226,14 @@ const NSTimeInterval kRefreshTimeInterval = 1.f;
     
     if (self.session.conferenceType == QBRTCConferenceTypeVideo) {
         
-        [self.toolbar addButton:[QBButtonsFactory screenShare] action: ^(UIButton *sender) {
-            
-            SharingViewController *sharingVC =
-            [weakSelf.storyboard instantiateViewControllerWithIdentifier:kSharingViewControllerIdentifier];
-            sharingVC.session = weakSelf.session;
-            
-            [weakSelf.navigationController pushViewController:sharingVC animated:YES];
-        }];
+//        [self.toolbar addButton:[QBButtonsFactory screenShare] action: ^(UIButton *sender) {
+//            
+//            SharingViewController *sharingVC =
+//            [weakSelf.storyboard instantiateViewControllerWithIdentifier:kSharingViewControllerIdentifier];
+//            sharingVC.session = weakSelf.session;
+//            
+//            [weakSelf.navigationController pushViewController:sharingVC animated:YES];
+//        }];
     }
     
     [self.toolbar addButton:[QBButtonsFactory decline] action: ^(UIButton *sender) {
@@ -269,8 +279,8 @@ const NSTimeInterval kRefreshTimeInterval = 1.f;
 
 - (NSIndexPath *)indexPathAtUserID:(NSNumber *)userID {
     
-    QBUUser *user = [self.usersDatasource userWithID:userID.unsignedIntegerValue];
-    
+    //QBUUser *user = [self.usersDatasource userWithID:userID.unsignedIntegerValue];
+    QBUUser *user = [self.qbUsersArray firstObject] ;
     if (!user) {
         user = [QBUUser user];
         user.ID = userID.unsignedIntegerValue;

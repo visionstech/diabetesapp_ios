@@ -14,7 +14,10 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <Quickblox/Quickblox.h>
 #import <QuickbloxWebRTC/QuickbloxWebRTC.h>
-//#import "CallViewController.h"
+#import "CallViewController.h"
+#import "IncomingCallViewController.h"
+#import "QBAVCallPermissions.h"
+#import "QBCore.h"
 
 
 #endif /* Bridging_Header_h */

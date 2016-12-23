@@ -507,6 +507,112 @@
             </objects>
             <point key="canvasLocation" x="4327" y="1583"/>
         </scene>
+        <!--Incoming Call View Controller-->
+        <scene sceneID="k2I-zn-YUc">
+            <objects>
+                <viewController storyboardIdentifier="IncomingCallViewController" id="T2d-36-gWr" customClass="IncomingCallViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="M2d-wf-x5B"/>
+                        <viewControllerLayoutGuide type="bottom" id="7Nl-gS-dvm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ze0-lV-rj3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Also on call:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="19v-OX-j62">
+                                <rect key="frame" x="16" y="252" width="568" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="23" id="gDw-K2-Nq1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="21"/>
+                                <color key="textColor" red="0.1068638393" green="0.1068638393" blue="0.1068638393" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eS0-fi-7vy" customClass="CornerView">
+                                <rect key="frame" x="215" y="200" width="170" height="35"/>
+                                <color key="backgroundColor" red="0.16509702800000001" green="0.5197057128" blue="0.96402966980000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="170" id="B2o-ai-Nii"/>
+                                    <constraint firstAttribute="height" constant="35" id="KUU-cW-xNB"/>
+                                </constraints>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPR-TW-vVX">
+                                <rect key="frame" x="150" y="292" width="300" height="90"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="Gd4-VD-bfZ"/>
+                                    <constraint firstAttribute="height" constant="90" id="QEp-FT-hhC"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="User 1, User 2, User 3, User 4, User5, User 6, User 7, User8, User 9">
+                                        <attributes>
+                                            <color key="NSColor" red="0.31422651930000001" green="0.31422651930000001" blue="0.31422651930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="19" name="HelveticaNeue-Thin"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Incoming Audio Call - 2:35" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vaz-83-l14">
+                                <rect key="frame" x="16" y="160" width="568" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="23" id="GVV-AX-kwv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="21"/>
+                                <color key="textColor" red="0.1068638393" green="0.1068638393" blue="0.1068638393" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mqh-uX-w2S" customClass="QBToolBar">
+                                <rect key="frame" x="0.0" y="500" width="600" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="evl-QM-jG4"/>
+                                </constraints>
+                                <items/>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="7Nl-gS-dvm" firstAttribute="top" secondItem="mqh-uX-w2S" secondAttribute="bottom" id="5o0-rv-756"/>
+                            <constraint firstItem="Vaz-83-l14" firstAttribute="top" secondItem="M2d-wf-x5B" secondAttribute="bottom" constant="96" id="5oY-7h-ZBO">
+                                <variation key="heightClass=compact" constant="15"/>
+                                <variation key="heightClass=regular" constant="161"/>
+                                <variation key="widthClass=compact" constant="72"/>
+                                <variation key="widthClass=regular" constant="86"/>
+                                <variation key="heightClass=compact-widthClass=compact" constant="20"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="20"/>
+                            </constraint>
+                            <constraint firstAttribute="trailing" secondItem="Vaz-83-l14" secondAttribute="trailing" constant="16" id="7P5-Xq-bOS"/>
+                            <constraint firstItem="19v-OX-j62" firstAttribute="top" secondItem="eS0-fi-7vy" secondAttribute="bottom" constant="17" id="9Yk-c2-gkD"/>
+                            <constraint firstItem="eS0-fi-7vy" firstAttribute="top" secondItem="Vaz-83-l14" secondAttribute="bottom" constant="17" id="Dym-Tp-hZm"/>
+                            <constraint firstAttribute="centerX" secondItem="DPR-TW-vVX" secondAttribute="centerX" id="G1N-Wu-Lcv"/>
+                            <constraint firstItem="DPR-TW-vVX" firstAttribute="top" secondItem="19v-OX-j62" secondAttribute="bottom" constant="17" id="SZB-Ed-bf5"/>
+                            <constraint firstAttribute="trailing" secondItem="19v-OX-j62" secondAttribute="trailing" constant="16" id="YIg-Ak-n7i"/>
+                            <constraint firstItem="Vaz-83-l14" firstAttribute="leading" secondItem="ze0-lV-rj3" secondAttribute="leading" constant="16" id="cVZ-51-DlG"/>
+                            <constraint firstItem="mqh-uX-w2S" firstAttribute="leading" secondItem="ze0-lV-rj3" secondAttribute="leading" id="eUO-9R-1hi"/>
+                            <constraint firstItem="19v-OX-j62" firstAttribute="top" secondItem="eS0-fi-7vy" secondAttribute="bottom" constant="17" id="kIh-Wl-lNC"/>
+                            <constraint firstItem="19v-OX-j62" firstAttribute="leading" secondItem="ze0-lV-rj3" secondAttribute="leading" constant="16" id="o92-Pz-EuX"/>
+                            <constraint firstAttribute="trailing" secondItem="mqh-uX-w2S" secondAttribute="trailing" id="osz-7j-lm7"/>
+                            <constraint firstAttribute="centerX" secondItem="eS0-fi-7vy" secondAttribute="centerX" id="pJ2-Jj-2RO"/>
+                        </constraints>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="19v-OX-j62"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="callInfoTextView" destination="DPR-TW-vVX" id="mHk-So-JAj"/>
+                        <outlet property="callStatusLabel" destination="Vaz-83-l14" id="1i7-9A-ePa"/>
+                        <outlet property="colorMarker" destination="eS0-fi-7vy" id="e8b-7U-utn"/>
+                        <outlet property="toolbar" destination="mqh-uX-w2S" id="kCP-vL-QXo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BhJ-OB-E4l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1840" y="-401"/>
+        </scene>
     </scenes>
     <resources>
         <image name="user" width="145" height="39"/>

@@ -115,47 +115,17 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # define SWIFT_UNAVAILABLE __attribute__((unavailable))
 #endif
 #if defined(__has_feature) && __has_feature(modules)
-@import ObjectiveC;
 @import UIKit;
-@import QMChatViewController;
-@import QMServices;
 @import Foundation;
+@import ObjectiveC;
+@import QMServices;
 @import CoreGraphics;
 #endif
 
-#import "/Users/IPHONE/Deepak/DiabetesApp/DiabetesApp/DiabetesApp-Bridging-Header.h"
+#import "/Users/IPHONE/Desktop/Richa/DiabetesApp/DiabetesApp/DiabetesApp-Bridging-Header.h"
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
 #pragma clang diagnostic ignored "-Wduplicate-method-arg"
-@class UIAlertView;
-
-SWIFT_CLASS("_TtC11DiabetesApp9AlertView")
-@interface AlertView : NSObject <UIAlertViewDelegate>
-@property (nonatomic, strong) UIAlertView * _Nonnull alert;
-/**
-  \param cancelButtonTitle cancelButtonTitle has index 0
-
-*/
-- (nonnull instancetype)initWithTitle:(NSString * _Nullable)title message:(NSString * _Nullable)message cancelButtonTitle:(NSString * _Nullable)cancelButtonTitle otherButtonTitle:(NSArray<NSString *> * _Nonnull)otherButtonTitle didClick:(void (^ _Nonnull)(NSInteger))closure OBJC_DESIGNATED_INITIALIZER;
-- (void)alertView:(UIAlertView * _Nonnull)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-@end
-
-@class UITextField;
-@class UIViewController;
-
-SWIFT_CLASS("_TtC11DiabetesApp22AlertViewWithTextField")
-@interface AlertViewWithTextField : NSObject <UIAlertViewDelegate>
-@property (nonatomic, strong) id _Nullable alert;
-@property (nonatomic, strong) UITextField * _Nullable alertViewControllerTextField;
-/**
-  @note: cancelButtonTitle cancelButtonTitle has index 0
-*/
-- (nonnull instancetype)initWithTitle:(NSString * _Nullable)title message:(NSString * _Nullable)message showOver:(UIViewController * _Null_unspecified)showOver didClickOk:(void (^ _Nonnull)(NSString * _Nullable))closureOk didClickCancel:(void (^ _Nonnull)(void))closureCancel OBJC_DESIGNATED_INITIALIZER;
-- (void)alertView:(UIAlertView * _Nonnull)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-@end
-
 @class UIWindow;
 @class UIApplication;
 @class NSPersistentContainer;
@@ -174,137 +144,11 @@ SWIFT_CLASS("_TtC11DiabetesApp11AppDelegate")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class QBChatDialog;
-@class NSTimer;
-@class UIPopoverController;
-@class UIImagePickerController;
-@class QBChatMessage;
-@class UIStoryboardSegue;
-@class UIImage;
-@class UIButton;
-@class QMPlaceHolderTextView;
-@class NSAttributedString;
-@class QMChatCollectionView;
-@class UICollectionViewCell;
-@class UICollectionView;
-@class QMChatCell;
-@class NSTextCheckingResult;
-@class QMDeferredQueueManager;
-@class QMChatService;
-@class UITextView;
-@class QMChatAttachmentService;
-@class QBChatAttachment;
-@class NSBundle;
-@class NSCoder;
-
-SWIFT_CLASS("_TtC11DiabetesApp18ChatViewController")
-@interface ChatViewController : QMChatViewController <QMChatConnectionDelegate, QMChatCellDelegate, QMDeferredQueueManagerDelegate, QMPlaceHolderTextViewPasteDelegate, QMChatServiceDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, QMChatAttachmentServiceDelegate>
-@property (nonatomic, readonly) NSInteger maxCharactersNumber;
-@property (nonatomic, strong) QBChatDialog * _Null_unspecified dialog;
-@property (nonatomic, strong) id _Nullable willResignActiveBlock;
-@property (nonatomic, strong) NSMapTable<id, id> * _Null_unspecified attachmentCellsMap;
-@property (nonatomic, copy) NSSet<NSString *> * _Nonnull detailedCells;
-@property (nonatomic, strong) NSTimer * _Nullable typingTimer;
-@property (nonatomic, strong) UIPopoverController * _Nullable popoverController;
-@property (nonatomic, strong) UIImagePickerController * _Nonnull imagePickerViewController;
-@property (nonatomic, copy) NSArray<QBChatMessage *> * _Nullable unreadMessages;
-- (void)viewDidLoad;
-- (void)viewWillAppear:(BOOL)animated;
-- (void)viewDidAppear:(BOOL)animated;
-- (void)viewDidDisappear:(BOOL)animated;
-- (void)prepareForSegue:(UIStoryboardSegue * _Nonnull)segue sender:(id _Nullable)sender;
-- (void)updateTitle;
-- (NSArray<QBChatMessage *> * _Nullable)storedMessages;
-- (void)loadMessages;
-- (void)sendReadStatusForMessageWithMessage:(QBChatMessage * _Nonnull)message;
-- (BOOL)messageShouldBeReadWithMessage:(QBChatMessage * _Nonnull)message;
-- (void)readMessagesWithMessages:(NSArray<QBChatMessage *> * _Nonnull)messages;
-- (void)didPickAttachmentImage:(UIImage * _Null_unspecified)image;
-- (void)didPressSendButton:(UIButton * _Null_unspecified)button withMessageText:(NSString * _Null_unspecified)text senderId:(NSUInteger)senderId senderDisplayName:(NSString * _Null_unspecified)senderDisplayName date:(NSDate * _Null_unspecified)date;
-- (void)didPressSendButton:(UIButton * _Null_unspecified)button withTextAttachments:(NSArray * _Null_unspecified)textAttachments senderId:(NSUInteger)senderId senderDisplayName:(NSString * _Null_unspecified)senderDisplayName date:(NSDate * _Null_unspecified)date;
-- (void)sendMessageWithMessage:(QBChatMessage * _Nonnull)message;
-- (BOOL)canMakeACall;
-- (BOOL)placeHolderTextView:(QMPlaceHolderTextView * _Nonnull)textView shouldPasteWithSender:(id _Nonnull)sender;
-- (void)showCharactersNumberError;
-/**
-  Builds a string
-  Read: login1, login2, login3
-  Delivered: login1, login3, @12345
-  If user does not exist in usersMemoryStorage, then ID will be used instead of login
-  \param message QBChatMessage instance
-
-
-  returns:
-  status string
-*/
-- (NSString * _Nonnull)statusStringFromMessageWithMessage:(QBChatMessage * _Nonnull)message;
-- (Class _Nullable)viewClassForItem:(QBChatMessage * _Nonnull)item;
-- (NSAttributedString * _Nullable)attributedStringForItem:(QBChatMessage * _Null_unspecified)messageItem;
-/**
-  Creates top label attributed string from QBChatMessage
-  \param messageItem QBCHatMessage instance
-
-
-  returns:
-  login string, example: @SwiftTestDevUser1
-*/
-- (NSAttributedString * _Nullable)topLabelAttributedStringForItem:(QBChatMessage * _Null_unspecified)messageItem;
-/**
-  Creates bottom label attributed string from QBChatMessage using self.statusStringFromMessage
-  \param messageItem QBChatMessage instance
-
-
-  returns:
-  bottom label status string
-*/
-- (NSAttributedString * _Null_unspecified)bottomLabelAttributedStringForItem:(QBChatMessage * _Null_unspecified)messageItem;
-- (CGSize)collectionView:(QMChatCollectionView * _Null_unspecified)collectionView dynamicSizeAtIndexPath:(NSIndexPath * _Null_unspecified)indexPath maxWidth:(CGFloat)maxWidth;
-- (CGFloat)collectionView:(QMChatCollectionView * _Null_unspecified)collectionView minWidthAtIndexPath:(NSIndexPath * _Null_unspecified)indexPath;
-- (QMChatCellLayoutModel)collectionView:(QMChatCollectionView * _Null_unspecified)collectionView layoutModelAtIndexPath:(NSIndexPath * _Null_unspecified)indexPath;
-- (void)collectionView:(QMChatCollectionView * _Null_unspecified)collectionView configureCell:(UICollectionViewCell * _Null_unspecified)cell forIndexPath:(NSIndexPath * _Null_unspecified)indexPath;
-/**
-  Allows to copy text from QMChatIncomingCell and QMChatOutgoingCell
-*/
-- (BOOL)collectionView:(UICollectionView * _Nonnull)collectionView canPerformAction:(SEL _Nonnull)action forItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath withSender:(id _Nullable)sender;
-- (void)collectionView:(UICollectionView * _Nonnull)collectionView performAction:(SEL _Nonnull)action forItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath withSender:(id _Nullable)sender;
-- (UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
-/**
-  Removes size from cache for item to allow cell expand and show read/delivered IDS or unexpand cell
-*/
-- (void)chatCellDidTapContainer:(QMChatCell * _Null_unspecified)cell;
-- (void)chatCell:(QMChatCell * _Null_unspecified)cell didTapAtPosition:(CGPoint)position;
-- (void)chatCell:(QMChatCell * _Null_unspecified)cell didPerformAction:(SEL _Null_unspecified)action withSender:(id _Null_unspecified)sender;
-- (void)chatCell:(QMChatCell * _Null_unspecified)cell didTapOnTextCheckingResult:(NSTextCheckingResult * _Nonnull)result;
-- (void)chatCellDidTapAvatar:(QMChatCell * _Null_unspecified)cell;
-- (void)deferredQueueManager:(QMDeferredQueueManager * _Nonnull)queueManager didAddMessageLocally:(QBChatMessage * _Nonnull)addedMessage;
-- (void)deferredQueueManager:(QMDeferredQueueManager * _Nonnull)queueManager didUpdateMessageLocally:(QBChatMessage * _Nonnull)addedMessage;
-- (void)chatService:(QMChatService * _Nonnull)chatService didLoadMessagesFromCache:(NSArray<QBChatMessage *> * _Nonnull)messages forDialogID:(NSString * _Nonnull)dialogID;
-- (void)chatService:(QMChatService * _Nonnull)chatService didAddMessageToMemoryStorage:(QBChatMessage * _Nonnull)message forDialogID:(NSString * _Nonnull)dialogID;
-- (void)chatService:(QMChatService * _Nonnull)chatService didUpdateChatDialogInMemoryStorage:(QBChatDialog * _Nonnull)chatDialog;
-- (void)chatService:(QMChatService * _Nonnull)chatService didUpdateMessage:(QBChatMessage * _Nonnull)message forDialogID:(NSString * _Nonnull)dialogID;
-- (void)chatService:(QMChatService * _Nonnull)chatService didUpdateMessages:(NSArray<QBChatMessage *> * _Nonnull)messages forDialogID:(NSString * _Nonnull)dialogID;
-- (void)textViewDidChange:(UITextView * _Nonnull)textView;
-- (BOOL)textView:(UITextView * _Nonnull)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString * _Nonnull)text;
-- (void)textViewDidEndEditing:(UITextView * _Nonnull)textView;
-- (void)fireSendStopTypingIfNecessary;
-- (void)sendBeginTyping;
-- (void)sendStopTyping;
-- (void)chatAttachmentService:(QMChatAttachmentService * _Nonnull)chatAttachmentService didChangeAttachmentStatus:(QMMessageAttachmentStatus)status forMessage:(QBChatMessage * _Nonnull)message;
-- (void)chatAttachmentService:(QMChatAttachmentService * _Nonnull)chatAttachmentService didChangeLoadingProgress:(CGFloat)progress forChatAttachment:(QBChatAttachment * _Nonnull)attachment;
-- (void)chatAttachmentService:(QMChatAttachmentService * _Nonnull)chatAttachmentService didChangeUploadingProgress:(CGFloat)progress forMessage:(QBChatMessage * _Nonnull)message;
-- (void)refreshAndReadMessages;
-- (void)chatServiceChatDidConnect:(QMChatService * _Nonnull)chatService;
-- (void)chatServiceChatDidReconnect:(QMChatService * _Nonnull)chatService;
-- (QMDeferredQueueManager * _Nonnull)queueManager;
-- (void)handleNotSentMessage:(QBChatMessage * _Nonnull)message forCell:(QMChatCell * _Null_unspecified)cell;
-- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-@end
-
 @class NSMutableArray;
-@class QBResponse;
 @class UITableView;
 @class UITableViewCell;
+@class NSBundle;
+@class NSCoder;
 
 SWIFT_CLASS("_TtC11DiabetesApp25ContactListViewController")
 @interface ContactListViewController : UIViewController <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate>
@@ -312,15 +156,8 @@ SWIFT_CLASS("_TtC11DiabetesApp25ContactListViewController")
 @property (nonatomic, strong) NSMutableArray * _Nonnull patientList;
 - (void)viewDidLoad;
 - (void)didReceiveMemoryWarning;
-- (void)naviagteToChatScreenWithDialog:(QBChatDialog * _Nonnull)dialog;
-- (void)getContactsList;
-- (IBAction)Back_Click:(id _Nonnull)sender;
-- (IBAction)Done_Click:(id _Nonnull)sender;
-- (void)createChatWithName:(NSString * _Nullable)name usersArray:(NSArray<NSString *> * _Nonnull)usersArray completion:(void (^ _Nonnull)(QBResponse * _Nullable, QBChatDialog * _Nullable))completion;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
-- (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
-- (void)prepareForSegue:(UIStoryboardSegue * _Nonnull)segue sender:(id _Nullable)sender;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -355,6 +192,8 @@ SWIFT_CLASS("_TtC11DiabetesApp19DialogTableViewCell")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class UIImage;
+@class QBChatDialog;
 
 SWIFT_CLASS("_TtC11DiabetesApp24DialogTableViewCellModel")
 @interface DialogTableViewCellModel : NSObject
@@ -367,7 +206,10 @@ SWIFT_CLASS("_TtC11DiabetesApp24DialogTableViewCellModel")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
+@class UIStoryboardSegue;
 @class UIBarButtonItem;
+@class QMChatService;
+@class QBChatMessage;
 
 SWIFT_CLASS("_TtC11DiabetesApp21DialogsViewController")
 @interface DialogsViewController : UITableViewController <QMChatConnectionDelegate, QMAuthServiceDelegate, QMChatServiceDelegate, QBRTCClientDelegate>
@@ -400,6 +242,7 @@ SWIFT_CLASS("_TtC11DiabetesApp21DialogsViewController")
 - (void)chatService:(QMChatService * _Nonnull)chatService chatDidNotConnectWithError:(NSError * _Nonnull)error;
 - (void)chatServiceChatDidReconnect:(QMChatService * _Nonnull)chatService;
 - (void)reloadTableViewIfNeeded;
+- (void)callWithConferenceTypeWithConferenceType:(QBRTCConferenceType)conferenceType;
 - (nonnull instancetype)initWithStyle:(UITableViewStyle)style OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
@@ -414,6 +257,8 @@ SWIFT_CLASS("_TtC11DiabetesApp20HomeTabBarController")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class UITextField;
+@class UIButton;
 
 SWIFT_CLASS("_TtC11DiabetesApp19LoginViewController")
 @interface LoginViewController : UIViewController
@@ -424,8 +269,6 @@ SWIFT_CLASS("_TtC11DiabetesApp19LoginViewController")
 @property (nonatomic) NSInteger selectedUserType;
 - (void)viewDidLoad;
 - (void)didReceiveMemoryWarning;
-- (void)checkLoginStatus;
-- (void)navigateToNextScreen;
 - (IBAction)SelectUserTypBtns_Click:(id _Nonnull)sender;
 - (IBAction)LoginBtn_Click:(id _Nonnull)sender;
 - (BOOL)textFieldShouldReturn:(UITextField * _Nonnull)textField;
@@ -434,8 +277,8 @@ SWIFT_CLASS("_TtC11DiabetesApp19LoginViewController")
 @end
 
 
-SWIFT_CLASS("_TtC11DiabetesApp21NewCallViewController")
-@interface NewCallViewController : UIViewController
+SWIFT_CLASS("_TtC11DiabetesApp25RecentChatsViewController")
+@interface RecentChatsViewController : UIViewController
 - (void)viewDidLoad;
 - (void)didReceiveMemoryWarning;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
@@ -444,6 +287,7 @@ SWIFT_CLASS("_TtC11DiabetesApp21NewCallViewController")
 
 @class UIColor;
 @class NSDate;
+@class QBResponse;
 @class QBUUser;
 @class NSError;
 
@@ -483,14 +327,6 @@ SWIFT_CLASS("_TtC11DiabetesApp15ServicesManager")
 - (NSArray<QBUUser *> * _Nullable)sortedUsersWithoutCurrentUser;
 - (void)chatService:(QMChatService * _Nonnull)chatService didAddMessageToMemoryStorage:(QBChatMessage * _Nonnull)message forDialogID:(NSString * _Nonnull)dialogID;
 - (void)logoutUserWithCompletionWithCompletion:(void (^ _Nonnull)(BOOL))completion;
-@end
-
-@class UIAlertController;
-
-SWIFT_CLASS("_TtC11DiabetesApp12UtilityClass")
-@interface UtilityClass : NSObject
-+ (UIAlertController * _Nonnull)displayAlertMessageWithMessage:(NSString * _Nonnull)message title:(NSString * _Nonnull)title viewController:(UIViewController * _Nonnull)viewController;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 #pragma clang diagnostic pop

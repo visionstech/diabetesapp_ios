@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Quickblox/Quickblox.h>
 
 @class QBRTCSession;
 @class UsersDataSource;
@@ -15,5 +16,7 @@
 
 @property (strong, nonatomic) QBRTCSession *session;
 @property (weak, nonatomic) UsersDataSource *usersDatasource;
+@property (strong, nonatomic) NSMutableArray *qbUsersArray;
+@property (weak, nonatomic) QBUUser *currentUser;
 
 @end

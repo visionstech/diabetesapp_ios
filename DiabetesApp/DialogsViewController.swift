@@ -9,7 +9,7 @@
 import UIKit
 import QMServices
 import SVProgressHUD
-
+import Quickblox
 
 class DialogTableViewCellModel: NSObject {
     
@@ -18,11 +18,10 @@ class DialogTableViewCellModel: NSObject {
     var unreadMessagesCounterLabelText : String?
     var unreadMessagesCounterHiden = true
     var dialogIcon : UIImage?
-
     
+   
     init(dialog: QBChatDialog) {
         super.init()
-		
 		switch (dialog.type){
 		case .publicGroup:
 			self.detailTextLabelText = "SA_STR_PUBLIC_GROUP".localized
@@ -82,11 +81,14 @@ class DialogTableViewCellModel: NSObject {
     }
 }
 
-class DialogsViewController: UITableViewController, QMChatServiceDelegate, QMChatConnectionDelegate, QMAuthServiceDelegate,QBRTCClientDelegate {
+class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCoreDelegate, QMChatConnectionDelegate, QMAuthServiceDelegate,QBRTCClientDelegate, IncomingCallViewControllerDelegate {
+
+
     private var didEnterBackgroundDate: NSDate?
     private var observer: NSObjectProtocol?
-    // MARK: - ViewController overrides
+    var session : QBRTCSession? = nil
     
+    // MARK: - ViewController overrides
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -96,7 +98,6 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QMCha
         self.navigationItem.leftBarButtonItem = self.createLogoutButton()
         
         ServicesManager.instance().chatService.addDelegate(self)
-        
         ServicesManager.instance().authService.add(self)
         
         self.observer = NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationDidBecomeActive, object: nil, queue: OperationQueue.main) { (notification) -> Void in
@@ -111,14 +112,15 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QMCha
         if (QBChat.instance().isConnected) {
             self.getDialogs()
         }
-     
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.tableView.reloadData()
-        //self .callWithConferenceType(conferenceType: .video)
+        QBRTCClient.instance().add(self)
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -275,32 +277,8 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QMCha
         tableView.deselectRow(at: indexPath, animated: true)
         let chatDialog = self.dialogs()?[indexPath.row]
         
-        print(chatDialog)
-        
-        
-        
-        
-//        QBRTCClient.instance().add(self) // self class must conform to QBRTCClientDelegate protocol
-//        
-//        // 2123, 2123, 3122 - opponent's
-//        let opponentsIDs = [3245, 2123, 3122]
-//        let newSession = QBRTCClient.instance().createNewSession(withOpponents: opponentsIDs, with: QBRTCConferenceType.video)
-//        // userInfo - the custom user information dictionary for the call. May be nil.
-//        let userInfo :[String:String] = ["key":"value"]
-//        newSession?.startCall(userInfo)
-        
-        
-        
-        
-//        if (ServicesManager.instance().isProcessingLogOut!) {
-//            return
-//        }
-//        
-//        guard let dialog = self.dialogs()?[indexPath.row] else {
-//            return
-//        }
-//        
-//        self.performSegue(withIdentifier: "SA_STR_SEGUE_GO_TO_CHAT".localized , sender: dialog)
+        //21895110
+      self .callWithConferenceType(conferenceType: .video)
     }
 
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -407,8 +385,8 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QMCha
         self.reloadTableViewIfNeeded()
     }
 
-    // MARK: QMChatConnectionDelegate
     
+    // MARK: QMChatConnectionDelegate
     func chatServiceChatDidFail(withStreamError error: Error) {
         SVProgressHUD.showError(withStatus: error.localizedDescription)
     }
@@ -443,64 +421,112 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QMCha
         }
     }
     
-//    - (void)callWithConferenceType:(QBRTCConferenceType)conferenceType {
-//    
-//    if ([self usersToCall]) {
-//    
-//    NSParameterAssert(!self.currentSession);
-//    NSParameterAssert(!self.nav);
-//    
-//    NSArray *opponentsIDs = [UsersDataSource.instance idsWithUsers:self.selectedUsers];
-//    //Create new session
-//    QBRTCSession *session = [QBRTCClient.instance createNewSessionWithOpponents:opponentsIDs withConferenceType:conferenceType];
-//    
-//    if (session) {
-//    
-//    self.currentSession = session;
-//    CallViewController *callViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"CallViewController"];
-//    callViewController.session = self.currentSession;
-//    
-//    self.nav = [[UINavigationController alloc] initWithRootViewController:callViewController];
-//    self.nav.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-//    
-//    [self presentViewController:self.nav animated:NO completion:nil];
-//    }
-//    else {
-//    
-//    [SVProgressHUD showErrorWithStatus:@"You should login to use chat API. Session hasn’t been created. Please try to relogin the chat."];
-//    }
-//    }
-//    }
     
     //MARK: - Webrtc
-//    
-//    func callWithConferenceType(conferenceType:QBRTCConferenceType)  {
-//        
-//        QBRTCClient.instance().add(self) // self class must conform to QBRTCClientDelegate protocol
-//        
-//        // 2123, 2123, 3122 - opponent's
-//        let opponentsIDs = [21236626]
-//        let newSession = QBRTCClient.instance().createNewSession(withOpponents: opponentsIDs, with: conferenceType)
-//        print((newSession?.initiatorID)! as NSNumber )
-//        
-//        if (newSession != nil) {
-//            
-//            //self.currentSession = newSession;
-//             let callViewController: CallViewController = self.storyboard?.instantiateViewController(withIdentifier: "CallViewController") as! CallViewController
-//            
-//           // CallViewController *callViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"CallViewController"];
-//            callViewController.session = newSession
-//            
-//            self.navigationController?.pushViewController(callViewController, animated: true)
-//            //self.nav = [[UINavigationController alloc] initWithRootViewController:callViewController];
-//           // self.nav.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-//            
-//            //[self presentViewController:self.nav animated:NO completion:nil];
-//        }
-//         userInfo - the custom user information dictionary for the call. May be nil.
-//        let userInfo :[String:String] = ["key":"value"]
-//        newSession?.startCall(userInfo)
-//    }
+    
+    func callWithConferenceType(conferenceType: QBRTCConferenceType)  {
+        if (self.session != nil) {
+            return
+        }
+        
+        QBAVCallPermissions.check(with: conferenceType) { (granted) in
+            
+            if granted {
+                
+                let opponentsIDs = [21236626]
+                let session = QBRTCClient.instance().createNewSession(withOpponents: opponentsIDs, with: conferenceType)
+                
+                if session != nil {
+                    
+                    QBRequest.user(withID: 21236626, successBlock: { (response, user) in
+                        
+                        self.session = session;
+                        let callViewController: CallViewController = self.storyboard?.instantiateViewController(withIdentifier: "CallViewController") as! CallViewController
+                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                        callViewController.currentUser = appDelegate.currentUser
+                        callViewController.session = self.session
+                        callViewController.qbUsersArray = NSMutableArray(object: user)
+                        self.navigationController?.pushViewController(callViewController, animated: true)
+                        
+                    }, errorBlock: { (error) in
+                        
+                    })
+                    
+                  }
+                else {
+                    
+                }
+                
+            }
+        }
+    }
+    
+    //MARK: - QBRTCClientDelegate Delegate
+    func didReceiveNewSession(_ session: QBRTCSession!, userInfo: [AnyHashable : Any]! = [:]) {
+        
+        
+        if (self.session != nil) {
+            session.rejectCall(["reject":"busy"])
+            return
+        }
+        
+        self.session = session
+        QBRTCSoundRouter.instance().initialize()
+        
+        print("userInfo \(userInfo)")
+        print(session.initiatorID)
+        
+        QBRequest.user(withID:session.initiatorID as UInt , successBlock: { (response, user) in
+            
+            let incomingViewController: IncomingCallViewController = self.storyboard?.instantiateViewController(withIdentifier: "IncomingCallViewController") as! IncomingCallViewController
+            incomingViewController.delegate = self
+            incomingViewController.session = self.session
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            incomingViewController.currentUser = appDelegate.currentUser
+            incomingViewController.qbUsersArray = NSMutableArray(object: user)
+            
+            self.navigationController?.pushViewController(incomingViewController, animated: true)
+            
+        }) { (eroor) in
+            
+        }
+        
+    }
+    
+    func sessionDidClose(_ session: QBRTCSession!) {
+        
+    }
+    
+
+    //MARK: - IncomingCall Delegate
+    func incomingCallViewControllerReject(_ vc: IncomingCallViewController!, didReject session: QBRTCSession!) {
+        
+        session.rejectCall(nil)
+        self.navigationController?.popViewController(animated: true)
+//        [session rejectCall:nil];
+//        [self.nav dismissViewControllerAnimated:NO completion:nil];
+//        self.nav = nil;
+    }
+    
+    func incomingCallViewControllerAccept(_ vc: IncomingCallViewController!, didAccept session: QBRTCSession!) {
+        
+        
+        QBRequest.user(withID:session.initiatorID as UInt , successBlock: { (response, user) in
+            
+            let callViewController: CallViewController = self.storyboard?.instantiateViewController(withIdentifier: "CallViewController") as! CallViewController
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            callViewController.currentUser = appDelegate.currentUser
+            callViewController.session = self.session
+            callViewController.qbUsersArray = NSMutableArray(object: user)
+            self.navigationController?.pushViewController(callViewController, animated: true)
+            
+        }) { (eroor) in
+            
+        }
+
+        
+    }
+    
     
      //MARK:- Selected users
     

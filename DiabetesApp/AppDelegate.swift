@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Quickblox
 
 let kQBApplicationID:UInt = 47247
 let kQBAuthKey = "wbtMCF5p5c3yC-S"
@@ -17,8 +18,9 @@ let kQBAccountKey = "QwJxtpozqbEi58QT1Qm9"
 
 let kQBRingThickness : CGFloat = 1.0
 let kQBAnswerTimeInterval :TimeInterval = 60.0
-let kQBRTCDisconnectTimeInterval :TimeInterval = 60.0
-let kQBDialingTimeInterval :TimeInterval = 60.0
+let kQBRTCDisconnectTimeInterval :TimeInterval = 30.0
+let kQBDialingTimeInterval :TimeInterval = 5.0
+
 
 
 @UIApplicationMain
@@ -26,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    var currentUser: QBUUser? = nil
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -58,6 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         QBRTCConfig .setAnswerTimeInterval(kQBAnswerTimeInterval)
         QBRTCConfig .setDisconnectTimeInterval(kQBRTCDisconnectTimeInterval)
         QBRTCConfig .setDialingTimeInterval(kQBDialingTimeInterval)
+        QBRTCConfig .setStatsReportTimeInterval(1.0)
         QBRTCClient.initializeRTC()
         
         return true

@@ -162,7 +162,6 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
         }) { (error) in
             
         }
-        
     }
     
     

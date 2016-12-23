@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <QuickbloxWebRTC/QuickbloxWebRTC.h>
+#import <Quickblox/Quickblox.h>
 
 @class UsersDataSource;
 @protocol IncomingCallViewControllerDelegate;
@@ -17,13 +18,15 @@
 @property (weak, nonatomic) id <IncomingCallViewControllerDelegate> delegate;
 
 @property (strong, nonatomic) QBRTCSession *session;
-@property (weak, nonatomic) UsersDataSource *usersDatasource;
+//@property (weak, nonatomic) UsersDataSource *usersDatasource;
+@property (strong, nonatomic) NSMutableArray *qbUsersArray;
+@property (weak, nonatomic) QBUUser *currentUser;
 
 @end
 
 @protocol IncomingCallViewControllerDelegate <NSObject>
 
-- (void)incomingCallViewController:(IncomingCallViewController *)vc didAcceptSession:(QBRTCSession *)session;
-- (void)incomingCallViewController:(IncomingCallViewController *)vc didRejectSession:(QBRTCSession *)session;
+- (void)incomingCallViewControllerAccept:(IncomingCallViewController *)vc didAcceptSession:(QBRTCSession *)session;
+- (void)incomingCallViewControllerReject:(IncomingCallViewController *)vc didRejectSession:(QBRTCSession *)session;
 
 @end

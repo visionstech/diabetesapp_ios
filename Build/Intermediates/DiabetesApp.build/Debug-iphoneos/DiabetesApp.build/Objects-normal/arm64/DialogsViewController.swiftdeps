@@ -8,98 +8,105 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp24DialogTableViewCellModel", ""]
 - ["C11DiabetesApp21DialogsViewController", ""]
+- ["SS", ""]
+- ["SS", "localized"]
 provides-dynamic-lookup:
-- "awakeFromNib"
-- "detailTextLabelText"
-- "createLogoutButton"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "chatServiceChatDidFail"
-- "reloadTableViewIfNeeded"
-- "chatServiceChatDidReconnect"
-- "numberOfSections"
 - "textLabelText"
-- "chatServiceChatDidAccidentallyDisconnect"
-- "getDialogs"
-- "logoutAction"
-- "dialogIcon"
-- "viewWillAppear"
-- "chatService"
-- "chatService"
-- "chatService"
-- "chatService"
-- "chatService"
-- "chatService"
-- "chatService"
-- "chatService"
-- "prepare"
 - "unreadMessagesCounterLabelText"
-- "chatServiceChatDidConnect"
+- "logoutAction"
+- "chatService"
+- "chatService"
+- "chatService"
+- "chatService"
+- "chatService"
+- "chatService"
+- "chatService"
+- "chatService"
+- "createLogoutButton"
 - "dialogs"
 - "didEnterBackgroundNotification"
+- "chatServiceChatDidFail"
+- "awakeFromNib"
+- "chatServiceChatDidReconnect"
 - "unreadMessagesCounterHiden"
+- "reloadTableViewIfNeeded"
+- "dialogIcon"
+- "viewWillAppear"
+- "prepare"
+- "chatServiceChatDidAccidentallyDisconnect"
+- "detailTextLabelText"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "getDialogs"
+- "chatServiceChatDidConnect"
+- "callWithConferenceType"
+- "numberOfSections"
 depends-top-level:
-- !private "UnsafeMutablePointer"
-- !private "??"
-- "StringLiteralType"
-- "UIImage"
-- !private "ChatViewController"
-- !private ">"
-- !private "&&"
-- "UIBarButtonItem"
-- "QBRTCClientDelegate"
-- "UITableViewController"
+- "Error"
+- !private "kDialogsPageLimit"
+- !private "UIBarButtonItemStyle"
+- !private "DialogTableViewCell"
+- !private "QBRTCClient"
+- "Int"
+- "QBRTCConferenceType"
+- !private "ObjCBool"
+- "NSObject"
+- "NSDate"
 - "UIStoryboardSegue"
-- "UITableViewCell"
-- "NSObjectProtocol"
-- !private "NSNotification"
+- !private "UnsafeMutablePointer"
+- "DialogsViewController"
+- !private "??"
+- "CGFloat"
+- !private "CallViewController"
+- "UIImage"
+- "QBChatMessage"
+- !private ">"
+- !private "Set"
+- !private "Date"
+- !private "NSNumber"
 - "String"
 - "BooleanLiteralType"
-- "Bool"
-- !private "SVProgressHUDMaskType"
-- !private "DialogTableViewCell"
-- !private "!="
-- "CGFloat"
-- !private "QBChat"
-- "QBChatDialog"
-- "Error"
-- !private "QBResponse"
-- !private "print"
-- "QMAuthServiceDelegate"
-- "UITableViewCellEditingStyle"
-- "QMChatServiceDelegate"
-- "QMChatConnectionDelegate"
-- !private "NotificationCenter"
 - "QMChatService"
-- !private "UIBarButtonItemStyle"
-- "NSDate"
-- "NSObject"
-- !private "ServicesManager"
-- "UITableView"
-- "IndexPath"
-- !private "Date"
-- !private "SVProgressHUD"
-- "DialogTableViewCellModel"
-- !private "ObjCBool"
-- "DialogsViewController"
-- !private "UInt"
-- !private "<"
 - !private "OperationQueue"
-- "AssignmentPrecedence"
-- !private "!"
-- !private "=="
-- !private "Set"
-- !private "NSNumber"
+- "NSObjectProtocol"
+- "UITableViewController"
+- !private "print"
+- !private "NSLocalizedString"
+- "QBRTCClientDelegate"
+- "StringLiteralType"
+- "UITableView"
+- "UIBarButtonItem"
+- !private "<"
+- "IndexPath"
+- !private "NotificationCenter"
+- !private "SVProgressHUD"
 - "CastingPrecedence"
-- "QBChatMessage"
-- "Int"
-- !private "kDialogsPageLimit"
+- "AssignmentPrecedence"
+- !private "=="
+- !private "ServicesManager"
+- "QBChatDialog"
+- !private "QBChat"
+- "Bool"
+- !private "QBResponse"
+- "DialogTableViewCellModel"
+- !private "!="
+- !private "SVProgressHUDMaskType"
+- "UITableViewCellEditingStyle"
+- !private "!"
+- "QMChatConnectionDelegate"
+- !private "UInt"
+- !private "NSNotification"
+- "UITableViewCell"
+- !private "&&"
+- "QMChatServiceDelegate"
 - !private "Void"
+- "QMAuthServiceDelegate"
+- !private "Array"
 depends-member:
 - !private ["Ps9AnyObject", "DialogTableViewCellModel"]
 - !private ["Ps9AnyObject", "DialogsViewController"]
@@ -109,6 +116,7 @@ depends-member:
 - !private ["Ps9AnyObject", "NotificationCenter"]
 - !private ["Ps9AnyObject", "OperationQueue"]
 - !private ["Ps9AnyObject", "QBChat"]
+- !private ["Ps9AnyObject", "QBRTCClient"]
 - !private ["Ps9AnyObject", "SVProgressHUD"]
 - !private ["Ps9AnyObject", "SVProgressHUDMaskType"]
 - !private ["Ps9AnyObject", "ServicesManager"]
@@ -124,6 +132,7 @@ depends-member:
 - ["Ps9AnyObject", "authService"]
 - ["Ps9AnyObject", "authServiceDidLogOut"]
 - ["Ps9AnyObject", "awakeFromNib"]
+- ["Ps9AnyObject", "callWithConferenceType"]
 - ["Ps9AnyObject", "chatService"]
 - ["Ps9AnyObject", "chatServiceChatDidAccidentallyDisconnect"]
 - ["Ps9AnyObject", "chatServiceChatDidConnect"]
@@ -133,13 +142,12 @@ depends-member:
 - ["Ps9AnyObject", "chatServiceChatHasStartedConnecting"]
 - !private ["Ps9AnyObject", "contentView"]
 - ["Ps9AnyObject", "createLogoutButton"]
+- !private ["Ps9AnyObject", "createNewSession"]
 - !private ["Ps9AnyObject", "currentUser"]
 - !private ["Ps9AnyObject", "default"]
 - !private ["Ps9AnyObject", "dequeueReusableCell"]
 - !private ["Ps9AnyObject", "deselectRow"]
-- !private ["Ps9AnyObject", "destination"]
 - ["Ps9AnyObject", "detailTextLabelText"]
-- !private ["Ps9AnyObject", "dialog"]
 - !private ["Ps9AnyObject", "dialogID"]
 - ["Ps9AnyObject", "dialogIcon"]
 - !private ["Ps9AnyObject", "dialogLastMessage"]
@@ -158,7 +166,9 @@ depends-member:
 - !private ["Ps9AnyObject", "identifier"]
 - !private ["Ps9AnyObject", "image"]
 - ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "initiatorID"]
 - !private ["Ps9AnyObject", "instance"]
+- !private ["Ps9AnyObject", "instantiateViewController"]
 - !private ["Ps9AnyObject", "isConnected"]
 - !private ["Ps9AnyObject", "isEmpty"]
 - !private ["Ps9AnyObject", "isExclusiveTouch"]
@@ -179,9 +189,11 @@ depends-member:
 - !private ["Ps9AnyObject", "navigationItem"]
 - ["Ps9AnyObject", "numberOfSections"]
 - ["Ps9AnyObject", "observer"]
+- !private ["Ps9AnyObject", "performSegue"]
 - !private ["Ps9AnyObject", "popToRootViewController"]
 - ["Ps9AnyObject", "prepare"]
 - !private ["Ps9AnyObject", "print"]
+- !private ["Ps9AnyObject", "pushViewController"]
 - !private ["Ps9AnyObject", "recipientID"]
 - !private ["Ps9AnyObject", "reloadData"]
 - ["Ps9AnyObject", "reloadTableViewIfNeeded"]
@@ -193,6 +205,7 @@ depends-member:
 - !private ["Ps9AnyObject", "show"]
 - !private ["Ps9AnyObject", "showError"]
 - !private ["Ps9AnyObject", "showSuccess"]
+- !private ["Ps9AnyObject", "storyboard"]
 - ["Ps9AnyObject", "tableView"]
 - !private ["Ps9AnyObject", "tag"]
 - !private ["Ps9AnyObject", "text"]
@@ -209,6 +222,7 @@ depends-member:
 - !private ["Ps9AnyObject", "usersService"]
 - ["Ps9AnyObject", "viewWillAppear"]
 - ["Ps9AnyObject", ""]
+- !private ["Sa", "Element"]
 - !private ["Sa", "Index"]
 - !private ["Sa", "IndexDistance"]
 - !private ["Sa", "SubSequence"]
@@ -216,6 +230,8 @@ depends-member:
 - !private ["Sa", "count"]
 - ["Sa", "deinit"]
 - !private ["Sa", "subscript"]
+- !private ["CSo18BaseViewController", "session"]
+- !private ["Ps23BidirectionalCollection", "Element"]
 - !private ["Ps23BidirectionalCollection", "Index"]
 - !private ["Ps23BidirectionalCollection", "IndexDistance"]
 - !private ["Ps23BidirectionalCollection", "Indices"]
@@ -225,6 +241,7 @@ depends-member:
 - !private ["Ps23BidirectionalCollection", "count"]
 - !private ["Ps23BidirectionalCollection", "row"]
 - !private ["Ps23BidirectionalCollection", "subscript"]
+- !private ["Ps22BidirectionalIndexable", "Element"]
 - !private ["Ps22BidirectionalIndexable", "Index"]
 - !private ["Ps22BidirectionalIndexable", "IndexDistance"]
 - !private ["Ps22BidirectionalIndexable", "Indices"]
@@ -267,15 +284,18 @@ depends-member:
 - ["V12CoreGraphics7CGFloat", "deinit"]
 - !private ["Ps7CVarArg", "DialogTableViewCellModel"]
 - !private ["Ps7CVarArg", "DialogsViewController"]
+- !private ["Ps7CVarArg", "Element"]
 - !private ["Ps7CVarArg", "Index"]
 - !private ["Ps7CVarArg", "IndexDistance"]
 - !private ["Ps7CVarArg", "IntegerLiteralType"]
 - !private ["Ps7CVarArg", "NSDate"]
+- !private ["Ps7CVarArg", "NSLocalizedString"]
 - !private ["Ps7CVarArg", "NSNotification"]
 - !private ["Ps7CVarArg", "Name"]
 - !private ["Ps7CVarArg", "NotificationCenter"]
 - !private ["Ps7CVarArg", "OperationQueue"]
 - !private ["Ps7CVarArg", "QBChat"]
+- !private ["Ps7CVarArg", "QBRTCClient"]
 - !private ["Ps7CVarArg", "SVProgressHUD"]
 - !private ["Ps7CVarArg", "SVProgressHUDMaskType"]
 - !private ["Ps7CVarArg", "ServicesManager"]
@@ -295,6 +315,7 @@ depends-member:
 - ["Ps7CVarArg", "authService"]
 - ["Ps7CVarArg", "authServiceDidLogOut"]
 - ["Ps7CVarArg", "awakeFromNib"]
+- ["Ps7CVarArg", "callWithConferenceType"]
 - ["Ps7CVarArg", "chatService"]
 - ["Ps7CVarArg", "chatServiceChatDidAccidentallyDisconnect"]
 - ["Ps7CVarArg", "chatServiceChatDidConnect"]
@@ -305,13 +326,12 @@ depends-member:
 - !private ["Ps7CVarArg", "contentView"]
 - !private ["Ps7CVarArg", "count"]
 - ["Ps7CVarArg", "createLogoutButton"]
+- !private ["Ps7CVarArg", "createNewSession"]
 - !private ["Ps7CVarArg", "currentUser"]
 - !private ["Ps7CVarArg", "default"]
 - !private ["Ps7CVarArg", "dequeueReusableCell"]
 - !private ["Ps7CVarArg", "deselectRow"]
-- !private ["Ps7CVarArg", "destination"]
 - ["Ps7CVarArg", "detailTextLabelText"]
-- !private ["Ps7CVarArg", "dialog"]
 - !private ["Ps7CVarArg", "dialogID"]
 - ["Ps7CVarArg", "dialogIcon"]
 - !private ["Ps7CVarArg", "dialogLastMessage"]
@@ -330,7 +350,9 @@ depends-member:
 - !private ["Ps7CVarArg", "identifier"]
 - !private ["Ps7CVarArg", "image"]
 - ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "initiatorID"]
 - !private ["Ps7CVarArg", "instance"]
+- !private ["Ps7CVarArg", "instantiateViewController"]
 - !private ["Ps7CVarArg", "isConnected"]
 - !private ["Ps7CVarArg", "isEmpty"]
 - !private ["Ps7CVarArg", "isExclusiveTouch"]
@@ -351,9 +373,11 @@ depends-member:
 - !private ["Ps7CVarArg", "navigationItem"]
 - ["Ps7CVarArg", "numberOfSections"]
 - ["Ps7CVarArg", "observer"]
+- !private ["Ps7CVarArg", "performSegue"]
 - !private ["Ps7CVarArg", "popToRootViewController"]
 - ["Ps7CVarArg", "prepare"]
 - !private ["Ps7CVarArg", "print"]
+- !private ["Ps7CVarArg", "pushViewController"]
 - !private ["Ps7CVarArg", "recipientID"]
 - !private ["Ps7CVarArg", "reloadData"]
 - ["Ps7CVarArg", "reloadTableViewIfNeeded"]
@@ -365,6 +389,7 @@ depends-member:
 - !private ["Ps7CVarArg", "show"]
 - !private ["Ps7CVarArg", "showError"]
 - !private ["Ps7CVarArg", "showSuccess"]
+- !private ["Ps7CVarArg", "storyboard"]
 - !private ["Ps7CVarArg", "subscript"]
 - ["Ps7CVarArg", "tableView"]
 - !private ["Ps7CVarArg", "tag"]
@@ -382,8 +407,9 @@ depends-member:
 - !private ["Ps7CVarArg", "usersService"]
 - ["Ps7CVarArg", "viewWillAppear"]
 - ["Ps7CVarArg", ""]
-- ["C11DiabetesApp18ChatViewController", "deinit"]
-- !private ["C11DiabetesApp18ChatViewController", "dialog"]
+- ["CSo18CallViewController", "deinit"]
+- !private ["CSo18CallViewController", "session"]
+- !private ["Ps10Collection", "Element"]
 - !private ["Ps10Collection", "Index"]
 - !private ["Ps10Collection", "IndexDistance"]
 - !private ["Ps10Collection", "Indices"]
@@ -394,6 +420,7 @@ depends-member:
 - !private ["Ps10Collection", "row"]
 - !private ["Ps10Collection", "subscript"]
 - !private ["Ps10Comparable", "IntegerLiteralType"]
+- !private ["Ps10Comparable", "NSLocalizedString"]
 - !private ["Ps10Comparable", "Stride"]
 - !private ["Ps10Comparable", "UIApplicationDidBecomeActive"]
 - !private ["Ps10Comparable", "UIApplicationDidEnterBackground"]
@@ -404,14 +431,17 @@ depends-member:
 - !private ["Ps10Comparable", "row"]
 - !private ["Ps28CustomDebugStringConvertible", "DialogTableViewCellModel"]
 - !private ["Ps28CustomDebugStringConvertible", "DialogsViewController"]
+- !private ["Ps28CustomDebugStringConvertible", "Element"]
 - !private ["Ps28CustomDebugStringConvertible", "Index"]
 - !private ["Ps28CustomDebugStringConvertible", "IndexDistance"]
 - !private ["Ps28CustomDebugStringConvertible", "NSDate"]
+- !private ["Ps28CustomDebugStringConvertible", "NSLocalizedString"]
 - !private ["Ps28CustomDebugStringConvertible", "NSNotification"]
 - !private ["Ps28CustomDebugStringConvertible", "Name"]
 - !private ["Ps28CustomDebugStringConvertible", "NotificationCenter"]
 - !private ["Ps28CustomDebugStringConvertible", "OperationQueue"]
 - !private ["Ps28CustomDebugStringConvertible", "QBChat"]
+- !private ["Ps28CustomDebugStringConvertible", "QBRTCClient"]
 - !private ["Ps28CustomDebugStringConvertible", "SVProgressHUD"]
 - !private ["Ps28CustomDebugStringConvertible", "SVProgressHUDMaskType"]
 - !private ["Ps28CustomDebugStringConvertible", "ServicesManager"]
@@ -429,6 +459,7 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "authService"]
 - ["Ps28CustomDebugStringConvertible", "authServiceDidLogOut"]
 - ["Ps28CustomDebugStringConvertible", "awakeFromNib"]
+- ["Ps28CustomDebugStringConvertible", "callWithConferenceType"]
 - ["Ps28CustomDebugStringConvertible", "chatService"]
 - ["Ps28CustomDebugStringConvertible", "chatServiceChatDidAccidentallyDisconnect"]
 - ["Ps28CustomDebugStringConvertible", "chatServiceChatDidConnect"]
@@ -439,13 +470,12 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "contentView"]
 - !private ["Ps28CustomDebugStringConvertible", "count"]
 - ["Ps28CustomDebugStringConvertible", "createLogoutButton"]
+- !private ["Ps28CustomDebugStringConvertible", "createNewSession"]
 - !private ["Ps28CustomDebugStringConvertible", "currentUser"]
 - !private ["Ps28CustomDebugStringConvertible", "default"]
 - !private ["Ps28CustomDebugStringConvertible", "dequeueReusableCell"]
 - !private ["Ps28CustomDebugStringConvertible", "deselectRow"]
-- !private ["Ps28CustomDebugStringConvertible", "destination"]
 - ["Ps28CustomDebugStringConvertible", "detailTextLabelText"]
-- !private ["Ps28CustomDebugStringConvertible", "dialog"]
 - !private ["Ps28CustomDebugStringConvertible", "dialogID"]
 - ["Ps28CustomDebugStringConvertible", "dialogIcon"]
 - !private ["Ps28CustomDebugStringConvertible", "dialogLastMessage"]
@@ -464,7 +494,9 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "identifier"]
 - !private ["Ps28CustomDebugStringConvertible", "image"]
 - ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "initiatorID"]
 - !private ["Ps28CustomDebugStringConvertible", "instance"]
+- !private ["Ps28CustomDebugStringConvertible", "instantiateViewController"]
 - !private ["Ps28CustomDebugStringConvertible", "isConnected"]
 - !private ["Ps28CustomDebugStringConvertible", "isEmpty"]
 - !private ["Ps28CustomDebugStringConvertible", "isExclusiveTouch"]
@@ -485,9 +517,11 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "navigationItem"]
 - ["Ps28CustomDebugStringConvertible", "numberOfSections"]
 - ["Ps28CustomDebugStringConvertible", "observer"]
+- !private ["Ps28CustomDebugStringConvertible", "performSegue"]
 - !private ["Ps28CustomDebugStringConvertible", "popToRootViewController"]
 - ["Ps28CustomDebugStringConvertible", "prepare"]
 - !private ["Ps28CustomDebugStringConvertible", "print"]
+- !private ["Ps28CustomDebugStringConvertible", "pushViewController"]
 - !private ["Ps28CustomDebugStringConvertible", "recipientID"]
 - !private ["Ps28CustomDebugStringConvertible", "reloadData"]
 - ["Ps28CustomDebugStringConvertible", "reloadTableViewIfNeeded"]
@@ -500,6 +534,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "show"]
 - !private ["Ps28CustomDebugStringConvertible", "showError"]
 - !private ["Ps28CustomDebugStringConvertible", "showSuccess"]
+- !private ["Ps28CustomDebugStringConvertible", "storyboard"]
 - !private ["Ps28CustomDebugStringConvertible", "subscript"]
 - ["Ps28CustomDebugStringConvertible", "tableView"]
 - !private ["Ps28CustomDebugStringConvertible", "tag"]
@@ -518,15 +553,18 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "viewWillAppear"]
 - ["Ps28CustomDebugStringConvertible", ""]
 - !private ["Ps29CustomPlaygroundQuickLookable", "IntegerLiteralType"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "NSLocalizedString"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "Stride"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "_DisabledRangeIndex"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
 - ["Ps29CustomPlaygroundQuickLookable", "init"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "isEmpty"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "localized"]
+- !private ["Ps17CustomReflectable", "Element"]
 - !private ["Ps17CustomReflectable", "Index"]
 - !private ["Ps17CustomReflectable", "IndexDistance"]
 - !private ["Ps17CustomReflectable", "IntegerLiteralType"]
+- !private ["Ps17CustomReflectable", "NSLocalizedString"]
 - !private ["Ps17CustomReflectable", "Stride"]
 - !private ["Ps17CustomReflectable", "SubSequence"]
 - !private ["Ps17CustomReflectable", "_DisabledRangeIndex"]
@@ -540,15 +578,18 @@ depends-member:
 - !private ["Ps17CustomReflectable", "subscript"]
 - !private ["Ps23CustomStringConvertible", "DialogTableViewCellModel"]
 - !private ["Ps23CustomStringConvertible", "DialogsViewController"]
+- !private ["Ps23CustomStringConvertible", "Element"]
 - !private ["Ps23CustomStringConvertible", "Index"]
 - !private ["Ps23CustomStringConvertible", "IndexDistance"]
 - !private ["Ps23CustomStringConvertible", "IntegerLiteralType"]
 - !private ["Ps23CustomStringConvertible", "NSDate"]
+- !private ["Ps23CustomStringConvertible", "NSLocalizedString"]
 - !private ["Ps23CustomStringConvertible", "NSNotification"]
 - !private ["Ps23CustomStringConvertible", "Name"]
 - !private ["Ps23CustomStringConvertible", "NotificationCenter"]
 - !private ["Ps23CustomStringConvertible", "OperationQueue"]
 - !private ["Ps23CustomStringConvertible", "QBChat"]
+- !private ["Ps23CustomStringConvertible", "QBRTCClient"]
 - !private ["Ps23CustomStringConvertible", "SVProgressHUD"]
 - !private ["Ps23CustomStringConvertible", "SVProgressHUDMaskType"]
 - !private ["Ps23CustomStringConvertible", "ServicesManager"]
@@ -569,6 +610,7 @@ depends-member:
 - ["Ps23CustomStringConvertible", "authService"]
 - ["Ps23CustomStringConvertible", "authServiceDidLogOut"]
 - ["Ps23CustomStringConvertible", "awakeFromNib"]
+- ["Ps23CustomStringConvertible", "callWithConferenceType"]
 - ["Ps23CustomStringConvertible", "chatService"]
 - ["Ps23CustomStringConvertible", "chatServiceChatDidAccidentallyDisconnect"]
 - ["Ps23CustomStringConvertible", "chatServiceChatDidConnect"]
@@ -579,13 +621,12 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "contentView"]
 - !private ["Ps23CustomStringConvertible", "count"]
 - ["Ps23CustomStringConvertible", "createLogoutButton"]
+- !private ["Ps23CustomStringConvertible", "createNewSession"]
 - !private ["Ps23CustomStringConvertible", "currentUser"]
 - !private ["Ps23CustomStringConvertible", "default"]
 - !private ["Ps23CustomStringConvertible", "dequeueReusableCell"]
 - !private ["Ps23CustomStringConvertible", "deselectRow"]
-- !private ["Ps23CustomStringConvertible", "destination"]
 - ["Ps23CustomStringConvertible", "detailTextLabelText"]
-- !private ["Ps23CustomStringConvertible", "dialog"]
 - !private ["Ps23CustomStringConvertible", "dialogID"]
 - ["Ps23CustomStringConvertible", "dialogIcon"]
 - !private ["Ps23CustomStringConvertible", "dialogLastMessage"]
@@ -604,7 +645,9 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "identifier"]
 - !private ["Ps23CustomStringConvertible", "image"]
 - ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "initiatorID"]
 - !private ["Ps23CustomStringConvertible", "instance"]
+- !private ["Ps23CustomStringConvertible", "instantiateViewController"]
 - !private ["Ps23CustomStringConvertible", "isConnected"]
 - !private ["Ps23CustomStringConvertible", "isEmpty"]
 - !private ["Ps23CustomStringConvertible", "isExclusiveTouch"]
@@ -625,9 +668,11 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "navigationItem"]
 - ["Ps23CustomStringConvertible", "numberOfSections"]
 - ["Ps23CustomStringConvertible", "observer"]
+- !private ["Ps23CustomStringConvertible", "performSegue"]
 - !private ["Ps23CustomStringConvertible", "popToRootViewController"]
 - ["Ps23CustomStringConvertible", "prepare"]
 - !private ["Ps23CustomStringConvertible", "print"]
+- !private ["Ps23CustomStringConvertible", "pushViewController"]
 - !private ["Ps23CustomStringConvertible", "recipientID"]
 - !private ["Ps23CustomStringConvertible", "reloadData"]
 - ["Ps23CustomStringConvertible", "reloadTableViewIfNeeded"]
@@ -640,6 +685,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "show"]
 - !private ["Ps23CustomStringConvertible", "showError"]
 - !private ["Ps23CustomStringConvertible", "showSuccess"]
+- !private ["Ps23CustomStringConvertible", "storyboard"]
 - !private ["Ps23CustomStringConvertible", "subscript"]
 - ["Ps23CustomStringConvertible", "tableView"]
 - !private ["Ps23CustomStringConvertible", "tag"]
@@ -692,7 +738,7 @@ depends-member:
 - ["C11DiabetesApp24DialogTableViewCellModel", "unreadMessagesCounterLabelText"]
 - ["C11DiabetesApp21DialogsViewController", "Bool"]
 - ["C11DiabetesApp21DialogsViewController", "CGFloat"]
-- !private ["C11DiabetesApp21DialogsViewController", "ChatViewController"]
+- !private ["C11DiabetesApp21DialogsViewController", "CallViewController"]
 - !private ["C11DiabetesApp21DialogsViewController", "Date"]
 - !private ["C11DiabetesApp21DialogsViewController", "DialogTableViewCell"]
 - !private ["C11DiabetesApp21DialogsViewController", "DialogTableViewCellModel"]
@@ -710,6 +756,8 @@ depends-member:
 - !private ["C11DiabetesApp21DialogsViewController", "QBChat"]
 - ["C11DiabetesApp21DialogsViewController", "QBChatDialog"]
 - ["C11DiabetesApp21DialogsViewController", "QBChatMessage"]
+- !private ["C11DiabetesApp21DialogsViewController", "QBRTCClient"]
+- ["C11DiabetesApp21DialogsViewController", "QBRTCConferenceType"]
 - !private ["C11DiabetesApp21DialogsViewController", "QBResponse"]
 - ["C11DiabetesApp21DialogsViewController", "QMChatService"]
 - !private ["C11DiabetesApp21DialogsViewController", "SVProgressHUD"]
@@ -728,6 +776,7 @@ depends-member:
 - ["C11DiabetesApp21DialogsViewController", "authService"]
 - ["C11DiabetesApp21DialogsViewController", "authServiceDidLogOut"]
 - ["C11DiabetesApp21DialogsViewController", "awakeFromNib"]
+- ["C11DiabetesApp21DialogsViewController", "callWithConferenceType"]
 - ["C11DiabetesApp21DialogsViewController", "chatService"]
 - ["C11DiabetesApp21DialogsViewController", "chatServiceChatDidAccidentallyDisconnect"]
 - ["C11DiabetesApp21DialogsViewController", "chatServiceChatDidConnect"]
@@ -749,22 +798,26 @@ depends-member:
 - !private ["C11DiabetesApp21DialogsViewController", "navigationItem"]
 - ["C11DiabetesApp21DialogsViewController", "numberOfSections"]
 - !private ["C11DiabetesApp21DialogsViewController", "observer"]
+- !private ["C11DiabetesApp21DialogsViewController", "performSegue"]
 - ["C11DiabetesApp21DialogsViewController", "prepare"]
 - !private ["C11DiabetesApp21DialogsViewController", "print"]
 - ["C11DiabetesApp21DialogsViewController", "reloadTableViewIfNeeded"]
 - ["C11DiabetesApp21DialogsViewController", "session"]
 - ["C11DiabetesApp21DialogsViewController", "sessionDidClose"]
+- !private ["C11DiabetesApp21DialogsViewController", "storyboard"]
 - ["C11DiabetesApp21DialogsViewController", "tableView"]
 - ["C11DiabetesApp21DialogsViewController", "viewWillAppear"]
 - !private ["Ps9Equatable", "DialogTableViewCellModel"]
 - !private ["Ps9Equatable", "DialogsViewController"]
 - !private ["Ps9Equatable", "IntegerLiteralType"]
 - !private ["Ps9Equatable", "NSDate"]
+- !private ["Ps9Equatable", "NSLocalizedString"]
 - !private ["Ps9Equatable", "NSNotification"]
 - !private ["Ps9Equatable", "Name"]
 - !private ["Ps9Equatable", "NotificationCenter"]
 - !private ["Ps9Equatable", "OperationQueue"]
 - !private ["Ps9Equatable", "QBChat"]
+- !private ["Ps9Equatable", "QBRTCClient"]
 - !private ["Ps9Equatable", "RawValue"]
 - !private ["Ps9Equatable", "SVProgressHUD"]
 - !private ["Ps9Equatable", "SVProgressHUDMaskType"]
@@ -786,6 +839,7 @@ depends-member:
 - ["Ps9Equatable", "authService"]
 - ["Ps9Equatable", "authServiceDidLogOut"]
 - ["Ps9Equatable", "awakeFromNib"]
+- ["Ps9Equatable", "callWithConferenceType"]
 - ["Ps9Equatable", "chatService"]
 - ["Ps9Equatable", "chatServiceChatDidAccidentallyDisconnect"]
 - ["Ps9Equatable", "chatServiceChatDidConnect"]
@@ -796,13 +850,12 @@ depends-member:
 - !private ["Ps9Equatable", "clear"]
 - !private ["Ps9Equatable", "contentView"]
 - ["Ps9Equatable", "createLogoutButton"]
+- !private ["Ps9Equatable", "createNewSession"]
 - !private ["Ps9Equatable", "currentUser"]
 - !private ["Ps9Equatable", "default"]
 - !private ["Ps9Equatable", "dequeueReusableCell"]
 - !private ["Ps9Equatable", "deselectRow"]
-- !private ["Ps9Equatable", "destination"]
 - ["Ps9Equatable", "detailTextLabelText"]
-- !private ["Ps9Equatable", "dialog"]
 - !private ["Ps9Equatable", "dialogID"]
 - ["Ps9Equatable", "dialogIcon"]
 - !private ["Ps9Equatable", "dialogLastMessage"]
@@ -822,7 +875,9 @@ depends-member:
 - !private ["Ps9Equatable", "identifier"]
 - !private ["Ps9Equatable", "image"]
 - ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "initiatorID"]
 - !private ["Ps9Equatable", "instance"]
+- !private ["Ps9Equatable", "instantiateViewController"]
 - !private ["Ps9Equatable", "isConnected"]
 - !private ["Ps9Equatable", "isEmpty"]
 - !private ["Ps9Equatable", "isExclusiveTouch"]
@@ -843,12 +898,14 @@ depends-member:
 - !private ["Ps9Equatable", "navigationItem"]
 - ["Ps9Equatable", "numberOfSections"]
 - ["Ps9Equatable", "observer"]
+- !private ["Ps9Equatable", "performSegue"]
 - !private ["Ps9Equatable", "plain"]
 - !private ["Ps9Equatable", "popToRootViewController"]
 - ["Ps9Equatable", "prepare"]
 - !private ["Ps9Equatable", "print"]
 - ["Ps9Equatable", "private"]
 - ["Ps9Equatable", "publicGroup"]
+- !private ["Ps9Equatable", "pushViewController"]
 - !private ["Ps9Equatable", "recipientID"]
 - !private ["Ps9Equatable", "reloadData"]
 - ["Ps9Equatable", "reloadTableViewIfNeeded"]
@@ -861,6 +918,7 @@ depends-member:
 - !private ["Ps9Equatable", "show"]
 - !private ["Ps9Equatable", "showError"]
 - !private ["Ps9Equatable", "showSuccess"]
+- !private ["Ps9Equatable", "storyboard"]
 - ["Ps9Equatable", "tableView"]
 - !private ["Ps9Equatable", "tag"]
 - !private ["Ps9Equatable", "text"]
@@ -875,10 +933,12 @@ depends-member:
 - !private ["Ps9Equatable", "user"]
 - !private ["Ps9Equatable", "usersMemoryStorage"]
 - !private ["Ps9Equatable", "usersService"]
+- !private ["Ps9Equatable", "video"]
 - ["Ps9Equatable", "viewWillAppear"]
 - ["Ps9Equatable", ""]
 - ["Ps5Error", "deinit"]
 - !private ["Ps5Error", "localizedDescription"]
+- !private ["Ps25ExpressibleByArrayLiteral", "Element"]
 - !private ["Ps25ExpressibleByArrayLiteral", "Index"]
 - !private ["Ps25ExpressibleByArrayLiteral", "IndexDistance"]
 - !private ["Ps25ExpressibleByArrayLiteral", "SubSequence"]
@@ -887,6 +947,7 @@ depends-member:
 - !private ["Ps25ExpressibleByArrayLiteral", "row"]
 - !private ["Ps25ExpressibleByArrayLiteral", "subscript"]
 - !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "NSLocalizedString"]
 - ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "isEmpty"]
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "localized"]
@@ -894,12 +955,15 @@ depends-member:
 - !private ["Ps27ExpressibleByIntegerLiteral", "Stride"]
 - !private ["Ps27ExpressibleByIntegerLiteral", "_DisabledRangeIndex"]
 - !private ["Ps27ExpressibleByIntegerLiteral", "init"]
+- !private ["Ps32ExpressibleByStringInterpolation", "NSLocalizedString"]
 - ["Ps32ExpressibleByStringInterpolation", "init"]
 - !private ["Ps32ExpressibleByStringInterpolation", "isEmpty"]
 - !private ["Ps32ExpressibleByStringInterpolation", "localized"]
+- !private ["Ps26ExpressibleByStringLiteral", "NSLocalizedString"]
 - ["Ps26ExpressibleByStringLiteral", "init"]
 - !private ["Ps26ExpressibleByStringLiteral", "isEmpty"]
 - !private ["Ps26ExpressibleByStringLiteral", "localized"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "NSLocalizedString"]
 - ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
 - !private ["Ps33ExpressibleByUnicodeScalarLiteral", "isEmpty"]
 - !private ["Ps33ExpressibleByUnicodeScalarLiteral", "localized"]
@@ -907,11 +971,13 @@ depends-member:
 - !private ["Ps8Hashable", "DialogsViewController"]
 - !private ["Ps8Hashable", "IntegerLiteralType"]
 - !private ["Ps8Hashable", "NSDate"]
+- !private ["Ps8Hashable", "NSLocalizedString"]
 - !private ["Ps8Hashable", "NSNotification"]
 - !private ["Ps8Hashable", "Name"]
 - !private ["Ps8Hashable", "NotificationCenter"]
 - !private ["Ps8Hashable", "OperationQueue"]
 - !private ["Ps8Hashable", "QBChat"]
+- !private ["Ps8Hashable", "QBRTCClient"]
 - !private ["Ps8Hashable", "RawValue"]
 - !private ["Ps8Hashable", "SVProgressHUD"]
 - !private ["Ps8Hashable", "SVProgressHUDMaskType"]
@@ -933,6 +999,7 @@ depends-member:
 - ["Ps8Hashable", "authService"]
 - ["Ps8Hashable", "authServiceDidLogOut"]
 - ["Ps8Hashable", "awakeFromNib"]
+- ["Ps8Hashable", "callWithConferenceType"]
 - ["Ps8Hashable", "chatService"]
 - ["Ps8Hashable", "chatServiceChatDidAccidentallyDisconnect"]
 - ["Ps8Hashable", "chatServiceChatDidConnect"]
@@ -943,13 +1010,12 @@ depends-member:
 - !private ["Ps8Hashable", "clear"]
 - !private ["Ps8Hashable", "contentView"]
 - ["Ps8Hashable", "createLogoutButton"]
+- !private ["Ps8Hashable", "createNewSession"]
 - !private ["Ps8Hashable", "currentUser"]
 - !private ["Ps8Hashable", "default"]
 - !private ["Ps8Hashable", "dequeueReusableCell"]
 - !private ["Ps8Hashable", "deselectRow"]
-- !private ["Ps8Hashable", "destination"]
 - ["Ps8Hashable", "detailTextLabelText"]
-- !private ["Ps8Hashable", "dialog"]
 - !private ["Ps8Hashable", "dialogID"]
 - ["Ps8Hashable", "dialogIcon"]
 - !private ["Ps8Hashable", "dialogLastMessage"]
@@ -969,7 +1035,9 @@ depends-member:
 - !private ["Ps8Hashable", "identifier"]
 - !private ["Ps8Hashable", "image"]
 - ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "initiatorID"]
 - !private ["Ps8Hashable", "instance"]
+- !private ["Ps8Hashable", "instantiateViewController"]
 - !private ["Ps8Hashable", "isConnected"]
 - !private ["Ps8Hashable", "isEmpty"]
 - !private ["Ps8Hashable", "isExclusiveTouch"]
@@ -990,12 +1058,14 @@ depends-member:
 - !private ["Ps8Hashable", "navigationItem"]
 - ["Ps8Hashable", "numberOfSections"]
 - ["Ps8Hashable", "observer"]
+- !private ["Ps8Hashable", "performSegue"]
 - !private ["Ps8Hashable", "plain"]
 - !private ["Ps8Hashable", "popToRootViewController"]
 - ["Ps8Hashable", "prepare"]
 - !private ["Ps8Hashable", "print"]
 - ["Ps8Hashable", "private"]
 - ["Ps8Hashable", "publicGroup"]
+- !private ["Ps8Hashable", "pushViewController"]
 - !private ["Ps8Hashable", "recipientID"]
 - !private ["Ps8Hashable", "reloadData"]
 - ["Ps8Hashable", "reloadTableViewIfNeeded"]
@@ -1008,6 +1078,7 @@ depends-member:
 - !private ["Ps8Hashable", "show"]
 - !private ["Ps8Hashable", "showError"]
 - !private ["Ps8Hashable", "showSuccess"]
+- !private ["Ps8Hashable", "storyboard"]
 - ["Ps8Hashable", "tableView"]
 - !private ["Ps8Hashable", "tag"]
 - !private ["Ps8Hashable", "text"]
@@ -1022,11 +1093,13 @@ depends-member:
 - !private ["Ps8Hashable", "user"]
 - !private ["Ps8Hashable", "usersMemoryStorage"]
 - !private ["Ps8Hashable", "usersService"]
+- !private ["Ps8Hashable", "video"]
 - ["Ps8Hashable", "viewWillAppear"]
 - ["Ps8Hashable", ""]
-- !private ["SQ", "deinit"]
+- ["SQ", "deinit"]
 - ["V10Foundation9IndexPath", "deinit"]
 - !private ["V10Foundation9IndexPath", "row"]
+- !private ["Ps9Indexable", "Element"]
 - !private ["Ps9Indexable", "Index"]
 - !private ["Ps9Indexable", "IndexDistance"]
 - !private ["Ps9Indexable", "Indices"]
@@ -1036,6 +1109,7 @@ depends-member:
 - !private ["Ps9Indexable", "count"]
 - !private ["Ps9Indexable", "row"]
 - !private ["Ps9Indexable", "subscript"]
+- !private ["Ps13IndexableBase", "Element"]
 - !private ["Ps13IndexableBase", "Index"]
 - !private ["Ps13IndexableBase", "IndexDistance"]
 - !private ["Ps13IndexableBase", "Indices"]
@@ -1059,16 +1133,19 @@ depends-member:
 - !private ["Ps17IntegerArithmetic", "_DisabledRangeIndex"]
 - !private ["Ps17IntegerArithmetic", "init"]
 - !private ["Ps16IteratorProtocol", "Element"]
+- !private ["Ps25LosslessStringConvertible", "NSLocalizedString"]
 - !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
 - ["Ps25LosslessStringConvertible", "init"]
 - !private ["Ps25LosslessStringConvertible", "isEmpty"]
 - !private ["Ps25LosslessStringConvertible", "localized"]
 - !private ["Ps10MirrorPath", "IntegerLiteralType"]
+- !private ["Ps10MirrorPath", "NSLocalizedString"]
 - !private ["Ps10MirrorPath", "Stride"]
 - !private ["Ps10MirrorPath", "_DisabledRangeIndex"]
 - ["Ps10MirrorPath", "init"]
 - !private ["Ps10MirrorPath", "isEmpty"]
 - !private ["Ps10MirrorPath", "localized"]
+- !private ["Ps17MutableCollection", "Element"]
 - !private ["Ps17MutableCollection", "Index"]
 - !private ["Ps17MutableCollection", "IndexDistance"]
 - !private ["Ps17MutableCollection", "SubSequence"]
@@ -1076,6 +1153,7 @@ depends-member:
 - !private ["Ps17MutableCollection", "count"]
 - !private ["Ps17MutableCollection", "row"]
 - !private ["Ps17MutableCollection", "subscript"]
+- !private ["Ps16MutableIndexable", "Element"]
 - !private ["Ps16MutableIndexable", "Index"]
 - !private ["Ps16MutableIndexable", "IndexDistance"]
 - !private ["Ps16MutableIndexable", "SubSequence"]
@@ -1092,6 +1170,7 @@ depends-member:
 - !private ["PSo8NSCoding", "NotificationCenter"]
 - !private ["PSo8NSCoding", "OperationQueue"]
 - !private ["PSo8NSCoding", "QBChat"]
+- !private ["PSo8NSCoding", "QBRTCClient"]
 - !private ["PSo8NSCoding", "SVProgressHUD"]
 - !private ["PSo8NSCoding", "SVProgressHUDMaskType"]
 - !private ["PSo8NSCoding", "ServicesManager"]
@@ -1100,6 +1179,7 @@ depends-member:
 - ["PSo8NSCoding", "authService"]
 - ["PSo8NSCoding", "authServiceDidLogOut"]
 - ["PSo8NSCoding", "awakeFromNib"]
+- ["PSo8NSCoding", "callWithConferenceType"]
 - ["PSo8NSCoding", "chatService"]
 - ["PSo8NSCoding", "chatServiceChatDidAccidentallyDisconnect"]
 - ["PSo8NSCoding", "chatServiceChatDidConnect"]
@@ -1111,7 +1191,6 @@ depends-member:
 - ["PSo8NSCoding", "createLogoutButton"]
 - !private ["PSo8NSCoding", "dequeueReusableCell"]
 - !private ["PSo8NSCoding", "deselectRow"]
-- !private ["PSo8NSCoding", "dialog"]
 - !private ["PSo8NSCoding", "dialogID"]
 - !private ["PSo8NSCoding", "dialogLastMessage"]
 - !private ["PSo8NSCoding", "dialogName"]
@@ -1139,9 +1218,11 @@ depends-member:
 - !private ["PSo8NSCoding", "navigationItem"]
 - ["PSo8NSCoding", "numberOfSections"]
 - ["PSo8NSCoding", "observer"]
+- !private ["PSo8NSCoding", "performSegue"]
 - !private ["PSo8NSCoding", "popToRootViewController"]
 - ["PSo8NSCoding", "prepare"]
 - !private ["PSo8NSCoding", "print"]
+- !private ["PSo8NSCoding", "pushViewController"]
 - !private ["PSo8NSCoding", "recipientID"]
 - !private ["PSo8NSCoding", "reloadData"]
 - ["PSo8NSCoding", "reloadTableViewIfNeeded"]
@@ -1150,6 +1231,7 @@ depends-member:
 - !private ["PSo8NSCoding", "show"]
 - !private ["PSo8NSCoding", "showError"]
 - !private ["PSo8NSCoding", "showSuccess"]
+- !private ["PSo8NSCoding", "storyboard"]
 - ["PSo8NSCoding", "tableView"]
 - !private ["PSo8NSCoding", "tag"]
 - !private ["PSo8NSCoding", "text"]
@@ -1181,6 +1263,7 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "NotificationCenter"]
 - !private ["PSo26NSExtensionRequestHandling", "OperationQueue"]
 - !private ["PSo26NSExtensionRequestHandling", "QBChat"]
+- !private ["PSo26NSExtensionRequestHandling", "QBRTCClient"]
 - !private ["PSo26NSExtensionRequestHandling", "SVProgressHUD"]
 - !private ["PSo26NSExtensionRequestHandling", "SVProgressHUDMaskType"]
 - !private ["PSo26NSExtensionRequestHandling", "ServicesManager"]
@@ -1189,6 +1272,7 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "authService"]
 - ["PSo26NSExtensionRequestHandling", "authServiceDidLogOut"]
 - ["PSo26NSExtensionRequestHandling", "awakeFromNib"]
+- ["PSo26NSExtensionRequestHandling", "callWithConferenceType"]
 - ["PSo26NSExtensionRequestHandling", "chatService"]
 - ["PSo26NSExtensionRequestHandling", "chatServiceChatDidAccidentallyDisconnect"]
 - ["PSo26NSExtensionRequestHandling", "chatServiceChatDidConnect"]
@@ -1197,7 +1281,6 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "chatServiceChatDidReconnect"]
 - ["PSo26NSExtensionRequestHandling", "chatServiceChatHasStartedConnecting"]
 - ["PSo26NSExtensionRequestHandling", "createLogoutButton"]
-- !private ["PSo26NSExtensionRequestHandling", "dialog"]
 - ["PSo26NSExtensionRequestHandling", "dialogs"]
 - ["PSo26NSExtensionRequestHandling", "didEnterBackgroundDate"]
 - ["PSo26NSExtensionRequestHandling", "didEnterBackgroundNotification"]
@@ -1210,12 +1293,15 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "navigationItem"]
 - ["PSo26NSExtensionRequestHandling", "numberOfSections"]
 - ["PSo26NSExtensionRequestHandling", "observer"]
+- !private ["PSo26NSExtensionRequestHandling", "performSegue"]
 - !private ["PSo26NSExtensionRequestHandling", "popToRootViewController"]
 - ["PSo26NSExtensionRequestHandling", "prepare"]
 - !private ["PSo26NSExtensionRequestHandling", "print"]
+- !private ["PSo26NSExtensionRequestHandling", "pushViewController"]
 - ["PSo26NSExtensionRequestHandling", "reloadTableViewIfNeeded"]
 - ["PSo26NSExtensionRequestHandling", "session"]
 - ["PSo26NSExtensionRequestHandling", "sessionDidClose"]
+- !private ["PSo26NSExtensionRequestHandling", "storyboard"]
 - ["PSo26NSExtensionRequestHandling", "tableView"]
 - ["PSo26NSExtensionRequestHandling", "viewWillAppear"]
 - ["PSo26NSExtensionRequestHandling", ""]
@@ -1223,9 +1309,10 @@ depends-member:
 - !private ["PSo16NSMutableCopying", "isEmpty"]
 - !private ["PSo16NSMutableCopying", "localized"]
 - !private ["CSo14NSNotification", "Name"]
+- ["CSo8NSNumber", "deinit"]
 - ["CSo8NSObject", "Bool"]
 - ["CSo8NSObject", "CGFloat"]
-- !private ["CSo8NSObject", "ChatViewController"]
+- !private ["CSo8NSObject", "CallViewController"]
 - !private ["CSo8NSObject", "Date"]
 - !private ["CSo8NSObject", "DialogTableViewCell"]
 - !private ["CSo8NSObject", "DialogTableViewCellModel"]
@@ -1244,6 +1331,8 @@ depends-member:
 - !private ["CSo8NSObject", "QBChat"]
 - ["CSo8NSObject", "QBChatDialog"]
 - ["CSo8NSObject", "QBChatMessage"]
+- !private ["CSo8NSObject", "QBRTCClient"]
+- ["CSo8NSObject", "QBRTCConferenceType"]
 - !private ["CSo8NSObject", "QBResponse"]
 - ["CSo8NSObject", "QMChatService"]
 - !private ["CSo8NSObject", "SVProgressHUD"]
@@ -1268,6 +1357,7 @@ depends-member:
 - ["CSo8NSObject", "authService"]
 - ["CSo8NSObject", "authServiceDidLogOut"]
 - ["CSo8NSObject", "awakeFromNib"]
+- ["CSo8NSObject", "callWithConferenceType"]
 - ["CSo8NSObject", "chatService"]
 - ["CSo8NSObject", "chatServiceChatDidAccidentallyDisconnect"]
 - ["CSo8NSObject", "chatServiceChatDidConnect"]
@@ -1277,14 +1367,13 @@ depends-member:
 - ["CSo8NSObject", "chatServiceChatHasStartedConnecting"]
 - !private ["CSo8NSObject", "contentView"]
 - ["CSo8NSObject", "createLogoutButton"]
+- !private ["CSo8NSObject", "createNewSession"]
 - !private ["CSo8NSObject", "currentUser"]
 - !private ["CSo8NSObject", "default"]
 - ["CSo8NSObject", "deinit"]
 - !private ["CSo8NSObject", "dequeueReusableCell"]
 - !private ["CSo8NSObject", "deselectRow"]
-- !private ["CSo8NSObject", "destination"]
 - ["CSo8NSObject", "detailTextLabelText"]
-- !private ["CSo8NSObject", "dialog"]
 - !private ["CSo8NSObject", "dialogID"]
 - ["CSo8NSObject", "dialogIcon"]
 - !private ["CSo8NSObject", "dialogLastMessage"]
@@ -1303,7 +1392,9 @@ depends-member:
 - !private ["CSo8NSObject", "identifier"]
 - !private ["CSo8NSObject", "image"]
 - ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "initiatorID"]
 - !private ["CSo8NSObject", "instance"]
+- !private ["CSo8NSObject", "instantiateViewController"]
 - !private ["CSo8NSObject", "isConnected"]
 - !private ["CSo8NSObject", "isEmpty"]
 - !private ["CSo8NSObject", "isExclusiveTouch"]
@@ -1324,9 +1415,11 @@ depends-member:
 - !private ["CSo8NSObject", "navigationItem"]
 - ["CSo8NSObject", "numberOfSections"]
 - ["CSo8NSObject", "observer"]
+- !private ["CSo8NSObject", "performSegue"]
 - !private ["CSo8NSObject", "popToRootViewController"]
 - ["CSo8NSObject", "prepare"]
 - !private ["CSo8NSObject", "print"]
+- !private ["CSo8NSObject", "pushViewController"]
 - !private ["CSo8NSObject", "recipientID"]
 - !private ["CSo8NSObject", "reloadData"]
 - ["CSo8NSObject", "reloadTableViewIfNeeded"]
@@ -1338,6 +1431,7 @@ depends-member:
 - !private ["CSo8NSObject", "show"]
 - !private ["CSo8NSObject", "showError"]
 - !private ["CSo8NSObject", "showSuccess"]
+- !private ["CSo8NSObject", "storyboard"]
 - ["CSo8NSObject", "tableView"]
 - !private ["CSo8NSObject", "tag"]
 - !private ["CSo8NSObject", "text"]
@@ -1362,6 +1456,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "NotificationCenter"]
 - !private ["PSo16NSObjectProtocol", "OperationQueue"]
 - !private ["PSo16NSObjectProtocol", "QBChat"]
+- !private ["PSo16NSObjectProtocol", "QBRTCClient"]
 - !private ["PSo16NSObjectProtocol", "SVProgressHUD"]
 - !private ["PSo16NSObjectProtocol", "SVProgressHUDMaskType"]
 - !private ["PSo16NSObjectProtocol", "ServicesManager"]
@@ -1377,6 +1472,7 @@ depends-member:
 - ["PSo16NSObjectProtocol", "authService"]
 - ["PSo16NSObjectProtocol", "authServiceDidLogOut"]
 - ["PSo16NSObjectProtocol", "awakeFromNib"]
+- ["PSo16NSObjectProtocol", "callWithConferenceType"]
 - ["PSo16NSObjectProtocol", "chatService"]
 - ["PSo16NSObjectProtocol", "chatServiceChatDidAccidentallyDisconnect"]
 - ["PSo16NSObjectProtocol", "chatServiceChatDidConnect"]
@@ -1386,14 +1482,13 @@ depends-member:
 - ["PSo16NSObjectProtocol", "chatServiceChatHasStartedConnecting"]
 - !private ["PSo16NSObjectProtocol", "contentView"]
 - ["PSo16NSObjectProtocol", "createLogoutButton"]
+- !private ["PSo16NSObjectProtocol", "createNewSession"]
 - !private ["PSo16NSObjectProtocol", "currentUser"]
 - !private ["PSo16NSObjectProtocol", "default"]
 - ["PSo16NSObjectProtocol", "deinit"]
 - !private ["PSo16NSObjectProtocol", "dequeueReusableCell"]
 - !private ["PSo16NSObjectProtocol", "deselectRow"]
-- !private ["PSo16NSObjectProtocol", "destination"]
 - ["PSo16NSObjectProtocol", "detailTextLabelText"]
-- !private ["PSo16NSObjectProtocol", "dialog"]
 - !private ["PSo16NSObjectProtocol", "dialogID"]
 - ["PSo16NSObjectProtocol", "dialogIcon"]
 - !private ["PSo16NSObjectProtocol", "dialogLastMessage"]
@@ -1412,7 +1507,9 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "identifier"]
 - !private ["PSo16NSObjectProtocol", "image"]
 - ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "initiatorID"]
 - !private ["PSo16NSObjectProtocol", "instance"]
+- !private ["PSo16NSObjectProtocol", "instantiateViewController"]
 - !private ["PSo16NSObjectProtocol", "isConnected"]
 - !private ["PSo16NSObjectProtocol", "isEmpty"]
 - !private ["PSo16NSObjectProtocol", "isExclusiveTouch"]
@@ -1433,9 +1530,11 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "navigationItem"]
 - ["PSo16NSObjectProtocol", "numberOfSections"]
 - ["PSo16NSObjectProtocol", "observer"]
+- !private ["PSo16NSObjectProtocol", "performSegue"]
 - !private ["PSo16NSObjectProtocol", "popToRootViewController"]
 - ["PSo16NSObjectProtocol", "prepare"]
 - !private ["PSo16NSObjectProtocol", "print"]
+- !private ["PSo16NSObjectProtocol", "pushViewController"]
 - !private ["PSo16NSObjectProtocol", "recipientID"]
 - !private ["PSo16NSObjectProtocol", "reloadData"]
 - ["PSo16NSObjectProtocol", "reloadTableViewIfNeeded"]
@@ -1447,6 +1546,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "show"]
 - !private ["PSo16NSObjectProtocol", "showError"]
 - !private ["PSo16NSObjectProtocol", "showSuccess"]
+- !private ["PSo16NSObjectProtocol", "storyboard"]
 - ["PSo16NSObjectProtocol", "tableView"]
 - !private ["PSo16NSObjectProtocol", "tag"]
 - !private ["PSo16NSObjectProtocol", "text"]
@@ -1497,6 +1597,9 @@ depends-member:
 - ["OSC16QBChatDialogType", "group"]
 - ["OSC16QBChatDialogType", "private"]
 - ["OSC16QBChatDialogType", "publicGroup"]
+- !private ["CSo11QBRTCClient", "add"]
+- !private ["CSo11QBRTCClient", "createNewSession"]
+- !private ["CSo11QBRTCClient", "instance"]
 - !private ["PSo19QBRTCClientDelegate", "DialogTableViewCellModel"]
 - !private ["PSo19QBRTCClientDelegate", "DialogsViewController"]
 - !private ["PSo19QBRTCClientDelegate", "NSDate"]
@@ -1504,6 +1607,7 @@ depends-member:
 - !private ["PSo19QBRTCClientDelegate", "NotificationCenter"]
 - !private ["PSo19QBRTCClientDelegate", "OperationQueue"]
 - !private ["PSo19QBRTCClientDelegate", "QBChat"]
+- !private ["PSo19QBRTCClientDelegate", "QBRTCClient"]
 - !private ["PSo19QBRTCClientDelegate", "SVProgressHUD"]
 - !private ["PSo19QBRTCClientDelegate", "SVProgressHUDMaskType"]
 - !private ["PSo19QBRTCClientDelegate", "ServicesManager"]
@@ -1511,6 +1615,7 @@ depends-member:
 - !private ["PSo19QBRTCClientDelegate", "UIBarButtonItemStyle"]
 - ["PSo19QBRTCClientDelegate", "authService"]
 - ["PSo19QBRTCClientDelegate", "authServiceDidLogOut"]
+- !private ["PSo19QBRTCClientDelegate", "callWithConferenceType"]
 - ["PSo19QBRTCClientDelegate", "chatService"]
 - ["PSo19QBRTCClientDelegate", "chatServiceChatDidAccidentallyDisconnect"]
 - ["PSo19QBRTCClientDelegate", "chatServiceChatDidConnect"]
@@ -1529,12 +1634,18 @@ depends-member:
 - !private ["PSo19QBRTCClientDelegate", "navigationController"]
 - !private ["PSo19QBRTCClientDelegate", "navigationItem"]
 - !private ["PSo19QBRTCClientDelegate", "observer"]
+- !private ["PSo19QBRTCClientDelegate", "performSegue"]
 - !private ["PSo19QBRTCClientDelegate", "print"]
 - !private ["PSo19QBRTCClientDelegate", "reloadTableViewIfNeeded"]
 - ["PSo19QBRTCClientDelegate", "session"]
 - ["PSo19QBRTCClientDelegate", "sessionDidClose"]
+- !private ["PSo19QBRTCClientDelegate", "storyboard"]
 - !private ["PSo19QBRTCClientDelegate", "tableView"]
 - ["PSo19QBRTCClientDelegate", ""]
+- ["OSC19QBRTCConferenceType", "deinit"]
+- !private ["OSC19QBRTCConferenceType", "video"]
+- ["CSo12QBRTCSession", "deinit"]
+- !private ["CSo12QBRTCSession", "initiatorID"]
 - !private ["CSo10QBResponse", "deinit"]
 - !private ["CSo10QBResponse", "isSuccess"]
 - ["CSo7QBUUser", "deinit"]
@@ -1550,6 +1661,7 @@ depends-member:
 - !private ["PSo21QMAuthServiceDelegate", "NotificationCenter"]
 - !private ["PSo21QMAuthServiceDelegate", "OperationQueue"]
 - !private ["PSo21QMAuthServiceDelegate", "QBChat"]
+- !private ["PSo21QMAuthServiceDelegate", "QBRTCClient"]
 - !private ["PSo21QMAuthServiceDelegate", "SVProgressHUD"]
 - !private ["PSo21QMAuthServiceDelegate", "SVProgressHUDMaskType"]
 - !private ["PSo21QMAuthServiceDelegate", "ServicesManager"]
@@ -1557,6 +1669,7 @@ depends-member:
 - !private ["PSo21QMAuthServiceDelegate", "UIBarButtonItemStyle"]
 - ["PSo21QMAuthServiceDelegate", "authService"]
 - ["PSo21QMAuthServiceDelegate", "authServiceDidLogOut"]
+- !private ["PSo21QMAuthServiceDelegate", "callWithConferenceType"]
 - ["PSo21QMAuthServiceDelegate", "chatService"]
 - ["PSo21QMAuthServiceDelegate", "chatServiceChatDidAccidentallyDisconnect"]
 - ["PSo21QMAuthServiceDelegate", "chatServiceChatDidConnect"]
@@ -1575,10 +1688,12 @@ depends-member:
 - !private ["PSo21QMAuthServiceDelegate", "navigationController"]
 - !private ["PSo21QMAuthServiceDelegate", "navigationItem"]
 - !private ["PSo21QMAuthServiceDelegate", "observer"]
+- !private ["PSo21QMAuthServiceDelegate", "performSegue"]
 - !private ["PSo21QMAuthServiceDelegate", "print"]
 - !private ["PSo21QMAuthServiceDelegate", "reloadTableViewIfNeeded"]
 - ["PSo21QMAuthServiceDelegate", "session"]
 - ["PSo21QMAuthServiceDelegate", "sessionDidClose"]
+- !private ["PSo21QMAuthServiceDelegate", "storyboard"]
 - !private ["PSo21QMAuthServiceDelegate", "tableView"]
 - ["PSo21QMAuthServiceDelegate", ""]
 - !private ["CSo13QMBaseService", "add"]
@@ -1589,10 +1704,6 @@ depends-member:
 - !private ["CSo13QMBaseService", "remove"]
 - !private ["CSo13QMBaseService", "removeDelegate"]
 - !private ["CSo13QMBaseService", "usersMemoryStorage"]
-- !private ["PSo31QMChatAttachmentServiceDelegate", "dialog"]
-- !private ["PSo18QMChatCellDelegate", "dialog"]
-- !private ["PSo30QMChatCollectionViewDataSource", "dialog"]
-- !private ["PSo38QMChatCollectionViewDelegateFlowLayout", "dialog"]
 - !private ["PSo24QMChatConnectionDelegate", "DialogTableViewCellModel"]
 - !private ["PSo24QMChatConnectionDelegate", "DialogsViewController"]
 - !private ["PSo24QMChatConnectionDelegate", "NSDate"]
@@ -1600,6 +1711,7 @@ depends-member:
 - !private ["PSo24QMChatConnectionDelegate", "NotificationCenter"]
 - !private ["PSo24QMChatConnectionDelegate", "OperationQueue"]
 - !private ["PSo24QMChatConnectionDelegate", "QBChat"]
+- !private ["PSo24QMChatConnectionDelegate", "QBRTCClient"]
 - !private ["PSo24QMChatConnectionDelegate", "SVProgressHUD"]
 - !private ["PSo24QMChatConnectionDelegate", "SVProgressHUDMaskType"]
 - !private ["PSo24QMChatConnectionDelegate", "ServicesManager"]
@@ -1607,6 +1719,7 @@ depends-member:
 - !private ["PSo24QMChatConnectionDelegate", "UIBarButtonItemStyle"]
 - ["PSo24QMChatConnectionDelegate", "authService"]
 - ["PSo24QMChatConnectionDelegate", "authServiceDidLogOut"]
+- !private ["PSo24QMChatConnectionDelegate", "callWithConferenceType"]
 - ["PSo24QMChatConnectionDelegate", "chatService"]
 - ["PSo24QMChatConnectionDelegate", "chatServiceChatDidAccidentallyDisconnect"]
 - ["PSo24QMChatConnectionDelegate", "chatServiceChatDidConnect"]
@@ -1616,7 +1729,6 @@ depends-member:
 - ["PSo24QMChatConnectionDelegate", "chatServiceChatHasStartedConnecting"]
 - !private ["PSo24QMChatConnectionDelegate", "createLogoutButton"]
 - !private ["PSo24QMChatConnectionDelegate", "currentUser"]
-- !private ["PSo24QMChatConnectionDelegate", "dialog"]
 - !private ["PSo24QMChatConnectionDelegate", "dialogs"]
 - !private ["PSo24QMChatConnectionDelegate", "didEnterBackgroundDate"]
 - !private ["PSo24QMChatConnectionDelegate", "didEnterBackgroundNotification"]
@@ -1631,10 +1743,12 @@ depends-member:
 - !private ["PSo24QMChatConnectionDelegate", "navigationController"]
 - !private ["PSo24QMChatConnectionDelegate", "navigationItem"]
 - !private ["PSo24QMChatConnectionDelegate", "observer"]
+- !private ["PSo24QMChatConnectionDelegate", "performSegue"]
 - !private ["PSo24QMChatConnectionDelegate", "print"]
 - !private ["PSo24QMChatConnectionDelegate", "reloadTableViewIfNeeded"]
 - ["PSo24QMChatConnectionDelegate", "session"]
 - ["PSo24QMChatConnectionDelegate", "sessionDidClose"]
+- !private ["PSo24QMChatConnectionDelegate", "storyboard"]
 - !private ["PSo24QMChatConnectionDelegate", "tableView"]
 - !private ["PSo24QMChatConnectionDelegate", "usersService"]
 - ["PSo24QMChatConnectionDelegate", ""]
@@ -1659,6 +1773,7 @@ depends-member:
 - !private ["PSo21QMChatServiceDelegate", "NotificationCenter"]
 - !private ["PSo21QMChatServiceDelegate", "OperationQueue"]
 - !private ["PSo21QMChatServiceDelegate", "QBChat"]
+- !private ["PSo21QMChatServiceDelegate", "QBRTCClient"]
 - !private ["PSo21QMChatServiceDelegate", "SVProgressHUD"]
 - !private ["PSo21QMChatServiceDelegate", "SVProgressHUDMaskType"]
 - !private ["PSo21QMChatServiceDelegate", "ServicesManager"]
@@ -1666,6 +1781,7 @@ depends-member:
 - !private ["PSo21QMChatServiceDelegate", "UIBarButtonItemStyle"]
 - ["PSo21QMChatServiceDelegate", "authService"]
 - ["PSo21QMChatServiceDelegate", "authServiceDidLogOut"]
+- !private ["PSo21QMChatServiceDelegate", "callWithConferenceType"]
 - ["PSo21QMChatServiceDelegate", "chatService"]
 - ["PSo21QMChatServiceDelegate", "chatServiceChatDidAccidentallyDisconnect"]
 - ["PSo21QMChatServiceDelegate", "chatServiceChatDidConnect"]
@@ -1675,7 +1791,6 @@ depends-member:
 - ["PSo21QMChatServiceDelegate", "chatServiceChatHasStartedConnecting"]
 - !private ["PSo21QMChatServiceDelegate", "createLogoutButton"]
 - !private ["PSo21QMChatServiceDelegate", "currentUser"]
-- !private ["PSo21QMChatServiceDelegate", "dialog"]
 - !private ["PSo21QMChatServiceDelegate", "dialogs"]
 - !private ["PSo21QMChatServiceDelegate", "didEnterBackgroundDate"]
 - !private ["PSo21QMChatServiceDelegate", "didEnterBackgroundNotification"]
@@ -1690,15 +1805,15 @@ depends-member:
 - !private ["PSo21QMChatServiceDelegate", "navigationController"]
 - !private ["PSo21QMChatServiceDelegate", "navigationItem"]
 - !private ["PSo21QMChatServiceDelegate", "observer"]
+- !private ["PSo21QMChatServiceDelegate", "performSegue"]
 - !private ["PSo21QMChatServiceDelegate", "print"]
 - !private ["PSo21QMChatServiceDelegate", "reloadTableViewIfNeeded"]
 - ["PSo21QMChatServiceDelegate", "session"]
 - ["PSo21QMChatServiceDelegate", "sessionDidClose"]
+- !private ["PSo21QMChatServiceDelegate", "storyboard"]
 - !private ["PSo21QMChatServiceDelegate", "tableView"]
 - !private ["PSo21QMChatServiceDelegate", "usersService"]
 - ["PSo21QMChatServiceDelegate", ""]
-- !private ["CSo20QMChatViewController", "dialog"]
-- !private ["PSo30QMDeferredQueueManagerDelegate", "dialog"]
 - ["CSo22QMDialogsMemoryStorage", "deinit"]
 - !private ["CSo22QMDialogsMemoryStorage", "dialogsSortByUpdatedAt"]
 - !private ["PSo23QMMemoryStorageProtocol", "add"]
@@ -1711,7 +1826,6 @@ depends-member:
 - !private ["PSo23QMMemoryStorageProtocol", "removeDelegate"]
 - !private ["PSo23QMMemoryStorageProtocol", "user"]
 - !private ["PSo23QMMemoryStorageProtocol", "usersMemoryStorage"]
-- !private ["PSo34QMPlaceHolderTextViewPasteDelegate", "dialog"]
 - !private ["PSo24QMServiceManagerProtocol", "authService"]
 - !private ["PSo24QMServiceManagerProtocol", "chatService"]
 - !private ["PSo24QMServiceManagerProtocol", "currentUser"]
@@ -1748,6 +1862,7 @@ depends-member:
 - !private ["PSo22QMUsersServiceDelegate", "lastActivityDate"]
 - !private ["PSo22QMUsersServiceDelegate", "logoutUserWithCompletion"]
 - !private ["PSo22QMUsersServiceDelegate", "usersService"]
+- !private ["Ps22RandomAccessCollection", "Element"]
 - !private ["Ps22RandomAccessCollection", "Index"]
 - !private ["Ps22RandomAccessCollection", "IndexDistance"]
 - !private ["Ps22RandomAccessCollection", "Indices"]
@@ -1757,6 +1872,7 @@ depends-member:
 - !private ["Ps22RandomAccessCollection", "count"]
 - !private ["Ps22RandomAccessCollection", "row"]
 - !private ["Ps22RandomAccessCollection", "subscript"]
+- !private ["Ps21RandomAccessIndexable", "Element"]
 - !private ["Ps21RandomAccessIndexable", "Index"]
 - !private ["Ps21RandomAccessIndexable", "IndexDistance"]
 - !private ["Ps21RandomAccessIndexable", "Indices"]
@@ -1772,12 +1888,14 @@ depends-member:
 - !private ["Vs17RandomAccessSlice", "Iterator"]
 - !private ["Vs17RandomAccessSlice", "SubSequence"]
 - !private ["Vs17RandomAccessSlice", "_Element"]
+- !private ["Ps26RangeReplaceableCollection", "Element"]
 - !private ["Ps26RangeReplaceableCollection", "Index"]
 - !private ["Ps26RangeReplaceableCollection", "IndexDistance"]
 - !private ["Ps26RangeReplaceableCollection", "SubSequence"]
 - !private ["Ps26RangeReplaceableCollection", "_Element"]
 - !private ["Ps26RangeReplaceableCollection", "count"]
 - !private ["Ps26RangeReplaceableCollection", "subscript"]
+- !private ["Ps25RangeReplaceableIndexable", "Element"]
 - !private ["Ps25RangeReplaceableIndexable", "Index"]
 - !private ["Ps25RangeReplaceableIndexable", "IndexDistance"]
 - !private ["Ps25RangeReplaceableIndexable", "SubSequence"]
@@ -1792,6 +1910,7 @@ depends-member:
 - !private ["Ps16RawRepresentable", "plain"]
 - ["Ps16RawRepresentable", "private"]
 - ["Ps16RawRepresentable", "publicGroup"]
+- !private ["Ps16RawRepresentable", "video"]
 - !private ["P10Foundation20ReferenceConvertible", "row"]
 - !private ["CSo13SVProgressHUD", "show"]
 - !private ["CSo13SVProgressHUD", "showError"]
@@ -1834,13 +1953,17 @@ depends-member:
 - !private ["Ps10Strideable", "Stride"]
 - !private ["Ps10Strideable", "_DisabledRangeIndex"]
 - !private ["Ps10Strideable", "init"]
+- !private ["SS", "NSLocalizedString"]
+- ["SS", "String"]
 - ["SS", "deinit"]
 - ["SS", "init"]
 - !private ["SS", "isEmpty"]
-- !private ["SS", "localized"]
+- ["SS", "localized"]
+- !private ["Ps16TextOutputStream", "NSLocalizedString"]
 - ["Ps16TextOutputStream", "init"]
 - !private ["Ps16TextOutputStream", "isEmpty"]
 - !private ["Ps16TextOutputStream", "localized"]
+- !private ["Ps20TextOutputStreamable", "NSLocalizedString"]
 - ["Ps20TextOutputStreamable", "init"]
 - !private ["Ps20TextOutputStreamable", "isEmpty"]
 - !private ["Ps20TextOutputStreamable", "localized"]
@@ -1863,7 +1986,6 @@ depends-member:
 - !private ["PSo29UIAccessibilityIdentification", "text"]
 - !private ["PSo29UIAccessibilityIdentification", "unreadMessageCounterHolder"]
 - !private ["PSo29UIAccessibilityIdentification", "unreadMessageCounterLabel"]
-- !private ["PSo21UIActionSheetDelegate", "dialog"]
 - !private ["PSo12UIAppearance", "contentView"]
 - !private ["PSo12UIAppearance", "dequeueReusableCell"]
 - !private ["PSo12UIAppearance", "deselectRow"]
@@ -1890,6 +2012,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "NotificationCenter"]
 - !private ["PSo21UIAppearanceContainer", "OperationQueue"]
 - !private ["PSo21UIAppearanceContainer", "QBChat"]
+- !private ["PSo21UIAppearanceContainer", "QBRTCClient"]
 - !private ["PSo21UIAppearanceContainer", "SVProgressHUD"]
 - !private ["PSo21UIAppearanceContainer", "SVProgressHUDMaskType"]
 - !private ["PSo21UIAppearanceContainer", "ServicesManager"]
@@ -1898,6 +2021,7 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "authService"]
 - ["PSo21UIAppearanceContainer", "authServiceDidLogOut"]
 - ["PSo21UIAppearanceContainer", "awakeFromNib"]
+- ["PSo21UIAppearanceContainer", "callWithConferenceType"]
 - ["PSo21UIAppearanceContainer", "chatService"]
 - ["PSo21UIAppearanceContainer", "chatServiceChatDidAccidentallyDisconnect"]
 - ["PSo21UIAppearanceContainer", "chatServiceChatDidConnect"]
@@ -1909,7 +2033,6 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "createLogoutButton"]
 - !private ["PSo21UIAppearanceContainer", "dequeueReusableCell"]
 - !private ["PSo21UIAppearanceContainer", "deselectRow"]
-- !private ["PSo21UIAppearanceContainer", "dialog"]
 - !private ["PSo21UIAppearanceContainer", "dialogID"]
 - !private ["PSo21UIAppearanceContainer", "dialogLastMessage"]
 - !private ["PSo21UIAppearanceContainer", "dialogName"]
@@ -1929,9 +2052,11 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "navigationItem"]
 - ["PSo21UIAppearanceContainer", "numberOfSections"]
 - ["PSo21UIAppearanceContainer", "observer"]
+- !private ["PSo21UIAppearanceContainer", "performSegue"]
 - !private ["PSo21UIAppearanceContainer", "popToRootViewController"]
 - ["PSo21UIAppearanceContainer", "prepare"]
 - !private ["PSo21UIAppearanceContainer", "print"]
+- !private ["PSo21UIAppearanceContainer", "pushViewController"]
 - !private ["PSo21UIAppearanceContainer", "reloadData"]
 - ["PSo21UIAppearanceContainer", "reloadTableViewIfNeeded"]
 - ["PSo21UIAppearanceContainer", "session"]
@@ -1939,6 +2064,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "show"]
 - !private ["PSo21UIAppearanceContainer", "showError"]
 - !private ["PSo21UIAppearanceContainer", "showSuccess"]
+- !private ["PSo21UIAppearanceContainer", "storyboard"]
 - ["PSo21UIAppearanceContainer", "tableView"]
 - !private ["PSo21UIAppearanceContainer", "tag"]
 - !private ["PSo21UIAppearanceContainer", "text"]
@@ -1951,9 +2077,6 @@ depends-member:
 - ["OSC20UIBarButtonItemStyle", "deinit"]
 - !private ["OSC20UIBarButtonItemStyle", "plain"]
 - !private ["CSo9UIBarItem", "init"]
-- !private ["PSo26UICollectionViewDataSource", "dialog"]
-- !private ["PSo24UICollectionViewDelegate", "dialog"]
-- !private ["PSo34UICollectionViewDelegateFlowLayout", "dialog"]
 - !private ["PSo18UIContentContainer", "DialogTableViewCellModel"]
 - !private ["PSo18UIContentContainer", "DialogsViewController"]
 - !private ["PSo18UIContentContainer", "NSDate"]
@@ -1961,6 +2084,7 @@ depends-member:
 - !private ["PSo18UIContentContainer", "NotificationCenter"]
 - !private ["PSo18UIContentContainer", "OperationQueue"]
 - !private ["PSo18UIContentContainer", "QBChat"]
+- !private ["PSo18UIContentContainer", "QBRTCClient"]
 - !private ["PSo18UIContentContainer", "SVProgressHUD"]
 - !private ["PSo18UIContentContainer", "SVProgressHUDMaskType"]
 - !private ["PSo18UIContentContainer", "ServicesManager"]
@@ -1969,6 +2093,7 @@ depends-member:
 - ["PSo18UIContentContainer", "authService"]
 - ["PSo18UIContentContainer", "authServiceDidLogOut"]
 - ["PSo18UIContentContainer", "awakeFromNib"]
+- ["PSo18UIContentContainer", "callWithConferenceType"]
 - ["PSo18UIContentContainer", "chatService"]
 - ["PSo18UIContentContainer", "chatServiceChatDidAccidentallyDisconnect"]
 - ["PSo18UIContentContainer", "chatServiceChatDidConnect"]
@@ -1977,7 +2102,6 @@ depends-member:
 - ["PSo18UIContentContainer", "chatServiceChatDidReconnect"]
 - ["PSo18UIContentContainer", "chatServiceChatHasStartedConnecting"]
 - ["PSo18UIContentContainer", "createLogoutButton"]
-- !private ["PSo18UIContentContainer", "dialog"]
 - ["PSo18UIContentContainer", "dialogs"]
 - ["PSo18UIContentContainer", "didEnterBackgroundDate"]
 - ["PSo18UIContentContainer", "didEnterBackgroundNotification"]
@@ -1990,12 +2114,15 @@ depends-member:
 - !private ["PSo18UIContentContainer", "navigationItem"]
 - ["PSo18UIContentContainer", "numberOfSections"]
 - ["PSo18UIContentContainer", "observer"]
+- !private ["PSo18UIContentContainer", "performSegue"]
 - !private ["PSo18UIContentContainer", "popToRootViewController"]
 - ["PSo18UIContentContainer", "prepare"]
 - !private ["PSo18UIContentContainer", "print"]
+- !private ["PSo18UIContentContainer", "pushViewController"]
 - ["PSo18UIContentContainer", "reloadTableViewIfNeeded"]
 - ["PSo18UIContentContainer", "session"]
 - ["PSo18UIContentContainer", "sessionDidClose"]
+- !private ["PSo18UIContentContainer", "storyboard"]
 - ["PSo18UIContentContainer", "tableView"]
 - ["PSo18UIContentContainer", "viewWillAppear"]
 - ["PSo18UIContentContainer", ""]
@@ -2043,6 +2170,7 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "NotificationCenter"]
 - !private ["PSo18UIFocusEnvironment", "OperationQueue"]
 - !private ["PSo18UIFocusEnvironment", "QBChat"]
+- !private ["PSo18UIFocusEnvironment", "QBRTCClient"]
 - !private ["PSo18UIFocusEnvironment", "SVProgressHUD"]
 - !private ["PSo18UIFocusEnvironment", "SVProgressHUDMaskType"]
 - !private ["PSo18UIFocusEnvironment", "ServicesManager"]
@@ -2051,6 +2179,7 @@ depends-member:
 - ["PSo18UIFocusEnvironment", "authService"]
 - ["PSo18UIFocusEnvironment", "authServiceDidLogOut"]
 - ["PSo18UIFocusEnvironment", "awakeFromNib"]
+- ["PSo18UIFocusEnvironment", "callWithConferenceType"]
 - ["PSo18UIFocusEnvironment", "chatService"]
 - ["PSo18UIFocusEnvironment", "chatServiceChatDidAccidentallyDisconnect"]
 - ["PSo18UIFocusEnvironment", "chatServiceChatDidConnect"]
@@ -2062,7 +2191,6 @@ depends-member:
 - ["PSo18UIFocusEnvironment", "createLogoutButton"]
 - !private ["PSo18UIFocusEnvironment", "dequeueReusableCell"]
 - !private ["PSo18UIFocusEnvironment", "deselectRow"]
-- !private ["PSo18UIFocusEnvironment", "dialog"]
 - !private ["PSo18UIFocusEnvironment", "dialogID"]
 - !private ["PSo18UIFocusEnvironment", "dialogLastMessage"]
 - !private ["PSo18UIFocusEnvironment", "dialogName"]
@@ -2082,9 +2210,11 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "navigationItem"]
 - ["PSo18UIFocusEnvironment", "numberOfSections"]
 - ["PSo18UIFocusEnvironment", "observer"]
+- !private ["PSo18UIFocusEnvironment", "performSegue"]
 - !private ["PSo18UIFocusEnvironment", "popToRootViewController"]
 - ["PSo18UIFocusEnvironment", "prepare"]
 - !private ["PSo18UIFocusEnvironment", "print"]
+- !private ["PSo18UIFocusEnvironment", "pushViewController"]
 - !private ["PSo18UIFocusEnvironment", "reloadData"]
 - ["PSo18UIFocusEnvironment", "reloadTableViewIfNeeded"]
 - ["PSo18UIFocusEnvironment", "session"]
@@ -2092,6 +2222,7 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "show"]
 - !private ["PSo18UIFocusEnvironment", "showError"]
 - !private ["PSo18UIFocusEnvironment", "showSuccess"]
+- !private ["PSo18UIFocusEnvironment", "storyboard"]
 - ["PSo18UIFocusEnvironment", "tableView"]
 - !private ["PSo18UIFocusEnvironment", "tag"]
 - !private ["PSo18UIFocusEnvironment", "text"]
@@ -2127,18 +2258,17 @@ depends-member:
 - !private ["PSo27UIGestureRecognizerDelegate", "unreadMessageCounterHolder"]
 - !private ["PSo27UIGestureRecognizerDelegate", "unreadMessageCounterLabel"]
 - !private ["CSo7UIImage", "init"]
-- !private ["PSo31UIImagePickerControllerDelegate", "dialog"]
 - !private ["CSo11UIImageView", "image"]
 - !private ["CSo7UILabel", "text"]
-- !private ["CSo22UINavigationController", "deinit"]
+- ["CSo22UINavigationController", "deinit"]
 - !private ["CSo22UINavigationController", "popToRootViewController"]
-- !private ["PSo30UINavigationControllerDelegate", "dialog"]
+- !private ["CSo22UINavigationController", "pushViewController"]
 - ["CSo16UINavigationItem", "deinit"]
 - !private ["CSo16UINavigationItem", "leftBarButtonItem"]
 - !private ["CSo16UINavigationItem", "title"]
 - ["CSo11UIResponder", "Bool"]
 - ["CSo11UIResponder", "CGFloat"]
-- !private ["CSo11UIResponder", "ChatViewController"]
+- !private ["CSo11UIResponder", "CallViewController"]
 - !private ["CSo11UIResponder", "Date"]
 - !private ["CSo11UIResponder", "DialogTableViewCell"]
 - !private ["CSo11UIResponder", "DialogTableViewCellModel"]
@@ -2156,6 +2286,8 @@ depends-member:
 - !private ["CSo11UIResponder", "QBChat"]
 - ["CSo11UIResponder", "QBChatDialog"]
 - ["CSo11UIResponder", "QBChatMessage"]
+- !private ["CSo11UIResponder", "QBRTCClient"]
+- ["CSo11UIResponder", "QBRTCConferenceType"]
 - !private ["CSo11UIResponder", "QBResponse"]
 - ["CSo11UIResponder", "QMChatService"]
 - !private ["CSo11UIResponder", "SVProgressHUD"]
@@ -2174,6 +2306,7 @@ depends-member:
 - ["CSo11UIResponder", "authService"]
 - ["CSo11UIResponder", "authServiceDidLogOut"]
 - ["CSo11UIResponder", "awakeFromNib"]
+- ["CSo11UIResponder", "callWithConferenceType"]
 - ["CSo11UIResponder", "chatService"]
 - ["CSo11UIResponder", "chatServiceChatDidAccidentallyDisconnect"]
 - ["CSo11UIResponder", "chatServiceChatDidConnect"]
@@ -2185,7 +2318,6 @@ depends-member:
 - ["CSo11UIResponder", "createLogoutButton"]
 - !private ["CSo11UIResponder", "dequeueReusableCell"]
 - !private ["CSo11UIResponder", "deselectRow"]
-- !private ["CSo11UIResponder", "dialog"]
 - !private ["CSo11UIResponder", "dialogID"]
 - !private ["CSo11UIResponder", "dialogLastMessage"]
 - !private ["CSo11UIResponder", "dialogName"]
@@ -2205,9 +2337,11 @@ depends-member:
 - !private ["CSo11UIResponder", "navigationItem"]
 - ["CSo11UIResponder", "numberOfSections"]
 - ["CSo11UIResponder", "observer"]
+- !private ["CSo11UIResponder", "performSegue"]
 - !private ["CSo11UIResponder", "popToRootViewController"]
 - ["CSo11UIResponder", "prepare"]
 - !private ["CSo11UIResponder", "print"]
+- !private ["CSo11UIResponder", "pushViewController"]
 - !private ["CSo11UIResponder", "reloadData"]
 - ["CSo11UIResponder", "reloadTableViewIfNeeded"]
 - ["CSo11UIResponder", "session"]
@@ -2215,6 +2349,7 @@ depends-member:
 - !private ["CSo11UIResponder", "show"]
 - !private ["CSo11UIResponder", "showError"]
 - !private ["CSo11UIResponder", "showSuccess"]
+- !private ["CSo11UIResponder", "storyboard"]
 - ["CSo11UIResponder", "tableView"]
 - !private ["CSo11UIResponder", "tag"]
 - !private ["CSo11UIResponder", "text"]
@@ -2228,6 +2363,7 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "NotificationCenter"]
 - !private ["PSo30UIResponderStandardEditActions", "OperationQueue"]
 - !private ["PSo30UIResponderStandardEditActions", "QBChat"]
+- !private ["PSo30UIResponderStandardEditActions", "QBRTCClient"]
 - !private ["PSo30UIResponderStandardEditActions", "SVProgressHUD"]
 - !private ["PSo30UIResponderStandardEditActions", "SVProgressHUDMaskType"]
 - !private ["PSo30UIResponderStandardEditActions", "ServicesManager"]
@@ -2236,6 +2372,7 @@ depends-member:
 - ["PSo30UIResponderStandardEditActions", "authService"]
 - ["PSo30UIResponderStandardEditActions", "authServiceDidLogOut"]
 - ["PSo30UIResponderStandardEditActions", "awakeFromNib"]
+- ["PSo30UIResponderStandardEditActions", "callWithConferenceType"]
 - ["PSo30UIResponderStandardEditActions", "chatService"]
 - ["PSo30UIResponderStandardEditActions", "chatServiceChatDidAccidentallyDisconnect"]
 - ["PSo30UIResponderStandardEditActions", "chatServiceChatDidConnect"]
@@ -2247,7 +2384,6 @@ depends-member:
 - ["PSo30UIResponderStandardEditActions", "createLogoutButton"]
 - !private ["PSo30UIResponderStandardEditActions", "dequeueReusableCell"]
 - !private ["PSo30UIResponderStandardEditActions", "deselectRow"]
-- !private ["PSo30UIResponderStandardEditActions", "dialog"]
 - !private ["PSo30UIResponderStandardEditActions", "dialogID"]
 - !private ["PSo30UIResponderStandardEditActions", "dialogLastMessage"]
 - !private ["PSo30UIResponderStandardEditActions", "dialogName"]
@@ -2267,9 +2403,11 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "navigationItem"]
 - ["PSo30UIResponderStandardEditActions", "numberOfSections"]
 - ["PSo30UIResponderStandardEditActions", "observer"]
+- !private ["PSo30UIResponderStandardEditActions", "performSegue"]
 - !private ["PSo30UIResponderStandardEditActions", "popToRootViewController"]
 - ["PSo30UIResponderStandardEditActions", "prepare"]
 - !private ["PSo30UIResponderStandardEditActions", "print"]
+- !private ["PSo30UIResponderStandardEditActions", "pushViewController"]
 - !private ["PSo30UIResponderStandardEditActions", "reloadData"]
 - ["PSo30UIResponderStandardEditActions", "reloadTableViewIfNeeded"]
 - ["PSo30UIResponderStandardEditActions", "session"]
@@ -2277,6 +2415,7 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "show"]
 - !private ["PSo30UIResponderStandardEditActions", "showError"]
 - !private ["PSo30UIResponderStandardEditActions", "showSuccess"]
+- !private ["PSo30UIResponderStandardEditActions", "storyboard"]
 - ["PSo30UIResponderStandardEditActions", "tableView"]
 - !private ["PSo30UIResponderStandardEditActions", "tag"]
 - !private ["PSo30UIResponderStandardEditActions", "text"]
@@ -2294,6 +2433,7 @@ depends-member:
 - !private ["PSo20UIScrollViewDelegate", "NotificationCenter"]
 - !private ["PSo20UIScrollViewDelegate", "OperationQueue"]
 - !private ["PSo20UIScrollViewDelegate", "QBChat"]
+- !private ["PSo20UIScrollViewDelegate", "QBRTCClient"]
 - !private ["PSo20UIScrollViewDelegate", "SVProgressHUD"]
 - !private ["PSo20UIScrollViewDelegate", "SVProgressHUDMaskType"]
 - !private ["PSo20UIScrollViewDelegate", "ServicesManager"]
@@ -2302,6 +2442,7 @@ depends-member:
 - ["PSo20UIScrollViewDelegate", "authService"]
 - ["PSo20UIScrollViewDelegate", "authServiceDidLogOut"]
 - ["PSo20UIScrollViewDelegate", "awakeFromNib"]
+- ["PSo20UIScrollViewDelegate", "callWithConferenceType"]
 - ["PSo20UIScrollViewDelegate", "chatService"]
 - ["PSo20UIScrollViewDelegate", "chatServiceChatDidAccidentallyDisconnect"]
 - ["PSo20UIScrollViewDelegate", "chatServiceChatDidConnect"]
@@ -2310,7 +2451,6 @@ depends-member:
 - ["PSo20UIScrollViewDelegate", "chatServiceChatDidReconnect"]
 - ["PSo20UIScrollViewDelegate", "chatServiceChatHasStartedConnecting"]
 - ["PSo20UIScrollViewDelegate", "createLogoutButton"]
-- !private ["PSo20UIScrollViewDelegate", "dialog"]
 - ["PSo20UIScrollViewDelegate", "dialogs"]
 - ["PSo20UIScrollViewDelegate", "didEnterBackgroundDate"]
 - ["PSo20UIScrollViewDelegate", "didEnterBackgroundNotification"]
@@ -2323,11 +2463,13 @@ depends-member:
 - !private ["PSo20UIScrollViewDelegate", "navigationItem"]
 - ["PSo20UIScrollViewDelegate", "numberOfSections"]
 - ["PSo20UIScrollViewDelegate", "observer"]
+- !private ["PSo20UIScrollViewDelegate", "performSegue"]
 - ["PSo20UIScrollViewDelegate", "prepare"]
 - !private ["PSo20UIScrollViewDelegate", "print"]
 - ["PSo20UIScrollViewDelegate", "reloadTableViewIfNeeded"]
 - ["PSo20UIScrollViewDelegate", "session"]
 - ["PSo20UIScrollViewDelegate", "sessionDidClose"]
+- !private ["PSo20UIScrollViewDelegate", "storyboard"]
 - ["PSo20UIScrollViewDelegate", "tableView"]
 - ["PSo20UIScrollViewDelegate", "viewWillAppear"]
 - ["PSo20UIScrollViewDelegate", ""]
@@ -2338,6 +2480,7 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "NotificationCenter"]
 - !private ["PSo16UIStateRestoring", "OperationQueue"]
 - !private ["PSo16UIStateRestoring", "QBChat"]
+- !private ["PSo16UIStateRestoring", "QBRTCClient"]
 - !private ["PSo16UIStateRestoring", "SVProgressHUD"]
 - !private ["PSo16UIStateRestoring", "SVProgressHUDMaskType"]
 - !private ["PSo16UIStateRestoring", "ServicesManager"]
@@ -2346,6 +2489,7 @@ depends-member:
 - ["PSo16UIStateRestoring", "authService"]
 - ["PSo16UIStateRestoring", "authServiceDidLogOut"]
 - ["PSo16UIStateRestoring", "awakeFromNib"]
+- ["PSo16UIStateRestoring", "callWithConferenceType"]
 - ["PSo16UIStateRestoring", "chatService"]
 - ["PSo16UIStateRestoring", "chatServiceChatDidAccidentallyDisconnect"]
 - ["PSo16UIStateRestoring", "chatServiceChatDidConnect"]
@@ -2354,7 +2498,6 @@ depends-member:
 - ["PSo16UIStateRestoring", "chatServiceChatDidReconnect"]
 - ["PSo16UIStateRestoring", "chatServiceChatHasStartedConnecting"]
 - ["PSo16UIStateRestoring", "createLogoutButton"]
-- !private ["PSo16UIStateRestoring", "dialog"]
 - ["PSo16UIStateRestoring", "dialogs"]
 - ["PSo16UIStateRestoring", "didEnterBackgroundDate"]
 - ["PSo16UIStateRestoring", "didEnterBackgroundNotification"]
@@ -2367,17 +2510,21 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "navigationItem"]
 - ["PSo16UIStateRestoring", "numberOfSections"]
 - ["PSo16UIStateRestoring", "observer"]
+- !private ["PSo16UIStateRestoring", "performSegue"]
 - !private ["PSo16UIStateRestoring", "popToRootViewController"]
 - ["PSo16UIStateRestoring", "prepare"]
 - !private ["PSo16UIStateRestoring", "print"]
+- !private ["PSo16UIStateRestoring", "pushViewController"]
 - ["PSo16UIStateRestoring", "reloadTableViewIfNeeded"]
 - ["PSo16UIStateRestoring", "session"]
 - ["PSo16UIStateRestoring", "sessionDidClose"]
+- !private ["PSo16UIStateRestoring", "storyboard"]
 - ["PSo16UIStateRestoring", "tableView"]
 - ["PSo16UIStateRestoring", "viewWillAppear"]
 - ["PSo16UIStateRestoring", ""]
+- ["CSo12UIStoryboard", "deinit"]
+- !private ["CSo12UIStoryboard", "instantiateViewController"]
 - ["CSo17UIStoryboardSegue", "deinit"]
-- !private ["CSo17UIStoryboardSegue", "destination"]
 - !private ["CSo17UIStoryboardSegue", "identifier"]
 - ["CSo11UITableView", "deinit"]
 - !private ["CSo11UITableView", "dequeueReusableCell"]
@@ -2395,7 +2542,7 @@ depends-member:
 - !private ["CSo15UITableViewCell", "unreadMessageCounterLabel"]
 - ["CSo21UITableViewController", "Bool"]
 - ["CSo21UITableViewController", "CGFloat"]
-- !private ["CSo21UITableViewController", "ChatViewController"]
+- !private ["CSo21UITableViewController", "CallViewController"]
 - !private ["CSo21UITableViewController", "Date"]
 - !private ["CSo21UITableViewController", "DialogTableViewCell"]
 - !private ["CSo21UITableViewController", "DialogTableViewCellModel"]
@@ -2413,6 +2560,8 @@ depends-member:
 - !private ["CSo21UITableViewController", "QBChat"]
 - ["CSo21UITableViewController", "QBChatDialog"]
 - ["CSo21UITableViewController", "QBChatMessage"]
+- !private ["CSo21UITableViewController", "QBRTCClient"]
+- ["CSo21UITableViewController", "QBRTCConferenceType"]
 - !private ["CSo21UITableViewController", "QBResponse"]
 - ["CSo21UITableViewController", "QMChatService"]
 - !private ["CSo21UITableViewController", "SVProgressHUD"]
@@ -2431,6 +2580,7 @@ depends-member:
 - ["CSo21UITableViewController", "authService"]
 - ["CSo21UITableViewController", "authServiceDidLogOut"]
 - ["CSo21UITableViewController", "awakeFromNib"]
+- ["CSo21UITableViewController", "callWithConferenceType"]
 - ["CSo21UITableViewController", "chatService"]
 - ["CSo21UITableViewController", "chatServiceChatDidAccidentallyDisconnect"]
 - ["CSo21UITableViewController", "chatServiceChatDidConnect"]
@@ -2452,11 +2602,13 @@ depends-member:
 - !private ["CSo21UITableViewController", "navigationItem"]
 - ["CSo21UITableViewController", "numberOfSections"]
 - ["CSo21UITableViewController", "observer"]
+- !private ["CSo21UITableViewController", "performSegue"]
 - ["CSo21UITableViewController", "prepare"]
 - !private ["CSo21UITableViewController", "print"]
 - ["CSo21UITableViewController", "reloadTableViewIfNeeded"]
 - ["CSo21UITableViewController", "session"]
 - ["CSo21UITableViewController", "sessionDidClose"]
+- !private ["CSo21UITableViewController", "storyboard"]
 - ["CSo21UITableViewController", "tableView"]
 - ["CSo21UITableViewController", "viewWillAppear"]
 - ["CSo21UITableViewController", ""]
@@ -2467,6 +2619,7 @@ depends-member:
 - !private ["PSo21UITableViewDataSource", "NotificationCenter"]
 - !private ["PSo21UITableViewDataSource", "OperationQueue"]
 - !private ["PSo21UITableViewDataSource", "QBChat"]
+- !private ["PSo21UITableViewDataSource", "QBRTCClient"]
 - !private ["PSo21UITableViewDataSource", "SVProgressHUD"]
 - !private ["PSo21UITableViewDataSource", "SVProgressHUDMaskType"]
 - !private ["PSo21UITableViewDataSource", "ServicesManager"]
@@ -2475,6 +2628,7 @@ depends-member:
 - ["PSo21UITableViewDataSource", "authService"]
 - ["PSo21UITableViewDataSource", "authServiceDidLogOut"]
 - ["PSo21UITableViewDataSource", "awakeFromNib"]
+- ["PSo21UITableViewDataSource", "callWithConferenceType"]
 - ["PSo21UITableViewDataSource", "chatService"]
 - ["PSo21UITableViewDataSource", "chatServiceChatDidAccidentallyDisconnect"]
 - ["PSo21UITableViewDataSource", "chatServiceChatDidConnect"]
@@ -2495,11 +2649,13 @@ depends-member:
 - !private ["PSo21UITableViewDataSource", "navigationItem"]
 - ["PSo21UITableViewDataSource", "numberOfSections"]
 - ["PSo21UITableViewDataSource", "observer"]
+- !private ["PSo21UITableViewDataSource", "performSegue"]
 - ["PSo21UITableViewDataSource", "prepare"]
 - !private ["PSo21UITableViewDataSource", "print"]
 - ["PSo21UITableViewDataSource", "reloadTableViewIfNeeded"]
 - ["PSo21UITableViewDataSource", "session"]
 - ["PSo21UITableViewDataSource", "sessionDidClose"]
+- !private ["PSo21UITableViewDataSource", "storyboard"]
 - ["PSo21UITableViewDataSource", "tableView"]
 - ["PSo21UITableViewDataSource", "viewWillAppear"]
 - ["PSo21UITableViewDataSource", ""]
@@ -2510,6 +2666,7 @@ depends-member:
 - !private ["PSo19UITableViewDelegate", "NotificationCenter"]
 - !private ["PSo19UITableViewDelegate", "OperationQueue"]
 - !private ["PSo19UITableViewDelegate", "QBChat"]
+- !private ["PSo19UITableViewDelegate", "QBRTCClient"]
 - !private ["PSo19UITableViewDelegate", "SVProgressHUD"]
 - !private ["PSo19UITableViewDelegate", "SVProgressHUDMaskType"]
 - !private ["PSo19UITableViewDelegate", "ServicesManager"]
@@ -2518,6 +2675,7 @@ depends-member:
 - ["PSo19UITableViewDelegate", "authService"]
 - ["PSo19UITableViewDelegate", "authServiceDidLogOut"]
 - ["PSo19UITableViewDelegate", "awakeFromNib"]
+- ["PSo19UITableViewDelegate", "callWithConferenceType"]
 - ["PSo19UITableViewDelegate", "chatService"]
 - ["PSo19UITableViewDelegate", "chatServiceChatDidAccidentallyDisconnect"]
 - ["PSo19UITableViewDelegate", "chatServiceChatDidConnect"]
@@ -2538,16 +2696,17 @@ depends-member:
 - !private ["PSo19UITableViewDelegate", "navigationItem"]
 - ["PSo19UITableViewDelegate", "numberOfSections"]
 - ["PSo19UITableViewDelegate", "observer"]
+- !private ["PSo19UITableViewDelegate", "performSegue"]
 - ["PSo19UITableViewDelegate", "prepare"]
 - !private ["PSo19UITableViewDelegate", "print"]
 - ["PSo19UITableViewDelegate", "reloadTableViewIfNeeded"]
 - ["PSo19UITableViewDelegate", "session"]
 - ["PSo19UITableViewDelegate", "sessionDidClose"]
+- !private ["PSo19UITableViewDelegate", "storyboard"]
 - ["PSo19UITableViewDelegate", "tableView"]
 - ["PSo19UITableViewDelegate", "viewWillAppear"]
 - ["PSo19UITableViewDelegate", ""]
 - ["OSC16UITableViewStyle", "deinit"]
-- !private ["PSo18UITextViewDelegate", "dialog"]
 - !private ["PSo18UITraitEnvironment", "DialogTableViewCellModel"]
 - !private ["PSo18UITraitEnvironment", "DialogsViewController"]
 - !private ["PSo18UITraitEnvironment", "NSDate"]
@@ -2555,6 +2714,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "NotificationCenter"]
 - !private ["PSo18UITraitEnvironment", "OperationQueue"]
 - !private ["PSo18UITraitEnvironment", "QBChat"]
+- !private ["PSo18UITraitEnvironment", "QBRTCClient"]
 - !private ["PSo18UITraitEnvironment", "SVProgressHUD"]
 - !private ["PSo18UITraitEnvironment", "SVProgressHUDMaskType"]
 - !private ["PSo18UITraitEnvironment", "ServicesManager"]
@@ -2563,6 +2723,7 @@ depends-member:
 - ["PSo18UITraitEnvironment", "authService"]
 - ["PSo18UITraitEnvironment", "authServiceDidLogOut"]
 - ["PSo18UITraitEnvironment", "awakeFromNib"]
+- ["PSo18UITraitEnvironment", "callWithConferenceType"]
 - ["PSo18UITraitEnvironment", "chatService"]
 - ["PSo18UITraitEnvironment", "chatServiceChatDidAccidentallyDisconnect"]
 - ["PSo18UITraitEnvironment", "chatServiceChatDidConnect"]
@@ -2574,7 +2735,6 @@ depends-member:
 - ["PSo18UITraitEnvironment", "createLogoutButton"]
 - !private ["PSo18UITraitEnvironment", "dequeueReusableCell"]
 - !private ["PSo18UITraitEnvironment", "deselectRow"]
-- !private ["PSo18UITraitEnvironment", "dialog"]
 - !private ["PSo18UITraitEnvironment", "dialogID"]
 - !private ["PSo18UITraitEnvironment", "dialogLastMessage"]
 - !private ["PSo18UITraitEnvironment", "dialogName"]
@@ -2594,9 +2754,11 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "navigationItem"]
 - ["PSo18UITraitEnvironment", "numberOfSections"]
 - ["PSo18UITraitEnvironment", "observer"]
+- !private ["PSo18UITraitEnvironment", "performSegue"]
 - !private ["PSo18UITraitEnvironment", "popToRootViewController"]
 - ["PSo18UITraitEnvironment", "prepare"]
 - !private ["PSo18UITraitEnvironment", "print"]
+- !private ["PSo18UITraitEnvironment", "pushViewController"]
 - !private ["PSo18UITraitEnvironment", "reloadData"]
 - ["PSo18UITraitEnvironment", "reloadTableViewIfNeeded"]
 - ["PSo18UITraitEnvironment", "session"]
@@ -2604,6 +2766,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "show"]
 - !private ["PSo18UITraitEnvironment", "showError"]
 - !private ["PSo18UITraitEnvironment", "showSuccess"]
+- !private ["PSo18UITraitEnvironment", "storyboard"]
 - ["PSo18UITraitEnvironment", "tableView"]
 - !private ["PSo18UITraitEnvironment", "tag"]
 - !private ["PSo18UITraitEnvironment", "text"]
@@ -2632,7 +2795,7 @@ depends-member:
 - !private ["CSo6UIView", "unreadMessageCounterLabel"]
 - ["CSo16UIViewController", "Bool"]
 - ["CSo16UIViewController", "CGFloat"]
-- !private ["CSo16UIViewController", "ChatViewController"]
+- !private ["CSo16UIViewController", "CallViewController"]
 - !private ["CSo16UIViewController", "Date"]
 - !private ["CSo16UIViewController", "DialogTableViewCell"]
 - !private ["CSo16UIViewController", "DialogTableViewCellModel"]
@@ -2650,6 +2813,8 @@ depends-member:
 - !private ["CSo16UIViewController", "QBChat"]
 - ["CSo16UIViewController", "QBChatDialog"]
 - ["CSo16UIViewController", "QBChatMessage"]
+- !private ["CSo16UIViewController", "QBRTCClient"]
+- ["CSo16UIViewController", "QBRTCConferenceType"]
 - !private ["CSo16UIViewController", "QBResponse"]
 - ["CSo16UIViewController", "QMChatService"]
 - !private ["CSo16UIViewController", "SVProgressHUD"]
@@ -2668,6 +2833,7 @@ depends-member:
 - ["CSo16UIViewController", "authService"]
 - ["CSo16UIViewController", "authServiceDidLogOut"]
 - ["CSo16UIViewController", "awakeFromNib"]
+- ["CSo16UIViewController", "callWithConferenceType"]
 - ["CSo16UIViewController", "chatService"]
 - ["CSo16UIViewController", "chatServiceChatDidAccidentallyDisconnect"]
 - ["CSo16UIViewController", "chatServiceChatDidConnect"]
@@ -2677,7 +2843,6 @@ depends-member:
 - ["CSo16UIViewController", "chatServiceChatHasStartedConnecting"]
 - ["CSo16UIViewController", "createLogoutButton"]
 - ["CSo16UIViewController", "deinit"]
-- !private ["CSo16UIViewController", "dialog"]
 - ["CSo16UIViewController", "dialogs"]
 - ["CSo16UIViewController", "didEnterBackgroundDate"]
 - ["CSo16UIViewController", "didEnterBackgroundNotification"]
@@ -2690,20 +2855,25 @@ depends-member:
 - !private ["CSo16UIViewController", "navigationItem"]
 - ["CSo16UIViewController", "numberOfSections"]
 - ["CSo16UIViewController", "observer"]
+- !private ["CSo16UIViewController", "performSegue"]
 - !private ["CSo16UIViewController", "popToRootViewController"]
 - ["CSo16UIViewController", "prepare"]
 - !private ["CSo16UIViewController", "print"]
+- !private ["CSo16UIViewController", "pushViewController"]
 - ["CSo16UIViewController", "reloadTableViewIfNeeded"]
 - ["CSo16UIViewController", "session"]
 - ["CSo16UIViewController", "sessionDidClose"]
+- !private ["CSo16UIViewController", "storyboard"]
 - ["CSo16UIViewController", "tableView"]
 - ["CSo16UIViewController", "viewWillAppear"]
 - ["Su", "deinit"]
 - !private ["Su", "init"]
+- !private ["P9Alamofire14URLConvertible", "NSLocalizedString"]
 - ["P9Alamofire14URLConvertible", "init"]
 - !private ["P9Alamofire14URLConvertible", "isEmpty"]
 - !private ["P9Alamofire14URLConvertible", "localized"]
 - !private ["Ps15UnsignedInteger", "init"]
+- !private ["Ps14_ArrayProtocol", "Element"]
 - !private ["Ps14_ArrayProtocol", "Index"]
 - !private ["Ps14_ArrayProtocol", "IndexDistance"]
 - !private ["Ps14_ArrayProtocol", "SubSequence"]
@@ -2728,6 +2898,7 @@ depends-member:
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "text"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "unreadMessageCounterHolder"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "unreadMessageCounterLabel"]
+- !private ["Ps24_DestructorSafeContainer", "Element"]
 - !private ["Ps24_DestructorSafeContainer", "Index"]
 - !private ["Ps24_DestructorSafeContainer", "IndexDistance"]
 - !private ["Ps24_DestructorSafeContainer", "SubSequence"]
@@ -2736,6 +2907,7 @@ depends-member:
 - !private ["Ps24_DestructorSafeContainer", "subscript"]
 - !private ["Ps28_DisallowMixedSignArithmetic", "init"]
 - !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "NSLocalizedString"]
 - ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
 - !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "isEmpty"]
 - !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "localized"]
@@ -2743,12 +2915,15 @@ depends-member:
 - !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "Stride"]
 - !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "_DisabledRangeIndex"]
 - !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "init"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "NSLocalizedString"]
 - ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
 - !private ["Ps34_ExpressibleByBuiltinStringLiteral", "isEmpty"]
 - !private ["Ps34_ExpressibleByBuiltinStringLiteral", "localized"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "NSLocalizedString"]
 - ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
 - !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "isEmpty"]
 - !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "localized"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "NSLocalizedString"]
 - ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
 - !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "isEmpty"]
 - !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "localized"]
@@ -2761,11 +2936,13 @@ depends-member:
 - !private ["Ps9_Hashable", "DialogsViewController"]
 - !private ["Ps9_Hashable", "IntegerLiteralType"]
 - !private ["Ps9_Hashable", "NSDate"]
+- !private ["Ps9_Hashable", "NSLocalizedString"]
 - !private ["Ps9_Hashable", "NSNotification"]
 - !private ["Ps9_Hashable", "Name"]
 - !private ["Ps9_Hashable", "NotificationCenter"]
 - !private ["Ps9_Hashable", "OperationQueue"]
 - !private ["Ps9_Hashable", "QBChat"]
+- !private ["Ps9_Hashable", "QBRTCClient"]
 - !private ["Ps9_Hashable", "RawValue"]
 - !private ["Ps9_Hashable", "SVProgressHUD"]
 - !private ["Ps9_Hashable", "SVProgressHUDMaskType"]
@@ -2787,6 +2964,7 @@ depends-member:
 - ["Ps9_Hashable", "authService"]
 - ["Ps9_Hashable", "authServiceDidLogOut"]
 - ["Ps9_Hashable", "awakeFromNib"]
+- ["Ps9_Hashable", "callWithConferenceType"]
 - ["Ps9_Hashable", "chatService"]
 - ["Ps9_Hashable", "chatServiceChatDidAccidentallyDisconnect"]
 - ["Ps9_Hashable", "chatServiceChatDidConnect"]
@@ -2797,13 +2975,12 @@ depends-member:
 - !private ["Ps9_Hashable", "clear"]
 - !private ["Ps9_Hashable", "contentView"]
 - ["Ps9_Hashable", "createLogoutButton"]
+- !private ["Ps9_Hashable", "createNewSession"]
 - !private ["Ps9_Hashable", "currentUser"]
 - !private ["Ps9_Hashable", "default"]
 - !private ["Ps9_Hashable", "dequeueReusableCell"]
 - !private ["Ps9_Hashable", "deselectRow"]
-- !private ["Ps9_Hashable", "destination"]
 - ["Ps9_Hashable", "detailTextLabelText"]
-- !private ["Ps9_Hashable", "dialog"]
 - !private ["Ps9_Hashable", "dialogID"]
 - ["Ps9_Hashable", "dialogIcon"]
 - !private ["Ps9_Hashable", "dialogLastMessage"]
@@ -2823,7 +3000,9 @@ depends-member:
 - !private ["Ps9_Hashable", "identifier"]
 - !private ["Ps9_Hashable", "image"]
 - ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "initiatorID"]
 - !private ["Ps9_Hashable", "instance"]
+- !private ["Ps9_Hashable", "instantiateViewController"]
 - !private ["Ps9_Hashable", "isConnected"]
 - !private ["Ps9_Hashable", "isEmpty"]
 - !private ["Ps9_Hashable", "isExclusiveTouch"]
@@ -2844,12 +3023,14 @@ depends-member:
 - !private ["Ps9_Hashable", "navigationItem"]
 - ["Ps9_Hashable", "numberOfSections"]
 - ["Ps9_Hashable", "observer"]
+- !private ["Ps9_Hashable", "performSegue"]
 - !private ["Ps9_Hashable", "plain"]
 - !private ["Ps9_Hashable", "popToRootViewController"]
 - ["Ps9_Hashable", "prepare"]
 - !private ["Ps9_Hashable", "print"]
 - ["Ps9_Hashable", "private"]
 - ["Ps9_Hashable", "publicGroup"]
+- !private ["Ps9_Hashable", "pushViewController"]
 - !private ["Ps9_Hashable", "recipientID"]
 - !private ["Ps9_Hashable", "reloadData"]
 - ["Ps9_Hashable", "reloadTableViewIfNeeded"]
@@ -2862,6 +3043,7 @@ depends-member:
 - !private ["Ps9_Hashable", "show"]
 - !private ["Ps9_Hashable", "showError"]
 - !private ["Ps9_Hashable", "showSuccess"]
+- !private ["Ps9_Hashable", "storyboard"]
 - ["Ps9_Hashable", "tableView"]
 - !private ["Ps9_Hashable", "tag"]
 - !private ["Ps9_Hashable", "text"]
@@ -2876,6 +3058,7 @@ depends-member:
 - !private ["Ps9_Hashable", "user"]
 - !private ["Ps9_Hashable", "usersMemoryStorage"]
 - !private ["Ps9_Hashable", "usersService"]
+- !private ["Ps9_Hashable", "video"]
 - ["Ps9_Hashable", "viewWillAppear"]
 - ["Ps9_Hashable", ""]
 - !private ["Ps14_Incrementable", "IntegerLiteralType"]
@@ -2890,9 +3073,11 @@ depends-member:
 - !private ["Ps18_IntegerArithmetic", "Stride"]
 - !private ["Ps18_IntegerArithmetic", "_DisabledRangeIndex"]
 - !private ["Ps18_IntegerArithmetic", "init"]
+- !private ["Ps21_ObjectiveCBridgeable", "Element"]
 - !private ["Ps21_ObjectiveCBridgeable", "Index"]
 - !private ["Ps21_ObjectiveCBridgeable", "IndexDistance"]
 - !private ["Ps21_ObjectiveCBridgeable", "IntegerLiteralType"]
+- !private ["Ps21_ObjectiveCBridgeable", "NSLocalizedString"]
 - !private ["Ps21_ObjectiveCBridgeable", "Stride"]
 - !private ["Ps21_ObjectiveCBridgeable", "SubSequence"]
 - !private ["Ps21_ObjectiveCBridgeable", "UIApplicationDidBecomeActive"]
@@ -2919,6 +3104,7 @@ depends-member:
 depends-nominal:
 - "Ps9AnyObject"
 - "Sa"
+- !private "CSo18BaseViewController"
 - !private "Ps23BidirectionalCollection"
 - !private "Ps22BidirectionalIndexable"
 - !private "Vs18BidirectionalSlice"
@@ -2927,7 +3113,7 @@ depends-nominal:
 - !private "PSo15CALayerDelegate"
 - "V12CoreGraphics7CGFloat"
 - "Ps7CVarArg"
-- "C11DiabetesApp18ChatViewController"
+- "CSo18CallViewController"
 - !private "Ps10Collection"
 - "Ps10Comparable"
 - "Ps28CustomDebugStringConvertible"
@@ -2950,7 +3136,7 @@ depends-nominal:
 - "Ps26ExpressibleByStringLiteral"
 - "Ps33ExpressibleByUnicodeScalarLiteral"
 - "Ps8Hashable"
-- !private "SQ"
+- "SQ"
 - "V10Foundation9IndexPath"
 - !private "Ps9Indexable"
 - !private "Ps13IndexableBase"
@@ -2970,6 +3156,7 @@ depends-nominal:
 - "PSo26NSExtensionRequestHandling"
 - "PSo16NSMutableCopying"
 - !private "CSo14NSNotification"
+- "CSo8NSNumber"
 - "CSo8NSObject"
 - "PSo16NSObjectProtocol"
 - "PSo14NSSecureCoding"
@@ -2983,25 +3170,21 @@ depends-nominal:
 - "CSo6QBChat"
 - "CSo12QBChatDialog"
 - "OSC16QBChatDialogType"
+- !private "CSo11QBRTCClient"
 - "PSo19QBRTCClientDelegate"
+- "OSC19QBRTCConferenceType"
+- "CSo12QBRTCSession"
 - !private "CSo10QBResponse"
 - "CSo7QBUUser"
 - "CSo13QMAuthService"
 - "PSo21QMAuthServiceDelegate"
 - !private "CSo13QMBaseService"
-- !private "PSo31QMChatAttachmentServiceDelegate"
-- !private "PSo18QMChatCellDelegate"
-- !private "PSo30QMChatCollectionViewDataSource"
-- !private "PSo38QMChatCollectionViewDelegateFlowLayout"
 - "PSo24QMChatConnectionDelegate"
 - "CSo13QMChatService"
 - !private "PSo28QMChatServiceCacheDataSource"
 - "PSo21QMChatServiceDelegate"
-- !private "CSo20QMChatViewController"
-- !private "PSo30QMDeferredQueueManagerDelegate"
 - "CSo22QMDialogsMemoryStorage"
 - !private "PSo23QMMemoryStorageProtocol"
-- !private "PSo34QMPlaceHolderTextViewPasteDelegate"
 - !private "PSo24QMServiceManagerProtocol"
 - !private "CSo17QMServicesManager"
 - "CSo20QMUsersMemoryStorage"
@@ -3029,15 +3212,11 @@ depends-nominal:
 - "Ps16TextOutputStream"
 - "Ps20TextOutputStreamable"
 - !private "PSo29UIAccessibilityIdentification"
-- !private "PSo21UIActionSheetDelegate"
 - !private "PSo12UIAppearance"
 - "PSo21UIAppearanceContainer"
 - "CSo15UIBarButtonItem"
 - "OSC20UIBarButtonItemStyle"
 - !private "CSo9UIBarItem"
-- !private "PSo26UICollectionViewDataSource"
-- !private "PSo24UICollectionViewDelegate"
-- !private "PSo34UICollectionViewDelegateFlowLayout"
 - "PSo18UIContentContainer"
 - !private "PSo30UIContentSizeCategoryAdjusting"
 - !private "PSo17UICoordinateSpace"
@@ -3046,17 +3225,16 @@ depends-nominal:
 - !private "PSo11UIFocusItem"
 - !private "PSo27UIGestureRecognizerDelegate"
 - !private "CSo7UIImage"
-- !private "PSo31UIImagePickerControllerDelegate"
 - !private "CSo11UIImageView"
 - !private "CSo7UILabel"
-- !private "CSo22UINavigationController"
-- !private "PSo30UINavigationControllerDelegate"
+- "CSo22UINavigationController"
 - "CSo16UINavigationItem"
 - "CSo11UIResponder"
 - "PSo30UIResponderStandardEditActions"
 - !private "CSo12UIScrollView"
 - "PSo20UIScrollViewDelegate"
 - "PSo16UIStateRestoring"
+- "CSo12UIStoryboard"
 - "CSo17UIStoryboardSegue"
 - "CSo11UITableView"
 - "CSo15UITableViewCell"
@@ -3064,7 +3242,6 @@ depends-nominal:
 - "PSo21UITableViewDataSource"
 - "PSo19UITableViewDelegate"
 - "OSC16UITableViewStyle"
-- !private "PSo18UITextViewDelegate"
 - "PSo18UITraitEnvironment"
 - "CSo6UIView"
 - "CSo16UIViewController"
@@ -3095,81 +3272,81 @@ depends-nominal:
 depends-dynamic-lookup:
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
-- "/Users/IPHONE/Deepak/DiabetesApp/DiabetesApp/DiabetesApp-Bridging-Header.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBMulticastDelegate.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBRequest+QBChat.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBChat.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBChatHeader.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBRequest+QBContent.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBCBlobObjectAccess.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBContentEnums.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBCBlob.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBContentHeader.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBCOFileUploadInfo.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBCOFile.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBCustomObjectsConsts.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBRequest+QBCustomObjects.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBCOCustomObject.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBCustomObjectsEnums.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBCOPermissions.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBCustomObjectsHeader.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBRequest+QBPushNotifications.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBMSubscription.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBMEvent.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBMPushMessageBase.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBMPushMessage.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBMPushToken.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBPushNotificationsEnums.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBPushNotificationsConsts.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBPushNotificationsDefinitions.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBPushNotificationsHeader.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBUpdateUserParameters.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBRequest+QBUsers.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBUUser.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBUsersHeader.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBRequest+QBLocation.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBLGeoDataFilter.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBLGeoData.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBLPlace.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBLocationStructs.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBLocationEnums.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBLocationDefinitions.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBLocationHeader.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBRequest+QBAuth.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBAuthHeader.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBError.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBResponse.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBRequestStatus.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBRequest.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBConnection.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBGeneralResponsePage.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBResponsePage.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBASession.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBSession.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBCore.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBChatAttachment.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBPrivacyList.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBPrivacyItem.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBChatDialog.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBContactListItem.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBContactList.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBChatMessage.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBChatBusiness.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/ChatDelegates.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/ChatEnums.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBChatDefinitions.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBChatClasses.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/ChatServiceFramework.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBLogger.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBSettings.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBGeneric.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBNullability.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBCEntity.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBCoreModels.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBCoreBusiness.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/BaseServiceFramework.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/Quickblox.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Modules/module.modulemap"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/DiabetesApp/DiabetesApp-Bridging-Header.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBMulticastDelegate.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBRequest+QBChat.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBChat.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBChatHeader.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBRequest+QBContent.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBCBlobObjectAccess.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBContentEnums.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBCBlob.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBContentHeader.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBCOFileUploadInfo.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBCOFile.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBCustomObjectsConsts.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBRequest+QBCustomObjects.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBCOCustomObject.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBCustomObjectsEnums.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBCOPermissions.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBCustomObjectsHeader.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBRequest+QBPushNotifications.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBMSubscription.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBMEvent.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBMPushMessageBase.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBMPushMessage.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBMPushToken.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBPushNotificationsEnums.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBPushNotificationsConsts.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBPushNotificationsDefinitions.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBPushNotificationsHeader.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBUpdateUserParameters.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBRequest+QBUsers.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBUUser.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBUsersHeader.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBRequest+QBLocation.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBLGeoDataFilter.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBLGeoData.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBLPlace.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBLocationStructs.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBLocationEnums.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBLocationDefinitions.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBLocationHeader.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBRequest+QBAuth.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBAuthHeader.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBError.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBResponse.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBRequestStatus.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBRequest.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBConnection.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBGeneralResponsePage.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBResponsePage.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBASession.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBSession.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBCore.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBChatAttachment.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBPrivacyList.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBPrivacyItem.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBChatDialog.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBContactListItem.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBContactList.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBChatMessage.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBChatBusiness.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/ChatDelegates.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/ChatEnums.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBChatDefinitions.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBChatClasses.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/ChatServiceFramework.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBLogger.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBSettings.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBGeneric.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBNullability.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBCEntity.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBCoreModels.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/QBCoreBusiness.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/BaseServiceFramework.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Headers/Quickblox.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/QuickBlox/Quickblox.framework/Modules/module.modulemap"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.swiftmodule"
@@ -3180,225 +3357,163 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreAudio.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreLocation.swiftmodule"
-- "/Users/IPHONE/Deepak/DiabetesApp/DiabetesApp/QMMessageNotificationManager/QMMessageNotification.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/DiabetesApp/MPGNotification/MPGNotification.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/DiabetesApp/QMMessageNotificationManager/QMMessageNotification.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/DiabetesApp/MPGNotification/MPGNotification.h"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
-- "/Users/IPHONE/Deepak/DiabetesApp/DiabetesApp/QMMessageNotificationManager/QMMessageNotificationManager.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QuickbloxWebRTC.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCEAGLRenderer.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCVideoRenderer.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCFrameConverter.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCTypes.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCICEServer.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCAudioTrack.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCMediaStreamTrack.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCClient.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCClientDelegate.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCConfig.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCLocalAudioTrack.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCLocalVideoTrack.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCMediaStream.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCRemoteVideoView.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCSession.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCVideoCapture.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCVideoFrame.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCVideoTrack.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCSampleBufferRenderer.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCSampleBufferView.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCSoundRouter.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCTimer.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCVideoFormat.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/RTCI420Frame.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/RTCVideoRenderer.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCCameraCapture.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCMediaStreamConfiguration.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCBitrateTracker.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCStatsReport.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/DiabetesApp/QMMessageNotificationManager/QMMessageNotificationManager.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QuickbloxWebRTC.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCEAGLRenderer.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCVideoRenderer.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCFrameConverter.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCTypes.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCICEServer.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCAudioTrack.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCMediaStreamTrack.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCClient.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCClientDelegate.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCConfig.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCLocalAudioTrack.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCLocalVideoTrack.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCMediaStream.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCRemoteVideoView.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCSession.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCVideoCapture.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCVideoFrame.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCVideoTrack.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCSampleBufferRenderer.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCSampleBufferView.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCSoundRouter.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCTimer.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCVideoFormat.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/RTCI420Frame.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/RTCVideoRenderer.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCCameraCapture.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCMediaStreamConfiguration.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCBitrateTracker.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCStatsReport.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/DiabetesApp/CallViewController/CallViewController.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/DiabetesApp/BaseViewController/BaseViewController.h"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreData.swiftmodule"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/Alamofire/Alamofire.framework/Modules/Alamofire.swiftmodule/arm64.swiftmodule"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/Alamofire/Alamofire.framework/Headers/Alamofire-Swift.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/Alamofire/Alamofire.framework/Headers/Alamofire-umbrella.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/Alamofire/Alamofire.framework/Modules/module.modulemap"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework/Headers/SVRadialGradientLayer.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework/Headers/SVProgressHUD.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework/Headers/SVProgressAnimatedView.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework/Headers/SVIndefiniteAnimatedView.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework/Headers/SVProgressHUD-umbrella.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework/Modules/module.modulemap"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/Bolts.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFTaskCompletionSource.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFTask.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFTask+Exceptions.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFExecutor.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFCancellationTokenSource.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFCancellationTokenRegistration.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFCancellationToken.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFWebViewAppLinkResolver.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFURL.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFMeasurementEvent.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFAppLinkTarget.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFAppLinkReturnToRefererView.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFAppLinkReturnToRefererController.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFAppLinkResolving.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFAppLinkNavigation.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFAppLink.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/Bolts-umbrella.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Modules/module.modulemap"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMUsersModelIncludes.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/_CDUser.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/CDUser.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMSLog.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMUsersService.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMUsersCache.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMServices.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMServicesManager.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMDeferredQueueMemoryStorage.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMDeferredAction.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDRecordStack+Private.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDRecordLogging.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDRecord+Actions.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDMigrationManager.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSDictionary+QMCDRecordAdditions.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSPersistentStore+QMCDRecordPrivate.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QBUUser+CustomData.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMUsersMemoryStorage.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMContactListService.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMContactListMemoryStorage.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMContactListCache.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCLModelIncludes.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/_CDContactListItem.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/CDContactListItem.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMMessagesMemoryStorage.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMDialogsMemoryStorage.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMChatService.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMChatConstants.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMChatAttachmentService.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMChatTypes.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QBChatMessage+QMCustomParameters.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QBChatAttachment+QMCustomData.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDRecordShorthand.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSFetchedResultsController+QMCDFetching.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSManagedObject+QMCDFetching.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSError+QMCDRecordErrorHandling.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSEntityDescription+QMCDDataImport.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSRelationshipDescription+QMCDDataImport.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSAttributeDescription+QMCDDataImport.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSString+QMCDDataImport.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSObject+QMCDDataImport.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSNumber+QMCDDataImport.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSManagedObject+QMCDDataImport.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDImportFunctions.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSManagedObjectModel+QMCDRecord.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSPersistentStoreCoordinator+QMCDInMemoryStoreAdditions.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSPersistentStoreCoordinator+QMCDManualMigrations.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSPersistentStoreCoordinator+QMCDAutoMigrations.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSPersistentStore+QMCDRecord.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSPersistentStoreCoordinator+QMCDRecord.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSManagedObjectContext+QMCDObserving.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSManagedObject+QMCDAggregation.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSManagedObject+QMCDFinders.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSManagedObject+QMCDRequests.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDRecordDeprecated.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDRecordMOGeneratorProtocol.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSManagedObject+QMCDRecord.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSArray+QMCDRecord.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/ManuallyMigratingQMCDRecordStack.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/AutoMigratingWithSourceAndTargetModelQMCDRecordStack.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/AutoMigratingQMCDRecordStack.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/InMemoryQMCDRecordStack.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/ClassicWithBackgroundCoordinatorSQLiteQMCDRecordStack.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/ClassicSQLiteQMCDRecordStack.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/SQLiteWithSavingContextQMCDRecordStack.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/SQLiteQMCDRecordStack.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSManagedObjectContext+QMCDSaves.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSManagedObjectContext+QMCDRecord.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDRecordStack+Actions.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDRecordStack.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDRecord+VersionInformation.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDRecord+Setup.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDRecord+Options.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDRecordInternal.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDRecord.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMDBStorage.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMChatCache.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCCModelIncludes.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/_CDMessage.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/CDMessage.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/_CDDialog.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/CDDialog.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/_CDAttachment.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/CDAttachment.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMDeferredQueueManager.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMServiceManagerProtocol.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMMemoryStorageProtocol.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMBaseService.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMAuthService.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMServices-umbrella.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Modules/module.modulemap"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/TTTAttributedLabel/TTTAttributedLabel.framework/Headers/TTTAttributedLabel.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/TTTAttributedLabel/TTTAttributedLabel.framework/Headers/TTTAttributedLabel-umbrella.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/TTTAttributedLabel/TTTAttributedLabel.framework/Modules/module.modulemap"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework/Headers/UIView+WebCacheOperation.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework/Headers/UIImageView+WebCache.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework/Headers/UIImageView+HighlightedWebCache.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework/Headers/UIImage+MultiFormat.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework/Headers/UIImage+GIF.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework/Headers/UIButton+WebCache.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework/Headers/SDWebImagePrefetcher.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework/Headers/SDWebImageManager.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework/Headers/SDWebImageDownloaderOperation.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework/Headers/SDWebImageOperation.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework/Headers/SDWebImageDownloader.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework/Headers/SDWebImageDecoder.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework/Headers/SDWebImageCompat.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework/Headers/SDImageCache.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework/Headers/NSData+ImageContentType.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework/Headers/SDWebImage-umbrella.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework/Modules/module.modulemap"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMKVOView.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMHeaderCollectionReusableView.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMCollectionViewFlowLayoutInvalidationContext.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMImageLoader.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMDateUtils.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatResources.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatSection.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatLocationSnapshotter.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/NSDate+ChatDataSource.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/UIView+QM.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/UIImageView+QMLocationSnapshot.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/UIImage+QM.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/UIImage+Cropper.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/UIColor+QM.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/NSString+QM.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QBChatMessage+QBDateDivider.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatDataSource.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatLocationOutgoingCell.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatLocationCell.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMBaseChatLocationCell.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatLocationIncomingCell.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatAttachmentOutgoingCell.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatAttachmentCell.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatAttachmentIncomingCell.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatNotificationCell.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatOutgoingCell.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatIncomingCell.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatContactRequestCell.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatSectionManager.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMPlaceHolderTextView.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMToolbarContentView.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMInputToolbar.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatActionsHandler.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMImageView.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatCellLayoutAttributes.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatContainerView.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatCell.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatCollectionViewDelegateFlowLayout.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatCollectionViewDataSource.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatCollectionViewFlowLayout.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatCollectionView.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController-umbrella.h"
-- "/Users/IPHONE/Deepak/DiabetesApp/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Modules/module.modulemap"
-interface-hash: "20a262cf691fad29c59fbce7e0a9fe07"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/Bolts.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFTaskCompletionSource.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFTask.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFTask+Exceptions.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFExecutor.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFCancellationTokenSource.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFCancellationTokenRegistration.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFCancellationToken.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFWebViewAppLinkResolver.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFURL.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFMeasurementEvent.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFAppLinkTarget.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFAppLinkReturnToRefererView.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFAppLinkReturnToRefererController.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFAppLinkResolving.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFAppLinkNavigation.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFAppLink.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/Bolts-umbrella.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Modules/module.modulemap"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMUsersModelIncludes.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/_CDUser.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/CDUser.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMSLog.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMUsersService.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMUsersCache.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMServices.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMServicesManager.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMDeferredQueueMemoryStorage.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMDeferredAction.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDRecordStack+Private.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDRecordLogging.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDRecord+Actions.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDMigrationManager.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSDictionary+QMCDRecordAdditions.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSPersistentStore+QMCDRecordPrivate.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QBUUser+CustomData.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMUsersMemoryStorage.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMContactListService.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMContactListMemoryStorage.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMContactListCache.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCLModelIncludes.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/_CDContactListItem.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/CDContactListItem.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMMessagesMemoryStorage.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMDialogsMemoryStorage.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMChatService.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMChatConstants.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMChatAttachmentService.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMChatTypes.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QBChatMessage+QMCustomParameters.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QBChatAttachment+QMCustomData.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDRecordShorthand.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSFetchedResultsController+QMCDFetching.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSManagedObject+QMCDFetching.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSError+QMCDRecordErrorHandling.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSEntityDescription+QMCDDataImport.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSRelationshipDescription+QMCDDataImport.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSAttributeDescription+QMCDDataImport.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSString+QMCDDataImport.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSObject+QMCDDataImport.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSNumber+QMCDDataImport.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSManagedObject+QMCDDataImport.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDImportFunctions.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSManagedObjectModel+QMCDRecord.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSPersistentStoreCoordinator+QMCDInMemoryStoreAdditions.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSPersistentStoreCoordinator+QMCDManualMigrations.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSPersistentStoreCoordinator+QMCDAutoMigrations.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSPersistentStore+QMCDRecord.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSPersistentStoreCoordinator+QMCDRecord.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSManagedObjectContext+QMCDObserving.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSManagedObject+QMCDAggregation.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSManagedObject+QMCDFinders.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSManagedObject+QMCDRequests.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDRecordDeprecated.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDRecordMOGeneratorProtocol.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSManagedObject+QMCDRecord.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSArray+QMCDRecord.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/ManuallyMigratingQMCDRecordStack.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/AutoMigratingWithSourceAndTargetModelQMCDRecordStack.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/AutoMigratingQMCDRecordStack.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/InMemoryQMCDRecordStack.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/ClassicWithBackgroundCoordinatorSQLiteQMCDRecordStack.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/ClassicSQLiteQMCDRecordStack.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/SQLiteWithSavingContextQMCDRecordStack.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/SQLiteQMCDRecordStack.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSManagedObjectContext+QMCDSaves.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSManagedObjectContext+QMCDRecord.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDRecordStack+Actions.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDRecordStack.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDRecord+VersionInformation.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDRecord+Setup.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDRecord+Options.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDRecordInternal.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDRecord.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMDBStorage.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMChatCache.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCCModelIncludes.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/_CDMessage.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/CDMessage.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/_CDDialog.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/CDDialog.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/_CDAttachment.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/CDAttachment.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMDeferredQueueManager.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMServiceManagerProtocol.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMMemoryStorageProtocol.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMBaseService.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMAuthService.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMServices-umbrella.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Modules/module.modulemap"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework/Headers/SVRadialGradientLayer.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework/Headers/SVProgressHUD.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework/Headers/SVProgressAnimatedView.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework/Headers/SVIndefiniteAnimatedView.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework/Headers/SVProgressHUD-umbrella.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework/Modules/module.modulemap"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/Alamofire/Alamofire.framework/Modules/Alamofire.swiftmodule/arm64.swiftmodule"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/Alamofire/Alamofire.framework/Headers/Alamofire-Swift.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/Alamofire/Alamofire.framework/Headers/Alamofire-umbrella.h"
+- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Products/Debug-iphoneos/Alamofire/Alamofire.framework/Modules/module.modulemap"
+interface-hash: "12a20c950fde412b7f7821c7bc28a826"

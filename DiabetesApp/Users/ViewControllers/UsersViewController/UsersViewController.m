@@ -355,7 +355,7 @@ const NSUInteger kMaxUsersToCall = 5;
     [self.storyboard instantiateViewControllerWithIdentifier:@"IncomingCallViewController"];
     incomingViewController.delegate = self;
     incomingViewController.session = session;
-    incomingViewController.usersDatasource = self.dataSource;
+    //incomingViewController.usersDatasource = self.dataSource;
     
     self.nav = [[UINavigationController alloc] initWithRootViewController:incomingViewController];
     [self presentViewController:self.nav animated:NO completion:nil];

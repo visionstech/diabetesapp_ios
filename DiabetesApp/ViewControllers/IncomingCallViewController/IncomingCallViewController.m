@@ -42,7 +42,8 @@
     
     for (NSNumber *uID in self.session.opponentsIDs) {
         
-        QBUUser *user = [self.usersDatasource userWithID:uID.integerValue];
+        //QBUUser *user = [self.usersDatasource userWithID:uID.integerValue];
+        QBUUser *user = [self.qbUsersArray firstObject] ;
         
         if (!user) {
             user = [QBUUser user];
@@ -88,13 +89,13 @@
     [self.toolbar addButton:[QBButtonsFactory circleDecline] action: ^(UIButton *sender) {
         
         [weakSelf cleanUp];
-        [weakSelf.delegate incomingCallViewController:weakSelf didRejectSession:weakSelf.session];
+        [weakSelf.delegate incomingCallViewControllerReject:weakSelf didRejectSession:weakSelf.session];
     }];
     
     [self.toolbar addButton:[QBButtonsFactory answer] action: ^(UIButton *sender) {
         
         [weakSelf cleanUp];
-        [weakSelf.delegate incomingCallViewController:weakSelf didAcceptSession:weakSelf.session];
+        [weakSelf.delegate incomingCallViewControllerAccept:weakSelf didAcceptSession:weakSelf.session];
     }];
     
     
@@ -103,7 +104,8 @@
 
 - (void)updateOfferInfo {
     
-    QBUUser *caller = [self.usersDatasource userWithID:self.session.initiatorID.unsignedIntegerValue];
+    //QBUUser *caller = [self.usersDatasource userWithID:self.session.initiatorID.unsignedIntegerValue];
+    QBUUser *caller = [self.qbUsersArray firstObject] ;
     
     self.colorMarker.bgColor = [UIColor grayColor];
     self.colorMarker.title = caller.fullName;
