@@ -18,7 +18,6 @@ class DialogTableViewCellModel: NSObject {
     var unreadMessagesCounterLabelText : String?
     var unreadMessagesCounterHiden = true
     var dialogIcon : UIImage?
-    
    
     init(dialog: QBChatDialog) {
         super.init()
@@ -81,19 +80,22 @@ class DialogTableViewCellModel: NSObject {
     }
 }
 
-class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCoreDelegate, QMChatConnectionDelegate, QMAuthServiceDelegate,QBRTCClientDelegate, IncomingCallViewControllerDelegate {
+class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCoreDelegate, QMChatConnectionDelegate, QMAuthServiceDelegate, QBRTCClientDelegate, IncomingCallViewControllerDelegate  {
 
 
     private var didEnterBackgroundDate: NSDate?
     private var observer: NSObjectProtocol?
-    var session : QBRTCSession? = nil
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    //var session : QBRTCSession? = nil
     
     // MARK: - ViewController overrides
     override func awakeFromNib() {
         super.awakeFromNib()
         
         // calling awakeFromNib due to viewDidLoad not being called by instantiateViewControllerWithIdentifier
-        self.navigationItem.title = ServicesManager.instance().currentUser()?.login!
+       // self.navigationItem.title = ServicesManager.instance().currentUser()?.login!
+        self.navigationItem.title = "MESSAGES"
         
         self.navigationItem.leftBarButtonItem = self.createLogoutButton()
         
@@ -113,22 +115,101 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
             self.getDialogs()
         }
         
+        
+         QBRTCClient.instance().add(self)
     }
+    
+   
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.tableView.reloadData()
-        QBRTCClient.instance().add(self)
-        
+       
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        if appDelegate.session != nil {
+            appDelegate.session = nil
+        }
+        
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "SA_STR_SEGUE_GO_TO_CHAT".localized {
+            self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
+            
             if let chatVC = segue.destination as? ChatViewController {
                 chatVC.dialog = sender as? QBChatDialog
+                 chatVC.hidesBottomBarWhenPushed = true
             }
+        }
+    }
+    
+    //MARK: - QBRTCClientDelegate Delegate
+    func didReceiveNewSession(_ session: QBRTCSession!, userInfo: [AnyHashable : Any]! = [:]) {
+        
+        if (appDelegate.session != nil) {
+            session.rejectCall(["reject":"busy"])
+            return
+        }
+        
+        appDelegate.session = session
+        QBRTCSoundRouter.instance().initialize()
+        
+        
+        QBRequest.user(withID:session.initiatorID as UInt , successBlock: { (response, user) in
+            
+            let incomingViewController: IncomingCallViewController = self.storyboard?.instantiateViewController(withIdentifier: "IncomingCallViewController") as! IncomingCallViewController
+            incomingViewController.delegate = self
+            incomingViewController.session = self.appDelegate.session
+            incomingViewController.currentUser = self.appDelegate.currentUser
+            incomingViewController.qbUsersArray = NSMutableArray(object: user! as QBUUser)
+            //self.present(incomingViewController, animated: true, completion: nil)
+            self.navigationController?.pushViewController(incomingViewController, animated: true)
+            
+        }) { (eroor) in
+            
+        }
+        
+    }
+    
+    func sessionDidClose(_ session: QBRTCSession!) {
+        
+        //if session == appDelegate.session {
+           // self.navigationController?.popViewController(animated: true)
+            self.navigationController?.popToViewController(self as UIViewController, animated: true)
+            //self.dismiss(animated: true, completion: nil)
+            appDelegate.session = nil
+            
+        //}
+    }
+    
+    //MARK: - IncomingCall Delegate
+    func incomingCallViewControllerReject(_ vc: IncomingCallViewController!, didReject session: QBRTCSession!) {
+        self.appDelegate.session = session
+        session.rejectCall(nil)
+        //self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func incomingCallViewControllerAccept(_ vc: IncomingCallViewController!, didAccept session: QBRTCSession!) {
+        
+        print("initiatorID \(session!.initiatorID!) app \(appDelegate.session?.initiatorID!)")
+        self.appDelegate.session = session
+        
+        QBRequest.user(withID:session.initiatorID as UInt , successBlock: { (response, user) in
+            
+            let callViewController: CallViewController = self.storyboard?.instantiateViewController(withIdentifier: "CallViewController") as! CallViewController
+            callViewController.currentUser = self.appDelegate.currentUser
+            callViewController.session = self.appDelegate.session
+            callViewController.qbUsersArray = NSMutableArray(object: user)
+            // self.present(callViewController, animated: true, completion: nil)
+            self.navigationController?.pushViewController(callViewController, animated: true)
+            
+        }) { (eroor) in
+            
         }
     }
     
@@ -139,11 +220,17 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
     }
     
     // MARK: - Actions
-    
     func createLogoutButton() -> UIBarButtonItem {
         
         let logoutButton = UIBarButtonItem(title: "SA_STR_LOGOUT".localized, style: UIBarButtonItemStyle.plain, target: self, action: #selector(DialogsViewController.logoutAction))
         return logoutButton
+    }
+    
+    @IBAction func GroupAction(_ sender: UIBarButtonItem) {
+        
+       let viewController: ContactListViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.contactViewController) as! ContactListViewController
+        viewController.isGroupMode = (sender.tag == 0 ? true : false)
+       self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     @IBAction func logoutAction() {
@@ -169,8 +256,17 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
                 
                 ServicesManager.instance().chatService.removeDelegate(strongSelf)
                 ServicesManager.instance().authService.remove(strongSelf)
-                
+               UserDefaults.standard.set(false, forKey: userDefaults.isLoggedIn)
                 ServicesManager.instance().lastActivityDate = nil;
+                
+                // Update UserDefaults
+                UserDefaults.standard.set(false, forKey: userDefaults.isLoggedIn)
+                
+                UserDefaults.standard.setValue("" , forKey: userDefaults.loggedInUserID)
+                UserDefaults.standard.setValue("", forKey: userDefaults.loggedInUsername)
+                UserDefaults.standard.setValue("", forKey: userDefaults.loggedInUserEmail)
+                UserDefaults.standard.setValue("", forKey: userDefaults.loggedInUserPassword)
+                UserDefaults.standard.synchronize()
                 
                 let _ = strongSelf.navigationController?.popToRootViewController(animated: true)
                 
@@ -275,10 +371,17 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
-        let chatDialog = self.dialogs()?[indexPath.row]
         
-        //21895110
-      self .callWithConferenceType(conferenceType: .video)
+        if (ServicesManager.instance().isProcessingLogOut!) {
+            return
+        }
+        
+        guard let dialog = self.dialogs()?[indexPath.row] else {
+            return
+        }
+        
+        self.performSegue(withIdentifier: "SA_STR_SEGUE_GO_TO_CHAT".localized , sender: dialog)
+        
     }
 
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -288,59 +391,59 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
-//        guard editingStyle == UITableViewCellEditingStyle.delete else {
-//            return
-//        }
-//        
-//        
-//        guard let dialog = self.dialogs()?[indexPath.row] else {
-//            return
-//        }
-//        
-//        let alert: UIAlertView = UIAlertView(title:"SA_STR_WARNING".localized , message:"SA_STR_DO_YOU_REALLY_WANT_TO_DELETE_SELECTED_DIALOG".localized , delegate:{ (buttonIndex) -> Void in
-//            
-//            guard buttonIndex == 1 else {
-//                return
-//            }
-//            
-//            SVProgressHUD.show(withStatus: "SA_STR_DELETING".localized, maskType: SVProgressHUDMaskType.clear)
-//            
-//            let deleteDialogBlock = { (dialog: QBChatDialog!) -> Void in
-//                
-//                // Deletes dialog from server and cache.
-//                ServicesManager.instance().chatService.deleteDialog(withID: dialog.id!, completion: { (response) -> Void in
-//                    
-//                    guard response.isSuccess else {
-//                        SVProgressHUD.showError(withStatus: "SA_STR_ERROR_DELETING".localized)
-//                        print(response.error?.error)
-//                        return
-//                    }
-//                    
-//                    SVProgressHUD.showSuccess(withStatus: "SA_STR_DELETED".localized)
-//                })
-//            }
-//            
-//            if dialog.type == QBChatDialogType.private {
-//                
-//                deleteDialogBlock(dialog)
-//                
-//            }
-//            else {
-//                // group
-//                let occupantIDs = dialog.occupantIDs!.filter({ (number) -> Bool in
-//                    
-//                    return number.uintValue != ServicesManager.instance().currentUser()?.id
-//                })
-//                
-//                dialog.occupantIDs = occupantIDs
-//                let userLogin = ServicesManager.instance().currentUser()?.login ?? ""
-//                let notificationMessage = "User \(userLogin) " + "SA_STR_USER_HAS_LEFT".localized
-//                // Notifies occupants that user left the dialog.
-//                ServicesManager.instance().chatService.sendNotificationMessageAboutLeaving(dialog, withNotificationText: notificationMessage, completion: { (error) -> Void in
-//                    deleteDialogBlock(dialog)
-//                })
-//            }
-//        }, cancelButtonTitle: "SA_STR_CANCEL".localized, otherButtonTitles: ["SA_STR_DELETE".localized])
+        guard editingStyle == UITableViewCellEditingStyle.delete else {
+            return
+        }
+        
+        
+        guard let dialog = self.dialogs()?[indexPath.row] else {
+            return
+        }
+        
+        _ = AlertView(title:"SA_STR_WARNING".localized , message:"SA_STR_DO_YOU_REALLY_WANT_TO_DELETE_SELECTED_DIALOG".localized , cancelButtonTitle: "SA_STR_CANCEL".localized, otherButtonTitle: ["SA_STR_DELETE".localized], didClick:{ (buttonIndex) -> Void in
+            
+            guard buttonIndex == 1 else {
+                return
+            }
+            
+            SVProgressHUD.show(withStatus: "SA_STR_DELETING".localized, maskType: SVProgressHUDMaskType.clear)
+            
+            let deleteDialogBlock = { (dialog: QBChatDialog!) -> Void in
+                
+                // Deletes dialog from server and cache.
+                ServicesManager.instance().chatService.deleteDialog(withID: dialog.id!, completion: { (response) -> Void in
+                    
+                    guard response.isSuccess else {
+                        SVProgressHUD.showError(withStatus: "SA_STR_ERROR_DELETING".localized)
+                        print(response.error?.error)
+                        return
+                    }
+                    
+                    SVProgressHUD.showSuccess(withStatus: "SA_STR_DELETED".localized)
+                })
+            }
+            
+            if dialog.type == QBChatDialogType.private {
+                
+                deleteDialogBlock(dialog)
+                
+            }
+            else {
+                // group
+                let occupantIDs = dialog.occupantIDs!.filter({ (number) -> Bool in
+                    
+                    return number.uintValue != ServicesManager.instance().currentUser()?.id
+                })
+                
+                dialog.occupantIDs = occupantIDs
+                let userLogin = ServicesManager.instance().currentUser()?.login ?? ""
+                let notificationMessage = "User \(userLogin) " + "SA_STR_USER_HAS_LEFT".localized
+                // Notifies occupants that user left the dialog.
+                ServicesManager.instance().chatService.sendNotificationMessageAboutLeaving(dialog, withNotificationText: notificationMessage, completion: { (error) -> Void in
+                    deleteDialogBlock(dialog)
+                })
+            }
+        })
     }
 	
     override func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
@@ -420,113 +523,7 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
             self.tableView.reloadData()
         }
     }
-    
-    
-    //MARK: - Webrtc
-    
-    func callWithConferenceType(conferenceType: QBRTCConferenceType)  {
-        if (self.session != nil) {
-            return
-        }
-        
-        QBAVCallPermissions.check(with: conferenceType) { (granted) in
-            
-            if granted {
-                
-                let opponentsIDs = [21236626]
-                let session = QBRTCClient.instance().createNewSession(withOpponents: opponentsIDs, with: conferenceType)
-                
-                if session != nil {
-                    
-                    QBRequest.user(withID: 21236626, successBlock: { (response, user) in
-                        
-                        self.session = session;
-                        let callViewController: CallViewController = self.storyboard?.instantiateViewController(withIdentifier: "CallViewController") as! CallViewController
-                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                        callViewController.currentUser = appDelegate.currentUser
-                        callViewController.session = self.session
-                        callViewController.qbUsersArray = NSMutableArray(object: user)
-                        self.navigationController?.pushViewController(callViewController, animated: true)
-                        
-                    }, errorBlock: { (error) in
-                        
-                    })
-                    
-                  }
-                else {
-                    
-                }
-                
-            }
-        }
-    }
-    
-    //MARK: - QBRTCClientDelegate Delegate
-    func didReceiveNewSession(_ session: QBRTCSession!, userInfo: [AnyHashable : Any]! = [:]) {
-        
-        
-        if (self.session != nil) {
-            session.rejectCall(["reject":"busy"])
-            return
-        }
-        
-        self.session = session
-        QBRTCSoundRouter.instance().initialize()
-        
-        print("userInfo \(userInfo)")
-        print(session.initiatorID)
-        
-        QBRequest.user(withID:session.initiatorID as UInt , successBlock: { (response, user) in
-            
-            let incomingViewController: IncomingCallViewController = self.storyboard?.instantiateViewController(withIdentifier: "IncomingCallViewController") as! IncomingCallViewController
-            incomingViewController.delegate = self
-            incomingViewController.session = self.session
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            incomingViewController.currentUser = appDelegate.currentUser
-            incomingViewController.qbUsersArray = NSMutableArray(object: user)
-            
-            self.navigationController?.pushViewController(incomingViewController, animated: true)
-            
-        }) { (eroor) in
-            
-        }
-        
-    }
-    
-    func sessionDidClose(_ session: QBRTCSession!) {
-        
-    }
-    
-
-    //MARK: - IncomingCall Delegate
-    func incomingCallViewControllerReject(_ vc: IncomingCallViewController!, didReject session: QBRTCSession!) {
-        
-        session.rejectCall(nil)
-        self.navigationController?.popViewController(animated: true)
-//        [session rejectCall:nil];
-//        [self.nav dismissViewControllerAnimated:NO completion:nil];
-//        self.nav = nil;
-    }
-    
-    func incomingCallViewControllerAccept(_ vc: IncomingCallViewController!, didAccept session: QBRTCSession!) {
-        
-        
-        QBRequest.user(withID:session.initiatorID as UInt , successBlock: { (response, user) in
-            
-            let callViewController: CallViewController = self.storyboard?.instantiateViewController(withIdentifier: "CallViewController") as! CallViewController
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            callViewController.currentUser = appDelegate.currentUser
-            callViewController.session = self.session
-            callViewController.qbUsersArray = NSMutableArray(object: user)
-            self.navigationController?.pushViewController(callViewController, animated: true)
-            
-        }) { (eroor) in
-            
-        }
-
-        
-    }
-    
+   
     
      //MARK:- Selected users
     

@@ -30,10 +30,10 @@ extension String {
     }
 }
 
-class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, QMChatAttachmentServiceDelegate, QMChatConnectionDelegate, QMChatCellDelegate, QMDeferredQueueManagerDelegate, QMPlaceHolderTextViewPasteDelegate {
+class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, QMChatAttachmentServiceDelegate, QMChatConnectionDelegate, QMChatCellDelegate, QMDeferredQueueManagerDelegate, QMPlaceHolderTextViewPasteDelegate  {
     
     let maxCharactersNumber = 1024 // 0 - unlimited
-    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     var dialog: QBChatDialog!
     var willResignActiveBlock: AnyObject?
@@ -41,7 +41,8 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
     var detailedCells: Set<String> = []
     
     var typingTimer: Timer?
-    var popoverController: UIPopoverController?
+    var occupantID = Int()
+    var occupantUser = QBUUser()
     
     lazy var imagePickerViewController : UIImagePickerController = {
         let imagePickerViewController = UIImagePickerController()
@@ -54,6 +55,42 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        // set Navigation Bar
+        print(self.dialog)
+        if self.dialog != nil && self.dialog.type == .private {
+           
+            let callBtnBar: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "options"), style: UIBarButtonItemStyle.plain , target: self, action: #selector(videoAudioClick))
+            
+            let optionsBtnBar: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "options"), style: UIBarButtonItemStyle.plain , target: self, action: #selector(optionsClick))
+            self.navigationItem.rightBarButtonItems = [optionsBtnBar,callBtnBar]
+            self.title = self.dialog.name
+            
+            for occupantsID in self.dialog.occupantIDs! {
+                print("occupantsID \(occupantsID) userID \(self.dialog.userID)")
+                
+                if Int(occupantsID) != Int(appDelegate.currentUser!.id) {
+                    occupantID = Int(occupantsID)
+                    
+                    print(occupantID)
+                    QBRequest.user(withID: UInt(occupantsID), successBlock: { (response, user) in
+                       
+                        if user != nil {
+                            self.occupantUser = user!
+                           // self.title = self.occupantUser.fullName
+                        }
+                       
+                    }, errorBlock: { (error) in
+                        
+                    })
+                    break
+                }
+            }
+        }
+        
+       // QBRTCClient.instance().add(self)
+        
         
         // top layout inset for collectionView
         self.topContentAdditionalInset = self.navigationController!.navigationBar.frame.size.height + UIApplication.shared.statusBarFrame.size.height;
@@ -105,10 +142,14 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
             
             self.enableTextCheckingTypes = NSTextCheckingAllTypes
         }
+        
+       
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationItem.hidesBackButton = false
         
         ServicesManager.instance().chatService.addDelegate(self)
         ServicesManager.instance().chatService.chatAttachmentService.delegate = self
@@ -119,6 +160,8 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
             
             self?.fireSendStopTypingIfNecessary()
         }
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -257,8 +300,164 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         }
     }
     
-    // MARK: Actions
+    // MARK: - Right Buttons Actions
+    func optionsClick() {
+        
+        let actionSheet = UIAlertController(title: "", message: "Select Option", preferredStyle: .actionSheet)
+        
+        actionSheet.addAction(UIAlertAction(title: ChatInfo.patientInfo , style: .default , handler:{ (UIAlertAction)in
+            
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: ChatInfo.readingHistory, style: .default , handler:{ (UIAlertAction)in
+            
+            let historyViewController: HistoryViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.historyViewController) as! HistoryViewController
+            self.navigationController?.pushViewController(historyViewController, animated: true)
+            
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: ChatInfo.carePlan, style: .default , handler:{ (UIAlertAction)in
+            
+            let carePlanViewController: CarePlanViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.carePlanViewController) as! CarePlanViewController
+            self.navigationController?.pushViewController(carePlanViewController, animated: true)
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: GeneralLabels.cancel, style: UIAlertActionStyle.cancel, handler:{ (UIAlertAction)in
+            
+        }))
+        
+        self.present(actionSheet, animated: true, completion: nil)
+        
+    }
     
+    func videoAudioClick() {
+        
+        let actionSheet = UIAlertController(title: "", message: "Select Option", preferredStyle: .actionSheet)
+        
+        actionSheet.addAction(UIAlertAction(title: VideoAudioCall.audioCall , style: .default , handler:{ (UIAlertAction)in
+            
+            self.callWithConferenceType(conferenceType: .audio)
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: VideoAudioCall.videoCall, style: .default , handler:{ (UIAlertAction)in
+            self.callWithConferenceType(conferenceType: .video)
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: GeneralLabels.cancel, style: UIAlertActionStyle.cancel, handler:{ (UIAlertAction)in
+            
+        }))
+        
+        self.present(actionSheet, animated: true, completion: nil)
+        
+    }
+    
+    //MARK: - Webrtc
+    func callWithConferenceType(conferenceType: QBRTCConferenceType) {
+        if (appDelegate.session != nil) {
+            return
+        }
+        
+        
+        QBAVCallPermissions.check(with: conferenceType) { (granted) in
+            
+            if granted {
+                
+                let session = QBRTCClient.instance().createNewSession(withOpponents: [UInt(self.occupantID)], with: conferenceType)
+                
+                if session != nil {
+                    
+                    QBRequest.user(withID: UInt(self.occupantID), successBlock: { (response, user) in
+                        
+                        self.appDelegate.session = session;
+                        let callViewController: CallViewController = self.storyboard?.instantiateViewController(withIdentifier: "CallViewController") as! CallViewController
+                        
+                        callViewController.currentUser = self.appDelegate.currentUser
+                        callViewController.session = self.appDelegate.session
+                        callViewController.qbUsersArray = NSMutableArray(object: user! as QBUUser)
+                        self.navigationController?.pushViewController(callViewController, animated: true)
+                        
+                    }, errorBlock: { (error) in
+                        
+                    })
+                    
+                }
+                else {
+                    
+                }
+                
+            }
+        }
+    }
+    
+//    //MARK: - QBRTCClientDelegate Delegate
+//    func didReceiveNewSession(_ session: QBRTCSession!, userInfo: [AnyHashable : Any]! = [:]) {
+//        
+//        if (self.session != nil) {
+//            session.rejectCall(["reject":"busy"])
+//            return
+//        }
+//        
+//        self.session = session
+//        QBRTCSoundRouter.instance().initialize()
+//        
+//        
+//        QBRequest.user(withID:session.initiatorID as UInt , successBlock: { (response, user) in
+//            
+//            let incomingViewController: IncomingCallViewController = self.storyboard?.instantiateViewController(withIdentifier: "IncomingCallViewController") as! IncomingCallViewController
+//            incomingViewController.delegate = self
+//            incomingViewController.session = self.session
+//            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//            incomingViewController.currentUser = appDelegate.currentUser
+//            incomingViewController.qbUsersArray = NSMutableArray(object: user)
+//            //self.present(incomingViewController, animated: true, completion: nil)
+//            self.navigationController?.pushViewController(incomingViewController, animated: true)
+//            
+//        }) { (eroor) in
+//            
+//        }
+//        
+//    }
+//    
+//    func sessionDidClose(_ session: QBRTCSession!) {
+//        
+//        if session == self.session {
+//            self.navigationController?.popToViewController(self, animated: true)
+//            //self.navigationController?.popViewController(animated: true)
+//            //self.dismiss(animated: true, completion: nil)
+//            self.session = nil
+//            
+//        }
+//
+//    }
+//    
+//    
+//    //MARK: - IncomingCall Delegate
+//    func incomingCallViewControllerReject(_ vc: IncomingCallViewController!, didReject session: QBRTCSession!) {
+//        
+//        session.rejectCall(nil)
+//        //self.dismiss(animated: true, completion: nil)
+//        self.navigationController?.popViewController(animated: true)
+//    }
+//    
+//    func incomingCallViewControllerAccept(_ vc: IncomingCallViewController!, didAccept session: QBRTCSession!) {
+//        
+//        QBRequest.user(withID:session.initiatorID as UInt , successBlock: { (response, user) in
+//            
+//            let callViewController: CallViewController = self.storyboard?.instantiateViewController(withIdentifier: "CallViewController") as! CallViewController
+//            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//            callViewController.currentUser = appDelegate.currentUser
+//            callViewController.session = self.session
+//            callViewController.qbUsersArray = NSMutableArray(object: user)
+//           // self.present(callViewController, animated: true, completion: nil)
+//            self.navigationController?.pushViewController(callViewController, animated: true)
+//            
+//        }) { (eroor) in
+//            
+//        }
+//    }
+    
+    
+    // MARK: Actions
     override func didPickAttachmentImage(_ image: UIImage!) {
         
         let message = QBChatMessage()
@@ -350,6 +549,7 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
             }
         }
     }
+    
     
     func sendMessage(message: QBChatMessage) {
         
@@ -1286,4 +1486,8 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         self.present(alertController, animated: true) {
         }
     }
+    
+    
+    
+    
 }

@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/Target\ Support\ Files/SVProgressHUD/SVProgressHUD-dummy.m \
-  /Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/Target\ Support\ Files/SVProgressHUD/SVProgressHUD-prefix.pch
+  /Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Target\ Support\ Files/SVProgressHUD/SVProgressHUD-dummy.m \
+  /Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Target\ Support\ Files/SVProgressHUD/SVProgressHUD-prefix.pch

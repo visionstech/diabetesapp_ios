@@ -1,4 +1,4 @@
 dependencies: \
-  /Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/SVProgressHUD/SVProgressHUD/SVRadialGradientLayer.m \
-  /Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/Target\ Support\ Files/SVProgressHUD/SVProgressHUD-prefix.pch \
-  /Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/SVProgressHUD/SVProgressHUD/SVRadialGradientLayer.h
+  /Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/SVProgressHUD/SVProgressHUD/SVRadialGradientLayer.m \
+  /Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Target\ Support\ Files/SVProgressHUD/SVProgressHUD-prefix.pch \
+  /Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/SVProgressHUD/SVProgressHUD/SVRadialGradientLayer.h

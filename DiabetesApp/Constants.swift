@@ -45,6 +45,7 @@ class Constants {
 struct userType {
     static let doctor = 1
     static let patient = 2
+    static let equcator = 3
 }
 
 // MARK: - View Identifiers
@@ -52,8 +53,21 @@ struct ViewIdentifiers{
     
     static let dialogsViewController  = "DialogsViewController"
     static let tabBarViewController   = "TabBarView"
+    static let carePlanViewController = "CarePlanView"
+    static let historyViewController  = "HistoryView"
+    static let messagesViewController = "MessagesView"
+    static let contactViewController  = "ContactsListView"
+    static let chatViewController     = "ChatView"
+}
+
+// MARK: - Cell Identifiers
+struct CellIdentifiers{
     
-    
+    static let medicationCell = "medicationCell"
+    static let readingsCell   = "readingsCell"
+    static let historyCell    = "historyCell"
+    static let headerView     = "headerView"
+    static let messagesViewController = "MessagesView"
 }
 
 // MARK: - UserDefaults
@@ -64,7 +78,7 @@ struct userDefaults{
     static let loggedInUserEmail    = "loggedInUserEmail"
     static let loggedInUserPassword = "loggedInUserPassword"
     static let loggedInUsername     = "loggedInUsername"
-    
+    static let loggedInUserType        = "loggedInUserType"
 }
 
 // MARK: - Api Methods
@@ -72,9 +86,27 @@ struct ApiMethods{
     
     static let login       = "getdataios"
     static let getPatients = "getpatients"
-    
-    
+    static let updatePatient = "updatepatient"
 }
+
+// MARK: - GeneralLabels
+struct GeneralLabels {
+    static let cancel    = "Cancel"
+}
+
+// MARK: - ChatInfo
+struct ChatInfo {
+    static let patientInfo    = "Patient Info"
+    static let readingHistory = "Reading History"
+    static let carePlan       = "Care Plan"
+}
+
+// MARK: - VideoAudioCall
+struct VideoAudioCall {
+    static let audioCall = "Audio Call"
+    static let videoCall = "Video Call"
+}
+
 
 //MARK: - Colors
 struct Colors{

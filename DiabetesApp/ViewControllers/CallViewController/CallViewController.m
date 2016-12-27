@@ -62,6 +62,8 @@ const NSTimeInterval kRefreshTimeInterval = 1.f;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationItem.hidesBackButton = YES ;
+    
     [QBRTCClient.instance addDelegate:self];
     
     [self configureGUI];

@@ -7,16 +7,16 @@ provides-member:
 - ["V9Alamofire8Timeline", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "TimeInterval"
-- !private "+"
-- "CFAbsoluteTime"
-- "AssignmentPrecedence"
-- !private "Array"
-- "Timeline"
-- "String"
-- !private "-"
 - "CustomDebugStringConvertible"
+- !private "Array"
+- !private "-"
+- !private "+"
+- "Timeline"
 - !private "StringLiteralType"
+- "TimeInterval"
+- "AssignmentPrecedence"
+- "String"
+- "CFAbsoluteTime"
 - "CustomStringConvertible"
 depends-member:
 - !private ["Ps9AnyObject", "init"]
@@ -237,8 +237,8 @@ depends-nominal:
 depends-dynamic-lookup:
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
-- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Pods/Target Support Files/Alamofire/Alamofire-umbrella.h"
-- "/Users/IPHONE/Desktop/Richa/DiabetesApp/Build/Intermediates/Pods.build/Debug-iphoneos/Alamofire.build/unextended-module.modulemap"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Target Support Files/Alamofire/Alamofire-umbrella.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Intermediates/Pods.build/Debug-iphoneos/Alamofire.build/unextended-module.modulemap"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"

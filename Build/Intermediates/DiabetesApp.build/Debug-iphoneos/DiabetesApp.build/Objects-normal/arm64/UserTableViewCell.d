@@ -1,4 +1,4 @@
 dependencies: \
-  /Users/IPHONE/Desktop/Richa/DiabetesApp/DiabetesApp/Cells/UserTableViewCell/UserTableViewCell.m \
-  /Users/IPHONE/Desktop/Richa/DiabetesApp/DiabetesApp/Cells/UserTableViewCell/UserTableViewCell.h \
-  /Users/IPHONE/Desktop/Richa/DiabetesApp/DiabetesApp/CornerView/CornerView.h
+  /Users/IPHONE/Deepak/baljeet/diabetesapp_ios/DiabetesApp/Users/Views/UserTableViewCell/UserTableViewCell.m \
+  /Users/IPHONE/Deepak/baljeet/diabetesapp_ios/DiabetesApp/Users/Views/UserTableViewCell/UserTableViewCell.h \
+  /Users/IPHONE/Deepak/baljeet/diabetesapp_ios/DiabetesApp/Users/Views/CheckView/CheckView.h

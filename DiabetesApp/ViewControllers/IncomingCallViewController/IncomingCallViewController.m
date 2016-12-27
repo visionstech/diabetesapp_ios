@@ -35,6 +35,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.hidesBackButton = YES ;
     [QMSoundManager playRingtoneSound];
     
     [QBRTCClient.instance addDelegate:self];

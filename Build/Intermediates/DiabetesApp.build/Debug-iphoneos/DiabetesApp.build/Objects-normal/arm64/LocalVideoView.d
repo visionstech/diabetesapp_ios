@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/IPHONE/Desktop/Richa/DiabetesApp/DiabetesApp/CallViewController/LocalVideoView.m \
-  /Users/IPHONE/Desktop/Richa/DiabetesApp/DiabetesApp/CallViewController/LocalVideoView.h
+  /Users/IPHONE/Deepak/baljeet/diabetesapp_ios/DiabetesApp/ViewControllers/CallViewController/LocalVideoView.m \
+  /Users/IPHONE/Deepak/baljeet/diabetesapp_ios/DiabetesApp/ViewControllers/CallViewController/LocalVideoView.h

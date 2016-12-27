@@ -15,12 +15,16 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var tableView: UITableView!
     
     var patientList = NSMutableArray()
+    var isGroupMode : Bool = false
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        if isGroupMode == false {
+            self.navigationItem.rightBarButtonItems = nil
+        }
         getContactsList()
     }
     
@@ -175,12 +179,16 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
         let obj: ContactObj = patientList[indexPath.row] as! ContactObj
         
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "patientCell", for: indexPath)
-        if obj.isSelected == "1" {
-            cell.accessoryType = .checkmark
+        
+        if isGroupMode == true {
+            if obj.isSelected == "1" {
+                cell.accessoryType = .checkmark
+            }
+            else {
+                cell.accessoryType = .none
+            }
         }
-        else {
-            cell.accessoryType = .none
-        }
+        
         
         cell.textLabel?.text = obj.full_name
         
@@ -191,9 +199,20 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let obj: ContactObj = patientList[indexPath.row] as! ContactObj
-        obj.isSelected = (obj.isSelected == "1" ? "0" : "1")
-        patientList.replaceObject(at:indexPath.row , with: obj)
-        tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
+        if isGroupMode == true {
+           
+            obj.isSelected = (obj.isSelected == "1" ? "0" : "1")
+            patientList.replaceObject(at:indexPath.row , with: obj)
+            tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
+        }
+        
+        else {
+            
+            self.createChat(name: "", usersArray: [obj.chatid], completion: { (response, chatDialog) in
+                
+                self.naviagteToChatScreen(dialog: chatDialog!)
+            })
+        }
         
     }
     
