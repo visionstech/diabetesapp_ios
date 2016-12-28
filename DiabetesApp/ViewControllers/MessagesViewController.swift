@@ -14,7 +14,7 @@ class MessagesViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-         self.navigationController?.navigationBar.backgroundColor = UIColor(patternImage: UIImage(named: "navBar.png")!)
+         self.navigationController?.navigationBar.backgroundColor = UIColor(patternImage: UIImage(named: "navigationImage.png")!)
     }
 
     override func didReceiveMemoryWarning() {

@@ -38,32 +38,36 @@ provides-member:
 - ["V11DiabetesApp6Colors", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "StringLiteralType"
-- "ApiMethods"
-- "UIColor"
-- "Colors"
-- "VideoAudioCall"
-- "kMessageContainerWidthPadding"
-- "Constants"
-- "ChatInfo"
 - "String"
+- "UIColor"
+- "baseUrl"
+- "VideoAudioCall"
+- "kChatPresenceTimeInterval"
+- "StringLiteralType"
+- "ChatInfo"
+- "userDefaults"
+- "Colors"
 - "userType"
-- "FloatLiteralType"
-- "UInt"
-- "CellIdentifiers"
-- "GeneralLabels"
 - "ViewIdentifiers"
 - "/"
-- "userDefaults"
-- "IntegerLiteralType"
+- "GeneralLabels"
 - "TimeInterval"
+- "UInt"
 - "kDialogsPageLimit"
+- "FloatLiteralType"
+- "kMessageContainerWidthPadding"
+- "CellIdentifiers"
 - "CGFloat"
-- "kChatPresenceTimeInterval"
-- "baseUrl"
+- "IntegerLiteralType"
+- "Constants"
+- "ApiMethods"
 depends-member:
 - ["Ps9AnyObject", "init"]
 - ["Ps9AnyObject", ""]
+- ["V11DiabetesApp10ApiMethods", "getDocEducators"]
+- ["V11DiabetesApp10ApiMethods", "getDocPatients"]
+- ["V11DiabetesApp10ApiMethods", "getPatDoctors"]
+- ["V11DiabetesApp10ApiMethods", "getPatEducators"]
 - ["V11DiabetesApp10ApiMethods", "getPatients"]
 - ["V11DiabetesApp10ApiMethods", "init"]
 - ["V11DiabetesApp10ApiMethods", "login"]
@@ -512,4 +516,4 @@ depends-external:
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController-umbrella.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Modules/module.modulemap"
-interface-hash: "f525add14b449723bbef187e8fbc3bef"
+interface-hash: "607270653ed45d2c3a652211cc923357"

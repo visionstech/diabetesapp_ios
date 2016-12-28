@@ -108,7 +108,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="juO-CH-bC1" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="662" y="501"/>
+            <point key="canvasLocation" x="-266" y="184"/>
         </scene>
         <!--Item 2-->
         <scene sceneID="s4g-Gv-4Si">
@@ -187,7 +187,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZYE-gX-b9s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-46" y="710"/>
+            <point key="canvasLocation" x="-639" y="723"/>
         </scene>
         <!--Home Tab Bar Controller-->
         <scene sceneID="9D6-Sa-GEQ">
@@ -768,14 +768,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BVk-u4-dVC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="93.599999999999994" y="1387.5562218890557"/>
+            <point key="canvasLocation" x="-18" y="1393"/>
         </scene>
         <!--Inbox-->
         <scene sceneID="Lzp-CB-IOP">
             <objects>
                 <tableViewController storyboardIdentifier="DialogsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kDr-oi-lvm" customClass="DialogsViewController" customModule="DiabetesApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="64" sectionHeaderHeight="22" sectionFooterHeight="22" id="zUb-Xo-eof">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.92549019610000005" green="0.92156862750000001" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
@@ -886,18 +886,19 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem title="Group" id="mAN-ET-q1d">
+                            <barButtonItem image="groupIcon" id="mAN-ET-q1d">
                                 <connections>
                                     <action selector="GroupAction:" destination="kDr-oi-lvm" id="PEZ-Uh-0Vl"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem tag="1" title="New Chat" id="bMt-6O-rcT">
+                            <barButtonItem tag="1" image="NewMessage" id="bMt-6O-rcT">
                                 <connections>
                                     <action selector="GroupAction:" destination="kDr-oi-lvm" id="MFi-Df-Mgm"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fnW-BE-kcH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -915,15 +916,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L8N-XK-ZWJ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="L8N-XK-ZWJ">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="patientCell" id="jQA-wB-muU">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jQA-wB-muU" id="s29-B8-3FT">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -960,7 +961,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dJD-kr-sF4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1519" y="1388"/>
+            <point key="canvasLocation" x="870" y="2013"/>
         </scene>
         <!--Call View Controller-->
         <scene sceneID="Iyz-1I-E6v">
@@ -1079,7 +1080,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Shd-Cb-rKf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="u48-pB-Z8Z">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -1197,10 +1198,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="NewMessage" width="22" height="22"/>
         <image name="condition.png" width="260" height="100"/>
         <image name="dosage.png" width="260" height="100"/>
         <image name="frequency.png" width="260" height="100"/>
         <image name="goal.png" width="260" height="100"/>
+        <image name="groupIcon" width="22" height="22"/>
         <image name="med.png" width="176" height="360"/>
         <image name="user.png" width="40" height="41"/>
     </resources>

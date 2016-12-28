@@ -9,67 +9,44 @@ provides-member:
 - ["C11DiabetesApp18ChatViewController", ""]
 - ["SS", "length"]
 provides-dynamic-lookup:
-- "statusStringFromMessage"
-- "loadMessages"
-- "deferredQueueManager"
-- "deferredQueueManager"
-- "chatCellDidTapContainer"
-- "bottomLabelAttributedString"
-- "chatCell"
-- "chatCell"
-- "chatCell"
-- "viewClass"
-- "imagePickerViewController"
-- "handleNotSentMessage"
-- "messageShouldBeRead"
-- "videoAudioClick"
-- "maxCharactersNumber"
-- "appDelegate"
-- "unreadMessages"
-- "didPressSend"
-- "didPressSend"
-- "viewDidDisappear"
-- "chatCellDidTapAvatar"
-- "sendStopTyping"
-- "viewWillAppear"
-- "textView"
-- "dialog"
-- "canMakeACall"
-- "chatAttachmentService"
-- "chatAttachmentService"
-- "chatAttachmentService"
-- "willResignActiveBlock"
-- "topLabelAttributedString"
-- "textViewDidChange"
-- "optionsClick"
-- "queueManager"
-- "placeHolderTextView"
-- "updateTitle"
-- "storedMessages"
-- "textViewDidEndEditing"
 - "attachmentCellsMap"
-- "viewDidAppear"
-- "chatService"
-- "chatService"
-- "chatService"
-- "chatService"
-- "chatService"
-- "callWithConferenceType"
-- "viewDidLoad"
-- "sendReadStatusForMessage"
-- "detailedCells"
-- "showCharactersNumberError"
-- "attributedString"
-- "occupantID"
-- "refreshAndReadMessages"
-- "chatServiceChatDidReconnect"
-- "prepare"
 - "fireSendStopTypingIfNecessary"
-- "typingTimer"
 - "sendMessage"
+- "messageShouldBeRead"
+- "unreadMessages"
+- "optionsClick"
+- "showCharactersNumberError"
+- "viewWillAppear"
+- "textViewDidChange"
+- "refreshAndReadMessages"
+- "appDelegate"
+- "textViewDidEndEditing"
 - "didPickAttachmentImage"
+- "dialog"
+- "chatCellDidTapAvatar"
+- "imagePickerViewController"
+- "videoAudioClick"
+- "viewDidLoad"
+- "sendStopTyping"
+- "viewDidAppear"
+- "storedMessages"
+- "placeHolderTextView"
+- "maxCharactersNumber"
 - "occupantUser"
-- "chatServiceChatDidConnect"
+- "canMakeACall"
+- "topLabelAttributedString"
+- "sendReadStatusForMessage"
+- "chatServiceChatDidReconnect"
+- "typingTimer"
+- "chatAttachmentService"
+- "chatAttachmentService"
+- "chatAttachmentService"
+- "chatCellDidTapContainer"
+- "didPressSend"
+- "didPressSend"
+- "statusStringFromMessage"
+- "viewDidDisappear"
+- "prepare"
 - "collectionView"
 - "collectionView"
 - "collectionView"
@@ -77,153 +54,177 @@ provides-dynamic-lookup:
 - "collectionView"
 - "collectionView"
 - "collectionView"
+- "viewClass"
+- "handleNotSentMessage"
+- "bottomLabelAttributedString"
 - "readMessages"
 - "sendBeginTyping"
+- "occupantID"
+- "updateTitle"
+- "textView"
+- "deferredQueueManager"
+- "deferredQueueManager"
+- "chatCell"
+- "chatCell"
+- "chatCell"
+- "queueManager"
+- "loadMessages"
+- "willResignActiveBlock"
+- "callWithConferenceType"
+- "chatServiceChatDidConnect"
+- "detailedCells"
+- "attributedString"
+- "chatService"
+- "chatService"
+- "chatService"
+- "chatService"
+- "chatService"
 depends-top-level:
-- "QMPlaceHolderTextViewPasteDelegate"
-- !private "TTTAttributedLabel"
-- !private "QMChatNotificationCell"
-- !private "&&"
-- !private "NSParagraphStyleAttributeName"
-- "QMChatCellDelegate"
-- !private "NSTextCheckingAllTypes"
-- "QMDeferredQueueManagerDelegate"
-- !private "BooleanLiteralType"
-- "UINavigationControllerDelegate"
-- !private "!"
-- "QMChatAttachmentServiceDelegate"
-- "AppDelegate"
-- "StringLiteralType"
-- "UIActionSheetDelegate"
-- !private "QBRequest"
-- "UIImagePickerControllerDelegate"
-- !private "SFSafariViewController"
-- "CGSize"
-- !private "QMChatOutgoingCell"
-- "AssignmentPrecedence"
-- "UIStoryboardSegue"
-- !private "~="
-- !private "=="
-- "CastingPrecedence"
-- !private "ViewIdentifiers"
-- !private "UIColor"
-- "QMChatCellLayoutModel"
-- "UICollectionView"
-- !private "ChatInfo"
-- !private "NotificationCenter"
-- "QMChatCell"
-- "QBChatMessage"
-- "UIImage"
-- !private "-"
-- "UICollectionViewCell"
-- "TernaryPrecedence"
-- !private "QMChatAttachmentOutgoingCell"
-- !private "QBRTCClient"
-- !private "UIFont"
-- "Int"
-- "IndexPath"
-- !private "Dictionary"
-- !private "QMChatAttachmentIncomingCell"
-- !private "UIImageJPEGRepresentation"
-- "Void"
-- !private ">"
-- !private "UnicodeScalarType"
-- !private "URL"
-- !private "CallViewController"
-- "Selector"
-- "QMMessageAttachmentStatus"
-- !private "QMMessageNotificationManager"
-- !private "Error"
-- !private "NSMakeRange"
-- "AnyObject"
-- !private "VideoAudioCall"
-- !private "QBChat"
-- !private "QMMessageNotificationType"
-- !private "UIAlertAction"
-- !private "UIAlertActionStyle"
-- "QMPlaceHolderTextView"
-- "Date"
-- "QMChatAttachmentService"
-- !private "CarePlanViewController"
-- !private "NSPointerFunctions"
-- !private "QMChatIncomingCell"
-- "NSRange"
-- !private ">="
-- "QBChatDialog"
-- "CGFloat"
-- "NSTextCheckingResult"
-- !private "/"
-- !private "NSString"
-- !private "HistoryViewController"
-- !private "==="
-- !private "UIAlertController"
-- !private "||"
-- "Set"
-- !private "NSNumber"
-- !private "QBSession"
-- !private "floor"
-- !private "ServicesManager"
-- "Array"
-- !private "UIBarButtonItemStyle"
-- "QMChatService"
-- !private "UIBarButtonItem"
+- !private "UIGraphicsBeginImageContext"
 - !private "ceil"
-- !private "GeneralLabels"
-- !private "QMChatAttachmentCell"
-- !private "<"
-- !private "NSMutableArray"
-- "NSMapTable"
-- "QBUUser"
-- "QBChatAttachment"
-- "QMDeferredQueueManager"
-- !private "print"
-- !private "min"
-- !private "!="
-- "Bool"
-- !private "DispatchQueue"
-- !private "UIGraphicsEndImageContext"
-- !private "QBAVCallPermissions"
-- !private "SVProgressHUD"
+- "NSTextCheckingResult"
+- !private "NSForegroundColorAttributeName"
+- !private "UIAlertAction"
+- "UInt"
+- !private "+"
+- !private "BooleanLiteralType"
+- "QMPlaceHolderTextView"
+- !private "QMChatNotificationCell"
+- !private "VideoAudioCall"
+- "StringLiteralType"
 - !private "NSNotification"
-- "ChatViewController"
-- !private "UIGraphicsGetImageFromCurrentImageContext"
+- !private "floor"
+- !private "==="
+- !private "QBSession"
+- !private "DispatchQueue"
+- "QBRTCConferenceType"
+- !private "~="
+- "AssignmentPrecedence"
+- !private "=="
+- !private "UIFont"
+- !private "SVProgressHUDMaskType"
+- "CastingPrecedence"
 - !private "UIPasteboard"
-- "UIApplication"
+- !private "&&"
+- !private "CGRect"
+- !private "NSLineBreakMode"
+- "QBUUser"
+- "Date"
+- !private "QBChat"
+- !private "||"
+- "UIImage"
 - "NSAttributedString"
+- "AnyObject"
+- "UIStoryboardSegue"
+- !private "Error"
+- "TernaryPrecedence"
+- !private "UIColor"
+- !private "QMChatAttachmentCell"
+- !private "min"
+- "DateFormatter"
+- "UIImagePickerControllerDelegate"
+- "Void"
+- "QMMessageAttachmentStatus"
+- "UINavigationControllerDelegate"
+- !private "NotificationCenter"
+- !private "UIImageJPEGRepresentation"
+- "Int"
+- "UIActionSheetDelegate"
+- "Selector"
+- !private "UIImagePickerControllerSourceType"
+- "messageTimeDateFormatter"
+- !private "SVProgressHUD"
+- !private "NSString"
+- !private "ChatInfo"
+- "QMChatConnectionDelegate"
+- !private "QMChatIncomingCell"
+- "QMChatServiceDelegate"
+- !private "??"
+- !private "UIGraphicsGetImageFromCurrentImageContext"
+- "QBChatAttachment"
+- !private "QMChatAttachmentIncomingCell"
+- "QMDeferredQueueManagerDelegate"
+- !private ">="
+- "Bool"
+- "QMPlaceHolderTextViewPasteDelegate"
+- !private "QBMPushMessage"
+- "IndexPath"
+- "QMChatAttachmentServiceDelegate"
+- "CGFloat"
+- "ChatViewController"
+- "QMChatCellDelegate"
+- !private "UIBarButtonItemStyle"
+- !private "NSMakeRange"
+- "UIApplication"
+- "QBChatMessage"
+- "String"
+- !private "QBRequest"
+- !private "NSParagraphStyleAttributeName"
+- !private "TTTAttributedLabel"
 - "UITextView"
 - "UIImagePickerController"
-- "CGPoint"
-- !private "??"
-- !private "+"
-- !private "NSTextAttachment"
-- "AnyClass"
-- "QMChatCollectionView"
-- !private "CTTelephonyNetworkInfo"
-- "Timer"
-- !private "UIGraphicsBeginImageContext"
-- !private "+="
-- !private "NSForegroundColorAttributeName"
-- "UIButton"
-- "QMChatViewController"
-- !private "QMChatContactRequestCell"
-- "UInt"
-- !private "NSLineBreakMode"
-- !private "<="
-- "messageTimeDateFormatter"
+- !private "!"
 - !private "NSMutableString"
-- !private "UIImagePickerControllerSourceType"
-- !private "SVProgressHUDMaskType"
-- "QBRTCConferenceType"
-- !private "QMMessageStatus"
-- !private "kMessageContainerWidthPadding"
+- "UIButton"
+- !private "Dictionary"
+- !private "UnicodeScalarType"
+- !private "-"
+- !private "UIGraphicsEndImageContext"
+- "QMChatViewController"
+- "QMChatCellLayoutModel"
+- !private "GeneralLabels"
+- !private "SFSafariViewController"
+- "UICollectionView"
+- !private "!="
+- !private "/"
+- !private "QMChatAttachmentOutgoingCell"
+- "QMDeferredQueueManager"
+- !private "<"
+- "Timer"
+- !private "+="
+- "UICollectionViewCell"
+- "CGPoint"
+- "Set"
+- !private "NSNumber"
+- "QMChatService"
+- "CGSize"
+- "AppDelegate"
+- !private "UIAlertController"
+- "AnyClass"
+- !private "URL"
+- "QBChatDialog"
+- "QMChatCell"
+- !private "UIAlertActionStyle"
+- !private "HistoryViewController"
 - !private "NSMutableParagraphStyle"
-- "String"
-- "DateFormatter"
-- !private "NSFontAttributeName"
-- "QMChatServiceDelegate"
 - !private "QBChatDialogType"
-- !private "CGRect"
-- "QMChatConnectionDelegate"
+- "QMChatCollectionView"
+- !private "NSFontAttributeName"
+- !private "UIBarButtonItem"
+- !private "QBAVCallPermissions"
+- !private "CTTelephonyNetworkInfo"
+- "Array"
+- !private "QMChatOutgoingCell"
+- !private "NSTextCheckingAllTypes"
+- "NSRange"
+- !private "<="
+- !private ">"
+- !private "NSPointerFunctions"
+- !private "QMMessageNotificationManager"
+- "NSMapTable"
+- !private "QMChatContactRequestCell"
+- !private "NSMutableArray"
+- "QMChatAttachmentService"
+- !private "QMMessageNotificationType"
+- !private "kMessageContainerWidthPadding"
+- !private "ViewIdentifiers"
+- !private "QBRTCClient"
+- !private "NSTextAttachment"
+- !private "ServicesManager"
+- !private "print"
+- !private "CarePlanViewController"
+- !private "CallViewController"
+- !private "QMMessageStatus"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "greatestFiniteMagnitude"]
 - !private ["Ps9AnyObject", "CGFloat"]
@@ -261,6 +262,7 @@ depends-member:
 - !private ["Ps9AnyObject", "QBChat"]
 - !private ["Ps9AnyObject", "QBChatDialogType"]
 - !private ["Ps9AnyObject", "QBChatMessage"]
+- !private ["Ps9AnyObject", "QBMPushMessage"]
 - !private ["Ps9AnyObject", "QBRTCClient"]
 - !private ["Ps9AnyObject", "QBRequest"]
 - !private ["Ps9AnyObject", "QBSession"]
@@ -307,6 +309,7 @@ depends-member:
 - !private ["Ps9AnyObject", "addAction"]
 - !private ["Ps9AnyObject", "addDelegate"]
 - !private ["Ps9AnyObject", "addObserver"]
+- !private ["Ps9AnyObject", "alertBody"]
 - ["Ps9AnyObject", "appDelegate"]
 - !private ["Ps9AnyObject", "append"]
 - !private ["Ps9AnyObject", "applicationIconBadgeNumber"]
@@ -471,6 +474,7 @@ depends-member:
 - !private ["Ps9AnyObject", "sendAttachmentMessage"]
 - ["Ps9AnyObject", "sendBeginTyping"]
 - ["Ps9AnyObject", "sendMessage"]
+- !private ["Ps9AnyObject", "sendPush"]
 - ["Ps9AnyObject", "sendReadStatusForMessage"]
 - ["Ps9AnyObject", "sendStopTyping"]
 - !private ["Ps9AnyObject", "sendUserIsTyping"]
@@ -662,6 +666,7 @@ depends-member:
 - !private ["Ps7CVarArg", "QBChat"]
 - !private ["Ps7CVarArg", "QBChatDialogType"]
 - !private ["Ps7CVarArg", "QBChatMessage"]
+- !private ["Ps7CVarArg", "QBMPushMessage"]
 - !private ["Ps7CVarArg", "QBRTCClient"]
 - !private ["Ps7CVarArg", "QBRequest"]
 - !private ["Ps7CVarArg", "QBSession"]
@@ -710,6 +715,7 @@ depends-member:
 - !private ["Ps7CVarArg", "addAction"]
 - !private ["Ps7CVarArg", "addDelegate"]
 - !private ["Ps7CVarArg", "addObserver"]
+- !private ["Ps7CVarArg", "alertBody"]
 - ["Ps7CVarArg", "appDelegate"]
 - !private ["Ps7CVarArg", "append"]
 - !private ["Ps7CVarArg", "applicationIconBadgeNumber"]
@@ -878,6 +884,7 @@ depends-member:
 - !private ["Ps7CVarArg", "sendAttachmentMessage"]
 - ["Ps7CVarArg", "sendBeginTyping"]
 - ["Ps7CVarArg", "sendMessage"]
+- !private ["Ps7CVarArg", "sendPush"]
 - ["Ps7CVarArg", "sendReadStatusForMessage"]
 - ["Ps7CVarArg", "sendStopTyping"]
 - !private ["Ps7CVarArg", "sendUserIsTyping"]
@@ -992,6 +999,7 @@ depends-member:
 - ["C11DiabetesApp18ChatViewController", "QBChatDialog"]
 - !private ["C11DiabetesApp18ChatViewController", "QBChatDialogType"]
 - ["C11DiabetesApp18ChatViewController", "QBChatMessage"]
+- !private ["C11DiabetesApp18ChatViewController", "QBMPushMessage"]
 - !private ["C11DiabetesApp18ChatViewController", "QBRTCClient"]
 - ["C11DiabetesApp18ChatViewController", "QBRTCConferenceType"]
 - !private ["C11DiabetesApp18ChatViewController", "QBRequest"]
@@ -1212,6 +1220,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "QBChat"]
 - !private ["Ps28CustomDebugStringConvertible", "QBChatDialogType"]
 - !private ["Ps28CustomDebugStringConvertible", "QBChatMessage"]
+- !private ["Ps28CustomDebugStringConvertible", "QBMPushMessage"]
 - !private ["Ps28CustomDebugStringConvertible", "QBRTCClient"]
 - !private ["Ps28CustomDebugStringConvertible", "QBRequest"]
 - !private ["Ps28CustomDebugStringConvertible", "QBSession"]
@@ -1261,6 +1270,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "addAction"]
 - !private ["Ps28CustomDebugStringConvertible", "addDelegate"]
 - !private ["Ps28CustomDebugStringConvertible", "addObserver"]
+- !private ["Ps28CustomDebugStringConvertible", "alertBody"]
 - ["Ps28CustomDebugStringConvertible", "appDelegate"]
 - !private ["Ps28CustomDebugStringConvertible", "append"]
 - !private ["Ps28CustomDebugStringConvertible", "applicationIconBadgeNumber"]
@@ -1431,6 +1441,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "sendAttachmentMessage"]
 - ["Ps28CustomDebugStringConvertible", "sendBeginTyping"]
 - ["Ps28CustomDebugStringConvertible", "sendMessage"]
+- !private ["Ps28CustomDebugStringConvertible", "sendPush"]
 - ["Ps28CustomDebugStringConvertible", "sendReadStatusForMessage"]
 - ["Ps28CustomDebugStringConvertible", "sendStopTyping"]
 - !private ["Ps28CustomDebugStringConvertible", "sendUserIsTyping"]
@@ -1577,6 +1588,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "QBChat"]
 - !private ["Ps23CustomStringConvertible", "QBChatDialogType"]
 - !private ["Ps23CustomStringConvertible", "QBChatMessage"]
+- !private ["Ps23CustomStringConvertible", "QBMPushMessage"]
 - !private ["Ps23CustomStringConvertible", "QBRTCClient"]
 - !private ["Ps23CustomStringConvertible", "QBRequest"]
 - !private ["Ps23CustomStringConvertible", "QBSession"]
@@ -1627,6 +1639,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "addAction"]
 - !private ["Ps23CustomStringConvertible", "addDelegate"]
 - !private ["Ps23CustomStringConvertible", "addObserver"]
+- !private ["Ps23CustomStringConvertible", "alertBody"]
 - ["Ps23CustomStringConvertible", "appDelegate"]
 - !private ["Ps23CustomStringConvertible", "append"]
 - !private ["Ps23CustomStringConvertible", "applicationIconBadgeNumber"]
@@ -1797,6 +1810,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "sendAttachmentMessage"]
 - ["Ps23CustomStringConvertible", "sendBeginTyping"]
 - ["Ps23CustomStringConvertible", "sendMessage"]
+- !private ["Ps23CustomStringConvertible", "sendPush"]
 - ["Ps23CustomStringConvertible", "sendReadStatusForMessage"]
 - ["Ps23CustomStringConvertible", "sendStopTyping"]
 - !private ["Ps23CustomStringConvertible", "sendUserIsTyping"]
@@ -1912,6 +1926,7 @@ depends-member:
 - !private ["Ps9Equatable", "QBChat"]
 - !private ["Ps9Equatable", "QBChatDialogType"]
 - !private ["Ps9Equatable", "QBChatMessage"]
+- !private ["Ps9Equatable", "QBMPushMessage"]
 - !private ["Ps9Equatable", "QBRTCClient"]
 - !private ["Ps9Equatable", "QBRequest"]
 - !private ["Ps9Equatable", "QBSession"]
@@ -1963,6 +1978,7 @@ depends-member:
 - !private ["Ps9Equatable", "addDelegate"]
 - !private ["Ps9Equatable", "addObserver"]
 - !private ["Ps9Equatable", "alert"]
+- !private ["Ps9Equatable", "alertBody"]
 - ["Ps9Equatable", "appDelegate"]
 - !private ["Ps9Equatable", "append"]
 - !private ["Ps9Equatable", "applicationIconBadgeNumber"]
@@ -2144,6 +2160,7 @@ depends-member:
 - !private ["Ps9Equatable", "sendAttachmentMessage"]
 - ["Ps9Equatable", "sendBeginTyping"]
 - ["Ps9Equatable", "sendMessage"]
+- !private ["Ps9Equatable", "sendPush"]
 - ["Ps9Equatable", "sendReadStatusForMessage"]
 - ["Ps9Equatable", "sendStopTyping"]
 - !private ["Ps9Equatable", "sendUserIsTyping"]
@@ -2324,6 +2341,7 @@ depends-member:
 - !private ["Ps8Hashable", "QBChat"]
 - !private ["Ps8Hashable", "QBChatDialogType"]
 - !private ["Ps8Hashable", "QBChatMessage"]
+- !private ["Ps8Hashable", "QBMPushMessage"]
 - !private ["Ps8Hashable", "QBRTCClient"]
 - !private ["Ps8Hashable", "QBRequest"]
 - !private ["Ps8Hashable", "QBSession"]
@@ -2375,6 +2393,7 @@ depends-member:
 - !private ["Ps8Hashable", "addDelegate"]
 - !private ["Ps8Hashable", "addObserver"]
 - !private ["Ps8Hashable", "alert"]
+- !private ["Ps8Hashable", "alertBody"]
 - ["Ps8Hashable", "appDelegate"]
 - !private ["Ps8Hashable", "append"]
 - !private ["Ps8Hashable", "applicationIconBadgeNumber"]
@@ -2554,6 +2573,7 @@ depends-member:
 - !private ["Ps8Hashable", "sendAttachmentMessage"]
 - ["Ps8Hashable", "sendBeginTyping"]
 - ["Ps8Hashable", "sendMessage"]
+- !private ["Ps8Hashable", "sendPush"]
 - ["Ps8Hashable", "sendReadStatusForMessage"]
 - ["Ps8Hashable", "sendStopTyping"]
 - !private ["Ps8Hashable", "sendUserIsTyping"]
@@ -2752,6 +2772,7 @@ depends-member:
 - !private ["PSo8NSCoding", "QBChat"]
 - !private ["PSo8NSCoding", "QBChatDialogType"]
 - !private ["PSo8NSCoding", "QBChatMessage"]
+- !private ["PSo8NSCoding", "QBMPushMessage"]
 - !private ["PSo8NSCoding", "QBRTCClient"]
 - !private ["PSo8NSCoding", "QBRequest"]
 - !private ["PSo8NSCoding", "QBSession"]
@@ -2795,6 +2816,7 @@ depends-member:
 - ["PSo8NSCoding", "actionSheet"]
 - ["PSo8NSCoding", "actionSheetCancel"]
 - !private ["PSo8NSCoding", "addAction"]
+- !private ["PSo8NSCoding", "alertBody"]
 - ["PSo8NSCoding", "appDelegate"]
 - !private ["PSo8NSCoding", "append"]
 - ["PSo8NSCoding", "attachmentCellsMap"]
@@ -2970,6 +2992,7 @@ depends-member:
 - ["PSo9NSCopying", "CheckingType"]
 - !private ["PSo9NSCopying", "Name"]
 - !private ["PSo9NSCopying", "Options"]
+- !private ["PSo9NSCopying", "alertBody"]
 - !private ["PSo9NSCopying", "append"]
 - !private ["PSo9NSCopying", "attachmentStatus"]
 - !private ["PSo9NSCopying", "attachments"]
@@ -3052,6 +3075,7 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "QBChat"]
 - !private ["PSo26NSExtensionRequestHandling", "QBChatDialogType"]
 - !private ["PSo26NSExtensionRequestHandling", "QBChatMessage"]
+- !private ["PSo26NSExtensionRequestHandling", "QBMPushMessage"]
 - !private ["PSo26NSExtensionRequestHandling", "QBRTCClient"]
 - !private ["PSo26NSExtensionRequestHandling", "QBRequest"]
 - !private ["PSo26NSExtensionRequestHandling", "QBSession"]
@@ -3291,6 +3315,7 @@ depends-member:
 - ["CSo8NSObject", "QBChatDialog"]
 - !private ["CSo8NSObject", "QBChatDialogType"]
 - ["CSo8NSObject", "QBChatMessage"]
+- !private ["CSo8NSObject", "QBMPushMessage"]
 - !private ["CSo8NSObject", "QBRTCClient"]
 - ["CSo8NSObject", "QBRTCConferenceType"]
 - !private ["CSo8NSObject", "QBRequest"]
@@ -3355,6 +3380,7 @@ depends-member:
 - !private ["CSo8NSObject", "addAction"]
 - !private ["CSo8NSObject", "addDelegate"]
 - !private ["CSo8NSObject", "addObserver"]
+- !private ["CSo8NSObject", "alertBody"]
 - ["CSo8NSObject", "appDelegate"]
 - !private ["CSo8NSObject", "append"]
 - !private ["CSo8NSObject", "applicationIconBadgeNumber"]
@@ -3518,6 +3544,7 @@ depends-member:
 - !private ["CSo8NSObject", "sendAttachmentMessage"]
 - ["CSo8NSObject", "sendBeginTyping"]
 - ["CSo8NSObject", "sendMessage"]
+- !private ["CSo8NSObject", "sendPush"]
 - ["CSo8NSObject", "sendReadStatusForMessage"]
 - ["CSo8NSObject", "sendStopTyping"]
 - !private ["CSo8NSObject", "sendUserIsTyping"]
@@ -3610,6 +3637,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "QBChat"]
 - !private ["PSo16NSObjectProtocol", "QBChatDialogType"]
 - !private ["PSo16NSObjectProtocol", "QBChatMessage"]
+- !private ["PSo16NSObjectProtocol", "QBMPushMessage"]
 - !private ["PSo16NSObjectProtocol", "QBRTCClient"]
 - !private ["PSo16NSObjectProtocol", "QBRequest"]
 - !private ["PSo16NSObjectProtocol", "QBSession"]
@@ -3656,6 +3684,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "addAction"]
 - !private ["PSo16NSObjectProtocol", "addDelegate"]
 - !private ["PSo16NSObjectProtocol", "addObserver"]
+- !private ["PSo16NSObjectProtocol", "alertBody"]
 - ["PSo16NSObjectProtocol", "appDelegate"]
 - !private ["PSo16NSObjectProtocol", "append"]
 - !private ["PSo16NSObjectProtocol", "applicationIconBadgeNumber"]
@@ -3821,6 +3850,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "sendAttachmentMessage"]
 - ["PSo16NSObjectProtocol", "sendBeginTyping"]
 - ["PSo16NSObjectProtocol", "sendMessage"]
+- !private ["PSo16NSObjectProtocol", "sendPush"]
 - ["PSo16NSObjectProtocol", "sendReadStatusForMessage"]
 - ["PSo16NSObjectProtocol", "sendStopTyping"]
 - !private ["PSo16NSObjectProtocol", "sendUserIsTyping"]
@@ -3935,6 +3965,8 @@ depends-member:
 - !private ["CSo18NotificationCenter", "default"]
 - ["CSo18NotificationCenter", "deinit"]
 - !private ["CSo18NotificationCenter", "removeObserver"]
+- !private ["P11DiabetesApp27NotificationServiceDelegate", "currentUser"]
+- !private ["P11DiabetesApp27NotificationServiceDelegate", "session"]
 - !private ["CSo9OS_object", "async"]
 - !private ["CSo9OS_object", "global"]
 - !private ["CSo9OS_object", "main"]
@@ -3988,12 +4020,18 @@ depends-member:
 - !private ["CSo13QBChatMessage", "text"]
 - !private ["CSo7QBError", "deinit"]
 - !private ["CSo7QBError", "error"]
+- !private ["CSo14QBMPushMessage", "alertBody"]
+- !private ["CSo14QBMPushMessage", "deinit"]
+- !private ["CSo14QBMPushMessage", "init"]
+- !private ["CSo18QBMPushMessageBase", "alertBody"]
+- !private ["CSo18QBMPushMessageBase", "init"]
 - !private ["CSo11QBRTCClient", "createNewSession"]
 - !private ["CSo11QBRTCClient", "instance"]
 - !private ["OSC19QBRTCConferenceType", "audio"]
 - ["OSC19QBRTCConferenceType", "deinit"]
 - !private ["OSC19QBRTCConferenceType", "video"]
 - ["CSo9QBRequest", "deinit"]
+- !private ["CSo9QBRequest", "sendPush"]
 - !private ["CSo9QBRequest", "user"]
 - !private ["CSo10QBResponse", "deinit"]
 - !private ["CSo10QBResponse", "error"]
@@ -4057,6 +4095,7 @@ depends-member:
 - !private ["PSo31QMChatAttachmentServiceDelegate", "QBChat"]
 - !private ["PSo31QMChatAttachmentServiceDelegate", "QBChatDialogType"]
 - !private ["PSo31QMChatAttachmentServiceDelegate", "QBChatMessage"]
+- !private ["PSo31QMChatAttachmentServiceDelegate", "QBMPushMessage"]
 - !private ["PSo31QMChatAttachmentServiceDelegate", "QBRTCClient"]
 - !private ["PSo31QMChatAttachmentServiceDelegate", "QBRequest"]
 - !private ["PSo31QMChatAttachmentServiceDelegate", "QBSession"]
@@ -4212,6 +4251,7 @@ depends-member:
 - !private ["PSo18QMChatCellDelegate", "QBChat"]
 - !private ["PSo18QMChatCellDelegate", "QBChatDialogType"]
 - !private ["PSo18QMChatCellDelegate", "QBChatMessage"]
+- !private ["PSo18QMChatCellDelegate", "QBMPushMessage"]
 - !private ["PSo18QMChatCellDelegate", "QBRTCClient"]
 - !private ["PSo18QMChatCellDelegate", "QBRequest"]
 - !private ["PSo18QMChatCellDelegate", "QBSession"]
@@ -4373,6 +4413,7 @@ depends-member:
 - !private ["PSo30QMChatCollectionViewDataSource", "QBChat"]
 - !private ["PSo30QMChatCollectionViewDataSource", "QBChatDialogType"]
 - !private ["PSo30QMChatCollectionViewDataSource", "QBChatMessage"]
+- !private ["PSo30QMChatCollectionViewDataSource", "QBMPushMessage"]
 - !private ["PSo30QMChatCollectionViewDataSource", "QBRTCClient"]
 - !private ["PSo30QMChatCollectionViewDataSource", "QBRequest"]
 - !private ["PSo30QMChatCollectionViewDataSource", "QBSession"]
@@ -4536,6 +4577,7 @@ depends-member:
 - !private ["PSo38QMChatCollectionViewDelegateFlowLayout", "QBChat"]
 - !private ["PSo38QMChatCollectionViewDelegateFlowLayout", "QBChatDialogType"]
 - !private ["PSo38QMChatCollectionViewDelegateFlowLayout", "QBChatMessage"]
+- !private ["PSo38QMChatCollectionViewDelegateFlowLayout", "QBMPushMessage"]
 - !private ["PSo38QMChatCollectionViewDelegateFlowLayout", "QBRTCClient"]
 - !private ["PSo38QMChatCollectionViewDelegateFlowLayout", "QBRequest"]
 - !private ["PSo38QMChatCollectionViewDelegateFlowLayout", "QBSession"]
@@ -4700,6 +4742,7 @@ depends-member:
 - !private ["PSo24QMChatConnectionDelegate", "QBChat"]
 - !private ["PSo24QMChatConnectionDelegate", "QBChatDialogType"]
 - !private ["PSo24QMChatConnectionDelegate", "QBChatMessage"]
+- !private ["PSo24QMChatConnectionDelegate", "QBMPushMessage"]
 - !private ["PSo24QMChatConnectionDelegate", "QBRTCClient"]
 - !private ["PSo24QMChatConnectionDelegate", "QBRequest"]
 - !private ["PSo24QMChatConnectionDelegate", "QBSession"]
@@ -4893,6 +4936,7 @@ depends-member:
 - !private ["PSo21QMChatServiceDelegate", "QBChat"]
 - !private ["PSo21QMChatServiceDelegate", "QBChatDialogType"]
 - !private ["PSo21QMChatServiceDelegate", "QBChatMessage"]
+- !private ["PSo21QMChatServiceDelegate", "QBMPushMessage"]
 - !private ["PSo21QMChatServiceDelegate", "QBRTCClient"]
 - !private ["PSo21QMChatServiceDelegate", "QBRequest"]
 - !private ["PSo21QMChatServiceDelegate", "QBSession"]
@@ -5063,6 +5107,7 @@ depends-member:
 - ["CSo20QMChatViewController", "QBChatDialog"]
 - !private ["CSo20QMChatViewController", "QBChatDialogType"]
 - ["CSo20QMChatViewController", "QBChatMessage"]
+- !private ["CSo20QMChatViewController", "QBMPushMessage"]
 - !private ["CSo20QMChatViewController", "QBRTCClient"]
 - ["CSo20QMChatViewController", "QBRTCConferenceType"]
 - !private ["CSo20QMChatViewController", "QBRequest"]
@@ -5251,6 +5296,7 @@ depends-member:
 - !private ["PSo30QMDeferredQueueManagerDelegate", "QBChat"]
 - !private ["PSo30QMDeferredQueueManagerDelegate", "QBChatDialogType"]
 - !private ["PSo30QMDeferredQueueManagerDelegate", "QBChatMessage"]
+- !private ["PSo30QMDeferredQueueManagerDelegate", "QBMPushMessage"]
 - !private ["PSo30QMDeferredQueueManagerDelegate", "QBRTCClient"]
 - !private ["PSo30QMDeferredQueueManagerDelegate", "QBRequest"]
 - !private ["PSo30QMDeferredQueueManagerDelegate", "QBSession"]
@@ -5436,6 +5482,7 @@ depends-member:
 - !private ["PSo34QMPlaceHolderTextViewPasteDelegate", "QBChat"]
 - !private ["PSo34QMPlaceHolderTextViewPasteDelegate", "QBChatDialogType"]
 - !private ["PSo34QMPlaceHolderTextViewPasteDelegate", "QBChatMessage"]
+- !private ["PSo34QMPlaceHolderTextViewPasteDelegate", "QBMPushMessage"]
 - !private ["PSo34QMPlaceHolderTextViewPasteDelegate", "QBRTCClient"]
 - !private ["PSo34QMPlaceHolderTextViewPasteDelegate", "QBRequest"]
 - !private ["PSo34QMPlaceHolderTextViewPasteDelegate", "QBSession"]
@@ -5813,6 +5860,7 @@ depends-member:
 - !private ["PSo21UIActionSheetDelegate", "QBChat"]
 - !private ["PSo21UIActionSheetDelegate", "QBChatDialogType"]
 - !private ["PSo21UIActionSheetDelegate", "QBChatMessage"]
+- !private ["PSo21UIActionSheetDelegate", "QBMPushMessage"]
 - !private ["PSo21UIActionSheetDelegate", "QBRTCClient"]
 - !private ["PSo21UIActionSheetDelegate", "QBRequest"]
 - !private ["PSo21UIActionSheetDelegate", "QBSession"]
@@ -6004,6 +6052,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "QBChat"]
 - !private ["PSo21UIAppearanceContainer", "QBChatDialogType"]
 - !private ["PSo21UIAppearanceContainer", "QBChatMessage"]
+- !private ["PSo21UIAppearanceContainer", "QBMPushMessage"]
 - !private ["PSo21UIAppearanceContainer", "QBRTCClient"]
 - !private ["PSo21UIAppearanceContainer", "QBRequest"]
 - !private ["PSo21UIAppearanceContainer", "QBSession"]
@@ -6235,6 +6284,7 @@ depends-member:
 - !private ["PSo26UICollectionViewDataSource", "QBChat"]
 - !private ["PSo26UICollectionViewDataSource", "QBChatDialogType"]
 - !private ["PSo26UICollectionViewDataSource", "QBChatMessage"]
+- !private ["PSo26UICollectionViewDataSource", "QBMPushMessage"]
 - !private ["PSo26UICollectionViewDataSource", "QBRTCClient"]
 - !private ["PSo26UICollectionViewDataSource", "QBRequest"]
 - !private ["PSo26UICollectionViewDataSource", "QBSession"]
@@ -6398,6 +6448,7 @@ depends-member:
 - !private ["PSo24UICollectionViewDelegate", "QBChat"]
 - !private ["PSo24UICollectionViewDelegate", "QBChatDialogType"]
 - !private ["PSo24UICollectionViewDelegate", "QBChatMessage"]
+- !private ["PSo24UICollectionViewDelegate", "QBMPushMessage"]
 - !private ["PSo24UICollectionViewDelegate", "QBRTCClient"]
 - !private ["PSo24UICollectionViewDelegate", "QBRequest"]
 - !private ["PSo24UICollectionViewDelegate", "QBSession"]
@@ -6561,6 +6612,7 @@ depends-member:
 - !private ["PSo34UICollectionViewDelegateFlowLayout", "QBChat"]
 - !private ["PSo34UICollectionViewDelegateFlowLayout", "QBChatDialogType"]
 - !private ["PSo34UICollectionViewDelegateFlowLayout", "QBChatMessage"]
+- !private ["PSo34UICollectionViewDelegateFlowLayout", "QBMPushMessage"]
 - !private ["PSo34UICollectionViewDelegateFlowLayout", "QBRTCClient"]
 - !private ["PSo34UICollectionViewDelegateFlowLayout", "QBRequest"]
 - !private ["PSo34UICollectionViewDelegateFlowLayout", "QBSession"]
@@ -6730,6 +6782,7 @@ depends-member:
 - !private ["PSo18UIContentContainer", "QBChat"]
 - !private ["PSo18UIContentContainer", "QBChatDialogType"]
 - !private ["PSo18UIContentContainer", "QBChatMessage"]
+- !private ["PSo18UIContentContainer", "QBMPushMessage"]
 - !private ["PSo18UIContentContainer", "QBRTCClient"]
 - !private ["PSo18UIContentContainer", "QBRequest"]
 - !private ["PSo18UIContentContainer", "QBSession"]
@@ -6958,6 +7011,7 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "QBChat"]
 - !private ["PSo18UIFocusEnvironment", "QBChatDialogType"]
 - !private ["PSo18UIFocusEnvironment", "QBChatMessage"]
+- !private ["PSo18UIFocusEnvironment", "QBMPushMessage"]
 - !private ["PSo18UIFocusEnvironment", "QBRTCClient"]
 - !private ["PSo18UIFocusEnvironment", "QBRequest"]
 - !private ["PSo18UIFocusEnvironment", "QBSession"]
@@ -7192,6 +7246,7 @@ depends-member:
 - !private ["PSo31UIImagePickerControllerDelegate", "QBChat"]
 - !private ["PSo31UIImagePickerControllerDelegate", "QBChatDialogType"]
 - !private ["PSo31UIImagePickerControllerDelegate", "QBChatMessage"]
+- !private ["PSo31UIImagePickerControllerDelegate", "QBMPushMessage"]
 - !private ["PSo31UIImagePickerControllerDelegate", "QBRTCClient"]
 - !private ["PSo31UIImagePickerControllerDelegate", "QBRequest"]
 - !private ["PSo31UIImagePickerControllerDelegate", "QBSession"]
@@ -7359,6 +7414,7 @@ depends-member:
 - !private ["PSo30UINavigationControllerDelegate", "QBChat"]
 - !private ["PSo30UINavigationControllerDelegate", "QBChatDialogType"]
 - !private ["PSo30UINavigationControllerDelegate", "QBChatMessage"]
+- !private ["PSo30UINavigationControllerDelegate", "QBMPushMessage"]
 - !private ["PSo30UINavigationControllerDelegate", "QBRTCClient"]
 - !private ["PSo30UINavigationControllerDelegate", "QBRequest"]
 - !private ["PSo30UINavigationControllerDelegate", "QBSession"]
@@ -7537,6 +7593,7 @@ depends-member:
 - ["CSo11UIResponder", "QBChatDialog"]
 - !private ["CSo11UIResponder", "QBChatDialogType"]
 - ["CSo11UIResponder", "QBChatMessage"]
+- !private ["CSo11UIResponder", "QBMPushMessage"]
 - !private ["CSo11UIResponder", "QBRTCClient"]
 - ["CSo11UIResponder", "QBRTCConferenceType"]
 - !private ["CSo11UIResponder", "QBRequest"]
@@ -7754,6 +7811,7 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "QBChat"]
 - !private ["PSo30UIResponderStandardEditActions", "QBChatDialogType"]
 - !private ["PSo30UIResponderStandardEditActions", "QBChatMessage"]
+- !private ["PSo30UIResponderStandardEditActions", "QBMPushMessage"]
 - !private ["PSo30UIResponderStandardEditActions", "QBRTCClient"]
 - !private ["PSo30UIResponderStandardEditActions", "QBRequest"]
 - !private ["PSo30UIResponderStandardEditActions", "QBSession"]
@@ -7965,6 +8023,7 @@ depends-member:
 - !private ["PSo20UIScrollViewDelegate", "QBChat"]
 - !private ["PSo20UIScrollViewDelegate", "QBChatDialogType"]
 - !private ["PSo20UIScrollViewDelegate", "QBChatMessage"]
+- !private ["PSo20UIScrollViewDelegate", "QBMPushMessage"]
 - !private ["PSo20UIScrollViewDelegate", "QBRTCClient"]
 - !private ["PSo20UIScrollViewDelegate", "QBRequest"]
 - !private ["PSo20UIScrollViewDelegate", "QBSession"]
@@ -8128,6 +8187,7 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "QBChat"]
 - !private ["PSo16UIStateRestoring", "QBChatDialogType"]
 - !private ["PSo16UIStateRestoring", "QBChatMessage"]
+- !private ["PSo16UIStateRestoring", "QBMPushMessage"]
 - !private ["PSo16UIStateRestoring", "QBRTCClient"]
 - !private ["PSo16UIStateRestoring", "QBRequest"]
 - !private ["PSo16UIStateRestoring", "QBSession"]
@@ -8312,6 +8372,7 @@ depends-member:
 - !private ["PSo18UITextViewDelegate", "QBChat"]
 - !private ["PSo18UITextViewDelegate", "QBChatDialogType"]
 - !private ["PSo18UITextViewDelegate", "QBChatMessage"]
+- !private ["PSo18UITextViewDelegate", "QBMPushMessage"]
 - !private ["PSo18UITextViewDelegate", "QBRTCClient"]
 - !private ["PSo18UITextViewDelegate", "QBRequest"]
 - !private ["PSo18UITextViewDelegate", "QBSession"]
@@ -8476,6 +8537,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "QBChat"]
 - !private ["PSo18UITraitEnvironment", "QBChatDialogType"]
 - !private ["PSo18UITraitEnvironment", "QBChatMessage"]
+- !private ["PSo18UITraitEnvironment", "QBMPushMessage"]
 - !private ["PSo18UITraitEnvironment", "QBRTCClient"]
 - !private ["PSo18UITraitEnvironment", "QBRequest"]
 - !private ["PSo18UITraitEnvironment", "QBSession"]
@@ -8712,6 +8774,7 @@ depends-member:
 - ["CSo16UIViewController", "QBChatDialog"]
 - !private ["CSo16UIViewController", "QBChatDialogType"]
 - ["CSo16UIViewController", "QBChatMessage"]
+- !private ["CSo16UIViewController", "QBMPushMessage"]
 - !private ["CSo16UIViewController", "QBRTCClient"]
 - ["CSo16UIViewController", "QBRTCConferenceType"]
 - !private ["CSo16UIViewController", "QBRequest"]
@@ -9031,6 +9094,7 @@ depends-member:
 - !private ["Ps9_Hashable", "QBChat"]
 - !private ["Ps9_Hashable", "QBChatDialogType"]
 - !private ["Ps9_Hashable", "QBChatMessage"]
+- !private ["Ps9_Hashable", "QBMPushMessage"]
 - !private ["Ps9_Hashable", "QBRTCClient"]
 - !private ["Ps9_Hashable", "QBRequest"]
 - !private ["Ps9_Hashable", "QBSession"]
@@ -9082,6 +9146,7 @@ depends-member:
 - !private ["Ps9_Hashable", "addDelegate"]
 - !private ["Ps9_Hashable", "addObserver"]
 - !private ["Ps9_Hashable", "alert"]
+- !private ["Ps9_Hashable", "alertBody"]
 - ["Ps9_Hashable", "appDelegate"]
 - !private ["Ps9_Hashable", "append"]
 - !private ["Ps9_Hashable", "applicationIconBadgeNumber"]
@@ -9261,6 +9326,7 @@ depends-member:
 - !private ["Ps9_Hashable", "sendAttachmentMessage"]
 - ["Ps9_Hashable", "sendBeginTyping"]
 - ["Ps9_Hashable", "sendMessage"]
+- !private ["Ps9_Hashable", "sendPush"]
 - ["Ps9_Hashable", "sendReadStatusForMessage"]
 - ["Ps9_Hashable", "sendStopTyping"]
 - !private ["Ps9_Hashable", "sendUserIsTyping"]
@@ -9472,6 +9538,7 @@ depends-nominal:
 - !private "CSo7NSValue"
 - "VCSo14NSNotification4Name"
 - "CSo18NotificationCenter"
+- !private "P11DiabetesApp27NotificationServiceDelegate"
 - !private "CSo9OS_object"
 - !private "Ps9OptionSet"
 - "Sq"
@@ -9484,6 +9551,8 @@ depends-nominal:
 - "OSC16QBChatDialogType"
 - "CSo13QBChatMessage"
 - !private "CSo7QBError"
+- !private "CSo14QBMPushMessage"
+- !private "CSo18QBMPushMessageBase"
 - !private "CSo11QBRTCClient"
 - "OSC19QBRTCConferenceType"
 - "CSo9QBRequest"

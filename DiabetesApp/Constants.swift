@@ -87,6 +87,10 @@ struct ApiMethods{
     static let login       = "getdataios"
     static let getPatients = "getpatients"
     static let updatePatient = "updatepatient"
+    static let getPatDoctors  = "getPatDoctors"
+    static let getPatEducators = "getPatEducators"
+    static let getDocPatients   = "getDocPatients"
+    static let getDocEducators = "getDocEducators"
 }
 
 // MARK: - GeneralLabels

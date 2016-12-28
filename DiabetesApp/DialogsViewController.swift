@@ -178,8 +178,8 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
     func sessionDidClose(_ session: QBRTCSession!) {
         
         //if session == appDelegate.session {
-           // self.navigationController?.popViewController(animated: true)
-            self.navigationController?.popToViewController(self as UIViewController, animated: true)
+            self.navigationController?.popViewController(animated: true)
+            //self.navigationController?.popToViewController(self as UIViewController, animated: true)
             //self.dismiss(animated: true, completion: nil)
             appDelegate.session = nil
             

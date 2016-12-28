@@ -27,8 +27,9 @@ class LoginViewController: UIViewController, QBCoreDelegate {
     //MARK: - View Load Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         
-        checkLoginStatus()
+       checkLoginStatus()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -98,13 +99,14 @@ class LoginViewController: UIViewController, QBCoreDelegate {
     
     func navigateToNextScreen() {
         SVProgressHUD.dismiss()
+        registerForRemoteNotification()
         
         let viewController: DialogsViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.dialogsViewController) as! DialogsViewController
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
-        self.navigationController?.navigationBar.barTintColor = UIColor(patternImage: UIImage(named: "navBar.png")!)
+        self.navigationController?.navigationBar.barTintColor = UIColor(patternImage: UIImage(named: "navigationImage.png")!)
         self.navigationController?.setNavigationBarHidden(false, animated: false)
-       if UserDefaults.standard.value(forKey: userDefaults.loggedInUserType) as! NSNumber! == 1 {
+       if UserDefaults.standard.value(forKey: userDefaults.loggedInUserType) as! NSNumber! == 1 || UserDefaults.standard.value(forKey: userDefaults.loggedInUserType) as! NSNumber! == 3 {
             
             self.navigationController?.pushViewController(viewController, animated: true)
         }
@@ -187,21 +189,32 @@ class LoginViewController: UIViewController, QBCoreDelegate {
                                         
                                         let newUser = QBUUser()
                                         newUser.email = email
-                                        newUser.password = password
-                                        newUser.login = username
+                                        newUser.password = email
+                                        newUser.login = email
                                         newUser.fullName = JSON.value(forKey: "fullname") as! String!
                                         newUser.website = "www.visions.com"
                                         newUser.tags = NSMutableArray(object: "visionsApp")
                                         
                                         QBRequest.signUp(newUser, successBlock: { (response, user) in
                                             
-                                            Alamofire.request("\(baseUrl)\(ApiMethods.updatePatient)?userid=\(email)&chatid=\(username)&typeid=\(self.selectedUserType)").responseJSON(completionHandler: { (response) in
-                                                
-                                                // QuickBlox Login
-                                                self.loginToQuickBlox(login: email, username: username, userID: id)
-                                            })
+                                            let dictParam: Parameters = [
+                                                "userid": JSON.value(forKey: "_id") as! String!,
+                                                "chatid": username,
+                                                "typeid" : self.selectedUserType
+                                            ]
+                                        Alamofire.request("\(baseUrl)\(ApiMethods.updatePatient)", method: .post, parameters: dictParam, encoding: JSONEncoding.default).response { response in
+                                            // QuickBlox Login
+                                            self.loginToQuickBlox(login: email, username: username, userID: id)
+
+                                            
+                                            }
+//                                            
+//                                            Alamofire.request("\(baseUrl)\(ApiMethods.updatePatient)?userid=\(email)&chatid=\(username)&typeid=\(self.selectedUserType)").responseJSON(completionHandler: { (response) in
+//                                                
+//                                                                                          })
                                             
                                         }, errorBlock: { (error) in
+                                            print(error)
                                             SVProgressHUD.dismiss()
                                         })
                                     }
@@ -306,6 +319,8 @@ class LoginViewController: UIViewController, QBCoreDelegate {
                 UserDefaults.standard.setValue(username, forKey: userDefaults.loggedInUsername)
                 UserDefaults.standard.setValue(login, forKey: userDefaults.loggedInUserEmail)
                 UserDefaults.standard.setValue(login, forKey: userDefaults.loggedInUserPassword)
+                UserDefaults.standard.setValue(self.selectedUserType, forKey: userDefaults.loggedInUserType)
+                
                 UserDefaults.standard.synchronize()
                 
                 self.navigateToNextScreen()
@@ -313,7 +328,7 @@ class LoginViewController: UIViewController, QBCoreDelegate {
             
         }, errorBlock: { (error) in
             
-            print("error \(error)")
+            print("error \(error.data?.description)")
             SVProgressHUD.showError(withStatus: error.data?.description)
         })
     }
@@ -337,5 +352,19 @@ class LoginViewController: UIViewController, QBCoreDelegate {
      // Pass the selected object to the new view controller.
      }
      */
+    
+    func registerForRemoteNotification() {
+        // Register for push in iOS 8
+        if #available(iOS 8.0, *) {
+            let settings = UIUserNotificationSettings(types: [UIUserNotificationType.alert, UIUserNotificationType.badge, UIUserNotificationType.sound], categories: nil)
+            UIApplication.shared.registerUserNotificationSettings(settings)
+            UIApplication.shared.registerForRemoteNotifications()
+        }
+        else {
+            // Register for push in iOS 7
+            UIApplication.shared.registerForRemoteNotifications(matching: [UIRemoteNotificationType.badge, UIRemoteNotificationType.sound, UIRemoteNotificationType.alert])
+        }
+    }
+
     
 }

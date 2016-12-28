@@ -61,7 +61,7 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         print(self.dialog)
         if self.dialog != nil && self.dialog.type == .private {
            
-            let callBtnBar: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "options"), style: UIBarButtonItemStyle.plain , target: self, action: #selector(videoAudioClick))
+            let callBtnBar: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "Call"), style: UIBarButtonItemStyle.plain , target: self, action: #selector(videoAudioClick))
             
             let optionsBtnBar: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "options"), style: UIBarButtonItemStyle.plain , target: self, action: #selector(optionsClick))
             self.navigationItem.rightBarButtonItems = [optionsBtnBar,callBtnBar]
@@ -352,6 +352,8 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
     }
     
     //MARK: - Webrtc
+    
+    
     func callWithConferenceType(conferenceType: QBRTCConferenceType) {
         if (appDelegate.session != nil) {
             return
@@ -367,6 +369,7 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
                 if session != nil {
                     
                     QBRequest.user(withID: UInt(self.occupantID), successBlock: { (response, user) in
+                        
                         
                         self.appDelegate.session = session;
                         let callViewController: CallViewController = self.storyboard?.instantiateViewController(withIdentifier: "CallViewController") as! CallViewController
@@ -561,6 +564,21 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
                 
                 QMMessageNotificationManager.showNotification(withTitle: "SA_STR_ERROR".localized, subtitle: error?.localizedDescription, type: QMMessageNotificationType.warning)
             }
+           let pushMessage =  QBMPushMessage()
+            pushMessage.alertBody = self.dialog.name! + " : " + message.text!
+            //pushMessage.badge = 1
+            
+            QBRequest .sendPush(pushMessage, toUsers: String(self.dialog.userID), successBlock: { (response, event) in
+                
+            }, errorBlock: { (error) in
+                
+            })
+//            QBRequest.sendPush(withText: message.text!, toUsers: String(self.dialog.userID) , successBlock: { (response, event) in
+//                print(response)
+//                
+//            }) { (error) in
+//                print(error!)
+//            }
         }
         
         self.finishSendingMessage(animated: true)

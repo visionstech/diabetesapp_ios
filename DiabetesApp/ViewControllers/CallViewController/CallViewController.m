@@ -174,7 +174,7 @@ const NSTimeInterval kRefreshTimeInterval = 1.f;
 
 - (void)startCall {
     
-    
+    [self sendPushToOpponentsAboutNewCall];
    // Begin play calling sound
     self.beepTimer = [NSTimer scheduledTimerWithTimeInterval:[QBRTCConfig dialingTimeInterval]
                                                       target:self
@@ -188,6 +188,18 @@ const NSTimeInterval kRefreshTimeInterval = 1.f;
                                @"param" : @"\"1,2,3,4\""};
     
     [self.session startCall:userInfo];
+}
+
+- (void)sendPushToOpponentsAboutNewCall {
+    NSLog(@"%@",self.session.opponentsIDs);
+    NSString *currentUserLogin = [[[QBSession currentSession] currentUser] login];
+    [QBRequest sendPushWithText:[NSString stringWithFormat:@"%@ is calling you", currentUserLogin]
+                        toUsers:[self.session.opponentsIDs componentsJoinedByString:@","]
+                   successBlock:^(QBResponse * _Nonnull response, NSArray<QBMEvent *> * _Nullable events) {
+                       NSLog(@"Push sent!");
+                   } errorBlock:^(QBError * _Nullable error) {
+                       NSLog(@"Can not send push: %@", error);
+                   }];
 }
 
 - (void)acceptCall {

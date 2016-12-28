@@ -6,69 +6,74 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp19LoginViewController", ""]
 provides-dynamic-lookup:
+- "loginToQuickBlox"
+- "passwordTxtFld"
 - "segmentUserType"
-- "doctorBtn"
-- "selectedUserType"
-- "LoginBtn_Click"
-- "didReceiveMemoryWarning"
-- "navigateToNextScreen"
-- "viewWillAppear"
+- "patientBtn"
 - "textFieldShouldReturn"
 - "usernameTxtFld"
-- "patientBtn"
+- "navigateToNextScreen"
+- "selectedUserType"
+- "didReceiveMemoryWarning"
+- "viewWillAppear"
+- "LoginBtn_Click"
+- "doctorBtn"
 - "SelectUserTypBtns_Click"
 - "checkLoginStatus"
-- "passwordTxtFld"
 - "viewDidLoad"
-- "loginToQuickBlox"
+- "registerForRemoteNotification"
 depends-top-level:
-- !private "Dictionary"
-- !private "!"
-- !private "baseUrl"
 - "LoginViewController"
-- "String"
-- !private "HomeTabBarController"
-- !private "QBUUser"
-- !private "NSNumber"
+- !private "CharacterSet"
+- !private "!"
+- "UIButton"
+- !private "UIColor"
+- !private "ApiMethods"
+- !private "NSMutableArray"
+- "QBCoreDelegate"
+- !private "DialogsViewController"
+- !private "baseUrl"
+- !private "JSONEncoding"
+- !private "UIUserNotificationSettings"
+- "Bool"
+- !private "BooleanLiteralType"
+- !private "Array"
+- !private "ServicesManager"
+- !private "SVProgressHUDMaskType"
 - !private "||"
 - !private "UIApplication"
-- "QBCoreDelegate"
-- "UITextField"
-- "UISegmentedControl"
 - "UIViewController"
-- !private "userDefaults"
-- !private "CharacterSet"
-- !private "Parameters"
-- !private "BooleanLiteralType"
-- !private "AppDelegate"
-- !private "NSMutableArray"
-- !private "Colors"
-- !private "QBRequest"
-- !private "UserDefaults"
-- !private "UtilityClass"
-- !private "UIBarButtonItem"
-- !private "QBChat"
-- !private "DialogsViewController"
-- !private "AnyObject"
-- !private "Alamofire"
-- "UIButton"
+- !private "Void"
+- !private "print"
 - !private "SVProgressHUD"
-- !private "ServicesManager"
-- !private "ViewIdentifiers"
-- !private "SVProgressHUDMaskType"
-- "CastingPrecedence"
-- !private "UIImage"
+- !private "Parameters"
 - "Int"
-- !private "UIColor"
-- "Bool"
-- !private "ApiMethods"
+- !private "Alamofire"
+- !private "userDefaults"
+- !private "UIBarButtonItem"
+- "CastingPrecedence"
+- !private "QBUUser"
+- !private "HomeTabBarController"
+- !private "NSDictionary"
+- !private "QBChat"
 - !private "=="
 - "AssignmentPrecedence"
+- !private "ViewIdentifiers"
+- !private "UIImage"
+- !private "UserDefaults"
+- "String"
+- !private "Colors"
+- !private "Dictionary"
+- !private "AppDelegate"
+- !private "UIRemoteNotificationType"
+- !private "UtilityClass"
+- "UITextField"
+- "UISegmentedControl"
+- !private "QBRequest"
+- !private "NSNumber"
 - !private "userType"
-- !private "Void"
-- !private "NSDictionary"
-- !private "JSONEncoding"
-- !private "print"
+- !private "AnyObject"
+- !private "UIUserNotificationType"
 depends-member:
 - !private ["Ps9AnyObject", "Alamofire"]
 - !private ["Ps9AnyObject", "ApiMethods"]
@@ -89,6 +94,9 @@ depends-member:
 - !private ["Ps9AnyObject", "UIBarButtonItem"]
 - !private ["Ps9AnyObject", "UIColor"]
 - !private ["Ps9AnyObject", "UIImage"]
+- !private ["Ps9AnyObject", "UIRemoteNotificationType"]
+- !private ["Ps9AnyObject", "UIUserNotificationSettings"]
+- !private ["Ps9AnyObject", "UIUserNotificationType"]
 - !private ["Ps9AnyObject", "UserDefaults"]
 - !private ["Ps9AnyObject", "UtilityClass"]
 - !private ["Ps9AnyObject", "ViewIdentifiers"]
@@ -134,7 +142,11 @@ depends-member:
 - !private ["Ps9AnyObject", "present"]
 - !private ["Ps9AnyObject", "print"]
 - !private ["Ps9AnyObject", "pushViewController"]
+- ["Ps9AnyObject", "registerForRemoteNotification"]
+- !private ["Ps9AnyObject", "registerForRemoteNotifications"]
+- !private ["Ps9AnyObject", "registerUserNotificationSettings"]
 - !private ["Ps9AnyObject", "resignFirstResponder"]
+- !private ["Ps9AnyObject", "response"]
 - !private ["Ps9AnyObject", "responseJSON"]
 - ["Ps9AnyObject", "segmentUserType"]
 - !private ["Ps9AnyObject", "selectedSegmentIndex"]
@@ -202,6 +214,9 @@ depends-member:
 - !private ["Ps7CVarArg", "UIBarButtonItem"]
 - !private ["Ps7CVarArg", "UIColor"]
 - !private ["Ps7CVarArg", "UIImage"]
+- !private ["Ps7CVarArg", "UIRemoteNotificationType"]
+- !private ["Ps7CVarArg", "UIUserNotificationSettings"]
+- !private ["Ps7CVarArg", "UIUserNotificationType"]
 - !private ["Ps7CVarArg", "UserDefaults"]
 - !private ["Ps7CVarArg", "UtilityClass"]
 - !private ["Ps7CVarArg", "Value"]
@@ -247,6 +262,9 @@ depends-member:
 - !private ["Ps7CVarArg", "present"]
 - !private ["Ps7CVarArg", "print"]
 - !private ["Ps7CVarArg", "pushViewController"]
+- ["Ps7CVarArg", "registerForRemoteNotification"]
+- !private ["Ps7CVarArg", "registerForRemoteNotifications"]
+- !private ["Ps7CVarArg", "registerUserNotificationSettings"]
 - !private ["Ps7CVarArg", "resignFirstResponder"]
 - ["Ps7CVarArg", "segmentUserType"]
 - !private ["Ps7CVarArg", "selectedSegmentIndex"]
@@ -307,6 +325,9 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "UIBarButtonItem"]
 - !private ["Ps28CustomDebugStringConvertible", "UIColor"]
 - !private ["Ps28CustomDebugStringConvertible", "UIImage"]
+- !private ["Ps28CustomDebugStringConvertible", "UIRemoteNotificationType"]
+- !private ["Ps28CustomDebugStringConvertible", "UIUserNotificationSettings"]
+- !private ["Ps28CustomDebugStringConvertible", "UIUserNotificationType"]
 - !private ["Ps28CustomDebugStringConvertible", "UserDefaults"]
 - !private ["Ps28CustomDebugStringConvertible", "UtilityClass"]
 - !private ["Ps28CustomDebugStringConvertible", "Value"]
@@ -354,7 +375,11 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "present"]
 - !private ["Ps28CustomDebugStringConvertible", "print"]
 - !private ["Ps28CustomDebugStringConvertible", "pushViewController"]
+- ["Ps28CustomDebugStringConvertible", "registerForRemoteNotification"]
+- !private ["Ps28CustomDebugStringConvertible", "registerForRemoteNotifications"]
+- !private ["Ps28CustomDebugStringConvertible", "registerUserNotificationSettings"]
 - !private ["Ps28CustomDebugStringConvertible", "resignFirstResponder"]
+- !private ["Ps28CustomDebugStringConvertible", "response"]
 - !private ["Ps28CustomDebugStringConvertible", "responseJSON"]
 - !private ["Ps28CustomDebugStringConvertible", "result"]
 - ["Ps28CustomDebugStringConvertible", "segmentUserType"]
@@ -422,6 +447,9 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "UIBarButtonItem"]
 - !private ["Ps23CustomStringConvertible", "UIColor"]
 - !private ["Ps23CustomStringConvertible", "UIImage"]
+- !private ["Ps23CustomStringConvertible", "UIRemoteNotificationType"]
+- !private ["Ps23CustomStringConvertible", "UIUserNotificationSettings"]
+- !private ["Ps23CustomStringConvertible", "UIUserNotificationType"]
 - !private ["Ps23CustomStringConvertible", "UserDefaults"]
 - !private ["Ps23CustomStringConvertible", "UtilityClass"]
 - !private ["Ps23CustomStringConvertible", "Value"]
@@ -470,7 +498,11 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "present"]
 - !private ["Ps23CustomStringConvertible", "print"]
 - !private ["Ps23CustomStringConvertible", "pushViewController"]
+- ["Ps23CustomStringConvertible", "registerForRemoteNotification"]
+- !private ["Ps23CustomStringConvertible", "registerForRemoteNotifications"]
+- !private ["Ps23CustomStringConvertible", "registerUserNotificationSettings"]
 - !private ["Ps23CustomStringConvertible", "resignFirstResponder"]
+- !private ["Ps23CustomStringConvertible", "response"]
 - !private ["Ps23CustomStringConvertible", "responseJSON"]
 - !private ["Ps23CustomStringConvertible", "result"]
 - ["Ps23CustomStringConvertible", "segmentUserType"]
@@ -505,6 +537,7 @@ depends-member:
 - !private ["V10Foundation4Data", "deinit"]
 - !private ["V10Foundation4Data", "description"]
 - ["C9Alamofire11DataRequest", "deinit"]
+- !private ["C9Alamofire11DataRequest", "response"]
 - !private ["C9Alamofire11DataRequest", "responseJSON"]
 - !private ["V9Alamofire12DataResponse", "deinit"]
 - !private ["V9Alamofire12DataResponse", "result"]
@@ -517,6 +550,7 @@ depends-member:
 - !private ["Ps9Equatable", "ApiMethods"]
 - !private ["Ps9Equatable", "CharacterSet"]
 - !private ["Ps9Equatable", "Colors"]
+- !private ["Ps9Equatable", "Element"]
 - !private ["Ps9Equatable", "JSONEncoding"]
 - ["Ps9Equatable", "LoginBtn_Click"]
 - !private ["Ps9Equatable", "NSMutableArray"]
@@ -532,12 +566,17 @@ depends-member:
 - !private ["Ps9Equatable", "UIBarButtonItem"]
 - !private ["Ps9Equatable", "UIColor"]
 - !private ["Ps9Equatable", "UIImage"]
+- !private ["Ps9Equatable", "UIRemoteNotificationType"]
+- !private ["Ps9Equatable", "UIUserNotificationSettings"]
+- !private ["Ps9Equatable", "UIUserNotificationType"]
 - !private ["Ps9Equatable", "UserDefaults"]
 - !private ["Ps9Equatable", "UtilityClass"]
 - !private ["Ps9Equatable", "ViewIdentifiers"]
 - !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- !private ["Ps9Equatable", "alert"]
 - !private ["Ps9Equatable", "backBarButtonItem"]
 - !private ["Ps9Equatable", "backgroundColor"]
+- !private ["Ps9Equatable", "badge"]
 - !private ["Ps9Equatable", "barTintColor"]
 - !private ["Ps9Equatable", "baseUrl"]
 - !private ["Ps9Equatable", "becomeFirstResponder"]
@@ -581,6 +620,9 @@ depends-member:
 - !private ["Ps9Equatable", "present"]
 - !private ["Ps9Equatable", "print"]
 - !private ["Ps9Equatable", "pushViewController"]
+- ["Ps9Equatable", "registerForRemoteNotification"]
+- !private ["Ps9Equatable", "registerForRemoteNotifications"]
+- !private ["Ps9Equatable", "registerUserNotificationSettings"]
 - !private ["Ps9Equatable", "resignFirstResponder"]
 - ["Ps9Equatable", "segmentUserType"]
 - !private ["Ps9Equatable", "selectedSegmentIndex"]
@@ -592,6 +634,7 @@ depends-member:
 - !private ["Ps9Equatable", "show"]
 - !private ["Ps9Equatable", "showError"]
 - !private ["Ps9Equatable", "signUp"]
+- !private ["Ps9Equatable", "sound"]
 - !private ["Ps9Equatable", "standard"]
 - !private ["Ps9Equatable", "storyboard"]
 - !private ["Ps9Equatable", "synchronize"]
@@ -611,7 +654,11 @@ depends-member:
 - !private ["Ps9Equatable", "whitespaces"]
 - ["Ps9Equatable", ""]
 - !private ["Ps5Error", "deinit"]
+- !private ["Ps25ExpressibleByArrayLiteral", "Element"]
+- !private ["Ps25ExpressibleByArrayLiteral", "alert"]
+- !private ["Ps25ExpressibleByArrayLiteral", "badge"]
 - !private ["Ps25ExpressibleByArrayLiteral", "init"]
+- !private ["Ps25ExpressibleByArrayLiteral", "sound"]
 - !private ["Ps25ExpressibleByArrayLiteral", "whitespaces"]
 - !private ["Ps27ExpressibleByBooleanLiteral", "RawValue"]
 - !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
@@ -662,6 +709,9 @@ depends-member:
 - !private ["Ps8Hashable", "UIBarButtonItem"]
 - !private ["Ps8Hashable", "UIColor"]
 - !private ["Ps8Hashable", "UIImage"]
+- !private ["Ps8Hashable", "UIRemoteNotificationType"]
+- !private ["Ps8Hashable", "UIUserNotificationSettings"]
+- !private ["Ps8Hashable", "UIUserNotificationType"]
 - !private ["Ps8Hashable", "UserDefaults"]
 - !private ["Ps8Hashable", "UtilityClass"]
 - !private ["Ps8Hashable", "ViewIdentifiers"]
@@ -711,6 +761,9 @@ depends-member:
 - !private ["Ps8Hashable", "present"]
 - !private ["Ps8Hashable", "print"]
 - !private ["Ps8Hashable", "pushViewController"]
+- ["Ps8Hashable", "registerForRemoteNotification"]
+- !private ["Ps8Hashable", "registerForRemoteNotifications"]
+- !private ["Ps8Hashable", "registerUserNotificationSettings"]
 - !private ["Ps8Hashable", "resignFirstResponder"]
 - ["Ps8Hashable", "segmentUserType"]
 - !private ["Ps8Hashable", "selectedSegmentIndex"]
@@ -784,8 +837,11 @@ depends-member:
 - ["C11DiabetesApp19LoginViewController", "UIButton"]
 - !private ["C11DiabetesApp19LoginViewController", "UIColor"]
 - !private ["C11DiabetesApp19LoginViewController", "UIImage"]
+- !private ["C11DiabetesApp19LoginViewController", "UIRemoteNotificationType"]
 - ["C11DiabetesApp19LoginViewController", "UISegmentedControl"]
 - ["C11DiabetesApp19LoginViewController", "UITextField"]
+- !private ["C11DiabetesApp19LoginViewController", "UIUserNotificationSettings"]
+- !private ["C11DiabetesApp19LoginViewController", "UIUserNotificationType"]
 - !private ["C11DiabetesApp19LoginViewController", "UserDefaults"]
 - !private ["C11DiabetesApp19LoginViewController", "UtilityClass"]
 - !private ["C11DiabetesApp19LoginViewController", "ViewIdentifiers"]
@@ -807,6 +863,7 @@ depends-member:
 - ["C11DiabetesApp19LoginViewController", "patientBtn"]
 - !private ["C11DiabetesApp19LoginViewController", "present"]
 - !private ["C11DiabetesApp19LoginViewController", "print"]
+- ["C11DiabetesApp19LoginViewController", "registerForRemoteNotification"]
 - ["C11DiabetesApp19LoginViewController", "segmentUserType"]
 - ["C11DiabetesApp19LoginViewController", "selectedUserType"]
 - !private ["C11DiabetesApp19LoginViewController", "storyboard"]
@@ -851,6 +908,9 @@ depends-member:
 - !private ["PSo8NSCoding", "UIBarButtonItem"]
 - !private ["PSo8NSCoding", "UIColor"]
 - !private ["PSo8NSCoding", "UIImage"]
+- !private ["PSo8NSCoding", "UIRemoteNotificationType"]
+- !private ["PSo8NSCoding", "UIUserNotificationSettings"]
+- !private ["PSo8NSCoding", "UIUserNotificationType"]
 - !private ["PSo8NSCoding", "UserDefaults"]
 - !private ["PSo8NSCoding", "UtilityClass"]
 - !private ["PSo8NSCoding", "ViewIdentifiers"]
@@ -886,6 +946,7 @@ depends-member:
 - !private ["PSo8NSCoding", "present"]
 - !private ["PSo8NSCoding", "print"]
 - !private ["PSo8NSCoding", "pushViewController"]
+- ["PSo8NSCoding", "registerForRemoteNotification"]
 - !private ["PSo8NSCoding", "resignFirstResponder"]
 - ["PSo8NSCoding", "segmentUserType"]
 - !private ["PSo8NSCoding", "selectedSegmentIndex"]
@@ -941,6 +1002,9 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "UIBarButtonItem"]
 - !private ["PSo26NSExtensionRequestHandling", "UIColor"]
 - !private ["PSo26NSExtensionRequestHandling", "UIImage"]
+- !private ["PSo26NSExtensionRequestHandling", "UIRemoteNotificationType"]
+- !private ["PSo26NSExtensionRequestHandling", "UIUserNotificationSettings"]
+- !private ["PSo26NSExtensionRequestHandling", "UIUserNotificationType"]
 - !private ["PSo26NSExtensionRequestHandling", "UserDefaults"]
 - !private ["PSo26NSExtensionRequestHandling", "UtilityClass"]
 - !private ["PSo26NSExtensionRequestHandling", "ViewIdentifiers"]
@@ -962,6 +1026,7 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "present"]
 - !private ["PSo26NSExtensionRequestHandling", "print"]
 - !private ["PSo26NSExtensionRequestHandling", "pushViewController"]
+- ["PSo26NSExtensionRequestHandling", "registerForRemoteNotification"]
 - ["PSo26NSExtensionRequestHandling", "segmentUserType"]
 - ["PSo26NSExtensionRequestHandling", "selectedUserType"]
 - !private ["PSo26NSExtensionRequestHandling", "setNavigationBarHidden"]
@@ -1018,8 +1083,11 @@ depends-member:
 - ["CSo8NSObject", "UIButton"]
 - !private ["CSo8NSObject", "UIColor"]
 - !private ["CSo8NSObject", "UIImage"]
+- !private ["CSo8NSObject", "UIRemoteNotificationType"]
 - ["CSo8NSObject", "UISegmentedControl"]
 - ["CSo8NSObject", "UITextField"]
+- !private ["CSo8NSObject", "UIUserNotificationSettings"]
+- !private ["CSo8NSObject", "UIUserNotificationType"]
 - !private ["CSo8NSObject", "UserDefaults"]
 - !private ["CSo8NSObject", "UtilityClass"]
 - !private ["CSo8NSObject", "ViewIdentifiers"]
@@ -1066,6 +1134,9 @@ depends-member:
 - !private ["CSo8NSObject", "present"]
 - !private ["CSo8NSObject", "print"]
 - !private ["CSo8NSObject", "pushViewController"]
+- ["CSo8NSObject", "registerForRemoteNotification"]
+- !private ["CSo8NSObject", "registerForRemoteNotifications"]
+- !private ["CSo8NSObject", "registerUserNotificationSettings"]
 - !private ["CSo8NSObject", "resignFirstResponder"]
 - ["CSo8NSObject", "segmentUserType"]
 - !private ["CSo8NSObject", "selectedSegmentIndex"]
@@ -1112,6 +1183,9 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "UIBarButtonItem"]
 - !private ["PSo16NSObjectProtocol", "UIColor"]
 - !private ["PSo16NSObjectProtocol", "UIImage"]
+- !private ["PSo16NSObjectProtocol", "UIRemoteNotificationType"]
+- !private ["PSo16NSObjectProtocol", "UIUserNotificationSettings"]
+- !private ["PSo16NSObjectProtocol", "UIUserNotificationType"]
 - !private ["PSo16NSObjectProtocol", "UserDefaults"]
 - !private ["PSo16NSObjectProtocol", "UtilityClass"]
 - !private ["PSo16NSObjectProtocol", "ViewIdentifiers"]
@@ -1156,6 +1230,9 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "present"]
 - !private ["PSo16NSObjectProtocol", "print"]
 - !private ["PSo16NSObjectProtocol", "pushViewController"]
+- ["PSo16NSObjectProtocol", "registerForRemoteNotification"]
+- !private ["PSo16NSObjectProtocol", "registerForRemoteNotifications"]
+- !private ["PSo16NSObjectProtocol", "registerUserNotificationSettings"]
 - !private ["PSo16NSObjectProtocol", "resignFirstResponder"]
 - ["PSo16NSObjectProtocol", "segmentUserType"]
 - !private ["PSo16NSObjectProtocol", "selectedSegmentIndex"]
@@ -1199,6 +1276,11 @@ depends-member:
 - !private ["CSo8NSString", "trimmingCharacters"]
 - !private ["CSo7NSValue", "RawValue"]
 - !private ["CSo7NSValue", "deinit"]
+- !private ["P11DiabetesApp27NotificationServiceDelegate", "currentUser"]
+- !private ["Ps9OptionSet", "Element"]
+- !private ["Ps9OptionSet", "alert"]
+- !private ["Ps9OptionSet", "badge"]
+- !private ["Ps9OptionSet", "sound"]
 - ["Sq", "deinit"]
 - !private ["P9Alamofire17ParameterEncoding", "default"]
 - !private ["CSo9QBCEntity", "email"]
@@ -1227,6 +1309,9 @@ depends-member:
 - !private ["PSo14QBCoreDelegate", "UIBarButtonItem"]
 - !private ["PSo14QBCoreDelegate", "UIColor"]
 - !private ["PSo14QBCoreDelegate", "UIImage"]
+- !private ["PSo14QBCoreDelegate", "UIRemoteNotificationType"]
+- !private ["PSo14QBCoreDelegate", "UIUserNotificationSettings"]
+- !private ["PSo14QBCoreDelegate", "UIUserNotificationType"]
 - !private ["PSo14QBCoreDelegate", "UserDefaults"]
 - !private ["PSo14QBCoreDelegate", "UtilityClass"]
 - !private ["PSo14QBCoreDelegate", "ViewIdentifiers"]
@@ -1244,6 +1329,7 @@ depends-member:
 - !private ["PSo14QBCoreDelegate", "patientBtn"]
 - !private ["PSo14QBCoreDelegate", "present"]
 - !private ["PSo14QBCoreDelegate", "print"]
+- !private ["PSo14QBCoreDelegate", "registerForRemoteNotification"]
 - !private ["PSo14QBCoreDelegate", "segmentUserType"]
 - !private ["PSo14QBCoreDelegate", "selectedUserType"]
 - !private ["PSo14QBCoreDelegate", "storyboard"]
@@ -1283,11 +1369,16 @@ depends-member:
 - !private ["Ps21RandomAccessIndexable", "description"]
 - !private ["Ps26RangeReplaceableCollection", "description"]
 - !private ["Ps25RangeReplaceableIndexable", "description"]
+- !private ["Ps16RawRepresentable", "Element"]
+- !private ["Ps16RawRepresentable", "alert"]
+- !private ["Ps16RawRepresentable", "badge"]
 - !private ["Ps16RawRepresentable", "clear"]
 - !private ["Ps16RawRepresentable", "plain"]
 - !private ["Ps16RawRepresentable", "post"]
+- !private ["Ps16RawRepresentable", "sound"]
 - !private ["P10Foundation20ReferenceConvertible", "description"]
 - !private ["P10Foundation20ReferenceConvertible", "whitespaces"]
+- !private ["C9Alamofire7Request", "response"]
 - !private ["C9Alamofire7Request", "responseJSON"]
 - !private ["P9Alamofire8Response", "result"]
 - !private ["O9Alamofire6Result", "deinit"]
@@ -1307,6 +1398,10 @@ depends-member:
 - !private ["C11DiabetesApp15ServicesManager", "deinit"]
 - !private ["C11DiabetesApp15ServicesManager", "instance"]
 - !private ["C11DiabetesApp15ServicesManager", "logIn"]
+- !private ["Ps10SetAlgebra", "Element"]
+- !private ["Ps10SetAlgebra", "alert"]
+- !private ["Ps10SetAlgebra", "badge"]
+- !private ["Ps10SetAlgebra", "sound"]
 - !private ["Ps10SetAlgebra", "whitespaces"]
 - ["SS", "deinit"]
 - !private ["SS", "init"]
@@ -1365,6 +1460,9 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "UIBarButtonItem"]
 - !private ["PSo21UIAppearanceContainer", "UIColor"]
 - !private ["PSo21UIAppearanceContainer", "UIImage"]
+- !private ["PSo21UIAppearanceContainer", "UIRemoteNotificationType"]
+- !private ["PSo21UIAppearanceContainer", "UIUserNotificationSettings"]
+- !private ["PSo21UIAppearanceContainer", "UIUserNotificationType"]
 - !private ["PSo21UIAppearanceContainer", "UserDefaults"]
 - !private ["PSo21UIAppearanceContainer", "UtilityClass"]
 - !private ["PSo21UIAppearanceContainer", "ViewIdentifiers"]
@@ -1391,6 +1489,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "present"]
 - !private ["PSo21UIAppearanceContainer", "print"]
 - !private ["PSo21UIAppearanceContainer", "pushViewController"]
+- ["PSo21UIAppearanceContainer", "registerForRemoteNotification"]
 - !private ["PSo21UIAppearanceContainer", "resignFirstResponder"]
 - ["PSo21UIAppearanceContainer", "segmentUserType"]
 - !private ["PSo21UIAppearanceContainer", "selectedSegmentIndex"]
@@ -1408,8 +1507,10 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "viewDidLoad"]
 - ["PSo21UIAppearanceContainer", "viewWillAppear"]
 - ["PSo21UIAppearanceContainer", ""]
-- !private ["CSo13UIApplication", "deinit"]
+- ["CSo13UIApplication", "deinit"]
 - !private ["CSo13UIApplication", "delegate"]
+- !private ["CSo13UIApplication", "registerForRemoteNotifications"]
+- !private ["CSo13UIApplication", "registerUserNotificationSettings"]
 - !private ["CSo13UIApplication", "shared"]
 - !private ["PSo21UIApplicationDelegate", "currentUser"]
 - ["CSo15UIBarButtonItem", "deinit"]
@@ -1440,6 +1541,9 @@ depends-member:
 - !private ["PSo18UIContentContainer", "UIBarButtonItem"]
 - !private ["PSo18UIContentContainer", "UIColor"]
 - !private ["PSo18UIContentContainer", "UIImage"]
+- !private ["PSo18UIContentContainer", "UIRemoteNotificationType"]
+- !private ["PSo18UIContentContainer", "UIUserNotificationSettings"]
+- !private ["PSo18UIContentContainer", "UIUserNotificationType"]
 - !private ["PSo18UIContentContainer", "UserDefaults"]
 - !private ["PSo18UIContentContainer", "UtilityClass"]
 - !private ["PSo18UIContentContainer", "ViewIdentifiers"]
@@ -1461,6 +1565,7 @@ depends-member:
 - !private ["PSo18UIContentContainer", "present"]
 - !private ["PSo18UIContentContainer", "print"]
 - !private ["PSo18UIContentContainer", "pushViewController"]
+- ["PSo18UIContentContainer", "registerForRemoteNotification"]
 - ["PSo18UIContentContainer", "segmentUserType"]
 - ["PSo18UIContentContainer", "selectedUserType"]
 - !private ["PSo18UIContentContainer", "setNavigationBarHidden"]
@@ -1519,6 +1624,9 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "UIBarButtonItem"]
 - !private ["PSo18UIFocusEnvironment", "UIColor"]
 - !private ["PSo18UIFocusEnvironment", "UIImage"]
+- !private ["PSo18UIFocusEnvironment", "UIRemoteNotificationType"]
+- !private ["PSo18UIFocusEnvironment", "UIUserNotificationSettings"]
+- !private ["PSo18UIFocusEnvironment", "UIUserNotificationType"]
 - !private ["PSo18UIFocusEnvironment", "UserDefaults"]
 - !private ["PSo18UIFocusEnvironment", "UtilityClass"]
 - !private ["PSo18UIFocusEnvironment", "ViewIdentifiers"]
@@ -1545,6 +1653,7 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "present"]
 - !private ["PSo18UIFocusEnvironment", "print"]
 - !private ["PSo18UIFocusEnvironment", "pushViewController"]
+- ["PSo18UIFocusEnvironment", "registerForRemoteNotification"]
 - !private ["PSo18UIFocusEnvironment", "resignFirstResponder"]
 - ["PSo18UIFocusEnvironment", "segmentUserType"]
 - !private ["PSo18UIFocusEnvironment", "selectedSegmentIndex"]
@@ -1585,6 +1694,11 @@ depends-member:
 - !private ["CSo22UINavigationController", "setNavigationBarHidden"]
 - !private ["CSo16UINavigationItem", "backBarButtonItem"]
 - ["CSo16UINavigationItem", "deinit"]
+- !private ["VSC24UIRemoteNotificationType", "Element"]
+- !private ["VSC24UIRemoteNotificationType", "alert"]
+- !private ["VSC24UIRemoteNotificationType", "badge"]
+- ["VSC24UIRemoteNotificationType", "deinit"]
+- !private ["VSC24UIRemoteNotificationType", "sound"]
 - !private ["CSo11UIResponder", "Alamofire"]
 - !private ["CSo11UIResponder", "AnyObject"]
 - !private ["CSo11UIResponder", "ApiMethods"]
@@ -1614,8 +1728,11 @@ depends-member:
 - ["CSo11UIResponder", "UIButton"]
 - !private ["CSo11UIResponder", "UIColor"]
 - !private ["CSo11UIResponder", "UIImage"]
+- !private ["CSo11UIResponder", "UIRemoteNotificationType"]
 - ["CSo11UIResponder", "UISegmentedControl"]
 - ["CSo11UIResponder", "UITextField"]
+- !private ["CSo11UIResponder", "UIUserNotificationSettings"]
+- !private ["CSo11UIResponder", "UIUserNotificationType"]
 - !private ["CSo11UIResponder", "UserDefaults"]
 - !private ["CSo11UIResponder", "UtilityClass"]
 - !private ["CSo11UIResponder", "ViewIdentifiers"]
@@ -1645,6 +1762,9 @@ depends-member:
 - !private ["CSo11UIResponder", "present"]
 - !private ["CSo11UIResponder", "print"]
 - !private ["CSo11UIResponder", "pushViewController"]
+- ["CSo11UIResponder", "registerForRemoteNotification"]
+- !private ["CSo11UIResponder", "registerForRemoteNotifications"]
+- !private ["CSo11UIResponder", "registerUserNotificationSettings"]
 - !private ["CSo11UIResponder", "resignFirstResponder"]
 - ["CSo11UIResponder", "segmentUserType"]
 - !private ["CSo11UIResponder", "selectedSegmentIndex"]
@@ -1680,6 +1800,9 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "UIBarButtonItem"]
 - !private ["PSo30UIResponderStandardEditActions", "UIColor"]
 - !private ["PSo30UIResponderStandardEditActions", "UIImage"]
+- !private ["PSo30UIResponderStandardEditActions", "UIRemoteNotificationType"]
+- !private ["PSo30UIResponderStandardEditActions", "UIUserNotificationSettings"]
+- !private ["PSo30UIResponderStandardEditActions", "UIUserNotificationType"]
 - !private ["PSo30UIResponderStandardEditActions", "UserDefaults"]
 - !private ["PSo30UIResponderStandardEditActions", "UtilityClass"]
 - !private ["PSo30UIResponderStandardEditActions", "ViewIdentifiers"]
@@ -1708,6 +1831,9 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "present"]
 - !private ["PSo30UIResponderStandardEditActions", "print"]
 - !private ["PSo30UIResponderStandardEditActions", "pushViewController"]
+- ["PSo30UIResponderStandardEditActions", "registerForRemoteNotification"]
+- !private ["PSo30UIResponderStandardEditActions", "registerForRemoteNotifications"]
+- !private ["PSo30UIResponderStandardEditActions", "registerUserNotificationSettings"]
 - !private ["PSo30UIResponderStandardEditActions", "resignFirstResponder"]
 - ["PSo30UIResponderStandardEditActions", "segmentUserType"]
 - !private ["PSo30UIResponderStandardEditActions", "selectedSegmentIndex"]
@@ -1745,6 +1871,9 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "UIBarButtonItem"]
 - !private ["PSo16UIStateRestoring", "UIColor"]
 - !private ["PSo16UIStateRestoring", "UIImage"]
+- !private ["PSo16UIStateRestoring", "UIRemoteNotificationType"]
+- !private ["PSo16UIStateRestoring", "UIUserNotificationSettings"]
+- !private ["PSo16UIStateRestoring", "UIUserNotificationType"]
 - !private ["PSo16UIStateRestoring", "UserDefaults"]
 - !private ["PSo16UIStateRestoring", "UtilityClass"]
 - !private ["PSo16UIStateRestoring", "ViewIdentifiers"]
@@ -1766,6 +1895,7 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "present"]
 - !private ["PSo16UIStateRestoring", "print"]
 - !private ["PSo16UIStateRestoring", "pushViewController"]
+- ["PSo16UIStateRestoring", "registerForRemoteNotification"]
 - ["PSo16UIStateRestoring", "segmentUserType"]
 - ["PSo16UIStateRestoring", "selectedUserType"]
 - !private ["PSo16UIStateRestoring", "setNavigationBarHidden"]
@@ -1808,6 +1938,9 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "UIBarButtonItem"]
 - !private ["PSo18UITraitEnvironment", "UIColor"]
 - !private ["PSo18UITraitEnvironment", "UIImage"]
+- !private ["PSo18UITraitEnvironment", "UIRemoteNotificationType"]
+- !private ["PSo18UITraitEnvironment", "UIUserNotificationSettings"]
+- !private ["PSo18UITraitEnvironment", "UIUserNotificationType"]
 - !private ["PSo18UITraitEnvironment", "UserDefaults"]
 - !private ["PSo18UITraitEnvironment", "UtilityClass"]
 - !private ["PSo18UITraitEnvironment", "ViewIdentifiers"]
@@ -1834,6 +1967,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "present"]
 - !private ["PSo18UITraitEnvironment", "print"]
 - !private ["PSo18UITraitEnvironment", "pushViewController"]
+- ["PSo18UITraitEnvironment", "registerForRemoteNotification"]
 - !private ["PSo18UITraitEnvironment", "resignFirstResponder"]
 - ["PSo18UITraitEnvironment", "segmentUserType"]
 - !private ["PSo18UITraitEnvironment", "selectedSegmentIndex"]
@@ -1851,6 +1985,13 @@ depends-member:
 - ["PSo18UITraitEnvironment", "viewDidLoad"]
 - ["PSo18UITraitEnvironment", "viewWillAppear"]
 - ["PSo18UITraitEnvironment", ""]
+- ["CSo26UIUserNotificationSettings", "deinit"]
+- !private ["CSo26UIUserNotificationSettings", "init"]
+- !private ["VSC22UIUserNotificationType", "Element"]
+- !private ["VSC22UIUserNotificationType", "alert"]
+- !private ["VSC22UIUserNotificationType", "badge"]
+- ["VSC22UIUserNotificationType", "deinit"]
+- !private ["VSC22UIUserNotificationType", "sound"]
 - !private ["CSo6UIView", "backgroundColor"]
 - !private ["CSo6UIView", "barTintColor"]
 - !private ["CSo6UIView", "becomeFirstResponder"]
@@ -1890,8 +2031,11 @@ depends-member:
 - ["CSo16UIViewController", "UIButton"]
 - !private ["CSo16UIViewController", "UIColor"]
 - !private ["CSo16UIViewController", "UIImage"]
+- !private ["CSo16UIViewController", "UIRemoteNotificationType"]
 - ["CSo16UIViewController", "UISegmentedControl"]
 - ["CSo16UIViewController", "UITextField"]
+- !private ["CSo16UIViewController", "UIUserNotificationSettings"]
+- !private ["CSo16UIViewController", "UIUserNotificationType"]
 - !private ["CSo16UIViewController", "UserDefaults"]
 - !private ["CSo16UIViewController", "UtilityClass"]
 - !private ["CSo16UIViewController", "ViewIdentifiers"]
@@ -1915,6 +2059,7 @@ depends-member:
 - !private ["CSo16UIViewController", "present"]
 - !private ["CSo16UIViewController", "print"]
 - !private ["CSo16UIViewController", "pushViewController"]
+- ["CSo16UIViewController", "registerForRemoteNotification"]
 - ["CSo16UIViewController", "segmentUserType"]
 - ["CSo16UIViewController", "selectedUserType"]
 - !private ["CSo16UIViewController", "setNavigationBarHidden"]
@@ -1939,8 +2084,6 @@ depends-member:
 - !private ["P9Alamofire14URLConvertible", "length"]
 - !private ["P9Alamofire14URLConvertible", "localized"]
 - !private ["P9Alamofire14URLConvertible", "trimmingCharacters"]
-- !private ["P9Alamofire21URLRequestConvertible", "deinit"]
-- !private ["P9Alamofire21URLRequestConvertible", "init"]
 - !private ["Sc", "deinit"]
 - !private ["CSo12UserDefaults", "bool"]
 - ["CSo12UserDefaults", "deinit"]
@@ -2011,6 +2154,9 @@ depends-member:
 - !private ["Ps9_Hashable", "UIBarButtonItem"]
 - !private ["Ps9_Hashable", "UIColor"]
 - !private ["Ps9_Hashable", "UIImage"]
+- !private ["Ps9_Hashable", "UIRemoteNotificationType"]
+- !private ["Ps9_Hashable", "UIUserNotificationSettings"]
+- !private ["Ps9_Hashable", "UIUserNotificationType"]
 - !private ["Ps9_Hashable", "UserDefaults"]
 - !private ["Ps9_Hashable", "UtilityClass"]
 - !private ["Ps9_Hashable", "ViewIdentifiers"]
@@ -2060,6 +2206,9 @@ depends-member:
 - !private ["Ps9_Hashable", "present"]
 - !private ["Ps9_Hashable", "print"]
 - !private ["Ps9_Hashable", "pushViewController"]
+- ["Ps9_Hashable", "registerForRemoteNotification"]
+- !private ["Ps9_Hashable", "registerForRemoteNotifications"]
+- !private ["Ps9_Hashable", "registerUserNotificationSettings"]
 - !private ["Ps9_Hashable", "resignFirstResponder"]
 - ["Ps9_Hashable", "segmentUserType"]
 - !private ["Ps9_Hashable", "selectedSegmentIndex"]
@@ -2180,6 +2329,8 @@ depends-nominal:
 - !private "PSo14NSSecureCoding"
 - !private "CSo8NSString"
 - !private "CSo7NSValue"
+- !private "P11DiabetesApp27NotificationServiceDelegate"
+- !private "Ps9OptionSet"
 - "Sq"
 - !private "P9Alamofire17ParameterEncoding"
 - !private "CSo9QBCEntity"
@@ -2216,7 +2367,7 @@ depends-nominal:
 - "CSo17UIAlertController"
 - !private "PSo12UIAppearance"
 - "PSo21UIAppearanceContainer"
-- !private "CSo13UIApplication"
+- "CSo13UIApplication"
 - !private "PSo21UIApplicationDelegate"
 - "CSo15UIBarButtonItem"
 - "OSC20UIBarButtonItemStyle"
@@ -2236,6 +2387,7 @@ depends-nominal:
 - "CSo15UINavigationBar"
 - "CSo22UINavigationController"
 - "CSo16UINavigationItem"
+- "VSC24UIRemoteNotificationType"
 - "CSo11UIResponder"
 - "PSo30UIResponderStandardEditActions"
 - !private "CSo18UISegmentedControl"
@@ -2245,6 +2397,8 @@ depends-nominal:
 - !private "PSo11UITextInput"
 - !private "PSo17UITextInputTraits"
 - "PSo18UITraitEnvironment"
+- "CSo26UIUserNotificationSettings"
+- "VSC22UIUserNotificationType"
 - !private "CSo6UIView"
 - "CSo16UIViewController"
 - !private "Su"
@@ -2254,7 +2408,6 @@ depends-nominal:
 - !private "Vs5UInt8"
 - !private "V10Foundation3URL"
 - !private "P9Alamofire14URLConvertible"
-- !private "P9Alamofire21URLRequestConvertible"
 - !private "Sc"
 - "CSo12UserDefaults"
 - !private "C11DiabetesApp12UtilityClass"
@@ -2588,4 +2741,4 @@ depends-external:
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController-umbrella.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Modules/module.modulemap"
-interface-hash: "430ef2e2205e8c0db882a86c9aa6355a"
+interface-hash: "196e01c38721e9e97d98a05d8d016480"

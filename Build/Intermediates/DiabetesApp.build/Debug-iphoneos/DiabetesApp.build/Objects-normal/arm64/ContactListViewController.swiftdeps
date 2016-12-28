@@ -6,64 +6,76 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp25ContactListViewController", ""]
 provides-dynamic-lookup:
-- "Done_Click"
-- "prepare"
-- "didReceiveMemoryWarning"
-- "getContactsList"
+- "getDoctorPatients"
 - "naviagteToChatScreen"
 - "createChat"
+- "Done_Click"
 - "patientList"
-- "viewDidLoad"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
 - "Back_Click"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "educatorsList"
+- "getContactsList"
+- "doctorList"
+- "didReceiveMemoryWarning"
+- "getPatientEducators"
+- "getDoctorEducators"
+- "prepare"
+- "getPatientDoctors"
+- "numberOfSections"
+- "viewDidLoad"
 - "isGroupMode"
 depends-top-level:
-- "AssignmentPrecedence"
-- "QBResponse"
-- !private "userDefaults"
-- !private "StringLiteralType"
-- "UITableViewCell"
-- "NSMutableArray"
-- !private "AlertView"
-- "Bool"
-- !private "AlertViewWithTextField"
-- !private "UserDefaults"
-- "String"
-- "IndexPath"
-- !private "Alamofire"
 - !private "print"
-- !private "CharacterSet"
-- !private "NSDictionary"
-- "UITableView"
-- !private "baseUrl"
-- !private "SVProgressHUDMaskType"
-- "BooleanLiteralType"
-- !private "ContactObj"
-- !private "UITableViewRowAnimation"
-- "ContactListViewController"
-- "UIViewController"
-- !private "ApiMethods"
-- !private "ServicesManager"
-- !private "Array"
-- "UnicodeScalarType"
-- !private "AnyObject"
-- !private "QBRequest"
+- !private "!="
+- !private "Parameters"
 - "QBChatDialog"
-- !private "ChatViewController"
-- "TernaryPrecedence"
-- "CastingPrecedence"
+- "UITableViewCell"
 - !private "QBGeneralResponsePage"
-- !private "SVProgressHUD"
-- "Int"
-- "UITableViewDelegate"
-- !private "=="
-- "UIStoryboardSegue"
-- "UITableViewDataSource"
-- !private "NSArray"
+- "BooleanLiteralType"
 - "Void"
+- "UITableView"
+- !private "NSDictionary"
+- !private "NSNumber"
+- "IndexPath"
+- !private "ServicesManager"
+- "Int"
+- !private "SVProgressHUD"
+- !private "JSONEncoding"
+- !private "Alamofire"
+- "UnicodeScalarType"
+- !private "Dictionary"
+- !private "userDefaults"
+- !private "=="
+- "AssignmentPrecedence"
+- !private "CharacterSet"
+- "UITableViewDelegate"
+- "CastingPrecedence"
+- !private "AlertView"
+- "UITableViewDataSource"
+- "String"
+- !private "AlertViewWithTextField"
+- !private "NSArray"
+- "Bool"
+- "QBResponse"
+- !private "UserDefaults"
+- "ContactListViewController"
+- !private "ApiMethods"
+- !private "AnyObject"
+- "UIViewController"
+- "NSMutableArray"
+- "UIStoryboardSegue"
+- !private "ContactObj"
+- !private "QBRequest"
+- !private "SVProgressHUDMaskType"
+- !private "UITableViewRowAnimation"
+- !private "ChatViewController"
+- !private "baseUrl"
+- !private "Array"
+- "TernaryPrecedence"
 depends-member:
 - ["C11DiabetesApp9AlertView", "deinit"]
 - !private ["C11DiabetesApp9AlertView", "init"]
@@ -80,9 +92,11 @@ depends-member:
 - ["Ps9AnyObject", "Done_Click"]
 - !private ["Ps9AnyObject", "Element"]
 - !private ["Ps9AnyObject", "Iterator"]
+- !private ["Ps9AnyObject", "JSONEncoding"]
 - ["Ps9AnyObject", "NSMutableArray"]
 - !private ["Ps9AnyObject", "QBGeneralResponsePage"]
 - !private ["Ps9AnyObject", "QBRequest"]
+- !private ["Ps9AnyObject", "RawValue"]
 - !private ["Ps9AnyObject", "SVProgressHUD"]
 - !private ["Ps9AnyObject", "SVProgressHUDMaskType"]
 - !private ["Ps9AnyObject", "ServicesManager"]
@@ -102,9 +116,15 @@ depends-member:
 - !private ["Ps9AnyObject", "destination"]
 - !private ["Ps9AnyObject", "dialog"]
 - ["Ps9AnyObject", "didReceiveMemoryWarning"]
+- ["Ps9AnyObject", "doctorList"]
+- ["Ps9AnyObject", "educatorsList"]
 - !private ["Ps9AnyObject", "error"]
 - !private ["Ps9AnyObject", "full_name"]
 - ["Ps9AnyObject", "getContactsList"]
+- ["Ps9AnyObject", "getDoctorEducators"]
+- ["Ps9AnyObject", "getDoctorPatients"]
+- ["Ps9AnyObject", "getPatientDoctors"]
+- ["Ps9AnyObject", "getPatientEducators"]
 - !private ["Ps9AnyObject", "identifier"]
 - ["Ps9AnyObject", "indexPathForPreferredFocusedView"]
 - ["Ps9AnyObject", "indexPathForPreferredFocusedViewInTableView"]
@@ -164,6 +184,10 @@ depends-member:
 - ["Ps9AnyObject", "viewForZooming"]
 - ["Ps9AnyObject", "viewForZoomingInScrollView"]
 - ["Ps9AnyObject", ""]
+- !private ["V11DiabetesApp10ApiMethods", "getDocEducators"]
+- !private ["V11DiabetesApp10ApiMethods", "getDocPatients"]
+- !private ["V11DiabetesApp10ApiMethods", "getPatDoctors"]
+- !private ["V11DiabetesApp10ApiMethods", "getPatEducators"]
 - !private ["V11DiabetesApp10ApiMethods", "getPatients"]
 - !private ["Sa", "Element"]
 - !private ["Sa", "IndexDistance"]
@@ -183,6 +207,7 @@ depends-member:
 - !private ["Ps23BidirectionalCollection", "first"]
 - !private ["Ps23BidirectionalCollection", "init"]
 - !private ["Ps23BidirectionalCollection", "row"]
+- !private ["Ps23BidirectionalCollection", "section"]
 - !private ["Ps22BidirectionalIndexable", "Element"]
 - !private ["Ps22BidirectionalIndexable", "IndexDistance"]
 - !private ["Ps22BidirectionalIndexable", "Iterator"]
@@ -192,6 +217,7 @@ depends-member:
 - !private ["Ps22BidirectionalIndexable", "first"]
 - !private ["Ps22BidirectionalIndexable", "init"]
 - !private ["Ps22BidirectionalIndexable", "row"]
+- !private ["Ps22BidirectionalIndexable", "section"]
 - !private ["Sb", "_getBuiltinLogicValue"]
 - ["Sb", "deinit"]
 - !private ["PSo15CALayerDelegate", "accessoryType"]
@@ -214,14 +240,18 @@ depends-member:
 - !private ["Ps7CVarArg", "Element"]
 - !private ["Ps7CVarArg", "IndexDistance"]
 - !private ["Ps7CVarArg", "Iterator"]
+- !private ["Ps7CVarArg", "JSONEncoding"]
+- !private ["Ps7CVarArg", "Key"]
 - ["Ps7CVarArg", "NSMutableArray"]
 - !private ["Ps7CVarArg", "QBGeneralResponsePage"]
 - !private ["Ps7CVarArg", "QBRequest"]
+- !private ["Ps7CVarArg", "RawValue"]
 - !private ["Ps7CVarArg", "SVProgressHUD"]
 - !private ["Ps7CVarArg", "SVProgressHUDMaskType"]
 - !private ["Ps7CVarArg", "ServicesManager"]
 - !private ["Ps7CVarArg", "UITableViewRowAnimation"]
 - !private ["Ps7CVarArg", "UserDefaults"]
+- !private ["Ps7CVarArg", "Value"]
 - !private ["Ps7CVarArg", "_Element"]
 - !private ["Ps7CVarArg", "accessoryType"]
 - !private ["Ps7CVarArg", "add"]
@@ -237,10 +267,16 @@ depends-member:
 - !private ["Ps7CVarArg", "destination"]
 - !private ["Ps7CVarArg", "dialog"]
 - ["Ps7CVarArg", "didReceiveMemoryWarning"]
+- ["Ps7CVarArg", "doctorList"]
+- ["Ps7CVarArg", "educatorsList"]
 - !private ["Ps7CVarArg", "error"]
 - !private ["Ps7CVarArg", "first"]
 - !private ["Ps7CVarArg", "full_name"]
 - ["Ps7CVarArg", "getContactsList"]
+- ["Ps7CVarArg", "getDoctorEducators"]
+- ["Ps7CVarArg", "getDoctorPatients"]
+- ["Ps7CVarArg", "getPatientDoctors"]
+- ["Ps7CVarArg", "getPatientEducators"]
 - !private ["Ps7CVarArg", "identifier"]
 - ["Ps7CVarArg", "indexPathForPreferredFocusedView"]
 - ["Ps7CVarArg", "indexPathForPreferredFocusedViewInTableView"]
@@ -307,16 +343,20 @@ depends-member:
 - !private ["Ps10Collection", "Element"]
 - !private ["Ps10Collection", "IndexDistance"]
 - !private ["Ps10Collection", "Iterator"]
+- !private ["Ps10Collection", "Key"]
+- !private ["Ps10Collection", "Value"]
 - !private ["Ps10Collection", "_Element"]
 - !private ["Ps10Collection", "append"]
 - !private ["Ps10Collection", "count"]
 - !private ["Ps10Collection", "first"]
 - !private ["Ps10Collection", "init"]
 - !private ["Ps10Collection", "row"]
+- !private ["Ps10Collection", "section"]
 - !private ["Ps10Comparable", "init"]
 - !private ["Ps10Comparable", "isEmpty"]
 - !private ["Ps10Comparable", "localized"]
 - !private ["Ps10Comparable", "row"]
+- !private ["Ps10Comparable", "section"]
 - !private ["Ps10Comparable", "trimmingCharacters"]
 - !private ["C11DiabetesApp25ContactListViewController", "Alamofire"]
 - !private ["C11DiabetesApp25ContactListViewController", "AlertView"]
@@ -332,9 +372,12 @@ depends-member:
 - ["C11DiabetesApp25ContactListViewController", "Done_Click"]
 - ["C11DiabetesApp25ContactListViewController", "IndexPath"]
 - ["C11DiabetesApp25ContactListViewController", "Int"]
+- !private ["C11DiabetesApp25ContactListViewController", "JSONEncoding"]
 - !private ["C11DiabetesApp25ContactListViewController", "NSArray"]
 - !private ["C11DiabetesApp25ContactListViewController", "NSDictionary"]
 - ["C11DiabetesApp25ContactListViewController", "NSMutableArray"]
+- !private ["C11DiabetesApp25ContactListViewController", "NSNumber"]
+- !private ["C11DiabetesApp25ContactListViewController", "Parameters"]
 - ["C11DiabetesApp25ContactListViewController", "QBChatDialog"]
 - !private ["C11DiabetesApp25ContactListViewController", "QBGeneralResponsePage"]
 - !private ["C11DiabetesApp25ContactListViewController", "QBRequest"]
@@ -353,7 +396,13 @@ depends-member:
 - ["C11DiabetesApp25ContactListViewController", "createChat"]
 - ["C11DiabetesApp25ContactListViewController", "deinit"]
 - ["C11DiabetesApp25ContactListViewController", "didReceiveMemoryWarning"]
+- ["C11DiabetesApp25ContactListViewController", "doctorList"]
+- ["C11DiabetesApp25ContactListViewController", "educatorsList"]
 - ["C11DiabetesApp25ContactListViewController", "getContactsList"]
+- ["C11DiabetesApp25ContactListViewController", "getDoctorEducators"]
+- ["C11DiabetesApp25ContactListViewController", "getDoctorPatients"]
+- ["C11DiabetesApp25ContactListViewController", "getPatientDoctors"]
+- ["C11DiabetesApp25ContactListViewController", "getPatientEducators"]
 - ["C11DiabetesApp25ContactListViewController", "indexPathForPreferredFocusedView"]
 - ["C11DiabetesApp25ContactListViewController", "indexPathForPreferredFocusedViewInTableView"]
 - ["C11DiabetesApp25ContactListViewController", "init"]
@@ -405,14 +454,18 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "Element"]
 - !private ["Ps28CustomDebugStringConvertible", "IndexDistance"]
 - !private ["Ps28CustomDebugStringConvertible", "Iterator"]
+- !private ["Ps28CustomDebugStringConvertible", "JSONEncoding"]
+- !private ["Ps28CustomDebugStringConvertible", "Key"]
 - ["Ps28CustomDebugStringConvertible", "NSMutableArray"]
 - !private ["Ps28CustomDebugStringConvertible", "QBGeneralResponsePage"]
 - !private ["Ps28CustomDebugStringConvertible", "QBRequest"]
+- !private ["Ps28CustomDebugStringConvertible", "RawValue"]
 - !private ["Ps28CustomDebugStringConvertible", "SVProgressHUD"]
 - !private ["Ps28CustomDebugStringConvertible", "SVProgressHUDMaskType"]
 - !private ["Ps28CustomDebugStringConvertible", "ServicesManager"]
 - !private ["Ps28CustomDebugStringConvertible", "UITableViewRowAnimation"]
 - !private ["Ps28CustomDebugStringConvertible", "UserDefaults"]
+- !private ["Ps28CustomDebugStringConvertible", "Value"]
 - !private ["Ps28CustomDebugStringConvertible", "_Element"]
 - !private ["Ps28CustomDebugStringConvertible", "accessoryType"]
 - !private ["Ps28CustomDebugStringConvertible", "add"]
@@ -428,10 +481,17 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "destination"]
 - !private ["Ps28CustomDebugStringConvertible", "dialog"]
 - ["Ps28CustomDebugStringConvertible", "didReceiveMemoryWarning"]
+- ["Ps28CustomDebugStringConvertible", "doctorList"]
+- ["Ps28CustomDebugStringConvertible", "educatorsList"]
 - !private ["Ps28CustomDebugStringConvertible", "error"]
+- !private ["Ps28CustomDebugStringConvertible", "failure"]
 - !private ["Ps28CustomDebugStringConvertible", "first"]
 - !private ["Ps28CustomDebugStringConvertible", "full_name"]
 - ["Ps28CustomDebugStringConvertible", "getContactsList"]
+- ["Ps28CustomDebugStringConvertible", "getDoctorEducators"]
+- ["Ps28CustomDebugStringConvertible", "getDoctorPatients"]
+- ["Ps28CustomDebugStringConvertible", "getPatientDoctors"]
+- ["Ps28CustomDebugStringConvertible", "getPatientEducators"]
 - !private ["Ps28CustomDebugStringConvertible", "identifier"]
 - ["Ps28CustomDebugStringConvertible", "indexPathForPreferredFocusedView"]
 - ["Ps28CustomDebugStringConvertible", "indexPathForPreferredFocusedViewInTableView"]
@@ -473,6 +533,7 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "scrollViewWillBeginDragging"]
 - ["Ps28CustomDebugStringConvertible", "scrollViewWillBeginZooming"]
 - ["Ps28CustomDebugStringConvertible", "scrollViewWillEndDragging"]
+- !private ["Ps28CustomDebugStringConvertible", "section"]
 - ["Ps28CustomDebugStringConvertible", "sectionIndexTitles"]
 - ["Ps28CustomDebugStringConvertible", "sectionIndexTitlesForTableView"]
 - !private ["Ps28CustomDebugStringConvertible", "show"]
@@ -481,6 +542,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "storyboard"]
 - !private ["Ps28CustomDebugStringConvertible", "string"]
 - !private ["Ps28CustomDebugStringConvertible", "subscript"]
+- !private ["Ps28CustomDebugStringConvertible", "success"]
 - ["Ps28CustomDebugStringConvertible", "tableView"]
 - !private ["Ps28CustomDebugStringConvertible", "text"]
 - !private ["Ps28CustomDebugStringConvertible", "textLabel"]
@@ -502,6 +564,8 @@ depends-member:
 - !private ["Ps17CustomReflectable", "Element"]
 - !private ["Ps17CustomReflectable", "IndexDistance"]
 - !private ["Ps17CustomReflectable", "Iterator"]
+- !private ["Ps17CustomReflectable", "Key"]
+- !private ["Ps17CustomReflectable", "Value"]
 - !private ["Ps17CustomReflectable", "_Element"]
 - !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
 - !private ["Ps17CustomReflectable", "add"]
@@ -513,6 +577,7 @@ depends-member:
 - !private ["Ps17CustomReflectable", "localized"]
 - !private ["Ps17CustomReflectable", "replaceObject"]
 - !private ["Ps17CustomReflectable", "row"]
+- !private ["Ps17CustomReflectable", "section"]
 - !private ["Ps17CustomReflectable", "subscript"]
 - !private ["Ps17CustomReflectable", "trimmingCharacters"]
 - !private ["Ps17CustomReflectable", "value"]
@@ -528,14 +593,18 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "Element"]
 - !private ["Ps23CustomStringConvertible", "IndexDistance"]
 - !private ["Ps23CustomStringConvertible", "Iterator"]
+- !private ["Ps23CustomStringConvertible", "JSONEncoding"]
+- !private ["Ps23CustomStringConvertible", "Key"]
 - ["Ps23CustomStringConvertible", "NSMutableArray"]
 - !private ["Ps23CustomStringConvertible", "QBGeneralResponsePage"]
 - !private ["Ps23CustomStringConvertible", "QBRequest"]
+- !private ["Ps23CustomStringConvertible", "RawValue"]
 - !private ["Ps23CustomStringConvertible", "SVProgressHUD"]
 - !private ["Ps23CustomStringConvertible", "SVProgressHUDMaskType"]
 - !private ["Ps23CustomStringConvertible", "ServicesManager"]
 - !private ["Ps23CustomStringConvertible", "UITableViewRowAnimation"]
 - !private ["Ps23CustomStringConvertible", "UserDefaults"]
+- !private ["Ps23CustomStringConvertible", "Value"]
 - !private ["Ps23CustomStringConvertible", "_Element"]
 - !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
 - !private ["Ps23CustomStringConvertible", "accessoryType"]
@@ -552,10 +621,17 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "destination"]
 - !private ["Ps23CustomStringConvertible", "dialog"]
 - ["Ps23CustomStringConvertible", "didReceiveMemoryWarning"]
+- ["Ps23CustomStringConvertible", "doctorList"]
+- ["Ps23CustomStringConvertible", "educatorsList"]
 - !private ["Ps23CustomStringConvertible", "error"]
+- !private ["Ps23CustomStringConvertible", "failure"]
 - !private ["Ps23CustomStringConvertible", "first"]
 - !private ["Ps23CustomStringConvertible", "full_name"]
 - ["Ps23CustomStringConvertible", "getContactsList"]
+- ["Ps23CustomStringConvertible", "getDoctorEducators"]
+- ["Ps23CustomStringConvertible", "getDoctorPatients"]
+- ["Ps23CustomStringConvertible", "getPatientDoctors"]
+- ["Ps23CustomStringConvertible", "getPatientEducators"]
 - !private ["Ps23CustomStringConvertible", "identifier"]
 - ["Ps23CustomStringConvertible", "indexPathForPreferredFocusedView"]
 - ["Ps23CustomStringConvertible", "indexPathForPreferredFocusedViewInTableView"]
@@ -597,6 +673,7 @@ depends-member:
 - ["Ps23CustomStringConvertible", "scrollViewWillBeginDragging"]
 - ["Ps23CustomStringConvertible", "scrollViewWillBeginZooming"]
 - ["Ps23CustomStringConvertible", "scrollViewWillEndDragging"]
+- !private ["Ps23CustomStringConvertible", "section"]
 - ["Ps23CustomStringConvertible", "sectionIndexTitles"]
 - ["Ps23CustomStringConvertible", "sectionIndexTitlesForTableView"]
 - !private ["Ps23CustomStringConvertible", "show"]
@@ -605,6 +682,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "storyboard"]
 - !private ["Ps23CustomStringConvertible", "string"]
 - !private ["Ps23CustomStringConvertible", "subscript"]
+- !private ["Ps23CustomStringConvertible", "success"]
 - ["Ps23CustomStringConvertible", "tableView"]
 - !private ["Ps23CustomStringConvertible", "text"]
 - !private ["Ps23CustomStringConvertible", "textLabel"]
@@ -622,6 +700,9 @@ depends-member:
 - !private ["C9Alamofire11DataRequest", "responseJSON"]
 - !private ["V9Alamofire12DataResponse", "deinit"]
 - !private ["V9Alamofire12DataResponse", "result"]
+- !private ["Vs10Dictionary", "Key"]
+- !private ["Vs10Dictionary", "Value"]
+- ["Vs10Dictionary", "deinit"]
 - !private ["Sd", "deinit"]
 - !private ["Ps9Equatable", "Alamofire"]
 - !private ["Ps9Equatable", "AlertView"]
@@ -633,9 +714,11 @@ depends-member:
 - !private ["Ps9Equatable", "ContactObj"]
 - ["Ps9Equatable", "Done_Click"]
 - !private ["Ps9Equatable", "Iterator"]
+- !private ["Ps9Equatable", "JSONEncoding"]
 - ["Ps9Equatable", "NSMutableArray"]
 - !private ["Ps9Equatable", "QBGeneralResponsePage"]
 - !private ["Ps9Equatable", "QBRequest"]
+- !private ["Ps9Equatable", "RawValue"]
 - !private ["Ps9Equatable", "SVProgressHUD"]
 - !private ["Ps9Equatable", "SVProgressHUDMaskType"]
 - !private ["Ps9Equatable", "ServicesManager"]
@@ -657,9 +740,15 @@ depends-member:
 - !private ["Ps9Equatable", "destination"]
 - !private ["Ps9Equatable", "dialog"]
 - ["Ps9Equatable", "didReceiveMemoryWarning"]
+- ["Ps9Equatable", "doctorList"]
+- ["Ps9Equatable", "educatorsList"]
 - !private ["Ps9Equatable", "error"]
 - !private ["Ps9Equatable", "full_name"]
 - ["Ps9Equatable", "getContactsList"]
+- ["Ps9Equatable", "getDoctorEducators"]
+- ["Ps9Equatable", "getDoctorPatients"]
+- ["Ps9Equatable", "getPatientDoctors"]
+- ["Ps9Equatable", "getPatientEducators"]
 - !private ["Ps9Equatable", "identifier"]
 - ["Ps9Equatable", "indexPathForPreferredFocusedView"]
 - ["Ps9Equatable", "indexPathForPreferredFocusedViewInTableView"]
@@ -680,6 +769,7 @@ depends-member:
 - ["Ps9Equatable", "patientList"]
 - !private ["Ps9Equatable", "patient_id"]
 - !private ["Ps9Equatable", "popViewController"]
+- !private ["Ps9Equatable", "post"]
 - ["Ps9Equatable", "prepare"]
 - !private ["Ps9Equatable", "print"]
 - !private ["Ps9Equatable", "pushViewController"]
@@ -700,6 +790,7 @@ depends-member:
 - ["Ps9Equatable", "scrollViewWillBeginDragging"]
 - ["Ps9Equatable", "scrollViewWillBeginZooming"]
 - ["Ps9Equatable", "scrollViewWillEndDragging"]
+- !private ["Ps9Equatable", "section"]
 - ["Ps9Equatable", "sectionIndexTitles"]
 - ["Ps9Equatable", "sectionIndexTitlesForTableView"]
 - !private ["Ps9Equatable", "show"]
@@ -734,14 +825,20 @@ depends-member:
 - ["Ps25ExpressibleByArrayLiteral", "init"]
 - !private ["Ps25ExpressibleByArrayLiteral", "replaceObject"]
 - !private ["Ps25ExpressibleByArrayLiteral", "row"]
+- !private ["Ps25ExpressibleByArrayLiteral", "section"]
 - !private ["Ps25ExpressibleByArrayLiteral", "subscript"]
 - !private ["Ps25ExpressibleByArrayLiteral", "whitespaces"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "RawValue"]
 - !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "Key"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "Value"]
 - !private ["Ps30ExpressibleByDictionaryLiteral", "value"]
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "isEmpty"]
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "localized"]
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "trimmingCharacters"]
+- !private ["Ps25ExpressibleByFloatLiteral", "RawValue"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "RawValue"]
 - !private ["Ps32ExpressibleByStringInterpolation", "init"]
 - !private ["Ps32ExpressibleByStringInterpolation", "isEmpty"]
 - !private ["Ps32ExpressibleByStringInterpolation", "localized"]
@@ -755,6 +852,8 @@ depends-member:
 - !private ["Ps33ExpressibleByUnicodeScalarLiteral", "localized"]
 - !private ["Ps33ExpressibleByUnicodeScalarLiteral", "trimmingCharacters"]
 - !private ["Sf", "deinit"]
+- ["O9Alamofire10HTTPMethod", "deinit"]
+- !private ["O9Alamofire10HTTPMethod", "post"]
 - !private ["Ps8Hashable", "Alamofire"]
 - !private ["Ps8Hashable", "AlertView"]
 - !private ["Ps8Hashable", "AlertViewWithTextField"]
@@ -765,9 +864,11 @@ depends-member:
 - !private ["Ps8Hashable", "ContactObj"]
 - ["Ps8Hashable", "Done_Click"]
 - !private ["Ps8Hashable", "Iterator"]
+- !private ["Ps8Hashable", "JSONEncoding"]
 - ["Ps8Hashable", "NSMutableArray"]
 - !private ["Ps8Hashable", "QBGeneralResponsePage"]
 - !private ["Ps8Hashable", "QBRequest"]
+- !private ["Ps8Hashable", "RawValue"]
 - !private ["Ps8Hashable", "SVProgressHUD"]
 - !private ["Ps8Hashable", "SVProgressHUDMaskType"]
 - !private ["Ps8Hashable", "ServicesManager"]
@@ -789,9 +890,15 @@ depends-member:
 - !private ["Ps8Hashable", "destination"]
 - !private ["Ps8Hashable", "dialog"]
 - ["Ps8Hashable", "didReceiveMemoryWarning"]
+- ["Ps8Hashable", "doctorList"]
+- ["Ps8Hashable", "educatorsList"]
 - !private ["Ps8Hashable", "error"]
 - !private ["Ps8Hashable", "full_name"]
 - ["Ps8Hashable", "getContactsList"]
+- ["Ps8Hashable", "getDoctorEducators"]
+- ["Ps8Hashable", "getDoctorPatients"]
+- ["Ps8Hashable", "getPatientDoctors"]
+- ["Ps8Hashable", "getPatientEducators"]
 - !private ["Ps8Hashable", "identifier"]
 - ["Ps8Hashable", "indexPathForPreferredFocusedView"]
 - ["Ps8Hashable", "indexPathForPreferredFocusedViewInTableView"]
@@ -812,6 +919,7 @@ depends-member:
 - ["Ps8Hashable", "patientList"]
 - !private ["Ps8Hashable", "patient_id"]
 - !private ["Ps8Hashable", "popViewController"]
+- !private ["Ps8Hashable", "post"]
 - ["Ps8Hashable", "prepare"]
 - !private ["Ps8Hashable", "print"]
 - !private ["Ps8Hashable", "pushViewController"]
@@ -832,6 +940,7 @@ depends-member:
 - ["Ps8Hashable", "scrollViewWillBeginDragging"]
 - ["Ps8Hashable", "scrollViewWillBeginZooming"]
 - ["Ps8Hashable", "scrollViewWillEndDragging"]
+- !private ["Ps8Hashable", "section"]
 - ["Ps8Hashable", "sectionIndexTitles"]
 - ["Ps8Hashable", "sectionIndexTitlesForTableView"]
 - !private ["Ps8Hashable", "show"]
@@ -856,24 +965,31 @@ depends-member:
 - ["SQ", "deinit"]
 - ["V10Foundation9IndexPath", "deinit"]
 - !private ["V10Foundation9IndexPath", "row"]
+- !private ["V10Foundation9IndexPath", "section"]
 - !private ["Ps9Indexable", "Element"]
 - !private ["Ps9Indexable", "IndexDistance"]
 - !private ["Ps9Indexable", "Iterator"]
+- !private ["Ps9Indexable", "Key"]
+- !private ["Ps9Indexable", "Value"]
 - !private ["Ps9Indexable", "_Element"]
 - !private ["Ps9Indexable", "append"]
 - !private ["Ps9Indexable", "count"]
 - !private ["Ps9Indexable", "first"]
 - !private ["Ps9Indexable", "init"]
 - !private ["Ps9Indexable", "row"]
+- !private ["Ps9Indexable", "section"]
 - !private ["Ps13IndexableBase", "Element"]
 - !private ["Ps13IndexableBase", "IndexDistance"]
 - !private ["Ps13IndexableBase", "Iterator"]
+- !private ["Ps13IndexableBase", "Key"]
+- !private ["Ps13IndexableBase", "Value"]
 - !private ["Ps13IndexableBase", "_Element"]
 - !private ["Ps13IndexableBase", "append"]
 - !private ["Ps13IndexableBase", "count"]
 - !private ["Ps13IndexableBase", "first"]
 - !private ["Ps13IndexableBase", "init"]
 - !private ["Ps13IndexableBase", "row"]
+- !private ["Ps13IndexableBase", "section"]
 - !private ["Vs16IndexingIterator", "Element"]
 - ["Si", "deinit"]
 - !private ["Vs5Int16", "deinit"]
@@ -881,6 +997,8 @@ depends-member:
 - !private ["Vs5Int64", "deinit"]
 - !private ["Vs4Int8", "deinit"]
 - !private ["Ps16IteratorProtocol", "Element"]
+- !private ["V9Alamofire12JSONEncoding", "default"]
+- ["V9Alamofire12JSONEncoding", "deinit"]
 - !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
 - !private ["Ps25LosslessStringConvertible", "init"]
 - !private ["Ps25LosslessStringConvertible", "isEmpty"]
@@ -899,6 +1017,7 @@ depends-member:
 - !private ["Ps17MutableCollection", "first"]
 - !private ["Ps17MutableCollection", "init"]
 - !private ["Ps17MutableCollection", "row"]
+- !private ["Ps17MutableCollection", "section"]
 - !private ["Ps16MutableIndexable", "Element"]
 - !private ["Ps16MutableIndexable", "IndexDistance"]
 - !private ["Ps16MutableIndexable", "Iterator"]
@@ -908,6 +1027,7 @@ depends-member:
 - !private ["Ps16MutableIndexable", "first"]
 - !private ["Ps16MutableIndexable", "init"]
 - !private ["Ps16MutableIndexable", "row"]
+- !private ["Ps16MutableIndexable", "section"]
 - !private ["CSo7NSArray", "Iterator"]
 - !private ["CSo7NSArray", "add"]
 - !private ["CSo7NSArray", "count"]
@@ -926,9 +1046,11 @@ depends-member:
 - !private ["PSo8NSCoding", "ContactObj"]
 - ["PSo8NSCoding", "Done_Click"]
 - !private ["PSo8NSCoding", "Iterator"]
+- !private ["PSo8NSCoding", "JSONEncoding"]
 - ["PSo8NSCoding", "NSMutableArray"]
 - !private ["PSo8NSCoding", "QBGeneralResponsePage"]
 - !private ["PSo8NSCoding", "QBRequest"]
+- !private ["PSo8NSCoding", "RawValue"]
 - !private ["PSo8NSCoding", "SVProgressHUD"]
 - !private ["PSo8NSCoding", "SVProgressHUDMaskType"]
 - !private ["PSo8NSCoding", "ServicesManager"]
@@ -942,7 +1064,13 @@ depends-member:
 - !private ["PSo8NSCoding", "dequeueReusableCell"]
 - !private ["PSo8NSCoding", "dialog"]
 - ["PSo8NSCoding", "didReceiveMemoryWarning"]
+- ["PSo8NSCoding", "doctorList"]
+- ["PSo8NSCoding", "educatorsList"]
 - ["PSo8NSCoding", "getContactsList"]
+- ["PSo8NSCoding", "getDoctorEducators"]
+- ["PSo8NSCoding", "getDoctorPatients"]
+- ["PSo8NSCoding", "getPatientDoctors"]
+- ["PSo8NSCoding", "getPatientEducators"]
 - ["PSo8NSCoding", "indexPathForPreferredFocusedView"]
 - ["PSo8NSCoding", "indexPathForPreferredFocusedViewInTableView"]
 - ["PSo8NSCoding", "init"]
@@ -992,6 +1120,7 @@ depends-member:
 - ["PSo8NSCoding", "viewForZoomingInScrollView"]
 - ["PSo8NSCoding", ""]
 - !private ["PSo9NSCopying", "Iterator"]
+- !private ["PSo9NSCopying", "RawValue"]
 - !private ["PSo9NSCopying", "add"]
 - !private ["PSo9NSCopying", "count"]
 - ["PSo9NSCopying", "init"]
@@ -1012,6 +1141,7 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "CharacterSet"]
 - !private ["PSo26NSExtensionRequestHandling", "ContactObj"]
 - ["PSo26NSExtensionRequestHandling", "Done_Click"]
+- !private ["PSo26NSExtensionRequestHandling", "JSONEncoding"]
 - ["PSo26NSExtensionRequestHandling", "NSMutableArray"]
 - !private ["PSo26NSExtensionRequestHandling", "QBGeneralResponsePage"]
 - !private ["PSo26NSExtensionRequestHandling", "QBRequest"]
@@ -1024,7 +1154,13 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "createChat"]
 - !private ["PSo26NSExtensionRequestHandling", "dialog"]
 - ["PSo26NSExtensionRequestHandling", "didReceiveMemoryWarning"]
+- ["PSo26NSExtensionRequestHandling", "doctorList"]
+- ["PSo26NSExtensionRequestHandling", "educatorsList"]
 - ["PSo26NSExtensionRequestHandling", "getContactsList"]
+- ["PSo26NSExtensionRequestHandling", "getDoctorEducators"]
+- ["PSo26NSExtensionRequestHandling", "getDoctorPatients"]
+- ["PSo26NSExtensionRequestHandling", "getPatientDoctors"]
+- ["PSo26NSExtensionRequestHandling", "getPatientEducators"]
 - ["PSo26NSExtensionRequestHandling", "indexPathForPreferredFocusedView"]
 - ["PSo26NSExtensionRequestHandling", "indexPathForPreferredFocusedViewInTableView"]
 - !private ["PSo26NSExtensionRequestHandling", "init"]
@@ -1068,6 +1204,7 @@ depends-member:
 - !private ["PSo17NSFastEnumeration", "subscript"]
 - !private ["PSo17NSFastEnumeration", "value"]
 - !private ["C10Foundation25NSFastEnumerationIterator", "Element"]
+- !private ["PSo20NSFetchRequestResult", "RawValue"]
 - !private ["PSo20NSFetchRequestResult", "value"]
 - !private ["CSo14NSMutableArray", "Iterator"]
 - !private ["CSo14NSMutableArray", "add"]
@@ -1086,6 +1223,8 @@ depends-member:
 - !private ["PSo16NSMutableCopying", "subscript"]
 - !private ["PSo16NSMutableCopying", "trimmingCharacters"]
 - !private ["PSo16NSMutableCopying", "value"]
+- !private ["CSo8NSNumber", "RawValue"]
+- ["CSo8NSNumber", "deinit"]
 - !private ["CSo8NSObject", "Alamofire"]
 - !private ["CSo8NSObject", "AlertView"]
 - !private ["CSo8NSObject", "AlertViewWithTextField"]
@@ -1101,13 +1240,17 @@ depends-member:
 - ["CSo8NSObject", "IndexPath"]
 - ["CSo8NSObject", "Int"]
 - !private ["CSo8NSObject", "Iterator"]
+- !private ["CSo8NSObject", "JSONEncoding"]
 - !private ["CSo8NSObject", "NSArray"]
 - !private ["CSo8NSObject", "NSDictionary"]
 - ["CSo8NSObject", "NSMutableArray"]
+- !private ["CSo8NSObject", "NSNumber"]
+- !private ["CSo8NSObject", "Parameters"]
 - ["CSo8NSObject", "QBChatDialog"]
 - !private ["CSo8NSObject", "QBGeneralResponsePage"]
 - !private ["CSo8NSObject", "QBRequest"]
 - ["CSo8NSObject", "QBResponse"]
+- !private ["CSo8NSObject", "RawValue"]
 - !private ["CSo8NSObject", "SVProgressHUD"]
 - !private ["CSo8NSObject", "SVProgressHUDMaskType"]
 - !private ["CSo8NSObject", "ServicesManager"]
@@ -1127,13 +1270,20 @@ depends-member:
 - ["CSo8NSObject", "createChat"]
 - !private ["CSo8NSObject", "createGroupChatDialog"]
 - !private ["CSo8NSObject", "createPrivateChatDialog"]
+- !private ["CSo8NSObject", "deinit"]
 - !private ["CSo8NSObject", "dequeueReusableCell"]
 - !private ["CSo8NSObject", "destination"]
 - !private ["CSo8NSObject", "dialog"]
 - ["CSo8NSObject", "didReceiveMemoryWarning"]
+- ["CSo8NSObject", "doctorList"]
+- ["CSo8NSObject", "educatorsList"]
 - !private ["CSo8NSObject", "error"]
 - !private ["CSo8NSObject", "full_name"]
 - ["CSo8NSObject", "getContactsList"]
+- ["CSo8NSObject", "getDoctorEducators"]
+- ["CSo8NSObject", "getDoctorPatients"]
+- ["CSo8NSObject", "getPatientDoctors"]
+- ["CSo8NSObject", "getPatientEducators"]
 - !private ["CSo8NSObject", "identifier"]
 - ["CSo8NSObject", "indexPathForPreferredFocusedView"]
 - ["CSo8NSObject", "indexPathForPreferredFocusedViewInTableView"]
@@ -1201,9 +1351,11 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "ContactObj"]
 - ["PSo16NSObjectProtocol", "Done_Click"]
 - !private ["PSo16NSObjectProtocol", "Iterator"]
+- !private ["PSo16NSObjectProtocol", "JSONEncoding"]
 - ["PSo16NSObjectProtocol", "NSMutableArray"]
 - !private ["PSo16NSObjectProtocol", "QBGeneralResponsePage"]
 - !private ["PSo16NSObjectProtocol", "QBRequest"]
+- !private ["PSo16NSObjectProtocol", "RawValue"]
 - !private ["PSo16NSObjectProtocol", "SVProgressHUD"]
 - !private ["PSo16NSObjectProtocol", "SVProgressHUDMaskType"]
 - !private ["PSo16NSObjectProtocol", "ServicesManager"]
@@ -1222,9 +1374,15 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "destination"]
 - !private ["PSo16NSObjectProtocol", "dialog"]
 - ["PSo16NSObjectProtocol", "didReceiveMemoryWarning"]
+- ["PSo16NSObjectProtocol", "doctorList"]
+- ["PSo16NSObjectProtocol", "educatorsList"]
 - !private ["PSo16NSObjectProtocol", "error"]
 - !private ["PSo16NSObjectProtocol", "full_name"]
 - ["PSo16NSObjectProtocol", "getContactsList"]
+- ["PSo16NSObjectProtocol", "getDoctorEducators"]
+- ["PSo16NSObjectProtocol", "getDoctorPatients"]
+- ["PSo16NSObjectProtocol", "getPatientDoctors"]
+- ["PSo16NSObjectProtocol", "getPatientEducators"]
 - !private ["PSo16NSObjectProtocol", "identifier"]
 - ["PSo16NSObjectProtocol", "indexPathForPreferredFocusedView"]
 - ["PSo16NSObjectProtocol", "indexPathForPreferredFocusedViewInTableView"]
@@ -1284,6 +1442,7 @@ depends-member:
 - ["PSo16NSObjectProtocol", "viewForZoomingInScrollView"]
 - ["PSo16NSObjectProtocol", ""]
 - !private ["PSo14NSSecureCoding", "Iterator"]
+- !private ["PSo14NSSecureCoding", "RawValue"]
 - !private ["PSo14NSSecureCoding", "add"]
 - !private ["PSo14NSSecureCoding", "count"]
 - ["PSo14NSSecureCoding", "init"]
@@ -1297,7 +1456,10 @@ depends-member:
 - !private ["CSo8NSString", "isEmpty"]
 - !private ["CSo8NSString", "localized"]
 - !private ["CSo8NSString", "trimmingCharacters"]
+- !private ["CSo7NSValue", "RawValue"]
+- !private ["CSo7NSValue", "deinit"]
 - ["Sq", "deinit"]
+- !private ["P9Alamofire17ParameterEncoding", "default"]
 - ["CSo12QBChatDialog", "deinit"]
 - !private ["CSo7QBError", "deinit"]
 - !private ["CSo7QBError", "error"]
@@ -1354,6 +1516,7 @@ depends-member:
 - !private ["Ps22RandomAccessCollection", "first"]
 - !private ["Ps22RandomAccessCollection", "init"]
 - !private ["Ps22RandomAccessCollection", "row"]
+- !private ["Ps22RandomAccessCollection", "section"]
 - !private ["Ps21RandomAccessIndexable", "Element"]
 - !private ["Ps21RandomAccessIndexable", "IndexDistance"]
 - !private ["Ps21RandomAccessIndexable", "Iterator"]
@@ -1363,6 +1526,7 @@ depends-member:
 - !private ["Ps21RandomAccessIndexable", "first"]
 - !private ["Ps21RandomAccessIndexable", "init"]
 - !private ["Ps21RandomAccessIndexable", "row"]
+- !private ["Ps21RandomAccessIndexable", "section"]
 - !private ["Ps26RangeReplaceableCollection", "Element"]
 - !private ["Ps26RangeReplaceableCollection", "IndexDistance"]
 - !private ["Ps26RangeReplaceableCollection", "Iterator"]
@@ -1382,11 +1546,15 @@ depends-member:
 - !private ["Ps16RawRepresentable", "checkmark"]
 - !private ["Ps16RawRepresentable", "clear"]
 - !private ["Ps16RawRepresentable", "none"]
+- !private ["Ps16RawRepresentable", "post"]
 - !private ["P10Foundation20ReferenceConvertible", "row"]
+- !private ["P10Foundation20ReferenceConvertible", "section"]
 - !private ["P10Foundation20ReferenceConvertible", "whitespaces"]
 - !private ["C9Alamofire7Request", "responseJSON"]
 - !private ["P9Alamofire8Response", "result"]
 - !private ["O9Alamofire6Result", "deinit"]
+- !private ["O9Alamofire6Result", "failure"]
+- !private ["O9Alamofire6Result", "success"]
 - !private ["O9Alamofire6Result", "value"]
 - !private ["CSo13SVProgressHUD", "show"]
 - !private ["CSo13SVProgressHUD", "showError"]
@@ -1395,6 +1563,8 @@ depends-member:
 - !private ["Ps8Sequence", "Element"]
 - !private ["Ps8Sequence", "IndexDistance"]
 - !private ["Ps8Sequence", "Iterator"]
+- !private ["Ps8Sequence", "Key"]
+- !private ["Ps8Sequence", "Value"]
 - !private ["Ps8Sequence", "_Element"]
 - !private ["Ps8Sequence", "add"]
 - !private ["Ps8Sequence", "append"]
@@ -1403,6 +1573,7 @@ depends-member:
 - ["Ps8Sequence", "init"]
 - !private ["Ps8Sequence", "replaceObject"]
 - !private ["Ps8Sequence", "row"]
+- !private ["Ps8Sequence", "section"]
 - !private ["Ps8Sequence", "subscript"]
 - !private ["Ps8Sequence", "value"]
 - !private ["C11DiabetesApp15ServicesManager", "chatService"]
@@ -1450,6 +1621,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "CharacterSet"]
 - !private ["PSo21UIAppearanceContainer", "ContactObj"]
 - ["PSo21UIAppearanceContainer", "Done_Click"]
+- !private ["PSo21UIAppearanceContainer", "JSONEncoding"]
 - ["PSo21UIAppearanceContainer", "NSMutableArray"]
 - !private ["PSo21UIAppearanceContainer", "QBGeneralResponsePage"]
 - !private ["PSo21UIAppearanceContainer", "QBRequest"]
@@ -1464,7 +1636,13 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "dequeueReusableCell"]
 - !private ["PSo21UIAppearanceContainer", "dialog"]
 - ["PSo21UIAppearanceContainer", "didReceiveMemoryWarning"]
+- ["PSo21UIAppearanceContainer", "doctorList"]
+- ["PSo21UIAppearanceContainer", "educatorsList"]
 - ["PSo21UIAppearanceContainer", "getContactsList"]
+- ["PSo21UIAppearanceContainer", "getDoctorEducators"]
+- ["PSo21UIAppearanceContainer", "getDoctorPatients"]
+- ["PSo21UIAppearanceContainer", "getPatientDoctors"]
+- ["PSo21UIAppearanceContainer", "getPatientEducators"]
 - ["PSo21UIAppearanceContainer", "indexPathForPreferredFocusedView"]
 - ["PSo21UIAppearanceContainer", "indexPathForPreferredFocusedViewInTableView"]
 - !private ["PSo21UIAppearanceContainer", "init"]
@@ -1518,6 +1696,7 @@ depends-member:
 - !private ["PSo18UIContentContainer", "CharacterSet"]
 - !private ["PSo18UIContentContainer", "ContactObj"]
 - ["PSo18UIContentContainer", "Done_Click"]
+- !private ["PSo18UIContentContainer", "JSONEncoding"]
 - ["PSo18UIContentContainer", "NSMutableArray"]
 - !private ["PSo18UIContentContainer", "QBGeneralResponsePage"]
 - !private ["PSo18UIContentContainer", "QBRequest"]
@@ -1530,7 +1709,13 @@ depends-member:
 - ["PSo18UIContentContainer", "createChat"]
 - !private ["PSo18UIContentContainer", "dialog"]
 - ["PSo18UIContentContainer", "didReceiveMemoryWarning"]
+- ["PSo18UIContentContainer", "doctorList"]
+- ["PSo18UIContentContainer", "educatorsList"]
 - ["PSo18UIContentContainer", "getContactsList"]
+- ["PSo18UIContentContainer", "getDoctorEducators"]
+- ["PSo18UIContentContainer", "getDoctorPatients"]
+- ["PSo18UIContentContainer", "getPatientDoctors"]
+- ["PSo18UIContentContainer", "getPatientEducators"]
 - ["PSo18UIContentContainer", "indexPathForPreferredFocusedView"]
 - ["PSo18UIContentContainer", "indexPathForPreferredFocusedViewInTableView"]
 - !private ["PSo18UIContentContainer", "init"]
@@ -1592,6 +1777,7 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "CharacterSet"]
 - !private ["PSo18UIFocusEnvironment", "ContactObj"]
 - ["PSo18UIFocusEnvironment", "Done_Click"]
+- !private ["PSo18UIFocusEnvironment", "JSONEncoding"]
 - ["PSo18UIFocusEnvironment", "NSMutableArray"]
 - !private ["PSo18UIFocusEnvironment", "QBGeneralResponsePage"]
 - !private ["PSo18UIFocusEnvironment", "QBRequest"]
@@ -1606,7 +1792,13 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "dequeueReusableCell"]
 - !private ["PSo18UIFocusEnvironment", "dialog"]
 - ["PSo18UIFocusEnvironment", "didReceiveMemoryWarning"]
+- ["PSo18UIFocusEnvironment", "doctorList"]
+- ["PSo18UIFocusEnvironment", "educatorsList"]
 - ["PSo18UIFocusEnvironment", "getContactsList"]
+- ["PSo18UIFocusEnvironment", "getDoctorEducators"]
+- ["PSo18UIFocusEnvironment", "getDoctorPatients"]
+- ["PSo18UIFocusEnvironment", "getPatientDoctors"]
+- ["PSo18UIFocusEnvironment", "getPatientEducators"]
 - ["PSo18UIFocusEnvironment", "indexPathForPreferredFocusedView"]
 - ["PSo18UIFocusEnvironment", "indexPathForPreferredFocusedViewInTableView"]
 - !private ["PSo18UIFocusEnvironment", "init"]
@@ -1681,9 +1873,12 @@ depends-member:
 - ["CSo11UIResponder", "Done_Click"]
 - ["CSo11UIResponder", "IndexPath"]
 - ["CSo11UIResponder", "Int"]
+- !private ["CSo11UIResponder", "JSONEncoding"]
 - !private ["CSo11UIResponder", "NSArray"]
 - !private ["CSo11UIResponder", "NSDictionary"]
 - ["CSo11UIResponder", "NSMutableArray"]
+- !private ["CSo11UIResponder", "NSNumber"]
+- !private ["CSo11UIResponder", "Parameters"]
 - ["CSo11UIResponder", "QBChatDialog"]
 - !private ["CSo11UIResponder", "QBGeneralResponsePage"]
 - !private ["CSo11UIResponder", "QBRequest"]
@@ -1704,7 +1899,13 @@ depends-member:
 - !private ["CSo11UIResponder", "dequeueReusableCell"]
 - !private ["CSo11UIResponder", "dialog"]
 - ["CSo11UIResponder", "didReceiveMemoryWarning"]
+- ["CSo11UIResponder", "doctorList"]
+- ["CSo11UIResponder", "educatorsList"]
 - ["CSo11UIResponder", "getContactsList"]
+- ["CSo11UIResponder", "getDoctorEducators"]
+- ["CSo11UIResponder", "getDoctorPatients"]
+- ["CSo11UIResponder", "getPatientDoctors"]
+- ["CSo11UIResponder", "getPatientEducators"]
 - ["CSo11UIResponder", "indexPathForPreferredFocusedView"]
 - ["CSo11UIResponder", "indexPathForPreferredFocusedViewInTableView"]
 - ["CSo11UIResponder", "init"]
@@ -1754,6 +1955,7 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "CharacterSet"]
 - !private ["PSo30UIResponderStandardEditActions", "ContactObj"]
 - ["PSo30UIResponderStandardEditActions", "Done_Click"]
+- !private ["PSo30UIResponderStandardEditActions", "JSONEncoding"]
 - ["PSo30UIResponderStandardEditActions", "NSMutableArray"]
 - !private ["PSo30UIResponderStandardEditActions", "QBGeneralResponsePage"]
 - !private ["PSo30UIResponderStandardEditActions", "QBRequest"]
@@ -1768,7 +1970,13 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "dequeueReusableCell"]
 - !private ["PSo30UIResponderStandardEditActions", "dialog"]
 - ["PSo30UIResponderStandardEditActions", "didReceiveMemoryWarning"]
+- ["PSo30UIResponderStandardEditActions", "doctorList"]
+- ["PSo30UIResponderStandardEditActions", "educatorsList"]
 - ["PSo30UIResponderStandardEditActions", "getContactsList"]
+- ["PSo30UIResponderStandardEditActions", "getDoctorEducators"]
+- ["PSo30UIResponderStandardEditActions", "getDoctorPatients"]
+- ["PSo30UIResponderStandardEditActions", "getPatientDoctors"]
+- ["PSo30UIResponderStandardEditActions", "getPatientEducators"]
 - ["PSo30UIResponderStandardEditActions", "indexPathForPreferredFocusedView"]
 - ["PSo30UIResponderStandardEditActions", "indexPathForPreferredFocusedViewInTableView"]
 - !private ["PSo30UIResponderStandardEditActions", "init"]
@@ -1820,6 +2028,7 @@ depends-member:
 - !private ["PSo20UIScrollViewDelegate", "Array"]
 - !private ["PSo20UIScrollViewDelegate", "CharacterSet"]
 - !private ["PSo20UIScrollViewDelegate", "ContactObj"]
+- !private ["PSo20UIScrollViewDelegate", "JSONEncoding"]
 - ["PSo20UIScrollViewDelegate", "NSMutableArray"]
 - !private ["PSo20UIScrollViewDelegate", "QBGeneralResponsePage"]
 - !private ["PSo20UIScrollViewDelegate", "QBRequest"]
@@ -1831,7 +2040,12 @@ depends-member:
 - !private ["PSo20UIScrollViewDelegate", "baseUrl"]
 - !private ["PSo20UIScrollViewDelegate", "createChat"]
 - !private ["PSo20UIScrollViewDelegate", "dialog"]
-- !private ["PSo20UIScrollViewDelegate", "getContactsList"]
+- !private ["PSo20UIScrollViewDelegate", "doctorList"]
+- !private ["PSo20UIScrollViewDelegate", "educatorsList"]
+- !private ["PSo20UIScrollViewDelegate", "getDoctorEducators"]
+- !private ["PSo20UIScrollViewDelegate", "getDoctorPatients"]
+- !private ["PSo20UIScrollViewDelegate", "getPatientDoctors"]
+- !private ["PSo20UIScrollViewDelegate", "getPatientEducators"]
 - ["PSo20UIScrollViewDelegate", "indexPathForPreferredFocusedView"]
 - ["PSo20UIScrollViewDelegate", "indexPathForPreferredFocusedViewInTableView"]
 - !private ["PSo20UIScrollViewDelegate", "isGroupMode"]
@@ -1871,6 +2085,7 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "CharacterSet"]
 - !private ["PSo16UIStateRestoring", "ContactObj"]
 - ["PSo16UIStateRestoring", "Done_Click"]
+- !private ["PSo16UIStateRestoring", "JSONEncoding"]
 - ["PSo16UIStateRestoring", "NSMutableArray"]
 - !private ["PSo16UIStateRestoring", "QBGeneralResponsePage"]
 - !private ["PSo16UIStateRestoring", "QBRequest"]
@@ -1883,7 +2098,13 @@ depends-member:
 - ["PSo16UIStateRestoring", "createChat"]
 - !private ["PSo16UIStateRestoring", "dialog"]
 - ["PSo16UIStateRestoring", "didReceiveMemoryWarning"]
+- ["PSo16UIStateRestoring", "doctorList"]
+- ["PSo16UIStateRestoring", "educatorsList"]
 - ["PSo16UIStateRestoring", "getContactsList"]
+- ["PSo16UIStateRestoring", "getDoctorEducators"]
+- ["PSo16UIStateRestoring", "getDoctorPatients"]
+- ["PSo16UIStateRestoring", "getPatientDoctors"]
+- ["PSo16UIStateRestoring", "getPatientEducators"]
 - ["PSo16UIStateRestoring", "indexPathForPreferredFocusedView"]
 - ["PSo16UIStateRestoring", "indexPathForPreferredFocusedViewInTableView"]
 - !private ["PSo16UIStateRestoring", "init"]
@@ -1941,6 +2162,7 @@ depends-member:
 - !private ["PSo21UITableViewDataSource", "Array"]
 - !private ["PSo21UITableViewDataSource", "CharacterSet"]
 - !private ["PSo21UITableViewDataSource", "ContactObj"]
+- !private ["PSo21UITableViewDataSource", "JSONEncoding"]
 - ["PSo21UITableViewDataSource", "NSMutableArray"]
 - !private ["PSo21UITableViewDataSource", "QBGeneralResponsePage"]
 - !private ["PSo21UITableViewDataSource", "QBRequest"]
@@ -1951,7 +2173,12 @@ depends-member:
 - !private ["PSo21UITableViewDataSource", "UserDefaults"]
 - !private ["PSo21UITableViewDataSource", "baseUrl"]
 - !private ["PSo21UITableViewDataSource", "createChat"]
-- !private ["PSo21UITableViewDataSource", "getContactsList"]
+- !private ["PSo21UITableViewDataSource", "doctorList"]
+- !private ["PSo21UITableViewDataSource", "educatorsList"]
+- !private ["PSo21UITableViewDataSource", "getDoctorEducators"]
+- !private ["PSo21UITableViewDataSource", "getDoctorPatients"]
+- !private ["PSo21UITableViewDataSource", "getPatientDoctors"]
+- !private ["PSo21UITableViewDataSource", "getPatientEducators"]
 - ["PSo21UITableViewDataSource", "indexPathForPreferredFocusedView"]
 - ["PSo21UITableViewDataSource", "indexPathForPreferredFocusedViewInTableView"]
 - !private ["PSo21UITableViewDataSource", "isGroupMode"]
@@ -1989,6 +2216,7 @@ depends-member:
 - !private ["PSo19UITableViewDelegate", "Array"]
 - !private ["PSo19UITableViewDelegate", "CharacterSet"]
 - !private ["PSo19UITableViewDelegate", "ContactObj"]
+- !private ["PSo19UITableViewDelegate", "JSONEncoding"]
 - ["PSo19UITableViewDelegate", "NSMutableArray"]
 - !private ["PSo19UITableViewDelegate", "QBGeneralResponsePage"]
 - !private ["PSo19UITableViewDelegate", "QBRequest"]
@@ -1999,7 +2227,12 @@ depends-member:
 - !private ["PSo19UITableViewDelegate", "UserDefaults"]
 - !private ["PSo19UITableViewDelegate", "baseUrl"]
 - !private ["PSo19UITableViewDelegate", "createChat"]
-- !private ["PSo19UITableViewDelegate", "getContactsList"]
+- !private ["PSo19UITableViewDelegate", "doctorList"]
+- !private ["PSo19UITableViewDelegate", "educatorsList"]
+- !private ["PSo19UITableViewDelegate", "getDoctorEducators"]
+- !private ["PSo19UITableViewDelegate", "getDoctorPatients"]
+- !private ["PSo19UITableViewDelegate", "getPatientDoctors"]
+- !private ["PSo19UITableViewDelegate", "getPatientEducators"]
 - ["PSo19UITableViewDelegate", "indexPathForPreferredFocusedView"]
 - ["PSo19UITableViewDelegate", "indexPathForPreferredFocusedViewInTableView"]
 - !private ["PSo19UITableViewDelegate", "isGroupMode"]
@@ -2042,6 +2275,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "CharacterSet"]
 - !private ["PSo18UITraitEnvironment", "ContactObj"]
 - ["PSo18UITraitEnvironment", "Done_Click"]
+- !private ["PSo18UITraitEnvironment", "JSONEncoding"]
 - ["PSo18UITraitEnvironment", "NSMutableArray"]
 - !private ["PSo18UITraitEnvironment", "QBGeneralResponsePage"]
 - !private ["PSo18UITraitEnvironment", "QBRequest"]
@@ -2056,7 +2290,13 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "dequeueReusableCell"]
 - !private ["PSo18UITraitEnvironment", "dialog"]
 - ["PSo18UITraitEnvironment", "didReceiveMemoryWarning"]
+- ["PSo18UITraitEnvironment", "doctorList"]
+- ["PSo18UITraitEnvironment", "educatorsList"]
 - ["PSo18UITraitEnvironment", "getContactsList"]
+- ["PSo18UITraitEnvironment", "getDoctorEducators"]
+- ["PSo18UITraitEnvironment", "getDoctorPatients"]
+- ["PSo18UITraitEnvironment", "getPatientDoctors"]
+- ["PSo18UITraitEnvironment", "getPatientEducators"]
 - ["PSo18UITraitEnvironment", "indexPathForPreferredFocusedView"]
 - ["PSo18UITraitEnvironment", "indexPathForPreferredFocusedViewInTableView"]
 - !private ["PSo18UITraitEnvironment", "init"]
@@ -2120,9 +2360,12 @@ depends-member:
 - ["CSo16UIViewController", "Done_Click"]
 - ["CSo16UIViewController", "IndexPath"]
 - ["CSo16UIViewController", "Int"]
+- !private ["CSo16UIViewController", "JSONEncoding"]
 - !private ["CSo16UIViewController", "NSArray"]
 - !private ["CSo16UIViewController", "NSDictionary"]
 - ["CSo16UIViewController", "NSMutableArray"]
+- !private ["CSo16UIViewController", "NSNumber"]
+- !private ["CSo16UIViewController", "Parameters"]
 - ["CSo16UIViewController", "QBChatDialog"]
 - !private ["CSo16UIViewController", "QBGeneralResponsePage"]
 - !private ["CSo16UIViewController", "QBRequest"]
@@ -2142,7 +2385,13 @@ depends-member:
 - ["CSo16UIViewController", "deinit"]
 - !private ["CSo16UIViewController", "dialog"]
 - ["CSo16UIViewController", "didReceiveMemoryWarning"]
+- ["CSo16UIViewController", "doctorList"]
+- ["CSo16UIViewController", "educatorsList"]
 - ["CSo16UIViewController", "getContactsList"]
+- ["CSo16UIViewController", "getDoctorEducators"]
+- ["CSo16UIViewController", "getDoctorPatients"]
+- ["CSo16UIViewController", "getPatientDoctors"]
+- ["CSo16UIViewController", "getPatientEducators"]
 - ["CSo16UIViewController", "indexPathForPreferredFocusedView"]
 - ["CSo16UIViewController", "indexPathForPreferredFocusedViewInTableView"]
 - ["CSo16UIViewController", "init"]
@@ -2194,6 +2443,7 @@ depends-member:
 - ["CSo12UserDefaults", "deinit"]
 - !private ["CSo12UserDefaults", "standard"]
 - !private ["CSo12UserDefaults", "string"]
+- !private ["CSo12UserDefaults", "value"]
 - !private ["Ps14_ArrayProtocol", "Element"]
 - !private ["Ps14_ArrayProtocol", "IndexDistance"]
 - !private ["Ps14_ArrayProtocol", "Iterator"]
@@ -2235,6 +2485,7 @@ depends-member:
 - !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "isEmpty"]
 - !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "localized"]
 - !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "trimmingCharacters"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "RawValue"]
 - !private ["Ps35_HasCustomAnyHashableRepresentation", "init"]
 - !private ["Ps35_HasCustomAnyHashableRepresentation", "isEmpty"]
 - !private ["Ps35_HasCustomAnyHashableRepresentation", "localized"]
@@ -2249,9 +2500,11 @@ depends-member:
 - !private ["Ps9_Hashable", "ContactObj"]
 - ["Ps9_Hashable", "Done_Click"]
 - !private ["Ps9_Hashable", "Iterator"]
+- !private ["Ps9_Hashable", "JSONEncoding"]
 - ["Ps9_Hashable", "NSMutableArray"]
 - !private ["Ps9_Hashable", "QBGeneralResponsePage"]
 - !private ["Ps9_Hashable", "QBRequest"]
+- !private ["Ps9_Hashable", "RawValue"]
 - !private ["Ps9_Hashable", "SVProgressHUD"]
 - !private ["Ps9_Hashable", "SVProgressHUDMaskType"]
 - !private ["Ps9_Hashable", "ServicesManager"]
@@ -2273,9 +2526,15 @@ depends-member:
 - !private ["Ps9_Hashable", "destination"]
 - !private ["Ps9_Hashable", "dialog"]
 - ["Ps9_Hashable", "didReceiveMemoryWarning"]
+- ["Ps9_Hashable", "doctorList"]
+- ["Ps9_Hashable", "educatorsList"]
 - !private ["Ps9_Hashable", "error"]
 - !private ["Ps9_Hashable", "full_name"]
 - ["Ps9_Hashable", "getContactsList"]
+- ["Ps9_Hashable", "getDoctorEducators"]
+- ["Ps9_Hashable", "getDoctorPatients"]
+- ["Ps9_Hashable", "getPatientDoctors"]
+- ["Ps9_Hashable", "getPatientEducators"]
 - !private ["Ps9_Hashable", "identifier"]
 - ["Ps9_Hashable", "indexPathForPreferredFocusedView"]
 - ["Ps9_Hashable", "indexPathForPreferredFocusedViewInTableView"]
@@ -2296,6 +2555,7 @@ depends-member:
 - ["Ps9_Hashable", "patientList"]
 - !private ["Ps9_Hashable", "patient_id"]
 - !private ["Ps9_Hashable", "popViewController"]
+- !private ["Ps9_Hashable", "post"]
 - ["Ps9_Hashable", "prepare"]
 - !private ["Ps9_Hashable", "print"]
 - !private ["Ps9_Hashable", "pushViewController"]
@@ -2316,6 +2576,7 @@ depends-member:
 - ["Ps9_Hashable", "scrollViewWillBeginDragging"]
 - ["Ps9_Hashable", "scrollViewWillBeginZooming"]
 - ["Ps9_Hashable", "scrollViewWillEndDragging"]
+- !private ["Ps9_Hashable", "section"]
 - ["Ps9_Hashable", "sectionIndexTitles"]
 - ["Ps9_Hashable", "sectionIndexTitlesForTableView"]
 - !private ["Ps9_Hashable", "show"]
@@ -2341,6 +2602,8 @@ depends-member:
 - !private ["Ps21_ObjectiveCBridgeable", "Element"]
 - !private ["Ps21_ObjectiveCBridgeable", "IndexDistance"]
 - !private ["Ps21_ObjectiveCBridgeable", "Iterator"]
+- !private ["Ps21_ObjectiveCBridgeable", "Key"]
+- !private ["Ps21_ObjectiveCBridgeable", "Value"]
 - !private ["Ps21_ObjectiveCBridgeable", "_Element"]
 - !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
 - !private ["Ps21_ObjectiveCBridgeable", "append"]
@@ -2350,10 +2613,12 @@ depends-member:
 - !private ["Ps21_ObjectiveCBridgeable", "isEmpty"]
 - !private ["Ps21_ObjectiveCBridgeable", "localized"]
 - !private ["Ps21_ObjectiveCBridgeable", "row"]
+- !private ["Ps21_ObjectiveCBridgeable", "section"]
 - !private ["Ps21_ObjectiveCBridgeable", "trimmingCharacters"]
 - !private ["Ps21_ObjectiveCBridgeable", "whitespaces"]
 - !private ["Vs26_OptionalNilComparisonType", "deinit"]
 - !private ["V11DiabetesApp12userDefaults", "loggedInUserID"]
+- !private ["V11DiabetesApp12userDefaults", "loggedInUserType"]
 depends-nominal:
 - "C11DiabetesApp9AlertView"
 - "C11DiabetesApp22AlertViewWithTextField"
@@ -2378,6 +2643,7 @@ depends-nominal:
 - "Ps23CustomStringConvertible"
 - "C9Alamofire11DataRequest"
 - !private "V9Alamofire12DataResponse"
+- "Vs10Dictionary"
 - !private "Sd"
 - "Ps9Equatable"
 - !private "Ps5Error"
@@ -2385,10 +2651,13 @@ depends-nominal:
 - !private "Ps27ExpressibleByBooleanLiteral"
 - !private "Ps30ExpressibleByDictionaryLiteral"
 - !private "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- !private "Ps25ExpressibleByFloatLiteral"
+- !private "Ps27ExpressibleByIntegerLiteral"
 - !private "Ps32ExpressibleByStringInterpolation"
 - !private "Ps26ExpressibleByStringLiteral"
 - !private "Ps33ExpressibleByUnicodeScalarLiteral"
 - !private "Sf"
+- "O9Alamofire10HTTPMethod"
 - "Ps8Hashable"
 - "SQ"
 - "V10Foundation9IndexPath"
@@ -2401,6 +2670,7 @@ depends-nominal:
 - !private "Vs5Int64"
 - !private "Vs4Int8"
 - !private "Ps16IteratorProtocol"
+- "V9Alamofire12JSONEncoding"
 - !private "Ps25LosslessStringConvertible"
 - !private "Ps10MirrorPath"
 - !private "Ps17MutableCollection"
@@ -2416,11 +2686,14 @@ depends-nominal:
 - !private "PSo20NSFetchRequestResult"
 - "CSo14NSMutableArray"
 - "PSo16NSMutableCopying"
+- "CSo8NSNumber"
 - "CSo8NSObject"
 - "PSo16NSObjectProtocol"
 - "PSo14NSSecureCoding"
 - !private "CSo8NSString"
+- !private "CSo7NSValue"
 - "Sq"
+- !private "P9Alamofire17ParameterEncoding"
 - "CSo12QBChatDialog"
 - !private "CSo7QBError"
 - "CSo21QBGeneralResponsePage"
@@ -2836,4 +3109,4 @@ depends-external:
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController-umbrella.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Modules/module.modulemap"
-interface-hash: "9e7f11ad64582d499093a8cbfc04b919"
+interface-hash: "cc4495a1d6a013b86e54e3937f621cac"

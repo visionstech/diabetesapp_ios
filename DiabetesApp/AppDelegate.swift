@@ -24,7 +24,7 @@ let kQBDialingTimeInterval :TimeInterval = 5.0
 
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,NotificationServiceDelegate {
 
     var window: UIWindow?
 
@@ -67,20 +67,74 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        
+        let deviceIdentifier: String = UIDevice.current.identifierForVendor!.uuidString
+        let subscription: QBMSubscription! = QBMSubscription()
+        
+        subscription.notificationChannel = QBMNotificationChannel.APNS
+        subscription.deviceUDID = deviceIdentifier
+        subscription.deviceToken = deviceToken
+        QBRequest.createSubscription(subscription, successBlock: { (response: QBResponse!, objects: [QBMSubscription]?) -> Void in
+            //
+        }) { (response: QBResponse!) -> Void in
+            //
+        }
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Push failed to register with error: %@", error)
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+        
+        print("my push is: %@", userInfo)
+        guard application.applicationState == UIApplicationState.inactive else {
+            return
+        }
+        
+        guard let dialogID = userInfo["SA_STR_PUSH_NOTIFICATION_DIALOG_ID".localized] as? String else {
+            return
+        }
+        
+        guard !dialogID.isEmpty else {
+            return
+        }
+        
+        
+        let dialogWithIDWasEntered: String? = ServicesManager.instance().currentDialogID
+        if dialogWithIDWasEntered == dialogID {
+            return
+        }
+        
+        ServicesManager.instance().notificationService.pushDialogID = dialogID
+        
+        // calling dispatch async for push notification handling to have priority in main queue
+        DispatchQueue.main.async {
+            
+            ServicesManager.instance().notificationService.handlePushNotificationWithDelegate(delegate: self)
+        }
+    }
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        
+        application.applicationIconBadgeNumber = 0
+        // Logging out from chat.
+        ServicesManager.instance().chatService.disconnect(completionBlock: nil)
+    }
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        // Logging in to chat.
+        ServicesManager.instance().chatService.connect(completionBlock: nil)
+    }
+
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
     }
 
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-    }
+   
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
@@ -89,6 +143,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
+        ServicesManager.instance().chatService.disconnect(completionBlock: nil)
         if #available(iOS 10.0, *) {
             self.saveContext()
         } else {
@@ -142,6 +197,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+    // MARK: NotificationServiceDelegate protocol
+    
+    func notificationServiceDidStartLoadingDialogFromServer() {
+    }
+    
+    func notificationServiceDidFinishLoadingDialogFromServer() {
+    }
+    
+    func notificationServiceDidSucceedFetchingDialog(chatDialog: QBChatDialog!) {
+        let navigatonController: UINavigationController! = self.window?.rootViewController as! UINavigationController
+        
+        let chatController: ChatViewController = UIStoryboard(name:"Main", bundle: nil).instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
+        chatController.dialog = chatDialog
+        
+        let dialogWithIDWasEntered = ServicesManager.instance().currentDialogID
+        if !dialogWithIDWasEntered.isEmpty {
+            // some chat already opened, return to dialogs view controller first
+            navigatonController.popViewController(animated: false);
+        }
+        
+        navigatonController.pushViewController(chatController, animated: true)
+    }
+    
+    func notificationServiceDidFailFetchingDialog() {
+    }
+
 
 }
 

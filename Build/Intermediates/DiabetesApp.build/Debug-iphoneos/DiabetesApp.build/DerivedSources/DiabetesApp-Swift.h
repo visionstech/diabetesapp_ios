@@ -161,6 +161,7 @@ SWIFT_CLASS("_TtC11DiabetesApp22AlertViewWithTextField")
 @class QBRTCSession;
 @class UIApplication;
 @class NSPersistentContainer;
+@class QBChatDialog;
 
 SWIFT_CLASS("_TtC11DiabetesApp11AppDelegate")
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
@@ -168,13 +169,20 @@ SWIFT_CLASS("_TtC11DiabetesApp11AppDelegate")
 @property (nonatomic, strong) QBUUser * _Nullable currentUser;
 @property (nonatomic, strong) QBRTCSession * _Nullable session;
 - (BOOL)application:(UIApplication * _Nonnull)application didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> * _Nullable)launchOptions;
-- (void)applicationWillResignActive:(UIApplication * _Nonnull)application;
+- (void)application:(UIApplication * _Nonnull)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData * _Nonnull)deviceToken;
+- (void)application:(UIApplication * _Nonnull)application didFailToRegisterForRemoteNotificationsWithError:(NSError * _Nonnull)error;
+- (void)application:(UIApplication * _Nonnull)application didReceiveRemoteNotification:(NSDictionary * _Nonnull)userInfo;
 - (void)applicationDidEnterBackground:(UIApplication * _Nonnull)application;
 - (void)applicationWillEnterForeground:(UIApplication * _Nonnull)application;
+- (void)applicationWillResignActive:(UIApplication * _Nonnull)application;
 - (void)applicationDidBecomeActive:(UIApplication * _Nonnull)application;
 - (void)applicationWillTerminate:(UIApplication * _Nonnull)application;
 @property (nonatomic, strong) NSPersistentContainer * _Nonnull persistentContainer;
 - (void)saveContext;
+- (void)notificationServiceDidStartLoadingDialogFromServer;
+- (void)notificationServiceDidFinishLoadingDialogFromServer;
+- (void)notificationServiceDidSucceedFetchingDialogWithChatDialog:(QBChatDialog * _Null_unspecified)chatDialog;
+- (void)notificationServiceDidFailFetchingDialog;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -198,7 +206,6 @@ SWIFT_CLASS("_TtC11DiabetesApp22CarePlanViewController")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class QBChatDialog;
 @class NSTimer;
 @class UIImagePickerController;
 @class QBChatMessage;
@@ -334,6 +341,8 @@ SWIFT_CLASS("_TtC11DiabetesApp25ContactListViewController")
 @interface ContactListViewController : UIViewController <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, weak) IBOutlet UITableView * _Null_unspecified tableView;
 @property (nonatomic, strong) NSMutableArray * _Nonnull patientList;
+@property (nonatomic, strong) NSMutableArray * _Nonnull doctorList;
+@property (nonatomic, strong) NSMutableArray * _Nonnull educatorsList;
 @property (nonatomic) BOOL isGroupMode;
 - (void)viewDidLoad;
 - (void)didReceiveMemoryWarning;
@@ -342,10 +351,16 @@ SWIFT_CLASS("_TtC11DiabetesApp25ContactListViewController")
 - (IBAction)Back_Click:(id _Nonnull)sender;
 - (IBAction)Done_Click:(id _Nonnull)sender;
 - (void)createChatWithName:(NSString * _Nullable)name usersArray:(NSArray<NSString *> * _Nonnull)usersArray completion:(void (^ _Nonnull)(QBResponse * _Nullable, QBChatDialog * _Nullable))completion;
+- (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 - (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (NSString * _Nullable)tableView:(UITableView * _Nonnull)tableView titleForHeaderInSection:(NSInteger)section;
 - (void)prepareForSegue:(UIStoryboardSegue * _Nonnull)segue sender:(id _Nullable)sender;
+- (void)getPatientDoctors;
+- (void)getPatientEducators;
+- (void)getDoctorPatients;
+- (void)getDoctorEducators;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -481,6 +496,7 @@ SWIFT_CLASS("_TtC11DiabetesApp19LoginViewController")
 - (IBAction)LoginBtn_Click:(id _Nonnull)sender;
 - (void)loginToQuickBloxWithLogin:(NSString * _Nonnull)login username:(NSString * _Nonnull)username userID:(NSString * _Nonnull)userID;
 - (BOOL)textFieldShouldReturn:(UITextField * _Nonnull)textField;
+- (void)registerForRemoteNotification;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
