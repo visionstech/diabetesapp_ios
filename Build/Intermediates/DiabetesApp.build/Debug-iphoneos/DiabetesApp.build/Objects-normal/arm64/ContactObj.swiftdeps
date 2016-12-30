@@ -6,14 +6,14 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp10ContactObj", ""]
 provides-dynamic-lookup:
-- "username"
 - "full_name"
-- "isSelected"
 - "chatid"
+- "username"
+- "isSelected"
 - "patient_id"
 depends-top-level:
-- "String"
 - "NSObject"
+- "String"
 - "ContactObj"
 depends-member:
 - ["Ps9AnyObject", "String"]

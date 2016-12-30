@@ -230,6 +230,7 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
         
        let viewController: ContactListViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.contactViewController) as! ContactListViewController
         viewController.isGroupMode = (sender.tag == 0 ? true : false)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
        self.navigationController?.pushViewController(viewController, animated: true)
     }
     

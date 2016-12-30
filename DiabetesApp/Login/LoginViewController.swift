@@ -139,7 +139,6 @@ class LoginViewController: UIViewController, QBCoreDelegate {
         
     }
     
-    
     @IBAction func LoginBtn_Click(_ sender: Any) {
         
         self.view.endEditing(true)

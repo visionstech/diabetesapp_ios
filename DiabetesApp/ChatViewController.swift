@@ -304,27 +304,55 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
     func optionsClick() {
         
         let actionSheet = UIAlertController(title: "", message: "Select Option", preferredStyle: .actionSheet)
-        
-        actionSheet.addAction(UIAlertAction(title: ChatInfo.patientInfo , style: .default , handler:{ (UIAlertAction)in
+        let patientInfoBtn: UIAlertAction = UIAlertAction(title: ChatInfo.patientInfo, style: .default, handler: { (UIAlertAction)in
             
-        }))
+        })
         
-        actionSheet.addAction(UIAlertAction(title: ChatInfo.readingHistory, style: .default , handler:{ (UIAlertAction)in
+        let readingHistoryBtn: UIAlertAction = UIAlertAction(title: ChatInfo.readingHistory, style: .default, handler: { (UIAlertAction)in
             
-            let historyViewController: HistoryViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.historyViewController) as! HistoryViewController
+            let historyViewController: HistoryMainViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.historyMainViewController) as! HistoryMainViewController
+            self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
             self.navigationController?.pushViewController(historyViewController, animated: true)
             
-        }))
+        })
         
-        actionSheet.addAction(UIAlertAction(title: ChatInfo.carePlan, style: .default , handler:{ (UIAlertAction)in
+        let carePlanBtn: UIAlertAction = UIAlertAction(title: ChatInfo.carePlan, style: .default, handler: { (UIAlertAction)in
             
             let carePlanViewController: CarePlanViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.carePlanViewController) as! CarePlanViewController
+            self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
             self.navigationController?.pushViewController(carePlanViewController, animated: true)
-        }))
+        })
         
-        actionSheet.addAction(UIAlertAction(title: GeneralLabels.cancel, style: UIAlertActionStyle.cancel, handler:{ (UIAlertAction)in
-            
-        }))
+        let cancelBtn: UIAlertAction = UIAlertAction(title: GeneralLabels.cancel, style: .cancel, handler: { (UIAlertAction)in
+        })
+        
+        patientInfoBtn.setValue((UIImage(named: "option_history")?.withRenderingMode(.alwaysOriginal)) , forKey: "image")
+        readingHistoryBtn.setValue((UIImage(named: "option_history")?.withRenderingMode(.alwaysOriginal)) , forKey: "image")
+        carePlanBtn.setValue((UIImage(named: "option_careplan")?.withRenderingMode(.alwaysOriginal)) , forKey: "image")
+        
+        actionSheet.addAction(patientInfoBtn)
+        actionSheet.addAction(readingHistoryBtn)
+        actionSheet.addAction(carePlanBtn)
+        actionSheet.addAction(cancelBtn)
+        
+        actionSheet.view.tintColor = UIColor.black
+        
+//        let paragraphStyle = NSMutableParagraphStyle()
+//        paragraphStyle.alignment = NSTextAlignment.left
+//        
+//        let messageText = NSMutableAttributedString(
+//            string: ChatInfo.patientInfo,
+//            attributes: [
+//                NSParagraphStyleAttributeName: paragraphStyle,
+//                NSFontAttributeName : UIFont.preferredFont(forTextStyle: UIFontTextStyle.body),
+//                NSForegroundColorAttributeName : UIColor.gray
+//            ]
+//        )
+        
+//        patientInfoBtn.setValue(messageText, forKey: "attributedMessage")
+//        readingHistoryBtn.setValue(messageText, forKey: "attributedMessage")
+//        carePlanBtn.setValue(messageText, forKey: "attributedMessage")
+//        cancelBtn.setValue(messageText, forKey: "attributedMessage")
         
         self.present(actionSheet, animated: true, completion: nil)
         
@@ -369,7 +397,6 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
                 if session != nil {
                     
                     QBRequest.user(withID: UInt(self.occupantID), successBlock: { (response, user) in
-                        
                         
                         self.appDelegate.session = session;
                         let callViewController: CallViewController = self.storyboard?.instantiateViewController(withIdentifier: "CallViewController") as! CallViewController
@@ -780,14 +807,14 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
             return nil
         }
         
-        var textColor = messageItem.senderID == self.senderID ? UIColor.white : UIColor.black
+        var textColor = messageItem.senderID == self.senderID ? UIColor.white : UIColor.gray
         if messageItem.isNotificatonMessage() || messageItem.isDateDividerMessage {
-            textColor = UIColor.black
+            textColor = UIColor.gray
         }
         
         var attributes = Dictionary<String, AnyObject>()
         attributes[NSForegroundColorAttributeName] = textColor
-        attributes[NSFontAttributeName] = UIFont(name: "Helvetica", size: 17)
+        attributes[NSFontAttributeName] = UIFont(name: "Helvetica", size: 15)
         
         let attributedString = NSAttributedString(string: messageItem.text!, attributes: attributes)
         
@@ -816,7 +843,7 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         paragrpahStyle.lineBreakMode = NSLineBreakMode.byTruncatingTail
         var attributes = Dictionary<String, AnyObject>()
         attributes[NSForegroundColorAttributeName] = UIColor(red: 11.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 1.0)
-        attributes[NSFontAttributeName] = UIFont(name: "Helvetica", size: 17)
+        attributes[NSFontAttributeName] = UIFont(name: "Helvetica", size: 16)
         attributes[NSParagraphStyleAttributeName] = paragrpahStyle
         
         var topLabelAttributedString : NSAttributedString?
@@ -982,10 +1009,12 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         if let attachmentCell = cell as? QMChatAttachmentCell {
             
             if attachmentCell is QMChatAttachmentIncomingCell {
-                chatCell.containerView?.bgColor = UIColor(red: 226.0/255.0, green: 226.0/255.0, blue: 226.0/255.0, alpha: 1.0)
+                 chatCell.containerView?.bgColor = Colors.incomingMSgColor
+                //chatCell.containerView?.bgColor = UIColor(red: 226.0/255.0, green: 226.0/255.0, blue: 226.0/255.0, alpha: 1.0)
             }
             else if attachmentCell is QMChatAttachmentOutgoingCell {
-                chatCell.containerView?.bgColor = UIColor(red: 10.0/255.0, green: 95.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+                chatCell.containerView?.bgColor = Colors.outgoingMsgColor
+                //chatCell.containerView?.bgColor = UIColor(red: 10.0/255.0, green: 95.0/255.0, blue: 255.0/255.0, alpha: 1.0)
             }
             
             if let attachment = message?.attachments?.first {
@@ -1036,8 +1065,9 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
             
         }
         else if cell is QMChatIncomingCell || cell is QMChatAttachmentIncomingCell {
+            chatCell.containerView?.bgColor = Colors.incomingMSgColor
             
-            chatCell.containerView?.bgColor = UIColor(red: 226.0/255.0, green: 226.0/255.0, blue: 226.0/255.0, alpha: 1.0)
+           // chatCell.containerView?.bgColor = UIColor(red: 226.0/255.0, green: 226.0/255.0, blue: 226.0/255.0, alpha: 1.0)
         }
         else if cell is QMChatOutgoingCell {
             
@@ -1045,7 +1075,8 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
             
             switch status {
             case .sent:
-                chatCell.containerView?.bgColor = UIColor(red: 10.0/255.0, green: 95.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+                 chatCell.containerView?.bgColor = Colors.outgoingMsgColor
+                //chatCell.containerView?.bgColor = UIColor(red: 10.0/255.0, green: 95.0/255.0, blue: 255.0/255.0, alpha: 1.0)
             case .sending:
                 chatCell.containerView?.bgColor = UIColor(red: 166.3/255.0, green: 171.5/255.0, blue: 171.8/255.0, alpha: 1.0)
             case .notSent:
@@ -1054,7 +1085,8 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
             
         }
         else if cell is QMChatAttachmentOutgoingCell {
-            chatCell.containerView?.bgColor = UIColor(red: 10.0/255.0, green: 95.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+            chatCell.containerView?.bgColor = Colors.outgoingMsgColor
+           // chatCell.containerView?.bgColor = UIColor(red: 10.0/255.0, green: 95.0/255.0, blue: 255.0/255.0, alpha: 1.0)
         }
         else if cell is QMChatNotificationCell {
             cell.isUserInteractionEnabled = false
@@ -1143,6 +1175,7 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         return super.collectionView(collectionView, cellForItemAt
             : indexPath)
     }
+    
     
     // MARK: QMChatCellDelegate
     

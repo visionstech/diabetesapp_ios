@@ -58,6 +58,7 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
         
         let viewController: ChatViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
         viewController.dialog = dialog
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         self.navigationController?.pushViewController(viewController, animated: true)
         
         //self.performSegue(withIdentifier: "SA_STR_SEGUE_GO_TO_CHAT".localized , sender: dialog)
@@ -160,7 +161,7 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
             } else {
                 // Creating group chat.
                 
-                ServicesManager.instance().chatService.createGroupChatDialog(withName: "test", photo: nil, occupants: users!) { [weak self] (response, chatDialog) -> Void in
+                ServicesManager.instance().chatService.createGroupChatDialog(withName: name! , photo: nil, occupants: users!) { [weak self] (response, chatDialog) -> Void in
                     
                     guard response.error == nil else {
                         
@@ -246,6 +247,8 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let obj: ContactObj = patientList[indexPath.row] as! ContactObj
+        print(obj.patient_id)
+        UserDefaults.standard.setValue(obj.patient_id, forKey: userDefaults.selectedPatientID)
         if isGroupMode == true {
            
             obj.isSelected = (obj.isSelected == "1" ? "0" : "1")
@@ -256,6 +259,7 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
         else {
             
             self.createChat(name: "", usersArray: [obj.chatid], completion: { (response, chatDialog) in
+                
                 
                 self.naviagteToChatScreen(dialog: chatDialog!)
             })
@@ -349,7 +353,6 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
                         self.educatorsList.add(contactObj)
                     }
                     self.tableView.reloadData()
-                    
                 }
                 
                 break

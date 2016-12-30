@@ -48,16 +48,27 @@ struct userType {
     static let equcator = 3
 }
 
+// MARK: - History Days
+struct HistoryDays {
+    static let days_today = 0
+    static let days_7 = 1
+    static let days_14 = 2
+    static let days_30 = 3
+}
+
+
 // MARK: - View Identifiers
 struct ViewIdentifiers{
     
-    static let dialogsViewController  = "DialogsViewController"
-    static let tabBarViewController   = "TabBarView"
-    static let carePlanViewController = "CarePlanView"
-    static let historyViewController  = "HistoryView"
-    static let messagesViewController = "MessagesView"
-    static let contactViewController  = "ContactsListView"
-    static let chatViewController     = "ChatView"
+    static let dialogsViewController     = "DialogsViewController"
+    static let tabBarViewController      = "TabBarView"
+    static let carePlanViewController    = "CarePlanView"
+    static let historyViewController     = "HistoryView"
+    static let messagesViewController    = "MessagesView"
+    static let contactViewController     = "ContactsListView"
+    static let chatViewController        = "ChatView"
+    static let historyMainViewController = "HistoryMainView"
+    
 }
 
 // MARK: - Cell Identifiers
@@ -78,7 +89,8 @@ struct userDefaults{
     static let loggedInUserEmail    = "loggedInUserEmail"
     static let loggedInUserPassword = "loggedInUserPassword"
     static let loggedInUsername     = "loggedInUsername"
-    static let loggedInUserType        = "loggedInUserType"
+    static let loggedInUserType     = "loggedInUserType"
+    static let selectedPatientID    = "selectedPatientID"
 }
 
 // MARK: - Api Methods
@@ -91,6 +103,10 @@ struct ApiMethods{
     static let getPatEducators = "getPatEducators"
     static let getDocPatients   = "getDocPatients"
     static let getDocEducators = "getDocEducators"
+    static let getglucose     = "getglucose"
+    static let getglucoseDays = "getglucoseDays"
+    static let getcareplan     = "getcareplan"
+    static let getcareplanReadings = "getcareplanReadings"
 }
 
 // MARK: - GeneralLabels
@@ -115,5 +131,7 @@ struct VideoAudioCall {
 //MARK: - Colors
 struct Colors{
     static let userTypeSelectedColor: UIColor = UIColor(red: 0/255.0, green: 122/255.0, blue: 255/255.0, alpha: 1)
-    
+    static let incomingMSgColor: UIColor = UIColor(red: 247.0/255.0, green: 247.0/255.0, blue: 247.0/255.0, alpha: 1)
+    static let outgoingMsgColor: UIColor = UIColor(red: 0/255.0, green: 136.0/255.0, blue: 140.0/255.0, alpha: 1)
+    static let historyHeaderColor: UIColor = UIColor(red: 62.0/255.0, green: 187.0/255.0, blue: 169.0/255.0, alpha: 1)
 }
