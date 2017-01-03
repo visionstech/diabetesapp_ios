@@ -10,7 +10,6 @@ import UIKit
 
 class HistoryTableViewCell: UITableViewCell {
 
-    
     @IBOutlet weak var readingLbl: UILabel!
     @IBOutlet weak var dateLbl: UILabel!
     @IBOutlet weak var conditionLbl: UILabel!

@@ -10,6 +10,7 @@ import UIKit
 
 class CarePlanMedicationTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var medicineNameTxtFld: UITextField!
     @IBOutlet weak var medImageView: UIImageView!
     @IBOutlet weak var medNameLbl: UILabel!
     @IBOutlet weak var dosageTxtFld: UITextField!
@@ -21,22 +22,21 @@ class CarePlanMedicationTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        // Corner radius
-        conditionTxtFld.layer.cornerRadius = 5
-        dosageTxtFld.layer.cornerRadius = 5
-        frequencyTxtFld.layer.cornerRadius = 5
         mainView.layer.cornerRadius = 8
         
         // Left margins
         setleftpadding(textfield: conditionTxtFld)
         setleftpadding(textfield: dosageTxtFld)
         setleftpadding(textfield: frequencyTxtFld)
+        if medicineNameTxtFld != nil {
+            setleftpadding(textfield: medicineNameTxtFld)
+        }
         
         // Shadow on view
         mainView.layer.shadowColor = UIColor.black.cgColor
-        mainView.layer.shadowOpacity = 1
+        mainView.layer.shadowOpacity = 0.5
         mainView.layer.shadowOffset = CGSize.zero
-        mainView.layer.shadowRadius = 5
+        mainView.layer.shadowRadius = 3
 
     }
 
@@ -48,6 +48,10 @@ class CarePlanMedicationTableViewCell: UITableViewCell {
     
     func setleftpadding(textfield: UITextField)
     {
+        textfield.layer.cornerRadius = 5
+        textfield.layer.borderWidth = 1
+        textfield.layer.borderColor = UIColor.clear.cgColor
+        
         textfield.leftViewMode = UITextFieldViewMode.always
         let leftView = UIView()
         leftView.frame = CGRect(x: 0, y: 0, width: 15, height: 10)

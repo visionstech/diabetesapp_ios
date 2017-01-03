@@ -10,33 +10,19 @@ import UIKit
 
 class CarePlanReadingTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var goalTxtFld: UITextField!
-    @IBOutlet weak var conditionTxtFld: UITextField!
-    @IBOutlet weak var frequencyTxtFld: UITextField!
     @IBOutlet weak var numberLbl: UILabel!
     @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var conditionLbl: UILabel!
+    @IBOutlet weak var frequencyLbl: UILabel!
+    @IBOutlet weak var goalLbl: UILabel!
+    @IBOutlet weak var headerView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         
-        // Corner radius
-        conditionTxtFld.layer.cornerRadius = 5
-        goalTxtFld.layer.cornerRadius = 5
-        frequencyTxtFld.layer.cornerRadius = 5
-        mainView.layer.cornerRadius = 8
-        
-        // Left margins
-        setleftpadding(textfield: conditionTxtFld)
-        setleftpadding(textfield: goalTxtFld)
-        setleftpadding(textfield: frequencyTxtFld)
-        
-        // Shadow on view
-        mainView.layer.shadowColor = UIColor.black.cgColor
-        mainView.layer.shadowOpacity = 1
-        mainView.layer.shadowOffset = CGSize.zero
-        mainView.layer.shadowRadius = 5
-        
+        self.setUI(view: mainView)
+        self.setUI(view: headerView)
         
     }
 
@@ -46,14 +32,18 @@ class CarePlanReadingTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setleftpadding(textfield: UITextField)
+    func setUI(view: UIView)
     {
-        textfield.leftViewMode = UITextFieldViewMode.always
-        let leftView = UIView()
-        leftView.frame = CGRect(x: 0, y: 0, width: 15, height: 10)
-        textfield.leftView = leftView
+        // Corner radius
+        view.layer.cornerRadius = 8
+        view.layer.cornerRadius = 8
+        
+        // Shadow on view
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOpacity = 0.5
+        view.layer.shadowOffset = CGSize.zero
+        view.layer.shadowRadius = 3
         
     }
-
 
 }

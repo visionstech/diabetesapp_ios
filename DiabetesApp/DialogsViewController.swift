@@ -95,9 +95,10 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
         
         // calling awakeFromNib due to viewDidLoad not being called by instantiateViewControllerWithIdentifier
        // self.navigationItem.title = ServicesManager.instance().currentUser()?.login!
-        self.navigationItem.title = "MESSAGES"
+        self.title = "MESSAGES".localized
         
         self.navigationItem.leftBarButtonItem = self.createLogoutButton()
+        setNavBarUI()
         
         ServicesManager.instance().chatService.addDelegate(self)
         ServicesManager.instance().authService.add(self)
@@ -115,8 +116,9 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
             self.getDialogs()
         }
         
+        QBRTCClient.instance().add(self)
         
-         QBRTCClient.instance().add(self)
+        tableView.tableFooterView = UIView()
     }
     
    
@@ -124,6 +126,7 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        setNavBarUI()
         self.tableView.reloadData()
        
     }
@@ -144,6 +147,22 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
                 chatVC.dialog = sender as? QBChatDialog
                  chatVC.hidesBottomBarWhenPushed = true
             }
+        }
+    }
+    
+    
+    func setNavBarUI(){
+        if self.tabBarController != nil {
+            self.tabBarController?.navigationItem.title = "MESSAGES".localized
+            let logoutButton = UIBarButtonItem(title: "SA_STR_LOGOUT".localized, style: UIBarButtonItemStyle.plain, target: self, action: #selector(DialogsViewController.logoutAction))
+            self.tabBarController?.navigationItem.leftBarButtonItem = logoutButton
+            
+            let chatButton = UIBarButtonItem(image: UIImage(named:"NewMessage" ), style: .plain, target: nil, action: #selector(DialogsViewController.GroupAction(_:)))
+            chatButton.tag = 1
+            let groupChatButton = UIBarButtonItem(image: UIImage(named:"groupIcon" ), style: .plain, target: nil, action: #selector(DialogsViewController.GroupAction(_:)))
+            groupChatButton.tag = 0
+            self.tabBarController?.navigationItem.rightBarButtonItems = [groupChatButton,chatButton]
+            
         }
     }
     
@@ -257,7 +276,7 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
                 
                 ServicesManager.instance().chatService.removeDelegate(strongSelf)
                 ServicesManager.instance().authService.remove(strongSelf)
-               UserDefaults.standard.set(false, forKey: userDefaults.isLoggedIn)
+                UserDefaults.standard.set(false, forKey: userDefaults.isLoggedIn)
                 ServicesManager.instance().lastActivityDate = nil;
                 
                 // Update UserDefaults
@@ -360,7 +379,7 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
         
         cell.dialogLastMessage?.text = chatDialog.lastMessageText
         cell.dialogName?.text = cellModel.textLabelText
-        cell.dialogTypeImage.image = cellModel.dialogIcon
+        //cell.dialogTypeImage.image = cellModel.dialogIcon
         cell.unreadMessageCounterLabel.text = cellModel.unreadMessagesCounterLabelText
         cell.unreadMessageCounterHolder.isHidden = cellModel.unreadMessagesCounterHiden
         
@@ -372,6 +391,8 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
+        
+         UserDefaults.standard.setValue("583d82f2d0e391263667c8d8", forKey: userDefaults.selectedPatientID)
         
         if (ServicesManager.instance().isProcessingLogOut!) {
             return

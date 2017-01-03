@@ -21,6 +21,8 @@ class HistoryMainViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        self.title = "\("READING_HISTORY".localized)"
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,7 +32,6 @@ class HistoryMainViewController: UIViewController {
     
      //MARK: - SegmentControl Methods
     @IBAction func SegmentControl_ValueChange(_ sender: Any) {
-        
         
     }
     
@@ -52,6 +53,8 @@ class HistoryMainViewController: UIViewController {
                 listViewContainer.isHidden = false
                 chartViewContainer.isHidden = true
                 
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notifications.listHistoryView), object: nil)
+                
             }
             else {
                 
@@ -63,6 +66,8 @@ class HistoryMainViewController: UIViewController {
                 
                 listViewContainer.isHidden = true
                 chartViewContainer.isHidden = false
+                
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notifications.chartHistoryView), object: nil)
                 
             }
         }

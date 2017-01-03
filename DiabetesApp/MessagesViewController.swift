@@ -1,21 +1,25 @@
 //
-//  HomeTabBarController.swift
+//  MessagesViewController.swift
 //  DiabetesApp
 //
-//  Created by IOS2 on 12/21/16.
-//  Copyright © 2016 Visions. All rights reserved.
+//  Created by IOS4 on 02/01/17.
+//  Copyright © 2017 Visions. All rights reserved.
 //
 
 import UIKit
 
-class HomeTabBarController: UITabBarController {
+class MessagesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-         self.navigationController?.setNavigationBarHidden(false, animated: false)
-        //self.navigationItem.hidesBackButton = true
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        self.tabBarController?.navigationController?.title = "Item 1"
+        
     }
 
     override func didReceiveMemoryWarning() {

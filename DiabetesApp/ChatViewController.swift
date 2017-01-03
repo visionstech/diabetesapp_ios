@@ -43,6 +43,9 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
     var typingTimer: Timer?
     var occupantID = Int()
     var occupantUser = QBUUser()
+    var groupMembersArray = NSMutableArray()
+    
+    
     
     lazy var imagePickerViewController : UIImagePickerController = {
         let imagePickerViewController = UIImagePickerController()
@@ -59,6 +62,7 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         
         // set Navigation Bar
         print(self.dialog)
+        
         if self.dialog != nil && self.dialog.type == .private {
            
             let callBtnBar: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "Call"), style: UIBarButtonItemStyle.plain , target: self, action: #selector(videoAudioClick))
@@ -67,33 +71,38 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
             self.navigationItem.rightBarButtonItems = [optionsBtnBar,callBtnBar]
             self.title = self.dialog.name
             
-            for occupantsID in self.dialog.occupantIDs! {
-                print("occupantsID \(occupantsID) userID \(self.dialog.userID)")
+        }
+        
+        for occupantsID in self.dialog.occupantIDs! {
+            print("occupantsID \(occupantsID) userID \(self.dialog.userID)")
+            
+            if Int(occupantsID) != Int(appDelegate.currentUser!.id) {
+                occupantID = Int(occupantsID)
                 
-                if Int(occupantsID) != Int(appDelegate.currentUser!.id) {
-                    occupantID = Int(occupantsID)
+                QBRequest.user(withID: UInt(occupantsID), successBlock: { (response, user) in
                     
-                    print(occupantID)
-                    QBRequest.user(withID: UInt(occupantsID), successBlock: { (response, user) in
-                       
-                        if user != nil {
-                            self.occupantUser = user!
-                           // self.title = self.occupantUser.fullName
-                        }
-                       
-                    }, errorBlock: { (error) in
+                    if user != nil {
+                        self.occupantUser = user!
+                        let dict: NSMutableDictionary = NSMutableDictionary()
+                        dict.setValue(user!.id, forKey: "id")
+                        dict.setValue(user!.fullName, forKey: "login")
+                        self.groupMembersArray.add(dict)
                         
-                    })
-                    break
-                }
+                    }
+                    
+                }, errorBlock: { (error) in
+                    
+                })
+                break
             }
         }
+        
         
        // QBRTCClient.instance().add(self)
         
         
         // top layout inset for collectionView
-        self.topContentAdditionalInset = self.navigationController!.navigationBar.frame.size.height + UIApplication.shared.statusBarFrame.size.height;
+        self.topContentAdditionalInset = self.navigationController!.navigationBar.frame.size.height + UIApplication.shared.statusBarFrame.size.height+60.0;
         
         if let currentUser = ServicesManager.instance().currentUser() {
             self.senderID = currentUser.id
@@ -102,6 +111,7 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
             self.heightForSectionHeader = 40.0
             
             self.updateTitle()
+            
             
             self.collectionView?.backgroundColor = UIColor.white
             self.inputToolbar?.contentView?.backgroundColor = UIColor.white
@@ -144,6 +154,16 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         }
         
        
+        // HeaderView
+        let customSubview: UIView = UIView(frame: CGRect(x: 0, y: 64, width: self.view.frame.size.width, height: 30.0))
+        customSubview.backgroundColor = Colors.chatHeaderColor
+        let lbl: UILabel = UILabel(frame:  CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 30.0))
+        lbl.text = "Health Card Number = HC12345678"
+        lbl.font = UIFont(name: "Helvetica", size: 14)
+        lbl.textColor = UIColor.gray
+        lbl.textAlignment = .center
+        customSubview.addSubview(lbl)
+        self.view.addSubview(customSubview)
         
     }
     
@@ -200,6 +220,19 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
     deinit {
         
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    //MARK: - Get groupmember Name
+    func getGroupMemberName(occupant_id: Int)->String {
+       
+        for dict in groupMembersArray {
+            let obj: NSMutableDictionary = dict as! NSMutableDictionary
+            let id: String = "\(obj.value(forKey: "id")!)"
+            if id == String(occupant_id) {
+                return String(describing: obj.value(forKey: "login")!)
+            }
+        }
+        return ""
     }
     
     // MARK: Update
@@ -318,7 +351,7 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         
         let carePlanBtn: UIAlertAction = UIAlertAction(title: ChatInfo.carePlan, style: .default, handler: { (UIAlertAction)in
             
-            let carePlanViewController: CarePlanViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.carePlanViewController) as! CarePlanViewController
+            let carePlanViewController: CarePlanMainViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.carePlanViewController) as! CarePlanMainViewController
             self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
             self.navigationController?.pushViewController(carePlanViewController, animated: true)
         })
@@ -695,13 +728,20 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
                     let user = ServicesManager.instance().usersService.usersMemoryStorage.user(withID: UInt(readID))
                     
                     guard let unwrappedUser = user else {
-                        let unknownUserLogin = "@\(readID)"
-                        readLogins.append(unknownUserLogin)
+                        
+                        let name: String = getGroupMemberName(occupant_id: Int(readID))
+                        if name != "" {
+                             readLogins.append(name)
+                        }
+                        else {
+                            let unknownUserLogin = "@\(readID)"
+                            readLogins.append(unknownUserLogin)
+                        }
                         
                         continue
                     }
                     
-                    readLogins.append(unwrappedUser.login!)
+                    readLogins.append(unwrappedUser.fullName!)
                 }
                 
                 statusString += message.isMediaMessage() ? "SA_STR_SEEN_STATUS".localized : "SA_STR_READ_STATUS".localized;
@@ -721,17 +761,24 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
                     let user = ServicesManager.instance().usersService.usersMemoryStorage.user(withID: UInt(deliveredID))
                     
                     guard let unwrappedUser = user else {
-                        let unknownUserLogin = "@\(deliveredID)"
-                        deliveredLogins.append(unknownUserLogin)
+                        
+                        let name: String = getGroupMemberName(occupant_id: Int(deliveredID))
+                        if name != "" {
+                            deliveredLogins.append(name)
+                        }
+                        else {
+                            let unknownUserLogin = "@\(deliveredID)"
+                            deliveredLogins.append(unknownUserLogin)
+                        }
                         
                         continue
                     }
                     
-                    if readLogins.contains(unwrappedUser.login!) {
+                    if readLogins.contains(unwrappedUser.fullName!) {
                         continue
                     }
                     
-                    deliveredLogins.append(unwrappedUser.login!)
+                    deliveredLogins.append(unwrappedUser.fullName!)
                     
                 }
                 
@@ -848,10 +895,12 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         
         var topLabelAttributedString : NSAttributedString?
         
-        if let topLabelText = ServicesManager.instance().usersService.usersMemoryStorage.user(withID: messageItem.senderID)?.login {
+        if let topLabelText = ServicesManager.instance().usersService.usersMemoryStorage.user(withID: messageItem.senderID)?.fullName {
             topLabelAttributedString = NSAttributedString(string: topLabelText, attributes: attributes)
         } else { // no user in memory storage
-            topLabelAttributedString = NSAttributedString(string: "@\(messageItem.senderID)", attributes: attributes)
+            
+             topLabelAttributedString = NSAttributedString(string: getGroupMemberName(occupant_id: Int(messageItem.senderID)), attributes: attributes)
+             //topLabelAttributedString = NSAttributedString(string: "@\(messageItem.senderID)", attributes: attributes)
         }
         
         return topLabelAttributedString
@@ -887,7 +936,15 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         return bottomLabelAttributedString
     }
     
+    
     // MARK: Collection View Datasource
+//    override func collectionView(_ collectionView: QMChatCollectionView!, sectionHeaderAt indexPath: IndexPath!) -> UICollectionReusableView! {
+//        
+//        let headerView: QMHeaderCollectionReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionFooter, withReuseIdentifier: QMHeaderCollectionReusableView.cellReuseIdentifier(), for: indexPath) as! QMHeaderCollectionReusableView
+//        headerView.headerLabel.text = "test"
+//        return headerView
+//        
+//    }
     
     override func collectionView(_ collectionView: QMChatCollectionView!, dynamicSizeAt indexPath: IndexPath!, maxWidth: CGFloat) -> CGSize {
         

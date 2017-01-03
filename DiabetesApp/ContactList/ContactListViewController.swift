@@ -64,6 +64,23 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
         //self.performSegue(withIdentifier: "SA_STR_SEGUE_GO_TO_CHAT".localized , sender: dialog)
     }
     
+    func resetSelectedUsers(index: Int) {
+        var count = 0
+        
+        for dict in patientList {
+             let obj: ContactObj = dict as! ContactObj
+           
+            if count == index {
+                obj.isSelected = (obj.isSelected == "1" ? "0" : "1")
+            }
+            else {
+                 obj.isSelected = "0"
+            }
+            patientList.replaceObject(at:count , with: obj)
+            count += 1
+        }
+    }
+    
     //MARK:- Api Methods
     func getContactsList(){
         //583fd43ab44e8fdb20145c06
@@ -197,7 +214,6 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var obj = ContactObj()
         
-        
           if UserDefaults.standard.value(forKey: userDefaults.loggedInUserType) as! NSNumber! == 1{
             if indexPath.section == 0 {
                 if patientList.count != 0 {
@@ -251,15 +267,15 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
         UserDefaults.standard.setValue(obj.patient_id, forKey: userDefaults.selectedPatientID)
         if isGroupMode == true {
            
-            obj.isSelected = (obj.isSelected == "1" ? "0" : "1")
-            patientList.replaceObject(at:indexPath.row , with: obj)
-            tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
+            self.resetSelectedUsers(index: indexPath.row)
+           // obj.isSelected = (obj.isSelected == "1" ? "0" : "1")
+            //patientList.replaceObject(at:indexPath.row , with: obj)
+            tableView.reloadData()
         }
         
         else {
             
             self.createChat(name: "", usersArray: [obj.chatid], completion: { (response, chatDialog) in
-                
                 
                 self.naviagteToChatScreen(dialog: chatDialog!)
             })

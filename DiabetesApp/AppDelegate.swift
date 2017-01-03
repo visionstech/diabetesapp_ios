@@ -33,6 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,NotificationServiceDelegat
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+      
         
         QBSettings.setApplicationID(kQBApplicationID)
         QBSettings.setAuthKey(kQBAuthKey)

@@ -37,6 +37,11 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         //getReadingHistory()
     }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: Notifications.listHistoryView), object: nil)
+    }
+
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -50,6 +55,8 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         conditionView.layer.borderWidth = 1
         
         conditionTxtFld.inputView = pickerViewContainer
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.listViewNotification(notification:)), name: NSNotification.Name(rawValue: Notifications.listHistoryView), object: nil)
     }
     
     func refreshSelectedSections(section: Int) {
@@ -87,6 +94,12 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         }
 
     }
+    
+    //MARK: - Notifications Methods
+    func listViewNotification(notification: NSNotification) {
+        
+    }
+
     
     //MARK: - SegmentControl Methods
     @IBAction func SegmentControl_ValueChanged(_ sender: Any) {

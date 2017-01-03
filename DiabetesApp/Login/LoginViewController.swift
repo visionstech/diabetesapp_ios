@@ -27,13 +27,17 @@ class LoginViewController: UIViewController, QBCoreDelegate {
     //MARK: - View Load Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-       
         
        checkLoginStatus()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        usernameTxtFld.text = ""
+        passwordTxtFld.text = ""
+        segmentUserType.selectedSegmentIndex = 0
+        selectedUserType = 1
     }
     
     override func didReceiveMemoryWarning() {
@@ -103,17 +107,18 @@ class LoginViewController: UIViewController, QBCoreDelegate {
         
         let viewController: DialogsViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.dialogsViewController) as! DialogsViewController
         
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
+        
         self.navigationController?.navigationBar.barTintColor = UIColor(patternImage: UIImage(named: "navigationImage.png")!)
         self.navigationController?.setNavigationBarHidden(false, animated: false)
-       if UserDefaults.standard.value(forKey: userDefaults.loggedInUserType) as! NSNumber! == 1 || UserDefaults.standard.value(forKey: userDefaults.loggedInUserType) as! NSNumber! == 3 {
-            
+        if UserDefaults.standard.value(forKey: userDefaults.loggedInUserType) as! NSNumber! == 1 || UserDefaults.standard.value(forKey: userDefaults.loggedInUserType) as! NSNumber! == 3 {
+            self.navigationItem.hidesBackButton = false
+            self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
             self.navigationController?.pushViewController(viewController, animated: true)
-        }
+         }
             
         else {
-            
             // TabBar
+            self.navigationItem.hidesBackButton = true
             let tabBarController: HomeTabBarController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.tabBarViewController) as! HomeTabBarController
             self.navigationController?.pushViewController(tabBarController, animated: true)
         }
@@ -164,7 +169,7 @@ class LoginViewController: UIViewController, QBCoreDelegate {
             }
             SVProgressHUD.show(withStatus: "SA_STR_LOGGING_IN_AS".localized, maskType: SVProgressHUDMaskType.clear)
             
-            //print("\(baseUrl)\(ApiMethods.login)?username=\(username)&password=\(password)&typeid=\(selectedUserType)")
+            print("\(baseUrl)\(ApiMethods.login)?username=\(username)&password=\(password)&typeid=\(selectedUserType)")
             
                         let parameters: Parameters = [
                             "username": username,
@@ -173,6 +178,9 @@ class LoginViewController: UIViewController, QBCoreDelegate {
                         ]
             
                         Alamofire.request("\(baseUrl)\(ApiMethods.login)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+                            print(response.result)
+                            
+                            
                             switch response.result {
                             case .success:
                                 print("Validation Successful")

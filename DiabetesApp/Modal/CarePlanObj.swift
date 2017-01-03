@@ -10,9 +10,10 @@ import UIKit
 
 class CarePlanObj: NSObject {
     
-    var id        = String()
-    var dosage    = String()
-    var frequency = String()
-    var name      = String()
+    var id         = String()
+    var dosage     = String()
+    var frequency  = String()
+    var name       = String()
+    var isSelected = Bool()
 
 }

@@ -60,14 +60,15 @@ struct HistoryDays {
 // MARK: - View Identifiers
 struct ViewIdentifiers{
     
-    static let dialogsViewController     = "DialogsViewController"
-    static let tabBarViewController      = "TabBarView"
-    static let carePlanViewController    = "CarePlanView"
-    static let historyViewController     = "HistoryView"
-    static let messagesViewController    = "MessagesView"
-    static let contactViewController     = "ContactsListView"
-    static let chatViewController        = "ChatView"
-    static let historyMainViewController = "HistoryMainView"
+    static let dialogsViewController        = "DialogsViewController"
+    static let tabBarViewController         = "TabBarView"
+    static let carePlanViewController       = "CarePlanView"
+    static let historyViewController        = "HistoryView"
+    static let messagesViewController       = "MessagesView"
+    static let contactViewController        = "ContactsListView"
+    static let chatViewController           = "ChatView"
+    static let historyMainViewController    = "HistoryMainView"
+    static let editMedicationViewController = "EditMedicationView"
     
 }
 
@@ -116,9 +117,9 @@ struct GeneralLabels {
 
 // MARK: - ChatInfo
 struct ChatInfo {
-    static let patientInfo    = "Patient Info"
-    static let readingHistory = "Reading History"
-    static let carePlan       = "Care Plan"
+    static let patientInfo    = "PATIENT_INFO".localized
+    static let readingHistory = "READING_HISTORY".localized
+    static let carePlan       = "CARE_PLAN".localized
 }
 
 // MARK: - VideoAudioCall
@@ -127,6 +128,11 @@ struct VideoAudioCall {
     static let videoCall = "Video Call"
 }
 
+// MARK: - Notifications
+struct Notifications {
+    static let chartHistoryView = "ChartViewNotification"
+    static let listHistoryView  = "ListViewNotification"
+}
 
 //MARK: - Colors
 struct Colors{
@@ -134,4 +140,5 @@ struct Colors{
     static let incomingMSgColor: UIColor = UIColor(red: 247.0/255.0, green: 247.0/255.0, blue: 247.0/255.0, alpha: 1)
     static let outgoingMsgColor: UIColor = UIColor(red: 0/255.0, green: 136.0/255.0, blue: 140.0/255.0, alpha: 1)
     static let historyHeaderColor: UIColor = UIColor(red: 62.0/255.0, green: 187.0/255.0, blue: 169.0/255.0, alpha: 1)
+    static let chatHeaderColor: UIColor = UIColor(red: 241.0/255.0, green: 241.0/255.0, blue: 241.0/255.0, alpha: 1)
 }
