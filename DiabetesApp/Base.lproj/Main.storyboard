@@ -7,7 +7,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -74,7 +73,7 @@
                                 <segments>
                                     <segment title="Doctor"/>
                                     <segment title="Patient"/>
-                                    <segment title="Equcator"/>
+                                    <segment title="Educator"/>
                                 </segments>
                             </segmentedControl>
                         </subviews>
@@ -109,52 +108,6 @@
             </objects>
             <point key="canvasLocation" x="-1230" y="175"/>
         </scene>
-        <!--Messages-->
-        <scene sceneID="s4g-Gv-4Si">
-            <objects>
-                <viewController id="30v-Dr-tei" customClass="MessagesViewController" customModule="DiabetesApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hc1-Rj-b2G"/>
-                        <viewControllerLayoutGuide type="bottom" id="q25-2p-Tfg"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="uy1-lM-saQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Messages" id="YcV-hv-1lO">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="EAp-gu-X5K"/>
-                        <rightBarButtonItems>
-                            <barButtonItem image="groupIcon" id="9OG-af-w4z"/>
-                            <barButtonItem tag="1" image="NewMessage" id="k4J-7u-7MG"/>
-                        </rightBarButtonItems>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tXV-YQ-8qc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1311" y="521"/>
-        </scene>
-        <!--Messages-->
-        <scene sceneID="E9u-6d-hbN">
-            <objects>
-                <viewController id="Hsz-2q-bSR" customClass="MessagesViewController" customModule="DiabetesApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="deT-54-0ro"/>
-                        <viewControllerLayoutGuide type="bottom" id="SWL-fd-uBU"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="erQ-nM-7QJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <tabBarItem key="tabBarItem" title="Item" id="4UZ-mx-mKr"/>
-                    <navigationItem key="navigationItem" title="Messages" id="wAQ-45-4kJ"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LxM-l2-g6V" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2540" y="-1120"/>
-        </scene>
         <!--Home Tab Bar Controller-->
         <scene sceneID="joW-G8-eGI">
             <objects>
@@ -165,8 +118,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="QoU-G9-gDf" kind="relationship" relationship="viewControllers" id="9sd-E8-CoS"/>
                         <segue destination="CL7-C1-qgz" kind="relationship" relationship="viewControllers" id="eqC-es-9fH"/>
+                        <segue destination="QoU-G9-gDf" kind="relationship" relationship="viewControllers" id="9sd-E8-CoS"/>
                         <segue destination="q2c-bn-hlO" kind="relationship" relationship="viewControllers" id="Waq-T4-wHN"/>
                     </connections>
                 </tabBarController>
@@ -235,14 +188,14 @@
                                 </connections>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pdL-WY-hv1">
-                                <rect key="frame" x="0.0" y="48" width="375" height="511"/>
+                                <rect key="frame" x="0.0" y="48" width="375" height="506"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="5zb-cJ-qKQ" kind="embed" id="S0y-iK-Sk1"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="euk-KR-gwc">
-                                <rect key="frame" x="0.0" y="48" width="375" height="511"/>
+                                <rect key="frame" x="0.0" y="48" width="375" height="506"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="heB-fC-vjP" kind="embed" id="xoD-PN-M0A"/>
@@ -292,7 +245,7 @@
                         <viewControllerLayoutGuide type="bottom" id="MlD-0t-GXd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Y7N-MJ-vxh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JLQ-W0-X5r">
@@ -338,14 +291,14 @@
                                 </connections>
                             </segmentedControl>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5mS-Wo-GbW">
-                                <rect key="frame" x="0.0" y="84" width="375" height="583"/>
+                                <rect key="frame" x="0.0" y="84" width="375" height="470"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="Mv1-e7-uE8" kind="embed" id="Z1u-8h-5fz"/>
                                 </connections>
                             </containerView>
                             <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wsd-Cs-hR5">
-                                <rect key="frame" x="0.0" y="84" width="375" height="583"/>
+                                <rect key="frame" x="0.0" y="84" width="375" height="470"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="kIO-PJ-pMb" kind="embed" id="x74-9v-qgQ"/>
@@ -400,36 +353,21 @@
                         <viewControllerLayoutGuide type="bottom" id="mJU-YC-Cax"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="PhW-yn-I8H">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="511"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="506"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Medications Available" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oGU-vQ-17j">
-                                <rect key="frame" x="38" y="231" width="299" height="49"/>
+                                <rect key="frame" x="38" y="228.5" width="299" height="49"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="299" id="Ntx-5a-rkb"/>
-                                    <constraint firstAttribute="height" constant="49" id="j53-c4-cnf"/>
+                                    <constraint firstAttribute="width" constant="299" id="JhE-Fo-tpM"/>
+                                    <constraint firstAttribute="height" constant="49" id="ZfN-Ie-H8l"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" red="0.49803921569999998" green="0.49803921569999998" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SWa-Gr-8e4">
-                                <rect key="frame" x="313" y="0.0" width="46" height="30"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="6bg-v9-alZ"/>
-                                    <constraint firstAttribute="width" constant="46" id="z9w-iv-Sip"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <state key="normal" title="Add">
-                                    <color key="titleColor" red="0.0" green="0.4039215686" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="AddBtn_Click:" destination="heB-fC-vjP" eventType="touchUpInside" id="bKG-JA-4L6"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qOM-PC-a4a">
-                                <rect key="frame" x="0.0" y="38" width="375" height="465"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="498"/>
                                 <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="medicationCell" rowHeight="210" id="pw3-D8-yPs" customClass="CarePlanMedicationTableViewCell" customModule="DiabetesApp" customModuleProvider="target">
@@ -645,6 +583,7 @@
                                         <connections>
                                             <outlet property="conditionTxtFld" destination="bWW-n2-tGm" id="hWl-ci-hGZ"/>
                                             <outlet property="dosageTxtFld" destination="F0f-DR-qoK" id="aEL-Ag-ELk"/>
+                                            <outlet property="editBtn" destination="3kJ-jP-7qK" id="Hsi-DE-oZp"/>
                                             <outlet property="frequencyTxtFld" destination="tTy-fs-7W9" id="nhM-pY-331"/>
                                             <outlet property="mainView" destination="OaA-D6-DaY" id="0m7-Wn-764"/>
                                             <outlet property="medImageView" destination="fd1-Oj-a0k" id="CaD-jl-09t"/>
@@ -660,27 +599,23 @@
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="oGU-vQ-17j" firstAttribute="centerX" secondItem="PhW-yn-I8H" secondAttribute="centerX" id="2zs-ri-S7m"/>
-                            <constraint firstItem="qOM-PC-a4a" firstAttribute="leading" secondItem="PhW-yn-I8H" secondAttribute="leading" id="8gc-aP-isA"/>
-                            <constraint firstItem="mJU-YC-Cax" firstAttribute="top" secondItem="qOM-PC-a4a" secondAttribute="bottom" constant="8" id="BZI-1d-lX4"/>
-                            <constraint firstItem="SWa-Gr-8e4" firstAttribute="trailing" secondItem="PhW-yn-I8H" secondAttribute="trailingMargin" id="LUM-2Y-iik"/>
-                            <constraint firstItem="qOM-PC-a4a" firstAttribute="top" secondItem="SWa-Gr-8e4" secondAttribute="bottom" constant="8" id="PG8-Yw-Dtg"/>
-                            <constraint firstItem="oGU-vQ-17j" firstAttribute="centerY" secondItem="PhW-yn-I8H" secondAttribute="centerY" id="VTz-Og-UMo"/>
-                            <constraint firstAttribute="trailing" secondItem="qOM-PC-a4a" secondAttribute="trailing" id="WLk-qn-ouL"/>
-                            <constraint firstItem="SWa-Gr-8e4" firstAttribute="top" secondItem="HPG-h7-8Ak" secondAttribute="bottom" id="YL2-iO-DfW"/>
-                            <constraint firstItem="qOM-PC-a4a" firstAttribute="top" secondItem="SWa-Gr-8e4" secondAttribute="bottom" constant="8" id="c1X-Sy-okB"/>
+                            <constraint firstItem="qOM-PC-a4a" firstAttribute="leading" secondItem="PhW-yn-I8H" secondAttribute="leading" id="4qu-SR-Gr1"/>
+                            <constraint firstAttribute="trailing" secondItem="qOM-PC-a4a" secondAttribute="trailing" id="6vr-ZL-zx7"/>
+                            <constraint firstItem="mJU-YC-Cax" firstAttribute="top" secondItem="qOM-PC-a4a" secondAttribute="bottom" constant="8" id="UGo-lY-LFg"/>
+                            <constraint firstItem="qOM-PC-a4a" firstAttribute="top" secondItem="HPG-h7-8Ak" secondAttribute="bottom" id="eRh-oa-mGz"/>
+                            <constraint firstItem="oGU-vQ-17j" firstAttribute="centerY" secondItem="PhW-yn-I8H" secondAttribute="centerY" id="wYX-qM-kV8"/>
+                            <constraint firstItem="oGU-vQ-17j" firstAttribute="centerX" secondItem="PhW-yn-I8H" secondAttribute="centerX" id="wbQ-Y1-SCO"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Care Plan" id="UPx-VI-IiS"/>
                     <connections>
-                        <outlet property="addBtn" destination="SWa-Gr-8e4" id="wVu-yk-W6M"/>
                         <outlet property="tblView" destination="qOM-PC-a4a" id="Izi-QJ-icz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IdY-2K-IIT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2692" y="519.49025487256381"/>
+            <point key="canvasLocation" x="2692" y="519.04047976011998"/>
         </scene>
         <!--Edit Medication View Controller-->
         <scene sceneID="WUc-Bo-iKl">
@@ -703,7 +638,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="202"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pCx-yS-M41" id="wj3-mM-F9d">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="201"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="202"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h9c-7v-8P2">
@@ -992,7 +927,7 @@
                         <viewControllerLayoutGuide type="bottom" id="F7H-Ih-HZQ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6bl-uh-Jv8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="583"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="470"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dKs-Jc-q59">
@@ -1044,7 +979,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="l0f-fw-RAp">
-                                <rect key="frame" x="20" y="48" width="335" height="527"/>
+                                <rect key="frame" x="20" y="48" width="335" height="414"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                 <prototypes>
@@ -1320,25 +1255,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Messages" id="itn-MO-aUT">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="QJK-7g-LQK">
-                            <connections>
-                                <action selector="logoutAction" destination="kDr-oi-lvm" id="Elk-ZU-ZJq"/>
-                            </connections>
-                        </barButtonItem>
-                        <rightBarButtonItems>
-                            <barButtonItem image="groupIcon" id="mAN-ET-q1d">
-                                <connections>
-                                    <action selector="GroupAction:" destination="kDr-oi-lvm" id="XFf-Rk-UPj"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem tag="1" image="NewMessage" id="bMt-6O-rcT">
-                                <connections>
-                                    <action selector="GroupAction:" destination="kDr-oi-lvm" id="nZI-a8-HVc"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Messages" id="itn-MO-aUT"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fnW-BE-kcH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1360,6 +1277,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="L8N-XK-ZWJ">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <inset key="separatorInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="patientCell" id="jQA-wB-muU">
                                         <rect key="frame" x="0.0" y="56" width="375" height="44"/>
@@ -1516,15 +1434,15 @@
                         <viewControllerLayoutGuide type="bottom" id="ZEV-RD-VYw"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="m2C-8Z-T1w">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="583"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="470"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yYh-Jd-NwF">
-                                <rect key="frame" x="20" y="0.0" width="335" height="415"/>
+                                <rect key="frame" x="20" y="0.0" width="335" height="302"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IAN-mb-LRb">
-                                <rect key="frame" x="20" y="431" width="335" height="125"/>
+                                <rect key="frame" x="20" y="318" width="335" height="125"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QAF-XJ-weH">
                                         <rect key="frame" x="0.0" y="0.0" width="67" height="125"/>
@@ -1906,12 +1824,12 @@
             </objects>
             <point key="canvasLocation" x="-26" y="-283"/>
         </scene>
-        <!--Item 1-->
+        <!--Care Plan-->
         <scene sceneID="7am-qD-K2S">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QoU-G9-gDf" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="xcL-nr-Ymr"/>
+                    <tabBarItem key="tabBarItem" title="Care Plan" id="xcL-nr-Ymr"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="w3a-BM-HPQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1930,12 +1848,12 @@
             </objects>
             <point key="canvasLocation" x="1369" y="-1120"/>
         </scene>
-        <!--Item 2-->
+        <!--ReadingHistoryNav-->
         <scene sceneID="vkX-AW-ik0">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CL7-C1-qgz" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CL7-C1-qgz" userLabel="ReadingHistoryNav" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="Yfm-bX-xNn"/>
+                    <tabBarItem key="tabBarItem" title="Reading History" id="Yfm-bX-xNn"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ifd-Cy-F6v">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1943,7 +1861,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="30v-Dr-tei" kind="relationship" relationship="rootViewController" id="R7n-Qk-ZC8"/>
+                        <segue destination="u1Q-dG-D8Q" kind="relationship" relationship="rootViewController" id="aoE-AM-lJT"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3uD-JU-yyT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1954,8 +1872,12 @@
         <scene sceneID="kSS-ka-eoN">
             <objects>
                 <viewController id="5zb-cJ-qKQ" customClass="CarePlanReadingViewController" customModule="DiabetesApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="abC-L7-XcF"/>
+                        <viewControllerLayoutGuide type="bottom" id="JI3-QI-EXM"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="iWZ-dp-XGD">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="511"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="506"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Take the following readings" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q5h-vF-UG0">
@@ -1969,7 +1891,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Readings Available" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Hx-HV-qoq">
-                                <rect key="frame" x="38" y="231" width="299" height="49"/>
+                                <rect key="frame" x="38" y="228.5" width="299" height="49"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="299" id="qs3-o8-hwp"/>
                                     <constraint firstAttribute="height" constant="49" id="rqA-kc-6Ha"/>
@@ -1979,7 +1901,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FxG-BQ-ZBa">
-                                <rect key="frame" x="0.0" y="38" width="375" height="465"/>
+                                <rect key="frame" x="0.0" y="38" width="375" height="460"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="readingsCell" rowHeight="140" id="YmZ-jo-VIG" customClass="CarePlanReadingTableViewCell" customModule="DiabetesApp" customModuleProvider="target">
@@ -2165,14 +2087,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="NewMessage" width="22" height="22"/>
         <image name="addMedIcon" width="16" height="16"/>
         <image name="carePlan_condition" width="23" height="23"/>
         <image name="carePlan_dosage" width="23" height="23"/>
         <image name="carePlan_frequency" width="23" height="23"/>
         <image name="carePlan_goal" width="23" height="23"/>
         <image name="carePlan_medBg" width="100" height="30"/>
-        <image name="groupIcon" width="22" height="22"/>
         <image name="history_close" width="11" height="11"/>
         <image name="history_condition" width="13" height="13"/>
         <image name="med.png" width="176" height="360"/>

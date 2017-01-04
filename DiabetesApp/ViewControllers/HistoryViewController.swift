@@ -24,6 +24,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     var sectionsArray = NSMutableArray()
     var boolArray = NSMutableArray()
     var conditionsArray = NSMutableArray()
+    var noOfDays = "1"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,15 +34,16 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         self.title = "Reading History"
         conditionsArray = ["All Conditions","Fasting","Post lunch","Bedtime"]
         self.setUI()
+        self.addNotifications()
         getHistory()
-        //getReadingHistory()
+        //getReadingHistory(condition: conditionTxtFld.text!)
     }
 
     override func viewDidDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: Notifications.listHistoryView), object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: Notifications.noOfDays), object: nil)
     }
 
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -56,7 +58,14 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         
         conditionTxtFld.inputView = pickerViewContainer
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.listViewNotification(notification:)), name: NSNotification.Name(rawValue: Notifications.listHistoryView), object: nil)
+       
+    }
+    
+    func addNotifications() {
+        
+         NotificationCenter.default.addObserver(self, selector: #selector(self.listViewNotification(notification:)), name: NSNotification.Name(rawValue: Notifications.listHistoryView), object: nil)
+        
+         NotificationCenter.default.addObserver(self, selector: #selector(self.noOfDaysNotification(notification:)), name: NSNotification.Name(rawValue: Notifications.noOfDays), object: nil)
     }
     
     func refreshSelectedSections(section: Int) {
@@ -78,32 +87,20 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
          self.tblView.reloadData()
     }
     
-    func getSelectedNoOfDays() -> NSString {
-        
-        switch segmentControl.selectedSegmentIndex {
-        case HistoryDays.days_today:
-            return "1"
-        case HistoryDays.days_7:
-            return "7"
-        case HistoryDays.days_14:
-            return "14"
-        case HistoryDays.days_30:
-            return "30"
-        default:
-            return ""
-        }
-
-    }
     
     //MARK: - Notifications Methods
     func listViewNotification(notification: NSNotification) {
         
     }
-
     
-    //MARK: - SegmentControl Methods
-    @IBAction func SegmentControl_ValueChanged(_ sender: Any) {
-        getReadingHistory(noOfDays: getSelectedNoOfDays() as String, condition: conditionTxtFld.text!)
+    //MARK: - Notifications Methods
+    func noOfDaysNotification(notification: NSNotification) {
+       
+        noOfDays = String(describing: notification.value(forKey: "object")!)
+         print("noOfDays \(noOfDays)")
+        getHistory()
+        //getReadingHistory(condition: conditionTxtFld.text!)
+        
     }
     
     //MARK: - ToolBarButtons Methods
@@ -111,9 +108,9 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         self.view.endEditing(true)
         if (sender as AnyObject).tag == 0 {
             
-            conditionTxtFld.text = conditionsArray[pickerView.selectedRow(inComponent: 0)] as! String
+            conditionTxtFld.text = conditionsArray[pickerView.selectedRow(inComponent: 0)] as? String
             // Api Method
-            //getReadingHistory(noOfDays: getSelectedNoOfDays() as String, condition: conditionTxtFld.text!)
+            //getReadingHistory(condition: conditionTxtFld.text!)
             getHistory()
         }
     }
@@ -123,7 +120,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         sectionsArray.removeAllObjects()
         let historyData: NSDictionary = NSDictionary(contentsOf: NSURL(fileURLWithPath: Bundle.main.path(forResource: "history", ofType: "plist")!) as URL)!
         
-         print(sectionsArray)
+         //print(sectionsArray)
         if conditionTxtFld.text == String(conditionsArray[0] as! String) {
             sectionsArray = NSMutableArray(array: historyData.object(forKey: "objectArray") as! NSArray)
         }
@@ -155,7 +152,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
             sectionsArray.add(mainDict)
         }
         
-        print("count \(sectionsArray.count)")
+       // print("count \(sectionsArray.count)")
         
         for _ in sectionsArray {
             boolArray.add(false)
@@ -166,35 +163,48 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     
     
     //MARK: - Api Methods
-    func getReadingHistory(noOfDays: String , condition: String) {
+    func getReadingHistory(condition: String) {
         
         let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
         let parameters: Parameters = [
-            "userid": patientsID,
+            //"userid": patientsID,
+             "userid": "58563eb4d9c776ad70491b7b",
              "numDaysBack": noOfDays
         ]
         
         Alamofire.request("\(baseUrl)\(ApiMethods.getglucoseDays)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
             
-            print("Validation Successful \(response)")
+            print("Validation Successful")
+            
             switch response.result {
                 
             case .success:
                 
-//                if let JSON: NSArray = response.result.value as? NSArray {
-//                    for data in JSON {
+                if let JSON: NSDictionary = response.result.value! as? NSDictionary {
+                    
+                    print("JSON \(JSON)")
+                    
+                    let mainDict : NSMutableDictionary = NSMutableDictionary(dictionary: JSON.object(forKey: "objectArray") as! NSDictionary)
+                    
+                   
+                    
+                    for data in mainDict {
+                        print(data)
+                        
 //                        let dict: NSDictionary = data as! NSDictionary
 //                        let obj = CarePlanObj()
 //                        obj.id = dict.value(forKey: "_id") as! String
 //                        obj.name = dict.value(forKey: "name") as! String
 //                        obj.dosage = String(describing: dict.value(forKey: "dosage")!)
 //                        obj.frequency = String(describing: dict.value(forKey: "frequency")!)
-//                        self.array.add(obj)
-//                    }
-//                    
-//                    print(self.array)
-//                    self.tblView.reloadData()
-//                }
+                       // self.array.add(obj)
+                    }
+                    let mainArray: NSMutableArray = NSMutableArray(object: mainDict.copy())
+                    
+                    print("mainArray \(mainArray)")
+                    
+                    self.tblView.reloadData()
+                }
                 
                 break
             case .failure:

@@ -16,6 +16,9 @@ class CarePlanMainViewController: UIViewController {
     @IBOutlet weak var medicationContainer: UIView!
     @IBOutlet weak var readingContainer: UIView!
     
+    var addBtn = UIBarButtonItem()
+    let selectedUserType: Int = Int(UserDefaults.standard.integer(forKey: userDefaults.loggedInUserType))
+    
     // MARK: - View Load Methods
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,8 +28,7 @@ class CarePlanMainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        addBtn = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(AddBtn_Click))
         
     }
     
@@ -47,11 +49,26 @@ class CarePlanMainViewController: UIViewController {
         //self.tabBarController?.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         self.tabBarController?.navigationItem.title = "\("CARE_PLAN".localized)"
         self.title = "\("CARE_PLAN".localized)"
+        self.navigationItem.leftBarButtonItem = nil
+        
         self.tabBarController?.navigationItem.leftBarButtonItem = nil
-        self.tabBarController?.navigationItem.rightBarButtonItem = nil
+        self.tabBarController?.navigationItem.rightBarButtonItems = nil
+       
+        
+        if selectedUserType == userType.doctor {
+            self.navigationItem.rightBarButtonItem = addBtn
+        }
+        else{
+            self.navigationItem.rightBarButtonItem = nil
+        }
     }
     
     // MARK: - IBAction Methods
+    func AddBtn_Click(){
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notifications.addMedication), object: nil)
+    }
+    
     @IBAction func ViewModeButtons_Click(_ sender: UIButton) {
         
         if sender.backgroundColor == Colors.historyHeaderColor {
@@ -69,7 +86,14 @@ class CarePlanMainViewController: UIViewController {
                 medicationContainer.isHidden = false
                 readingContainer.isHidden = true
                 
-                //NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notifications.listHistoryView), object: nil)
+                if selectedUserType == userType.doctor {
+                    self.navigationItem.rightBarButtonItem = addBtn
+                }
+                else{
+                    self.navigationItem.rightBarButtonItem = nil
+                }
+                
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notifications.medicationView), object: nil)
                 
             }
             else {
@@ -83,7 +107,9 @@ class CarePlanMainViewController: UIViewController {
                 medicationContainer.isHidden = true
                 readingContainer.isHidden = false
                 
-                //NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notifications.chartHistoryView), object: nil)
+                self.navigationItem.rightBarButtonItem = nil
+                
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notifications.readingView), object: nil)
                 
             }
         }

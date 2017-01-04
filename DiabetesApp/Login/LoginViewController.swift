@@ -165,7 +165,7 @@ class LoginViewController: UIViewController, QBCoreDelegate {
                selectedUserType =  userType.patient
             }
             else if segmentUserType.selectedSegmentIndex == 2 {
-                selectedUserType = userType.equcator
+                selectedUserType = userType.educator
             }
             SVProgressHUD.show(withStatus: "SA_STR_LOGGING_IN_AS".localized, maskType: SVProgressHUDMaskType.clear)
             
@@ -212,7 +212,6 @@ class LoginViewController: UIViewController, QBCoreDelegate {
                                         Alamofire.request("\(baseUrl)\(ApiMethods.updatePatient)", method: .post, parameters: dictParam, encoding: JSONEncoding.default).response { response in
                                             // QuickBlox Login
                                             self.loginToQuickBlox(login: email, username: username, userID: id)
-
                                             
                                             }
 //                                            

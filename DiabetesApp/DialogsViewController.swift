@@ -87,6 +87,7 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
     private var observer: NSObjectProtocol?
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let selectedUserType: Int = Int(UserDefaults.standard.integer(forKey: userDefaults.loggedInUserType))
     //var session : QBRTCSession? = nil
     
     // MARK: - ViewController overrides
@@ -95,9 +96,7 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
         
         // calling awakeFromNib due to viewDidLoad not being called by instantiateViewControllerWithIdentifier
        // self.navigationItem.title = ServicesManager.instance().currentUser()?.login!
-        self.title = "MESSAGES".localized
-        
-        self.navigationItem.leftBarButtonItem = self.createLogoutButton()
+       
         setNavBarUI()
         
         ServicesManager.instance().chatService.addDelegate(self)
@@ -141,7 +140,10 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "SA_STR_SEGUE_GO_TO_CHAT".localized {
-            self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
+            self.navigationItem.leftBarButtonItem = nil
+            self.navigationItem.rightBarButtonItems = nil
+            self.tabBarController?.navigationItem.leftBarButtonItem = nil
+            self.tabBarController?.navigationItem.rightBarButtonItems = nil
             
             if let chatVC = segue.destination as? ChatViewController {
                 chatVC.dialog = sender as? QBChatDialog
@@ -152,18 +154,36 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
     
     
     func setNavBarUI(){
+        
+        let logoutButton = UIBarButtonItem(title: "SA_STR_LOGOUT".localized, style: UIBarButtonItemStyle.plain, target: self, action: #selector(DialogsViewController.logoutAction))
+        
+        self.title = "MESSAGES".localized
+        self.navigationItem.leftBarButtonItem = logoutButton
+        self.navigationItem.rightBarButtonItems = nil
+        
         if self.tabBarController != nil {
             self.tabBarController?.navigationItem.title = "MESSAGES".localized
-            let logoutButton = UIBarButtonItem(title: "SA_STR_LOGOUT".localized, style: UIBarButtonItemStyle.plain, target: self, action: #selector(DialogsViewController.logoutAction))
             self.tabBarController?.navigationItem.leftBarButtonItem = logoutButton
-            
-            let chatButton = UIBarButtonItem(image: UIImage(named:"NewMessage" ), style: .plain, target: nil, action: #selector(DialogsViewController.GroupAction(_:)))
-            chatButton.tag = 1
-            let groupChatButton = UIBarButtonItem(image: UIImage(named:"groupIcon" ), style: .plain, target: nil, action: #selector(DialogsViewController.GroupAction(_:)))
-            groupChatButton.tag = 0
-            self.tabBarController?.navigationItem.rightBarButtonItems = [groupChatButton,chatButton]
+            self.tabBarController?.navigationItem.rightBarButtonItems = nil
             
         }
+        
+        if selectedUserType != userType.patient {
+            
+            let chatButton = UIBarButtonItem(image: UIImage(named:"NewMessage" ), style: .plain, target: self, action: #selector(DialogsViewController.GroupAction(_:)))
+            chatButton.tag = 1
+            let groupChatButton = UIBarButtonItem(image: UIImage(named:"groupIcon" ), style: .plain, target: self, action: #selector(DialogsViewController.GroupAction(_:)))
+            groupChatButton.tag = 0
+            
+            if selectedUserType == userType.doctor {
+                 self.navigationItem.rightBarButtonItems = [chatButton]
+            }
+            else {
+                 self.navigationItem.rightBarButtonItems = [groupChatButton,chatButton]
+            }
+        }
+        
+        
     }
     
     //MARK: - QBRTCClientDelegate Delegate
@@ -249,7 +269,7 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
         
        let viewController: ContactListViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.contactViewController) as! ContactListViewController
         viewController.isGroupMode = (sender.tag == 0 ? true : false)
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
+       self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
@@ -288,9 +308,15 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
                 UserDefaults.standard.setValue("", forKey: userDefaults.loggedInUserPassword)
                 UserDefaults.standard.synchronize()
                 
-                let _ = strongSelf.navigationController?.popToRootViewController(animated: true)
+                SVProgressHUD.dismiss()
+                if self?.tabBarController != nil {
+                    self?.tabBarController?.navigationController?.popToRootViewController(animated: true)
+                }
+                else{
+                     let _ = strongSelf.navigationController?.popToRootViewController(animated: true)
+                }
                 
-                SVProgressHUD.showSuccess(withStatus: "SA_STR_COMPLETED".localized)
+                //SVProgressHUD.showSuccess(withStatus: "SA_STR_COMPLETED".localized)
             }
         }
     }
@@ -313,7 +339,7 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
         }
         else {
             
-            SVProgressHUD.show(withStatus: "SA_STR_LOADING_DIALOGS".localized, maskType: SVProgressHUDMaskType.clear)
+           // SVProgressHUD.show(withStatus: "SA_STR_LOADING_DIALOGS".localized, maskType: SVProgressHUDMaskType.clear)
 			
 			ServicesManager.instance().chatService.allDialogs(withPageLimit: kDialogsPageLimit, extendedRequest: nil, iterationBlock: { (response: QBResponse?, dialogObjects: [QBChatDialog]?, dialogsUsersIDS: Set<NSNumber>?, stop: UnsafeMutablePointer<ObjCBool>) -> Void in
 				
@@ -324,7 +350,7 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
 						return
 					}
 					
-					SVProgressHUD.showSuccess(withStatus: "SA_STR_COMPLETED".localized)
+					//SVProgressHUD.showSuccess(withStatus: "SA_STR_COMPLETED".localized)
 					ServicesManager.instance().lastActivityDate = NSDate()
 			})
         }
@@ -521,7 +547,7 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
     }
     
     func chatServiceChatDidConnect(_ chatService: QMChatService) {
-        SVProgressHUD.showSuccess(withStatus: "SA_STR_CONNECTED".localized, maskType:.clear)
+       // SVProgressHUD.showSuccess(withStatus: "SA_STR_CONNECTED".localized, maskType:.clear)
         if !ServicesManager.instance().isProcessingLogOut! {
             self.getDialogs()
         }
@@ -533,7 +559,7 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
 	
 	
     func chatServiceChatDidReconnect(_ chatService: QMChatService) {
-        SVProgressHUD.showSuccess(withStatus: "SA_STR_CONNECTED".localized, maskType: .clear)
+        //SVProgressHUD.showSuccess(withStatus: "SA_STR_CONNECTED".localized, maskType: .clear)
         if !ServicesManager.instance().isProcessingLogOut! {
             self.getDialogs()
         }

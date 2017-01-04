@@ -59,7 +59,7 @@ class ChartViewController: UIViewController, LineChartDelegate {
         hyperLbl.layer.masksToBounds = true
         hbaLbl.layer.masksToBounds = true
         
-         NotificationCenter.default.addObserver(self, selector: #selector(self.chartViewNotification(notification:)), name: NSNotification.Name(rawValue: Notifications.chartHistoryView), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.chartViewNotification(notification:)), name: NSNotification.Name(rawValue: Notifications.chartHistoryView), object: nil)
     }
     
     

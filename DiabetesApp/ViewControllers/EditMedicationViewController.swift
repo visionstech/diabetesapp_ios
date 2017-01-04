@@ -22,11 +22,11 @@ class EditMedicationViewController: UIViewController, UITableViewDelegate, UITab
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        setUI()
+       // setUI()
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
+        setUI()
     }
 
     
@@ -37,8 +37,21 @@ class EditMedicationViewController: UIViewController, UITableViewDelegate, UITab
     
     // MARK: - Custom Methods
     func setUI(){
-        
+       
+        let backBtn: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "back"), style: .plain, target: self, action:  #selector(BackBtn_Click))
+       
+        self.tabBarController?.navigationItem.title = "\("CARE_PLAN".localized)"
         self.title = "\("CARE_PLAN".localized)"
+        
+        // for Patient Login
+        self.tabBarController?.navigationItem.hidesBackButton = true
+        self.tabBarController?.navigationItem.rightBarButtonItem = nil
+        self.tabBarController?.navigationItem.leftBarButtonItem = backBtn
+        
+        // for doctor login
+        self.navigationItem.leftBarButtonItem = backBtn
+        self.navigationItem.hidesBackButton = true
+        
         self.setCorners(view: addMedicineView, createShadow: true)
         self.setCorners(view: saveBtn, createShadow: true)
         self.setCorners(view: addMedicineBtn, createShadow: false)
@@ -86,6 +99,10 @@ class EditMedicationViewController: UIViewController, UITableViewDelegate, UITab
         
     }
 
+    func BackBtn_Click(){
+        //self.tabBarController?.navigationController?.popViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
+    }
     
     //MARK: - TableView Delegate Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

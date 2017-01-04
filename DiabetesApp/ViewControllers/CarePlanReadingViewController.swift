@@ -19,13 +19,17 @@ class CarePlanReadingViewController: UIViewController, UITableViewDelegate, UITa
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+        addNotifications()
         getReadingsData()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: Notifications.readingView), object: nil)
     }
     
     //MARK: - Custom Methods
@@ -37,6 +41,16 @@ class CarePlanReadingViewController: UIViewController, UITableViewDelegate, UITa
             
             tblView.isHidden = true
         }
+    }
+    
+    func addNotifications(){
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.readingNotification(notification:)), name: NSNotification.Name(rawValue: Notifications.readingView), object: nil)
+    }
+    
+    //MARK: - Notifications Methods
+    func readingNotification(notification: NSNotification) {
+        
     }
     
     // MARK: - Api Methods
@@ -67,22 +81,23 @@ class CarePlanReadingViewController: UIViewController, UITableViewDelegate, UITa
                         obj.frequency = dict.value(forKey: "frequency") as! String
                         self.array.add(obj)
                     }
-                    
-                    print(self.array)
-                    self.tblView.reloadData()
-                    self.resetUI()
                 }
+                self.tblView.reloadData()
+                self.resetUI()
+                
                 break
                 
             case .failure:
                 print("failure")
+                self.tblView.reloadData()
+                self.resetUI()
                 
                 break
                 
             }
         }
-        tblView.reloadData()
         
+       
     }
     
     //MARK: - TableView Delegate Methods

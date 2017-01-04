@@ -17,28 +17,25 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
     var patientList = NSMutableArray()
     var doctorList = NSMutableArray()
     var educatorsList = NSMutableArray()
-    
-    
     var isGroupMode : Bool = false
     
+    let selectedUserType: Int = Int(UserDefaults.standard.integer(forKey: userDefaults.loggedInUserType))
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if UserDefaults.standard.value(forKey: userDefaults.loggedInUserType) as! NSNumber! == 1 {
+        if selectedUserType == userType.doctor {
+            
             getDoctorPatients()
             getDoctorEducators()
         }
-        else if UserDefaults.standard.value(forKey: userDefaults.loggedInUserType) as! NSNumber! == 2 {
-            getPatientDoctors()
-            getPatientEducators()
-        }
-        else if UserDefaults.standard.value(forKey: userDefaults.loggedInUserType) as! NSNumber! == 3 {
-            //get
+        else if selectedUserType == userType.educator {
+            
         }
         
+        
         // Do any additional setup after loading the view.
-        if isGroupMode == false {
+        if isGroupMode == false || selectedUserType != userType.educator{
             self.navigationItem.rightBarButtonItems = nil
         }
         //getContactsList()
@@ -64,21 +61,57 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
         //self.performSegue(withIdentifier: "SA_STR_SEGUE_GO_TO_CHAT".localized , sender: dialog)
     }
     
-    func resetSelectedUsers(index: Int) {
+    func resetSelectedUsers(indexPath: IndexPath) {
         var count = 0
+        var array: NSMutableArray = NSMutableArray()
+        if indexPath.section == 0 {
+            array = patientList
+        }
+        else {
+            array = doctorList
+        }
         
-        for dict in patientList {
+        for dict in array {
              let obj: ContactObj = dict as! ContactObj
            
-            if count == index {
+            if count == indexPath.row {
                 obj.isSelected = (obj.isSelected == "1" ? "0" : "1")
             }
             else {
                  obj.isSelected = "0"
             }
-            patientList.replaceObject(at:count , with: obj)
+            if indexPath.section == 0 {
+                 patientList.replaceObject(at:count , with: obj)
+            }
+            else {
+                 doctorList.replaceObject(at:count , with: obj)
+            }
+           
             count += 1
         }
+    }
+    
+    
+    // MARK: - Create Group for Doctor 
+    func createGroupForDoctor(selectedPatient:ContactObj) {
+        
+        var usersArray = Array<String>()
+        if selectedPatient.chatid != "" {
+            usersArray.append(selectedPatient.chatid)
+        }
+        
+        for obj in educatorsList {
+            let educatrObj: ContactObj = obj as! ContactObj
+            if educatrObj.chatid != "" {
+                usersArray.append(educatrObj.chatid)
+            }
+        }
+        
+        self.createChat(name: selectedPatient.full_name.trimmingCharacters(in: CharacterSet.whitespaces), usersArray: usersArray, isGroup: true, completion: { (response, chatDialog) in
+            
+            self.naviagteToChatScreen(dialog: chatDialog!)
+        })
+        
     }
     
     //MARK:- Api Methods
@@ -115,60 +148,48 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
     @IBAction func Done_Click(_ sender: Any) {
         
         var selectesUsers = Array<String>()
+        var patientName: String = ""
+        // get selected Patient
         for obj in patientList {
             
             if (obj as AnyObject).isSelected == "1" {
                 selectesUsers.append((obj as AnyObject).chatid as String)
+                patientName = (obj as AnyObject).full_name.trimmingCharacters(in: CharacterSet.whitespaces)
+                break
+            }
+        }
+        
+        // get selected Doctor
+        for docObj in doctorList {
+            
+            if (docObj as AnyObject).isSelected == "1" {
+                selectesUsers.append((docObj as AnyObject).chatid as String)
+                break
             }
         }
         
         // No user selected
-        if selectesUsers.count == 0 {
+        if selectesUsers.count > 2 {
             
-            _ = AlertView(title: "Error", message: "Select atleast one user.", cancelButtonTitle: "OK", otherButtonTitle: [""], didClick: { (buttonIndex) in
+            _ = AlertView(title: "Error", message: "You need to select one patient and one doctor.", cancelButtonTitle: "OK", otherButtonTitle: [""], didClick: { (buttonIndex) in
             })
-            
+            return
         }
             
-            // Private Chat
-        else if selectesUsers.count == 1 {
-            
-            self.createChat(name: "", usersArray: selectesUsers, completion: { (response, chatDialog) in
-                
-                self.naviagteToChatScreen(dialog: chatDialog!)
-            })
-        }
-            
-            // Group Chat
-        else {
-            
-            _ = AlertViewWithTextField(title: "SA_STR_ENTER_CHAT_NAME".localized, message: nil, showOver:self, didClickOk: { (text) -> Void in
-                
-                let chatName = text!.trimmingCharacters(in: CharacterSet.whitespaces)
-                print(chatName)
-                
-                if chatName.isEmpty {
-                    //chatName = self.nameForGroupChatWithUsers(users: users)
-                }
-                
-                self.createChat(name: chatName, usersArray: selectesUsers, completion: { (response, chatDialog) in
-                    self.naviagteToChatScreen(dialog: chatDialog!)
-                })
-                
-            }) { () -> Void in
-            }
-        }
+        self.createChat(name: patientName, usersArray: selectesUsers, isGroup: true, completion: { (response, chatDialog) in
+            self.naviagteToChatScreen(dialog: chatDialog!)
+        })
         
     }
     
     //MARK: - Quickblox Methods
-    func createChat(name: String?, usersArray: [String], completion: @escaping ((_ response: QBResponse? , _ createdDialog: QBChatDialog?) -> Void) ){
+    func createChat(name: String?, usersArray: [String], isGroup: Bool, completion: @escaping ((_ response: QBResponse? , _ createdDialog: QBChatDialog?) -> Void) ){
         
         QBRequest.users(withLogins: usersArray , page: QBGeneralResponsePage.init(currentPage: 1, perPage: 10), successBlock: { (response, page, users) in
             
             SVProgressHUD.show(withStatus: "SA_STR_LOADING".localized, maskType: SVProgressHUDMaskType.clear)
             
-            if users?.count == 1 {
+            if isGroup == false {
                 // Creating private chat.
                 ServicesManager.instance().chatService.createPrivateChatDialog(withOpponent: (users?.first!)!, completion: { (response, chatDialog) in
                     
@@ -204,42 +225,48 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
     
     //MARK:- TableView Delegate Methods
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2;
+        if selectedUserType == userType.educator {
+            return 2
+        }
+        else {
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return patientList.count
+       
+        if selectedUserType == userType.educator {
+            
+            if section == 0 {
+                 return patientList.count
+            }
+            else {
+                 return doctorList.count
+            }
+        }
+        else {
+            return patientList.count
+        }
+       
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var obj = ContactObj()
         
-          if UserDefaults.standard.value(forKey: userDefaults.loggedInUserType) as! NSNumber! == 1{
+        if selectedUserType == userType.educator {
+            
             if indexPath.section == 0 {
-                if patientList.count != 0 {
-                 obj = patientList[indexPath.row] as! ContactObj
-                }
+                obj = patientList[indexPath.row] as! ContactObj
             }
             else {
-                if educatorsList.count != 0 {
-                 obj = educatorsList[indexPath.row] as! ContactObj
-                }
+                obj = doctorList[indexPath.row] as! ContactObj
             }
+            
         }
-          else {
-            if indexPath.section == 0 {
-                if doctorList.count != 0 {
-                    obj = doctorList[indexPath.row] as! ContactObj
-                }
-            }
-            else {
-                if educatorsList.count != 0 {
-                    obj = educatorsList[indexPath.row] as! ContactObj
-                }
-            }
+        else {
+            obj = patientList[indexPath.row] as! ContactObj
         }
         
-       // let obj: ContactObj = patientList[indexPath.row] as! ContactObj
         
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "patientCell", for: indexPath)
         
@@ -253,7 +280,6 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
             }
         }
         
-        
         cell.textLabel?.text = obj.full_name
         
         
@@ -262,42 +288,84 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let obj: ContactObj = patientList[indexPath.row] as! ContactObj
-        print(obj.patient_id)
-        UserDefaults.standard.setValue(obj.patient_id, forKey: userDefaults.selectedPatientID)
-        if isGroupMode == true {
-           
-            self.resetSelectedUsers(index: indexPath.row)
-           // obj.isSelected = (obj.isSelected == "1" ? "0" : "1")
-            //patientList.replaceObject(at:indexPath.row , with: obj)
-            tableView.reloadData()
+        var obj: ContactObj = ContactObj()
+        if selectedUserType == userType.educator {
+            
+            if indexPath.section == 0 {
+                obj = patientList[indexPath.row] as! ContactObj
+            }
+            else {
+                obj = doctorList[indexPath.row] as! ContactObj
+            }
+        }
+        else {
+            obj = patientList[indexPath.row] as! ContactObj
         }
         
+        // group chat
+        if isGroupMode == true {
+            
+            if selectedUserType == userType.educator {
+                self.resetSelectedUsers(indexPath: indexPath)
+                tableView.reloadRows(at: [indexPath], with: .none)
+            }
+            
+        }
+        // single chat
         else {
             
-            self.createChat(name: "", usersArray: [obj.chatid], completion: { (response, chatDialog) in
+            // doctor
+            if selectedUserType == userType.doctor {
+                createGroupForDoctor(selectedPatient: obj)
+            }
+            
+             //  educator
+            else {
                 
-                self.naviagteToChatScreen(dialog: chatDialog!)
-            })
+                var usersArray = Array<String>()
+                if obj.chatid != "" {
+                    usersArray.append(obj.chatid)
+                }
+                
+                self.createChat(name: "", usersArray: usersArray, isGroup: false, completion: { (response, chatDialog) in
+                    self.naviagteToChatScreen(dialog: chatDialog!)
+                })
+            }
+            
         }
+       
+//        UserDefaults.standard.setValue(obj.patient_id, forKey: userDefaults.selectedPatientID)
+//        if isGroupMode == true {
+//           
+//            self.resetSelectedUsers(index: indexPath.row)
+//           // obj.isSelected = (obj.isSelected == "1" ? "0" : "1")
+//            //patientList.replaceObject(at:indexPath.row , with: obj)
+//            tableView.reloadData()
+//        }
+//        
+//        else {
+//            
+//            self.createChat(name: "", usersArray: [obj.chatid], completion: { (response, chatDialog) in
+//                
+//                self.naviagteToChatScreen(dialog: chatDialog!)
+//            })
+//        }
         
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if UserDefaults.standard.value(forKey: userDefaults.loggedInUserType) as! NSNumber! == 1{
+      
+        if selectedUserType == userType.educator {
             if section == 0 {
-                return "Patients"
+               return "Patients"
             }
-            else{
-            return "Educators"
-            }
-        }
-        else{
-            if section == 0 {
+            else {
                 return "Doctors"
             }
-            else{
-                return "Educators"
-            }        }
+        }
+        else {
+            return "Patients"
+        }
+        
     }
     
     

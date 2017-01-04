@@ -15,12 +15,14 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var addBtn: UIButton!
     
     var array = NSMutableArray()
+    
+    let selectedUserType: Int = Int(UserDefaults.standard.integer(forKey: userDefaults.loggedInUserType))
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        setNavBarUI()
+        addNotifications()
         getMedicationsData()
     }
 
@@ -29,6 +31,11 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
         // Dispose of any resources that can be recreated.
     }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: Notifications.medicationView), object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: Notifications.addMedication), object: nil)
+    }
+    
     //MARK: - Custom Methods
     func resetUI() {
         if self.array.count > 0 {
@@ -40,20 +47,25 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
-    func setNavBarUI(){
+    func addNotifications(){
         
-        let editBtn: UIBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: nil)
-        self.navigationItem.rightBarButtonItem = editBtn
+        NotificationCenter.default.addObserver(self, selector: #selector(self.medicationNotification(notification:)), name: NSNotification.Name(rawValue: Notifications.medicationView), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.addMedicationNotification(notification:)), name: NSNotification.Name(rawValue: Notifications.addMedication), object: nil)
     }
     
-    // MARK: - IBAction Methods
-    @IBAction func AddBtn_Click(_ sender: Any) {
+    //MARK: - Notifications Methods
+    func medicationNotification(notification: NSNotification) {
+        
+    }
+    
+    func addMedicationNotification(notification: NSNotification) {
+        
         let editViewController: EditMedicationViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.editMedicationViewController) as! EditMedicationViewController
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         self.navigationController?.pushViewController(editViewController, animated: true)
     }
     
-    
+    // MARK: - IBAction Methods
     @IBAction func EditMedication_Click(_ sender: Any) {
         
         let index: Int = (sender as AnyObject).tag
@@ -88,32 +100,44 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
                         obj.isSelected = false
                         self.array.add(obj)
                     }
-                    
-                    self.tblView.reloadData()
-                    self.resetUI()
                 }
+                self.tblView.reloadData()
+                self.resetUI()
                 
                 break
             case .failure:
                 print("failure")
+                self.tblView.reloadData()
+                self.resetUI()
                 
                 break
                 
             }
         }
+       
     }
     
     //MARK: - TableView Delegate Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return array.count
     }
-    
+ 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell : CarePlanMedicationTableViewCell = tableView.dequeueReusableCell(withIdentifier: "medicationCell")! as! CarePlanMedicationTableViewCell
         cell.selectionStyle = .none
         cell.isUserInteractionEnabled = true
         cell.tag = indexPath.row
+        
+        if selectedUserType == userType.patient {
+            cell.editBtn.isHidden = true
+            cell.editBtn.isUserInteractionEnabled = false
+        }
+        else {
+            cell.editBtn.isHidden = false
+            cell.editBtn.isUserInteractionEnabled = true
+        }
+        
         if let obj: CarePlanObj = array[indexPath.row] as? CarePlanObj {
             cell.medNameLbl.text = obj.name.capitalized
             cell.dosageTxtFld.text = obj.dosage
@@ -140,11 +164,13 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell
         
     }
-    
+  
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return 210
     }
+   
+    
     
     /*
     // MARK: - Navigation

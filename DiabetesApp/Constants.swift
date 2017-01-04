@@ -45,7 +45,7 @@ class Constants {
 struct userType {
     static let doctor = 1
     static let patient = 2
-    static let equcator = 3
+    static let educator = 3
 }
 
 // MARK: - History Days
@@ -132,6 +132,10 @@ struct VideoAudioCall {
 struct Notifications {
     static let chartHistoryView = "ChartViewNotification"
     static let listHistoryView  = "ListViewNotification"
+    static let medicationView   = "MedicationViewNotification"
+    static let readingView      = "ReadingViewNotification"
+    static let addMedication    = "AddMedicationNotification"
+    static let noOfDays         = "NoOfDaysNotification"
 }
 
 //MARK: - Colors

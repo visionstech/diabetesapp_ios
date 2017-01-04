@@ -34,6 +34,7 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
     
     let maxCharactersNumber = 1024 // 0 - unlimited
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let selectedUserType: Int = Int(UserDefaults.standard.integer(forKey: userDefaults.loggedInUserType))
     
     var dialog: QBChatDialog!
     var willResignActiveBlock: AnyObject?
@@ -44,6 +45,7 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
     var occupantID = Int()
     var occupantUser = QBUUser()
     var groupMembersArray = NSMutableArray()
+    
     
     
     
@@ -59,19 +61,6 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        // set Navigation Bar
-        print(self.dialog)
-        
-        if self.dialog != nil && self.dialog.type == .private {
-           
-            let callBtnBar: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "Call"), style: UIBarButtonItemStyle.plain , target: self, action: #selector(videoAudioClick))
-            
-            let optionsBtnBar: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "options"), style: UIBarButtonItemStyle.plain , target: self, action: #selector(optionsClick))
-            self.navigationItem.rightBarButtonItems = [optionsBtnBar,callBtnBar]
-            self.title = self.dialog.name
-            
-        }
         
         for occupantsID in self.dialog.occupantIDs! {
             print("occupantsID \(occupantsID) userID \(self.dialog.userID)")
@@ -155,21 +144,53 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         
        
         // HeaderView
-        let customSubview: UIView = UIView(frame: CGRect(x: 0, y: 64, width: self.view.frame.size.width, height: 30.0))
-        customSubview.backgroundColor = Colors.chatHeaderColor
-        let lbl: UILabel = UILabel(frame:  CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 30.0))
-        lbl.text = "Health Card Number = HC12345678"
-        lbl.font = UIFont(name: "Helvetica", size: 14)
-        lbl.textColor = UIColor.gray
-        lbl.textAlignment = .center
-        customSubview.addSubview(lbl)
-        self.view.addSubview(customSubview)
+        let screenSize: CGRect = UIScreen.main.bounds
+        let headerLbl: UILabel = UILabel(frame:  CGRect(x: 0, y: 64, width: screenSize.width, height: 30.0))
+        headerLbl.backgroundColor = Colors.chatHeaderColor
+        headerLbl.text = "Health Card Number = HC12345678"
+        headerLbl.font = UIFont(name: "Helvetica", size: 14)
+        headerLbl.textColor = UIColor.gray
+        headerLbl.textAlignment = .center
+        headerLbl.layer.masksToBounds = true
+        self.view.addSubview(headerLbl)
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.hidesBackButton = false
+        
+        
+        // set Navigation Bar
+        
+        self.navigationItem.hidesBackButton = true
+        self.tabBarController?.navigationItem.hidesBackButton = true
+        
+        let optionsBtnBar: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "options"), style: UIBarButtonItemStyle.plain , target: self, action: #selector(optionsClick))
+        
+        if self.dialog.type == .private {
+            
+            let callBtnBar: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "Call"), style: UIBarButtonItemStyle.plain , target: self, action: #selector(videoAudioClick))
+            
+            if selectedUserType != userType.patient {
+                
+                self.navigationItem.rightBarButtonItems = [optionsBtnBar,callBtnBar]
+                self.tabBarController?.navigationItem.rightBarButtonItems = [optionsBtnBar,callBtnBar]
+                
+            }
+        }
+        
+        else if self.dialog.type == .group && selectedUserType != userType.patient {
+            
+            self.navigationItem.rightBarButtonItems = [optionsBtnBar]
+        }
+        
+        let backBtn: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "back"), style: .plain, target: self, action:  #selector(BackBtn_Click))
+        
+        self.navigationItem.leftBarButtonItem = backBtn
+        self.tabBarController?.navigationItem.leftBarButtonItem = backBtn
+        
+        self.title = self.dialog.name
+        self.tabBarController?.navigationItem.title = self.dialog.name
         
         ServicesManager.instance().chatService.addDelegate(self)
         ServicesManager.instance().chatService.chatAttachmentService.delegate = self
@@ -235,8 +256,12 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         return ""
     }
     
-    // MARK: Update
+    func BackBtn_Click(){
+        self.navigationController?.popViewController(animated: true)
+    }
+
     
+    // MARK: Update
     func updateTitle() {
         
         if self.dialog.type != QBChatDialogType.private {
@@ -359,7 +384,7 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         let cancelBtn: UIAlertAction = UIAlertAction(title: GeneralLabels.cancel, style: .cancel, handler: { (UIAlertAction)in
         })
         
-        patientInfoBtn.setValue((UIImage(named: "option_history")?.withRenderingMode(.alwaysOriginal)) , forKey: "image")
+        patientInfoBtn.setValue((UIImage(named: "option_patientInfo")?.withRenderingMode(.alwaysOriginal)) , forKey: "image")
         readingHistoryBtn.setValue((UIImage(named: "option_history")?.withRenderingMode(.alwaysOriginal)) , forKey: "image")
         carePlanBtn.setValue((UIImage(named: "option_careplan")?.withRenderingMode(.alwaysOriginal)) , forKey: "image")
         
