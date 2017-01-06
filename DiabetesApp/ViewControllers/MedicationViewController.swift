@@ -22,10 +22,14 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
         addNotifications()
         getMedicationsData()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -62,6 +66,8 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
     func addMedicationNotification(notification: NSNotification) {
         
         let editViewController: EditMedicationViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.editMedicationViewController) as! EditMedicationViewController
+        editViewController.selectedObj = CarePlanObj()
+        editViewController.isEditMode = false
         self.navigationController?.pushViewController(editViewController, animated: true)
     }
     
@@ -70,10 +76,26 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let index: Int = (sender as AnyObject).tag
         if let obj: CarePlanObj = array[index] as? CarePlanObj {
-            obj.isSelected = true
-            array.replaceObject(at: index, with: obj)
-            tblView.reloadRows(at: [IndexPath(row: index, section: 0) as IndexPath], with: .none)
+            print(obj)
+            let editViewController: EditMedicationViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.editMedicationViewController) as! EditMedicationViewController
+            editViewController.selectedObj = obj
+            editViewController.isEditMode = true
+            self.navigationController?.pushViewController(editViewController, animated: true)
+            
         }
+        
+    }
+    
+    @IBAction func DeleteMedication_Click(_ sender: Any) {
+        
+        let index: Int = (sender as AnyObject).tag
+        array.removeObject(at: index)
+        tblView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+        for i in index..<array.count {
+            self.tblView.reloadRows(at: [IndexPath(row: i, section: 0)], with: .none)
+        }
+        
+        self.resetUI()
         
     }
     
@@ -97,7 +119,6 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
                         obj.name = dict.value(forKey: "name") as! String
                         obj.dosage = String(describing: dict.value(forKey: "dosage")!)
                         obj.frequency = String(describing: dict.value(forKey: "frequency")!)
-                        obj.isSelected = false
                         self.array.add(obj)
                     }
                 }
@@ -128,14 +149,28 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.selectionStyle = .none
         cell.isUserInteractionEnabled = true
         cell.tag = indexPath.row
+        cell.editBtn.tag = indexPath.row
+        cell.deleteBtn.tag = indexPath.row
         
         if selectedUserType == userType.patient {
             cell.editBtn.isHidden = true
             cell.editBtn.isUserInteractionEnabled = false
+            cell.deleteBtn.isHidden = true
+            cell.deleteBtn.isUserInteractionEnabled = false
         }
         else {
             cell.editBtn.isHidden = false
             cell.editBtn.isUserInteractionEnabled = true
+            
+            if selectedUserType == userType.doctor {
+                cell.deleteBtn.isHidden = false
+                cell.deleteBtn.isUserInteractionEnabled = true
+            }
+            else {
+                cell.deleteBtn.isHidden = true
+                cell.deleteBtn.isUserInteractionEnabled = false
+            }
+            
         }
         
         if let obj: CarePlanObj = array[indexPath.row] as? CarePlanObj {
@@ -143,23 +178,6 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
             cell.dosageTxtFld.text = obj.dosage
             cell.frequencyTxtFld.text = obj.frequency
             
-            if obj.isSelected == true {
-                cell.dosageTxtFld.isEnabled = true
-                cell.frequencyTxtFld.isEnabled = true
-                cell.conditionTxtFld.isEnabled = true
-                cell.dosageTxtFld.layer.borderColor = UIColor.gray.cgColor
-                cell.conditionTxtFld.layer.borderColor = UIColor.gray.cgColor
-                cell.frequencyTxtFld.layer.borderColor = UIColor.gray.cgColor
-                
-            }
-            else {
-                cell.dosageTxtFld.isEnabled = false
-                cell.frequencyTxtFld.isEnabled = false
-                cell.conditionTxtFld.isEnabled = false
-                cell.dosageTxtFld.layer.borderColor = UIColor.clear.cgColor
-                cell.conditionTxtFld.layer.borderColor = UIColor.clear.cgColor
-                cell.frequencyTxtFld.layer.borderColor = UIColor.clear.cgColor
-            }
         }
         return cell
         

@@ -34,6 +34,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,NotificationServiceDelegat
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
       
+        // set Navigation bar Fonts
+        UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: Fonts.GothamBoldFont, NSForegroundColorAttributeName:UIColor.white]
+       // UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: Fonts.NavBarBtnFont, NSForegroundColorAttributeName:UIColor.white], for: UIControlState.normal)
+        
         
         QBSettings.setApplicationID(kQBApplicationID)
         QBSettings.setAuthKey(kQBAuthKey)

@@ -16,6 +16,9 @@ let kMessageContainerWidthPadding:CGFloat = 40.0
 // Base Url
 let baseUrl: String = "http://192.168.25.43:3000/"
 
+let conditionsArray : NSArray = ["All conditions","Fasting", "Snacks", "Exercise","Pre Breakfast", "Post Breakfast", "Pre Lunch", "Post Lunch", "Pre Dinner", "Post Dinner", "Bedtime"]
+let frequnecyArray : NSArray = ["1 time a day", "2 times a day", "3 times a day", "4 times a day", "5 times a day"]
+
 
 /*  ServicesManager
 	...
@@ -108,6 +111,10 @@ struct ApiMethods{
     static let getglucoseDays = "getglucoseDays"
     static let getcareplan     = "getcareplan"
     static let getcareplanReadings = "getcareplanReadings"
+    static let addcareplan     = "addcareplan"
+    static let updatecareplan = "updatecareplan"
+    static let getglucoseDaysCondition = "getglucoseDaysCondition"
+    static let getglucoseDaysConditionChart = "getglucoseDaysConditionChart"
 }
 
 // MARK: - GeneralLabels
@@ -138,11 +145,28 @@ struct Notifications {
     static let noOfDays         = "NoOfDaysNotification"
 }
 
-//MARK: - Colors
+// MARK: - Colors
 struct Colors{
     static let userTypeSelectedColor: UIColor = UIColor(red: 0/255.0, green: 122/255.0, blue: 255/255.0, alpha: 1)
     static let incomingMSgColor: UIColor = UIColor(red: 247.0/255.0, green: 247.0/255.0, blue: 247.0/255.0, alpha: 1)
-    static let outgoingMsgColor: UIColor = UIColor(red: 0/255.0, green: 136.0/255.0, blue: 140.0/255.0, alpha: 1)
+    static let outgoingMsgColor: UIColor = UIColor(red: 0/255.0, green: 103.0/255.0, blue: 108.0/255.0, alpha: 1)
     static let historyHeaderColor: UIColor = UIColor(red: 62.0/255.0, green: 187.0/255.0, blue: 169.0/255.0, alpha: 1)
     static let chatHeaderColor: UIColor = UIColor(red: 241.0/255.0, green: 241.0/255.0, blue: 241.0/255.0, alpha: 1)
+    
 }
+
+// MARK: - Fonts
+struct Fonts {
+    static let healthCardFont: UIFont = UIFont(name: "SFUIText-Light", size: 12)!
+    static let SFTextMediumFont: UIFont = UIFont(name: "SFUIText-Medium", size: 14)!
+    static let SFTextRegularFont: UIFont = UIFont(name: "SFUIText-Regular", size: 18)!
+    static let GothamBoldFont: UIFont = UIFont(name: "Gotham-Bold", size: 15)!
+    static let NavBarBtnFont: UIFont = UIFont(name: "SFUIText-Regular", size: 15)!
+    static let HistoryHeaderFont: UIFont = UIFont(name: "SFUIText-Bold", size: 16)!
+    static let noOfDaysFont: UIFont = UIFont(name: "SFUIText-Regular", size: 14)!
+    static let chartFont: UIFont = UIFont(name: "SFUIText-Regular", size: 8)!
+}
+
+
+
+

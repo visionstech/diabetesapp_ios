@@ -15,7 +15,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var conditionView: UIView!
     @IBOutlet weak var conditionTxtFld: UITextField!
-    @IBOutlet weak var segmentControl: UISegmentedControl!
+    @IBOutlet weak var noHistoryAvailableLbl: UILabel!
     
     @IBOutlet var pickerViewContainer: UIView!
     @IBOutlet weak var pickerView: UIPickerView!
@@ -23,7 +23,6 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     // MARK:- Var
     var sectionsArray = NSMutableArray()
     var boolArray = NSMutableArray()
-    var conditionsArray = NSMutableArray()
     var noOfDays = "1"
     
     override func viewDidLoad() {
@@ -32,11 +31,11 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         // Do any additional setup after loading the view.
         
         self.title = "Reading History"
-        conditionsArray = ["All Conditions","Fasting","Post lunch","Bedtime"]
         self.setUI()
         self.addNotifications()
-        getHistory()
-        //getReadingHistory(condition: conditionTxtFld.text!)
+        //getHistory()
+        conditionTxtFld.text = conditionsArray[0] as! String
+        getReadingHistory(condition: conditionsArray[0] as! String)
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -59,6 +58,18 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         conditionTxtFld.inputView = pickerViewContainer
         
        
+    }
+    
+    func resetUI() {
+        if self.sectionsArray.count > 0 {
+            tblView.isHidden = false
+            noHistoryAvailableLbl.isHidden = true
+        }
+        else {
+            
+            tblView.isHidden = true
+            noHistoryAvailableLbl.isHidden = false
+        }
     }
     
     func addNotifications() {
@@ -93,13 +104,12 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         
     }
     
-    //MARK: - Notifications Methods
     func noOfDaysNotification(notification: NSNotification) {
        
         noOfDays = String(describing: notification.value(forKey: "object")!)
          print("noOfDays \(noOfDays)")
-        getHistory()
-        //getReadingHistory(condition: conditionTxtFld.text!)
+        //getHistory()
+        getReadingHistory(condition: conditionTxtFld.text!)
         
     }
     
@@ -110,8 +120,8 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
             
             conditionTxtFld.text = conditionsArray[pickerView.selectedRow(inComponent: 0)] as? String
             // Api Method
-            //getReadingHistory(condition: conditionTxtFld.text!)
-            getHistory()
+            getReadingHistory(condition: conditionTxtFld.text!)
+            //getHistory()
         }
     }
     
@@ -120,7 +130,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         sectionsArray.removeAllObjects()
         let historyData: NSDictionary = NSDictionary(contentsOf: NSURL(fileURLWithPath: Bundle.main.path(forResource: "history", ofType: "plist")!) as URL)!
         
-         //print(sectionsArray)
+         print(historyData)
         if conditionTxtFld.text == String(conditionsArray[0] as! String) {
             sectionsArray = NSMutableArray(array: historyData.object(forKey: "objectArray") as! NSArray)
         }
@@ -165,16 +175,21 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     //MARK: - Api Methods
     func getReadingHistory(condition: String) {
         
+        sectionsArray.removeAllObjects()
+        boolArray.removeAllObjects()
+        
         let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
         let parameters: Parameters = [
-            //"userid": patientsID,
-             "userid": "58563eb4d9c776ad70491b7b",
-             "numDaysBack": noOfDays
+            "userid": patientsID,
+             "numDaysBack": noOfDays,
+             "condition": condition
         ]
         
-        Alamofire.request("\(baseUrl)\(ApiMethods.getglucoseDays)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+        print(parameters)
+        
+        Alamofire.request("http://54.212.229.198:3000/\(ApiMethods.getglucoseDaysCondition)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
             
-            print("Validation Successful")
+            print("Validation Successful ")
             
             switch response.result {
                 
@@ -184,26 +199,42 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
                     
                     print("JSON \(JSON)")
                     
-                    let mainDict : NSMutableDictionary = NSMutableDictionary(dictionary: JSON.object(forKey: "objectArray") as! NSDictionary)
-                    
-                   
-                    
-                    for data in mainDict {
-                        print(data)
-                        
-//                        let dict: NSDictionary = data as! NSDictionary
-//                        let obj = CarePlanObj()
-//                        obj.id = dict.value(forKey: "_id") as! String
-//                        obj.name = dict.value(forKey: "name") as! String
-//                        obj.dosage = String(describing: dict.value(forKey: "dosage")!)
-//                        obj.frequency = String(describing: dict.value(forKey: "frequency")!)
-                       // self.array.add(obj)
+                    if self.conditionTxtFld.text == String(conditionsArray[0] as! String) {
+                        self.sectionsArray = NSMutableArray(array: JSON.object(forKey: "objectArray") as! NSArray)
                     }
-                    let mainArray: NSMutableArray = NSMutableArray(object: mainDict.copy())
+                    else {
+                        
+                        let mainArray: NSArray = NSMutableArray(array: JSON.object(forKey: "objectArray") as! NSArray)
+                        if mainArray.count != 0 {
+                            let mainDict: NSMutableDictionary = NSMutableDictionary()
+                            var count = 0
+                            let itemsArray = NSMutableArray()
+                            for dict in mainArray {
+                                let obj: NSDictionary = dict as! NSDictionary
+                                let dateStr: String = String(describing: obj.allKeys.first!)
+                                if count == 0 {
+                                    mainDict.setValue(dateStr, forKey: "start_date")
+                                }
+                                else if count == mainArray.count-1 {
+                                    mainDict.setValue(dateStr, forKey: "end_date")
+                                }
+                                let array: NSArray = NSArray(array: (dict as AnyObject).object(forKey: dateStr) as! NSArray)
+                                itemsArray.addObjects(from: array as! [Any])
+                                
+                                count += 1
+                            }
+                            mainDict.setObject(itemsArray.copy(), forKey: "items" as NSCopying)
+                            self.sectionsArray.add(mainDict)
+                        }
+                    }
                     
-                    print("mainArray \(mainArray)")
-                    
+                    for _ in self.sectionsArray {
+                        self.boolArray.add(false)
+                    }
+
+                    print(self.sectionsArray)
                     self.tblView.reloadData()
+                    self.resetUI()
                 }
                 
                 break
@@ -237,7 +268,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         
         else {
-             let dict: NSMutableDictionary = NSMutableDictionary(dictionary: sectionsArray[section] as! NSMutableDictionary)
+             let dict: NSDictionary = NSDictionary(dictionary: sectionsArray[section] as! NSDictionary)
              let array: NSArray = NSArray(array: dict.object(forKey: "items" as NSCopying)! as! NSArray).copy() as! NSArray
              return array.count
             
@@ -248,7 +279,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let dict: NSMutableDictionary = NSMutableDictionary(dictionary: sectionsArray[indexPath.section] as! NSMutableDictionary)
+        let dict: NSDictionary = sectionsArray[indexPath.section] as! NSDictionary
         let obj: NSDictionary
         if conditionTxtFld.text == String(conditionsArray[0] as! String) {
             let dateStr: String = String(describing: dict.allKeys.first!)
@@ -261,7 +292,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         
         let cell: HistoryTableViewCell = tableView.dequeueReusableCell(withIdentifier: "historyCell")! as! HistoryTableViewCell
-        cell.readingLbl.text = "\(obj.value(forKey: "reading") as! String) mg/dl"
+        cell.readingLbl.text = "\(obj.value(forKey: "reading")!) mg/dl"
         cell.dateLbl.text = String(describing: obj.value(forKey: "created")!)
         cell.conditionLbl.text = String(describing: obj.value(forKey: "condition")!)
         return cell
@@ -292,9 +323,11 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         let dict: NSDictionary = NSDictionary(dictionary: sectionsArray[section] as! NSDictionary)
         
         lbl.textColor = UIColor.white
+        lbl.font = Fonts.HistoryHeaderFont
         headerView.addSubview(topView)
         headerView.addSubview(lbl)
         headerView.tag = section
+        
         
         if conditionTxtFld.text == String(conditionsArray[0] as! String) {
             let dateStr: String = String(describing: dict.allKeys.first!)
@@ -303,11 +336,20 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapHeader(gestureReconizer:)))
             headerView.addGestureRecognizer(tapGesture)
             
+            let arrowImgView: UIImageView = UIImageView(frame: CGRect(x:headerView.frame.size.width-27 , y: 14, width: 17, height: 17))
+            headerView.addSubview(arrowImgView)
+            
             let bool : Bool = boolArray[section] as! Bool
             if bool == true {
                 let bottomView: UIView = UIView(frame: CGRect(x: 0, y: 35, width: tableView.frame.size.width, height: 10))
                 bottomView.backgroundColor = Colors.historyHeaderColor
                 headerView.addSubview(bottomView)
+                
+                arrowImgView.image = UIImage(named: "collapseArrow")
+                
+            }
+            else {
+                arrowImgView.image = UIImage(named: "expandArrow")
             }
         }
         else {

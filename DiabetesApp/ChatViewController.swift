@@ -46,6 +46,8 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
     var occupantUser = QBUUser()
     var groupMembersArray = NSMutableArray()
     
+    var topBackView:UIView = UIView()
+    
     
     
     
@@ -148,10 +150,9 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         let headerLbl: UILabel = UILabel(frame:  CGRect(x: 0, y: 64, width: screenSize.width, height: 30.0))
         headerLbl.backgroundColor = Colors.chatHeaderColor
         headerLbl.text = "Health Card Number = HC12345678"
-        headerLbl.font = UIFont(name: "Helvetica", size: 14)
+        headerLbl.font = Fonts.healthCardFont
         headerLbl.textColor = UIColor.gray
         headerLbl.textAlignment = .center
-        headerLbl.layer.masksToBounds = true
         self.view.addSubview(headerLbl)
         
     }
@@ -184,10 +185,12 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
             self.navigationItem.rightBarButtonItems = [optionsBtnBar]
         }
         
-        let backBtn: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "back"), style: .plain, target: self, action:  #selector(BackBtn_Click))
+        //let backBtn: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "back"), style: .plain, target: self, action:  #selector(BackBtn_Click))
         
-        self.navigationItem.leftBarButtonItem = backBtn
-        self.tabBarController?.navigationItem.leftBarButtonItem = backBtn
+        //self.navigationItem.leftBarButtonItem = backBtn
+        //self.tabBarController?.navigationItem.leftBarButtonItem = backBtn
+        
+        createCustomTopView()
         
         self.title = self.dialog.name
         self.tabBarController?.navigationItem.title = self.dialog.name
@@ -213,8 +216,13 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        topBackView.removeFromSuperview()
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+        
         
         if let willResignActive = self.willResignActiveBlock {
             NotificationCenter.default.removeObserver(willResignActive)
@@ -254,6 +262,23 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
             }
         }
         return ""
+    }
+    
+    // MARK: - Custom Top View
+    func createCustomTopView() {
+        
+        topBackView = UIView(frame: CGRect(x: 0, y: 0, width: 74, height: 40))
+        topBackView.backgroundColor = UIColor(patternImage: UIImage(named: "topBackBtn")!)
+        let userImgView: UIImageView = UIImageView(frame: CGRect(x: 35, y: 3, width: 34, height: 34))
+        userImgView.image = UIImage(named: "user.png")
+        topBackView.addSubview(userImgView)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(BackBtn_Click))
+        topBackView.addGestureRecognizer(tapGesture)
+        topBackView.isUserInteractionEnabled = true
+        
+        self.navigationController?.navigationBar.addSubview(topBackView)
+        self.tabBarController?.navigationController?.navigationBar.addSubview(topBackView)
     }
     
     func BackBtn_Click(){
@@ -370,6 +395,7 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
             
             let historyViewController: HistoryMainViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.historyMainViewController) as! HistoryMainViewController
             self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
+            self.navigationItem.hidesBackButton = true
             self.navigationController?.pushViewController(historyViewController, animated: true)
             
         })
@@ -378,12 +404,20 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
             
             let carePlanViewController: CarePlanMainViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.carePlanViewController) as! CarePlanMainViewController
             self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
+            self.navigationItem.hidesBackButton = true
             self.navigationController?.pushViewController(carePlanViewController, animated: true)
         })
         
         let cancelBtn: UIAlertAction = UIAlertAction(title: GeneralLabels.cancel, style: .cancel, handler: { (UIAlertAction)in
         })
         
+        
+//        let attributedString = NSAttributedString(string: "Title", attributes: [
+//            NSFontAttributeName : Fonts.SFTextRegularFont ,
+//            NSForegroundColorAttributeName : UIColor.white
+//            ])
+        
+        // Set Images
         patientInfoBtn.setValue((UIImage(named: "option_patientInfo")?.withRenderingMode(.alwaysOriginal)) , forKey: "image")
         readingHistoryBtn.setValue((UIImage(named: "option_history")?.withRenderingMode(.alwaysOriginal)) , forKey: "image")
         carePlanBtn.setValue((UIImage(named: "option_careplan")?.withRenderingMode(.alwaysOriginal)) , forKey: "image")
@@ -886,7 +920,7 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         
         var attributes = Dictionary<String, AnyObject>()
         attributes[NSForegroundColorAttributeName] = textColor
-        attributes[NSFontAttributeName] = UIFont(name: "Helvetica", size: 15)
+        attributes[NSFontAttributeName] = Fonts.SFTextMediumFont
         
         let attributedString = NSAttributedString(string: messageItem.text!, attributes: attributes)
         
@@ -915,7 +949,7 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         paragrpahStyle.lineBreakMode = NSLineBreakMode.byTruncatingTail
         var attributes = Dictionary<String, AnyObject>()
         attributes[NSForegroundColorAttributeName] = UIColor(red: 11.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 1.0)
-        attributes[NSFontAttributeName] = UIFont(name: "Helvetica", size: 16)
+        attributes[NSFontAttributeName] = Fonts.healthCardFont
         attributes[NSParagraphStyleAttributeName] = paragrpahStyle
         
         var topLabelAttributedString : NSAttributedString?
@@ -947,7 +981,7 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         
         var attributes = Dictionary<String, AnyObject>()
         attributes[NSForegroundColorAttributeName] = textColor
-        attributes[NSFontAttributeName] = UIFont(name: "Helvetica", size: 13)
+        attributes[NSFontAttributeName] = Fonts.healthCardFont
         attributes[NSParagraphStyleAttributeName] = paragrpahStyle
         
         var text = messageItem.dateSent != nil ? messageTimeDateFormatter.string(from: messageItem.dateSent!) : ""

@@ -306,6 +306,7 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
                 UserDefaults.standard.setValue("", forKey: userDefaults.loggedInUsername)
                 UserDefaults.standard.setValue("", forKey: userDefaults.loggedInUserEmail)
                 UserDefaults.standard.setValue("", forKey: userDefaults.loggedInUserPassword)
+                UserDefaults.standard.setValue("", forKey: userDefaults.selectedPatientID)
                 UserDefaults.standard.synchronize()
                 
                 SVProgressHUD.dismiss()
@@ -418,7 +419,7 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-         UserDefaults.standard.setValue("583d82f2d0e391263667c8d8", forKey: userDefaults.selectedPatientID)
+        
         
         if (ServicesManager.instance().isProcessingLogOut!) {
             return
@@ -427,6 +428,13 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
         guard let dialog = self.dialogs()?[indexPath.row] else {
             return
         }
+        
+        if let dict: [String:Any] = (dialog.data!) as Dictionary<String,Any> {
+            print(dict["PatientID"]!)
+             UserDefaults.standard.setValue(String(describing: dict["PatientID"]!), forKey: userDefaults.selectedPatientID)
+            //UserDefaults.standard.setValue("583d82f2d0e391263667c8d8", forKey: userDefaults.selectedPatientID)
+        }
+        
         
         self.performSegue(withIdentifier: "SA_STR_SEGUE_GO_TO_CHAT".localized , sender: dialog)
         

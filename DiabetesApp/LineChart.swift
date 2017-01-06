@@ -138,6 +138,26 @@ open class LineChart: UIView {
         UIColor(red: 0.890196, green: 0.466667, blue: 0.760784, alpha: 1),
         UIColor(red: 0.498039, green: 0.498039, blue: 0.498039, alpha: 1),
         UIColor(red: 0.737255, green: 0.741176, blue: 0.133333, alpha: 1),
+        UIColor(red: 0.0901961, green: 0.745098, blue: 0.811765, alpha: 1),
+        UIColor(red: 0.121569, green: 0.466667, blue: 0.705882, alpha: 1),
+        UIColor(red: 1, green: 0.498039, blue: 0.054902, alpha: 1),
+        UIColor(red: 0.172549, green: 0.627451, blue: 0.172549, alpha: 1),
+        UIColor(red: 0.839216, green: 0.152941, blue: 0.156863, alpha: 1),
+        UIColor(red: 0.580392, green: 0.403922, blue: 0.741176, alpha: 1),
+        UIColor(red: 0.54902, green: 0.337255, blue: 0.294118, alpha: 1),
+        UIColor(red: 0.890196, green: 0.466667, blue: 0.760784, alpha: 1),
+        UIColor(red: 0.498039, green: 0.498039, blue: 0.498039, alpha: 1),
+        UIColor(red: 0.737255, green: 0.741176, blue: 0.133333, alpha: 1),
+        UIColor(red: 0.0901961, green: 0.745098, blue: 0.811765, alpha: 1),
+        UIColor(red: 0.121569, green: 0.466667, blue: 0.705882, alpha: 1),
+        UIColor(red: 1, green: 0.498039, blue: 0.054902, alpha: 1),
+        UIColor(red: 0.172549, green: 0.627451, blue: 0.172549, alpha: 1),
+        UIColor(red: 0.839216, green: 0.152941, blue: 0.156863, alpha: 1),
+        UIColor(red: 0.580392, green: 0.403922, blue: 0.741176, alpha: 1),
+        UIColor(red: 0.54902, green: 0.337255, blue: 0.294118, alpha: 1),
+        UIColor(red: 0.890196, green: 0.466667, blue: 0.760784, alpha: 1),
+        UIColor(red: 0.498039, green: 0.498039, blue: 0.498039, alpha: 1),
+        UIColor(red: 0.737255, green: 0.741176, blue: 0.133333, alpha: 1),
         UIColor(red: 0.0901961, green: 0.745098, blue: 0.811765, alpha: 1)
     ]
     
@@ -510,8 +530,9 @@ open class LineChart: UIView {
         var text: String
         for (index, _) in xAxisData.enumerated() {
             let xValue = self.x.scale(CGFloat(index)) + x.axis.inset - (width / 2)
-            let label = UILabel(frame: CGRect(x: xValue, y: y, width: width, height: x.axis.inset))
-            label.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.caption2)
+            let label = UILabel(frame: CGRect(x: xValue, y: y+5, width: width, height: x.axis.inset))
+            label.font = Fonts.chartFont
+            //label.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.caption2)
             label.textAlignment = .center
             if (x.labels.values.count != 0) {
                 text = x.labels.values[index]
@@ -534,7 +555,8 @@ open class LineChart: UIView {
         for i in stride(from: start, through: stop, by: step){
             yValue = self.bounds.height - self.y.scale(i) - (y.axis.inset * 1.5)
             let label = UILabel(frame: CGRect(x: 0, y: yValue, width: y.axis.inset, height: y.axis.inset))
-            label.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.caption2)
+            label.font = Fonts.chartFont
+            //label.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.caption2)
             label.textAlignment = .center
             label.text = String(Int(round(i)))
             self.addSubview(label)

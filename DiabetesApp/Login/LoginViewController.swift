@@ -28,7 +28,7 @@ class LoginViewController: UIViewController, QBCoreDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       checkLoginStatus()
+        checkLoginStatus()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,7 +74,7 @@ class LoginViewController: UIViewController, QBCoreDelegate {
                         }
                         self.navigateToNextScreen()
                     })
-
+                    
                 }, errorBlock: { (error) in
                     
                     print("eeror \(error)")
@@ -105,6 +105,7 @@ class LoginViewController: UIViewController, QBCoreDelegate {
         SVProgressHUD.dismiss()
         registerForRemoteNotification()
         
+        
         let viewController: DialogsViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.dialogsViewController) as! DialogsViewController
         
         
@@ -114,7 +115,7 @@ class LoginViewController: UIViewController, QBCoreDelegate {
             self.navigationItem.hidesBackButton = false
             self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
             self.navigationController?.pushViewController(viewController, animated: true)
-         }
+        }
             
         else {
             // TabBar
@@ -122,7 +123,7 @@ class LoginViewController: UIViewController, QBCoreDelegate {
             let tabBarController: HomeTabBarController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.tabBarViewController) as! HomeTabBarController
             self.navigationController?.pushViewController(tabBarController, animated: true)
         }
-
+        
     }
     
     //MARK: - IBAction Methods
@@ -150,19 +151,19 @@ class LoginViewController: UIViewController, QBCoreDelegate {
         
         let username = usernameTxtFld.text!.trimmingCharacters(in: CharacterSet.whitespaces)
         let password = passwordTxtFld.text!.trimmingCharacters(in: CharacterSet.whitespaces)
-
+        
         
         if username.isEmpty || password.isEmpty {
-            self.present(UtilityClass.displayAlertMessage(message: "Username and password required.", title: "Error", viewController: self), animated: true, completion: nil)
+            self.present(UtilityClass.displayAlertMessage(message: "Username and password required.", title: "Error"), animated: true, completion: nil)
             
         }
         else {
             if segmentUserType.selectedSegmentIndex == 0 {
-               selectedUserType =  userType.doctor
+                selectedUserType =  userType.doctor
             }
             else if segmentUserType.selectedSegmentIndex == 1 {
                 
-               selectedUserType =  userType.patient
+                selectedUserType =  userType.patient
             }
             else if segmentUserType.selectedSegmentIndex == 2 {
                 selectedUserType = userType.educator
@@ -171,129 +172,129 @@ class LoginViewController: UIViewController, QBCoreDelegate {
             
             print("\(baseUrl)\(ApiMethods.login)?username=\(username)&password=\(password)&typeid=\(selectedUserType)")
             
-                        let parameters: Parameters = [
-                            "username": username,
-                            "password": password,
-                            "typeid" : selectedUserType
-                        ]
+            let parameters: Parameters = [
+                "username": username,
+                "password": password,
+                "typeid" : selectedUserType
+            ]
             
-                        Alamofire.request("\(baseUrl)\(ApiMethods.login)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
-                            print(response.result)
+            Alamofire.request("\(baseUrl)\(ApiMethods.login)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+                print(response.result)
+                
+                
+                switch response.result {
+                case .success:
+                    print("Validation Successful")
+                    
+                    if let JSON: NSDictionary = response.result.value as! NSDictionary? {
+                        
+                        print("JSON: \(JSON)")
+                        let chatID: String = JSON.value(forKey:"chatid") as! String
+                        let email: String = JSON.value(forKey: "email") as! String!
+                        let id: String = JSON.value(forKey: "_id") as! String!
+                        // Quickblox SIgn Up
+                        if chatID.length == 0 {
                             
+                            let newUser = QBUUser()
+                            newUser.email = email
+                            newUser.password = email
+                            newUser.login = email
+                            newUser.fullName = JSON.value(forKey: "fullname") as! String!
+                            newUser.website = "www.visions.com"
+                            newUser.tags = NSMutableArray(object: "visionsApp")
                             
-                            switch response.result {
-                            case .success:
-                                print("Validation Successful")
-            
-                                if let JSON: NSDictionary = response.result.value as! NSDictionary? {
-                                    
-                                    print("JSON: \(JSON)")
-                                    let chatID: String = JSON.value(forKey:"chatid") as! String
-                                    let email: String = JSON.value(forKey: "email") as! String!
-                                    let id: String = JSON.value(forKey: "_id") as! String!
-                                    // Quickblox SIgn Up
-                                    if chatID.length == 0 {
-                                        
-                                        let newUser = QBUUser()
-                                        newUser.email = email
-                                        newUser.password = email
-                                        newUser.login = email
-                                        newUser.fullName = JSON.value(forKey: "fullname") as! String!
-                                        newUser.website = "www.visions.com"
-                                        newUser.tags = NSMutableArray(object: "visionsApp")
-                                        
-                                        QBRequest.signUp(newUser, successBlock: { (response, user) in
-                                            
-                                            let dictParam: Parameters = [
-                                                "userid": JSON.value(forKey: "_id") as! String!,
-                                                "chatid": username,
-                                                "typeid" : self.selectedUserType
-                                            ]
-                                        Alamofire.request("\(baseUrl)\(ApiMethods.updatePatient)", method: .post, parameters: dictParam, encoding: JSONEncoding.default).response { response in
-                                            // QuickBlox Login
-                                            self.loginToQuickBlox(login: email, username: username, userID: id)
-                                            
-                                            }
-//                                            
-//                                            Alamofire.request("\(baseUrl)\(ApiMethods.updatePatient)?userid=\(email)&chatid=\(username)&typeid=\(self.selectedUserType)").responseJSON(completionHandler: { (response) in
-//                                                
-//                                                                                          })
-                                            
-                                        }, errorBlock: { (error) in
-                                            print(error)
-                                            SVProgressHUD.dismiss()
-                                        })
-                                    }
-                                        
-                                        // Quickblox Login
-                                    else {
-                                        self.loginToQuickBlox(login: email, username: username, userID: id)
-                                    }
-                                    
+                            QBRequest.signUp(newUser, successBlock: { (response, user) in
+                                
+                                let dictParam: Parameters = [
+                                    "userid": JSON.value(forKey: "_id") as! String!,
+                                    "chatid": username,
+                                    "typeid" : self.selectedUserType
+                                ]
+                                Alamofire.request("\(baseUrl)\(ApiMethods.updatePatient)", method: .post, parameters: dictParam, encoding: JSONEncoding.default).response { response in
+                                    // QuickBlox Login
+                                    self.loginToQuickBlox(login: email, username: username, userID: id)
                                     
                                 }
+                                //
+                                //                                            Alamofire.request("\(baseUrl)\(ApiMethods.updatePatient)?userid=\(email)&chatid=\(username)&typeid=\(self.selectedUserType)").responseJSON(completionHandler: { (response) in
+                                //
+                                //                                                                                          })
                                 
-                            case .failure(let error):
+                            }, errorBlock: { (error) in
                                 print(error)
                                 SVProgressHUD.dismiss()
-                            }
+                            })
                         }
+                            
+                            // Quickblox Login
+                        else {
+                            self.loginToQuickBlox(login: email, username: username, userID: id)
+                        }
+                        
+                        
+                    }
+                    
+                case .failure(let error):
+                    print(error)
+                    SVProgressHUD.dismiss()
+                }
+            }
             
             
-//            Alamofire.request("\(baseUrl)\(ApiMethods.login)?username=\(username)&password=\(password)&typeid=\(selectedUserType)").responseJSON { response in
-//                
-//                if response.result.debugDescription == "FAILURE" {
-//                    
-//                }
-//                else {
-//                
-//                if let JSON: NSDictionary = response.result.value as! NSDictionary? {
-//                    
-//                    print("JSON: \(JSON)")
-////                    
-//                    let selectedUser = QBUUser()
-//                    selectedUser.email = JSON.value(forKey: "email") as! String!
-//                    selectedUser.password = selectedUser.email 
-//                    
-//                    let login: String =  JSON.value(forKey: "email") as! String!
-//                    QBRequest.user(withLogin: login, successBlock: { (response, user) in
-//                        
-//                        ServicesManager.instance().logIn(with: selectedUser, completion:{
-//                            [unowned self] (success, errorMessage) -> Void in
-//                            
-//                            guard success else {
-//                                SVProgressHUD.showError(withStatus: errorMessage)
-//                                return
-//                            }
-//                            
-//                            SVProgressHUD.dismiss()
-//                            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//                            appDelegate.currentUser = user! as QBUUser
-//                            // print(appDelegate.currentUser)
-//                            
-//                            let email: String = JSON.value(forKey: "email") as! String!
-//                            let id: String = JSON.value(forKey: "_id") as! String!
-//                            
-//                            UserDefaults.standard.set(true, forKey: userDefaults.isLoggedIn)
-//                            UserDefaults.standard.setValue(id , forKey: userDefaults.loggedInUserID)
-//                            UserDefaults.standard.setValue(username, forKey: userDefaults.loggedInUsername)
-//                            UserDefaults.standard.setValue(email, forKey: userDefaults.loggedInUserEmail)
-//                            UserDefaults.standard.setValue(email, forKey: userDefaults.loggedInUserPassword)
-//                             UserDefaults.standard.setValue(self.selectedUserType, forKey: userDefaults.loggedInUserType)
-//                            UserDefaults.standard.synchronize()
-//                            
-//                            self.navigateToNextScreen()
-//                        })
-//                    
-//                    }, errorBlock: { (error) in
-//                        
-//                        print("error \(error)")
-//                        SVProgressHUD.showError(withStatus: error.data?.description)
-//                    })
-//                    
-//                }
-//              }
-//            }
+            //            Alamofire.request("\(baseUrl)\(ApiMethods.login)?username=\(username)&password=\(password)&typeid=\(selectedUserType)").responseJSON { response in
+            //
+            //                if response.result.debugDescription == "FAILURE" {
+            //
+            //                }
+            //                else {
+            //
+            //                if let JSON: NSDictionary = response.result.value as! NSDictionary? {
+            //
+            //                    print("JSON: \(JSON)")
+            ////
+            //                    let selectedUser = QBUUser()
+            //                    selectedUser.email = JSON.value(forKey: "email") as! String!
+            //                    selectedUser.password = selectedUser.email
+            //
+            //                    let login: String =  JSON.value(forKey: "email") as! String!
+            //                    QBRequest.user(withLogin: login, successBlock: { (response, user) in
+            //
+            //                        ServicesManager.instance().logIn(with: selectedUser, completion:{
+            //                            [unowned self] (success, errorMessage) -> Void in
+            //
+            //                            guard success else {
+            //                                SVProgressHUD.showError(withStatus: errorMessage)
+            //                                return
+            //                            }
+            //
+            //                            SVProgressHUD.dismiss()
+            //                            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            //                            appDelegate.currentUser = user! as QBUUser
+            //                            // print(appDelegate.currentUser)
+            //
+            //                            let email: String = JSON.value(forKey: "email") as! String!
+            //                            let id: String = JSON.value(forKey: "_id") as! String!
+            //
+            //                            UserDefaults.standard.set(true, forKey: userDefaults.isLoggedIn)
+            //                            UserDefaults.standard.setValue(id , forKey: userDefaults.loggedInUserID)
+            //                            UserDefaults.standard.setValue(username, forKey: userDefaults.loggedInUsername)
+            //                            UserDefaults.standard.setValue(email, forKey: userDefaults.loggedInUserEmail)
+            //                            UserDefaults.standard.setValue(email, forKey: userDefaults.loggedInUserPassword)
+            //                             UserDefaults.standard.setValue(self.selectedUserType, forKey: userDefaults.loggedInUserType)
+            //                            UserDefaults.standard.synchronize()
+            //
+            //                            self.navigateToNextScreen()
+            //                        })
+            //
+            //                    }, errorBlock: { (error) in
+            //
+            //                        print("error \(error)")
+            //                        SVProgressHUD.showError(withStatus: error.data?.description)
+            //                    })
+            //
+            //                }
+            //              }
+            //            }
             
         }
         
@@ -304,6 +305,10 @@ class LoginViewController: UIViewController, QBCoreDelegate {
         let selectedUser = QBUUser()
         selectedUser.email = login
         selectedUser.password = login
+        if selectedUser.customData == nil {
+            selectedUser.customData = userID
+        }
+        
         
         QBRequest.user(withLogin: login, successBlock: { (response, user) in
             
@@ -326,8 +331,14 @@ class LoginViewController: UIViewController, QBCoreDelegate {
                 UserDefaults.standard.setValue(login, forKey: userDefaults.loggedInUserEmail)
                 UserDefaults.standard.setValue(login, forKey: userDefaults.loggedInUserPassword)
                 UserDefaults.standard.setValue(self.selectedUserType, forKey: userDefaults.loggedInUserType)
+                if self.selectedUserType == userType.patient {
+                     UserDefaults.standard.setValue(userID, forKey: userDefaults.selectedPatientID)
+                }
+               
+                  UserDefaults.standard.synchronize()
                 
-                UserDefaults.standard.synchronize()
+                
+                
                 
                 self.navigateToNextScreen()
             })
@@ -338,7 +349,7 @@ class LoginViewController: UIViewController, QBCoreDelegate {
             SVProgressHUD.showError(withStatus: error.data?.description)
         })
     }
-
+    
     
     //MARK: - TextField Delegate Methods
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -371,6 +382,6 @@ class LoginViewController: UIViewController, QBCoreDelegate {
             UIApplication.shared.registerForRemoteNotifications(matching: [UIRemoteNotificationType.badge, UIRemoteNotificationType.sound, UIRemoteNotificationType.alert])
         }
     }
-
+    
     
 }

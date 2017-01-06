@@ -8,6 +8,7 @@
 
 import UIKit
 import QuartzCore
+import Alamofire
 
 class ChartViewController: UIViewController, LineChartDelegate {
 
@@ -17,21 +18,27 @@ class ChartViewController: UIViewController, LineChartDelegate {
     @IBOutlet weak var hyperLbl: UILabel!
     @IBOutlet weak var hbaLbl: UILabel!
     @IBOutlet weak var chartView: UIView!
+    @IBOutlet weak var readingsView: UIView!
     
     var label = UILabel()
     var lineChart: LineChart!
+    var noOfDays = "1"
+    
+//    let chartConditionsArray : NSArray = ["Fasting", "Snacks", "Exercise","Pre Breakfast", "Post Breakfast", "Pre Lunch", "Post Lunch", "Pre Dinner", "Post Dinner", "Bedtime"]
+    let chartConditionsArray : NSArray = ["F", "S", "E","PrB", "PoB", "PrL", "PoL", "PrD", "PoD", "B"]
+    var dataArray: NSMutableArray = NSMutableArray()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        self.setUI()
-        
+       setUI()
+       
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: Notifications.chartHistoryView), object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: Notifications.noOfDays), object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,11 +46,96 @@ class ChartViewController: UIViewController, LineChartDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    //MARK: - Notifications Methods
-    func chartViewNotification(notification: NSNotification) {
-        self.drawChart()
+    func resetUI(){
+        if self.dataArray.count > 0 {
+            self.chartView.isHidden = false
+            self.readingsView.isHidden = false
+            self.drawChart()
+        }
+        else {
+            self.chartView.isHidden = true
+            self.readingsView.isHidden = true
+        }
     }
     
+    // MARK: - Api Methods
+    func getChartHistoryData(condition: String) {
+        
+        dataArray.removeAllObjects()
+        let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+        let parameters: Parameters = [
+             "userid": patientsID,
+            "numDaysBack": noOfDays,
+            "condition": condition
+        ]
+        
+        print(parameters)
+        
+        Alamofire.request("http://54.212.229.198:3000/\(ApiMethods.getglucoseDaysConditionChart)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+            
+            print("Validation Successful ")
+            
+            switch response.result {
+                
+            case .success:
+                
+                if let JSON: NSDictionary = response.result.value! as? NSDictionary {
+                    
+                    let mainArray: NSArray = NSMutableArray(array: JSON.object(forKey: "objectArray") as! NSArray)
+                    if mainArray.count > 0 {
+                        for dict in mainArray {
+                            let mainDict: NSDictionary = dict as! NSDictionary
+                            if (mainDict.allKeys.first != nil)  {
+                                let dateStr: String = String(describing: mainDict.allKeys.first!)
+                                let readingsArray: NSArray = mainDict.object(forKey: dateStr) as! NSArray
+                                // var data: Array = [CGFloat]
+                                var data: [CGFloat] = []
+                                for i in 0..<self.chartConditionsArray.count {
+                                    data.append(0)
+                                    for dict in readingsArray {
+                                        let ob: NSDictionary = dict as! NSDictionary
+                                        let conditionIndex: Int = ob.value(forKey: "conditionIndex")! as! Int
+                                        if i == conditionIndex {
+                                            data[i] = ob.value(forKey: "reading")! as! CGFloat
+                                            break
+                                        }
+                                    }
+                                }
+                                self.dataArray.add(data)
+                            }
+                        }
+                        
+                        print("data \(self.dataArray)")
+                        self.resetUI()
+                    }
+                    
+                }
+                
+                break
+            case .failure:
+                print("failure")
+                self.resetUI()
+                break
+                
+            }
+        }
+        
+    }
+    
+    
+    //MARK: - Notifications Methods
+    func chartViewNotification(notification: NSNotification) {
+        getChartHistoryData(condition: conditionsArray[0] as! String)
+       // self.drawChart()
+    }
+    
+    func noOfDaysNotification(notification: NSNotification) {
+        
+        noOfDays = String(describing: notification.value(forKey: "object")!)
+        print("noOfDays \(noOfDays)")
+        getChartHistoryData(condition: conditionsArray[0] as! String)
+        
+    }
     
     //MARK: - Custom Methods
     func setUI(){
@@ -59,7 +151,13 @@ class ChartViewController: UIViewController, LineChartDelegate {
         hyperLbl.layer.masksToBounds = true
         hbaLbl.layer.masksToBounds = true
         
+        addNotifications()
+    }
+    
+    func addNotifications() {
+        
         NotificationCenter.default.addObserver(self, selector: #selector(self.chartViewNotification(notification:)), name: NSNotification.Name(rawValue: Notifications.chartHistoryView), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.noOfDaysNotification(notification:)), name: NSNotification.Name(rawValue: Notifications.noOfDays), object: nil)
     }
     
     
@@ -77,36 +175,38 @@ class ChartViewController: UIViewController, LineChartDelegate {
         label.textAlignment = NSTextAlignment.left
         label.font = UIFont(name: "Helvetica", size: 15)
         label.textColor = Colors.outgoingMsgColor
-        chartView.addSubview(label)
-        views["label"] = label
-        chartView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[label]-|", options: [], metrics: nil, views: views))
-        chartView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-80-[label]", options: [], metrics: nil, views: views))
-        
-        // simple arrays
-        let data: [CGFloat] = [3, 4, 2, 11, 13, 15]
-        //let data2: [CGFloat] = [1, 3, 5, 13, 17, 20]
+       // chartView.addSubview(label)
+        //views["label"] = label
+        //chartView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[label]-|", options: [], metrics: nil, views: views))
+        //chartView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-80-[label]", options: [], metrics: nil, views: views))
         
         // simple line with custom x axis labels
-        let xLabels: [String] = ["","18th", "19th", "20th", "21st", "22nd", "23rd","24th"]
-        let yLabels: [String] = ["0","30","60","90","120","150"]
+        
+        let xLabels: [String] = chartConditionsArray as! [String]
         
         lineChart = LineChart()
         lineChart.animation.enabled = true
         lineChart.area = true
         lineChart.x.labels.visible = true
-        lineChart.x.grid.count = 7
-        lineChart.y.grid.count = 6
         lineChart.x.labels.values = xLabels
         lineChart.y.labels.visible = true
-        //lineChart.y.labels.values = yLabels
-        lineChart.addLine(data)
+       
+        for data in dataArray {
+            
+            let dataAr: [CGFloat] = data as! Array
+            lineChart.addLine(dataAr)
+            
+        }
         
         lineChart.translatesAutoresizingMaskIntoConstraints = false
         lineChart.delegate = self
         chartView.addSubview(lineChart)
+        
         views["chart"] = lineChart
+      
         chartView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[chart]-|", options: [], metrics: nil, views: views))
-        chartView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[label]-[chart(==200)]", options: [], metrics: nil, views: views))
+        chartView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-[chart]-|", options: [], metrics: nil, views: views))
+       // chartView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[label]-[chart(==200)]", options: [], metrics: nil, views: views))
         
     }
     
@@ -114,8 +214,11 @@ class ChartViewController: UIViewController, LineChartDelegate {
      * Line chart delegate method.
      */
     func didSelectDataPoint(_ x: CGFloat, yValues: Array<CGFloat>) {
-       // label.text = "x: \(x)     y: \(yValues)"
+        print("x \(x) yValues \(yValues)")
+        //label.text = "x: \(x)     y: \(yValues)"
     }
+    
+    
     
     
     

@@ -72,27 +72,27 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
         }
         
         for dict in array {
-             let obj: ContactObj = dict as! ContactObj
-           
+            let obj: ContactObj = dict as! ContactObj
+            
             if count == indexPath.row {
                 obj.isSelected = (obj.isSelected == "1" ? "0" : "1")
             }
             else {
-                 obj.isSelected = "0"
+                obj.isSelected = "0"
             }
             if indexPath.section == 0 {
-                 patientList.replaceObject(at:count , with: obj)
+                patientList.replaceObject(at:count , with: obj)
             }
             else {
-                 doctorList.replaceObject(at:count , with: obj)
+                doctorList.replaceObject(at:count , with: obj)
             }
-           
+            
             count += 1
         }
     }
     
     
-    // MARK: - Create Group for Doctor 
+    // MARK: - Create Group for Doctor
     func createGroupForDoctor(selectedPatient:ContactObj) {
         
         var usersArray = Array<String>()
@@ -107,8 +107,10 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
             }
         }
         
-        self.createChat(name: selectedPatient.full_name.trimmingCharacters(in: CharacterSet.whitespaces), usersArray: usersArray, isGroup: true, completion: { (response, chatDialog) in
+        self.createChat(name: selectedPatient.full_name.trimmingCharacters(in: CharacterSet.whitespaces), usersArray: usersArray, isGroup: true, patientID: selectedPatient.patient_id, completion: { (response, chatDialog) in
             
+            
+            UserDefaults.standard.setValue(selectedPatient.patient_id, forKey: userDefaults.selectedPatientID)
             self.naviagteToChatScreen(dialog: chatDialog!)
         })
         
@@ -118,7 +120,7 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
     func getContactsList(){
         //583fd43ab44e8fdb20145c06
         //http://192.168.25.43:3000/getpatients?doctorId=581fa527068eb45d1c916a38
-              let userID: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserID)!
+        let userID: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserID)!
         Alamofire.request("\(baseUrl)\(ApiMethods.getPatients)?doctorId=\(userID)").responseJSON { (response) in
             if let JSON: NSArray = response.result.value as? NSArray {
                 
@@ -149,12 +151,15 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
         
         var selectesUsers = Array<String>()
         var patientName: String = ""
+        var patientid : String = ""
+        
         // get selected Patient
         for obj in patientList {
             
             if (obj as AnyObject).isSelected == "1" {
                 selectesUsers.append((obj as AnyObject).chatid as String)
                 patientName = (obj as AnyObject).full_name.trimmingCharacters(in: CharacterSet.whitespaces)
+                patientid = (obj as AnyObject).patient_id
                 break
             }
         }
@@ -175,15 +180,17 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
             })
             return
         }
+        
+        self.createChat(name: patientName, usersArray: selectesUsers, isGroup: true, patientID: patientid, completion: { (response, chatDialog) in
             
-        self.createChat(name: patientName, usersArray: selectesUsers, isGroup: true, completion: { (response, chatDialog) in
+            UserDefaults.standard.setValue(patientid, forKey: userDefaults.selectedPatientID)
             self.naviagteToChatScreen(dialog: chatDialog!)
         })
         
     }
     
     //MARK: - Quickblox Methods
-    func createChat(name: String?, usersArray: [String], isGroup: Bool, completion: @escaping ((_ response: QBResponse? , _ createdDialog: QBChatDialog?) -> Void) ){
+    func createChat(name: String?, usersArray: [String], isGroup: Bool,patientID : String, completion: @escaping ((_ response: QBResponse? , _ createdDialog: QBChatDialog?) -> Void) ){
         
         QBRequest.users(withLogins: usersArray , page: QBGeneralResponsePage.init(currentPage: 1, perPage: 10), successBlock: { (response, page, users) in
             
@@ -207,11 +214,21 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
                         return
                     }
                     
-                    guard let unwrappedDialog = chatDialog else {
+                    guard chatDialog != nil else {
                         return
                     }
+                    chatDialog!.data = ["PatientID" : patientID ]
                     
-                    completion(response, unwrappedDialog)
+                    QBRequest.update(chatDialog!, successBlock: { (response, updatedDialog) in
+                        
+                        guard updatedDialog != nil else {
+                            return
+                        }
+                        print(updatedDialog!)
+                        completion(response, updatedDialog)
+                    }, errorBlock: { (error) in
+                        
+                    })
                     
                 }
             }
@@ -234,20 +251,20 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       
+        
         if selectedUserType == userType.educator {
             
             if section == 0 {
-                 return patientList.count
+                return patientList.count
             }
             else {
-                 return doctorList.count
+                return doctorList.count
             }
         }
         else {
             return patientList.count
         }
-       
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -269,8 +286,9 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
         
         
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "patientCell", for: indexPath)
-        
-        
+        if let userNameLbl: UILabel = cell.contentView.viewWithTag(1) as? UILabel {
+            userNameLbl.text = obj.full_name
+        }
         if isGroupMode == true {
             if obj.isSelected == "1" {
                 cell.accessoryType = .checkmark
@@ -280,10 +298,11 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
             }
         }
         
-        cell.textLabel?.text = obj.full_name
-        
-        
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -311,15 +330,15 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
             }
             
         }
-        // single chat
+            // single chat
         else {
             
             // doctor
             if selectedUserType == userType.doctor {
                 createGroupForDoctor(selectedPatient: obj)
             }
-            
-             //  educator
+                
+                //  educator
             else {
                 
                 var usersArray = Array<String>()
@@ -327,36 +346,38 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
                     usersArray.append(obj.chatid)
                 }
                 
-                self.createChat(name: "", usersArray: usersArray, isGroup: false, completion: { (response, chatDialog) in
+                self.createChat(name: "", usersArray: usersArray, isGroup: false, patientID: obj.patient_id, completion: { (response, chatDialog) in
+                    
+                    UserDefaults.standard.setValue(obj.patient_id, forKey: userDefaults.selectedPatientID)
                     self.naviagteToChatScreen(dialog: chatDialog!)
                 })
             }
             
         }
-       
-//        UserDefaults.standard.setValue(obj.patient_id, forKey: userDefaults.selectedPatientID)
-//        if isGroupMode == true {
-//           
-//            self.resetSelectedUsers(index: indexPath.row)
-//           // obj.isSelected = (obj.isSelected == "1" ? "0" : "1")
-//            //patientList.replaceObject(at:indexPath.row , with: obj)
-//            tableView.reloadData()
-//        }
-//        
-//        else {
-//            
-//            self.createChat(name: "", usersArray: [obj.chatid], completion: { (response, chatDialog) in
-//                
-//                self.naviagteToChatScreen(dialog: chatDialog!)
-//            })
-//        }
+        
+        //        UserDefaults.standard.setValue(obj.patient_id, forKey: userDefaults.selectedPatientID)
+        //        if isGroupMode == true {
+        //
+        //            self.resetSelectedUsers(index: indexPath.row)
+        //           // obj.isSelected = (obj.isSelected == "1" ? "0" : "1")
+        //            //patientList.replaceObject(at:indexPath.row , with: obj)
+        //            tableView.reloadData()
+        //        }
+        //
+        //        else {
+        //
+        //            self.createChat(name: "", usersArray: [obj.chatid], completion: { (response, chatDialog) in
+        //
+        //                self.naviagteToChatScreen(dialog: chatDialog!)
+        //            })
+        //        }
         
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-      
+        
         if selectedUserType == userType.educator {
             if section == 0 {
-               return "Patients"
+                return "Patients"
             }
             else {
                 return "Doctors"
@@ -384,7 +405,7 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
         let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserID)!
         let parameters: Parameters = [
             "id": patientsID
-                    ]
+        ]
         
         Alamofire.request("\(baseUrl)\(ApiMethods.getPatDoctors)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
             switch response.result {
@@ -404,8 +425,8 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
                     self.tableView.reloadData()
                     
                 }
-            
-            break
+                
+                break
             case .failure:
                 break
                 
@@ -470,7 +491,7 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
                         self.patientList.add(contactObj)
                     }
                     self.tableView.reloadData()
-
+                    
                 }
                 break
             case .failure:
@@ -492,17 +513,17 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
             case .success:
                 print("Validation Successful")
                 if let JSON: NSArray = response.result.value as? NSArray {
-                for data in JSON {
-                    let dict: NSDictionary = data as! NSDictionary
-                    let contactObj = ContactObj()
-                    contactObj.patient_id = dict.value(forKey: "_id") as! String
-                    contactObj.chatid = dict.value(forKey: "chatid") as! String
-                    contactObj.full_name = dict.value(forKey: "fullname") as! String
-                    contactObj.username = dict.value(forKey: "username") as! String
-                    contactObj.isSelected = "0"
-                    self.educatorsList.add(contactObj)
-                 }
-                     self.tableView.reloadData()
+                    for data in JSON {
+                        let dict: NSDictionary = data as! NSDictionary
+                        let contactObj = ContactObj()
+                        contactObj.patient_id = dict.value(forKey: "_id") as! String
+                        contactObj.chatid = dict.value(forKey: "chatid") as! String
+                        contactObj.full_name = dict.value(forKey: "fullname") as! String
+                        contactObj.username = dict.value(forKey: "username") as! String
+                        contactObj.isSelected = "0"
+                        self.educatorsList.add(contactObj)
+                    }
+                    self.tableView.reloadData()
                 }
                 
                 break

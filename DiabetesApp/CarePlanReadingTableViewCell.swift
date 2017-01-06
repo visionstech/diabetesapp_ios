@@ -13,16 +13,15 @@ class CarePlanReadingTableViewCell: UITableViewCell {
     @IBOutlet weak var numberLbl: UILabel!
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var conditionLbl: UILabel!
-    @IBOutlet weak var frequencyLbl: UILabel!
+   // @IBOutlet weak var frequencyLbl: UILabel!
     @IBOutlet weak var goalLbl: UILabel!
-    @IBOutlet weak var headerView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         
         self.setUI(view: mainView)
-        self.setUI(view: headerView)
+        //self.setUI(view: headerView)
         
     }
 

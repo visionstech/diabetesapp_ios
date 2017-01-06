@@ -13,7 +13,7 @@ class CarePlanObj: NSObject {
     var id         = String()
     var dosage     = String()
     var frequency  = String()
+    var condition  = String()
     var name       = String()
-    var isSelected = Bool()
 
 }

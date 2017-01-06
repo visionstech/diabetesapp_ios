@@ -18,6 +18,7 @@ class CarePlanMedicationTableViewCell: UITableViewCell {
     @IBOutlet weak var frequencyTxtFld: UITextField!
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var editBtn: UIButton!
+    @IBOutlet weak var deleteBtn: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

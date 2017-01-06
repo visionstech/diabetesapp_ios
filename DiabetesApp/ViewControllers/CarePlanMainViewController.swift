@@ -17,6 +17,8 @@ class CarePlanMainViewController: UIViewController {
     @IBOutlet weak var readingContainer: UIView!
     
     var addBtn = UIBarButtonItem()
+    var topBackView:UIView = UIView()
+    
     let selectedUserType: Int = Int(UserDefaults.standard.integer(forKey: userDefaults.loggedInUserType))
     
     // MARK: - View Load Methods
@@ -28,12 +30,17 @@ class CarePlanMainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addBtn = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(AddBtn_Click))
         
+        addBtn = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(AddBtn_Click))
+     
     }
     
     override func viewWillAppear(_ animated: Bool) {
        setNavBarUI()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        topBackView.removeFromSuperview()
     }
     
     override func didReceiveMemoryWarning() {
@@ -44,7 +51,6 @@ class CarePlanMainViewController: UIViewController {
     // MARK: - Custom Methods
     func setNavBarUI(){
         
-        UserDefaults.standard.setValue("583d82f2d0e391263667c8d8", forKey: userDefaults.selectedPatientID)
         //self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         //self.tabBarController?.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         self.tabBarController?.navigationItem.title = "\("CARE_PLAN".localized)"
@@ -54,6 +60,8 @@ class CarePlanMainViewController: UIViewController {
         self.tabBarController?.navigationItem.leftBarButtonItem = nil
         self.tabBarController?.navigationItem.rightBarButtonItems = nil
        
+        self.navigationItem.hidesBackButton = true
+        self.tabBarController?.navigationItem.hidesBackButton = true
         
         if selectedUserType == userType.doctor {
             self.navigationItem.rightBarButtonItem = addBtn
@@ -61,9 +69,32 @@ class CarePlanMainViewController: UIViewController {
         else{
             self.navigationItem.rightBarButtonItem = nil
         }
+        
+        createCustomTopView()
+    }
+    
+    // MARK: - Custom Top View
+    func createCustomTopView() {
+        
+        topBackView = UIView(frame: CGRect(x: 0, y: 0, width: 74, height: 40))
+        topBackView.backgroundColor = UIColor(patternImage: UIImage(named: "topBackBtn")!)
+        let userImgView: UIImageView = UIImageView(frame: CGRect(x: 35, y: 3, width: 34, height: 34))
+        userImgView.image = UIImage(named: "user.png")
+        topBackView.addSubview(userImgView)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(BackBtn_Click))
+        topBackView.addGestureRecognizer(tapGesture)
+        topBackView.isUserInteractionEnabled = true
+        
+        self.tabBarController?.navigationController?.navigationBar.addSubview(topBackView)
+        self.navigationController?.navigationBar.addSubview(topBackView)
     }
     
     // MARK: - IBAction Methods
+    func BackBtn_Click(){
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     func AddBtn_Click(){
         
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notifications.addMedication), object: nil)

@@ -17,6 +17,8 @@ class HistoryMainViewController: UIViewController {
     @IBOutlet weak var chartViewContainer: UIView!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     
+    var topBackView:UIView = UIView()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setNavBarUI()
@@ -26,17 +28,41 @@ class HistoryMainViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        segmentControl.setTitleTextAttributes([NSFontAttributeName: Fonts.noOfDaysFont, NSForegroundColorAttributeName:Colors.outgoingMsgColor], for: .normal)
+        segmentControl.setTitleTextAttributes([NSFontAttributeName: Fonts.noOfDaysFont, NSForegroundColorAttributeName:UIColor.white], for: .selected)
         
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        
+        setNavBarUI()
+    }
+
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        topBackView.removeFromSuperview()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    // MARK: - Custom Top View
+    func createCustomTopView() {
         
-        setNavBarUI()
+        topBackView = UIView(frame: CGRect(x: 0, y: 0, width: 74, height: 40))
+        topBackView.backgroundColor = UIColor(patternImage: UIImage(named: "topBackBtn")!)
+        let userImgView: UIImageView = UIImageView(frame: CGRect(x: 35, y: 3, width: 34, height: 34))
+        userImgView.image = UIImage(named: "user.png")
+        topBackView.addSubview(userImgView)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(BackBtn_Click))
+        topBackView.addGestureRecognizer(tapGesture)
+        topBackView.isUserInteractionEnabled = true
+        
+        self.tabBarController?.navigationController?.navigationBar.addSubview(topBackView)
+        self.navigationController?.navigationBar.addSubview(topBackView)
     }
     
     // MARK: - Custom Methods
@@ -49,6 +75,11 @@ class HistoryMainViewController: UIViewController {
         self.navigationItem.rightBarButtonItems = nil
         self.tabBarController?.navigationItem.leftBarButtonItem = nil
         self.tabBarController?.navigationItem.rightBarButtonItem = nil
+        self.navigationItem.hidesBackButton = true
+        self.tabBarController?.navigationItem.hidesBackButton = true
+        
+        createCustomTopView()
+        
         
     }
     
@@ -112,7 +143,10 @@ class HistoryMainViewController: UIViewController {
         }
     }
     
-    
+    func BackBtn_Click(){
+        self.navigationController?.popViewController(animated: true)
+    }
+
     
     /*
     // MARK: - Navigation

@@ -19,6 +19,9 @@ class CarePlanReadingViewController: UIViewController, UITableViewDelegate, UITa
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+       
+    }
+    override func viewWillAppear(_ animated: Bool) {
         addNotifications()
         getReadingsData()
     }
@@ -58,8 +61,8 @@ class CarePlanReadingViewController: UIViewController, UITableViewDelegate, UITa
         
         let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
         let parameters: Parameters = [
-            //"userid": patientsID
-            "userid": "58563eb4d9c776ad70491b7b"
+            "userid": patientsID
+            //"userid": "58563eb4d9c776ad70491b7b"
             
         ]
         
@@ -72,15 +75,34 @@ class CarePlanReadingViewController: UIViewController, UITableViewDelegate, UITa
                 print("Validation Successful")
                 if let JSON: NSArray = response.result.value as? NSArray {
                     print(JSON)
-                    for data in JSON {
-                        let dict: NSDictionary = data as! NSDictionary
-                        let obj = CarePlanReadingObj()
-                        obj.id = dict.value(forKey: "_id") as! String
-                        obj.goal = dict.value(forKey: "goal") as! String
-                        obj.time = dict.value(forKey: "time") as! String
-                        obj.frequency = dict.value(forKey: "frequency") as! String
-                        self.array.add(obj)
+                    self.array.removeAllObjects()
+                    for time in frequnecyArray {
+                        let mainDict: NSMutableDictionary = NSMutableDictionary()
+                        mainDict.setValue(String(describing: time), forKey: "frequency")
+                        let itemsArray: NSMutableArray = NSMutableArray()
+                        for data in JSON {
+                            let dict: NSDictionary = data as! NSDictionary
+                            let obj = CarePlanReadingObj()
+                            obj.id = dict.value(forKey: "_id") as! String
+                           // Between
+                            let goalStr: String = dict.value(forKey: "goal") as! String
+                            obj.goal = goalStr.replacingOccurrences(of: "Between ", with: "")
+                            //obj.goal = dict.value(forKey: "goal") as! String
+                            obj.time = dict.value(forKey: "time") as! String
+                            obj.frequency = dict.value(forKey: "frequency") as! String
+                            if String(describing: time) == obj.time {
+                                itemsArray.add(obj)
+                            }
+                        }
+                        
+                        if itemsArray.count > 0{
+                            mainDict.setObject(itemsArray, forKey: "data" as NSCopying)
+                            self.array.add(mainDict)
+                        }
+                        
                     }
+                    
+                   print(self.array)
                 }
                 self.tblView.reloadData()
                 self.resetUI()
@@ -96,24 +118,33 @@ class CarePlanReadingViewController: UIViewController, UITableViewDelegate, UITa
                 
             }
         }
-        
        
     }
     
+    
     //MARK: - TableView Delegate Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let mainDict: NSMutableDictionary = array[section] as! NSMutableDictionary
+        let itemsArray: NSMutableArray = mainDict.object(forKey: "data") as! NSMutableArray
+        
+        return itemsArray.count
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         return array.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        let mainDict: NSMutableDictionary = array[indexPath.section] as! NSMutableDictionary
+        let itemsArray: NSMutableArray = mainDict.object(forKey: "data") as! NSMutableArray
+        
         let cell : CarePlanReadingTableViewCell = tableView.dequeueReusableCell(withIdentifier: "readingsCell")! as! CarePlanReadingTableViewCell
         cell.selectionStyle = .none
         cell.tag = indexPath.row
-        if let obj: CarePlanReadingObj = array[indexPath.row] as? CarePlanReadingObj {
+        if let obj: CarePlanReadingObj = itemsArray[indexPath.row] as? CarePlanReadingObj {
             cell.goalLbl.text = obj.goal
             cell.conditionLbl.text = obj.frequency
-            cell.frequencyLbl.text = obj.time
             cell.numberLbl.text = "\(indexPath.row+1)."
         }
         
@@ -121,10 +152,23 @@ class CarePlanReadingViewController: UIViewController, UITableViewDelegate, UITa
         
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let cell : CarePlanReadingHeaderTableViewCell = tableView.dequeueReusableCell(withIdentifier: "headerCell")! as! CarePlanReadingHeaderTableViewCell
+        let mainDict: NSMutableDictionary = array[section] as! NSMutableDictionary
+        cell.frequencyLbl.text = String(mainDict.value(forKey: "frequency") as! String)
+        return cell
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 140
+        return 70
     }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 90
+    }
+    
+    
+    
     
 
     /*
