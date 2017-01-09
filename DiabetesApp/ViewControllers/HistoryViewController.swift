@@ -32,10 +32,13 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         
         self.title = "Reading History"
         self.setUI()
-        self.addNotifications()
+        //self.addNotifications()
         //getHistory()
         conditionTxtFld.text = conditionsArray[0] as! String
         getReadingHistory(condition: conditionsArray[0] as! String)
+    }
+    override func viewDidAppear(_ animated: Bool) {
+           self.addNotifications()
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -178,7 +181,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         sectionsArray.removeAllObjects()
         boolArray.removeAllObjects()
         
-        let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+       let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
         let parameters: Parameters = [
             "userid": patientsID,
              "numDaysBack": noOfDays,
@@ -353,7 +356,13 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
             }
         }
         else {
+            if  dict["end_date"] != nil {
+            
             lbl.text = "\(String(describing: dict.value(forKey: "start_date")!)) - \(String(describing: dict.value(forKey: "end_date")!))"
+            }
+            else {
+                 lbl.text = "\(String(describing: dict.value(forKey: "start_date")!))"
+            }
             
             let bottomView: UIView = UIView(frame: CGRect(x: 0, y: 35, width: tableView.frame.size.width, height: 10))
             bottomView.backgroundColor = Colors.historyHeaderColor

@@ -117,8 +117,9 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
                         let obj = CarePlanObj()
                         obj.id = dict.value(forKey: "_id") as! String
                         obj.name = dict.value(forKey: "name") as! String
-                        obj.dosage = String(describing: dict.value(forKey: "dosage")!)
-                        obj.frequency = String(describing: dict.value(forKey: "frequency")!)
+                        
+                        obj.dosage = String(describing: dict.value(forKey: "dosage"))
+                        obj.frequency = String(describing: dict.value(forKey: "frequency"))
                         self.array.add(obj)
                     }
                 }

@@ -14,7 +14,11 @@ let kDialogsPageLimit:UInt = 100
 let kMessageContainerWidthPadding:CGFloat = 40.0
 
 // Base Url
-let baseUrl: String = "http://192.168.25.43:3000/"
+let baseUrl: String = "http://54.212.229.198:3000/"
+// Base Local Server Url
+//let baseUrl: String = "http://192.168.25.43:3000/"
+
+
 
 let conditionsArray : NSArray = ["All conditions","Fasting", "Snacks", "Exercise","Pre Breakfast", "Post Breakfast", "Pre Lunch", "Post Lunch", "Pre Dinner", "Post Dinner", "Bedtime"]
 let frequnecyArray : NSArray = ["1 time a day", "2 times a day", "3 times a day", "4 times a day", "5 times a day"]
@@ -100,6 +104,7 @@ struct userDefaults{
 // MARK: - Api Methods
 struct ApiMethods{
     
+    //static let login       = "login"
     static let login       = "getdataios"
     static let getPatients = "getpatients"
     static let updatePatient = "updatepatient"
@@ -107,6 +112,9 @@ struct ApiMethods{
     static let getPatEducators = "getPatEducators"
     static let getDocPatients   = "getDocPatients"
     static let getDocEducators = "getDocEducators"
+    static let getEduDoctors =    "getEduDoctors"
+    static let getEduPatients =  "getEduPatients"
+    
     static let getglucose     = "getglucose"
     static let getglucoseDays = "getglucoseDays"
     static let getcareplan     = "getcareplan"

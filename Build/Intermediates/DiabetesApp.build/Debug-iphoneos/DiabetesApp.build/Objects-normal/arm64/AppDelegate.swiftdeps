@@ -14,79 +14,88 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp11AppDelegate", ""]
 provides-dynamic-lookup:
-- "applicationWillResignActive"
-- "notificationServiceDidFinishLoadingDialogFromServer"
-- "session"
 - "notificationServiceDidFailFetchingDialog"
+- "notificationServiceDidFinishLoadingDialogFromServer"
 - "applicationDidEnterBackground"
-- "saveContext"
-- "applicationWillTerminate"
 - "currentUser"
-- "notificationServiceDidStartLoadingDialogFromServer"
-- "persistentContainer"
-- "application"
-- "application"
-- "application"
-- "application"
 - "window"
-- "notificationServiceDidSucceedFetchingDialog"
-- "applicationDidBecomeActive"
+- "application"
+- "application"
+- "application"
+- "application"
 - "applicationWillEnterForeground"
+- "applicationWillTerminate"
+- "session"
+- "persistentContainer"
+- "notificationServiceDidStartLoadingDialogFromServer"
+- "applicationDidBecomeActive"
+- "notificationServiceDidSucceedFetchingDialog"
+- "applicationWillResignActive"
+- "saveContext"
 depends-top-level:
+- "StringLiteralType"
+- !private "Dictionary"
+- !private "UIColor"
+- "kQBAuthKey"
 - "UIApplicationLaunchOptionsKey"
+- !private "BooleanLiteralType"
+- !private "QBMSubscription"
+- !private "UINavigationController"
+- "Bool"
+- !private "DispatchQueue"
+- "kQBDialingTimeInterval"
+- "kQBAuthSecret"
+- !private "UIDevice"
+- !private "!"
+- !private "Void"
+- "kQBRTCDisconnectTimeInterval"
+- !private "NSForegroundColorAttributeName"
+- "CGFloat"
+- "kQBApplicationID"
+- !private "QBLogLevel"
+- !private "UIApplicationState"
+- !private "ServicesManager"
+- !private "ChatViewController"
+- "TimeInterval"
+- "UInt"
+- !private "NSFontAttributeName"
+- "NSPersistentContainer"
+- !private "fatalError"
+- !private "QBResponse"
+- !private "Fonts"
+- "kQBAnswerTimeInterval"
+- "UIResponder"
+- "QBUUser"
+- "QBRTCSession"
+- "kQBRingThickness"
+- !private "UINavigationBar"
+- !private "QBRTCConfig"
+- !private "UIStoryboard"
+- "Error"
+- "UIWindow"
+- !private "QBSettings"
+- "Data"
+- !private "QBMNotificationChannel"
+- "AnyHashable"
+- !private "String"
+- !private "QBRequest"
+- "NotificationServiceDelegate"
 - "QBChatDialog"
 - !private "NSError"
-- !private "QBRTCConfig"
-- !private "print"
-- !private "String"
-- !private "UIApplicationState"
-- !private "UIDevice"
-- "AppDelegate"
-- !private "UINavigationController"
-- "QBRTCSession"
-- !private "ChatViewController"
-- "kQBApplicationID"
-- "Error"
-- "CGFloat"
-- "UInt"
-- !private "QBSettings"
-- "UIApplication"
-- "kQBDialingTimeInterval"
-- "UIResponder"
-- !private "QBRequest"
-- "StringLiteralType"
-- !private "!"
-- !private "DispatchQueue"
-- "NSPersistentContainer"
-- "kQBRingThickness"
-- !private "UIStoryboard"
-- "kQBAuthKey"
-- !private "BooleanLiteralType"
-- !private "fatalError"
-- "kQBRTCDisconnectTimeInterval"
-- "kQBAccountKey"
-- !private "QBRTCClient"
-- "AnyHashable"
-- "QBUUser"
 - "UIApplicationDelegate"
-- "Bool"
-- "NotificationServiceDelegate"
-- !private "QBMNotificationChannel"
-- "UIWindow"
-- !private "ServicesManager"
-- "TimeInterval"
-- !private "QBLogLevel"
-- !private "QBResponse"
-- "CastingPrecedence"
-- "kQBAuthSecret"
+- !private "QBRTCClient"
+- !private "print"
 - "AssignmentPrecedence"
-- !private "QBMSubscription"
-- "kQBAnswerTimeInterval"
 - !private "=="
-- !private "Void"
-- "Data"
+- "kQBAccountKey"
+- "UIApplication"
+- "AppDelegate"
+- "CastingPrecedence"
 depends-member:
 - !private ["Ps9AnyObject", "DispatchQueue"]
+- !private ["Ps9AnyObject", "Fonts"]
+- !private ["Ps9AnyObject", "NSFontAttributeName"]
+- !private ["Ps9AnyObject", "NSForegroundColorAttributeName"]
 - !private ["Ps9AnyObject", "NSPersistentContainer"]
 - !private ["Ps9AnyObject", "QBLogLevel"]
 - !private ["Ps9AnyObject", "QBMNotificationChannel"]
@@ -97,8 +106,11 @@ depends-member:
 - !private ["Ps9AnyObject", "QBSettings"]
 - !private ["Ps9AnyObject", "ServicesManager"]
 - !private ["Ps9AnyObject", "UIApplicationState"]
+- !private ["Ps9AnyObject", "UIColor"]
 - !private ["Ps9AnyObject", "UIDevice"]
+- !private ["Ps9AnyObject", "UINavigationBar"]
 - !private ["Ps9AnyObject", "UIStoryboard"]
+- !private ["Ps9AnyObject", "appearance"]
 - ["Ps9AnyObject", "application"]
 - ["Ps9AnyObject", "applicationDidBecomeActive"]
 - ["Ps9AnyObject", "applicationDidEnterBackground"]
@@ -170,8 +182,10 @@ depends-member:
 - !private ["Ps9AnyObject", "setDisconnectTimeInterval"]
 - !private ["Ps9AnyObject", "setLogLevel"]
 - !private ["Ps9AnyObject", "setStatsReportTimeInterval"]
+- !private ["Ps9AnyObject", "titleTextAttributes"]
 - !private ["Ps9AnyObject", "userInfo"]
 - !private ["Ps9AnyObject", "viewContext"]
+- !private ["Ps9AnyObject", "white"]
 - ["Ps9AnyObject", "window"]
 - ["Ps9AnyObject", ""]
 - ["C11DiabetesApp11AppDelegate", "AnyHashable"]
@@ -180,7 +194,10 @@ depends-member:
 - ["C11DiabetesApp11AppDelegate", "Data"]
 - !private ["C11DiabetesApp11AppDelegate", "DispatchQueue"]
 - ["C11DiabetesApp11AppDelegate", "Error"]
+- !private ["C11DiabetesApp11AppDelegate", "Fonts"]
 - !private ["C11DiabetesApp11AppDelegate", "NSError"]
+- !private ["C11DiabetesApp11AppDelegate", "NSFontAttributeName"]
+- !private ["C11DiabetesApp11AppDelegate", "NSForegroundColorAttributeName"]
 - ["C11DiabetesApp11AppDelegate", "NSPersistentContainer"]
 - ["C11DiabetesApp11AppDelegate", "QBChatDialog"]
 - !private ["C11DiabetesApp11AppDelegate", "QBLogLevel"]
@@ -198,7 +215,9 @@ depends-member:
 - ["C11DiabetesApp11AppDelegate", "UIApplication"]
 - ["C11DiabetesApp11AppDelegate", "UIApplicationLaunchOptionsKey"]
 - !private ["C11DiabetesApp11AppDelegate", "UIApplicationState"]
+- !private ["C11DiabetesApp11AppDelegate", "UIColor"]
 - !private ["C11DiabetesApp11AppDelegate", "UIDevice"]
+- !private ["C11DiabetesApp11AppDelegate", "UINavigationBar"]
 - !private ["C11DiabetesApp11AppDelegate", "UINavigationController"]
 - !private ["C11DiabetesApp11AppDelegate", "UIStoryboard"]
 - ["C11DiabetesApp11AppDelegate", "UIWindow"]
@@ -241,12 +260,18 @@ depends-member:
 - !private ["Ps17BitwiseOperations", "_DisabledRangeIndex"]
 - !private ["Sb", "_getBuiltinLogicValue"]
 - ["Sb", "deinit"]
+- !private ["PSo15CALayerDelegate", "appearance"]
 - !private ["PSo15CALayerDelegate", "rootViewController"]
+- !private ["PSo15CALayerDelegate", "titleTextAttributes"]
 - ["V12CoreGraphics7CGFloat", "deinit"]
 - !private ["Ps7CVarArg", "DispatchQueue"]
+- !private ["Ps7CVarArg", "Fonts"]
 - !private ["Ps7CVarArg", "Index"]
 - !private ["Ps7CVarArg", "IndexDistance"]
 - !private ["Ps7CVarArg", "IntegerLiteralType"]
+- !private ["Ps7CVarArg", "Key"]
+- !private ["Ps7CVarArg", "NSFontAttributeName"]
+- !private ["Ps7CVarArg", "NSForegroundColorAttributeName"]
 - !private ["Ps7CVarArg", "NSPersistentContainer"]
 - !private ["Ps7CVarArg", "QBLogLevel"]
 - !private ["Ps7CVarArg", "QBMNotificationChannel"]
@@ -259,10 +284,14 @@ depends-member:
 - !private ["Ps7CVarArg", "Stride"]
 - !private ["Ps7CVarArg", "SubSequence"]
 - !private ["Ps7CVarArg", "UIApplicationState"]
+- !private ["Ps7CVarArg", "UIColor"]
 - !private ["Ps7CVarArg", "UIDevice"]
+- !private ["Ps7CVarArg", "UINavigationBar"]
 - !private ["Ps7CVarArg", "UIStoryboard"]
+- !private ["Ps7CVarArg", "Value"]
 - !private ["Ps7CVarArg", "_DisabledRangeIndex"]
 - !private ["Ps7CVarArg", "_Element"]
+- !private ["Ps7CVarArg", "appearance"]
 - ["Ps7CVarArg", "application"]
 - ["Ps7CVarArg", "applicationDidBecomeActive"]
 - ["Ps7CVarArg", "applicationDidEnterBackground"]
@@ -333,8 +362,10 @@ depends-member:
 - !private ["Ps7CVarArg", "setLogLevel"]
 - !private ["Ps7CVarArg", "setStatsReportTimeInterval"]
 - !private ["Ps7CVarArg", "subscript"]
+- !private ["Ps7CVarArg", "titleTextAttributes"]
 - !private ["Ps7CVarArg", "userInfo"]
 - !private ["Ps7CVarArg", "viewContext"]
+- !private ["Ps7CVarArg", "white"]
 - ["Ps7CVarArg", "window"]
 - ["Ps7CVarArg", ""]
 - !private ["Vs9Character", "deinit"]
@@ -343,7 +374,9 @@ depends-member:
 - !private ["Ps10Collection", "Index"]
 - !private ["Ps10Collection", "IndexDistance"]
 - !private ["Ps10Collection", "Iterator"]
+- !private ["Ps10Collection", "Key"]
 - !private ["Ps10Collection", "SubSequence"]
+- !private ["Ps10Collection", "Value"]
 - !private ["Ps10Collection", "_Element"]
 - !private ["Ps10Collection", "subscript"]
 - !private ["Ps10Comparable", "IntegerLiteralType"]
@@ -353,8 +386,12 @@ depends-member:
 - !private ["Ps10Comparable", "isEmpty"]
 - !private ["Ps10Comparable", "localized"]
 - !private ["Ps28CustomDebugStringConvertible", "DispatchQueue"]
+- !private ["Ps28CustomDebugStringConvertible", "Fonts"]
 - !private ["Ps28CustomDebugStringConvertible", "Index"]
 - !private ["Ps28CustomDebugStringConvertible", "IndexDistance"]
+- !private ["Ps28CustomDebugStringConvertible", "Key"]
+- !private ["Ps28CustomDebugStringConvertible", "NSFontAttributeName"]
+- !private ["Ps28CustomDebugStringConvertible", "NSForegroundColorAttributeName"]
 - !private ["Ps28CustomDebugStringConvertible", "NSPersistentContainer"]
 - !private ["Ps28CustomDebugStringConvertible", "QBLogLevel"]
 - !private ["Ps28CustomDebugStringConvertible", "QBMNotificationChannel"]
@@ -366,9 +403,13 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "ServicesManager"]
 - !private ["Ps28CustomDebugStringConvertible", "SubSequence"]
 - !private ["Ps28CustomDebugStringConvertible", "UIApplicationState"]
+- !private ["Ps28CustomDebugStringConvertible", "UIColor"]
 - !private ["Ps28CustomDebugStringConvertible", "UIDevice"]
+- !private ["Ps28CustomDebugStringConvertible", "UINavigationBar"]
 - !private ["Ps28CustomDebugStringConvertible", "UIStoryboard"]
+- !private ["Ps28CustomDebugStringConvertible", "Value"]
 - !private ["Ps28CustomDebugStringConvertible", "_Element"]
+- !private ["Ps28CustomDebugStringConvertible", "appearance"]
 - ["Ps28CustomDebugStringConvertible", "application"]
 - ["Ps28CustomDebugStringConvertible", "applicationDidBecomeActive"]
 - ["Ps28CustomDebugStringConvertible", "applicationDidEnterBackground"]
@@ -439,9 +480,11 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "setLogLevel"]
 - !private ["Ps28CustomDebugStringConvertible", "setStatsReportTimeInterval"]
 - !private ["Ps28CustomDebugStringConvertible", "subscript"]
+- !private ["Ps28CustomDebugStringConvertible", "titleTextAttributes"]
 - !private ["Ps28CustomDebugStringConvertible", "userInfo"]
 - !private ["Ps28CustomDebugStringConvertible", "uuidString"]
 - !private ["Ps28CustomDebugStringConvertible", "viewContext"]
+- !private ["Ps28CustomDebugStringConvertible", "white"]
 - ["Ps28CustomDebugStringConvertible", "window"]
 - ["Ps28CustomDebugStringConvertible", ""]
 - !private ["Ps29CustomPlaygroundQuickLookable", "IntegerLiteralType"]
@@ -454,8 +497,10 @@ depends-member:
 - !private ["Ps17CustomReflectable", "Index"]
 - !private ["Ps17CustomReflectable", "IndexDistance"]
 - !private ["Ps17CustomReflectable", "IntegerLiteralType"]
+- !private ["Ps17CustomReflectable", "Key"]
 - !private ["Ps17CustomReflectable", "Stride"]
 - !private ["Ps17CustomReflectable", "SubSequence"]
+- !private ["Ps17CustomReflectable", "Value"]
 - !private ["Ps17CustomReflectable", "_DisabledRangeIndex"]
 - !private ["Ps17CustomReflectable", "_Element"]
 - !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
@@ -465,9 +510,13 @@ depends-member:
 - !private ["Ps17CustomReflectable", "subscript"]
 - !private ["Ps17CustomReflectable", "uuidString"]
 - !private ["Ps23CustomStringConvertible", "DispatchQueue"]
+- !private ["Ps23CustomStringConvertible", "Fonts"]
 - !private ["Ps23CustomStringConvertible", "Index"]
 - !private ["Ps23CustomStringConvertible", "IndexDistance"]
 - !private ["Ps23CustomStringConvertible", "IntegerLiteralType"]
+- !private ["Ps23CustomStringConvertible", "Key"]
+- !private ["Ps23CustomStringConvertible", "NSFontAttributeName"]
+- !private ["Ps23CustomStringConvertible", "NSForegroundColorAttributeName"]
 - !private ["Ps23CustomStringConvertible", "NSPersistentContainer"]
 - !private ["Ps23CustomStringConvertible", "QBLogLevel"]
 - !private ["Ps23CustomStringConvertible", "QBMNotificationChannel"]
@@ -480,11 +529,15 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "Stride"]
 - !private ["Ps23CustomStringConvertible", "SubSequence"]
 - !private ["Ps23CustomStringConvertible", "UIApplicationState"]
+- !private ["Ps23CustomStringConvertible", "UIColor"]
 - !private ["Ps23CustomStringConvertible", "UIDevice"]
+- !private ["Ps23CustomStringConvertible", "UINavigationBar"]
 - !private ["Ps23CustomStringConvertible", "UIStoryboard"]
+- !private ["Ps23CustomStringConvertible", "Value"]
 - !private ["Ps23CustomStringConvertible", "_DisabledRangeIndex"]
 - !private ["Ps23CustomStringConvertible", "_Element"]
 - !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "appearance"]
 - ["Ps23CustomStringConvertible", "application"]
 - ["Ps23CustomStringConvertible", "applicationDidBecomeActive"]
 - ["Ps23CustomStringConvertible", "applicationDidEnterBackground"]
@@ -555,15 +608,19 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "setLogLevel"]
 - !private ["Ps23CustomStringConvertible", "setStatsReportTimeInterval"]
 - !private ["Ps23CustomStringConvertible", "subscript"]
+- !private ["Ps23CustomStringConvertible", "titleTextAttributes"]
 - !private ["Ps23CustomStringConvertible", "userInfo"]
 - !private ["Ps23CustomStringConvertible", "uuidString"]
 - !private ["Ps23CustomStringConvertible", "viewContext"]
+- !private ["Ps23CustomStringConvertible", "white"]
 - ["Ps23CustomStringConvertible", "window"]
 - ["Ps23CustomStringConvertible", ""]
 - ["V10Foundation4Data", "deinit"]
 - !private ["Vs10Dictionary", "Index"]
 - !private ["Vs10Dictionary", "IndexDistance"]
+- !private ["Vs10Dictionary", "Key"]
 - !private ["Vs10Dictionary", "SubSequence"]
+- !private ["Vs10Dictionary", "Value"]
 - !private ["Vs10Dictionary", "_Element"]
 - ["Vs10Dictionary", "deinit"]
 - !private ["Vs10Dictionary", "subscript"]
@@ -576,7 +633,10 @@ depends-member:
 - ["Sd", "deinit"]
 - !private ["Ps9Equatable", "APNS"]
 - !private ["Ps9Equatable", "DispatchQueue"]
+- !private ["Ps9Equatable", "Fonts"]
 - !private ["Ps9Equatable", "IntegerLiteralType"]
+- !private ["Ps9Equatable", "NSFontAttributeName"]
+- !private ["Ps9Equatable", "NSForegroundColorAttributeName"]
 - !private ["Ps9Equatable", "NSPersistentContainer"]
 - !private ["Ps9Equatable", "QBLogLevel"]
 - !private ["Ps9Equatable", "QBMNotificationChannel"]
@@ -589,10 +649,13 @@ depends-member:
 - !private ["Ps9Equatable", "ServicesManager"]
 - !private ["Ps9Equatable", "Stride"]
 - !private ["Ps9Equatable", "UIApplicationState"]
+- !private ["Ps9Equatable", "UIColor"]
 - !private ["Ps9Equatable", "UIDevice"]
+- !private ["Ps9Equatable", "UINavigationBar"]
 - !private ["Ps9Equatable", "UIStoryboard"]
 - !private ["Ps9Equatable", "_DisabledRangeIndex"]
 - !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- !private ["Ps9Equatable", "appearance"]
 - ["Ps9Equatable", "application"]
 - ["Ps9Equatable", "applicationDidBecomeActive"]
 - ["Ps9Equatable", "applicationDidEnterBackground"]
@@ -664,9 +727,11 @@ depends-member:
 - !private ["Ps9Equatable", "setDisconnectTimeInterval"]
 - !private ["Ps9Equatable", "setLogLevel"]
 - !private ["Ps9Equatable", "setStatsReportTimeInterval"]
+- !private ["Ps9Equatable", "titleTextAttributes"]
 - !private ["Ps9Equatable", "userInfo"]
 - !private ["Ps9Equatable", "uuidString"]
 - !private ["Ps9Equatable", "viewContext"]
+- !private ["Ps9Equatable", "white"]
 - ["Ps9Equatable", "window"]
 - ["Ps9Equatable", ""]
 - ["Ps5Error", "deinit"]
@@ -674,7 +739,9 @@ depends-member:
 - !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
 - !private ["Ps30ExpressibleByDictionaryLiteral", "Index"]
 - !private ["Ps30ExpressibleByDictionaryLiteral", "IndexDistance"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "Key"]
 - !private ["Ps30ExpressibleByDictionaryLiteral", "SubSequence"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "Value"]
 - !private ["Ps30ExpressibleByDictionaryLiteral", "_Element"]
 - !private ["Ps30ExpressibleByDictionaryLiteral", "subscript"]
 - ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
@@ -693,9 +760,13 @@ depends-member:
 - !private ["Ps33ExpressibleByUnicodeScalarLiteral", "isEmpty"]
 - !private ["Ps33ExpressibleByUnicodeScalarLiteral", "localized"]
 - !private ["Sf", "deinit"]
+- !private ["V11DiabetesApp5Fonts", "GothamBoldFont"]
 - !private ["Ps8Hashable", "APNS"]
 - !private ["Ps8Hashable", "DispatchQueue"]
+- !private ["Ps8Hashable", "Fonts"]
 - !private ["Ps8Hashable", "IntegerLiteralType"]
+- !private ["Ps8Hashable", "NSFontAttributeName"]
+- !private ["Ps8Hashable", "NSForegroundColorAttributeName"]
 - !private ["Ps8Hashable", "NSPersistentContainer"]
 - !private ["Ps8Hashable", "QBLogLevel"]
 - !private ["Ps8Hashable", "QBMNotificationChannel"]
@@ -708,10 +779,13 @@ depends-member:
 - !private ["Ps8Hashable", "ServicesManager"]
 - !private ["Ps8Hashable", "Stride"]
 - !private ["Ps8Hashable", "UIApplicationState"]
+- !private ["Ps8Hashable", "UIColor"]
 - !private ["Ps8Hashable", "UIDevice"]
+- !private ["Ps8Hashable", "UINavigationBar"]
 - !private ["Ps8Hashable", "UIStoryboard"]
 - !private ["Ps8Hashable", "_DisabledRangeIndex"]
 - !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps8Hashable", "appearance"]
 - ["Ps8Hashable", "application"]
 - ["Ps8Hashable", "applicationDidBecomeActive"]
 - ["Ps8Hashable", "applicationDidEnterBackground"]
@@ -783,22 +857,28 @@ depends-member:
 - !private ["Ps8Hashable", "setDisconnectTimeInterval"]
 - !private ["Ps8Hashable", "setLogLevel"]
 - !private ["Ps8Hashable", "setStatsReportTimeInterval"]
+- !private ["Ps8Hashable", "titleTextAttributes"]
 - !private ["Ps8Hashable", "userInfo"]
 - !private ["Ps8Hashable", "uuidString"]
 - !private ["Ps8Hashable", "viewContext"]
+- !private ["Ps8Hashable", "white"]
 - ["Ps8Hashable", "window"]
 - ["Ps8Hashable", ""]
 - ["SQ", "deinit"]
 - !private ["Ps9Indexable", "Index"]
 - !private ["Ps9Indexable", "IndexDistance"]
 - !private ["Ps9Indexable", "Iterator"]
+- !private ["Ps9Indexable", "Key"]
 - !private ["Ps9Indexable", "SubSequence"]
+- !private ["Ps9Indexable", "Value"]
 - !private ["Ps9Indexable", "_Element"]
 - !private ["Ps9Indexable", "subscript"]
 - !private ["Ps13IndexableBase", "Index"]
 - !private ["Ps13IndexableBase", "IndexDistance"]
 - !private ["Ps13IndexableBase", "Iterator"]
+- !private ["Ps13IndexableBase", "Key"]
 - !private ["Ps13IndexableBase", "SubSequence"]
+- !private ["Ps13IndexableBase", "Value"]
 - !private ["Ps13IndexableBase", "_Element"]
 - !private ["Ps13IndexableBase", "subscript"]
 - !private ["Vs16IndexingIterator", "Element"]
@@ -827,6 +907,7 @@ depends-member:
 - ["Ps10MirrorPath", "init"]
 - !private ["Ps10MirrorPath", "isEmpty"]
 - !private ["Ps10MirrorPath", "localized"]
+- !private ["PSo8NSCoding", "appearance"]
 - !private ["PSo8NSCoding", "deviceToken"]
 - !private ["PSo8NSCoding", "deviceUDID"]
 - !private ["PSo8NSCoding", "dialog"]
@@ -839,7 +920,9 @@ depends-member:
 - !private ["PSo8NSCoding", "pushViewController"]
 - !private ["PSo8NSCoding", "rootViewController"]
 - !private ["PSo8NSCoding", "save"]
+- !private ["PSo8NSCoding", "titleTextAttributes"]
 - !private ["PSo8NSCoding", "userInfo"]
+- !private ["PSo8NSCoding", "white"]
 - !private ["PSo9NSCopying", "deviceToken"]
 - !private ["PSo9NSCopying", "deviceUDID"]
 - ["PSo9NSCopying", "init"]
@@ -847,6 +930,7 @@ depends-member:
 - !private ["PSo9NSCopying", "localized"]
 - !private ["PSo9NSCopying", "notificationChannel"]
 - !private ["PSo9NSCopying", "userInfo"]
+- !private ["PSo9NSCopying", "white"]
 - ["CSo7NSError", "deinit"]
 - !private ["CSo7NSError", "userInfo"]
 - !private ["PSo26NSExtensionRequestHandling", "dialog"]
@@ -866,7 +950,10 @@ depends-member:
 - ["CSo8NSObject", "Data"]
 - !private ["CSo8NSObject", "DispatchQueue"]
 - ["CSo8NSObject", "Error"]
+- !private ["CSo8NSObject", "Fonts"]
 - !private ["CSo8NSObject", "NSError"]
+- !private ["CSo8NSObject", "NSFontAttributeName"]
+- !private ["CSo8NSObject", "NSForegroundColorAttributeName"]
 - ["CSo8NSObject", "NSPersistentContainer"]
 - ["CSo8NSObject", "QBChatDialog"]
 - !private ["CSo8NSObject", "QBLogLevel"]
@@ -884,11 +971,14 @@ depends-member:
 - ["CSo8NSObject", "UIApplication"]
 - ["CSo8NSObject", "UIApplicationLaunchOptionsKey"]
 - !private ["CSo8NSObject", "UIApplicationState"]
+- !private ["CSo8NSObject", "UIColor"]
 - !private ["CSo8NSObject", "UIDevice"]
+- !private ["CSo8NSObject", "UINavigationBar"]
 - !private ["CSo8NSObject", "UINavigationController"]
 - !private ["CSo8NSObject", "UIStoryboard"]
 - ["CSo8NSObject", "UIWindow"]
 - !private ["CSo8NSObject", "Void"]
+- !private ["CSo8NSObject", "appearance"]
 - ["CSo8NSObject", "application"]
 - ["CSo8NSObject", "applicationDidBecomeActive"]
 - ["CSo8NSObject", "applicationDidEnterBackground"]
@@ -958,10 +1048,15 @@ depends-member:
 - !private ["CSo8NSObject", "setDisconnectTimeInterval"]
 - !private ["CSo8NSObject", "setLogLevel"]
 - !private ["CSo8NSObject", "setStatsReportTimeInterval"]
+- !private ["CSo8NSObject", "titleTextAttributes"]
 - !private ["CSo8NSObject", "userInfo"]
 - !private ["CSo8NSObject", "viewContext"]
+- !private ["CSo8NSObject", "white"]
 - ["CSo8NSObject", "window"]
 - !private ["PSo16NSObjectProtocol", "DispatchQueue"]
+- !private ["PSo16NSObjectProtocol", "Fonts"]
+- !private ["PSo16NSObjectProtocol", "NSFontAttributeName"]
+- !private ["PSo16NSObjectProtocol", "NSForegroundColorAttributeName"]
 - !private ["PSo16NSObjectProtocol", "NSPersistentContainer"]
 - !private ["PSo16NSObjectProtocol", "QBLogLevel"]
 - !private ["PSo16NSObjectProtocol", "QBMNotificationChannel"]
@@ -972,8 +1067,11 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "QBSettings"]
 - !private ["PSo16NSObjectProtocol", "ServicesManager"]
 - !private ["PSo16NSObjectProtocol", "UIApplicationState"]
+- !private ["PSo16NSObjectProtocol", "UIColor"]
 - !private ["PSo16NSObjectProtocol", "UIDevice"]
+- !private ["PSo16NSObjectProtocol", "UINavigationBar"]
 - !private ["PSo16NSObjectProtocol", "UIStoryboard"]
+- !private ["PSo16NSObjectProtocol", "appearance"]
 - ["PSo16NSObjectProtocol", "application"]
 - ["PSo16NSObjectProtocol", "applicationDidBecomeActive"]
 - ["PSo16NSObjectProtocol", "applicationDidEnterBackground"]
@@ -1043,8 +1141,10 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "setDisconnectTimeInterval"]
 - !private ["PSo16NSObjectProtocol", "setLogLevel"]
 - !private ["PSo16NSObjectProtocol", "setStatsReportTimeInterval"]
+- !private ["PSo16NSObjectProtocol", "titleTextAttributes"]
 - !private ["PSo16NSObjectProtocol", "userInfo"]
 - !private ["PSo16NSObjectProtocol", "viewContext"]
+- !private ["PSo16NSObjectProtocol", "white"]
 - ["PSo16NSObjectProtocol", "window"]
 - ["PSo16NSObjectProtocol", ""]
 - ["CSo21NSPersistentContainer", "deinit"]
@@ -1055,6 +1155,7 @@ depends-member:
 - !private ["PSo14NSSecureCoding", "isEmpty"]
 - !private ["PSo14NSSecureCoding", "localized"]
 - !private ["PSo14NSSecureCoding", "userInfo"]
+- !private ["PSo14NSSecureCoding", "white"]
 - ["CSo8NSString", "init"]
 - !private ["CSo8NSString", "isEmpty"]
 - !private ["CSo8NSString", "localized"]
@@ -1062,6 +1163,9 @@ depends-member:
 - !private ["C11DiabetesApp19NotificationService", "handlePushNotificationWithDelegate"]
 - !private ["C11DiabetesApp19NotificationService", "pushDialogID"]
 - !private ["P11DiabetesApp27NotificationServiceDelegate", "DispatchQueue"]
+- !private ["P11DiabetesApp27NotificationServiceDelegate", "Fonts"]
+- !private ["P11DiabetesApp27NotificationServiceDelegate", "NSFontAttributeName"]
+- !private ["P11DiabetesApp27NotificationServiceDelegate", "NSForegroundColorAttributeName"]
 - !private ["P11DiabetesApp27NotificationServiceDelegate", "NSPersistentContainer"]
 - !private ["P11DiabetesApp27NotificationServiceDelegate", "QBLogLevel"]
 - !private ["P11DiabetesApp27NotificationServiceDelegate", "QBMNotificationChannel"]
@@ -1072,7 +1176,9 @@ depends-member:
 - !private ["P11DiabetesApp27NotificationServiceDelegate", "QBSettings"]
 - !private ["P11DiabetesApp27NotificationServiceDelegate", "ServicesManager"]
 - !private ["P11DiabetesApp27NotificationServiceDelegate", "UIApplicationState"]
+- !private ["P11DiabetesApp27NotificationServiceDelegate", "UIColor"]
 - !private ["P11DiabetesApp27NotificationServiceDelegate", "UIDevice"]
+- !private ["P11DiabetesApp27NotificationServiceDelegate", "UINavigationBar"]
 - !private ["P11DiabetesApp27NotificationServiceDelegate", "UIStoryboard"]
 - ["P11DiabetesApp27NotificationServiceDelegate", "application"]
 - ["P11DiabetesApp27NotificationServiceDelegate", "applicationDidBecomeActive"]
@@ -1186,7 +1292,9 @@ depends-member:
 - !private ["Ps8Sequence", "Index"]
 - !private ["Ps8Sequence", "IndexDistance"]
 - !private ["Ps8Sequence", "Iterator"]
+- !private ["Ps8Sequence", "Key"]
 - !private ["Ps8Sequence", "SubSequence"]
+- !private ["Ps8Sequence", "Value"]
 - !private ["Ps8Sequence", "_Element"]
 - !private ["Ps8Sequence", "subscript"]
 - !private ["C11DiabetesApp15ServicesManager", "chatService"]
@@ -1219,17 +1327,26 @@ depends-member:
 - ["Ps20TextOutputStreamable", "init"]
 - !private ["Ps20TextOutputStreamable", "isEmpty"]
 - !private ["Ps20TextOutputStreamable", "localized"]
+- !private ["PSo29UIAccessibilityIdentification", "appearance"]
 - !private ["PSo29UIAccessibilityIdentification", "rootViewController"]
+- !private ["PSo29UIAccessibilityIdentification", "titleTextAttributes"]
 - !private ["PSo21UIActionSheetDelegate", "dialog"]
+- !private ["PSo12UIAppearance", "appearance"]
 - !private ["PSo12UIAppearance", "rootViewController"]
+- !private ["PSo12UIAppearance", "titleTextAttributes"]
+- !private ["PSo21UIAppearanceContainer", "appearance"]
 - !private ["PSo21UIAppearanceContainer", "dialog"]
 - !private ["PSo21UIAppearanceContainer", "popViewController"]
 - !private ["PSo21UIAppearanceContainer", "pushViewController"]
 - !private ["PSo21UIAppearanceContainer", "rootViewController"]
+- !private ["PSo21UIAppearanceContainer", "titleTextAttributes"]
 - !private ["CSo13UIApplication", "applicationIconBadgeNumber"]
 - !private ["CSo13UIApplication", "applicationState"]
 - ["CSo13UIApplication", "deinit"]
 - !private ["PSo21UIApplicationDelegate", "DispatchQueue"]
+- !private ["PSo21UIApplicationDelegate", "Fonts"]
+- !private ["PSo21UIApplicationDelegate", "NSFontAttributeName"]
+- !private ["PSo21UIApplicationDelegate", "NSForegroundColorAttributeName"]
 - !private ["PSo21UIApplicationDelegate", "NSPersistentContainer"]
 - !private ["PSo21UIApplicationDelegate", "QBLogLevel"]
 - !private ["PSo21UIApplicationDelegate", "QBMNotificationChannel"]
@@ -1240,7 +1357,9 @@ depends-member:
 - !private ["PSo21UIApplicationDelegate", "QBSettings"]
 - !private ["PSo21UIApplicationDelegate", "ServicesManager"]
 - !private ["PSo21UIApplicationDelegate", "UIApplicationState"]
+- !private ["PSo21UIApplicationDelegate", "UIColor"]
 - !private ["PSo21UIApplicationDelegate", "UIDevice"]
+- !private ["PSo21UIApplicationDelegate", "UINavigationBar"]
 - !private ["PSo21UIApplicationDelegate", "UIStoryboard"]
 - ["PSo21UIApplicationDelegate", "application"]
 - ["PSo21UIApplicationDelegate", "applicationDidBecomeActive"]
@@ -1274,23 +1393,39 @@ depends-member:
 - !private ["OSC18UIApplicationState", "RawValue"]
 - ["OSC18UIApplicationState", "deinit"]
 - !private ["OSC18UIApplicationState", "inactive"]
+- !private ["PSo16UIBarPositioning", "appearance"]
+- !private ["PSo16UIBarPositioning", "titleTextAttributes"]
 - !private ["PSo26UICollectionViewDataSource", "dialog"]
 - !private ["PSo24UICollectionViewDelegate", "dialog"]
 - !private ["PSo34UICollectionViewDelegateFlowLayout", "dialog"]
+- ["CSo7UIColor", "deinit"]
+- !private ["CSo7UIColor", "white"]
 - !private ["PSo18UIContentContainer", "dialog"]
 - !private ["PSo18UIContentContainer", "popViewController"]
 - !private ["PSo18UIContentContainer", "pushViewController"]
+- !private ["PSo17UICoordinateSpace", "appearance"]
 - !private ["PSo17UICoordinateSpace", "rootViewController"]
+- !private ["PSo17UICoordinateSpace", "titleTextAttributes"]
 - !private ["CSo8UIDevice", "current"]
 - ["CSo8UIDevice", "deinit"]
 - !private ["CSo8UIDevice", "identifierForVendor"]
+- !private ["PSo13UIDynamicItem", "appearance"]
 - !private ["PSo13UIDynamicItem", "rootViewController"]
+- !private ["PSo13UIDynamicItem", "titleTextAttributes"]
+- !private ["PSo18UIFocusEnvironment", "appearance"]
 - !private ["PSo18UIFocusEnvironment", "dialog"]
 - !private ["PSo18UIFocusEnvironment", "popViewController"]
 - !private ["PSo18UIFocusEnvironment", "pushViewController"]
 - !private ["PSo18UIFocusEnvironment", "rootViewController"]
+- !private ["PSo18UIFocusEnvironment", "titleTextAttributes"]
+- !private ["PSo11UIFocusItem", "appearance"]
 - !private ["PSo11UIFocusItem", "rootViewController"]
+- !private ["PSo11UIFocusItem", "titleTextAttributes"]
+- ["CSo6UIFont", "deinit"]
 - !private ["PSo31UIImagePickerControllerDelegate", "dialog"]
+- !private ["CSo15UINavigationBar", "appearance"]
+- ["CSo15UINavigationBar", "deinit"]
+- !private ["CSo15UINavigationBar", "titleTextAttributes"]
 - ["CSo22UINavigationController", "deinit"]
 - !private ["CSo22UINavigationController", "popViewController"]
 - !private ["CSo22UINavigationController", "pushViewController"]
@@ -1301,7 +1436,10 @@ depends-member:
 - ["CSo11UIResponder", "Data"]
 - !private ["CSo11UIResponder", "DispatchQueue"]
 - ["CSo11UIResponder", "Error"]
+- !private ["CSo11UIResponder", "Fonts"]
 - !private ["CSo11UIResponder", "NSError"]
+- !private ["CSo11UIResponder", "NSFontAttributeName"]
+- !private ["CSo11UIResponder", "NSForegroundColorAttributeName"]
 - ["CSo11UIResponder", "NSPersistentContainer"]
 - ["CSo11UIResponder", "QBChatDialog"]
 - !private ["CSo11UIResponder", "QBLogLevel"]
@@ -1319,11 +1457,14 @@ depends-member:
 - ["CSo11UIResponder", "UIApplication"]
 - ["CSo11UIResponder", "UIApplicationLaunchOptionsKey"]
 - !private ["CSo11UIResponder", "UIApplicationState"]
+- !private ["CSo11UIResponder", "UIColor"]
 - !private ["CSo11UIResponder", "UIDevice"]
+- !private ["CSo11UIResponder", "UINavigationBar"]
 - !private ["CSo11UIResponder", "UINavigationController"]
 - !private ["CSo11UIResponder", "UIStoryboard"]
 - ["CSo11UIResponder", "UIWindow"]
 - !private ["CSo11UIResponder", "Void"]
+- !private ["CSo11UIResponder", "appearance"]
 - ["CSo11UIResponder", "application"]
 - ["CSo11UIResponder", "applicationDidBecomeActive"]
 - ["CSo11UIResponder", "applicationDidEnterBackground"]
@@ -1362,9 +1503,13 @@ depends-member:
 - !private ["CSo11UIResponder", "rootViewController"]
 - ["CSo11UIResponder", "saveContext"]
 - ["CSo11UIResponder", "session"]
+- !private ["CSo11UIResponder", "titleTextAttributes"]
 - ["CSo11UIResponder", "window"]
 - ["CSo11UIResponder", ""]
 - !private ["PSo30UIResponderStandardEditActions", "DispatchQueue"]
+- !private ["PSo30UIResponderStandardEditActions", "Fonts"]
+- !private ["PSo30UIResponderStandardEditActions", "NSFontAttributeName"]
+- !private ["PSo30UIResponderStandardEditActions", "NSForegroundColorAttributeName"]
 - !private ["PSo30UIResponderStandardEditActions", "NSPersistentContainer"]
 - !private ["PSo30UIResponderStandardEditActions", "QBLogLevel"]
 - !private ["PSo30UIResponderStandardEditActions", "QBMNotificationChannel"]
@@ -1375,8 +1520,11 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "QBSettings"]
 - !private ["PSo30UIResponderStandardEditActions", "ServicesManager"]
 - !private ["PSo30UIResponderStandardEditActions", "UIApplicationState"]
+- !private ["PSo30UIResponderStandardEditActions", "UIColor"]
 - !private ["PSo30UIResponderStandardEditActions", "UIDevice"]
+- !private ["PSo30UIResponderStandardEditActions", "UINavigationBar"]
 - !private ["PSo30UIResponderStandardEditActions", "UIStoryboard"]
+- !private ["PSo30UIResponderStandardEditActions", "appearance"]
 - ["PSo30UIResponderStandardEditActions", "application"]
 - ["PSo30UIResponderStandardEditActions", "applicationDidBecomeActive"]
 - ["PSo30UIResponderStandardEditActions", "applicationDidEnterBackground"]
@@ -1414,6 +1562,7 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "rootViewController"]
 - ["PSo30UIResponderStandardEditActions", "saveContext"]
 - ["PSo30UIResponderStandardEditActions", "session"]
+- !private ["PSo30UIResponderStandardEditActions", "titleTextAttributes"]
 - ["PSo30UIResponderStandardEditActions", "window"]
 - ["PSo30UIResponderStandardEditActions", ""]
 - !private ["PSo20UIScrollViewDelegate", "dialog"]
@@ -1424,11 +1573,15 @@ depends-member:
 - !private ["CSo12UIStoryboard", "init"]
 - !private ["CSo12UIStoryboard", "instantiateViewController"]
 - !private ["PSo18UITextViewDelegate", "dialog"]
+- !private ["PSo18UITraitEnvironment", "appearance"]
 - !private ["PSo18UITraitEnvironment", "dialog"]
 - !private ["PSo18UITraitEnvironment", "popViewController"]
 - !private ["PSo18UITraitEnvironment", "pushViewController"]
 - !private ["PSo18UITraitEnvironment", "rootViewController"]
+- !private ["PSo18UITraitEnvironment", "titleTextAttributes"]
+- !private ["CSo6UIView", "appearance"]
 - !private ["CSo6UIView", "rootViewController"]
+- !private ["CSo6UIView", "titleTextAttributes"]
 - ["CSo16UIViewController", "deinit"]
 - !private ["CSo16UIViewController", "dialog"]
 - !private ["CSo16UIViewController", "popViewController"]
@@ -1445,7 +1598,9 @@ depends-member:
 - ["V10Foundation4UUID", "deinit"]
 - !private ["V10Foundation4UUID", "uuidString"]
 - !private ["Sc", "deinit"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "appearance"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "rootViewController"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "titleTextAttributes"]
 - !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
 - ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
 - !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "isEmpty"]
@@ -1462,12 +1617,16 @@ depends-member:
 - ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
 - !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "isEmpty"]
 - !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "localized"]
+- !private ["Ps26_ExpressibleByColorLiteral", "white"]
 - ["Ps35_HasCustomAnyHashableRepresentation", "init"]
 - !private ["Ps35_HasCustomAnyHashableRepresentation", "isEmpty"]
 - !private ["Ps35_HasCustomAnyHashableRepresentation", "localized"]
 - !private ["Ps9_Hashable", "APNS"]
 - !private ["Ps9_Hashable", "DispatchQueue"]
+- !private ["Ps9_Hashable", "Fonts"]
 - !private ["Ps9_Hashable", "IntegerLiteralType"]
+- !private ["Ps9_Hashable", "NSFontAttributeName"]
+- !private ["Ps9_Hashable", "NSForegroundColorAttributeName"]
 - !private ["Ps9_Hashable", "NSPersistentContainer"]
 - !private ["Ps9_Hashable", "QBLogLevel"]
 - !private ["Ps9_Hashable", "QBMNotificationChannel"]
@@ -1480,10 +1639,13 @@ depends-member:
 - !private ["Ps9_Hashable", "ServicesManager"]
 - !private ["Ps9_Hashable", "Stride"]
 - !private ["Ps9_Hashable", "UIApplicationState"]
+- !private ["Ps9_Hashable", "UIColor"]
 - !private ["Ps9_Hashable", "UIDevice"]
+- !private ["Ps9_Hashable", "UINavigationBar"]
 - !private ["Ps9_Hashable", "UIStoryboard"]
 - !private ["Ps9_Hashable", "_DisabledRangeIndex"]
 - !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps9_Hashable", "appearance"]
 - ["Ps9_Hashable", "application"]
 - ["Ps9_Hashable", "applicationDidBecomeActive"]
 - ["Ps9_Hashable", "applicationDidEnterBackground"]
@@ -1555,9 +1717,11 @@ depends-member:
 - !private ["Ps9_Hashable", "setDisconnectTimeInterval"]
 - !private ["Ps9_Hashable", "setLogLevel"]
 - !private ["Ps9_Hashable", "setStatsReportTimeInterval"]
+- !private ["Ps9_Hashable", "titleTextAttributes"]
 - !private ["Ps9_Hashable", "userInfo"]
 - !private ["Ps9_Hashable", "uuidString"]
 - !private ["Ps9_Hashable", "viewContext"]
+- !private ["Ps9_Hashable", "white"]
 - ["Ps9_Hashable", "window"]
 - ["Ps9_Hashable", ""]
 - !private ["Ps14_Incrementable", "IntegerLiteralType"]
@@ -1572,8 +1736,10 @@ depends-member:
 - !private ["Ps21_ObjectiveCBridgeable", "Index"]
 - !private ["Ps21_ObjectiveCBridgeable", "IndexDistance"]
 - !private ["Ps21_ObjectiveCBridgeable", "IntegerLiteralType"]
+- !private ["Ps21_ObjectiveCBridgeable", "Key"]
 - !private ["Ps21_ObjectiveCBridgeable", "Stride"]
 - !private ["Ps21_ObjectiveCBridgeable", "SubSequence"]
+- !private ["Ps21_ObjectiveCBridgeable", "Value"]
 - !private ["Ps21_ObjectiveCBridgeable", "_DisabledRangeIndex"]
 - !private ["Ps21_ObjectiveCBridgeable", "_Element"]
 - !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
@@ -1620,6 +1786,7 @@ depends-nominal:
 - "Ps26ExpressibleByStringLiteral"
 - "Ps33ExpressibleByUnicodeScalarLiteral"
 - !private "Sf"
+- !private "V11DiabetesApp5Fonts"
 - "Ps8Hashable"
 - "SQ"
 - !private "Ps9Indexable"
@@ -1696,16 +1863,20 @@ depends-nominal:
 - "CSo13UIApplication"
 - "PSo21UIApplicationDelegate"
 - "OSC18UIApplicationState"
+- !private "PSo16UIBarPositioning"
 - !private "PSo26UICollectionViewDataSource"
 - !private "PSo24UICollectionViewDelegate"
 - !private "PSo34UICollectionViewDelegateFlowLayout"
+- "CSo7UIColor"
 - !private "PSo18UIContentContainer"
 - !private "PSo17UICoordinateSpace"
 - "CSo8UIDevice"
 - !private "PSo13UIDynamicItem"
 - !private "PSo18UIFocusEnvironment"
 - !private "PSo11UIFocusItem"
+- "CSo6UIFont"
 - !private "PSo31UIImagePickerControllerDelegate"
+- "CSo15UINavigationBar"
 - "CSo22UINavigationController"
 - !private "PSo30UINavigationControllerDelegate"
 - "CSo11UIResponder"
@@ -1733,6 +1904,7 @@ depends-nominal:
 - "Ps34_ExpressibleByBuiltinStringLiteral"
 - "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
 - "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- !private "Ps26_ExpressibleByColorLiteral"
 - "Ps35_HasCustomAnyHashableRepresentation"
 - "Ps9_Hashable"
 - !private "Ps14_Incrementable"
@@ -1869,11 +2041,11 @@ depends-external:
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/DiabetesApp/AVPermisions/QBAVCallPermissions.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/DiabetesApp/Core/QBCore.h"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreData.swiftmodule"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Alamofire/Alamofire.framework/Modules/Alamofire.swiftmodule/arm64.swiftmodule"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Alamofire/Alamofire.framework/Headers/Alamofire-Swift.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Alamofire/Alamofire.framework/Headers/Alamofire-umbrella.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Alamofire/Alamofire.framework/Modules/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreData.swiftmodule"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework/Headers/SVRadialGradientLayer.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework/Headers/SVProgressHUD.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework/Headers/SVProgressAnimatedView.h"

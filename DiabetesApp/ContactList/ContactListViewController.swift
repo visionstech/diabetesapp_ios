@@ -30,6 +30,8 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
             getDoctorEducators()
         }
         else if selectedUserType == userType.educator {
+            getEducatorsDoctors()
+            getEducatorsPatients()
             
         }
         
@@ -174,7 +176,7 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
         }
         
         // No user selected
-        if selectesUsers.count > 2 {
+        if selectesUsers.count < 2 {
             
             _ = AlertView(title: "Error", message: "You need to select one patient and one doctor.", cancelButtonTitle: "OK", otherButtonTitle: [""], didClick: { (buttonIndex) in
             })
@@ -305,6 +307,7 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
         return 50
     }
     
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         var obj: ContactObj = ContactObj()
@@ -326,7 +329,8 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
             
             if selectedUserType == userType.educator {
                 self.resetSelectedUsers(indexPath: indexPath)
-                tableView.reloadRows(at: [indexPath], with: .none)
+                //tableView.reloadRows(at: [indexPath], with: .none)
+                tableView .reloadData()
             }
             
         }
@@ -534,6 +538,75 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
             
         }
     }
+    
+    func getEducatorsDoctors()  {
+        let doctorID: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserID)!
+        let parameters: Parameters = [
+            "id": doctorID
+        ]
+        
+        Alamofire.request("\(baseUrl)\(ApiMethods.getEduDoctors)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+            switch response.result {
+            case .success:
+                print("Validation Successful")
+                if let JSON: NSArray = response.result.value as? NSArray {
+                    for data in JSON {
+                        let dict: NSDictionary = data as! NSDictionary
+                        let contactObj = ContactObj()
+                        contactObj.patient_id = dict.value(forKey: "_id") as! String
+                        contactObj.chatid = dict.value(forKey: "chatid") as! String
+                        contactObj.full_name = dict.value(forKey: "fullname") as! String
+                        contactObj.username = dict.value(forKey: "username") as! String
+                        contactObj.isSelected = "0"
+                        self.doctorList.add(contactObj)
+                    }
+                    self.tableView.reloadData()
+                }
+                
+                break
+            case .failure:
+                break
+                
+            }
+            
+        }
+    }
+    
+    func getEducatorsPatients()  {
+        let patientID: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserID)!
+        let parameters: Parameters = [
+            "id": patientID
+        ]
+        
+        Alamofire.request("\(baseUrl)\(ApiMethods.getEduPatients)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+            switch response.result {
+            case .success:
+                print("Validation Successful")
+                if let JSON: NSArray = response.result.value as? NSArray {
+                    for data in JSON {
+                        let dict: NSDictionary = data as! NSDictionary
+                        let contactObj = ContactObj()
+                        contactObj.patient_id = dict.value(forKey: "_id") as! String
+                        contactObj.chatid = dict.value(forKey: "chatid") as! String
+                        contactObj.full_name = dict.value(forKey: "fullname") as! String
+                        contactObj.username = dict.value(forKey: "username") as! String
+                        contactObj.isSelected = "0"
+                        self.patientList.add(contactObj)
+                    }
+                    self.tableView.reloadData()
+                }
+                
+                break
+            case .failure:
+                break
+                
+            }
+            
+        }
+    }
+    
+    
+    
     
     /*
      // MARK: - Navigation

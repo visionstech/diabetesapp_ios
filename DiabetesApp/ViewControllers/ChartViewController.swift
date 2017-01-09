@@ -32,8 +32,12 @@ class ChartViewController: UIViewController, LineChartDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-       setUI()
-       
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setUI()
+
     }
     
     override func viewDidDisappear(_ animated: Bool) {

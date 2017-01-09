@@ -6,74 +6,75 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp19LoginViewController", ""]
 provides-dynamic-lookup:
-- "segmentUserType"
-- "viewDidLoad"
-- "textFieldShouldReturn"
-- "doctorBtn"
-- "didReceiveMemoryWarning"
-- "navigateToNextScreen"
-- "selectedUserType"
-- "SelectUserTypBtns_Click"
-- "usernameTxtFld"
-- "LoginBtn_Click"
-- "registerForRemoteNotification"
-- "patientBtn"
-- "viewWillAppear"
-- "checkLoginStatus"
 - "passwordTxtFld"
+- "selectedUserType"
+- "LoginBtn_Click"
+- "viewDidLoad"
+- "SelectUserTypBtns_Click"
+- "navigateToNextScreen"
+- "patientBtn"
+- "checkLoginStatus"
+- "didReceiveMemoryWarning"
+- "textFieldShouldReturn"
+- "registerForRemoteNotification"
+- "usernameTxtFld"
+- "viewWillAppear"
+- "doctorBtn"
 - "loginToQuickBlox"
+- "segmentUserType"
 depends-top-level:
-- !private "UIUserNotificationType"
-- !private "AnyObject"
-- !private "QBRequest"
-- !private "NSDictionary"
-- !private "SVProgressHUDMaskType"
-- !private "UserDefaults"
-- "String"
-- !private "ViewIdentifiers"
-- !private "!"
-- !private "||"
-- !private "UIImage"
-- !private "UtilityClass"
-- !private "CharacterSet"
-- !private "QBUUser"
-- !private "NSMutableArray"
-- !private "SVProgressHUD"
-- "UITextField"
-- !private "Parameters"
-- !private "Alamofire"
-- "UIButton"
-- "CastingPrecedence"
-- !private "Void"
-- !private "HomeTabBarController"
-- !private "=="
-- "AssignmentPrecedence"
-- "Int"
-- "UISegmentedControl"
-- !private "QBChat"
-- !private "AppDelegate"
 - "LoginViewController"
-- !private "Array"
-- !private "DialogsViewController"
-- !private "BooleanLiteralType"
-- !private "JSONEncoding"
-- !private "NSNumber"
-- !private "UIApplication"
-- !private "Colors"
-- !private "UIColor"
-- !private "userDefaults"
-- !private "Dictionary"
-- !private "UIUserNotificationSettings"
-- !private "UIRemoteNotificationType"
-- "QBCoreDelegate"
-- !private "baseUrl"
-- "Bool"
 - !private "UIBarButtonItem"
+- !private "Colors"
+- !private "UIImage"
+- "Int"
+- !private "UIUserNotificationType"
+- !private "UIRemoteNotificationType"
+- !private "SVProgressHUDMaskType"
+- !private "AnyObject"
+- !private "UserDefaults"
+- !private "!"
+- !private "BooleanLiteralType"
+- !private "Void"
+- !private "CharacterSet"
+- !private "UIApplication"
+- !private "userDefaults"
+- !private "UIUserNotificationSettings"
 - "UIViewController"
-- !private "ApiMethods"
-- !private "userType"
-- !private "ServicesManager"
+- !private "QBUUser"
 - !private "print"
+- !private "DialogsViewController"
+- !private "AppDelegate"
+- !private "StringLiteralType"
+- !private "NSDictionary"
+- !private "NSMutableArray"
+- !private "ViewIdentifiers"
+- !private "QBChat"
+- !private "SVProgressHUD"
+- !private "ApiMethods"
+- !private "||"
+- !private "baseUrl"
+- !private "UIColor"
+- "Bool"
+- !private "userType"
+- !private "UtilityClass"
+- !private "Alamofire"
+- "QBCoreDelegate"
+- !private "NSNumber"
+- "String"
+- !private "JSONEncoding"
+- !private "ServicesManager"
+- !private "HomeTabBarController"
+- "UITextField"
+- "UISegmentedControl"
+- "CastingPrecedence"
+- "AssignmentPrecedence"
+- "UIButton"
+- !private "Dictionary"
+- !private "=="
+- !private "Parameters"
+- !private "Array"
+- !private "QBRequest"
 depends-member:
 - !private ["Ps9AnyObject", "Alamofire"]
 - !private ["Ps9AnyObject", "ApiMethods"]
@@ -111,6 +112,7 @@ depends-member:
 - ["Ps9AnyObject", "coreDidLogin"]
 - ["Ps9AnyObject", "coreDidLogout"]
 - !private ["Ps9AnyObject", "currentUser"]
+- !private ["Ps9AnyObject", "customData"]
 - !private ["Ps9AnyObject", "data"]
 - ["Ps9AnyObject", "deinit"]
 - !private ["Ps9AnyObject", "delegate"]
@@ -121,6 +123,7 @@ depends-member:
 - !private ["Ps9AnyObject", "email"]
 - !private ["Ps9AnyObject", "endEditing"]
 - !private ["Ps9AnyObject", "fullName"]
+- !private ["Ps9AnyObject", "hidesBackButton"]
 - !private ["Ps9AnyObject", "init"]
 - !private ["Ps9AnyObject", "instance"]
 - !private ["Ps9AnyObject", "instantiateViewController"]
@@ -232,6 +235,7 @@ depends-member:
 - ["Ps7CVarArg", "coreDidLogin"]
 - ["Ps7CVarArg", "coreDidLogout"]
 - !private ["Ps7CVarArg", "currentUser"]
+- !private ["Ps7CVarArg", "customData"]
 - !private ["Ps7CVarArg", "data"]
 - !private ["Ps7CVarArg", "delegate"]
 - ["Ps7CVarArg", "didReceiveMemoryWarning"]
@@ -241,6 +245,7 @@ depends-member:
 - !private ["Ps7CVarArg", "email"]
 - !private ["Ps7CVarArg", "endEditing"]
 - !private ["Ps7CVarArg", "fullName"]
+- !private ["Ps7CVarArg", "hidesBackButton"]
 - !private ["Ps7CVarArg", "init"]
 - !private ["Ps7CVarArg", "instance"]
 - !private ["Ps7CVarArg", "instantiateViewController"]
@@ -343,6 +348,7 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "coreDidLogin"]
 - ["Ps28CustomDebugStringConvertible", "coreDidLogout"]
 - !private ["Ps28CustomDebugStringConvertible", "currentUser"]
+- !private ["Ps28CustomDebugStringConvertible", "customData"]
 - !private ["Ps28CustomDebugStringConvertible", "data"]
 - !private ["Ps28CustomDebugStringConvertible", "delegate"]
 - !private ["Ps28CustomDebugStringConvertible", "description"]
@@ -354,6 +360,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "endEditing"]
 - !private ["Ps28CustomDebugStringConvertible", "failure"]
 - !private ["Ps28CustomDebugStringConvertible", "fullName"]
+- !private ["Ps28CustomDebugStringConvertible", "hidesBackButton"]
 - !private ["Ps28CustomDebugStringConvertible", "init"]
 - !private ["Ps28CustomDebugStringConvertible", "instance"]
 - !private ["Ps28CustomDebugStringConvertible", "instantiateViewController"]
@@ -466,6 +473,7 @@ depends-member:
 - ["Ps23CustomStringConvertible", "coreDidLogin"]
 - ["Ps23CustomStringConvertible", "coreDidLogout"]
 - !private ["Ps23CustomStringConvertible", "currentUser"]
+- !private ["Ps23CustomStringConvertible", "customData"]
 - !private ["Ps23CustomStringConvertible", "data"]
 - !private ["Ps23CustomStringConvertible", "delegate"]
 - !private ["Ps23CustomStringConvertible", "description"]
@@ -477,6 +485,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "endEditing"]
 - !private ["Ps23CustomStringConvertible", "failure"]
 - !private ["Ps23CustomStringConvertible", "fullName"]
+- !private ["Ps23CustomStringConvertible", "hidesBackButton"]
 - !private ["Ps23CustomStringConvertible", "init"]
 - !private ["Ps23CustomStringConvertible", "instance"]
 - !private ["Ps23CustomStringConvertible", "instantiateViewController"]
@@ -587,6 +596,7 @@ depends-member:
 - ["Ps9Equatable", "coreDidLogin"]
 - ["Ps9Equatable", "coreDidLogout"]
 - !private ["Ps9Equatable", "currentUser"]
+- !private ["Ps9Equatable", "customData"]
 - !private ["Ps9Equatable", "data"]
 - !private ["Ps9Equatable", "delegate"]
 - !private ["Ps9Equatable", "description"]
@@ -597,6 +607,7 @@ depends-member:
 - !private ["Ps9Equatable", "email"]
 - !private ["Ps9Equatable", "endEditing"]
 - !private ["Ps9Equatable", "fullName"]
+- !private ["Ps9Equatable", "hidesBackButton"]
 - !private ["Ps9Equatable", "init"]
 - !private ["Ps9Equatable", "instance"]
 - !private ["Ps9Equatable", "instantiateViewController"]
@@ -728,6 +739,7 @@ depends-member:
 - ["Ps8Hashable", "coreDidLogin"]
 - ["Ps8Hashable", "coreDidLogout"]
 - !private ["Ps8Hashable", "currentUser"]
+- !private ["Ps8Hashable", "customData"]
 - !private ["Ps8Hashable", "data"]
 - !private ["Ps8Hashable", "delegate"]
 - !private ["Ps8Hashable", "description"]
@@ -738,6 +750,7 @@ depends-member:
 - !private ["Ps8Hashable", "email"]
 - !private ["Ps8Hashable", "endEditing"]
 - !private ["Ps8Hashable", "fullName"]
+- !private ["Ps8Hashable", "hidesBackButton"]
 - !private ["Ps8Hashable", "init"]
 - !private ["Ps8Hashable", "instance"]
 - !private ["Ps8Hashable", "instantiateViewController"]
@@ -923,12 +936,14 @@ depends-member:
 - ["PSo8NSCoding", "core"]
 - ["PSo8NSCoding", "coreDidLogin"]
 - ["PSo8NSCoding", "coreDidLogout"]
+- !private ["PSo8NSCoding", "customData"]
 - ["PSo8NSCoding", "didReceiveMemoryWarning"]
 - !private ["PSo8NSCoding", "dismiss"]
 - ["PSo8NSCoding", "doctorBtn"]
 - !private ["PSo8NSCoding", "email"]
 - !private ["PSo8NSCoding", "endEditing"]
 - !private ["PSo8NSCoding", "fullName"]
+- !private ["PSo8NSCoding", "hidesBackButton"]
 - !private ["PSo8NSCoding", "init"]
 - !private ["PSo8NSCoding", "isEmpty"]
 - !private ["PSo8NSCoding", "length"]
@@ -969,6 +984,7 @@ depends-member:
 - !private ["PSo8NSCoding", "website"]
 - ["PSo8NSCoding", ""]
 - !private ["PSo9NSCopying", "RawValue"]
+- !private ["PSo9NSCopying", "customData"]
 - !private ["PSo9NSCopying", "email"]
 - !private ["PSo9NSCopying", "fullName"]
 - !private ["PSo9NSCopying", "init"]
@@ -1103,6 +1119,7 @@ depends-member:
 - ["CSo8NSObject", "coreDidLogin"]
 - ["CSo8NSObject", "coreDidLogout"]
 - !private ["CSo8NSObject", "currentUser"]
+- !private ["CSo8NSObject", "customData"]
 - !private ["CSo8NSObject", "data"]
 - !private ["CSo8NSObject", "deinit"]
 - !private ["CSo8NSObject", "delegate"]
@@ -1113,6 +1130,7 @@ depends-member:
 - !private ["CSo8NSObject", "email"]
 - !private ["CSo8NSObject", "endEditing"]
 - !private ["CSo8NSObject", "fullName"]
+- !private ["CSo8NSObject", "hidesBackButton"]
 - ["CSo8NSObject", "init"]
 - !private ["CSo8NSObject", "instance"]
 - !private ["CSo8NSObject", "instantiateViewController"]
@@ -1200,6 +1218,7 @@ depends-member:
 - ["PSo16NSObjectProtocol", "coreDidLogin"]
 - ["PSo16NSObjectProtocol", "coreDidLogout"]
 - !private ["PSo16NSObjectProtocol", "currentUser"]
+- !private ["PSo16NSObjectProtocol", "customData"]
 - !private ["PSo16NSObjectProtocol", "data"]
 - !private ["PSo16NSObjectProtocol", "delegate"]
 - ["PSo16NSObjectProtocol", "didReceiveMemoryWarning"]
@@ -1209,6 +1228,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "email"]
 - !private ["PSo16NSObjectProtocol", "endEditing"]
 - !private ["PSo16NSObjectProtocol", "fullName"]
+- !private ["PSo16NSObjectProtocol", "hidesBackButton"]
 - !private ["PSo16NSObjectProtocol", "init"]
 - !private ["PSo16NSObjectProtocol", "instance"]
 - !private ["PSo16NSObjectProtocol", "instantiateViewController"]
@@ -1283,6 +1303,7 @@ depends-member:
 - !private ["Ps9OptionSet", "sound"]
 - ["Sq", "deinit"]
 - !private ["P9Alamofire17ParameterEncoding", "default"]
+- !private ["CSo9QBCEntity", "customData"]
 - !private ["CSo9QBCEntity", "email"]
 - !private ["CSo9QBCEntity", "fullName"]
 - !private ["CSo9QBCEntity", "init"]
@@ -1343,6 +1364,7 @@ depends-member:
 - !private ["CSo9QBRequest", "user"]
 - !private ["CSo10QBResponse", "data"]
 - !private ["CSo10QBResponse", "deinit"]
+- !private ["CSo7QBUUser", "customData"]
 - ["CSo7QBUUser", "deinit"]
 - !private ["CSo7QBUUser", "email"]
 - !private ["CSo7QBUUser", "fullName"]
@@ -1694,6 +1716,7 @@ depends-member:
 - !private ["CSo22UINavigationController", "setNavigationBarHidden"]
 - !private ["CSo16UINavigationItem", "backBarButtonItem"]
 - ["CSo16UINavigationItem", "deinit"]
+- !private ["CSo16UINavigationItem", "hidesBackButton"]
 - !private ["VSC24UIRemoteNotificationType", "Element"]
 - !private ["VSC24UIRemoteNotificationType", "alert"]
 - !private ["VSC24UIRemoteNotificationType", "badge"]
@@ -2173,6 +2196,7 @@ depends-member:
 - ["Ps9_Hashable", "coreDidLogin"]
 - ["Ps9_Hashable", "coreDidLogout"]
 - !private ["Ps9_Hashable", "currentUser"]
+- !private ["Ps9_Hashable", "customData"]
 - !private ["Ps9_Hashable", "data"]
 - !private ["Ps9_Hashable", "delegate"]
 - !private ["Ps9_Hashable", "description"]
@@ -2183,6 +2207,7 @@ depends-member:
 - !private ["Ps9_Hashable", "email"]
 - !private ["Ps9_Hashable", "endEditing"]
 - !private ["Ps9_Hashable", "fullName"]
+- !private ["Ps9_Hashable", "hidesBackButton"]
 - !private ["Ps9_Hashable", "init"]
 - !private ["Ps9_Hashable", "instance"]
 - !private ["Ps9_Hashable", "instantiateViewController"]
@@ -2257,8 +2282,9 @@ depends-member:
 - !private ["V11DiabetesApp12userDefaults", "loggedInUserPassword"]
 - !private ["V11DiabetesApp12userDefaults", "loggedInUserType"]
 - !private ["V11DiabetesApp12userDefaults", "loggedInUsername"]
+- !private ["V11DiabetesApp12userDefaults", "selectedPatientID"]
 - !private ["V11DiabetesApp8userType", "doctor"]
-- !private ["V11DiabetesApp8userType", "equcator"]
+- !private ["V11DiabetesApp8userType", "educator"]
 - !private ["V11DiabetesApp8userType", "patient"]
 depends-nominal:
 - "Ps9AnyObject"
@@ -2556,11 +2582,11 @@ depends-external:
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/DiabetesApp/AVPermisions/QBAVCallPermissions.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/DiabetesApp/Core/QBCore.h"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/SwiftOnoneSupport.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreData.swiftmodule"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Alamofire/Alamofire.framework/Modules/Alamofire.swiftmodule/arm.swiftmodule"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Alamofire/Alamofire.framework/Headers/Alamofire-Swift.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Alamofire/Alamofire.framework/Headers/Alamofire-umbrella.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Alamofire/Alamofire.framework/Modules/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreData.swiftmodule"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework/Headers/SVRadialGradientLayer.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework/Headers/SVProgressHUD.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework/Headers/SVProgressAnimatedView.h"

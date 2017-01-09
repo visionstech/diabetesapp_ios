@@ -9,128 +9,132 @@ provides-member:
 - ["C11DiabetesApp24DialogTableViewCellModel", ""]
 - ["C11DiabetesApp21DialogsViewController", ""]
 provides-dynamic-lookup:
-- "chatServiceChatDidFail"
-- "chatService"
-- "chatService"
-- "chatService"
-- "chatService"
-- "chatService"
-- "chatService"
-- "chatService"
-- "chatService"
-- "dialogs"
+- "logoutAction"
 - "incomingCallViewControllerAccept"
-- "chatServiceChatDidConnect"
-- "viewWillAppear"
-- "incomingCallViewControllerReject"
-- "prepare"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "numberOfSections"
-- "sessionDidClose"
-- "createLogoutButton"
-- "GroupAction"
-- "dialogIcon"
-- "chatServiceChatDidAccidentallyDisconnect"
-- "detailTextLabelText"
-- "didEnterBackgroundNotification"
-- "unreadMessagesCounterLabelText"
-- "awakeFromNib"
 - "chatServiceChatDidReconnect"
+- "dialogs"
+- "prepare"
+- "incomingCallViewControllerReject"
+- "numberOfSections"
+- "didEnterBackgroundNotification"
+- "sessionDidClose"
+- "appDelegate"
+- "detailTextLabelText"
+- "selectedUserType"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "setNavBarUI"
+- "GroupAction"
+- "unreadMessagesCounterLabelText"
+- "createLogoutButton"
+- "getDialogs"
+- "textLabelText"
+- "viewWillAppear"
+- "chatService"
+- "chatService"
+- "chatService"
+- "chatService"
+- "chatService"
+- "chatService"
+- "chatService"
+- "chatService"
+- "chatServiceChatDidAccidentallyDisconnect"
+- "chatServiceChatDidFail"
 - "unreadMessagesCounterHiden"
 - "didReceiveNewSession"
-- "textLabelText"
-- "getDialogs"
-- "appDelegate"
-- "logoutAction"
+- "awakeFromNib"
 - "reloadTableViewIfNeeded"
 - "viewWillDisappear"
+- "chatServiceChatDidConnect"
+- "dialogIcon"
 depends-top-level:
-- "UITableView"
-- "QBRTCClientDelegate"
-- "DialogTableViewCellModel"
-- "QBRTCSession"
-- !private "!="
-- "IndexPath"
-- !private "NSNumber"
-- !private "OperationQueue"
-- !private "!"
-- !private "QBRTCSoundRouter"
-- "QBChatMessage"
-- !private "QBChatDialogType"
-- !private "ChatViewController"
-- !private "CallViewController"
-- !private "UInt"
-- !private "NSNotification"
-- "QMAuthServiceDelegate"
-- "QMChatService"
-- "IncomingCallViewControllerDelegate"
-- "UnicodeScalarType"
-- "IncomingCallViewController"
-- "TernaryPrecedence"
-- "QMChatServiceDelegate"
+- !private "<"
 - "CastingPrecedence"
-- !private "Array"
-- !private "+"
-- !private "Date"
-- "QMChatConnectionDelegate"
 - "NSObject"
 - "AssignmentPrecedence"
+- "UserDefaults"
+- "IndexPath"
 - !private "=="
-- !private "kDialogsPageLimit"
-- !private "SVProgressHUDMaskType"
-- !private "QBRTCClient"
-- !private "ContactListViewController"
-- "StringLiteralType"
-- !private "SVProgressHUD"
-- !private "UserDefaults"
-- "UIImage"
-- "UITableViewController"
-- "UIStoryboardSegue"
-- !private "<"
-- "UIBarButtonItem"
-- !private "QBChat"
-- !private "QBUUser"
-- "AnyHashable"
-- "DialogsViewController"
-- !private "userDefaults"
-- "QBChatDialog"
-- !private "AlertView"
-- "UITableViewCell"
-- !private "ObjCBool"
-- !private "QBResponse"
-- "BooleanLiteralType"
-- !private "UnsafeMutablePointer"
-- !private "UIBarButtonItemStyle"
-- !private "Set"
-- "NSDate"
-- !private "Void"
-- "String"
-- "Error"
-- !private "print"
-- !private "ViewIdentifiers"
-- "UITableViewCellEditingStyle"
-- !private "??"
-- "QBCoreDelegate"
-- "AppDelegate"
-- !private "DialogTableViewCell"
+- !private "userType"
 - "Int"
-- "CGFloat"
-- !private "QBRequest"
-- "UIApplication"
-- "Bool"
-- !private ">"
-- !private "NotificationCenter"
-- !private "ServicesManager"
-- "NSObjectProtocol"
-- !private "&&"
+- !private "SVProgressHUD"
 - !private "NSMutableArray"
+- "UIStoryboardSegue"
+- "QBRTCSession"
+- !private "UIBarButtonItemStyle"
+- "QBRTCClientDelegate"
+- !private "ViewIdentifiers"
+- !private "DialogTableViewCell"
+- !private "ContactListViewController"
+- !private "Void"
+- "UIImage"
+- "UIApplication"
+- !private "QBRequest"
+- !private "QBUUser"
+- "NSDate"
+- !private "OperationQueue"
+- !private "!="
+- "TernaryPrecedence"
+- !private "ChatViewController"
+- "UITableViewCellEditingStyle"
+- "BooleanLiteralType"
+- "NSObjectProtocol"
+- "UITableViewCell"
+- !private ">"
+- "StringLiteralType"
+- !private "Date"
+- "QBChatMessage"
+- "QMChatService"
+- !private "ServicesManager"
+- !private "AlertView"
 - "Dictionary"
+- !private "??"
+- !private "kDialogsPageLimit"
+- !private "print"
+- "QBCoreDelegate"
+- !private "NotificationCenter"
+- !private "!"
+- !private "Set"
+- "Bool"
+- "QMChatServiceDelegate"
+- !private "UnsafeMutablePointer"
+- !private "ObjCBool"
+- !private "QBChatDialogType"
+- "String"
+- "QMChatConnectionDelegate"
+- "CGFloat"
+- !private "NSNotification"
+- !private "SVProgressHUDMaskType"
+- "QMAuthServiceDelegate"
+- !private "UIView"
+- !private "UInt"
+- "DialogTableViewCellModel"
+- "UnicodeScalarType"
+- !private "NSNumber"
+- !private "QBChat"
+- !private "&&"
+- "AnyHashable"
+- "UITableViewController"
+- !private "Array"
+- !private "QBRTCSoundRouter"
+- !private "QBRTCClient"
+- "AppDelegate"
+- "userDefaults"
+- !private "+"
+- !private "QBResponse"
+- !private "CallViewController"
+- "Error"
+- "QBChatDialog"
+- "UITableView"
+- "IncomingCallViewController"
+- "IncomingCallViewControllerDelegate"
+- "DialogsViewController"
+- "UIBarButtonItem"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "init"]
 - ["C11DiabetesApp9AlertView", "deinit"]
@@ -140,6 +144,7 @@ depends-member:
 - !private ["Ps9AnyObject", "DialogTableViewCellModel"]
 - !private ["Ps9AnyObject", "DialogsViewController"]
 - ["Ps9AnyObject", "GroupAction"]
+- ["Ps9AnyObject", "Int"]
 - !private ["Ps9AnyObject", "NSDate"]
 - !private ["Ps9AnyObject", "NSMutableArray"]
 - !private ["Ps9AnyObject", "NSNotification"]
@@ -160,8 +165,9 @@ depends-member:
 - !private ["Ps9AnyObject", "UIBarButtonItemStyle"]
 - !private ["Ps9AnyObject", "UIImage"]
 - !private ["Ps9AnyObject", "UITableViewCellEditingStyle"]
+- !private ["Ps9AnyObject", "UIView"]
 - !private ["Ps9AnyObject", "UInt"]
-- !private ["Ps9AnyObject", "UserDefaults"]
+- ["Ps9AnyObject", "UserDefaults"]
 - !private ["Ps9AnyObject", "ViewIdentifiers"]
 - !private ["Ps9AnyObject", "add"]
 - !private ["Ps9AnyObject", "addDelegate"]
@@ -185,6 +191,7 @@ depends-member:
 - ["Ps9AnyObject", "coreDidLogout"]
 - ["Ps9AnyObject", "createLogoutButton"]
 - !private ["Ps9AnyObject", "currentUser"]
+- !private ["Ps9AnyObject", "data"]
 - !private ["Ps9AnyObject", "default"]
 - ["Ps9AnyObject", "delegate"]
 - !private ["Ps9AnyObject", "deleteDialog"]
@@ -197,13 +204,13 @@ depends-member:
 - ["Ps9AnyObject", "dialogIcon"]
 - !private ["Ps9AnyObject", "dialogLastMessage"]
 - !private ["Ps9AnyObject", "dialogName"]
-- !private ["Ps9AnyObject", "dialogTypeImage"]
 - ["Ps9AnyObject", "dialogs"]
 - !private ["Ps9AnyObject", "dialogsMemoryStorage"]
 - !private ["Ps9AnyObject", "dialogsSortByUpdatedAt"]
 - ["Ps9AnyObject", "didEnterBackgroundDate"]
 - ["Ps9AnyObject", "didEnterBackgroundNotification"]
 - ["Ps9AnyObject", "didReceiveNewSession"]
+- !private ["Ps9AnyObject", "dismiss"]
 - !private ["Ps9AnyObject", "email"]
 - !private ["Ps9AnyObject", "error"]
 - !private ["Ps9AnyObject", "fetchDialogsUpdated"]
@@ -211,7 +218,6 @@ depends-member:
 - !private ["Ps9AnyObject", "hidesBottomBarWhenPushed"]
 - !private ["Ps9AnyObject", "id"]
 - !private ["Ps9AnyObject", "identifier"]
-- !private ["Ps9AnyObject", "image"]
 - ["Ps9AnyObject", "incomingCallViewControllerAccept"]
 - ["Ps9AnyObject", "incomingCallViewControllerReject"]
 - ["Ps9AnyObject", "init"]
@@ -219,6 +225,7 @@ depends-member:
 - !private ["Ps9AnyObject", "initiatorID"]
 - !private ["Ps9AnyObject", "instance"]
 - !private ["Ps9AnyObject", "instantiateViewController"]
+- ["Ps9AnyObject", "integer"]
 - !private ["Ps9AnyObject", "isConnected"]
 - !private ["Ps9AnyObject", "isEmpty"]
 - !private ["Ps9AnyObject", "isExclusiveTouch"]
@@ -255,18 +262,23 @@ depends-member:
 - !private ["Ps9AnyObject", "remove"]
 - !private ["Ps9AnyObject", "removeDelegate"]
 - !private ["Ps9AnyObject", "removeObserver"]
+- !private ["Ps9AnyObject", "rightBarButtonItems"]
+- ["Ps9AnyObject", "selectedUserType"]
 - !private ["Ps9AnyObject", "sendNotificationMessageAboutLeaving"]
 - ["Ps9AnyObject", "session"]
 - ["Ps9AnyObject", "sessionDidClose"]
 - !private ["Ps9AnyObject", "set"]
+- ["Ps9AnyObject", "setNavBarUI"]
 - !private ["Ps9AnyObject", "setValue"]
 - ["Ps9AnyObject", "shared"]
 - !private ["Ps9AnyObject", "show"]
 - !private ["Ps9AnyObject", "showError"]
 - !private ["Ps9AnyObject", "showSuccess"]
-- !private ["Ps9AnyObject", "standard"]
+- ["Ps9AnyObject", "standard"]
 - !private ["Ps9AnyObject", "storyboard"]
 - !private ["Ps9AnyObject", "synchronize"]
+- !private ["Ps9AnyObject", "tabBarController"]
+- !private ["Ps9AnyObject", "tableFooterView"]
 - ["Ps9AnyObject", "tableView"]
 - !private ["Ps9AnyObject", "tag"]
 - !private ["Ps9AnyObject", "text"]
@@ -280,7 +292,8 @@ depends-member:
 - ["Ps9AnyObject", "unreadMessagesCounterHiden"]
 - ["Ps9AnyObject", "unreadMessagesCounterLabelText"]
 - !private ["Ps9AnyObject", "user"]
-- !private ["Ps9AnyObject", "userDefaults"]
+- ["Ps9AnyObject", "userDefaults"]
+- !private ["Ps9AnyObject", "userType"]
 - !private ["Ps9AnyObject", "usersMemoryStorage"]
 - !private ["Ps9AnyObject", "usersService"]
 - ["Ps9AnyObject", "viewWillAppear"]
@@ -333,7 +346,7 @@ depends-member:
 - !private ["Ps17BitwiseOperations", "IntegerLiteralType"]
 - !private ["Ps17BitwiseOperations", "Stride"]
 - !private ["Ps17BitwiseOperations", "_DisabledRangeIndex"]
-- !private ["Ps17BitwiseOperations", "init"]
+- ["Ps17BitwiseOperations", "init"]
 - !private ["Sb", "_getBuiltinLogicValue"]
 - ["Sb", "deinit"]
 - !private ["PSo15CALayerDelegate", "contentView"]
@@ -342,14 +355,15 @@ depends-member:
 - !private ["PSo15CALayerDelegate", "dialogID"]
 - !private ["PSo15CALayerDelegate", "dialogLastMessage"]
 - !private ["PSo15CALayerDelegate", "dialogName"]
-- !private ["PSo15CALayerDelegate", "dialogTypeImage"]
-- !private ["PSo15CALayerDelegate", "image"]
+- !private ["PSo15CALayerDelegate", "dismiss"]
+- !private ["PSo15CALayerDelegate", "init"]
 - !private ["PSo15CALayerDelegate", "isExclusiveTouch"]
 - !private ["PSo15CALayerDelegate", "isHidden"]
 - !private ["PSo15CALayerDelegate", "reloadData"]
 - !private ["PSo15CALayerDelegate", "show"]
 - !private ["PSo15CALayerDelegate", "showError"]
 - !private ["PSo15CALayerDelegate", "showSuccess"]
+- !private ["PSo15CALayerDelegate", "tableFooterView"]
 - !private ["PSo15CALayerDelegate", "tag"]
 - !private ["PSo15CALayerDelegate", "text"]
 - !private ["PSo15CALayerDelegate", "unreadMessageCounterHolder"]
@@ -365,6 +379,7 @@ depends-member:
 - ["Ps7CVarArg", "GroupAction"]
 - !private ["Ps7CVarArg", "Index"]
 - !private ["Ps7CVarArg", "IndexDistance"]
+- ["Ps7CVarArg", "Int"]
 - !private ["Ps7CVarArg", "IntegerLiteralType"]
 - !private ["Ps7CVarArg", "Iterator"]
 - !private ["Ps7CVarArg", "Key"]
@@ -390,8 +405,9 @@ depends-member:
 - !private ["Ps7CVarArg", "UIBarButtonItemStyle"]
 - !private ["Ps7CVarArg", "UIImage"]
 - !private ["Ps7CVarArg", "UITableViewCellEditingStyle"]
+- !private ["Ps7CVarArg", "UIView"]
 - !private ["Ps7CVarArg", "UInt"]
-- !private ["Ps7CVarArg", "UserDefaults"]
+- ["Ps7CVarArg", "UserDefaults"]
 - !private ["Ps7CVarArg", "Value"]
 - !private ["Ps7CVarArg", "ViewIdentifiers"]
 - !private ["Ps7CVarArg", "_DisabledRangeIndex"]
@@ -419,6 +435,7 @@ depends-member:
 - !private ["Ps7CVarArg", "count"]
 - ["Ps7CVarArg", "createLogoutButton"]
 - !private ["Ps7CVarArg", "currentUser"]
+- !private ["Ps7CVarArg", "data"]
 - !private ["Ps7CVarArg", "default"]
 - ["Ps7CVarArg", "delegate"]
 - !private ["Ps7CVarArg", "deleteDialog"]
@@ -431,13 +448,13 @@ depends-member:
 - ["Ps7CVarArg", "dialogIcon"]
 - !private ["Ps7CVarArg", "dialogLastMessage"]
 - !private ["Ps7CVarArg", "dialogName"]
-- !private ["Ps7CVarArg", "dialogTypeImage"]
 - ["Ps7CVarArg", "dialogs"]
 - !private ["Ps7CVarArg", "dialogsMemoryStorage"]
 - !private ["Ps7CVarArg", "dialogsSortByUpdatedAt"]
 - ["Ps7CVarArg", "didEnterBackgroundDate"]
 - ["Ps7CVarArg", "didEnterBackgroundNotification"]
 - ["Ps7CVarArg", "didReceiveNewSession"]
+- !private ["Ps7CVarArg", "dismiss"]
 - !private ["Ps7CVarArg", "email"]
 - !private ["Ps7CVarArg", "error"]
 - !private ["Ps7CVarArg", "fetchDialogsUpdated"]
@@ -446,7 +463,6 @@ depends-member:
 - !private ["Ps7CVarArg", "hidesBottomBarWhenPushed"]
 - !private ["Ps7CVarArg", "id"]
 - !private ["Ps7CVarArg", "identifier"]
-- !private ["Ps7CVarArg", "image"]
 - ["Ps7CVarArg", "incomingCallViewControllerAccept"]
 - ["Ps7CVarArg", "incomingCallViewControllerReject"]
 - ["Ps7CVarArg", "init"]
@@ -454,6 +470,7 @@ depends-member:
 - !private ["Ps7CVarArg", "initiatorID"]
 - !private ["Ps7CVarArg", "instance"]
 - !private ["Ps7CVarArg", "instantiateViewController"]
+- ["Ps7CVarArg", "integer"]
 - !private ["Ps7CVarArg", "isConnected"]
 - !private ["Ps7CVarArg", "isEmpty"]
 - !private ["Ps7CVarArg", "isExclusiveTouch"]
@@ -490,19 +507,24 @@ depends-member:
 - !private ["Ps7CVarArg", "remove"]
 - !private ["Ps7CVarArg", "removeDelegate"]
 - !private ["Ps7CVarArg", "removeObserver"]
+- !private ["Ps7CVarArg", "rightBarButtonItems"]
+- ["Ps7CVarArg", "selectedUserType"]
 - !private ["Ps7CVarArg", "sendNotificationMessageAboutLeaving"]
 - ["Ps7CVarArg", "session"]
 - ["Ps7CVarArg", "sessionDidClose"]
 - !private ["Ps7CVarArg", "set"]
+- ["Ps7CVarArg", "setNavBarUI"]
 - !private ["Ps7CVarArg", "setValue"]
 - ["Ps7CVarArg", "shared"]
 - !private ["Ps7CVarArg", "show"]
 - !private ["Ps7CVarArg", "showError"]
 - !private ["Ps7CVarArg", "showSuccess"]
-- !private ["Ps7CVarArg", "standard"]
+- ["Ps7CVarArg", "standard"]
 - !private ["Ps7CVarArg", "storyboard"]
 - !private ["Ps7CVarArg", "subscript"]
 - !private ["Ps7CVarArg", "synchronize"]
+- !private ["Ps7CVarArg", "tabBarController"]
+- !private ["Ps7CVarArg", "tableFooterView"]
 - ["Ps7CVarArg", "tableView"]
 - !private ["Ps7CVarArg", "tag"]
 - !private ["Ps7CVarArg", "text"]
@@ -516,7 +538,8 @@ depends-member:
 - ["Ps7CVarArg", "unreadMessagesCounterHiden"]
 - ["Ps7CVarArg", "unreadMessagesCounterLabelText"]
 - !private ["Ps7CVarArg", "user"]
-- !private ["Ps7CVarArg", "userDefaults"]
+- ["Ps7CVarArg", "userDefaults"]
+- !private ["Ps7CVarArg", "userType"]
 - !private ["Ps7CVarArg", "usersMemoryStorage"]
 - !private ["Ps7CVarArg", "usersService"]
 - ["Ps7CVarArg", "viewWillAppear"]
@@ -562,6 +585,7 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "GroupAction"]
 - !private ["Ps28CustomDebugStringConvertible", "Index"]
 - !private ["Ps28CustomDebugStringConvertible", "IndexDistance"]
+- ["Ps28CustomDebugStringConvertible", "Int"]
 - !private ["Ps28CustomDebugStringConvertible", "Iterator"]
 - !private ["Ps28CustomDebugStringConvertible", "Key"]
 - !private ["Ps28CustomDebugStringConvertible", "NSDate"]
@@ -586,8 +610,9 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "UIBarButtonItemStyle"]
 - !private ["Ps28CustomDebugStringConvertible", "UIImage"]
 - !private ["Ps28CustomDebugStringConvertible", "UITableViewCellEditingStyle"]
+- !private ["Ps28CustomDebugStringConvertible", "UIView"]
 - !private ["Ps28CustomDebugStringConvertible", "UInt"]
-- !private ["Ps28CustomDebugStringConvertible", "UserDefaults"]
+- ["Ps28CustomDebugStringConvertible", "UserDefaults"]
 - !private ["Ps28CustomDebugStringConvertible", "Value"]
 - !private ["Ps28CustomDebugStringConvertible", "ViewIdentifiers"]
 - !private ["Ps28CustomDebugStringConvertible", "_Element"]
@@ -614,6 +639,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "count"]
 - ["Ps28CustomDebugStringConvertible", "createLogoutButton"]
 - !private ["Ps28CustomDebugStringConvertible", "currentUser"]
+- !private ["Ps28CustomDebugStringConvertible", "data"]
 - !private ["Ps28CustomDebugStringConvertible", "default"]
 - ["Ps28CustomDebugStringConvertible", "delegate"]
 - !private ["Ps28CustomDebugStringConvertible", "deleteDialog"]
@@ -626,13 +652,13 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "dialogIcon"]
 - !private ["Ps28CustomDebugStringConvertible", "dialogLastMessage"]
 - !private ["Ps28CustomDebugStringConvertible", "dialogName"]
-- !private ["Ps28CustomDebugStringConvertible", "dialogTypeImage"]
 - ["Ps28CustomDebugStringConvertible", "dialogs"]
 - !private ["Ps28CustomDebugStringConvertible", "dialogsMemoryStorage"]
 - !private ["Ps28CustomDebugStringConvertible", "dialogsSortByUpdatedAt"]
 - ["Ps28CustomDebugStringConvertible", "didEnterBackgroundDate"]
 - ["Ps28CustomDebugStringConvertible", "didEnterBackgroundNotification"]
 - ["Ps28CustomDebugStringConvertible", "didReceiveNewSession"]
+- !private ["Ps28CustomDebugStringConvertible", "dismiss"]
 - !private ["Ps28CustomDebugStringConvertible", "email"]
 - !private ["Ps28CustomDebugStringConvertible", "error"]
 - !private ["Ps28CustomDebugStringConvertible", "fetchDialogsUpdated"]
@@ -641,7 +667,6 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "hidesBottomBarWhenPushed"]
 - !private ["Ps28CustomDebugStringConvertible", "id"]
 - !private ["Ps28CustomDebugStringConvertible", "identifier"]
-- !private ["Ps28CustomDebugStringConvertible", "image"]
 - ["Ps28CustomDebugStringConvertible", "incomingCallViewControllerAccept"]
 - ["Ps28CustomDebugStringConvertible", "incomingCallViewControllerReject"]
 - ["Ps28CustomDebugStringConvertible", "init"]
@@ -649,6 +674,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "initiatorID"]
 - !private ["Ps28CustomDebugStringConvertible", "instance"]
 - !private ["Ps28CustomDebugStringConvertible", "instantiateViewController"]
+- ["Ps28CustomDebugStringConvertible", "integer"]
 - !private ["Ps28CustomDebugStringConvertible", "isConnected"]
 - !private ["Ps28CustomDebugStringConvertible", "isEmpty"]
 - !private ["Ps28CustomDebugStringConvertible", "isExclusiveTouch"]
@@ -685,20 +711,25 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "remove"]
 - !private ["Ps28CustomDebugStringConvertible", "removeDelegate"]
 - !private ["Ps28CustomDebugStringConvertible", "removeObserver"]
+- !private ["Ps28CustomDebugStringConvertible", "rightBarButtonItems"]
 - !private ["Ps28CustomDebugStringConvertible", "row"]
+- ["Ps28CustomDebugStringConvertible", "selectedUserType"]
 - !private ["Ps28CustomDebugStringConvertible", "sendNotificationMessageAboutLeaving"]
 - ["Ps28CustomDebugStringConvertible", "session"]
 - ["Ps28CustomDebugStringConvertible", "sessionDidClose"]
 - !private ["Ps28CustomDebugStringConvertible", "set"]
+- ["Ps28CustomDebugStringConvertible", "setNavBarUI"]
 - !private ["Ps28CustomDebugStringConvertible", "setValue"]
 - ["Ps28CustomDebugStringConvertible", "shared"]
 - !private ["Ps28CustomDebugStringConvertible", "show"]
 - !private ["Ps28CustomDebugStringConvertible", "showError"]
 - !private ["Ps28CustomDebugStringConvertible", "showSuccess"]
-- !private ["Ps28CustomDebugStringConvertible", "standard"]
+- ["Ps28CustomDebugStringConvertible", "standard"]
 - !private ["Ps28CustomDebugStringConvertible", "storyboard"]
 - !private ["Ps28CustomDebugStringConvertible", "subscript"]
 - !private ["Ps28CustomDebugStringConvertible", "synchronize"]
+- !private ["Ps28CustomDebugStringConvertible", "tabBarController"]
+- !private ["Ps28CustomDebugStringConvertible", "tableFooterView"]
 - ["Ps28CustomDebugStringConvertible", "tableView"]
 - !private ["Ps28CustomDebugStringConvertible", "tag"]
 - !private ["Ps28CustomDebugStringConvertible", "text"]
@@ -712,7 +743,8 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "unreadMessagesCounterHiden"]
 - ["Ps28CustomDebugStringConvertible", "unreadMessagesCounterLabelText"]
 - !private ["Ps28CustomDebugStringConvertible", "user"]
-- !private ["Ps28CustomDebugStringConvertible", "userDefaults"]
+- ["Ps28CustomDebugStringConvertible", "userDefaults"]
+- !private ["Ps28CustomDebugStringConvertible", "userType"]
 - !private ["Ps28CustomDebugStringConvertible", "usersMemoryStorage"]
 - !private ["Ps28CustomDebugStringConvertible", "usersService"]
 - ["Ps28CustomDebugStringConvertible", "viewWillAppear"]
@@ -752,6 +784,7 @@ depends-member:
 - ["Ps23CustomStringConvertible", "GroupAction"]
 - !private ["Ps23CustomStringConvertible", "Index"]
 - !private ["Ps23CustomStringConvertible", "IndexDistance"]
+- ["Ps23CustomStringConvertible", "Int"]
 - !private ["Ps23CustomStringConvertible", "IntegerLiteralType"]
 - !private ["Ps23CustomStringConvertible", "Iterator"]
 - !private ["Ps23CustomStringConvertible", "Key"]
@@ -777,8 +810,9 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "UIBarButtonItemStyle"]
 - !private ["Ps23CustomStringConvertible", "UIImage"]
 - !private ["Ps23CustomStringConvertible", "UITableViewCellEditingStyle"]
+- !private ["Ps23CustomStringConvertible", "UIView"]
 - !private ["Ps23CustomStringConvertible", "UInt"]
-- !private ["Ps23CustomStringConvertible", "UserDefaults"]
+- ["Ps23CustomStringConvertible", "UserDefaults"]
 - !private ["Ps23CustomStringConvertible", "Value"]
 - !private ["Ps23CustomStringConvertible", "ViewIdentifiers"]
 - !private ["Ps23CustomStringConvertible", "_DisabledRangeIndex"]
@@ -807,6 +841,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "count"]
 - ["Ps23CustomStringConvertible", "createLogoutButton"]
 - !private ["Ps23CustomStringConvertible", "currentUser"]
+- !private ["Ps23CustomStringConvertible", "data"]
 - !private ["Ps23CustomStringConvertible", "default"]
 - ["Ps23CustomStringConvertible", "delegate"]
 - !private ["Ps23CustomStringConvertible", "deleteDialog"]
@@ -819,13 +854,13 @@ depends-member:
 - ["Ps23CustomStringConvertible", "dialogIcon"]
 - !private ["Ps23CustomStringConvertible", "dialogLastMessage"]
 - !private ["Ps23CustomStringConvertible", "dialogName"]
-- !private ["Ps23CustomStringConvertible", "dialogTypeImage"]
 - ["Ps23CustomStringConvertible", "dialogs"]
 - !private ["Ps23CustomStringConvertible", "dialogsMemoryStorage"]
 - !private ["Ps23CustomStringConvertible", "dialogsSortByUpdatedAt"]
 - ["Ps23CustomStringConvertible", "didEnterBackgroundDate"]
 - ["Ps23CustomStringConvertible", "didEnterBackgroundNotification"]
 - ["Ps23CustomStringConvertible", "didReceiveNewSession"]
+- !private ["Ps23CustomStringConvertible", "dismiss"]
 - !private ["Ps23CustomStringConvertible", "email"]
 - !private ["Ps23CustomStringConvertible", "error"]
 - !private ["Ps23CustomStringConvertible", "fetchDialogsUpdated"]
@@ -834,7 +869,6 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "hidesBottomBarWhenPushed"]
 - !private ["Ps23CustomStringConvertible", "id"]
 - !private ["Ps23CustomStringConvertible", "identifier"]
-- !private ["Ps23CustomStringConvertible", "image"]
 - ["Ps23CustomStringConvertible", "incomingCallViewControllerAccept"]
 - ["Ps23CustomStringConvertible", "incomingCallViewControllerReject"]
 - ["Ps23CustomStringConvertible", "init"]
@@ -842,6 +876,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "initiatorID"]
 - !private ["Ps23CustomStringConvertible", "instance"]
 - !private ["Ps23CustomStringConvertible", "instantiateViewController"]
+- ["Ps23CustomStringConvertible", "integer"]
 - !private ["Ps23CustomStringConvertible", "isConnected"]
 - !private ["Ps23CustomStringConvertible", "isEmpty"]
 - !private ["Ps23CustomStringConvertible", "isExclusiveTouch"]
@@ -878,20 +913,25 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "remove"]
 - !private ["Ps23CustomStringConvertible", "removeDelegate"]
 - !private ["Ps23CustomStringConvertible", "removeObserver"]
+- !private ["Ps23CustomStringConvertible", "rightBarButtonItems"]
 - !private ["Ps23CustomStringConvertible", "row"]
+- ["Ps23CustomStringConvertible", "selectedUserType"]
 - !private ["Ps23CustomStringConvertible", "sendNotificationMessageAboutLeaving"]
 - ["Ps23CustomStringConvertible", "session"]
 - ["Ps23CustomStringConvertible", "sessionDidClose"]
 - !private ["Ps23CustomStringConvertible", "set"]
+- ["Ps23CustomStringConvertible", "setNavBarUI"]
 - !private ["Ps23CustomStringConvertible", "setValue"]
 - ["Ps23CustomStringConvertible", "shared"]
 - !private ["Ps23CustomStringConvertible", "show"]
 - !private ["Ps23CustomStringConvertible", "showError"]
 - !private ["Ps23CustomStringConvertible", "showSuccess"]
-- !private ["Ps23CustomStringConvertible", "standard"]
+- ["Ps23CustomStringConvertible", "standard"]
 - !private ["Ps23CustomStringConvertible", "storyboard"]
 - !private ["Ps23CustomStringConvertible", "subscript"]
 - !private ["Ps23CustomStringConvertible", "synchronize"]
+- !private ["Ps23CustomStringConvertible", "tabBarController"]
+- !private ["Ps23CustomStringConvertible", "tableFooterView"]
 - ["Ps23CustomStringConvertible", "tableView"]
 - !private ["Ps23CustomStringConvertible", "tag"]
 - !private ["Ps23CustomStringConvertible", "text"]
@@ -905,7 +945,8 @@ depends-member:
 - ["Ps23CustomStringConvertible", "unreadMessagesCounterHiden"]
 - ["Ps23CustomStringConvertible", "unreadMessagesCounterLabelText"]
 - !private ["Ps23CustomStringConvertible", "user"]
-- !private ["Ps23CustomStringConvertible", "userDefaults"]
+- ["Ps23CustomStringConvertible", "userDefaults"]
+- !private ["Ps23CustomStringConvertible", "userType"]
 - !private ["Ps23CustomStringConvertible", "usersMemoryStorage"]
 - !private ["Ps23CustomStringConvertible", "usersService"]
 - ["Ps23CustomStringConvertible", "viewWillAppear"]
@@ -930,7 +971,6 @@ depends-member:
 - !private ["C11DiabetesApp19DialogTableViewCell", "dialogID"]
 - !private ["C11DiabetesApp19DialogTableViewCell", "dialogLastMessage"]
 - !private ["C11DiabetesApp19DialogTableViewCell", "dialogName"]
-- !private ["C11DiabetesApp19DialogTableViewCell", "dialogTypeImage"]
 - !private ["C11DiabetesApp19DialogTableViewCell", "isExclusiveTouch"]
 - !private ["C11DiabetesApp19DialogTableViewCell", "tag"]
 - !private ["C11DiabetesApp19DialogTableViewCell", "unreadMessageCounterHolder"]
@@ -959,6 +999,7 @@ depends-member:
 - !private ["C11DiabetesApp21DialogsViewController", "DialogTableViewCell"]
 - !private ["C11DiabetesApp21DialogsViewController", "DialogTableViewCellModel"]
 - !private ["C11DiabetesApp21DialogsViewController", "DialogsViewController"]
+- !private ["C11DiabetesApp21DialogsViewController", "Dictionary"]
 - ["C11DiabetesApp21DialogsViewController", "Error"]
 - ["C11DiabetesApp21DialogsViewController", "GroupAction"]
 - ["C11DiabetesApp21DialogsViewController", "IncomingCallViewController"]
@@ -991,13 +1032,15 @@ depends-member:
 - ["C11DiabetesApp21DialogsViewController", "UIApplication"]
 - ["C11DiabetesApp21DialogsViewController", "UIBarButtonItem"]
 - !private ["C11DiabetesApp21DialogsViewController", "UIBarButtonItemStyle"]
+- !private ["C11DiabetesApp21DialogsViewController", "UIImage"]
 - ["C11DiabetesApp21DialogsViewController", "UIStoryboardSegue"]
 - ["C11DiabetesApp21DialogsViewController", "UITableView"]
 - ["C11DiabetesApp21DialogsViewController", "UITableViewCell"]
 - ["C11DiabetesApp21DialogsViewController", "UITableViewCellEditingStyle"]
+- !private ["C11DiabetesApp21DialogsViewController", "UIView"]
 - !private ["C11DiabetesApp21DialogsViewController", "UInt"]
 - !private ["C11DiabetesApp21DialogsViewController", "UnsafeMutablePointer"]
-- !private ["C11DiabetesApp21DialogsViewController", "UserDefaults"]
+- ["C11DiabetesApp21DialogsViewController", "UserDefaults"]
 - !private ["C11DiabetesApp21DialogsViewController", "ViewIdentifiers"]
 - !private ["C11DiabetesApp21DialogsViewController", "Void"]
 - ["C11DiabetesApp21DialogsViewController", "appDelegate"]
@@ -1034,16 +1077,24 @@ depends-member:
 - ["C11DiabetesApp21DialogsViewController", "prepare"]
 - !private ["C11DiabetesApp21DialogsViewController", "print"]
 - ["C11DiabetesApp21DialogsViewController", "reloadTableViewIfNeeded"]
+- ["C11DiabetesApp21DialogsViewController", "selectedUserType"]
 - ["C11DiabetesApp21DialogsViewController", "session"]
 - ["C11DiabetesApp21DialogsViewController", "sessionDidClose"]
+- ["C11DiabetesApp21DialogsViewController", "setNavBarUI"]
 - !private ["C11DiabetesApp21DialogsViewController", "storyboard"]
+- !private ["C11DiabetesApp21DialogsViewController", "tabBarController"]
 - ["C11DiabetesApp21DialogsViewController", "tableView"]
-- !private ["C11DiabetesApp21DialogsViewController", "userDefaults"]
+- !private ["C11DiabetesApp21DialogsViewController", "title"]
+- ["C11DiabetesApp21DialogsViewController", "userDefaults"]
+- !private ["C11DiabetesApp21DialogsViewController", "userType"]
 - ["C11DiabetesApp21DialogsViewController", "viewWillAppear"]
 - ["C11DiabetesApp21DialogsViewController", "viewWillDisappear"]
+- !private ["Vs10Dictionary", "Index"]
 - !private ["Vs10Dictionary", "Key"]
+- !private ["Vs10Dictionary", "SubSequence"]
 - !private ["Vs10Dictionary", "Value"]
 - ["Vs10Dictionary", "deinit"]
+- !private ["Vs10Dictionary", "subscript"]
 - !private ["V8Dispatch12DispatchTime", "deinit"]
 - !private ["V8Dispatch12DispatchTime", "init"]
 - !private ["V8Dispatch16DispatchWallTime", "deinit"]
@@ -1054,6 +1105,7 @@ depends-member:
 - !private ["Ps9Equatable", "DialogTableViewCellModel"]
 - !private ["Ps9Equatable", "DialogsViewController"]
 - ["Ps9Equatable", "GroupAction"]
+- ["Ps9Equatable", "Int"]
 - !private ["Ps9Equatable", "IntegerLiteralType"]
 - !private ["Ps9Equatable", "NSDate"]
 - !private ["Ps9Equatable", "NSMutableArray"]
@@ -1079,8 +1131,9 @@ depends-member:
 - !private ["Ps9Equatable", "UIBarButtonItemStyle"]
 - !private ["Ps9Equatable", "UIImage"]
 - !private ["Ps9Equatable", "UITableViewCellEditingStyle"]
+- !private ["Ps9Equatable", "UIView"]
 - !private ["Ps9Equatable", "UInt"]
-- !private ["Ps9Equatable", "UserDefaults"]
+- ["Ps9Equatable", "UserDefaults"]
 - !private ["Ps9Equatable", "ViewIdentifiers"]
 - !private ["Ps9Equatable", "_DisabledRangeIndex"]
 - !private ["Ps9Equatable", "_getBuiltinLogicValue"]
@@ -1107,6 +1160,7 @@ depends-member:
 - ["Ps9Equatable", "coreDidLogout"]
 - ["Ps9Equatable", "createLogoutButton"]
 - !private ["Ps9Equatable", "currentUser"]
+- !private ["Ps9Equatable", "data"]
 - !private ["Ps9Equatable", "default"]
 - ["Ps9Equatable", "delegate"]
 - !private ["Ps9Equatable", "delete"]
@@ -1120,13 +1174,13 @@ depends-member:
 - ["Ps9Equatable", "dialogIcon"]
 - !private ["Ps9Equatable", "dialogLastMessage"]
 - !private ["Ps9Equatable", "dialogName"]
-- !private ["Ps9Equatable", "dialogTypeImage"]
 - ["Ps9Equatable", "dialogs"]
 - !private ["Ps9Equatable", "dialogsMemoryStorage"]
 - !private ["Ps9Equatable", "dialogsSortByUpdatedAt"]
 - ["Ps9Equatable", "didEnterBackgroundDate"]
 - ["Ps9Equatable", "didEnterBackgroundNotification"]
 - ["Ps9Equatable", "didReceiveNewSession"]
+- !private ["Ps9Equatable", "dismiss"]
 - !private ["Ps9Equatable", "email"]
 - !private ["Ps9Equatable", "error"]
 - !private ["Ps9Equatable", "fetchDialogsUpdated"]
@@ -1135,7 +1189,6 @@ depends-member:
 - !private ["Ps9Equatable", "hidesBottomBarWhenPushed"]
 - !private ["Ps9Equatable", "id"]
 - !private ["Ps9Equatable", "identifier"]
-- !private ["Ps9Equatable", "image"]
 - ["Ps9Equatable", "incomingCallViewControllerAccept"]
 - ["Ps9Equatable", "incomingCallViewControllerReject"]
 - ["Ps9Equatable", "init"]
@@ -1143,6 +1196,7 @@ depends-member:
 - !private ["Ps9Equatable", "initiatorID"]
 - !private ["Ps9Equatable", "instance"]
 - !private ["Ps9Equatable", "instantiateViewController"]
+- ["Ps9Equatable", "integer"]
 - !private ["Ps9Equatable", "isConnected"]
 - !private ["Ps9Equatable", "isEmpty"]
 - !private ["Ps9Equatable", "isExclusiveTouch"]
@@ -1182,19 +1236,24 @@ depends-member:
 - !private ["Ps9Equatable", "remove"]
 - !private ["Ps9Equatable", "removeDelegate"]
 - !private ["Ps9Equatable", "removeObserver"]
+- !private ["Ps9Equatable", "rightBarButtonItems"]
 - !private ["Ps9Equatable", "row"]
+- ["Ps9Equatable", "selectedUserType"]
 - !private ["Ps9Equatable", "sendNotificationMessageAboutLeaving"]
 - ["Ps9Equatable", "session"]
 - ["Ps9Equatable", "sessionDidClose"]
 - !private ["Ps9Equatable", "set"]
+- ["Ps9Equatable", "setNavBarUI"]
 - !private ["Ps9Equatable", "setValue"]
 - ["Ps9Equatable", "shared"]
 - !private ["Ps9Equatable", "show"]
 - !private ["Ps9Equatable", "showError"]
 - !private ["Ps9Equatable", "showSuccess"]
-- !private ["Ps9Equatable", "standard"]
+- ["Ps9Equatable", "standard"]
 - !private ["Ps9Equatable", "storyboard"]
 - !private ["Ps9Equatable", "synchronize"]
+- !private ["Ps9Equatable", "tabBarController"]
+- !private ["Ps9Equatable", "tableFooterView"]
 - ["Ps9Equatable", "tableView"]
 - !private ["Ps9Equatable", "tag"]
 - !private ["Ps9Equatable", "text"]
@@ -1208,7 +1267,8 @@ depends-member:
 - ["Ps9Equatable", "unreadMessagesCounterHiden"]
 - ["Ps9Equatable", "unreadMessagesCounterLabelText"]
 - !private ["Ps9Equatable", "user"]
-- !private ["Ps9Equatable", "userDefaults"]
+- ["Ps9Equatable", "userDefaults"]
+- !private ["Ps9Equatable", "userType"]
 - !private ["Ps9Equatable", "usersMemoryStorage"]
 - !private ["Ps9Equatable", "usersService"]
 - ["Ps9Equatable", "viewWillAppear"]
@@ -1229,8 +1289,11 @@ depends-member:
 - !private ["Ps25ExpressibleByArrayLiteral", "subscript"]
 - !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
 - !private ["Ps27ExpressibleByBooleanLiteral", "uintValue"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "Index"]
 - !private ["Ps30ExpressibleByDictionaryLiteral", "Key"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "SubSequence"]
 - !private ["Ps30ExpressibleByDictionaryLiteral", "Value"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "subscript"]
 - ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "isEmpty"]
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "localized"]
@@ -1239,7 +1302,7 @@ depends-member:
 - !private ["Ps27ExpressibleByIntegerLiteral", "IntegerLiteralType"]
 - !private ["Ps27ExpressibleByIntegerLiteral", "Stride"]
 - !private ["Ps27ExpressibleByIntegerLiteral", "_DisabledRangeIndex"]
-- !private ["Ps27ExpressibleByIntegerLiteral", "init"]
+- ["Ps27ExpressibleByIntegerLiteral", "init"]
 - !private ["Ps27ExpressibleByIntegerLiteral", "uintValue"]
 - !private ["Ps23ExpressibleByNilLiteral", "RawValue"]
 - ["Ps32ExpressibleByStringInterpolation", "init"]
@@ -1258,6 +1321,7 @@ depends-member:
 - !private ["Ps8Hashable", "DialogTableViewCellModel"]
 - !private ["Ps8Hashable", "DialogsViewController"]
 - ["Ps8Hashable", "GroupAction"]
+- ["Ps8Hashable", "Int"]
 - !private ["Ps8Hashable", "IntegerLiteralType"]
 - !private ["Ps8Hashable", "NSDate"]
 - !private ["Ps8Hashable", "NSMutableArray"]
@@ -1283,8 +1347,9 @@ depends-member:
 - !private ["Ps8Hashable", "UIBarButtonItemStyle"]
 - !private ["Ps8Hashable", "UIImage"]
 - !private ["Ps8Hashable", "UITableViewCellEditingStyle"]
+- !private ["Ps8Hashable", "UIView"]
 - !private ["Ps8Hashable", "UInt"]
-- !private ["Ps8Hashable", "UserDefaults"]
+- ["Ps8Hashable", "UserDefaults"]
 - !private ["Ps8Hashable", "ViewIdentifiers"]
 - !private ["Ps8Hashable", "_DisabledRangeIndex"]
 - !private ["Ps8Hashable", "_getBuiltinLogicValue"]
@@ -1311,6 +1376,7 @@ depends-member:
 - ["Ps8Hashable", "coreDidLogout"]
 - ["Ps8Hashable", "createLogoutButton"]
 - !private ["Ps8Hashable", "currentUser"]
+- !private ["Ps8Hashable", "data"]
 - !private ["Ps8Hashable", "default"]
 - ["Ps8Hashable", "delegate"]
 - !private ["Ps8Hashable", "delete"]
@@ -1324,13 +1390,13 @@ depends-member:
 - ["Ps8Hashable", "dialogIcon"]
 - !private ["Ps8Hashable", "dialogLastMessage"]
 - !private ["Ps8Hashable", "dialogName"]
-- !private ["Ps8Hashable", "dialogTypeImage"]
 - ["Ps8Hashable", "dialogs"]
 - !private ["Ps8Hashable", "dialogsMemoryStorage"]
 - !private ["Ps8Hashable", "dialogsSortByUpdatedAt"]
 - ["Ps8Hashable", "didEnterBackgroundDate"]
 - ["Ps8Hashable", "didEnterBackgroundNotification"]
 - ["Ps8Hashable", "didReceiveNewSession"]
+- !private ["Ps8Hashable", "dismiss"]
 - !private ["Ps8Hashable", "email"]
 - !private ["Ps8Hashable", "error"]
 - !private ["Ps8Hashable", "fetchDialogsUpdated"]
@@ -1339,7 +1405,6 @@ depends-member:
 - !private ["Ps8Hashable", "hidesBottomBarWhenPushed"]
 - !private ["Ps8Hashable", "id"]
 - !private ["Ps8Hashable", "identifier"]
-- !private ["Ps8Hashable", "image"]
 - ["Ps8Hashable", "incomingCallViewControllerAccept"]
 - ["Ps8Hashable", "incomingCallViewControllerReject"]
 - ["Ps8Hashable", "init"]
@@ -1347,6 +1412,7 @@ depends-member:
 - !private ["Ps8Hashable", "initiatorID"]
 - !private ["Ps8Hashable", "instance"]
 - !private ["Ps8Hashable", "instantiateViewController"]
+- ["Ps8Hashable", "integer"]
 - !private ["Ps8Hashable", "isConnected"]
 - !private ["Ps8Hashable", "isEmpty"]
 - !private ["Ps8Hashable", "isExclusiveTouch"]
@@ -1386,19 +1452,24 @@ depends-member:
 - !private ["Ps8Hashable", "remove"]
 - !private ["Ps8Hashable", "removeDelegate"]
 - !private ["Ps8Hashable", "removeObserver"]
+- !private ["Ps8Hashable", "rightBarButtonItems"]
 - !private ["Ps8Hashable", "row"]
+- ["Ps8Hashable", "selectedUserType"]
 - !private ["Ps8Hashable", "sendNotificationMessageAboutLeaving"]
 - ["Ps8Hashable", "session"]
 - ["Ps8Hashable", "sessionDidClose"]
 - !private ["Ps8Hashable", "set"]
+- ["Ps8Hashable", "setNavBarUI"]
 - !private ["Ps8Hashable", "setValue"]
 - ["Ps8Hashable", "shared"]
 - !private ["Ps8Hashable", "show"]
 - !private ["Ps8Hashable", "showError"]
 - !private ["Ps8Hashable", "showSuccess"]
-- !private ["Ps8Hashable", "standard"]
+- ["Ps8Hashable", "standard"]
 - !private ["Ps8Hashable", "storyboard"]
 - !private ["Ps8Hashable", "synchronize"]
+- !private ["Ps8Hashable", "tabBarController"]
+- !private ["Ps8Hashable", "tableFooterView"]
 - ["Ps8Hashable", "tableView"]
 - !private ["Ps8Hashable", "tag"]
 - !private ["Ps8Hashable", "text"]
@@ -1412,7 +1483,8 @@ depends-member:
 - ["Ps8Hashable", "unreadMessagesCounterHiden"]
 - ["Ps8Hashable", "unreadMessagesCounterLabelText"]
 - !private ["Ps8Hashable", "user"]
-- !private ["Ps8Hashable", "userDefaults"]
+- ["Ps8Hashable", "userDefaults"]
+- !private ["Ps8Hashable", "userType"]
 - !private ["Ps8Hashable", "usersMemoryStorage"]
 - !private ["Ps8Hashable", "usersService"]
 - ["Ps8Hashable", "viewWillAppear"]
@@ -1427,6 +1499,8 @@ depends-member:
 - !private ["PSo34IncomingCallViewControllerDelegate", "AlertView"]
 - !private ["PSo34IncomingCallViewControllerDelegate", "DialogTableViewCellModel"]
 - !private ["PSo34IncomingCallViewControllerDelegate", "DialogsViewController"]
+- !private ["PSo34IncomingCallViewControllerDelegate", "GroupAction"]
+- ["PSo34IncomingCallViewControllerDelegate", "Int"]
 - !private ["PSo34IncomingCallViewControllerDelegate", "NSDate"]
 - !private ["PSo34IncomingCallViewControllerDelegate", "NSMutableArray"]
 - !private ["PSo34IncomingCallViewControllerDelegate", "NSNotification"]
@@ -1440,11 +1514,14 @@ depends-member:
 - !private ["PSo34IncomingCallViewControllerDelegate", "SVProgressHUD"]
 - !private ["PSo34IncomingCallViewControllerDelegate", "SVProgressHUDMaskType"]
 - !private ["PSo34IncomingCallViewControllerDelegate", "ServicesManager"]
+- !private ["PSo34IncomingCallViewControllerDelegate", "String"]
 - ["PSo34IncomingCallViewControllerDelegate", "UIApplication"]
 - !private ["PSo34IncomingCallViewControllerDelegate", "UIBarButtonItem"]
 - !private ["PSo34IncomingCallViewControllerDelegate", "UIBarButtonItemStyle"]
+- !private ["PSo34IncomingCallViewControllerDelegate", "UIImage"]
 - !private ["PSo34IncomingCallViewControllerDelegate", "UITableViewCellEditingStyle"]
-- !private ["PSo34IncomingCallViewControllerDelegate", "UserDefaults"]
+- !private ["PSo34IncomingCallViewControllerDelegate", "UIView"]
+- ["PSo34IncomingCallViewControllerDelegate", "UserDefaults"]
 - !private ["PSo34IncomingCallViewControllerDelegate", "ViewIdentifiers"]
 - !private ["PSo34IncomingCallViewControllerDelegate", "appDelegate"]
 - ["PSo34IncomingCallViewControllerDelegate", "authService"]
@@ -1459,7 +1536,6 @@ depends-member:
 - ["PSo34IncomingCallViewControllerDelegate", "core"]
 - ["PSo34IncomingCallViewControllerDelegate", "coreDidLogin"]
 - ["PSo34IncomingCallViewControllerDelegate", "coreDidLogout"]
-- !private ["PSo34IncomingCallViewControllerDelegate", "createLogoutButton"]
 - !private ["PSo34IncomingCallViewControllerDelegate", "dialogs"]
 - !private ["PSo34IncomingCallViewControllerDelegate", "didEnterBackgroundDate"]
 - !private ["PSo34IncomingCallViewControllerDelegate", "didEnterBackgroundNotification"]
@@ -1475,11 +1551,16 @@ depends-member:
 - !private ["PSo34IncomingCallViewControllerDelegate", "performSegue"]
 - !private ["PSo34IncomingCallViewControllerDelegate", "print"]
 - !private ["PSo34IncomingCallViewControllerDelegate", "reloadTableViewIfNeeded"]
+- !private ["PSo34IncomingCallViewControllerDelegate", "selectedUserType"]
 - ["PSo34IncomingCallViewControllerDelegate", "session"]
 - ["PSo34IncomingCallViewControllerDelegate", "sessionDidClose"]
+- !private ["PSo34IncomingCallViewControllerDelegate", "setNavBarUI"]
 - !private ["PSo34IncomingCallViewControllerDelegate", "storyboard"]
+- !private ["PSo34IncomingCallViewControllerDelegate", "tabBarController"]
 - !private ["PSo34IncomingCallViewControllerDelegate", "tableView"]
-- !private ["PSo34IncomingCallViewControllerDelegate", "userDefaults"]
+- !private ["PSo34IncomingCallViewControllerDelegate", "title"]
+- ["PSo34IncomingCallViewControllerDelegate", "userDefaults"]
+- !private ["PSo34IncomingCallViewControllerDelegate", "userType"]
 - ["PSo34IncomingCallViewControllerDelegate", ""]
 - ["V10Foundation9IndexPath", "deinit"]
 - !private ["V10Foundation9IndexPath", "init"]
@@ -1517,7 +1598,7 @@ depends-member:
 - !private ["Si", "Stride"]
 - !private ["Si", "_DisabledRangeIndex"]
 - ["Si", "deinit"]
-- !private ["Si", "init"]
+- ["Si", "init"]
 - !private ["Vs5Int16", "deinit"]
 - !private ["Vs5Int16", "init"]
 - !private ["Vs5Int32", "deinit"]
@@ -1529,11 +1610,11 @@ depends-member:
 - !private ["Ps7Integer", "IntegerLiteralType"]
 - !private ["Ps7Integer", "Stride"]
 - !private ["Ps7Integer", "_DisabledRangeIndex"]
-- !private ["Ps7Integer", "init"]
+- ["Ps7Integer", "init"]
 - !private ["Ps17IntegerArithmetic", "IntegerLiteralType"]
 - !private ["Ps17IntegerArithmetic", "Stride"]
 - !private ["Ps17IntegerArithmetic", "_DisabledRangeIndex"]
-- !private ["Ps17IntegerArithmetic", "init"]
+- ["Ps17IntegerArithmetic", "init"]
 - !private ["Ps16IteratorProtocol", "Element"]
 - !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
 - ["Ps25LosslessStringConvertible", "init"]
@@ -1573,6 +1654,7 @@ depends-member:
 - !private ["PSo8NSCoding", "DialogTableViewCellModel"]
 - !private ["PSo8NSCoding", "DialogsViewController"]
 - ["PSo8NSCoding", "GroupAction"]
+- ["PSo8NSCoding", "Int"]
 - !private ["PSo8NSCoding", "NSDate"]
 - !private ["PSo8NSCoding", "NSMutableArray"]
 - !private ["PSo8NSCoding", "NSNotification"]
@@ -1587,11 +1669,14 @@ depends-member:
 - !private ["PSo8NSCoding", "SVProgressHUD"]
 - !private ["PSo8NSCoding", "SVProgressHUDMaskType"]
 - !private ["PSo8NSCoding", "ServicesManager"]
+- !private ["PSo8NSCoding", "String"]
 - ["PSo8NSCoding", "UIApplication"]
 - !private ["PSo8NSCoding", "UIBarButtonItem"]
 - !private ["PSo8NSCoding", "UIBarButtonItemStyle"]
+- !private ["PSo8NSCoding", "UIImage"]
 - !private ["PSo8NSCoding", "UITableViewCellEditingStyle"]
-- !private ["PSo8NSCoding", "UserDefaults"]
+- !private ["PSo8NSCoding", "UIView"]
+- ["PSo8NSCoding", "UserDefaults"]
 - !private ["PSo8NSCoding", "ViewIdentifiers"]
 - ["PSo8NSCoding", "appDelegate"]
 - ["PSo8NSCoding", "authService"]
@@ -1611,6 +1696,7 @@ depends-member:
 - ["PSo8NSCoding", "coreDidLogout"]
 - ["PSo8NSCoding", "createLogoutButton"]
 - !private ["PSo8NSCoding", "currentUser"]
+- !private ["PSo8NSCoding", "data"]
 - !private ["PSo8NSCoding", "delegate"]
 - !private ["PSo8NSCoding", "dequeueReusableCell"]
 - !private ["PSo8NSCoding", "deselectRow"]
@@ -1618,16 +1704,15 @@ depends-member:
 - !private ["PSo8NSCoding", "dialogID"]
 - !private ["PSo8NSCoding", "dialogLastMessage"]
 - !private ["PSo8NSCoding", "dialogName"]
-- !private ["PSo8NSCoding", "dialogTypeImage"]
 - ["PSo8NSCoding", "dialogs"]
 - ["PSo8NSCoding", "didEnterBackgroundDate"]
 - ["PSo8NSCoding", "didEnterBackgroundNotification"]
 - ["PSo8NSCoding", "didReceiveNewSession"]
+- !private ["PSo8NSCoding", "dismiss"]
 - !private ["PSo8NSCoding", "email"]
 - ["PSo8NSCoding", "getDialogs"]
 - !private ["PSo8NSCoding", "hidesBottomBarWhenPushed"]
 - !private ["PSo8NSCoding", "id"]
-- !private ["PSo8NSCoding", "image"]
 - ["PSo8NSCoding", "incomingCallViewControllerAccept"]
 - ["PSo8NSCoding", "incomingCallViewControllerReject"]
 - ["PSo8NSCoding", "init"]
@@ -1657,12 +1742,17 @@ depends-member:
 - !private ["PSo8NSCoding", "recipientID"]
 - !private ["PSo8NSCoding", "reloadData"]
 - ["PSo8NSCoding", "reloadTableViewIfNeeded"]
+- !private ["PSo8NSCoding", "rightBarButtonItems"]
+- ["PSo8NSCoding", "selectedUserType"]
 - ["PSo8NSCoding", "session"]
 - ["PSo8NSCoding", "sessionDidClose"]
+- ["PSo8NSCoding", "setNavBarUI"]
 - !private ["PSo8NSCoding", "show"]
 - !private ["PSo8NSCoding", "showError"]
 - !private ["PSo8NSCoding", "showSuccess"]
 - !private ["PSo8NSCoding", "storyboard"]
+- !private ["PSo8NSCoding", "tabBarController"]
+- !private ["PSo8NSCoding", "tableFooterView"]
 - ["PSo8NSCoding", "tableView"]
 - !private ["PSo8NSCoding", "tag"]
 - !private ["PSo8NSCoding", "text"]
@@ -1672,11 +1762,13 @@ depends-member:
 - !private ["PSo8NSCoding", "unreadMessageCounterHolder"]
 - !private ["PSo8NSCoding", "unreadMessageCounterLabel"]
 - !private ["PSo8NSCoding", "unreadMessagesCount"]
-- !private ["PSo8NSCoding", "userDefaults"]
+- ["PSo8NSCoding", "userDefaults"]
+- !private ["PSo8NSCoding", "userType"]
 - ["PSo8NSCoding", "viewWillAppear"]
 - ["PSo8NSCoding", "viewWillDisappear"]
 - ["PSo8NSCoding", ""]
 - !private ["PSo9NSCopying", "Name"]
+- !private ["PSo9NSCopying", "data"]
 - !private ["PSo9NSCopying", "email"]
 - !private ["PSo9NSCopying", "id"]
 - ["PSo9NSCopying", "init"]
@@ -1696,6 +1788,7 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "DialogTableViewCellModel"]
 - !private ["PSo26NSExtensionRequestHandling", "DialogsViewController"]
 - ["PSo26NSExtensionRequestHandling", "GroupAction"]
+- ["PSo26NSExtensionRequestHandling", "Int"]
 - !private ["PSo26NSExtensionRequestHandling", "NSDate"]
 - !private ["PSo26NSExtensionRequestHandling", "NSMutableArray"]
 - !private ["PSo26NSExtensionRequestHandling", "NSNotification"]
@@ -1709,11 +1802,14 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "SVProgressHUD"]
 - !private ["PSo26NSExtensionRequestHandling", "SVProgressHUDMaskType"]
 - !private ["PSo26NSExtensionRequestHandling", "ServicesManager"]
+- !private ["PSo26NSExtensionRequestHandling", "String"]
 - ["PSo26NSExtensionRequestHandling", "UIApplication"]
 - !private ["PSo26NSExtensionRequestHandling", "UIBarButtonItem"]
 - !private ["PSo26NSExtensionRequestHandling", "UIBarButtonItemStyle"]
+- !private ["PSo26NSExtensionRequestHandling", "UIImage"]
 - !private ["PSo26NSExtensionRequestHandling", "UITableViewCellEditingStyle"]
-- !private ["PSo26NSExtensionRequestHandling", "UserDefaults"]
+- !private ["PSo26NSExtensionRequestHandling", "UIView"]
+- ["PSo26NSExtensionRequestHandling", "UserDefaults"]
 - !private ["PSo26NSExtensionRequestHandling", "ViewIdentifiers"]
 - ["PSo26NSExtensionRequestHandling", "appDelegate"]
 - ["PSo26NSExtensionRequestHandling", "authService"]
@@ -1757,11 +1853,16 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "pushViewController"]
 - !private ["PSo26NSExtensionRequestHandling", "qbUsersArray"]
 - ["PSo26NSExtensionRequestHandling", "reloadTableViewIfNeeded"]
+- ["PSo26NSExtensionRequestHandling", "selectedUserType"]
 - ["PSo26NSExtensionRequestHandling", "session"]
 - ["PSo26NSExtensionRequestHandling", "sessionDidClose"]
+- ["PSo26NSExtensionRequestHandling", "setNavBarUI"]
 - !private ["PSo26NSExtensionRequestHandling", "storyboard"]
+- !private ["PSo26NSExtensionRequestHandling", "tabBarController"]
 - ["PSo26NSExtensionRequestHandling", "tableView"]
-- !private ["PSo26NSExtensionRequestHandling", "userDefaults"]
+- !private ["PSo26NSExtensionRequestHandling", "title"]
+- ["PSo26NSExtensionRequestHandling", "userDefaults"]
+- !private ["PSo26NSExtensionRequestHandling", "userType"]
 - ["PSo26NSExtensionRequestHandling", "viewWillAppear"]
 - ["PSo26NSExtensionRequestHandling", "viewWillDisappear"]
 - ["PSo26NSExtensionRequestHandling", ""]
@@ -1787,6 +1888,7 @@ depends-member:
 - !private ["CSo8NSObject", "DialogTableViewCell"]
 - !private ["CSo8NSObject", "DialogTableViewCellModel"]
 - !private ["CSo8NSObject", "DialogsViewController"]
+- !private ["CSo8NSObject", "Dictionary"]
 - ["CSo8NSObject", "Error"]
 - ["CSo8NSObject", "GroupAction"]
 - ["CSo8NSObject", "IncomingCallViewController"]
@@ -1825,9 +1927,10 @@ depends-member:
 - ["CSo8NSObject", "UITableView"]
 - ["CSo8NSObject", "UITableViewCell"]
 - ["CSo8NSObject", "UITableViewCellEditingStyle"]
+- !private ["CSo8NSObject", "UIView"]
 - !private ["CSo8NSObject", "UInt"]
 - !private ["CSo8NSObject", "UnsafeMutablePointer"]
-- !private ["CSo8NSObject", "UserDefaults"]
+- ["CSo8NSObject", "UserDefaults"]
 - !private ["CSo8NSObject", "ViewIdentifiers"]
 - !private ["CSo8NSObject", "Void"]
 - !private ["CSo8NSObject", "add"]
@@ -1852,6 +1955,7 @@ depends-member:
 - ["CSo8NSObject", "coreDidLogout"]
 - ["CSo8NSObject", "createLogoutButton"]
 - !private ["CSo8NSObject", "currentUser"]
+- !private ["CSo8NSObject", "data"]
 - !private ["CSo8NSObject", "default"]
 - ["CSo8NSObject", "deinit"]
 - ["CSo8NSObject", "delegate"]
@@ -1865,13 +1969,13 @@ depends-member:
 - ["CSo8NSObject", "dialogIcon"]
 - !private ["CSo8NSObject", "dialogLastMessage"]
 - !private ["CSo8NSObject", "dialogName"]
-- !private ["CSo8NSObject", "dialogTypeImage"]
 - ["CSo8NSObject", "dialogs"]
 - !private ["CSo8NSObject", "dialogsMemoryStorage"]
 - !private ["CSo8NSObject", "dialogsSortByUpdatedAt"]
 - ["CSo8NSObject", "didEnterBackgroundDate"]
 - ["CSo8NSObject", "didEnterBackgroundNotification"]
 - ["CSo8NSObject", "didReceiveNewSession"]
+- !private ["CSo8NSObject", "dismiss"]
 - !private ["CSo8NSObject", "email"]
 - !private ["CSo8NSObject", "error"]
 - !private ["CSo8NSObject", "fetchDialogsUpdated"]
@@ -1879,7 +1983,6 @@ depends-member:
 - !private ["CSo8NSObject", "hidesBottomBarWhenPushed"]
 - !private ["CSo8NSObject", "id"]
 - !private ["CSo8NSObject", "identifier"]
-- !private ["CSo8NSObject", "image"]
 - ["CSo8NSObject", "incomingCallViewControllerAccept"]
 - ["CSo8NSObject", "incomingCallViewControllerReject"]
 - ["CSo8NSObject", "init"]
@@ -1887,6 +1990,7 @@ depends-member:
 - !private ["CSo8NSObject", "initiatorID"]
 - !private ["CSo8NSObject", "instance"]
 - !private ["CSo8NSObject", "instantiateViewController"]
+- ["CSo8NSObject", "integer"]
 - !private ["CSo8NSObject", "isConnected"]
 - !private ["CSo8NSObject", "isEmpty"]
 - !private ["CSo8NSObject", "isExclusiveTouch"]
@@ -1923,18 +2027,23 @@ depends-member:
 - !private ["CSo8NSObject", "remove"]
 - !private ["CSo8NSObject", "removeDelegate"]
 - !private ["CSo8NSObject", "removeObserver"]
+- !private ["CSo8NSObject", "rightBarButtonItems"]
+- ["CSo8NSObject", "selectedUserType"]
 - !private ["CSo8NSObject", "sendNotificationMessageAboutLeaving"]
 - ["CSo8NSObject", "session"]
 - ["CSo8NSObject", "sessionDidClose"]
 - !private ["CSo8NSObject", "set"]
+- ["CSo8NSObject", "setNavBarUI"]
 - !private ["CSo8NSObject", "setValue"]
 - ["CSo8NSObject", "shared"]
 - !private ["CSo8NSObject", "show"]
 - !private ["CSo8NSObject", "showError"]
 - !private ["CSo8NSObject", "showSuccess"]
-- !private ["CSo8NSObject", "standard"]
+- ["CSo8NSObject", "standard"]
 - !private ["CSo8NSObject", "storyboard"]
 - !private ["CSo8NSObject", "synchronize"]
+- !private ["CSo8NSObject", "tabBarController"]
+- !private ["CSo8NSObject", "tableFooterView"]
 - ["CSo8NSObject", "tableView"]
 - !private ["CSo8NSObject", "tag"]
 - !private ["CSo8NSObject", "text"]
@@ -1948,7 +2057,8 @@ depends-member:
 - ["CSo8NSObject", "unreadMessagesCounterHiden"]
 - ["CSo8NSObject", "unreadMessagesCounterLabelText"]
 - !private ["CSo8NSObject", "user"]
-- !private ["CSo8NSObject", "userDefaults"]
+- ["CSo8NSObject", "userDefaults"]
+- !private ["CSo8NSObject", "userType"]
 - !private ["CSo8NSObject", "usersMemoryStorage"]
 - !private ["CSo8NSObject", "usersService"]
 - ["CSo8NSObject", "viewWillAppear"]
@@ -1958,6 +2068,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "DialogTableViewCellModel"]
 - !private ["PSo16NSObjectProtocol", "DialogsViewController"]
 - ["PSo16NSObjectProtocol", "GroupAction"]
+- ["PSo16NSObjectProtocol", "Int"]
 - !private ["PSo16NSObjectProtocol", "NSDate"]
 - !private ["PSo16NSObjectProtocol", "NSMutableArray"]
 - !private ["PSo16NSObjectProtocol", "NSNotification"]
@@ -1978,8 +2089,9 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "UIBarButtonItemStyle"]
 - !private ["PSo16NSObjectProtocol", "UIImage"]
 - !private ["PSo16NSObjectProtocol", "UITableViewCellEditingStyle"]
+- !private ["PSo16NSObjectProtocol", "UIView"]
 - !private ["PSo16NSObjectProtocol", "UInt"]
-- !private ["PSo16NSObjectProtocol", "UserDefaults"]
+- ["PSo16NSObjectProtocol", "UserDefaults"]
 - !private ["PSo16NSObjectProtocol", "ViewIdentifiers"]
 - !private ["PSo16NSObjectProtocol", "add"]
 - !private ["PSo16NSObjectProtocol", "addDelegate"]
@@ -2003,6 +2115,7 @@ depends-member:
 - ["PSo16NSObjectProtocol", "coreDidLogout"]
 - ["PSo16NSObjectProtocol", "createLogoutButton"]
 - !private ["PSo16NSObjectProtocol", "currentUser"]
+- !private ["PSo16NSObjectProtocol", "data"]
 - !private ["PSo16NSObjectProtocol", "default"]
 - ["PSo16NSObjectProtocol", "deinit"]
 - ["PSo16NSObjectProtocol", "delegate"]
@@ -2016,13 +2129,13 @@ depends-member:
 - ["PSo16NSObjectProtocol", "dialogIcon"]
 - !private ["PSo16NSObjectProtocol", "dialogLastMessage"]
 - !private ["PSo16NSObjectProtocol", "dialogName"]
-- !private ["PSo16NSObjectProtocol", "dialogTypeImage"]
 - ["PSo16NSObjectProtocol", "dialogs"]
 - !private ["PSo16NSObjectProtocol", "dialogsMemoryStorage"]
 - !private ["PSo16NSObjectProtocol", "dialogsSortByUpdatedAt"]
 - ["PSo16NSObjectProtocol", "didEnterBackgroundDate"]
 - ["PSo16NSObjectProtocol", "didEnterBackgroundNotification"]
 - ["PSo16NSObjectProtocol", "didReceiveNewSession"]
+- !private ["PSo16NSObjectProtocol", "dismiss"]
 - !private ["PSo16NSObjectProtocol", "email"]
 - !private ["PSo16NSObjectProtocol", "error"]
 - !private ["PSo16NSObjectProtocol", "fetchDialogsUpdated"]
@@ -2030,7 +2143,6 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "hidesBottomBarWhenPushed"]
 - !private ["PSo16NSObjectProtocol", "id"]
 - !private ["PSo16NSObjectProtocol", "identifier"]
-- !private ["PSo16NSObjectProtocol", "image"]
 - ["PSo16NSObjectProtocol", "incomingCallViewControllerAccept"]
 - ["PSo16NSObjectProtocol", "incomingCallViewControllerReject"]
 - ["PSo16NSObjectProtocol", "init"]
@@ -2038,6 +2150,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "initiatorID"]
 - !private ["PSo16NSObjectProtocol", "instance"]
 - !private ["PSo16NSObjectProtocol", "instantiateViewController"]
+- ["PSo16NSObjectProtocol", "integer"]
 - !private ["PSo16NSObjectProtocol", "isConnected"]
 - !private ["PSo16NSObjectProtocol", "isEmpty"]
 - !private ["PSo16NSObjectProtocol", "isExclusiveTouch"]
@@ -2074,18 +2187,23 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "remove"]
 - !private ["PSo16NSObjectProtocol", "removeDelegate"]
 - !private ["PSo16NSObjectProtocol", "removeObserver"]
+- !private ["PSo16NSObjectProtocol", "rightBarButtonItems"]
+- ["PSo16NSObjectProtocol", "selectedUserType"]
 - !private ["PSo16NSObjectProtocol", "sendNotificationMessageAboutLeaving"]
 - ["PSo16NSObjectProtocol", "session"]
 - ["PSo16NSObjectProtocol", "sessionDidClose"]
 - !private ["PSo16NSObjectProtocol", "set"]
+- ["PSo16NSObjectProtocol", "setNavBarUI"]
 - !private ["PSo16NSObjectProtocol", "setValue"]
 - ["PSo16NSObjectProtocol", "shared"]
 - !private ["PSo16NSObjectProtocol", "show"]
 - !private ["PSo16NSObjectProtocol", "showError"]
 - !private ["PSo16NSObjectProtocol", "showSuccess"]
-- !private ["PSo16NSObjectProtocol", "standard"]
+- ["PSo16NSObjectProtocol", "standard"]
 - !private ["PSo16NSObjectProtocol", "storyboard"]
 - !private ["PSo16NSObjectProtocol", "synchronize"]
+- !private ["PSo16NSObjectProtocol", "tabBarController"]
+- !private ["PSo16NSObjectProtocol", "tableFooterView"]
 - ["PSo16NSObjectProtocol", "tableView"]
 - !private ["PSo16NSObjectProtocol", "tag"]
 - !private ["PSo16NSObjectProtocol", "text"]
@@ -2099,7 +2217,8 @@ depends-member:
 - ["PSo16NSObjectProtocol", "unreadMessagesCounterHiden"]
 - ["PSo16NSObjectProtocol", "unreadMessagesCounterLabelText"]
 - !private ["PSo16NSObjectProtocol", "user"]
-- !private ["PSo16NSObjectProtocol", "userDefaults"]
+- ["PSo16NSObjectProtocol", "userDefaults"]
+- !private ["PSo16NSObjectProtocol", "userType"]
 - !private ["PSo16NSObjectProtocol", "usersMemoryStorage"]
 - !private ["PSo16NSObjectProtocol", "usersService"]
 - ["PSo16NSObjectProtocol", "viewWillAppear"]
@@ -2133,6 +2252,7 @@ depends-member:
 - ["CSo6QBChat", "deinit"]
 - !private ["CSo6QBChat", "instance"]
 - !private ["CSo6QBChat", "isConnected"]
+- !private ["CSo12QBChatDialog", "data"]
 - ["CSo12QBChatDialog", "deinit"]
 - !private ["CSo12QBChatDialog", "id"]
 - !private ["CSo12QBChatDialog", "lastMessageText"]
@@ -2149,6 +2269,8 @@ depends-member:
 - !private ["PSo14QBCoreDelegate", "AlertView"]
 - !private ["PSo14QBCoreDelegate", "DialogTableViewCellModel"]
 - !private ["PSo14QBCoreDelegate", "DialogsViewController"]
+- !private ["PSo14QBCoreDelegate", "GroupAction"]
+- ["PSo14QBCoreDelegate", "Int"]
 - !private ["PSo14QBCoreDelegate", "NSDate"]
 - !private ["PSo14QBCoreDelegate", "NSMutableArray"]
 - !private ["PSo14QBCoreDelegate", "NSNotification"]
@@ -2162,11 +2284,14 @@ depends-member:
 - !private ["PSo14QBCoreDelegate", "SVProgressHUD"]
 - !private ["PSo14QBCoreDelegate", "SVProgressHUDMaskType"]
 - !private ["PSo14QBCoreDelegate", "ServicesManager"]
+- !private ["PSo14QBCoreDelegate", "String"]
 - ["PSo14QBCoreDelegate", "UIApplication"]
 - !private ["PSo14QBCoreDelegate", "UIBarButtonItem"]
 - !private ["PSo14QBCoreDelegate", "UIBarButtonItemStyle"]
+- !private ["PSo14QBCoreDelegate", "UIImage"]
 - !private ["PSo14QBCoreDelegate", "UITableViewCellEditingStyle"]
-- !private ["PSo14QBCoreDelegate", "UserDefaults"]
+- !private ["PSo14QBCoreDelegate", "UIView"]
+- ["PSo14QBCoreDelegate", "UserDefaults"]
 - !private ["PSo14QBCoreDelegate", "ViewIdentifiers"]
 - !private ["PSo14QBCoreDelegate", "appDelegate"]
 - ["PSo14QBCoreDelegate", "authService"]
@@ -2181,7 +2306,6 @@ depends-member:
 - ["PSo14QBCoreDelegate", "core"]
 - ["PSo14QBCoreDelegate", "coreDidLogin"]
 - ["PSo14QBCoreDelegate", "coreDidLogout"]
-- !private ["PSo14QBCoreDelegate", "createLogoutButton"]
 - !private ["PSo14QBCoreDelegate", "dialogs"]
 - !private ["PSo14QBCoreDelegate", "didEnterBackgroundDate"]
 - !private ["PSo14QBCoreDelegate", "didEnterBackgroundNotification"]
@@ -2197,11 +2321,16 @@ depends-member:
 - !private ["PSo14QBCoreDelegate", "performSegue"]
 - !private ["PSo14QBCoreDelegate", "print"]
 - !private ["PSo14QBCoreDelegate", "reloadTableViewIfNeeded"]
+- !private ["PSo14QBCoreDelegate", "selectedUserType"]
 - ["PSo14QBCoreDelegate", "session"]
 - ["PSo14QBCoreDelegate", "sessionDidClose"]
+- !private ["PSo14QBCoreDelegate", "setNavBarUI"]
 - !private ["PSo14QBCoreDelegate", "storyboard"]
+- !private ["PSo14QBCoreDelegate", "tabBarController"]
 - !private ["PSo14QBCoreDelegate", "tableView"]
-- !private ["PSo14QBCoreDelegate", "userDefaults"]
+- !private ["PSo14QBCoreDelegate", "title"]
+- ["PSo14QBCoreDelegate", "userDefaults"]
+- !private ["PSo14QBCoreDelegate", "userType"]
 - ["PSo14QBCoreDelegate", ""]
 - !private ["CSo7QBError", "deinit"]
 - !private ["CSo7QBError", "error"]
@@ -2210,6 +2339,8 @@ depends-member:
 - !private ["PSo19QBRTCClientDelegate", "AlertView"]
 - !private ["PSo19QBRTCClientDelegate", "DialogTableViewCellModel"]
 - !private ["PSo19QBRTCClientDelegate", "DialogsViewController"]
+- !private ["PSo19QBRTCClientDelegate", "GroupAction"]
+- ["PSo19QBRTCClientDelegate", "Int"]
 - !private ["PSo19QBRTCClientDelegate", "NSDate"]
 - !private ["PSo19QBRTCClientDelegate", "NSMutableArray"]
 - !private ["PSo19QBRTCClientDelegate", "NSNotification"]
@@ -2223,11 +2354,14 @@ depends-member:
 - !private ["PSo19QBRTCClientDelegate", "SVProgressHUD"]
 - !private ["PSo19QBRTCClientDelegate", "SVProgressHUDMaskType"]
 - !private ["PSo19QBRTCClientDelegate", "ServicesManager"]
+- !private ["PSo19QBRTCClientDelegate", "String"]
 - ["PSo19QBRTCClientDelegate", "UIApplication"]
 - !private ["PSo19QBRTCClientDelegate", "UIBarButtonItem"]
 - !private ["PSo19QBRTCClientDelegate", "UIBarButtonItemStyle"]
+- !private ["PSo19QBRTCClientDelegate", "UIImage"]
 - !private ["PSo19QBRTCClientDelegate", "UITableViewCellEditingStyle"]
-- !private ["PSo19QBRTCClientDelegate", "UserDefaults"]
+- !private ["PSo19QBRTCClientDelegate", "UIView"]
+- ["PSo19QBRTCClientDelegate", "UserDefaults"]
 - !private ["PSo19QBRTCClientDelegate", "ViewIdentifiers"]
 - !private ["PSo19QBRTCClientDelegate", "appDelegate"]
 - ["PSo19QBRTCClientDelegate", "authService"]
@@ -2242,7 +2376,6 @@ depends-member:
 - ["PSo19QBRTCClientDelegate", "core"]
 - ["PSo19QBRTCClientDelegate", "coreDidLogin"]
 - ["PSo19QBRTCClientDelegate", "coreDidLogout"]
-- !private ["PSo19QBRTCClientDelegate", "createLogoutButton"]
 - !private ["PSo19QBRTCClientDelegate", "dialogs"]
 - !private ["PSo19QBRTCClientDelegate", "didEnterBackgroundDate"]
 - !private ["PSo19QBRTCClientDelegate", "didEnterBackgroundNotification"]
@@ -2258,11 +2391,16 @@ depends-member:
 - !private ["PSo19QBRTCClientDelegate", "performSegue"]
 - !private ["PSo19QBRTCClientDelegate", "print"]
 - !private ["PSo19QBRTCClientDelegate", "reloadTableViewIfNeeded"]
+- !private ["PSo19QBRTCClientDelegate", "selectedUserType"]
 - ["PSo19QBRTCClientDelegate", "session"]
 - ["PSo19QBRTCClientDelegate", "sessionDidClose"]
+- !private ["PSo19QBRTCClientDelegate", "setNavBarUI"]
 - !private ["PSo19QBRTCClientDelegate", "storyboard"]
+- !private ["PSo19QBRTCClientDelegate", "tabBarController"]
 - !private ["PSo19QBRTCClientDelegate", "tableView"]
-- !private ["PSo19QBRTCClientDelegate", "userDefaults"]
+- !private ["PSo19QBRTCClientDelegate", "title"]
+- ["PSo19QBRTCClientDelegate", "userDefaults"]
+- !private ["PSo19QBRTCClientDelegate", "userType"]
 - ["PSo19QBRTCClientDelegate", ""]
 - ["CSo12QBRTCSession", "deinit"]
 - !private ["CSo12QBRTCSession", "initiatorID"]
@@ -2284,6 +2422,8 @@ depends-member:
 - !private ["PSo21QMAuthServiceDelegate", "AlertView"]
 - !private ["PSo21QMAuthServiceDelegate", "DialogTableViewCellModel"]
 - !private ["PSo21QMAuthServiceDelegate", "DialogsViewController"]
+- !private ["PSo21QMAuthServiceDelegate", "GroupAction"]
+- ["PSo21QMAuthServiceDelegate", "Int"]
 - !private ["PSo21QMAuthServiceDelegate", "NSDate"]
 - !private ["PSo21QMAuthServiceDelegate", "NSMutableArray"]
 - !private ["PSo21QMAuthServiceDelegate", "NSNotification"]
@@ -2297,11 +2437,14 @@ depends-member:
 - !private ["PSo21QMAuthServiceDelegate", "SVProgressHUD"]
 - !private ["PSo21QMAuthServiceDelegate", "SVProgressHUDMaskType"]
 - !private ["PSo21QMAuthServiceDelegate", "ServicesManager"]
+- !private ["PSo21QMAuthServiceDelegate", "String"]
 - ["PSo21QMAuthServiceDelegate", "UIApplication"]
 - !private ["PSo21QMAuthServiceDelegate", "UIBarButtonItem"]
 - !private ["PSo21QMAuthServiceDelegate", "UIBarButtonItemStyle"]
+- !private ["PSo21QMAuthServiceDelegate", "UIImage"]
 - !private ["PSo21QMAuthServiceDelegate", "UITableViewCellEditingStyle"]
-- !private ["PSo21QMAuthServiceDelegate", "UserDefaults"]
+- !private ["PSo21QMAuthServiceDelegate", "UIView"]
+- ["PSo21QMAuthServiceDelegate", "UserDefaults"]
 - !private ["PSo21QMAuthServiceDelegate", "ViewIdentifiers"]
 - !private ["PSo21QMAuthServiceDelegate", "appDelegate"]
 - ["PSo21QMAuthServiceDelegate", "authService"]
@@ -2316,7 +2459,6 @@ depends-member:
 - ["PSo21QMAuthServiceDelegate", "core"]
 - ["PSo21QMAuthServiceDelegate", "coreDidLogin"]
 - ["PSo21QMAuthServiceDelegate", "coreDidLogout"]
-- !private ["PSo21QMAuthServiceDelegate", "createLogoutButton"]
 - !private ["PSo21QMAuthServiceDelegate", "dialogs"]
 - !private ["PSo21QMAuthServiceDelegate", "didEnterBackgroundDate"]
 - !private ["PSo21QMAuthServiceDelegate", "didEnterBackgroundNotification"]
@@ -2332,11 +2474,16 @@ depends-member:
 - !private ["PSo21QMAuthServiceDelegate", "performSegue"]
 - !private ["PSo21QMAuthServiceDelegate", "print"]
 - !private ["PSo21QMAuthServiceDelegate", "reloadTableViewIfNeeded"]
+- !private ["PSo21QMAuthServiceDelegate", "selectedUserType"]
 - ["PSo21QMAuthServiceDelegate", "session"]
 - ["PSo21QMAuthServiceDelegate", "sessionDidClose"]
+- !private ["PSo21QMAuthServiceDelegate", "setNavBarUI"]
 - !private ["PSo21QMAuthServiceDelegate", "storyboard"]
+- !private ["PSo21QMAuthServiceDelegate", "tabBarController"]
 - !private ["PSo21QMAuthServiceDelegate", "tableView"]
-- !private ["PSo21QMAuthServiceDelegate", "userDefaults"]
+- !private ["PSo21QMAuthServiceDelegate", "title"]
+- ["PSo21QMAuthServiceDelegate", "userDefaults"]
+- !private ["PSo21QMAuthServiceDelegate", "userType"]
 - ["PSo21QMAuthServiceDelegate", ""]
 - !private ["CSo13QMBaseService", "add"]
 - !private ["CSo13QMBaseService", "addDelegate"]
@@ -2359,6 +2506,8 @@ depends-member:
 - !private ["PSo24QMChatConnectionDelegate", "AlertView"]
 - !private ["PSo24QMChatConnectionDelegate", "DialogTableViewCellModel"]
 - !private ["PSo24QMChatConnectionDelegate", "DialogsViewController"]
+- !private ["PSo24QMChatConnectionDelegate", "GroupAction"]
+- ["PSo24QMChatConnectionDelegate", "Int"]
 - !private ["PSo24QMChatConnectionDelegate", "NSDate"]
 - !private ["PSo24QMChatConnectionDelegate", "NSMutableArray"]
 - !private ["PSo24QMChatConnectionDelegate", "NSNotification"]
@@ -2372,11 +2521,14 @@ depends-member:
 - !private ["PSo24QMChatConnectionDelegate", "SVProgressHUD"]
 - !private ["PSo24QMChatConnectionDelegate", "SVProgressHUDMaskType"]
 - !private ["PSo24QMChatConnectionDelegate", "ServicesManager"]
+- !private ["PSo24QMChatConnectionDelegate", "String"]
 - ["PSo24QMChatConnectionDelegate", "UIApplication"]
 - !private ["PSo24QMChatConnectionDelegate", "UIBarButtonItem"]
 - !private ["PSo24QMChatConnectionDelegate", "UIBarButtonItemStyle"]
+- !private ["PSo24QMChatConnectionDelegate", "UIImage"]
 - !private ["PSo24QMChatConnectionDelegate", "UITableViewCellEditingStyle"]
-- !private ["PSo24QMChatConnectionDelegate", "UserDefaults"]
+- !private ["PSo24QMChatConnectionDelegate", "UIView"]
+- ["PSo24QMChatConnectionDelegate", "UserDefaults"]
 - !private ["PSo24QMChatConnectionDelegate", "ViewIdentifiers"]
 - !private ["PSo24QMChatConnectionDelegate", "appDelegate"]
 - ["PSo24QMChatConnectionDelegate", "authService"]
@@ -2391,7 +2543,6 @@ depends-member:
 - ["PSo24QMChatConnectionDelegate", "core"]
 - ["PSo24QMChatConnectionDelegate", "coreDidLogin"]
 - ["PSo24QMChatConnectionDelegate", "coreDidLogout"]
-- !private ["PSo24QMChatConnectionDelegate", "createLogoutButton"]
 - !private ["PSo24QMChatConnectionDelegate", "currentUser"]
 - !private ["PSo24QMChatConnectionDelegate", "dialog"]
 - !private ["PSo24QMChatConnectionDelegate", "dialogs"]
@@ -2414,11 +2565,16 @@ depends-member:
 - !private ["PSo24QMChatConnectionDelegate", "performSegue"]
 - !private ["PSo24QMChatConnectionDelegate", "print"]
 - !private ["PSo24QMChatConnectionDelegate", "reloadTableViewIfNeeded"]
+- !private ["PSo24QMChatConnectionDelegate", "selectedUserType"]
 - ["PSo24QMChatConnectionDelegate", "session"]
 - ["PSo24QMChatConnectionDelegate", "sessionDidClose"]
+- !private ["PSo24QMChatConnectionDelegate", "setNavBarUI"]
 - !private ["PSo24QMChatConnectionDelegate", "storyboard"]
+- !private ["PSo24QMChatConnectionDelegate", "tabBarController"]
 - !private ["PSo24QMChatConnectionDelegate", "tableView"]
-- !private ["PSo24QMChatConnectionDelegate", "userDefaults"]
+- !private ["PSo24QMChatConnectionDelegate", "title"]
+- ["PSo24QMChatConnectionDelegate", "userDefaults"]
+- !private ["PSo24QMChatConnectionDelegate", "userType"]
 - !private ["PSo24QMChatConnectionDelegate", "usersService"]
 - ["PSo24QMChatConnectionDelegate", ""]
 - !private ["CSo13QMChatService", "addDelegate"]
@@ -2440,6 +2596,8 @@ depends-member:
 - !private ["PSo21QMChatServiceDelegate", "AlertView"]
 - !private ["PSo21QMChatServiceDelegate", "DialogTableViewCellModel"]
 - !private ["PSo21QMChatServiceDelegate", "DialogsViewController"]
+- !private ["PSo21QMChatServiceDelegate", "GroupAction"]
+- ["PSo21QMChatServiceDelegate", "Int"]
 - !private ["PSo21QMChatServiceDelegate", "NSDate"]
 - !private ["PSo21QMChatServiceDelegate", "NSMutableArray"]
 - !private ["PSo21QMChatServiceDelegate", "NSNotification"]
@@ -2453,11 +2611,14 @@ depends-member:
 - !private ["PSo21QMChatServiceDelegate", "SVProgressHUD"]
 - !private ["PSo21QMChatServiceDelegate", "SVProgressHUDMaskType"]
 - !private ["PSo21QMChatServiceDelegate", "ServicesManager"]
+- !private ["PSo21QMChatServiceDelegate", "String"]
 - ["PSo21QMChatServiceDelegate", "UIApplication"]
 - !private ["PSo21QMChatServiceDelegate", "UIBarButtonItem"]
 - !private ["PSo21QMChatServiceDelegate", "UIBarButtonItemStyle"]
+- !private ["PSo21QMChatServiceDelegate", "UIImage"]
 - !private ["PSo21QMChatServiceDelegate", "UITableViewCellEditingStyle"]
-- !private ["PSo21QMChatServiceDelegate", "UserDefaults"]
+- !private ["PSo21QMChatServiceDelegate", "UIView"]
+- ["PSo21QMChatServiceDelegate", "UserDefaults"]
 - !private ["PSo21QMChatServiceDelegate", "ViewIdentifiers"]
 - !private ["PSo21QMChatServiceDelegate", "appDelegate"]
 - ["PSo21QMChatServiceDelegate", "authService"]
@@ -2472,7 +2633,6 @@ depends-member:
 - ["PSo21QMChatServiceDelegate", "core"]
 - ["PSo21QMChatServiceDelegate", "coreDidLogin"]
 - ["PSo21QMChatServiceDelegate", "coreDidLogout"]
-- !private ["PSo21QMChatServiceDelegate", "createLogoutButton"]
 - !private ["PSo21QMChatServiceDelegate", "currentUser"]
 - !private ["PSo21QMChatServiceDelegate", "dialog"]
 - !private ["PSo21QMChatServiceDelegate", "dialogs"]
@@ -2495,11 +2655,16 @@ depends-member:
 - !private ["PSo21QMChatServiceDelegate", "performSegue"]
 - !private ["PSo21QMChatServiceDelegate", "print"]
 - !private ["PSo21QMChatServiceDelegate", "reloadTableViewIfNeeded"]
+- !private ["PSo21QMChatServiceDelegate", "selectedUserType"]
 - ["PSo21QMChatServiceDelegate", "session"]
 - ["PSo21QMChatServiceDelegate", "sessionDidClose"]
+- !private ["PSo21QMChatServiceDelegate", "setNavBarUI"]
 - !private ["PSo21QMChatServiceDelegate", "storyboard"]
+- !private ["PSo21QMChatServiceDelegate", "tabBarController"]
 - !private ["PSo21QMChatServiceDelegate", "tableView"]
-- !private ["PSo21QMChatServiceDelegate", "userDefaults"]
+- !private ["PSo21QMChatServiceDelegate", "title"]
+- ["PSo21QMChatServiceDelegate", "userDefaults"]
+- !private ["PSo21QMChatServiceDelegate", "userType"]
 - !private ["PSo21QMChatServiceDelegate", "usersService"]
 - ["PSo21QMChatServiceDelegate", ""]
 - !private ["CSo20QMChatViewController", "dialog"]
@@ -2617,6 +2782,7 @@ depends-member:
 - ["Ps16RawRepresentable", "publicGroup"]
 - !private ["P10Foundation20ReferenceConvertible", "init"]
 - !private ["P10Foundation20ReferenceConvertible", "row"]
+- !private ["CSo13SVProgressHUD", "dismiss"]
 - !private ["CSo13SVProgressHUD", "show"]
 - !private ["CSo13SVProgressHUD", "showError"]
 - !private ["CSo13SVProgressHUD", "showSuccess"]
@@ -2649,11 +2815,11 @@ depends-member:
 - !private ["Ps13SignedInteger", "IntegerLiteralType"]
 - !private ["Ps13SignedInteger", "Stride"]
 - !private ["Ps13SignedInteger", "_DisabledRangeIndex"]
-- !private ["Ps13SignedInteger", "init"]
+- ["Ps13SignedInteger", "init"]
 - !private ["Ps12SignedNumber", "IntegerLiteralType"]
 - !private ["Ps12SignedNumber", "Stride"]
 - !private ["Ps12SignedNumber", "_DisabledRangeIndex"]
-- !private ["Ps12SignedNumber", "init"]
+- ["Ps12SignedNumber", "init"]
 - !private ["Vs5Slice", "Index"]
 - !private ["Vs5Slice", "Iterator"]
 - !private ["Vs5Slice", "SubSequence"]
@@ -2663,7 +2829,7 @@ depends-member:
 - !private ["Ps10Strideable", "IntegerLiteralType"]
 - !private ["Ps10Strideable", "Stride"]
 - !private ["Ps10Strideable", "_DisabledRangeIndex"]
-- !private ["Ps10Strideable", "init"]
+- ["Ps10Strideable", "init"]
 - ["SS", "deinit"]
 - ["SS", "init"]
 - !private ["SS", "isEmpty"]
@@ -2680,8 +2846,7 @@ depends-member:
 - !private ["PSo29UIAccessibilityIdentification", "dialogID"]
 - !private ["PSo29UIAccessibilityIdentification", "dialogLastMessage"]
 - !private ["PSo29UIAccessibilityIdentification", "dialogName"]
-- !private ["PSo29UIAccessibilityIdentification", "dialogTypeImage"]
-- !private ["PSo29UIAccessibilityIdentification", "image"]
+- !private ["PSo29UIAccessibilityIdentification", "dismiss"]
 - !private ["PSo29UIAccessibilityIdentification", "init"]
 - !private ["PSo29UIAccessibilityIdentification", "isExclusiveTouch"]
 - !private ["PSo29UIAccessibilityIdentification", "isHidden"]
@@ -2689,6 +2854,7 @@ depends-member:
 - !private ["PSo29UIAccessibilityIdentification", "show"]
 - !private ["PSo29UIAccessibilityIdentification", "showError"]
 - !private ["PSo29UIAccessibilityIdentification", "showSuccess"]
+- !private ["PSo29UIAccessibilityIdentification", "tableFooterView"]
 - !private ["PSo29UIAccessibilityIdentification", "tag"]
 - !private ["PSo29UIAccessibilityIdentification", "text"]
 - !private ["PSo29UIAccessibilityIdentification", "unreadMessageCounterHolder"]
@@ -2702,8 +2868,7 @@ depends-member:
 - !private ["PSo12UIAppearance", "dialogID"]
 - !private ["PSo12UIAppearance", "dialogLastMessage"]
 - !private ["PSo12UIAppearance", "dialogName"]
-- !private ["PSo12UIAppearance", "dialogTypeImage"]
-- !private ["PSo12UIAppearance", "image"]
+- !private ["PSo12UIAppearance", "dismiss"]
 - !private ["PSo12UIAppearance", "init"]
 - !private ["PSo12UIAppearance", "isExclusiveTouch"]
 - !private ["PSo12UIAppearance", "isHidden"]
@@ -2711,6 +2876,7 @@ depends-member:
 - !private ["PSo12UIAppearance", "show"]
 - !private ["PSo12UIAppearance", "showError"]
 - !private ["PSo12UIAppearance", "showSuccess"]
+- !private ["PSo12UIAppearance", "tableFooterView"]
 - !private ["PSo12UIAppearance", "tag"]
 - !private ["PSo12UIAppearance", "text"]
 - !private ["PSo12UIAppearance", "unreadMessageCounterHolder"]
@@ -2719,6 +2885,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "DialogTableViewCellModel"]
 - !private ["PSo21UIAppearanceContainer", "DialogsViewController"]
 - ["PSo21UIAppearanceContainer", "GroupAction"]
+- ["PSo21UIAppearanceContainer", "Int"]
 - !private ["PSo21UIAppearanceContainer", "NSDate"]
 - !private ["PSo21UIAppearanceContainer", "NSMutableArray"]
 - !private ["PSo21UIAppearanceContainer", "NSNotification"]
@@ -2732,11 +2899,14 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "SVProgressHUD"]
 - !private ["PSo21UIAppearanceContainer", "SVProgressHUDMaskType"]
 - !private ["PSo21UIAppearanceContainer", "ServicesManager"]
+- !private ["PSo21UIAppearanceContainer", "String"]
 - ["PSo21UIAppearanceContainer", "UIApplication"]
 - !private ["PSo21UIAppearanceContainer", "UIBarButtonItem"]
 - !private ["PSo21UIAppearanceContainer", "UIBarButtonItemStyle"]
+- !private ["PSo21UIAppearanceContainer", "UIImage"]
 - !private ["PSo21UIAppearanceContainer", "UITableViewCellEditingStyle"]
-- !private ["PSo21UIAppearanceContainer", "UserDefaults"]
+- !private ["PSo21UIAppearanceContainer", "UIView"]
+- ["PSo21UIAppearanceContainer", "UserDefaults"]
 - !private ["PSo21UIAppearanceContainer", "ViewIdentifiers"]
 - ["PSo21UIAppearanceContainer", "appDelegate"]
 - ["PSo21UIAppearanceContainer", "authService"]
@@ -2762,14 +2932,13 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "dialogID"]
 - !private ["PSo21UIAppearanceContainer", "dialogLastMessage"]
 - !private ["PSo21UIAppearanceContainer", "dialogName"]
-- !private ["PSo21UIAppearanceContainer", "dialogTypeImage"]
 - ["PSo21UIAppearanceContainer", "dialogs"]
 - ["PSo21UIAppearanceContainer", "didEnterBackgroundDate"]
 - ["PSo21UIAppearanceContainer", "didEnterBackgroundNotification"]
 - ["PSo21UIAppearanceContainer", "didReceiveNewSession"]
+- !private ["PSo21UIAppearanceContainer", "dismiss"]
 - ["PSo21UIAppearanceContainer", "getDialogs"]
 - !private ["PSo21UIAppearanceContainer", "hidesBottomBarWhenPushed"]
-- !private ["PSo21UIAppearanceContainer", "image"]
 - ["PSo21UIAppearanceContainer", "incomingCallViewControllerAccept"]
 - ["PSo21UIAppearanceContainer", "incomingCallViewControllerReject"]
 - !private ["PSo21UIAppearanceContainer", "init"]
@@ -2791,18 +2960,24 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "qbUsersArray"]
 - !private ["PSo21UIAppearanceContainer", "reloadData"]
 - ["PSo21UIAppearanceContainer", "reloadTableViewIfNeeded"]
+- ["PSo21UIAppearanceContainer", "selectedUserType"]
 - ["PSo21UIAppearanceContainer", "session"]
 - ["PSo21UIAppearanceContainer", "sessionDidClose"]
+- ["PSo21UIAppearanceContainer", "setNavBarUI"]
 - !private ["PSo21UIAppearanceContainer", "show"]
 - !private ["PSo21UIAppearanceContainer", "showError"]
 - !private ["PSo21UIAppearanceContainer", "showSuccess"]
 - !private ["PSo21UIAppearanceContainer", "storyboard"]
+- !private ["PSo21UIAppearanceContainer", "tabBarController"]
+- !private ["PSo21UIAppearanceContainer", "tableFooterView"]
 - ["PSo21UIAppearanceContainer", "tableView"]
 - !private ["PSo21UIAppearanceContainer", "tag"]
 - !private ["PSo21UIAppearanceContainer", "text"]
+- !private ["PSo21UIAppearanceContainer", "title"]
 - !private ["PSo21UIAppearanceContainer", "unreadMessageCounterHolder"]
 - !private ["PSo21UIAppearanceContainer", "unreadMessageCounterLabel"]
-- !private ["PSo21UIAppearanceContainer", "userDefaults"]
+- ["PSo21UIAppearanceContainer", "userDefaults"]
+- !private ["PSo21UIAppearanceContainer", "userType"]
 - ["PSo21UIAppearanceContainer", "viewWillAppear"]
 - ["PSo21UIAppearanceContainer", "viewWillDisappear"]
 - ["PSo21UIAppearanceContainer", ""]
@@ -2828,6 +3003,7 @@ depends-member:
 - !private ["PSo18UIContentContainer", "DialogTableViewCellModel"]
 - !private ["PSo18UIContentContainer", "DialogsViewController"]
 - ["PSo18UIContentContainer", "GroupAction"]
+- ["PSo18UIContentContainer", "Int"]
 - !private ["PSo18UIContentContainer", "NSDate"]
 - !private ["PSo18UIContentContainer", "NSMutableArray"]
 - !private ["PSo18UIContentContainer", "NSNotification"]
@@ -2841,11 +3017,14 @@ depends-member:
 - !private ["PSo18UIContentContainer", "SVProgressHUD"]
 - !private ["PSo18UIContentContainer", "SVProgressHUDMaskType"]
 - !private ["PSo18UIContentContainer", "ServicesManager"]
+- !private ["PSo18UIContentContainer", "String"]
 - ["PSo18UIContentContainer", "UIApplication"]
 - !private ["PSo18UIContentContainer", "UIBarButtonItem"]
 - !private ["PSo18UIContentContainer", "UIBarButtonItemStyle"]
+- !private ["PSo18UIContentContainer", "UIImage"]
 - !private ["PSo18UIContentContainer", "UITableViewCellEditingStyle"]
-- !private ["PSo18UIContentContainer", "UserDefaults"]
+- !private ["PSo18UIContentContainer", "UIView"]
+- ["PSo18UIContentContainer", "UserDefaults"]
 - !private ["PSo18UIContentContainer", "ViewIdentifiers"]
 - ["PSo18UIContentContainer", "appDelegate"]
 - ["PSo18UIContentContainer", "authService"]
@@ -2889,11 +3068,16 @@ depends-member:
 - !private ["PSo18UIContentContainer", "pushViewController"]
 - !private ["PSo18UIContentContainer", "qbUsersArray"]
 - ["PSo18UIContentContainer", "reloadTableViewIfNeeded"]
+- ["PSo18UIContentContainer", "selectedUserType"]
 - ["PSo18UIContentContainer", "session"]
 - ["PSo18UIContentContainer", "sessionDidClose"]
+- ["PSo18UIContentContainer", "setNavBarUI"]
 - !private ["PSo18UIContentContainer", "storyboard"]
+- !private ["PSo18UIContentContainer", "tabBarController"]
 - ["PSo18UIContentContainer", "tableView"]
-- !private ["PSo18UIContentContainer", "userDefaults"]
+- !private ["PSo18UIContentContainer", "title"]
+- ["PSo18UIContentContainer", "userDefaults"]
+- !private ["PSo18UIContentContainer", "userType"]
 - ["PSo18UIContentContainer", "viewWillAppear"]
 - ["PSo18UIContentContainer", "viewWillDisappear"]
 - ["PSo18UIContentContainer", ""]
@@ -2904,14 +3088,15 @@ depends-member:
 - !private ["PSo17UICoordinateSpace", "dialogID"]
 - !private ["PSo17UICoordinateSpace", "dialogLastMessage"]
 - !private ["PSo17UICoordinateSpace", "dialogName"]
-- !private ["PSo17UICoordinateSpace", "dialogTypeImage"]
-- !private ["PSo17UICoordinateSpace", "image"]
+- !private ["PSo17UICoordinateSpace", "dismiss"]
+- !private ["PSo17UICoordinateSpace", "init"]
 - !private ["PSo17UICoordinateSpace", "isExclusiveTouch"]
 - !private ["PSo17UICoordinateSpace", "isHidden"]
 - !private ["PSo17UICoordinateSpace", "reloadData"]
 - !private ["PSo17UICoordinateSpace", "show"]
 - !private ["PSo17UICoordinateSpace", "showError"]
 - !private ["PSo17UICoordinateSpace", "showSuccess"]
+- !private ["PSo17UICoordinateSpace", "tableFooterView"]
 - !private ["PSo17UICoordinateSpace", "tag"]
 - !private ["PSo17UICoordinateSpace", "text"]
 - !private ["PSo17UICoordinateSpace", "unreadMessageCounterHolder"]
@@ -2922,14 +3107,15 @@ depends-member:
 - !private ["PSo13UIDynamicItem", "dialogID"]
 - !private ["PSo13UIDynamicItem", "dialogLastMessage"]
 - !private ["PSo13UIDynamicItem", "dialogName"]
-- !private ["PSo13UIDynamicItem", "dialogTypeImage"]
-- !private ["PSo13UIDynamicItem", "image"]
+- !private ["PSo13UIDynamicItem", "dismiss"]
+- !private ["PSo13UIDynamicItem", "init"]
 - !private ["PSo13UIDynamicItem", "isExclusiveTouch"]
 - !private ["PSo13UIDynamicItem", "isHidden"]
 - !private ["PSo13UIDynamicItem", "reloadData"]
 - !private ["PSo13UIDynamicItem", "show"]
 - !private ["PSo13UIDynamicItem", "showError"]
 - !private ["PSo13UIDynamicItem", "showSuccess"]
+- !private ["PSo13UIDynamicItem", "tableFooterView"]
 - !private ["PSo13UIDynamicItem", "tag"]
 - !private ["PSo13UIDynamicItem", "text"]
 - !private ["PSo13UIDynamicItem", "unreadMessageCounterHolder"]
@@ -2938,6 +3124,7 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "DialogTableViewCellModel"]
 - !private ["PSo18UIFocusEnvironment", "DialogsViewController"]
 - ["PSo18UIFocusEnvironment", "GroupAction"]
+- ["PSo18UIFocusEnvironment", "Int"]
 - !private ["PSo18UIFocusEnvironment", "NSDate"]
 - !private ["PSo18UIFocusEnvironment", "NSMutableArray"]
 - !private ["PSo18UIFocusEnvironment", "NSNotification"]
@@ -2951,11 +3138,14 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "SVProgressHUD"]
 - !private ["PSo18UIFocusEnvironment", "SVProgressHUDMaskType"]
 - !private ["PSo18UIFocusEnvironment", "ServicesManager"]
+- !private ["PSo18UIFocusEnvironment", "String"]
 - ["PSo18UIFocusEnvironment", "UIApplication"]
 - !private ["PSo18UIFocusEnvironment", "UIBarButtonItem"]
 - !private ["PSo18UIFocusEnvironment", "UIBarButtonItemStyle"]
+- !private ["PSo18UIFocusEnvironment", "UIImage"]
 - !private ["PSo18UIFocusEnvironment", "UITableViewCellEditingStyle"]
-- !private ["PSo18UIFocusEnvironment", "UserDefaults"]
+- !private ["PSo18UIFocusEnvironment", "UIView"]
+- ["PSo18UIFocusEnvironment", "UserDefaults"]
 - !private ["PSo18UIFocusEnvironment", "ViewIdentifiers"]
 - ["PSo18UIFocusEnvironment", "appDelegate"]
 - ["PSo18UIFocusEnvironment", "authService"]
@@ -2981,14 +3171,13 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "dialogID"]
 - !private ["PSo18UIFocusEnvironment", "dialogLastMessage"]
 - !private ["PSo18UIFocusEnvironment", "dialogName"]
-- !private ["PSo18UIFocusEnvironment", "dialogTypeImage"]
 - ["PSo18UIFocusEnvironment", "dialogs"]
 - ["PSo18UIFocusEnvironment", "didEnterBackgroundDate"]
 - ["PSo18UIFocusEnvironment", "didEnterBackgroundNotification"]
 - ["PSo18UIFocusEnvironment", "didReceiveNewSession"]
+- !private ["PSo18UIFocusEnvironment", "dismiss"]
 - ["PSo18UIFocusEnvironment", "getDialogs"]
 - !private ["PSo18UIFocusEnvironment", "hidesBottomBarWhenPushed"]
-- !private ["PSo18UIFocusEnvironment", "image"]
 - ["PSo18UIFocusEnvironment", "incomingCallViewControllerAccept"]
 - ["PSo18UIFocusEnvironment", "incomingCallViewControllerReject"]
 - !private ["PSo18UIFocusEnvironment", "init"]
@@ -3010,18 +3199,24 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "qbUsersArray"]
 - !private ["PSo18UIFocusEnvironment", "reloadData"]
 - ["PSo18UIFocusEnvironment", "reloadTableViewIfNeeded"]
+- ["PSo18UIFocusEnvironment", "selectedUserType"]
 - ["PSo18UIFocusEnvironment", "session"]
 - ["PSo18UIFocusEnvironment", "sessionDidClose"]
+- ["PSo18UIFocusEnvironment", "setNavBarUI"]
 - !private ["PSo18UIFocusEnvironment", "show"]
 - !private ["PSo18UIFocusEnvironment", "showError"]
 - !private ["PSo18UIFocusEnvironment", "showSuccess"]
 - !private ["PSo18UIFocusEnvironment", "storyboard"]
+- !private ["PSo18UIFocusEnvironment", "tabBarController"]
+- !private ["PSo18UIFocusEnvironment", "tableFooterView"]
 - ["PSo18UIFocusEnvironment", "tableView"]
 - !private ["PSo18UIFocusEnvironment", "tag"]
 - !private ["PSo18UIFocusEnvironment", "text"]
+- !private ["PSo18UIFocusEnvironment", "title"]
 - !private ["PSo18UIFocusEnvironment", "unreadMessageCounterHolder"]
 - !private ["PSo18UIFocusEnvironment", "unreadMessageCounterLabel"]
-- !private ["PSo18UIFocusEnvironment", "userDefaults"]
+- ["PSo18UIFocusEnvironment", "userDefaults"]
+- !private ["PSo18UIFocusEnvironment", "userType"]
 - ["PSo18UIFocusEnvironment", "viewWillAppear"]
 - ["PSo18UIFocusEnvironment", "viewWillDisappear"]
 - ["PSo18UIFocusEnvironment", ""]
@@ -3031,14 +3226,15 @@ depends-member:
 - !private ["PSo11UIFocusItem", "dialogID"]
 - !private ["PSo11UIFocusItem", "dialogLastMessage"]
 - !private ["PSo11UIFocusItem", "dialogName"]
-- !private ["PSo11UIFocusItem", "dialogTypeImage"]
-- !private ["PSo11UIFocusItem", "image"]
+- !private ["PSo11UIFocusItem", "dismiss"]
+- !private ["PSo11UIFocusItem", "init"]
 - !private ["PSo11UIFocusItem", "isExclusiveTouch"]
 - !private ["PSo11UIFocusItem", "isHidden"]
 - !private ["PSo11UIFocusItem", "reloadData"]
 - !private ["PSo11UIFocusItem", "show"]
 - !private ["PSo11UIFocusItem", "showError"]
 - !private ["PSo11UIFocusItem", "showSuccess"]
+- !private ["PSo11UIFocusItem", "tableFooterView"]
 - !private ["PSo11UIFocusItem", "tag"]
 - !private ["PSo11UIFocusItem", "text"]
 - !private ["PSo11UIFocusItem", "unreadMessageCounterHolder"]
@@ -3047,7 +3243,6 @@ depends-member:
 - !private ["PSo27UIGestureRecognizerDelegate", "dialogID"]
 - !private ["PSo27UIGestureRecognizerDelegate", "dialogLastMessage"]
 - !private ["PSo27UIGestureRecognizerDelegate", "dialogName"]
-- !private ["PSo27UIGestureRecognizerDelegate", "dialogTypeImage"]
 - !private ["PSo27UIGestureRecognizerDelegate", "isExclusiveTouch"]
 - !private ["PSo27UIGestureRecognizerDelegate", "tag"]
 - !private ["PSo27UIGestureRecognizerDelegate", "unreadMessageCounterHolder"]
@@ -3055,7 +3250,6 @@ depends-member:
 - !private ["CSo7UIImage", "init"]
 - !private ["PSo31UIImagePickerControllerDelegate", "dialog"]
 - !private ["PSo31UIImagePickerControllerDelegate", "hidesBottomBarWhenPushed"]
-- !private ["CSo11UIImageView", "image"]
 - !private ["CSo7UILabel", "text"]
 - ["CSo22UINavigationController", "deinit"]
 - !private ["CSo22UINavigationController", "popToRootViewController"]
@@ -3066,6 +3260,7 @@ depends-member:
 - !private ["CSo16UINavigationItem", "backBarButtonItem"]
 - ["CSo16UINavigationItem", "deinit"]
 - !private ["CSo16UINavigationItem", "leftBarButtonItem"]
+- !private ["CSo16UINavigationItem", "rightBarButtonItems"]
 - !private ["CSo16UINavigationItem", "title"]
 - !private ["CSo11UIResponder", "AlertView"]
 - ["CSo11UIResponder", "AnyHashable"]
@@ -3079,6 +3274,7 @@ depends-member:
 - !private ["CSo11UIResponder", "DialogTableViewCell"]
 - !private ["CSo11UIResponder", "DialogTableViewCellModel"]
 - !private ["CSo11UIResponder", "DialogsViewController"]
+- !private ["CSo11UIResponder", "Dictionary"]
 - ["CSo11UIResponder", "Error"]
 - ["CSo11UIResponder", "GroupAction"]
 - ["CSo11UIResponder", "IncomingCallViewController"]
@@ -3111,13 +3307,15 @@ depends-member:
 - ["CSo11UIResponder", "UIApplication"]
 - ["CSo11UIResponder", "UIBarButtonItem"]
 - !private ["CSo11UIResponder", "UIBarButtonItemStyle"]
+- !private ["CSo11UIResponder", "UIImage"]
 - ["CSo11UIResponder", "UIStoryboardSegue"]
 - ["CSo11UIResponder", "UITableView"]
 - ["CSo11UIResponder", "UITableViewCell"]
 - ["CSo11UIResponder", "UITableViewCellEditingStyle"]
+- !private ["CSo11UIResponder", "UIView"]
 - !private ["CSo11UIResponder", "UInt"]
 - !private ["CSo11UIResponder", "UnsafeMutablePointer"]
-- !private ["CSo11UIResponder", "UserDefaults"]
+- ["CSo11UIResponder", "UserDefaults"]
 - !private ["CSo11UIResponder", "ViewIdentifiers"]
 - !private ["CSo11UIResponder", "Void"]
 - ["CSo11UIResponder", "appDelegate"]
@@ -3144,14 +3342,13 @@ depends-member:
 - !private ["CSo11UIResponder", "dialogID"]
 - !private ["CSo11UIResponder", "dialogLastMessage"]
 - !private ["CSo11UIResponder", "dialogName"]
-- !private ["CSo11UIResponder", "dialogTypeImage"]
 - ["CSo11UIResponder", "dialogs"]
 - ["CSo11UIResponder", "didEnterBackgroundDate"]
 - ["CSo11UIResponder", "didEnterBackgroundNotification"]
 - ["CSo11UIResponder", "didReceiveNewSession"]
+- !private ["CSo11UIResponder", "dismiss"]
 - ["CSo11UIResponder", "getDialogs"]
 - !private ["CSo11UIResponder", "hidesBottomBarWhenPushed"]
-- !private ["CSo11UIResponder", "image"]
 - ["CSo11UIResponder", "incomingCallViewControllerAccept"]
 - ["CSo11UIResponder", "incomingCallViewControllerReject"]
 - ["CSo11UIResponder", "init"]
@@ -3173,25 +3370,32 @@ depends-member:
 - !private ["CSo11UIResponder", "qbUsersArray"]
 - !private ["CSo11UIResponder", "reloadData"]
 - ["CSo11UIResponder", "reloadTableViewIfNeeded"]
+- ["CSo11UIResponder", "selectedUserType"]
 - ["CSo11UIResponder", "session"]
 - ["CSo11UIResponder", "sessionDidClose"]
+- ["CSo11UIResponder", "setNavBarUI"]
 - ["CSo11UIResponder", "shared"]
 - !private ["CSo11UIResponder", "show"]
 - !private ["CSo11UIResponder", "showError"]
 - !private ["CSo11UIResponder", "showSuccess"]
 - !private ["CSo11UIResponder", "storyboard"]
+- !private ["CSo11UIResponder", "tabBarController"]
+- !private ["CSo11UIResponder", "tableFooterView"]
 - ["CSo11UIResponder", "tableView"]
 - !private ["CSo11UIResponder", "tag"]
 - !private ["CSo11UIResponder", "text"]
+- !private ["CSo11UIResponder", "title"]
 - !private ["CSo11UIResponder", "unreadMessageCounterHolder"]
 - !private ["CSo11UIResponder", "unreadMessageCounterLabel"]
-- !private ["CSo11UIResponder", "userDefaults"]
+- ["CSo11UIResponder", "userDefaults"]
+- !private ["CSo11UIResponder", "userType"]
 - ["CSo11UIResponder", "viewWillAppear"]
 - ["CSo11UIResponder", "viewWillDisappear"]
 - !private ["PSo30UIResponderStandardEditActions", "AlertView"]
 - !private ["PSo30UIResponderStandardEditActions", "DialogTableViewCellModel"]
 - !private ["PSo30UIResponderStandardEditActions", "DialogsViewController"]
 - ["PSo30UIResponderStandardEditActions", "GroupAction"]
+- ["PSo30UIResponderStandardEditActions", "Int"]
 - !private ["PSo30UIResponderStandardEditActions", "NSDate"]
 - !private ["PSo30UIResponderStandardEditActions", "NSMutableArray"]
 - !private ["PSo30UIResponderStandardEditActions", "NSNotification"]
@@ -3205,11 +3409,14 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "SVProgressHUD"]
 - !private ["PSo30UIResponderStandardEditActions", "SVProgressHUDMaskType"]
 - !private ["PSo30UIResponderStandardEditActions", "ServicesManager"]
+- !private ["PSo30UIResponderStandardEditActions", "String"]
 - ["PSo30UIResponderStandardEditActions", "UIApplication"]
 - !private ["PSo30UIResponderStandardEditActions", "UIBarButtonItem"]
 - !private ["PSo30UIResponderStandardEditActions", "UIBarButtonItemStyle"]
+- !private ["PSo30UIResponderStandardEditActions", "UIImage"]
 - !private ["PSo30UIResponderStandardEditActions", "UITableViewCellEditingStyle"]
-- !private ["PSo30UIResponderStandardEditActions", "UserDefaults"]
+- !private ["PSo30UIResponderStandardEditActions", "UIView"]
+- ["PSo30UIResponderStandardEditActions", "UserDefaults"]
 - !private ["PSo30UIResponderStandardEditActions", "ViewIdentifiers"]
 - ["PSo30UIResponderStandardEditActions", "appDelegate"]
 - ["PSo30UIResponderStandardEditActions", "authService"]
@@ -3235,14 +3442,13 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "dialogID"]
 - !private ["PSo30UIResponderStandardEditActions", "dialogLastMessage"]
 - !private ["PSo30UIResponderStandardEditActions", "dialogName"]
-- !private ["PSo30UIResponderStandardEditActions", "dialogTypeImage"]
 - ["PSo30UIResponderStandardEditActions", "dialogs"]
 - ["PSo30UIResponderStandardEditActions", "didEnterBackgroundDate"]
 - ["PSo30UIResponderStandardEditActions", "didEnterBackgroundNotification"]
 - ["PSo30UIResponderStandardEditActions", "didReceiveNewSession"]
+- !private ["PSo30UIResponderStandardEditActions", "dismiss"]
 - ["PSo30UIResponderStandardEditActions", "getDialogs"]
 - !private ["PSo30UIResponderStandardEditActions", "hidesBottomBarWhenPushed"]
-- !private ["PSo30UIResponderStandardEditActions", "image"]
 - ["PSo30UIResponderStandardEditActions", "incomingCallViewControllerAccept"]
 - ["PSo30UIResponderStandardEditActions", "incomingCallViewControllerReject"]
 - !private ["PSo30UIResponderStandardEditActions", "init"]
@@ -3264,29 +3470,37 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "qbUsersArray"]
 - !private ["PSo30UIResponderStandardEditActions", "reloadData"]
 - ["PSo30UIResponderStandardEditActions", "reloadTableViewIfNeeded"]
+- ["PSo30UIResponderStandardEditActions", "selectedUserType"]
 - ["PSo30UIResponderStandardEditActions", "session"]
 - ["PSo30UIResponderStandardEditActions", "sessionDidClose"]
+- ["PSo30UIResponderStandardEditActions", "setNavBarUI"]
 - ["PSo30UIResponderStandardEditActions", "shared"]
 - !private ["PSo30UIResponderStandardEditActions", "show"]
 - !private ["PSo30UIResponderStandardEditActions", "showError"]
 - !private ["PSo30UIResponderStandardEditActions", "showSuccess"]
 - !private ["PSo30UIResponderStandardEditActions", "storyboard"]
+- !private ["PSo30UIResponderStandardEditActions", "tabBarController"]
+- !private ["PSo30UIResponderStandardEditActions", "tableFooterView"]
 - ["PSo30UIResponderStandardEditActions", "tableView"]
 - !private ["PSo30UIResponderStandardEditActions", "tag"]
 - !private ["PSo30UIResponderStandardEditActions", "text"]
+- !private ["PSo30UIResponderStandardEditActions", "title"]
 - !private ["PSo30UIResponderStandardEditActions", "unreadMessageCounterHolder"]
 - !private ["PSo30UIResponderStandardEditActions", "unreadMessageCounterLabel"]
-- !private ["PSo30UIResponderStandardEditActions", "userDefaults"]
+- ["PSo30UIResponderStandardEditActions", "userDefaults"]
+- !private ["PSo30UIResponderStandardEditActions", "userType"]
 - ["PSo30UIResponderStandardEditActions", "viewWillAppear"]
 - ["PSo30UIResponderStandardEditActions", "viewWillDisappear"]
 - ["PSo30UIResponderStandardEditActions", ""]
 - !private ["CSo12UIScrollView", "dequeueReusableCell"]
 - !private ["CSo12UIScrollView", "deselectRow"]
 - !private ["CSo12UIScrollView", "reloadData"]
+- !private ["CSo12UIScrollView", "tableFooterView"]
 - !private ["PSo20UIScrollViewDelegate", "AlertView"]
 - !private ["PSo20UIScrollViewDelegate", "DialogTableViewCellModel"]
 - !private ["PSo20UIScrollViewDelegate", "DialogsViewController"]
 - ["PSo20UIScrollViewDelegate", "GroupAction"]
+- ["PSo20UIScrollViewDelegate", "Int"]
 - !private ["PSo20UIScrollViewDelegate", "NSDate"]
 - !private ["PSo20UIScrollViewDelegate", "NSMutableArray"]
 - !private ["PSo20UIScrollViewDelegate", "NSNotification"]
@@ -3300,11 +3514,14 @@ depends-member:
 - !private ["PSo20UIScrollViewDelegate", "SVProgressHUD"]
 - !private ["PSo20UIScrollViewDelegate", "SVProgressHUDMaskType"]
 - !private ["PSo20UIScrollViewDelegate", "ServicesManager"]
+- !private ["PSo20UIScrollViewDelegate", "String"]
 - ["PSo20UIScrollViewDelegate", "UIApplication"]
 - !private ["PSo20UIScrollViewDelegate", "UIBarButtonItem"]
 - !private ["PSo20UIScrollViewDelegate", "UIBarButtonItemStyle"]
+- !private ["PSo20UIScrollViewDelegate", "UIImage"]
 - !private ["PSo20UIScrollViewDelegate", "UITableViewCellEditingStyle"]
-- !private ["PSo20UIScrollViewDelegate", "UserDefaults"]
+- !private ["PSo20UIScrollViewDelegate", "UIView"]
+- ["PSo20UIScrollViewDelegate", "UserDefaults"]
 - !private ["PSo20UIScrollViewDelegate", "ViewIdentifiers"]
 - ["PSo20UIScrollViewDelegate", "appDelegate"]
 - ["PSo20UIScrollViewDelegate", "authService"]
@@ -3342,11 +3559,16 @@ depends-member:
 - ["PSo20UIScrollViewDelegate", "prepare"]
 - !private ["PSo20UIScrollViewDelegate", "print"]
 - ["PSo20UIScrollViewDelegate", "reloadTableViewIfNeeded"]
+- ["PSo20UIScrollViewDelegate", "selectedUserType"]
 - ["PSo20UIScrollViewDelegate", "session"]
 - ["PSo20UIScrollViewDelegate", "sessionDidClose"]
+- ["PSo20UIScrollViewDelegate", "setNavBarUI"]
 - !private ["PSo20UIScrollViewDelegate", "storyboard"]
+- !private ["PSo20UIScrollViewDelegate", "tabBarController"]
 - ["PSo20UIScrollViewDelegate", "tableView"]
-- !private ["PSo20UIScrollViewDelegate", "userDefaults"]
+- !private ["PSo20UIScrollViewDelegate", "title"]
+- ["PSo20UIScrollViewDelegate", "userDefaults"]
+- !private ["PSo20UIScrollViewDelegate", "userType"]
 - ["PSo20UIScrollViewDelegate", "viewWillAppear"]
 - ["PSo20UIScrollViewDelegate", "viewWillDisappear"]
 - ["PSo20UIScrollViewDelegate", ""]
@@ -3354,6 +3576,7 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "DialogTableViewCellModel"]
 - !private ["PSo16UIStateRestoring", "DialogsViewController"]
 - ["PSo16UIStateRestoring", "GroupAction"]
+- ["PSo16UIStateRestoring", "Int"]
 - !private ["PSo16UIStateRestoring", "NSDate"]
 - !private ["PSo16UIStateRestoring", "NSMutableArray"]
 - !private ["PSo16UIStateRestoring", "NSNotification"]
@@ -3367,11 +3590,14 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "SVProgressHUD"]
 - !private ["PSo16UIStateRestoring", "SVProgressHUDMaskType"]
 - !private ["PSo16UIStateRestoring", "ServicesManager"]
+- !private ["PSo16UIStateRestoring", "String"]
 - ["PSo16UIStateRestoring", "UIApplication"]
 - !private ["PSo16UIStateRestoring", "UIBarButtonItem"]
 - !private ["PSo16UIStateRestoring", "UIBarButtonItemStyle"]
+- !private ["PSo16UIStateRestoring", "UIImage"]
 - !private ["PSo16UIStateRestoring", "UITableViewCellEditingStyle"]
-- !private ["PSo16UIStateRestoring", "UserDefaults"]
+- !private ["PSo16UIStateRestoring", "UIView"]
+- ["PSo16UIStateRestoring", "UserDefaults"]
 - !private ["PSo16UIStateRestoring", "ViewIdentifiers"]
 - ["PSo16UIStateRestoring", "appDelegate"]
 - ["PSo16UIStateRestoring", "authService"]
@@ -3415,11 +3641,16 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "pushViewController"]
 - !private ["PSo16UIStateRestoring", "qbUsersArray"]
 - ["PSo16UIStateRestoring", "reloadTableViewIfNeeded"]
+- ["PSo16UIStateRestoring", "selectedUserType"]
 - ["PSo16UIStateRestoring", "session"]
 - ["PSo16UIStateRestoring", "sessionDidClose"]
+- ["PSo16UIStateRestoring", "setNavBarUI"]
 - !private ["PSo16UIStateRestoring", "storyboard"]
+- !private ["PSo16UIStateRestoring", "tabBarController"]
 - ["PSo16UIStateRestoring", "tableView"]
-- !private ["PSo16UIStateRestoring", "userDefaults"]
+- !private ["PSo16UIStateRestoring", "title"]
+- ["PSo16UIStateRestoring", "userDefaults"]
+- !private ["PSo16UIStateRestoring", "userType"]
 - ["PSo16UIStateRestoring", "viewWillAppear"]
 - ["PSo16UIStateRestoring", "viewWillDisappear"]
 - ["PSo16UIStateRestoring", ""]
@@ -3428,16 +3659,21 @@ depends-member:
 - ["CSo17UIStoryboardSegue", "deinit"]
 - !private ["CSo17UIStoryboardSegue", "destination"]
 - !private ["CSo17UIStoryboardSegue", "identifier"]
+- ["CSo18UITabBarController", "deinit"]
+- !private ["CSo18UITabBarController", "navigationController"]
+- !private ["CSo18UITabBarController", "navigationItem"]
+- !private ["PSo16UITabBarDelegate", "navigationController"]
+- !private ["PSo16UITabBarDelegate", "navigationItem"]
 - ["CSo11UITableView", "deinit"]
 - !private ["CSo11UITableView", "dequeueReusableCell"]
 - !private ["CSo11UITableView", "deselectRow"]
 - !private ["CSo11UITableView", "reloadData"]
+- !private ["CSo11UITableView", "tableFooterView"]
 - !private ["CSo15UITableViewCell", "contentView"]
 - ["CSo15UITableViewCell", "deinit"]
 - !private ["CSo15UITableViewCell", "dialogID"]
 - !private ["CSo15UITableViewCell", "dialogLastMessage"]
 - !private ["CSo15UITableViewCell", "dialogName"]
-- !private ["CSo15UITableViewCell", "dialogTypeImage"]
 - !private ["CSo15UITableViewCell", "isExclusiveTouch"]
 - !private ["CSo15UITableViewCell", "tag"]
 - !private ["CSo15UITableViewCell", "unreadMessageCounterHolder"]
@@ -3457,6 +3693,7 @@ depends-member:
 - !private ["CSo21UITableViewController", "DialogTableViewCell"]
 - !private ["CSo21UITableViewController", "DialogTableViewCellModel"]
 - !private ["CSo21UITableViewController", "DialogsViewController"]
+- !private ["CSo21UITableViewController", "Dictionary"]
 - ["CSo21UITableViewController", "Error"]
 - ["CSo21UITableViewController", "GroupAction"]
 - ["CSo21UITableViewController", "IncomingCallViewController"]
@@ -3489,13 +3726,15 @@ depends-member:
 - ["CSo21UITableViewController", "UIApplication"]
 - ["CSo21UITableViewController", "UIBarButtonItem"]
 - !private ["CSo21UITableViewController", "UIBarButtonItemStyle"]
+- !private ["CSo21UITableViewController", "UIImage"]
 - ["CSo21UITableViewController", "UIStoryboardSegue"]
 - ["CSo21UITableViewController", "UITableView"]
 - ["CSo21UITableViewController", "UITableViewCell"]
 - ["CSo21UITableViewController", "UITableViewCellEditingStyle"]
+- !private ["CSo21UITableViewController", "UIView"]
 - !private ["CSo21UITableViewController", "UInt"]
 - !private ["CSo21UITableViewController", "UnsafeMutablePointer"]
-- !private ["CSo21UITableViewController", "UserDefaults"]
+- ["CSo21UITableViewController", "UserDefaults"]
 - !private ["CSo21UITableViewController", "ViewIdentifiers"]
 - !private ["CSo21UITableViewController", "Void"]
 - ["CSo21UITableViewController", "appDelegate"]
@@ -3532,11 +3771,16 @@ depends-member:
 - ["CSo21UITableViewController", "prepare"]
 - !private ["CSo21UITableViewController", "print"]
 - ["CSo21UITableViewController", "reloadTableViewIfNeeded"]
+- ["CSo21UITableViewController", "selectedUserType"]
 - ["CSo21UITableViewController", "session"]
 - ["CSo21UITableViewController", "sessionDidClose"]
+- ["CSo21UITableViewController", "setNavBarUI"]
 - !private ["CSo21UITableViewController", "storyboard"]
+- !private ["CSo21UITableViewController", "tabBarController"]
 - ["CSo21UITableViewController", "tableView"]
-- !private ["CSo21UITableViewController", "userDefaults"]
+- !private ["CSo21UITableViewController", "title"]
+- ["CSo21UITableViewController", "userDefaults"]
+- !private ["CSo21UITableViewController", "userType"]
 - ["CSo21UITableViewController", "viewWillAppear"]
 - ["CSo21UITableViewController", "viewWillDisappear"]
 - ["CSo21UITableViewController", ""]
@@ -3544,6 +3788,7 @@ depends-member:
 - !private ["PSo21UITableViewDataSource", "DialogTableViewCellModel"]
 - !private ["PSo21UITableViewDataSource", "DialogsViewController"]
 - ["PSo21UITableViewDataSource", "GroupAction"]
+- ["PSo21UITableViewDataSource", "Int"]
 - !private ["PSo21UITableViewDataSource", "NSDate"]
 - !private ["PSo21UITableViewDataSource", "NSMutableArray"]
 - !private ["PSo21UITableViewDataSource", "NSNotification"]
@@ -3557,11 +3802,14 @@ depends-member:
 - !private ["PSo21UITableViewDataSource", "SVProgressHUD"]
 - !private ["PSo21UITableViewDataSource", "SVProgressHUDMaskType"]
 - !private ["PSo21UITableViewDataSource", "ServicesManager"]
+- !private ["PSo21UITableViewDataSource", "String"]
 - ["PSo21UITableViewDataSource", "UIApplication"]
 - !private ["PSo21UITableViewDataSource", "UIBarButtonItem"]
 - !private ["PSo21UITableViewDataSource", "UIBarButtonItemStyle"]
+- !private ["PSo21UITableViewDataSource", "UIImage"]
 - !private ["PSo21UITableViewDataSource", "UITableViewCellEditingStyle"]
-- !private ["PSo21UITableViewDataSource", "UserDefaults"]
+- !private ["PSo21UITableViewDataSource", "UIView"]
+- ["PSo21UITableViewDataSource", "UserDefaults"]
 - !private ["PSo21UITableViewDataSource", "ViewIdentifiers"]
 - ["PSo21UITableViewDataSource", "appDelegate"]
 - ["PSo21UITableViewDataSource", "authService"]
@@ -3597,11 +3845,16 @@ depends-member:
 - ["PSo21UITableViewDataSource", "prepare"]
 - !private ["PSo21UITableViewDataSource", "print"]
 - ["PSo21UITableViewDataSource", "reloadTableViewIfNeeded"]
+- ["PSo21UITableViewDataSource", "selectedUserType"]
 - ["PSo21UITableViewDataSource", "session"]
 - ["PSo21UITableViewDataSource", "sessionDidClose"]
+- ["PSo21UITableViewDataSource", "setNavBarUI"]
 - !private ["PSo21UITableViewDataSource", "storyboard"]
+- !private ["PSo21UITableViewDataSource", "tabBarController"]
 - ["PSo21UITableViewDataSource", "tableView"]
-- !private ["PSo21UITableViewDataSource", "userDefaults"]
+- !private ["PSo21UITableViewDataSource", "title"]
+- ["PSo21UITableViewDataSource", "userDefaults"]
+- !private ["PSo21UITableViewDataSource", "userType"]
 - ["PSo21UITableViewDataSource", "viewWillAppear"]
 - ["PSo21UITableViewDataSource", "viewWillDisappear"]
 - ["PSo21UITableViewDataSource", ""]
@@ -3609,6 +3862,7 @@ depends-member:
 - !private ["PSo19UITableViewDelegate", "DialogTableViewCellModel"]
 - !private ["PSo19UITableViewDelegate", "DialogsViewController"]
 - ["PSo19UITableViewDelegate", "GroupAction"]
+- ["PSo19UITableViewDelegate", "Int"]
 - !private ["PSo19UITableViewDelegate", "NSDate"]
 - !private ["PSo19UITableViewDelegate", "NSMutableArray"]
 - !private ["PSo19UITableViewDelegate", "NSNotification"]
@@ -3622,11 +3876,14 @@ depends-member:
 - !private ["PSo19UITableViewDelegate", "SVProgressHUD"]
 - !private ["PSo19UITableViewDelegate", "SVProgressHUDMaskType"]
 - !private ["PSo19UITableViewDelegate", "ServicesManager"]
+- !private ["PSo19UITableViewDelegate", "String"]
 - ["PSo19UITableViewDelegate", "UIApplication"]
 - !private ["PSo19UITableViewDelegate", "UIBarButtonItem"]
 - !private ["PSo19UITableViewDelegate", "UIBarButtonItemStyle"]
+- !private ["PSo19UITableViewDelegate", "UIImage"]
 - !private ["PSo19UITableViewDelegate", "UITableViewCellEditingStyle"]
-- !private ["PSo19UITableViewDelegate", "UserDefaults"]
+- !private ["PSo19UITableViewDelegate", "UIView"]
+- ["PSo19UITableViewDelegate", "UserDefaults"]
 - !private ["PSo19UITableViewDelegate", "ViewIdentifiers"]
 - ["PSo19UITableViewDelegate", "appDelegate"]
 - ["PSo19UITableViewDelegate", "authService"]
@@ -3662,11 +3919,16 @@ depends-member:
 - ["PSo19UITableViewDelegate", "prepare"]
 - !private ["PSo19UITableViewDelegate", "print"]
 - ["PSo19UITableViewDelegate", "reloadTableViewIfNeeded"]
+- ["PSo19UITableViewDelegate", "selectedUserType"]
 - ["PSo19UITableViewDelegate", "session"]
 - ["PSo19UITableViewDelegate", "sessionDidClose"]
+- ["PSo19UITableViewDelegate", "setNavBarUI"]
 - !private ["PSo19UITableViewDelegate", "storyboard"]
+- !private ["PSo19UITableViewDelegate", "tabBarController"]
 - ["PSo19UITableViewDelegate", "tableView"]
-- !private ["PSo19UITableViewDelegate", "userDefaults"]
+- !private ["PSo19UITableViewDelegate", "title"]
+- ["PSo19UITableViewDelegate", "userDefaults"]
+- !private ["PSo19UITableViewDelegate", "userType"]
 - ["PSo19UITableViewDelegate", "viewWillAppear"]
 - ["PSo19UITableViewDelegate", "viewWillDisappear"]
 - ["PSo19UITableViewDelegate", ""]
@@ -3677,6 +3939,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "DialogTableViewCellModel"]
 - !private ["PSo18UITraitEnvironment", "DialogsViewController"]
 - ["PSo18UITraitEnvironment", "GroupAction"]
+- ["PSo18UITraitEnvironment", "Int"]
 - !private ["PSo18UITraitEnvironment", "NSDate"]
 - !private ["PSo18UITraitEnvironment", "NSMutableArray"]
 - !private ["PSo18UITraitEnvironment", "NSNotification"]
@@ -3690,11 +3953,14 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "SVProgressHUD"]
 - !private ["PSo18UITraitEnvironment", "SVProgressHUDMaskType"]
 - !private ["PSo18UITraitEnvironment", "ServicesManager"]
+- !private ["PSo18UITraitEnvironment", "String"]
 - ["PSo18UITraitEnvironment", "UIApplication"]
 - !private ["PSo18UITraitEnvironment", "UIBarButtonItem"]
 - !private ["PSo18UITraitEnvironment", "UIBarButtonItemStyle"]
+- !private ["PSo18UITraitEnvironment", "UIImage"]
 - !private ["PSo18UITraitEnvironment", "UITableViewCellEditingStyle"]
-- !private ["PSo18UITraitEnvironment", "UserDefaults"]
+- !private ["PSo18UITraitEnvironment", "UIView"]
+- ["PSo18UITraitEnvironment", "UserDefaults"]
 - !private ["PSo18UITraitEnvironment", "ViewIdentifiers"]
 - ["PSo18UITraitEnvironment", "appDelegate"]
 - ["PSo18UITraitEnvironment", "authService"]
@@ -3720,14 +3986,13 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "dialogID"]
 - !private ["PSo18UITraitEnvironment", "dialogLastMessage"]
 - !private ["PSo18UITraitEnvironment", "dialogName"]
-- !private ["PSo18UITraitEnvironment", "dialogTypeImage"]
 - ["PSo18UITraitEnvironment", "dialogs"]
 - ["PSo18UITraitEnvironment", "didEnterBackgroundDate"]
 - ["PSo18UITraitEnvironment", "didEnterBackgroundNotification"]
 - ["PSo18UITraitEnvironment", "didReceiveNewSession"]
+- !private ["PSo18UITraitEnvironment", "dismiss"]
 - ["PSo18UITraitEnvironment", "getDialogs"]
 - !private ["PSo18UITraitEnvironment", "hidesBottomBarWhenPushed"]
-- !private ["PSo18UITraitEnvironment", "image"]
 - ["PSo18UITraitEnvironment", "incomingCallViewControllerAccept"]
 - ["PSo18UITraitEnvironment", "incomingCallViewControllerReject"]
 - !private ["PSo18UITraitEnvironment", "init"]
@@ -3749,18 +4014,24 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "qbUsersArray"]
 - !private ["PSo18UITraitEnvironment", "reloadData"]
 - ["PSo18UITraitEnvironment", "reloadTableViewIfNeeded"]
+- ["PSo18UITraitEnvironment", "selectedUserType"]
 - ["PSo18UITraitEnvironment", "session"]
 - ["PSo18UITraitEnvironment", "sessionDidClose"]
+- ["PSo18UITraitEnvironment", "setNavBarUI"]
 - !private ["PSo18UITraitEnvironment", "show"]
 - !private ["PSo18UITraitEnvironment", "showError"]
 - !private ["PSo18UITraitEnvironment", "showSuccess"]
 - !private ["PSo18UITraitEnvironment", "storyboard"]
+- !private ["PSo18UITraitEnvironment", "tabBarController"]
+- !private ["PSo18UITraitEnvironment", "tableFooterView"]
 - ["PSo18UITraitEnvironment", "tableView"]
 - !private ["PSo18UITraitEnvironment", "tag"]
 - !private ["PSo18UITraitEnvironment", "text"]
+- !private ["PSo18UITraitEnvironment", "title"]
 - !private ["PSo18UITraitEnvironment", "unreadMessageCounterHolder"]
 - !private ["PSo18UITraitEnvironment", "unreadMessageCounterLabel"]
-- !private ["PSo18UITraitEnvironment", "userDefaults"]
+- ["PSo18UITraitEnvironment", "userDefaults"]
+- !private ["PSo18UITraitEnvironment", "userType"]
 - ["PSo18UITraitEnvironment", "viewWillAppear"]
 - ["PSo18UITraitEnvironment", "viewWillDisappear"]
 - ["PSo18UITraitEnvironment", ""]
@@ -3771,14 +4042,15 @@ depends-member:
 - !private ["CSo6UIView", "dialogID"]
 - !private ["CSo6UIView", "dialogLastMessage"]
 - !private ["CSo6UIView", "dialogName"]
-- !private ["CSo6UIView", "dialogTypeImage"]
-- !private ["CSo6UIView", "image"]
+- !private ["CSo6UIView", "dismiss"]
+- !private ["CSo6UIView", "init"]
 - !private ["CSo6UIView", "isExclusiveTouch"]
 - !private ["CSo6UIView", "isHidden"]
 - !private ["CSo6UIView", "reloadData"]
 - !private ["CSo6UIView", "show"]
 - !private ["CSo6UIView", "showError"]
 - !private ["CSo6UIView", "showSuccess"]
+- !private ["CSo6UIView", "tableFooterView"]
 - !private ["CSo6UIView", "tag"]
 - !private ["CSo6UIView", "text"]
 - !private ["CSo6UIView", "unreadMessageCounterHolder"]
@@ -3795,6 +4067,7 @@ depends-member:
 - !private ["CSo16UIViewController", "DialogTableViewCell"]
 - !private ["CSo16UIViewController", "DialogTableViewCellModel"]
 - !private ["CSo16UIViewController", "DialogsViewController"]
+- !private ["CSo16UIViewController", "Dictionary"]
 - ["CSo16UIViewController", "Error"]
 - ["CSo16UIViewController", "GroupAction"]
 - ["CSo16UIViewController", "IncomingCallViewController"]
@@ -3827,13 +4100,15 @@ depends-member:
 - ["CSo16UIViewController", "UIApplication"]
 - ["CSo16UIViewController", "UIBarButtonItem"]
 - !private ["CSo16UIViewController", "UIBarButtonItemStyle"]
+- !private ["CSo16UIViewController", "UIImage"]
 - ["CSo16UIViewController", "UIStoryboardSegue"]
 - ["CSo16UIViewController", "UITableView"]
 - ["CSo16UIViewController", "UITableViewCell"]
 - ["CSo16UIViewController", "UITableViewCellEditingStyle"]
+- !private ["CSo16UIViewController", "UIView"]
 - !private ["CSo16UIViewController", "UInt"]
 - !private ["CSo16UIViewController", "UnsafeMutablePointer"]
-- !private ["CSo16UIViewController", "UserDefaults"]
+- ["CSo16UIViewController", "UserDefaults"]
 - !private ["CSo16UIViewController", "ViewIdentifiers"]
 - !private ["CSo16UIViewController", "Void"]
 - ["CSo16UIViewController", "appDelegate"]
@@ -3879,11 +4154,16 @@ depends-member:
 - !private ["CSo16UIViewController", "pushViewController"]
 - !private ["CSo16UIViewController", "qbUsersArray"]
 - ["CSo16UIViewController", "reloadTableViewIfNeeded"]
+- ["CSo16UIViewController", "selectedUserType"]
 - ["CSo16UIViewController", "session"]
 - ["CSo16UIViewController", "sessionDidClose"]
+- ["CSo16UIViewController", "setNavBarUI"]
 - !private ["CSo16UIViewController", "storyboard"]
+- !private ["CSo16UIViewController", "tabBarController"]
 - ["CSo16UIViewController", "tableView"]
-- !private ["CSo16UIViewController", "userDefaults"]
+- !private ["CSo16UIViewController", "title"]
+- ["CSo16UIViewController", "userDefaults"]
+- !private ["CSo16UIViewController", "userType"]
 - ["CSo16UIViewController", "viewWillAppear"]
 - ["CSo16UIViewController", "viewWillDisappear"]
 - ["Su", "deinit"]
@@ -3902,10 +4182,11 @@ depends-member:
 - !private ["P9Alamofire14URLConvertible", "localized"]
 - !private ["Sc", "deinit"]
 - !private ["Ps15UnsignedInteger", "init"]
-- !private ["CSo12UserDefaults", "deinit"]
+- ["CSo12UserDefaults", "deinit"]
+- ["CSo12UserDefaults", "integer"]
 - !private ["CSo12UserDefaults", "set"]
 - !private ["CSo12UserDefaults", "setValue"]
-- !private ["CSo12UserDefaults", "standard"]
+- ["CSo12UserDefaults", "standard"]
 - !private ["CSo12UserDefaults", "synchronize"]
 - !private ["V11DiabetesApp15ViewIdentifiers", "contactViewController"]
 - !private ["Ps14_ArrayProtocol", "Element"]
@@ -3925,14 +4206,15 @@ depends-member:
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "dialogID"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "dialogLastMessage"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "dialogName"]
-- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "dialogTypeImage"]
-- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "image"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "dismiss"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "init"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "isExclusiveTouch"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "isHidden"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "reloadData"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "show"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "showError"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "showSuccess"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "tableFooterView"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "tag"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "text"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "unreadMessageCounterHolder"]
@@ -3955,7 +4237,7 @@ depends-member:
 - !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "IntegerLiteralType"]
 - !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "Stride"]
 - !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "_DisabledRangeIndex"]
-- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "init"]
+- ["Ps35_ExpressibleByBuiltinIntegerLiteral", "init"]
 - ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
 - !private ["Ps34_ExpressibleByBuiltinStringLiteral", "isEmpty"]
 - !private ["Ps34_ExpressibleByBuiltinStringLiteral", "localized"]
@@ -3975,6 +4257,7 @@ depends-member:
 - !private ["Ps9_Hashable", "DialogTableViewCellModel"]
 - !private ["Ps9_Hashable", "DialogsViewController"]
 - ["Ps9_Hashable", "GroupAction"]
+- ["Ps9_Hashable", "Int"]
 - !private ["Ps9_Hashable", "IntegerLiteralType"]
 - !private ["Ps9_Hashable", "NSDate"]
 - !private ["Ps9_Hashable", "NSMutableArray"]
@@ -4000,8 +4283,9 @@ depends-member:
 - !private ["Ps9_Hashable", "UIBarButtonItemStyle"]
 - !private ["Ps9_Hashable", "UIImage"]
 - !private ["Ps9_Hashable", "UITableViewCellEditingStyle"]
+- !private ["Ps9_Hashable", "UIView"]
 - !private ["Ps9_Hashable", "UInt"]
-- !private ["Ps9_Hashable", "UserDefaults"]
+- ["Ps9_Hashable", "UserDefaults"]
 - !private ["Ps9_Hashable", "ViewIdentifiers"]
 - !private ["Ps9_Hashable", "_DisabledRangeIndex"]
 - !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
@@ -4028,6 +4312,7 @@ depends-member:
 - ["Ps9_Hashable", "coreDidLogout"]
 - ["Ps9_Hashable", "createLogoutButton"]
 - !private ["Ps9_Hashable", "currentUser"]
+- !private ["Ps9_Hashable", "data"]
 - !private ["Ps9_Hashable", "default"]
 - ["Ps9_Hashable", "delegate"]
 - !private ["Ps9_Hashable", "delete"]
@@ -4041,13 +4326,13 @@ depends-member:
 - ["Ps9_Hashable", "dialogIcon"]
 - !private ["Ps9_Hashable", "dialogLastMessage"]
 - !private ["Ps9_Hashable", "dialogName"]
-- !private ["Ps9_Hashable", "dialogTypeImage"]
 - ["Ps9_Hashable", "dialogs"]
 - !private ["Ps9_Hashable", "dialogsMemoryStorage"]
 - !private ["Ps9_Hashable", "dialogsSortByUpdatedAt"]
 - ["Ps9_Hashable", "didEnterBackgroundDate"]
 - ["Ps9_Hashable", "didEnterBackgroundNotification"]
 - ["Ps9_Hashable", "didReceiveNewSession"]
+- !private ["Ps9_Hashable", "dismiss"]
 - !private ["Ps9_Hashable", "email"]
 - !private ["Ps9_Hashable", "error"]
 - !private ["Ps9_Hashable", "fetchDialogsUpdated"]
@@ -4056,7 +4341,6 @@ depends-member:
 - !private ["Ps9_Hashable", "hidesBottomBarWhenPushed"]
 - !private ["Ps9_Hashable", "id"]
 - !private ["Ps9_Hashable", "identifier"]
-- !private ["Ps9_Hashable", "image"]
 - ["Ps9_Hashable", "incomingCallViewControllerAccept"]
 - ["Ps9_Hashable", "incomingCallViewControllerReject"]
 - ["Ps9_Hashable", "init"]
@@ -4064,6 +4348,7 @@ depends-member:
 - !private ["Ps9_Hashable", "initiatorID"]
 - !private ["Ps9_Hashable", "instance"]
 - !private ["Ps9_Hashable", "instantiateViewController"]
+- ["Ps9_Hashable", "integer"]
 - !private ["Ps9_Hashable", "isConnected"]
 - !private ["Ps9_Hashable", "isEmpty"]
 - !private ["Ps9_Hashable", "isExclusiveTouch"]
@@ -4103,19 +4388,24 @@ depends-member:
 - !private ["Ps9_Hashable", "remove"]
 - !private ["Ps9_Hashable", "removeDelegate"]
 - !private ["Ps9_Hashable", "removeObserver"]
+- !private ["Ps9_Hashable", "rightBarButtonItems"]
 - !private ["Ps9_Hashable", "row"]
+- ["Ps9_Hashable", "selectedUserType"]
 - !private ["Ps9_Hashable", "sendNotificationMessageAboutLeaving"]
 - ["Ps9_Hashable", "session"]
 - ["Ps9_Hashable", "sessionDidClose"]
 - !private ["Ps9_Hashable", "set"]
+- ["Ps9_Hashable", "setNavBarUI"]
 - !private ["Ps9_Hashable", "setValue"]
 - ["Ps9_Hashable", "shared"]
 - !private ["Ps9_Hashable", "show"]
 - !private ["Ps9_Hashable", "showError"]
 - !private ["Ps9_Hashable", "showSuccess"]
-- !private ["Ps9_Hashable", "standard"]
+- ["Ps9_Hashable", "standard"]
 - !private ["Ps9_Hashable", "storyboard"]
 - !private ["Ps9_Hashable", "synchronize"]
+- !private ["Ps9_Hashable", "tabBarController"]
+- !private ["Ps9_Hashable", "tableFooterView"]
 - ["Ps9_Hashable", "tableView"]
 - !private ["Ps9_Hashable", "tag"]
 - !private ["Ps9_Hashable", "text"]
@@ -4129,7 +4419,8 @@ depends-member:
 - ["Ps9_Hashable", "unreadMessagesCounterHiden"]
 - ["Ps9_Hashable", "unreadMessagesCounterLabelText"]
 - !private ["Ps9_Hashable", "user"]
-- !private ["Ps9_Hashable", "userDefaults"]
+- ["Ps9_Hashable", "userDefaults"]
+- !private ["Ps9_Hashable", "userType"]
 - !private ["Ps9_Hashable", "usersMemoryStorage"]
 - !private ["Ps9_Hashable", "usersService"]
 - ["Ps9_Hashable", "viewWillAppear"]
@@ -4138,15 +4429,15 @@ depends-member:
 - !private ["Ps14_Incrementable", "IntegerLiteralType"]
 - !private ["Ps14_Incrementable", "Stride"]
 - !private ["Ps14_Incrementable", "_DisabledRangeIndex"]
-- !private ["Ps14_Incrementable", "init"]
+- ["Ps14_Incrementable", "init"]
 - !private ["Ps8_Integer", "IntegerLiteralType"]
 - !private ["Ps8_Integer", "Stride"]
 - !private ["Ps8_Integer", "_DisabledRangeIndex"]
-- !private ["Ps8_Integer", "init"]
+- ["Ps8_Integer", "init"]
 - !private ["Ps18_IntegerArithmetic", "IntegerLiteralType"]
 - !private ["Ps18_IntegerArithmetic", "Stride"]
 - !private ["Ps18_IntegerArithmetic", "_DisabledRangeIndex"]
-- !private ["Ps18_IntegerArithmetic", "init"]
+- ["Ps18_IntegerArithmetic", "init"]
 - !private ["Ps21_ObjectiveCBridgeable", "Element"]
 - !private ["Ps21_ObjectiveCBridgeable", "Index"]
 - !private ["Ps21_ObjectiveCBridgeable", "IndexDistance"]
@@ -4173,11 +4464,11 @@ depends-member:
 - !private ["Ps14_SignedInteger", "IntegerLiteralType"]
 - !private ["Ps14_SignedInteger", "Stride"]
 - !private ["Ps14_SignedInteger", "_DisabledRangeIndex"]
-- !private ["Ps14_SignedInteger", "init"]
+- ["Ps14_SignedInteger", "init"]
 - !private ["Ps11_Strideable", "IntegerLiteralType"]
 - !private ["Ps11_Strideable", "Stride"]
 - !private ["Ps11_Strideable", "_DisabledRangeIndex"]
-- !private ["Ps11_Strideable", "init"]
+- ["Ps11_Strideable", "init"]
 - !private ["Ps14_StringElement", "init"]
 - !private ["Ps20_SwiftNewtypeWrapper", "UIApplicationDidBecomeActive"]
 - !private ["Ps20_SwiftNewtypeWrapper", "UIApplicationDidEnterBackground"]
@@ -4185,7 +4476,11 @@ depends-member:
 - !private ["V11DiabetesApp12userDefaults", "loggedInUserEmail"]
 - !private ["V11DiabetesApp12userDefaults", "loggedInUserID"]
 - !private ["V11DiabetesApp12userDefaults", "loggedInUserPassword"]
+- ["V11DiabetesApp12userDefaults", "loggedInUserType"]
 - !private ["V11DiabetesApp12userDefaults", "loggedInUsername"]
+- !private ["V11DiabetesApp12userDefaults", "selectedPatientID"]
+- !private ["V11DiabetesApp8userType", "doctor"]
+- !private ["V11DiabetesApp8userType", "patient"]
 depends-nominal:
 - !private "Ps16AbsoluteValuable"
 - "C11DiabetesApp9AlertView"
@@ -4197,7 +4492,7 @@ depends-nominal:
 - !private "Ps22BidirectionalIndexable"
 - !private "Vs18BidirectionalSlice"
 - !private "Ps19BinaryFloatingPoint"
-- !private "Ps17BitwiseOperations"
+- "Ps17BitwiseOperations"
 - "Sb"
 - !private "PSo15CALayerDelegate"
 - "V12CoreGraphics7CGFloat"
@@ -4231,7 +4526,7 @@ depends-nominal:
 - !private "Ps30ExpressibleByDictionaryLiteral"
 - "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
 - !private "Ps25ExpressibleByFloatLiteral"
-- !private "Ps27ExpressibleByIntegerLiteral"
+- "Ps27ExpressibleByIntegerLiteral"
 - !private "Ps23ExpressibleByNilLiteral"
 - "Ps32ExpressibleByStringInterpolation"
 - "Ps26ExpressibleByStringLiteral"
@@ -4251,8 +4546,8 @@ depends-nominal:
 - !private "Vs5Int32"
 - !private "Vs5Int64"
 - !private "Vs4Int8"
-- !private "Ps7Integer"
-- !private "Ps17IntegerArithmetic"
+- "Ps7Integer"
+- "Ps17IntegerArithmetic"
 - !private "Ps16IteratorProtocol"
 - "Ps25LosslessStringConvertible"
 - "Ps10MirrorPath"
@@ -4328,11 +4623,11 @@ depends-nominal:
 - "V10ObjectiveC8Selector"
 - !private "Ps8Sequence"
 - "C11DiabetesApp15ServicesManager"
-- !private "Ps13SignedInteger"
-- !private "Ps12SignedNumber"
+- "Ps13SignedInteger"
+- "Ps12SignedNumber"
 - !private "Vs5Slice"
 - "Vs12StaticString"
-- !private "Ps10Strideable"
+- "Ps10Strideable"
 - "SS"
 - "Ps16TextOutputStream"
 - "Ps20TextOutputStreamable"
@@ -4358,7 +4653,6 @@ depends-nominal:
 - !private "PSo27UIGestureRecognizerDelegate"
 - !private "CSo7UIImage"
 - !private "PSo31UIImagePickerControllerDelegate"
-- !private "CSo11UIImageView"
 - !private "CSo7UILabel"
 - "CSo22UINavigationController"
 - !private "PSo30UINavigationControllerDelegate"
@@ -4370,6 +4664,8 @@ depends-nominal:
 - "PSo16UIStateRestoring"
 - "CSo12UIStoryboard"
 - "CSo17UIStoryboardSegue"
+- "CSo18UITabBarController"
+- !private "PSo16UITabBarDelegate"
 - "CSo11UITableView"
 - "CSo15UITableViewCell"
 - "OSC27UITableViewCellEditingStyle"
@@ -4390,7 +4686,7 @@ depends-nominal:
 - "P9Alamofire14URLConvertible"
 - !private "Sc"
 - !private "Ps15UnsignedInteger"
-- !private "CSo12UserDefaults"
+- "CSo12UserDefaults"
 - !private "V11DiabetesApp15ViewIdentifiers"
 - !private "Ps14_ArrayProtocol"
 - !private "Ps15_CVarArgAligned"
@@ -4401,23 +4697,24 @@ depends-nominal:
 - !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
 - "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
 - !private "Ps33_ExpressibleByBuiltinFloatLiteral"
-- !private "Ps35_ExpressibleByBuiltinIntegerLiteral"
+- "Ps35_ExpressibleByBuiltinIntegerLiteral"
 - "Ps34_ExpressibleByBuiltinStringLiteral"
 - "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
 - "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
 - !private "Ps26_ExpressibleByImageLiteral"
 - "Ps35_HasCustomAnyHashableRepresentation"
 - "Ps9_Hashable"
-- !private "Ps14_Incrementable"
-- !private "Ps8_Integer"
-- !private "Ps18_IntegerArithmetic"
+- "Ps14_Incrementable"
+- "Ps8_Integer"
+- "Ps18_IntegerArithmetic"
 - "Ps21_ObjectiveCBridgeable"
 - !private "Vs26_OptionalNilComparisonType"
-- !private "Ps14_SignedInteger"
-- !private "Ps11_Strideable"
+- "Ps14_SignedInteger"
+- "Ps11_Strideable"
 - !private "Ps14_StringElement"
 - !private "Ps20_SwiftNewtypeWrapper"
-- !private "V11DiabetesApp12userDefaults"
+- "V11DiabetesApp12userDefaults"
+- !private "V11DiabetesApp8userType"
 depends-dynamic-lookup:
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Swift.swiftmodule"
@@ -4546,11 +4843,11 @@ depends-external:
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/DiabetesApp/AVPermisions/QBAVCallPermissions.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/DiabetesApp/Core/QBCore.h"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/SwiftOnoneSupport.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreData.swiftmodule"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Alamofire/Alamofire.framework/Modules/Alamofire.swiftmodule/arm.swiftmodule"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Alamofire/Alamofire.framework/Headers/Alamofire-Swift.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Alamofire/Alamofire.framework/Headers/Alamofire-umbrella.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Alamofire/Alamofire.framework/Modules/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreData.swiftmodule"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework/Headers/SVRadialGradientLayer.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework/Headers/SVProgressHUD.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework/Headers/SVProgressAnimatedView.h"
@@ -4731,4 +5028,4 @@ depends-external:
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController-umbrella.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Modules/module.modulemap"
-interface-hash: "4a25fa7763abfe13a2058868ae8df779"
+interface-hash: "c274a7e2e97c51140e857ed07c4f1623"
