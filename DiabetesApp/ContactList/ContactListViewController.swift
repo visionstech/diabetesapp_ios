@@ -350,7 +350,7 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
                     usersArray.append(obj.chatid)
                 }
                 
-                self.createChat(name: "", usersArray: usersArray, isGroup: false, patientID: obj.patient_id, completion: { (response, chatDialog) in
+                self.createChat(name: obj.full_name, usersArray: usersArray, isGroup: false, patientID: obj.patient_id, completion: { (response, chatDialog) in
                     
                     UserDefaults.standard.setValue(obj.patient_id, forKey: userDefaults.selectedPatientID)
                     self.naviagteToChatScreen(dialog: chatDialog!)

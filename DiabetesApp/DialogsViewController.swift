@@ -98,7 +98,7 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
        // self.navigationItem.title = ServicesManager.instance().currentUser()?.login!
        
         setNavBarUI()
-        
+        print( appDelegate.currentUser)
         ServicesManager.instance().chatService.addDelegate(self)
         ServicesManager.instance().authService.add(self)
         
@@ -109,7 +109,7 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
             }
         }
         
-        NotificationCenter.default.addObserver(self, selector: #selector(DialogsViewController.didEnterBackgroundNotification), name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
+      //  NotificationCenter.default.addObserver(self, selector: #selector(DialogsViewController.didEnterBackgroundNotification), name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
         
         if (QBChat.instance().isConnected) {
             self.getDialogs()
@@ -329,6 +329,7 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
         if let lastActivityDate = ServicesManager.instance().lastActivityDate {
 			
 			ServicesManager.instance().chatService.fetchDialogsUpdated(from: lastActivityDate as Date, andPageLimit: kDialogsPageLimit, iterationBlock: { (response, dialogObjects, dialogsUsersIDs, stop) -> Void in
+                print(dialogObjects)
 				
 				}, completionBlock: { (response) -> Void in
 					
@@ -374,6 +375,7 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		if let dialogs = self.dialogs() {
+            
 			return dialogs.count
 		}
         return 0

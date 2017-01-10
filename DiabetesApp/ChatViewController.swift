@@ -79,12 +79,13 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
                         dict.setValue(user!.fullName, forKey: "login")
                         self.groupMembersArray.add(dict)
                         
+                        
                     }
                     
                 }, errorBlock: { (error) in
                     
                 })
-                break
+                
             }
         }
         
@@ -640,6 +641,7 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         message.readIDs = [(NSNumber(value: self.senderID))]
         message.markable = true
         message.dateSent = date
+        message.customParameters = ["User" : self.senderDisplayName!]
         
         self.sendMessage(message: message)
     }
@@ -935,6 +937,7 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
      
      - returns: login string, example: @SwiftTestDevUser1
      */
+    
     override func topLabelAttributedString(forItem messageItem: QBChatMessage!) -> NSAttributedString? {
         
         guard messageItem.senderID != self.senderID else {
@@ -954,13 +957,21 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         
         var topLabelAttributedString : NSAttributedString?
         
-        if let topLabelText = ServicesManager.instance().usersService.usersMemoryStorage.user(withID: messageItem.senderID)?.fullName {
-            topLabelAttributedString = NSAttributedString(string: topLabelText, attributes: attributes)
-        } else { // no user in memory storage
-            
-             topLabelAttributedString = NSAttributedString(string: getGroupMemberName(occupant_id: Int(messageItem.senderID)), attributes: attributes)
-             //topLabelAttributedString = NSAttributedString(string: "@\(messageItem.senderID)", attributes: attributes)
+//        if let topLabelText = ServicesManager.instance().usersService.usersMemoryStorage.user(withID: messageItem.senderID)?.fullName {
+//            topLabelAttributedString = NSAttributedString(string: topLabelText, attributes: attributes)
+//       } else { // no user in memory storage
+        
+         //   topLabelAttributedString = NSAttributedString(string: getGroupMemberName(occupant_id: Int(messageItem.senderID)), attributes: attributes)
+        var strUserName = messageItem.customParameters .value(forKey: "User") as! String
+        
+        if let dotRange = strUserName.range(of: "@") {
+            strUserName.removeSubrange(dotRange.lowerBound..<strUserName.endIndex)
         }
+        
+            
+        
+             topLabelAttributedString = NSAttributedString(string:strUserName , attributes: attributes)
+       // }
         
         return topLabelAttributedString
     }

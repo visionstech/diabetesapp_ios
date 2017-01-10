@@ -6,94 +6,95 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp21HistoryViewController", ""]
 provides-dynamic-lookup:
-- "sectionsArray"
-- "ToolBarButtons_Click"
-- "getReadingHistory"
-- "noHistoryAvailableLbl"
+- "numberOfSections"
+- "viewDidAppear"
+- "listViewNotification"
+- "addNotifications"
+- "noOfDaysNotification"
+- "refreshSelectedSections"
+- "tblView"
 - "tableView"
 - "tableView"
 - "tableView"
 - "tableView"
 - "tableView"
 - "didReceiveMemoryWarning"
-- "pickerView"
-- "pickerView"
-- "pickerView"
-- "resetUI"
-- "viewDidDisappear"
-- "listViewNotification"
-- "refreshSelectedSections"
-- "conditionView"
-- "tblView"
-- "conditionTxtFld"
-- "numberOfSections"
-- "setUI"
-- "noOfDaysNotification"
-- "viewDidLoad"
-- "noOfDays"
-- "addNotifications"
 - "getHistory"
-- "pickerViewContainer"
-- "tapHeader"
+- "pickerView"
+- "pickerView"
+- "pickerView"
+- "sectionsArray"
+- "conditionView"
 - "boolArray"
+- "viewDidLoad"
+- "resetUI"
+- "conditionTxtFld"
+- "setUI"
+- "noHistoryAvailableLbl"
+- "noOfDays"
+- "viewDidDisappear"
+- "tapHeader"
+- "getReadingHistory"
 - "numberOfComponents"
+- "ToolBarButtons_Click"
+- "pickerViewContainer"
 depends-top-level:
-- "StringLiteralType"
-- "UIViewController"
-- !private "Colors"
-- !private "NSArray"
-- "NSNotification"
-- "UILabel"
-- !private "print"
-- !private "BooleanLiteralType"
-- !private "NotificationCenter"
-- "String"
-- !private "UIImage"
-- "NSMutableArray"
-- !private "Notifications"
-- !private "NSURL"
 - !private "NSDictionary"
-- !private "NSMutableDictionary"
-- "CGFloat"
-- "UITableViewCell"
-- "UITableViewDataSource"
-- !private "Bundle"
+- !private "Colors"
 - "UITableViewDelegate"
-- !private "Alamofire"
-- "UIPickerViewDataSource"
-- !private "!="
-- !private "CGRect"
-- "UIPickerViewDelegate"
-- "UITapGestureRecognizer"
+- "UITableViewDataSource"
 - "UIPickerView"
-- !private "NSCopying"
-- !private "JSONEncoding"
-- !private "userDefaults"
-- !private "conditionsArray"
-- "UITextField"
-- !private "URL"
-- !private "Dictionary"
-- !private "Fonts"
-- !private "Parameters"
-- "UIView"
-- "Bool"
-- "HistoryViewController"
-- !private "UIColor"
-- !private ">"
-- !private "ApiMethods"
-- "IndexPath"
-- "UITableView"
-- !private "AnyObject"
-- !private "UIImageView"
-- "UnicodeScalarType"
-- "AssignmentPrecedence"
-- "Int"
-- !private "=="
-- !private "-"
-- "CastingPrecedence"
+- "UITapGestureRecognizer"
 - !private "+="
+- !private "userDefaults"
+- "UITextField"
+- !private "NotificationCenter"
+- !private "NSCopying"
+- !private "Bundle"
+- !private "!="
+- !private "-"
+- "UIView"
+- !private "NSMutableDictionary"
+- !private "conditionsArray"
+- "String"
+- !private "BooleanLiteralType"
+- !private "UIImageView"
+- "CGFloat"
+- !private "Notifications"
+- !private "UIColor"
+- !private "print"
+- "Int"
+- !private "AnyObject"
+- !private "CGRect"
 - !private "UserDefaults"
+- "UITableView"
+- !private "Dictionary"
+- "StringLiteralType"
+- !private "NSArray"
+- !private "Alamofire"
+- "UIViewController"
+- "NSMutableArray"
+- "NSNotification"
+- !private "ApiMethods"
+- !private "UIImage"
+- "HistoryViewController"
+- !private "NSURL"
+- "UIPickerViewDataSource"
+- !private "Fonts"
+- !private "URL"
 - !private "HistoryTableViewCell"
+- "UnicodeScalarType"
+- "Bool"
+- "UITableViewCell"
+- "IndexPath"
+- "UILabel"
+- "CastingPrecedence"
+- "AssignmentPrecedence"
+- !private "=="
+- !private "JSONEncoding"
+- "UIPickerViewDelegate"
+- !private "Parameters"
+- !private ">"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "Stride"]
 - !private ["Ps9AnyObject", "Alamofire"]
@@ -215,6 +216,7 @@ depends-member:
 - !private ["Ps9AnyObject", "userDefaults"]
 - !private ["Ps9AnyObject", "value"]
 - !private ["Ps9AnyObject", "view"]
+- ["Ps9AnyObject", "viewDidAppear"]
 - ["Ps9AnyObject", "viewDidDisappear"]
 - ["Ps9AnyObject", "viewDidLoad"]
 - ["Ps9AnyObject", "viewForZooming"]
@@ -399,6 +401,7 @@ depends-member:
 - !private ["Ps7CVarArg", "userDefaults"]
 - !private ["Ps7CVarArg", "value"]
 - !private ["Ps7CVarArg", "view"]
+- ["Ps7CVarArg", "viewDidAppear"]
 - ["Ps7CVarArg", "viewDidDisappear"]
 - ["Ps7CVarArg", "viewDidLoad"]
 - ["Ps7CVarArg", "viewForZooming"]
@@ -548,6 +551,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "userDefaults"]
 - !private ["Ps28CustomDebugStringConvertible", "value"]
 - !private ["Ps28CustomDebugStringConvertible", "view"]
+- ["Ps28CustomDebugStringConvertible", "viewDidAppear"]
 - ["Ps28CustomDebugStringConvertible", "viewDidDisappear"]
 - ["Ps28CustomDebugStringConvertible", "viewDidLoad"]
 - ["Ps28CustomDebugStringConvertible", "viewForZooming"]
@@ -715,6 +719,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "userDefaults"]
 - !private ["Ps23CustomStringConvertible", "value"]
 - !private ["Ps23CustomStringConvertible", "view"]
+- ["Ps23CustomStringConvertible", "viewDidAppear"]
 - ["Ps23CustomStringConvertible", "viewDidDisappear"]
 - ["Ps23CustomStringConvertible", "viewDidLoad"]
 - ["Ps23CustomStringConvertible", "viewForZooming"]
@@ -853,6 +858,7 @@ depends-member:
 - !private ["Ps9Equatable", "userDefaults"]
 - !private ["Ps9Equatable", "value"]
 - !private ["Ps9Equatable", "view"]
+- ["Ps9Equatable", "viewDidAppear"]
 - ["Ps9Equatable", "viewDidDisappear"]
 - ["Ps9Equatable", "viewDidLoad"]
 - ["Ps9Equatable", "viewForZooming"]
@@ -881,6 +887,7 @@ depends-member:
 - !private ["Ps30ExpressibleByDictionaryLiteral", "object"]
 - !private ["Ps30ExpressibleByDictionaryLiteral", "setObject"]
 - !private ["Ps30ExpressibleByDictionaryLiteral", "setValue"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "subscript"]
 - !private ["Ps30ExpressibleByDictionaryLiteral", "value"]
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "RawValue"]
 - ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
@@ -1020,6 +1027,7 @@ depends-member:
 - !private ["Ps8Hashable", "userDefaults"]
 - !private ["Ps8Hashable", "value"]
 - !private ["Ps8Hashable", "view"]
+- ["Ps8Hashable", "viewDidAppear"]
 - ["Ps8Hashable", "viewDidDisappear"]
 - ["Ps8Hashable", "viewDidLoad"]
 - ["Ps8Hashable", "viewForZooming"]
@@ -1114,6 +1122,7 @@ depends-member:
 - !private ["C11DiabetesApp21HistoryViewController", "title"]
 - !private ["C11DiabetesApp21HistoryViewController", "userDefaults"]
 - !private ["C11DiabetesApp21HistoryViewController", "view"]
+- ["C11DiabetesApp21HistoryViewController", "viewDidAppear"]
 - ["C11DiabetesApp21HistoryViewController", "viewDidDisappear"]
 - ["C11DiabetesApp21HistoryViewController", "viewDidLoad"]
 - ["C11DiabetesApp21HistoryViewController", "viewForZooming"]
@@ -1285,6 +1294,7 @@ depends-member:
 - !private ["PSo8NSCoding", "userDefaults"]
 - !private ["PSo8NSCoding", "value"]
 - !private ["PSo8NSCoding", "view"]
+- ["PSo8NSCoding", "viewDidAppear"]
 - ["PSo8NSCoding", "viewDidDisappear"]
 - ["PSo8NSCoding", "viewDidLoad"]
 - ["PSo8NSCoding", "viewForZooming"]
@@ -1317,6 +1327,7 @@ depends-member:
 - !private ["CSo12NSDictionary", "object"]
 - !private ["CSo12NSDictionary", "setObject"]
 - !private ["CSo12NSDictionary", "setValue"]
+- !private ["CSo12NSDictionary", "subscript"]
 - !private ["CSo12NSDictionary", "value"]
 - !private ["PSo26NSExtensionRequestHandling", "Alamofire"]
 - !private ["PSo26NSExtensionRequestHandling", "ApiMethods"]
@@ -1388,6 +1399,7 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "title"]
 - !private ["PSo26NSExtensionRequestHandling", "userDefaults"]
 - !private ["PSo26NSExtensionRequestHandling", "view"]
+- ["PSo26NSExtensionRequestHandling", "viewDidAppear"]
 - ["PSo26NSExtensionRequestHandling", "viewDidDisappear"]
 - ["PSo26NSExtensionRequestHandling", "viewDidLoad"]
 - ["PSo26NSExtensionRequestHandling", "viewForZooming"]
@@ -1413,6 +1425,7 @@ depends-member:
 - !private ["PSo20NSFetchRequestResult", "object"]
 - !private ["PSo20NSFetchRequestResult", "setObject"]
 - !private ["PSo20NSFetchRequestResult", "setValue"]
+- !private ["PSo20NSFetchRequestResult", "subscript"]
 - !private ["PSo20NSFetchRequestResult", "value"]
 - !private ["CSo14NSMutableArray", "Iterator"]
 - !private ["CSo14NSMutableArray", "add"]
@@ -1574,6 +1587,7 @@ depends-member:
 - !private ["CSo8NSObject", "userDefaults"]
 - !private ["CSo8NSObject", "value"]
 - !private ["CSo8NSObject", "view"]
+- ["CSo8NSObject", "viewDidAppear"]
 - ["CSo8NSObject", "viewDidDisappear"]
 - ["CSo8NSObject", "viewDidLoad"]
 - ["CSo8NSObject", "viewForZooming"]
@@ -1695,6 +1709,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "userDefaults"]
 - !private ["PSo16NSObjectProtocol", "value"]
 - !private ["PSo16NSObjectProtocol", "view"]
+- ["PSo16NSObjectProtocol", "viewDidAppear"]
 - ["PSo16NSObjectProtocol", "viewDidDisappear"]
 - ["PSo16NSObjectProtocol", "viewDidLoad"]
 - ["PSo16NSObjectProtocol", "viewForZooming"]
@@ -1920,6 +1935,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "title"]
 - !private ["PSo21UIAppearanceContainer", "userDefaults"]
 - !private ["PSo21UIAppearanceContainer", "view"]
+- ["PSo21UIAppearanceContainer", "viewDidAppear"]
 - ["PSo21UIAppearanceContainer", "viewDidDisappear"]
 - ["PSo21UIAppearanceContainer", "viewDidLoad"]
 - ["PSo21UIAppearanceContainer", "viewForZooming"]
@@ -2000,6 +2016,7 @@ depends-member:
 - !private ["PSo18UIContentContainer", "title"]
 - !private ["PSo18UIContentContainer", "userDefaults"]
 - !private ["PSo18UIContentContainer", "view"]
+- ["PSo18UIContentContainer", "viewDidAppear"]
 - ["PSo18UIContentContainer", "viewDidDisappear"]
 - ["PSo18UIContentContainer", "viewDidLoad"]
 - ["PSo18UIContentContainer", "viewForZooming"]
@@ -2142,6 +2159,7 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "title"]
 - !private ["PSo18UIFocusEnvironment", "userDefaults"]
 - !private ["PSo18UIFocusEnvironment", "view"]
+- ["PSo18UIFocusEnvironment", "viewDidAppear"]
 - ["PSo18UIFocusEnvironment", "viewDidDisappear"]
 - ["PSo18UIFocusEnvironment", "viewDidLoad"]
 - ["PSo18UIFocusEnvironment", "viewForZooming"]
@@ -2426,6 +2444,7 @@ depends-member:
 - !private ["CSo11UIResponder", "title"]
 - !private ["CSo11UIResponder", "userDefaults"]
 - !private ["CSo11UIResponder", "view"]
+- ["CSo11UIResponder", "viewDidAppear"]
 - ["CSo11UIResponder", "viewDidDisappear"]
 - ["CSo11UIResponder", "viewDidLoad"]
 - ["CSo11UIResponder", "viewForZooming"]
@@ -2519,6 +2538,7 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "title"]
 - !private ["PSo30UIResponderStandardEditActions", "userDefaults"]
 - !private ["PSo30UIResponderStandardEditActions", "view"]
+- ["PSo30UIResponderStandardEditActions", "viewDidAppear"]
 - ["PSo30UIResponderStandardEditActions", "viewDidDisappear"]
 - ["PSo30UIResponderStandardEditActions", "viewDidLoad"]
 - ["PSo30UIResponderStandardEditActions", "viewForZooming"]
@@ -2667,6 +2687,7 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "title"]
 - !private ["PSo16UIStateRestoring", "userDefaults"]
 - !private ["PSo16UIStateRestoring", "view"]
+- ["PSo16UIStateRestoring", "viewDidAppear"]
 - ["PSo16UIStateRestoring", "viewDidDisappear"]
 - ["PSo16UIStateRestoring", "viewDidLoad"]
 - ["PSo16UIStateRestoring", "viewForZooming"]
@@ -2917,6 +2938,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "title"]
 - !private ["PSo18UITraitEnvironment", "userDefaults"]
 - !private ["PSo18UITraitEnvironment", "view"]
+- ["PSo18UITraitEnvironment", "viewDidAppear"]
 - ["PSo18UITraitEnvironment", "viewDidDisappear"]
 - ["PSo18UITraitEnvironment", "viewDidLoad"]
 - ["PSo18UITraitEnvironment", "viewForZooming"]
@@ -3027,6 +3049,7 @@ depends-member:
 - !private ["CSo16UIViewController", "title"]
 - !private ["CSo16UIViewController", "userDefaults"]
 - !private ["CSo16UIViewController", "view"]
+- ["CSo16UIViewController", "viewDidAppear"]
 - ["CSo16UIViewController", "viewDidDisappear"]
 - ["CSo16UIViewController", "viewDidLoad"]
 - ["CSo16UIViewController", "viewForZooming"]
@@ -3214,6 +3237,7 @@ depends-member:
 - !private ["Ps9_Hashable", "userDefaults"]
 - !private ["Ps9_Hashable", "value"]
 - !private ["Ps9_Hashable", "view"]
+- ["Ps9_Hashable", "viewDidAppear"]
 - ["Ps9_Hashable", "viewDidDisappear"]
 - ["Ps9_Hashable", "viewDidLoad"]
 - ["Ps9_Hashable", "viewForZooming"]
@@ -3236,7 +3260,7 @@ depends-member:
 - !private ["Ps21_ObjectiveCBridgeable", "section"]
 - !private ["Ps21_ObjectiveCBridgeable", "size"]
 - !private ["Ps21_ObjectiveCBridgeable", "width"]
-- !private ["Vs26_OptionalNilComparisonType", "deinit"]
+- ["Vs26_OptionalNilComparisonType", "deinit"]
 - !private ["Ps14_SignedInteger", "Stride"]
 - !private ["Ps11_Strideable", "Stride"]
 - !private ["Ps20_SwiftNewtypeWrapper", "init"]
@@ -3414,7 +3438,7 @@ depends-nominal:
 - !private "Ps8_Integer"
 - !private "Ps18_IntegerArithmetic"
 - "Ps21_ObjectiveCBridgeable"
-- !private "Vs26_OptionalNilComparisonType"
+- "Vs26_OptionalNilComparisonType"
 - !private "Ps14_SignedInteger"
 - !private "Ps11_Strideable"
 - !private "Ps20_SwiftNewtypeWrapper"
@@ -3734,4 +3758,4 @@ depends-external:
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController-umbrella.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Modules/module.modulemap"
-interface-hash: "9b5e104089d2a46501e64ba8d7623d02"
+interface-hash: "c9d93a12d1e6bb6e31f9b0280e3857eb"

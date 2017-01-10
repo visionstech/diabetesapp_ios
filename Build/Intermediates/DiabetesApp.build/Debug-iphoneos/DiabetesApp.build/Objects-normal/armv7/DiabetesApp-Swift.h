@@ -328,6 +328,7 @@ SWIFT_CLASS("_TtC11DiabetesApp19ChartViewController")
 @property (nonatomic, readonly, strong) NSArray * _Nonnull chartConditionsArray;
 @property (nonatomic, strong) NSMutableArray * _Nonnull dataArray;
 - (void)viewDidLoad;
+- (void)viewDidAppear:(BOOL)animated;
 - (void)viewDidDisappear:(BOOL)animated;
 - (void)didReceiveMemoryWarning;
 - (void)resetUI;
@@ -510,6 +511,8 @@ SWIFT_CLASS("_TtC11DiabetesApp25ContactListViewController")
 - (void)getPatientEducators;
 - (void)getDoctorPatients;
 - (void)getDoctorEducators;
+- (void)getEducatorsDoctors;
+- (void)getEducatorsPatients;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -722,6 +725,7 @@ SWIFT_CLASS("_TtC11DiabetesApp21HistoryViewController")
 @property (nonatomic, strong) NSMutableArray * _Nonnull boolArray;
 @property (nonatomic, copy) NSString * _Nonnull noOfDays;
 - (void)viewDidLoad;
+- (void)viewDidAppear:(BOOL)animated;
 - (void)viewDidDisappear:(BOOL)animated;
 - (void)didReceiveMemoryWarning;
 - (void)setUI;

@@ -6,70 +6,71 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp19ChartViewController", ""]
 provides-dynamic-lookup:
-- "noOfDaysNotification"
-- "glucoseLbl"
-- "chartView"
-- "chartConditionsArray"
-- "label"
-- "didSelectDataPoint"
-- "hbaLbl"
-- "didReceiveMemoryWarning"
-- "viewDidLoad"
-- "getChartHistoryData"
-- "chartViewNotification"
-- "viewDidDisappear"
-- "hyposLbl"
 - "addNotifications"
-- "deviationLbl"
-- "noOfDays"
-- "drawChart"
-- "resetUI"
 - "readingsView"
+- "noOfDays"
+- "chartViewNotification"
+- "viewDidAppear"
+- "getChartHistoryData"
+- "label"
 - "setUI"
-- "dataArray"
 - "lineChart"
+- "viewDidLoad"
+- "resetUI"
 - "hyperLbl"
+- "dataArray"
+- "deviationLbl"
+- "didSelectDataPoint"
+- "hyposLbl"
+- "chartConditionsArray"
+- "chartView"
+- "didReceiveMemoryWarning"
+- "hbaLbl"
+- "noOfDaysNotification"
+- "viewDidDisappear"
+- "glucoseLbl"
+- "drawChart"
 depends-top-level:
-- !private "UserDefaults"
 - !private "print"
-- "String"
-- !private "conditionsArray"
-- !private "Int"
-- "Array"
-- "UIViewController"
-- !private "Notifications"
-- !private "NSTextAlignment"
-- !private "UIFont"
-- !private "NSLayoutConstraint"
-- !private "Parameters"
-- "CGFloat"
-- !private ">"
-- "AssignmentPrecedence"
-- "LineChartDelegate"
-- !private "JSONEncoding"
 - !private "NSDictionary"
-- "UILabel"
-- !private "Alamofire"
-- "UnicodeScalarType"
-- !private "=="
-- !private "..<"
-- "CastingPrecedence"
+- "StringLiteralType"
 - "LineChart"
-- "NSArray"
+- !private "NotificationCenter"
+- !private ">"
+- "NSMutableArray"
+- !private "NSLayoutConstraint"
 - !private "Colors"
 - "ChartViewController"
-- "NSMutableArray"
-- "Bool"
-- "StringLiteralType"
-- !private "BooleanLiteralType"
-- "UIView"
-- !private "NotificationCenter"
+- !private "UserDefaults"
 - !private "Dictionary"
-- !private "userDefaults"
-- "NSNotification"
+- !private "BooleanLiteralType"
+- "Bool"
+- !private "conditionsArray"
+- !private "Alamofire"
+- !private "Int"
 - !private "ApiMethods"
+- "LineChartDelegate"
+- "UnicodeScalarType"
+- !private "JSONEncoding"
+- "String"
+- "UIView"
 - !private "!="
+- "NSNotification"
+- "CGFloat"
+- !private "NSTextAlignment"
 - !private "AnyObject"
+- "Array"
+- "AssignmentPrecedence"
+- !private "Parameters"
+- !private "=="
+- "UILabel"
+- "CastingPrecedence"
+- "NSArray"
+- !private "userDefaults"
+- "UIViewController"
+- !private "..<"
+- !private "Notifications"
+- !private "UIFont"
 depends-member:
 - !private ["VC11DiabetesApp9LineChart9Animation", "enabled"]
 - !private ["Ps9AnyObject", "Alamofire"]
@@ -146,6 +147,7 @@ depends-member:
 - !private ["Ps9AnyObject", "translatesAutoresizingMaskIntoConstraints"]
 - !private ["Ps9AnyObject", "userDefaults"]
 - !private ["Ps9AnyObject", "value"]
+- ["Ps9AnyObject", "viewDidAppear"]
 - ["Ps9AnyObject", "viewDidDisappear"]
 - ["Ps9AnyObject", "viewDidLoad"]
 - !private ["Ps9AnyObject", "x"]
@@ -296,6 +298,7 @@ depends-member:
 - !private ["Ps7CVarArg", "translatesAutoresizingMaskIntoConstraints"]
 - !private ["Ps7CVarArg", "userDefaults"]
 - !private ["Ps7CVarArg", "value"]
+- ["Ps7CVarArg", "viewDidAppear"]
 - ["Ps7CVarArg", "viewDidDisappear"]
 - ["Ps7CVarArg", "viewDidLoad"]
 - !private ["Ps7CVarArg", "x"]
@@ -352,6 +355,7 @@ depends-member:
 - ["C11DiabetesApp19ChartViewController", "resetUI"]
 - ["C11DiabetesApp19ChartViewController", "setUI"]
 - !private ["C11DiabetesApp19ChartViewController", "userDefaults"]
+- ["C11DiabetesApp19ChartViewController", "viewDidAppear"]
 - ["C11DiabetesApp19ChartViewController", "viewDidDisappear"]
 - ["C11DiabetesApp19ChartViewController", "viewDidLoad"]
 - !private ["Ps10Collection", "Index"]
@@ -458,6 +462,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "translatesAutoresizingMaskIntoConstraints"]
 - !private ["Ps28CustomDebugStringConvertible", "userDefaults"]
 - !private ["Ps28CustomDebugStringConvertible", "value"]
+- ["Ps28CustomDebugStringConvertible", "viewDidAppear"]
 - ["Ps28CustomDebugStringConvertible", "viewDidDisappear"]
 - ["Ps28CustomDebugStringConvertible", "viewDidLoad"]
 - !private ["Ps28CustomDebugStringConvertible", "x"]
@@ -577,6 +582,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "translatesAutoresizingMaskIntoConstraints"]
 - !private ["Ps23CustomStringConvertible", "userDefaults"]
 - !private ["Ps23CustomStringConvertible", "value"]
+- ["Ps23CustomStringConvertible", "viewDidAppear"]
 - ["Ps23CustomStringConvertible", "viewDidDisappear"]
 - ["Ps23CustomStringConvertible", "viewDidLoad"]
 - !private ["Ps23CustomStringConvertible", "x"]
@@ -681,6 +687,7 @@ depends-member:
 - !private ["Ps9Equatable", "translatesAutoresizingMaskIntoConstraints"]
 - !private ["Ps9Equatable", "userDefaults"]
 - !private ["Ps9Equatable", "value"]
+- ["Ps9Equatable", "viewDidAppear"]
 - ["Ps9Equatable", "viewDidDisappear"]
 - ["Ps9Equatable", "viewDidLoad"]
 - !private ["Ps9Equatable", "x"]
@@ -794,6 +801,7 @@ depends-member:
 - !private ["Ps8Hashable", "translatesAutoresizingMaskIntoConstraints"]
 - !private ["Ps8Hashable", "userDefaults"]
 - !private ["Ps8Hashable", "value"]
+- ["Ps8Hashable", "viewDidAppear"]
 - ["Ps8Hashable", "viewDidDisappear"]
 - ["Ps8Hashable", "viewDidLoad"]
 - !private ["Ps8Hashable", "x"]
@@ -988,6 +996,7 @@ depends-member:
 - !private ["PSo8NSCoding", "translatesAutoresizingMaskIntoConstraints"]
 - !private ["PSo8NSCoding", "userDefaults"]
 - !private ["PSo8NSCoding", "value"]
+- ["PSo8NSCoding", "viewDidAppear"]
 - ["PSo8NSCoding", "viewDidDisappear"]
 - ["PSo8NSCoding", "viewDidLoad"]
 - !private ["PSo8NSCoding", "x"]
@@ -1048,6 +1057,7 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "resetUI"]
 - ["PSo26NSExtensionRequestHandling", "setUI"]
 - !private ["PSo26NSExtensionRequestHandling", "userDefaults"]
+- ["PSo26NSExtensionRequestHandling", "viewDidAppear"]
 - ["PSo26NSExtensionRequestHandling", "viewDidDisappear"]
 - ["PSo26NSExtensionRequestHandling", "viewDidLoad"]
 - ["PSo26NSExtensionRequestHandling", ""]
@@ -1169,6 +1179,7 @@ depends-member:
 - !private ["CSo8NSObject", "translatesAutoresizingMaskIntoConstraints"]
 - !private ["CSo8NSObject", "userDefaults"]
 - !private ["CSo8NSObject", "value"]
+- ["CSo8NSObject", "viewDidAppear"]
 - ["CSo8NSObject", "viewDidDisappear"]
 - ["CSo8NSObject", "viewDidLoad"]
 - !private ["CSo8NSObject", "x"]
@@ -1246,6 +1257,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "translatesAutoresizingMaskIntoConstraints"]
 - !private ["PSo16NSObjectProtocol", "userDefaults"]
 - !private ["PSo16NSObjectProtocol", "value"]
+- ["PSo16NSObjectProtocol", "viewDidAppear"]
 - ["PSo16NSObjectProtocol", "viewDidDisappear"]
 - ["PSo16NSObjectProtocol", "viewDidLoad"]
 - !private ["PSo16NSObjectProtocol", "x"]
@@ -1453,6 +1465,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "textColor"]
 - !private ["PSo21UIAppearanceContainer", "translatesAutoresizingMaskIntoConstraints"]
 - !private ["PSo21UIAppearanceContainer", "userDefaults"]
+- ["PSo21UIAppearanceContainer", "viewDidAppear"]
 - ["PSo21UIAppearanceContainer", "viewDidDisappear"]
 - ["PSo21UIAppearanceContainer", "viewDidLoad"]
 - !private ["PSo21UIAppearanceContainer", "x"]
@@ -1499,6 +1512,7 @@ depends-member:
 - ["PSo18UIContentContainer", "resetUI"]
 - ["PSo18UIContentContainer", "setUI"]
 - !private ["PSo18UIContentContainer", "userDefaults"]
+- ["PSo18UIContentContainer", "viewDidAppear"]
 - ["PSo18UIContentContainer", "viewDidDisappear"]
 - ["PSo18UIContentContainer", "viewDidLoad"]
 - ["PSo18UIContentContainer", ""]
@@ -1600,6 +1614,7 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "textColor"]
 - !private ["PSo18UIFocusEnvironment", "translatesAutoresizingMaskIntoConstraints"]
 - !private ["PSo18UIFocusEnvironment", "userDefaults"]
+- ["PSo18UIFocusEnvironment", "viewDidAppear"]
 - ["PSo18UIFocusEnvironment", "viewDidDisappear"]
 - ["PSo18UIFocusEnvironment", "viewDidLoad"]
 - !private ["PSo18UIFocusEnvironment", "x"]
@@ -1696,6 +1711,7 @@ depends-member:
 - !private ["CSo11UIResponder", "textColor"]
 - !private ["CSo11UIResponder", "translatesAutoresizingMaskIntoConstraints"]
 - !private ["CSo11UIResponder", "userDefaults"]
+- ["CSo11UIResponder", "viewDidAppear"]
 - ["CSo11UIResponder", "viewDidDisappear"]
 - ["CSo11UIResponder", "viewDidLoad"]
 - !private ["CSo11UIResponder", "x"]
@@ -1755,6 +1771,7 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "textColor"]
 - !private ["PSo30UIResponderStandardEditActions", "translatesAutoresizingMaskIntoConstraints"]
 - !private ["PSo30UIResponderStandardEditActions", "userDefaults"]
+- ["PSo30UIResponderStandardEditActions", "viewDidAppear"]
 - ["PSo30UIResponderStandardEditActions", "viewDidDisappear"]
 - ["PSo30UIResponderStandardEditActions", "viewDidLoad"]
 - !private ["PSo30UIResponderStandardEditActions", "x"]
@@ -1800,6 +1817,7 @@ depends-member:
 - ["PSo16UIStateRestoring", "resetUI"]
 - ["PSo16UIStateRestoring", "setUI"]
 - !private ["PSo16UIStateRestoring", "userDefaults"]
+- ["PSo16UIStateRestoring", "viewDidAppear"]
 - ["PSo16UIStateRestoring", "viewDidDisappear"]
 - ["PSo16UIStateRestoring", "viewDidLoad"]
 - ["PSo16UIStateRestoring", ""]
@@ -1858,6 +1876,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "textColor"]
 - !private ["PSo18UITraitEnvironment", "translatesAutoresizingMaskIntoConstraints"]
 - !private ["PSo18UITraitEnvironment", "userDefaults"]
+- ["PSo18UITraitEnvironment", "viewDidAppear"]
 - ["PSo18UITraitEnvironment", "viewDidDisappear"]
 - ["PSo18UITraitEnvironment", "viewDidLoad"]
 - !private ["PSo18UITraitEnvironment", "x"]
@@ -1931,6 +1950,7 @@ depends-member:
 - ["CSo16UIViewController", "resetUI"]
 - ["CSo16UIViewController", "setUI"]
 - !private ["CSo16UIViewController", "userDefaults"]
+- ["CSo16UIViewController", "viewDidAppear"]
 - ["CSo16UIViewController", "viewDidDisappear"]
 - ["CSo16UIViewController", "viewDidLoad"]
 - ["CSo16UIViewController", ""]
@@ -2067,6 +2087,7 @@ depends-member:
 - !private ["Ps9_Hashable", "translatesAutoresizingMaskIntoConstraints"]
 - !private ["Ps9_Hashable", "userDefaults"]
 - !private ["Ps9_Hashable", "value"]
+- ["Ps9_Hashable", "viewDidAppear"]
 - ["Ps9_Hashable", "viewDidDisappear"]
 - ["Ps9_Hashable", "viewDidLoad"]
 - !private ["Ps9_Hashable", "x"]
@@ -2572,4 +2593,4 @@ depends-external:
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController-umbrella.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Modules/module.modulemap"
-interface-hash: "6e0fe0a739928939b609f1fa98c6c0e0"
+interface-hash: "99a5f25850f9b67e9ae6471f1b3af0b9"
