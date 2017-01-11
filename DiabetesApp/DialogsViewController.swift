@@ -98,14 +98,17 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
        // self.navigationItem.title = ServicesManager.instance().currentUser()?.login!
        
         setNavBarUI()
-        print( appDelegate.currentUser)
+       // print( appDelegate.currentUser)
         ServicesManager.instance().chatService.addDelegate(self)
         ServicesManager.instance().authService.add(self)
         
         self.observer = NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationDidBecomeActive, object: nil, queue: OperationQueue.main) { (notification) -> Void in
             
             if !QBChat.instance().isConnected {
-                SVProgressHUD.show(withStatus: "SA_STR_CONNECTING_TO_CHAT".localized, maskType: SVProgressHUDMaskType.clear)
+                //SVProgressHUD.show(withStatus: "SA_STR_CONNECTING_TO_CHAT".localized, maskType: SVProgressHUDMaskType.clear)
+            }
+            else {
+               // SVProgressHUD.dismiss()
             }
         }
         

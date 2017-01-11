@@ -9,39 +9,36 @@ provides-member:
 - ["C11DiabetesApp18ChatViewController", ""]
 - ["SS", "length"]
 provides-dynamic-lookup:
-- "videoAudioClick"
-- "chatServiceChatDidConnect"
-- "didPressSend"
-- "didPressSend"
-- "chatCellDidTapAvatar"
-- "attributedString"
+- "topBackView"
 - "detailedCells"
-- "loadMessages"
-- "sendReadStatusForMessage"
-- "handleNotSentMessage"
-- "attachmentCellsMap"
-- "getGroupMemberName"
-- "maxCharactersNumber"
-- "deferredQueueManager"
-- "deferredQueueManager"
-- "chatAttachmentService"
-- "chatAttachmentService"
-- "chatAttachmentService"
-- "occupantUser"
-- "viewDidAppear"
-- "unreadMessages"
+- "videoAudioClick"
+- "attributedString"
+- "appDelegate"
+- "didPressSend"
+- "didPressSend"
 - "occupantID"
-- "viewDidLoad"
-- "createCustomTopView"
-- "prepare"
-- "textViewDidEndEditing"
-- "queueManager"
-- "chatServiceChatDidReconnect"
-- "showCharactersNumberError"
-- "optionsClick"
-- "viewWillAppear"
+- "selectedUserType"
+- "chatServiceChatDidConnect"
+- "chatCellDidTapAvatar"
+- "statusStringFromMessage"
 - "typingTimer"
+- "maxCharactersNumber"
 - "textView"
+- "topLabelAttributedString"
+- "refreshAndReadMessages"
+- "occupantUser"
+- "fireSendStopTypingIfNecessary"
+- "viewDidAppear"
+- "loadMessages"
+- "deferredQueueManager"
+- "deferredQueueManager"
+- "sendReadStatusForMessage"
+- "viewWillDisappear"
+- "BackBtn_Click"
+- "textViewDidEndEditing"
+- "groupMembersArray"
+- "didPickAttachmentImage"
+- "prepare"
 - "collectionView"
 - "collectionView"
 - "collectionView"
@@ -50,198 +47,201 @@ provides-dynamic-lookup:
 - "collectionView"
 - "collectionView"
 - "sendMessage"
-- "topBackView"
-- "chatService"
-- "chatService"
-- "chatService"
-- "chatService"
-- "chatService"
-- "updateTitle"
-- "bottomLabelAttributedString"
-- "dialog"
-- "callWithConferenceType"
-- "sendStopTyping"
 - "chatCellDidTapContainer"
-- "placeHolderTextView"
-- "viewWillDisappear"
-- "textViewDidChange"
-- "messageShouldBeRead"
-- "groupMembersArray"
-- "didPickAttachmentImage"
-- "storedMessages"
-- "refreshAndReadMessages"
-- "willResignActiveBlock"
-- "appDelegate"
-- "topLabelAttributedString"
-- "BackBtn_Click"
-- "fireSendStopTypingIfNecessary"
-- "canMakeACall"
-- "viewClass"
-- "selectedUserType"
-- "viewDidDisappear"
-- "chatCell"
-- "chatCell"
-- "chatCell"
-- "statusStringFromMessage"
+- "updateTitle"
+- "callWithConferenceType"
+- "createCustomTopView"
+- "sendBeginTyping"
+- "viewWillAppear"
+- "viewDidLoad"
+- "queueManager"
+- "chatService"
+- "chatService"
+- "chatService"
+- "chatService"
+- "chatService"
+- "showCharactersNumberError"
+- "sendStopTyping"
+- "optionsClick"
 - "imagePickerViewController"
 - "readMessages"
-- "sendBeginTyping"
+- "viewClass"
+- "chatCell"
+- "chatCell"
+- "chatCell"
+- "chatServiceChatDidReconnect"
+- "chatAttachmentService"
+- "chatAttachmentService"
+- "chatAttachmentService"
+- "willResignActiveBlock"
+- "handleNotSentMessage"
+- "canMakeACall"
+- "dialog"
+- "unreadMessages"
+- "placeHolderTextView"
+- "viewDidDisappear"
+- "bottomLabelAttributedString"
+- "getGroupMemberName"
+- "storedMessages"
+- "attachmentCellsMap"
+- "textViewDidChange"
+- "messageShouldBeRead"
 depends-top-level:
-- "UIStoryboardSegue"
-- !private "UIPasteboard"
-- !private "QMChatAttachmentCell"
-- "CGPoint"
-- !private "QBAVCallPermissions"
-- !private "NSMutableString"
 - "QMChatViewController"
-- !private "NSTextCheckingAllTypes"
-- !private "==="
-- "messageTimeDateFormatter"
-- !private "NSString"
-- !private "UILabel"
-- !private "QMMessageStatus"
-- !private "HistoryMainViewController"
-- !private "min"
-- "QBChatDialog"
-- "UInt"
-- !private "userType"
-- !private "CallViewController"
-- !private "kMessageContainerWidthPadding"
-- !private "URL"
-- !private "QMChatOutgoingCell"
 - !private "floor"
-- "CGFloat"
-- !private "NotificationCenter"
-- "QBUUser"
-- "AnyClass"
-- !private "DispatchQueue"
-- "QMChatService"
-- "Bool"
-- !private "QBMPushMessage"
-- !private "NSMutableParagraphStyle"
-- !private "QBSession"
-- "UIView"
-- !private "??"
-- "QMPlaceHolderTextViewPasteDelegate"
-- !private "NSNotification"
-- !private ">="
-- "QMChatCellLayoutModel"
-- "QMDeferredQueueManager"
-- "QBRTCConferenceType"
-- !private "/"
-- "Selector"
-- !private "NSFontAttributeName"
-- !private "<="
-- "UINavigationControllerDelegate"
-- !private "UIBarButtonItem"
-- "QBChatAttachment"
-- "QMChatAttachmentServiceDelegate"
-- !private "NSForegroundColorAttributeName"
-- !private "QMChatNotificationCell"
-- !private "=="
-- "NSTextCheckingResult"
-- "QMChatCellDelegate"
+- !private "HistoryMainViewController"
 - "AssignmentPrecedence"
-- "DateFormatter"
-- "QMDeferredQueueManagerDelegate"
+- !private "=="
 - "CastingPrecedence"
-- !private "GeneralLabels"
-- !private "NSMutableDictionary"
-- !private "VideoAudioCall"
-- "TernaryPrecedence"
-- "String"
-- !private "UIScreen"
-- !private "CTTelephonyNetworkInfo"
-- "Timer"
-- "UIActionSheetDelegate"
-- "CGSize"
-- !private "NSLineBreakMode"
-- "UIImagePickerControllerDelegate"
-- !private "!="
+- !private "QBChatDialogType"
 - !private "UIAlertController"
-- "QMChatServiceDelegate"
-- !private "BooleanLiteralType"
-- !private "&&"
-- !private "+="
-- "QMChatConnectionDelegate"
-- "IndexPath"
-- !private "QMChatIncomingCell"
-- "UITextView"
-- !private "ViewIdentifiers"
-- !private "Error"
-- !private "ChatInfo"
-- "UIImagePickerController"
-- "UIApplication"
-- "AppDelegate"
-- !private "SFSafariViewController"
-- "NSMapTable"
-- !private "NSMakeRange"
-- !private "UIBarButtonItemStyle"
-- !private "UnicodeScalarType"
-- !private "QMChatAttachmentIncomingCell"
-- !private "NSParagraphStyleAttributeName"
-- !private "SVProgressHUDMaskType"
-- !private "TTTAttributedLabel"
-- !private "UIImagePickerControllerSourceType"
-- !private "UIAlertActionStyle"
-- !private "UIImageJPEGRepresentation"
-- !private "CarePlanMainViewController"
+- "Set"
+- "QMDeferredQueueManager"
+- "Array"
+- !private "QBChat"
+- "UIStoryboardSegue"
+- !private "NSTextCheckingAllTypes"
 - !private "~="
-- !private "<"
-- "QMMessageAttachmentStatus"
-- !private "UIGraphicsBeginImageContext"
+- !private "Fonts"
+- !private "UnicodeScalarType"
+- "messageTimeDateFormatter"
+- !private "NSNumber"
+- !private "QMMessageStatus"
+- "IndexPath"
+- !private "UIBarButtonItem"
+- "TernaryPrecedence"
+- "DateFormatter"
+- "UIImagePickerControllerDelegate"
+- !private "QMChatAttachmentCell"
+- "UINavigationControllerDelegate"
+- "QMChatAttachmentServiceDelegate"
+- "Timer"
+- "QMChatCellDelegate"
+- !private "BooleanLiteralType"
+- !private "UIAlertAction"
+- !private "QMChatNotificationCell"
+- !private "==="
+- "QMChatService"
+- "UserDefaults"
+- !private "QBAVCallPermissions"
+- !private "QBSession"
+- !private "||"
+- "CGSize"
+- !private "NSMutableDictionary"
+- !private "NSString"
+- "Int"
+- !private "??"
+- !private "NSForegroundColorAttributeName"
+- !private ">="
+- "UIActionSheetDelegate"
+- "ChatViewController"
+- !private "..<"
+- !private "NSFontAttributeName"
+- !private "NSLineBreakMode"
+- !private "ceil"
+- !private "QBRTCClient"
+- !private "+"
+- !private "!"
+- "UIImagePickerController"
+- "QMDeferredQueueManagerDelegate"
+- "QMPlaceHolderTextViewPasteDelegate"
 - "UIButton"
-- "NSMutableArray"
-- !private "-"
-- !private "NSTextAttachment"
+- "Bool"
+- !private "SVProgressHUDMaskType"
+- !private "UIBarButtonItemStyle"
+- "QBChatMessage"
+- "QBRTCConferenceType"
+- !private "CGRect"
+- !private "UIGraphicsBeginImageContext"
 - "Void"
+- "AppDelegate"
+- !private "UIPasteboard"
+- "UICollectionView"
+- !private "NSNotification"
+- !private "UITapGestureRecognizer"
+- !private "<"
+- "QBUUser"
+- !private "NotificationCenter"
+- "UIImage"
+- "CGPoint"
+- !private "UIColor"
+- "Date"
+- !private "-"
+- !private "SFSafariViewController"
+- "UICollectionViewCell"
+- "QMMessageAttachmentStatus"
+- !private "QMChatIncomingCell"
+- "UIView"
+- !private "NSParagraphStyleAttributeName"
+- "QMChatAttachmentService"
+- !private "ServicesManager"
+- !private "UIImageView"
+- !private "+="
+- !private "ChatInfo"
+- "NSRange"
+- !private "!="
+- !private "UIImagePickerControllerSourceType"
+- !private "QBMPushMessage"
+- !private "QMChatAttachmentIncomingCell"
+- "QBChatDialog"
+- !private "UIAlertActionStyle"
+- !private "TTTAttributedLabel"
+- !private "QMMessageNotificationManager"
+- !private "GeneralLabels"
+- "NSMutableArray"
+- !private "QMMessageNotificationType"
+- !private "VideoAudioCall"
+- !private "Error"
+- !private "UIGraphicsGetImageFromCurrentImageContext"
+- "QMChatCellLayoutModel"
+- !private "SVProgressHUD"
+- "UITextView"
+- !private "URL"
+- !private "print"
+- !private "/"
+- !private "<="
+- !private "CTTelephonyNetworkInfo"
+- !private "UIImageJPEGRepresentation"
+- !private "QMChatContactRequestCell"
+- !private "QBRequest"
+- "UInt"
+- !private "QMChatAttachmentOutgoingCell"
+- !private "NSTextAttachment"
+- "UIApplication"
+- !private "ViewIdentifiers"
+- !private "NSMutableParagraphStyle"
+- !private "NSMakeRange"
+- "userDefaults"
+- !private "kMessageContainerWidthPadding"
+- !private "Dictionary"
+- "QMChatCell"
+- !private "CallViewController"
+- !private "userType"
+- "CGFloat"
+- "QMChatServiceDelegate"
+- "NSTextCheckingResult"
+- "QMChatConnectionDelegate"
+- !private "DispatchQueue"
+- !private "&&"
+- !private "UILabel"
+- "String"
+- "AnyObject"
+- "QBChatAttachment"
+- !private "UIGraphicsEndImageContext"
+- !private "NSMutableString"
+- !private ">"
+- "NSMapTable"
+- "AnyClass"
+- !private "CarePlanMainViewController"
+- "QMChatCollectionView"
+- !private "UIScreen"
+- !private "QMChatOutgoingCell"
+- "NSAttributedString"
+- !private "min"
 - "QMPlaceHolderTextView"
 - !private "Colors"
-- !private "!"
-- !private "UIAlertAction"
-- !private "||"
-- !private "print"
-- !private "QBChat"
-- "UICollectionViewCell"
-- !private "QBRTCClient"
-- !private "ceil"
-- !private "QMChatAttachmentOutgoingCell"
-- "userDefaults"
-- !private "UIGraphicsGetImageFromCurrentImageContext"
-- "QMChatCollectionView"
-- "QMChatAttachmentService"
-- !private "Fonts"
-- "Array"
-- "UICollectionView"
-- !private "QMChatContactRequestCell"
-- !private "UIImageView"
-- !private "UIGraphicsEndImageContext"
-- "ChatViewController"
-- !private "NSNumber"
-- !private "CGRect"
-- !private "Dictionary"
-- !private "..<"
-- !private "QMMessageNotificationType"
-- !private "ServicesManager"
 - !private "NSPointerFunctions"
-- "NSRange"
-- "Date"
-- !private ">"
-- "UIImage"
-- !private "QMMessageNotificationManager"
-- !private "+"
-- !private "UIColor"
-- !private "UITapGestureRecognizer"
-- "Int"
-- "QMChatCell"
-- "QBChatMessage"
-- !private "QBRequest"
-- !private "QBChatDialogType"
-- "AnyObject"
-- "UserDefaults"
-- "Set"
-- "NSAttributedString"
-- !private "SVProgressHUD"
+- "Selector"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "Stride"]
 - !private ["Ps16AbsoluteValuable", "greatestFiniteMagnitude"]
@@ -552,6 +552,7 @@ depends-member:
 - !private ["Ps9AnyObject", "storyboard"]
 - !private ["Ps9AnyObject", "string"]
 - !private ["Ps9AnyObject", "subscriberCellularProvider"]
+- !private ["Ps9AnyObject", "subscript"]
 - !private ["Ps9AnyObject", "substring"]
 - !private ["Ps9AnyObject", "tabBarController"]
 - !private ["Ps9AnyObject", "text"]
@@ -2471,6 +2472,7 @@ depends-member:
 - !private ["Ps9Equatable", "string"]
 - !private ["Ps9Equatable", "strongMemory"]
 - !private ["Ps9Equatable", "subscriberCellularProvider"]
+- !private ["Ps9Equatable", "subscript"]
 - !private ["Ps9Equatable", "substring"]
 - !private ["Ps9Equatable", "tabBarController"]
 - !private ["Ps9Equatable", "text"]
@@ -2952,6 +2954,7 @@ depends-member:
 - !private ["Ps8Hashable", "storyboard"]
 - !private ["Ps8Hashable", "string"]
 - !private ["Ps8Hashable", "subscriberCellularProvider"]
+- !private ["Ps8Hashable", "subscript"]
 - !private ["Ps8Hashable", "substring"]
 - !private ["Ps8Hashable", "tabBarController"]
 - !private ["Ps8Hashable", "text"]
@@ -3371,6 +3374,7 @@ depends-member:
 - ["PSo8NSCoding", "storedMessages"]
 - !private ["PSo8NSCoding", "storyboard"]
 - !private ["PSo8NSCoding", "string"]
+- !private ["PSo8NSCoding", "subscript"]
 - !private ["PSo8NSCoding", "substring"]
 - !private ["PSo8NSCoding", "tabBarController"]
 - !private ["PSo8NSCoding", "text"]
@@ -3425,6 +3429,7 @@ depends-member:
 - !private ["PSo9NSCopying", "customParameters"]
 - !private ["PSo9NSCopying", "dateFormat"]
 - !private ["PSo9NSCopying", "dateSent"]
+- !private ["PSo9NSCopying", "deinit"]
 - !private ["PSo9NSCopying", "deliveredIDs"]
 - !private ["PSo9NSCopying", "dialogID"]
 - !private ["PSo9NSCopying", "endIndex"]
@@ -3465,6 +3470,7 @@ depends-member:
 - !private ["PSo9NSCopying", "setObject"]
 - !private ["PSo9NSCopying", "setValue"]
 - !private ["PSo9NSCopying", "string"]
+- !private ["PSo9NSCopying", "subscript"]
 - !private ["PSo9NSCopying", "substring"]
 - !private ["PSo9NSCopying", "text"]
 - !private ["PSo9NSCopying", "type"]
@@ -3476,6 +3482,7 @@ depends-member:
 - !private ["CSo12NSDictionary", "Value"]
 - !private ["CSo12NSDictionary", "init"]
 - !private ["CSo12NSDictionary", "setValue"]
+- !private ["CSo12NSDictionary", "subscript"]
 - !private ["CSo12NSDictionary", "value"]
 - ["CSo12NSEnumerator", "deinit"]
 - !private ["CSo12NSEnumerator", "nextObject"]
@@ -3688,6 +3695,7 @@ depends-member:
 - !private ["PSo17NSFastEnumeration", "removeObject"]
 - !private ["PSo17NSFastEnumeration", "setObject"]
 - !private ["PSo17NSFastEnumeration", "setValue"]
+- !private ["PSo17NSFastEnumeration", "subscript"]
 - !private ["PSo17NSFastEnumeration", "update"]
 - !private ["PSo17NSFastEnumeration", "value"]
 - !private ["C10Foundation25NSFastEnumerationIterator", "Element"]
@@ -3696,6 +3704,7 @@ depends-member:
 - !private ["PSo20NSFetchRequestResult", "init"]
 - !private ["PSo20NSFetchRequestResult", "isEqual"]
 - !private ["PSo20NSFetchRequestResult", "setValue"]
+- !private ["PSo20NSFetchRequestResult", "subscript"]
 - !private ["PSo20NSFetchRequestResult", "value"]
 - !private ["OSC15NSLineBreakMode", "byTruncatingTail"]
 - !private ["OSC15NSLineBreakMode", "byWordWrapping"]
@@ -3729,6 +3738,7 @@ depends-member:
 - !private ["PSo16NSMutableCopying", "rangeOfComposedCharacterSequences"]
 - !private ["PSo16NSMutableCopying", "removeSubrange"]
 - !private ["PSo16NSMutableCopying", "setValue"]
+- !private ["PSo16NSMutableCopying", "subscript"]
 - !private ["PSo16NSMutableCopying", "substring"]
 - !private ["PSo16NSMutableCopying", "value"]
 - !private ["CSo19NSMutableDictionary", "Key"]
@@ -3736,6 +3746,7 @@ depends-member:
 - ["CSo19NSMutableDictionary", "deinit"]
 - !private ["CSo19NSMutableDictionary", "init"]
 - !private ["CSo19NSMutableDictionary", "setValue"]
+- !private ["CSo19NSMutableDictionary", "subscript"]
 - !private ["CSo19NSMutableDictionary", "value"]
 - ["CSo23NSMutableParagraphStyle", "deinit"]
 - !private ["CSo23NSMutableParagraphStyle", "init"]
@@ -4085,6 +4096,7 @@ depends-member:
 - !private ["CSo8NSObject", "storyboard"]
 - !private ["CSo8NSObject", "string"]
 - !private ["CSo8NSObject", "subscriberCellularProvider"]
+- !private ["CSo8NSObject", "subscript"]
 - !private ["CSo8NSObject", "substring"]
 - !private ["CSo8NSObject", "tabBarController"]
 - !private ["CSo8NSObject", "text"]
@@ -4433,6 +4445,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "storyboard"]
 - !private ["PSo16NSObjectProtocol", "string"]
 - !private ["PSo16NSObjectProtocol", "subscriberCellularProvider"]
+- !private ["PSo16NSObjectProtocol", "subscript"]
 - !private ["PSo16NSObjectProtocol", "substring"]
 - !private ["PSo16NSObjectProtocol", "tabBarController"]
 - !private ["PSo16NSObjectProtocol", "text"]
@@ -4504,6 +4517,7 @@ depends-member:
 - !private ["PSo14NSSecureCoding", "resultType"]
 - !private ["PSo14NSSecureCoding", "setValue"]
 - !private ["PSo14NSSecureCoding", "size"]
+- !private ["PSo14NSSecureCoding", "subscript"]
 - !private ["PSo14NSSecureCoding", "substring"]
 - !private ["PSo14NSSecureCoding", "url"]
 - !private ["PSo14NSSecureCoding", "value"]
@@ -10631,6 +10645,7 @@ depends-member:
 - !private ["Ps9_Hashable", "storyboard"]
 - !private ["Ps9_Hashable", "string"]
 - !private ["Ps9_Hashable", "subscriberCellularProvider"]
+- !private ["Ps9_Hashable", "subscript"]
 - !private ["Ps9_Hashable", "substring"]
 - !private ["Ps9_Hashable", "tabBarController"]
 - !private ["Ps9_Hashable", "text"]

@@ -52,7 +52,7 @@ class LoginViewController: UIViewController, QBCoreDelegate {
         if UserDefaults.standard.bool(forKey: userDefaults.isLoggedIn) == true {
             let login: String = UserDefaults.standard.value(forKey: userDefaults.loggedInUserEmail) as! String!
             
-            SVProgressHUD.show(withStatus: "Please wait...")
+            SVProgressHUD.show(withStatus: "Please wait...".localized)
             if !QBChat.instance().isConnected {
                 
                 let selectedUser = QBUUser()
@@ -154,7 +154,7 @@ class LoginViewController: UIViewController, QBCoreDelegate {
         
         
         if username.isEmpty || password.isEmpty {
-            self.present(UtilityClass.displayAlertMessage(message: "Username and password required.", title: "Error"), animated: true, completion: nil)
+            self.present(UtilityClass.displayAlertMessage(message: "Username and password requried".localized, title: "SA_STR_ERROR".localized), animated: true, completion: nil)
             
         }
         else {
@@ -222,6 +222,7 @@ class LoginViewController: UIViewController, QBCoreDelegate {
                                 
                             }, errorBlock: { (error) in
                                 print(error)
+                                 self.present(UtilityClass.displayAlertMessage(message: "Login Error".localized, title: "SA_STR_ERROR".localized), animated: true, completion: nil)
                                 SVProgressHUD.dismiss()
                             })
                         }
@@ -235,7 +236,7 @@ class LoginViewController: UIViewController, QBCoreDelegate {
                     }
                     
                 case .failure(let error):
-                    print(error)
+                    self.present(UtilityClass.displayAlertMessage(message: "Login Error".localized, title: "SA_STR_ERROR".localized), animated: true, completion: nil)
                     SVProgressHUD.dismiss()
                 }
             }
@@ -344,7 +345,7 @@ class LoginViewController: UIViewController, QBCoreDelegate {
             })
             
         }, errorBlock: { (error) in
-            
+             self.present(UtilityClass.displayAlertMessage(message: "Login Error".localized, title: "SA_STR_ERROR".localized), animated: true, completion: nil)
             print("error \(error.data?.description)")
             SVProgressHUD.showError(withStatus: error.data?.description)
         })

@@ -67,9 +67,6 @@
 		8E458C8D1E0BD0AF00A4E136 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E458C8C1E0BD0AF00A4E136 /* ChatViewController.swift */; };
 		8E50156A1E1A5EDA0079CF16 /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5015691E1A5EDA0079CF16 /* LineChart.swift */; };
 		8E5015791E1A7EB40079CF16 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8FC5F6C81E0A89E10086326D /* Info.plist */; };
-		8E50158E1E1A899F0079CF16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E50158C1E1A899F0079CF16 /* Main.storyboard */; };
-		8E5015911E1A89E00079CF16 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8E5015931E1A89E00079CF16 /* Localizable.strings */; };
-		8E5015961E1A8A670079CF16 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8E5015981E1A8A670079CF16 /* Localizable.strings */; };
 		8E658A851E128FE80007B0D7 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E658A841E128FE80007B0D7 /* user.png */; };
 		8E6C45E11E0D01150049218C /* busy.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8E6C45DD1E0D01150049218C /* busy.wav */; };
 		8E6C45E21E0D01150049218C /* calling.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8E6C45DE1E0D01150049218C /* calling.wav */; };
@@ -139,6 +136,8 @@
 		8EFB39251E1E0AD300649F28 /* SF-UI-Text-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8EFB38EF1E1E0AD300649F28 /* SF-UI-Text-SemiboldItalic.otf */; };
 		8EFB39291E1E60CA00649F28 /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EFB39281E1E60CA00649F28 /* delete.png */; };
 		8EFB392B1E1E6FF600649F28 /* CarePlanReadingHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFB392A1E1E6FF600649F28 /* CarePlanReadingHeaderTableViewCell.swift */; };
+		8F6736201E2647A200C55653 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F67361E1E2647A200C55653 /* Main.storyboard */; };
+		8F6736241E26497E00C55653 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8F6736261E26497E00C55653 /* Localizable.strings */; };
 		8F9640931E0B9691000B01FE /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9640921E0B9691000B01FE /* libicucore.tbd */; };
 		8F9640951E0B96B6000B01FE /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9640941E0B96B6000B01FE /* libc++.tbd */; };
 		8F9640971E0B96CB000B01FE /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9640961E0B96CB000B01FE /* libresolv.tbd */; };
@@ -288,10 +287,6 @@
 		8E458C8A1E0BD09400A4E136 /* UtilityClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilityClass.swift; sourceTree = "<group>"; };
 		8E458C8C1E0BD0AF00A4E136 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		8E5015691E1A5EDA0079CF16 /* LineChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
-		8E50158D1E1A899F0079CF16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8E50158F1E1A89B10079CF16 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
-		8E5015921E1A89E00079CF16 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
-		8E5015971E1A8A670079CF16 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8E658A841E128FE80007B0D7 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
 		8E6C45DD1E0D01150049218C /* busy.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = busy.wav; sourceTree = "<group>"; };
 		8E6C45DE1E0D01150049218C /* calling.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = calling.wav; sourceTree = "<group>"; };
@@ -361,7 +356,13 @@
 		8EFB38EF1E1E0AD300649F28 /* SF-UI-Text-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-SemiboldItalic.otf"; sourceTree = "<group>"; };
 		8EFB39281E1E60CA00649F28 /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
 		8EFB392A1E1E6FF600649F28 /* CarePlanReadingHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarePlanReadingHeaderTableViewCell.swift; sourceTree = "<group>"; };
-		8F3F83471E238E2400593A84 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
+		8F67361F1E2647A200C55653 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8F6736211E26483F00C55653 /* ar-QA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ar-QA"; path = "ar-QA.lproj/Main.strings"; sourceTree = "<group>"; };
+		8F6736271E26498600C55653 /* ar-QA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ar-QA"; path = "ar-QA.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		8F6736291E265BB200C55653 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8F67362B1E265D5200C55653 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		8F67362D1E2672A100C55653 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
+		8F67362E1E2678CC00C55653 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8F8D9FD91E139655009283F8 /* DiabetesApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DiabetesApp.entitlements; sourceTree = "<group>"; };
 		8F9640921E0B9691000B01FE /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		8F9640941E0B96B6000B01FE /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
@@ -964,10 +965,8 @@
 		8FC5F6B81E0A89E10086326D /* DiabetesApp */ = {
 			isa = PBXGroup;
 			children = (
+				8F67361E1E2647A200C55653 /* Main.storyboard */,
 				8EFB38B61E1E0A4500649F28 /* Fonts */,
-				8E50158C1E1A899F0079CF16 /* Main.storyboard */,
-				8E5015981E1A8A670079CF16 /* Localizable.strings */,
-				8E5015931E1A89E00079CF16 /* Localizable.strings */,
 				8F8D9FD91E139655009283F8 /* DiabetesApp.entitlements */,
 				8E1DBCE81E1136D70098EDF9 /* images */,
 				8E13A8581E0BEA010069D0B7 /* VideoObjC */,
@@ -984,6 +983,7 @@
 				8FC5F6C01E0A89E10086326D /* DiabetesApp.xcdatamodeld */,
 				8FC5F6FC1E0A92EF0086326D /* DiabetesApp-Bridging-Header.h */,
 				8EAD3BC41E16407000FDE796 /* history.plist */,
+				8F6736261E26497E00C55653 /* Localizable.strings */,
 			);
 			path = DiabetesApp;
 			sourceTree = "<group>";
@@ -1199,6 +1199,9 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				Base,
+				"ar-QA",
+				en,
+				ar,
 			);
 			mainGroup = 8FC5F6AD1E0A89E10086326D;
 			productRefGroup = 8FC5F6B71E0A89E10086326D /* Products */;
@@ -1223,6 +1226,7 @@
 				8EFB39291E1E60CA00649F28 /* delete.png in Resources */,
 				8EFB390E1E1E0AD300649F28 /* Gotham-XLight.otf in Resources */,
 				8EFB39161E1E0AD300649F28 /* SF-UI-Display-Regular.otf in Resources */,
+				8F6736201E2647A200C55653 /* Main.storyboard in Resources */,
 				8E13A8E61E0C08DF0069D0B7 /* Images.xcassets in Resources */,
 				8EFB39181E1E0AD300649F28 /* SF-UI-Display-Thin.otf in Resources */,
 				8EFB390F1E1E0AD300649F28 /* Gotham-XLightItalic.otf in Resources */,
@@ -1263,7 +1267,6 @@
 				8EFB39111E1E0AD300649F28 /* SF-UI-Display-Black.otf in Resources */,
 				8EFB390D1E1E0AD300649F28 /* Gotham-UltraItalic.otf in Resources */,
 				8EFB38FB1E1E0AD300649F28 /* Gotham-ThinItalic.ttf in Resources */,
-				8E50158E1E1A899F0079CF16 /* Main.storyboard in Resources */,
 				8EFB38F01E1E0AD300649F28 /* Gotham-Black.ttf in Resources */,
 				8EFB390B1E1E0AD300649F28 /* Gotham-ThinItalic.otf in Resources */,
 				8E6C45E21E0D01150049218C /* calling.wav in Resources */,
@@ -1278,7 +1281,7 @@
 				8E1DBCDB1E1121E80098EDF9 /* med.png in Resources */,
 				8E1DBCF01E114F6F0098EDF9 /* new.png in Resources */,
 				8EFB38F61E1E0AD300649F28 /* Gotham-Light.ttf in Resources */,
-				8E5015911E1A89E00079CF16 /* Localizable.strings in Resources */,
+				8F6736241E26497E00C55653 /* Localizable.strings in Resources */,
 				8EFB39051E1E0AD300649F28 /* Gotham-BookItalic.otf in Resources */,
 				8EFB38F71E1E0AD300649F28 /* Gotham-LightItalic.ttf in Resources */,
 				8EFB38F11E1E0AD300649F28 /* Gotham-BlackItalic.ttf in Resources */,
@@ -1288,7 +1291,6 @@
 				8EFB38F51E1E0AD300649F28 /* Gotham-BookItalic.ttf in Resources */,
 				8EFB39151E1E0AD300649F28 /* SF-UI-Display-Medium.otf in Resources */,
 				8E13A8E41E0BF4A90069D0B7 /* Settings.storyboard in Resources */,
-				8E5015961E1A8A670079CF16 /* Localizable.strings in Resources */,
 				8EFB39201E1E0AD300649F28 /* SF-UI-Text-Medium.otf in Resources */,
 				8EFB39241E1E0AD300649F28 /* SF-UI-Text-Semibold.otf in Resources */,
 				8EFB39171E1E0AD300649F28 /* SF-UI-Display-Semibold.otf in Resources */,
@@ -1559,28 +1561,23 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		8E50158C1E1A899F0079CF16 /* Main.storyboard */ = {
+		8F67361E1E2647A200C55653 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				8E50158D1E1A899F0079CF16 /* Base */,
-				8E50158F1E1A89B10079CF16 /* en */,
-				8F3F83471E238E2400593A84 /* ar */,
+				8F67361F1E2647A200C55653 /* Base */,
+				8F6736211E26483F00C55653 /* ar-QA */,
+				8F67362B1E265D5200C55653 /* en */,
+				8F67362D1E2672A100C55653 /* ar */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		8E5015931E1A89E00079CF16 /* Localizable.strings */ = {
+		8F6736261E26497E00C55653 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				8E5015921E1A89E00079CF16 /* ar */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		8E5015981E1A8A670079CF16 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8E5015971E1A8A670079CF16 /* en */,
+				8F6736271E26498600C55653 /* ar-QA */,
+				8F6736291E265BB200C55653 /* en */,
+				8F67362E1E2678CC00C55653 /* ar */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

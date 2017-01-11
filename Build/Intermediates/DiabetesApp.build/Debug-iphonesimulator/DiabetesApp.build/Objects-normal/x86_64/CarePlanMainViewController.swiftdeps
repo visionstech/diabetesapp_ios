@@ -6,46 +6,49 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp26CarePlanMainViewController", ""]
 provides-dynamic-lookup:
-- "setNavBarUI"
-- "AddBtn_Click"
-- "medicationContainer"
-- "topBackView"
-- "selectedUserType"
-- "readingBtn"
-- "viewWillAppear"
 - "addBtn"
-- "readingContainer"
-- "createCustomTopView"
+- "readingBtn"
+- "awakeFromNib"
+- "BackBtn_Click"
 - "viewDidLoad"
 - "ViewModeButtons_Click"
-- "awakeFromNib"
-- "medicationBtn"
+- "medicationContainer"
+- "AddBtn_Click"
 - "viewWillDisappear"
-- "BackBtn_Click"
+- "viewWillAppear"
+- "medicationBtn"
 - "didReceiveMemoryWarning"
+- "topBackView"
+- "readingContainer"
+- "selectedUserType"
+- "createCustomTopView"
+- "setNavBarUI"
 depends-top-level:
-- !private "Colors"
-- "UIView"
-- !private "UIImageView"
-- "userDefaults"
-- !private "UIImage"
-- !private "NSNotification"
-- "CarePlanMainViewController"
-- !private "UIColor"
 - !private "Notifications"
-- "UIBarButtonItem"
-- !private "BooleanLiteralType"
-- "UIButton"
+- !private "UIColor"
 - "Int"
-- !private "CGRect"
-- !private "userType"
 - "AssignmentPrecedence"
-- "Bool"
-- !private "UITapGestureRecognizer"
 - !private "=="
+- !private "UIImageView"
+- "Bool"
+- "UIView"
 - !private "NotificationCenter"
-- "UIViewController"
+- !private "UIImage"
 - "UserDefaults"
+- !private "QBRequest"
+- !private "Colors"
+- "UIViewController"
+- !private "BooleanLiteralType"
+- "userDefaults"
+- !private "userType"
+- !private "NSNotification"
+- !private "CGRect"
+- "UIButton"
+- "UIBarButtonItem"
+- !private "String"
+- "CarePlanMainViewController"
+- !private "QBMPushMessage"
+- !private "UITapGestureRecognizer"
 depends-member:
 - ["Ps9AnyObject", "AddBtn_Click"]
 - ["Ps9AnyObject", "BackBtn_Click"]
@@ -56,7 +59,10 @@ depends-member:
 - !private ["Ps9AnyObject", "Name"]
 - !private ["Ps9AnyObject", "NotificationCenter"]
 - !private ["Ps9AnyObject", "Notifications"]
+- !private ["Ps9AnyObject", "QBMPushMessage"]
+- !private ["Ps9AnyObject", "QBRequest"]
 - !private ["Ps9AnyObject", "RawValue"]
+- !private ["Ps9AnyObject", "String"]
 - ["Ps9AnyObject", "UIBarButtonItem"]
 - !private ["Ps9AnyObject", "UIColor"]
 - !private ["Ps9AnyObject", "UIImage"]
@@ -68,6 +74,7 @@ depends-member:
 - ["Ps9AnyObject", "addBtn"]
 - !private ["Ps9AnyObject", "addGestureRecognizer"]
 - !private ["Ps9AnyObject", "addSubview"]
+- !private ["Ps9AnyObject", "alertBody"]
 - ["Ps9AnyObject", "awakeFromNib"]
 - !private ["Ps9AnyObject", "backgroundColor"]
 - ["Ps9AnyObject", "createCustomTopView"]
@@ -95,6 +102,7 @@ depends-member:
 - !private ["Ps9AnyObject", "rightBarButtonItem"]
 - !private ["Ps9AnyObject", "rightBarButtonItems"]
 - ["Ps9AnyObject", "selectedUserType"]
+- !private ["Ps9AnyObject", "sendPush"]
 - ["Ps9AnyObject", "setNavBarUI"]
 - !private ["Ps9AnyObject", "setTitleColor"]
 - ["Ps9AnyObject", "standard"]
@@ -131,7 +139,10 @@ depends-member:
 - !private ["Ps7CVarArg", "Name"]
 - !private ["Ps7CVarArg", "NotificationCenter"]
 - !private ["Ps7CVarArg", "Notifications"]
+- !private ["Ps7CVarArg", "QBMPushMessage"]
+- !private ["Ps7CVarArg", "QBRequest"]
 - !private ["Ps7CVarArg", "RawValue"]
+- !private ["Ps7CVarArg", "String"]
 - ["Ps7CVarArg", "UIBarButtonItem"]
 - !private ["Ps7CVarArg", "UIColor"]
 - !private ["Ps7CVarArg", "UIImage"]
@@ -143,6 +154,7 @@ depends-member:
 - ["Ps7CVarArg", "addBtn"]
 - !private ["Ps7CVarArg", "addGestureRecognizer"]
 - !private ["Ps7CVarArg", "addSubview"]
+- !private ["Ps7CVarArg", "alertBody"]
 - ["Ps7CVarArg", "awakeFromNib"]
 - !private ["Ps7CVarArg", "backgroundColor"]
 - ["Ps7CVarArg", "createCustomTopView"]
@@ -170,6 +182,7 @@ depends-member:
 - !private ["Ps7CVarArg", "rightBarButtonItem"]
 - !private ["Ps7CVarArg", "rightBarButtonItems"]
 - ["Ps7CVarArg", "selectedUserType"]
+- !private ["Ps7CVarArg", "sendPush"]
 - ["Ps7CVarArg", "setNavBarUI"]
 - !private ["Ps7CVarArg", "setTitleColor"]
 - ["Ps7CVarArg", "standard"]
@@ -192,6 +205,9 @@ depends-member:
 - !private ["C11DiabetesApp26CarePlanMainViewController", "NSNotification"]
 - !private ["C11DiabetesApp26CarePlanMainViewController", "NotificationCenter"]
 - !private ["C11DiabetesApp26CarePlanMainViewController", "Notifications"]
+- !private ["C11DiabetesApp26CarePlanMainViewController", "QBMPushMessage"]
+- !private ["C11DiabetesApp26CarePlanMainViewController", "QBRequest"]
+- !private ["C11DiabetesApp26CarePlanMainViewController", "String"]
 - ["C11DiabetesApp26CarePlanMainViewController", "UIBarButtonItem"]
 - ["C11DiabetesApp26CarePlanMainViewController", "UIButton"]
 - !private ["C11DiabetesApp26CarePlanMainViewController", "UIColor"]
@@ -224,6 +240,7 @@ depends-member:
 - ["C11DiabetesApp26CarePlanMainViewController", "viewWillAppear"]
 - ["C11DiabetesApp26CarePlanMainViewController", "viewWillDisappear"]
 - !private ["Vs9Character", "deinit"]
+- !private ["VSS13CharacterView", "deinit"]
 - !private ["V11DiabetesApp6Colors", "historyHeaderColor"]
 - ["Ps10Comparable", "init"]
 - !private ["Ps10Comparable", "localized"]
@@ -236,7 +253,10 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "Name"]
 - !private ["Ps28CustomDebugStringConvertible", "NotificationCenter"]
 - !private ["Ps28CustomDebugStringConvertible", "Notifications"]
+- !private ["Ps28CustomDebugStringConvertible", "QBMPushMessage"]
+- !private ["Ps28CustomDebugStringConvertible", "QBRequest"]
 - !private ["Ps28CustomDebugStringConvertible", "RawValue"]
+- !private ["Ps28CustomDebugStringConvertible", "String"]
 - ["Ps28CustomDebugStringConvertible", "UIBarButtonItem"]
 - !private ["Ps28CustomDebugStringConvertible", "UIColor"]
 - !private ["Ps28CustomDebugStringConvertible", "UIImage"]
@@ -248,6 +268,7 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "addBtn"]
 - !private ["Ps28CustomDebugStringConvertible", "addGestureRecognizer"]
 - !private ["Ps28CustomDebugStringConvertible", "addSubview"]
+- !private ["Ps28CustomDebugStringConvertible", "alertBody"]
 - ["Ps28CustomDebugStringConvertible", "awakeFromNib"]
 - !private ["Ps28CustomDebugStringConvertible", "backgroundColor"]
 - ["Ps28CustomDebugStringConvertible", "createCustomTopView"]
@@ -275,6 +296,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "rightBarButtonItem"]
 - !private ["Ps28CustomDebugStringConvertible", "rightBarButtonItems"]
 - ["Ps28CustomDebugStringConvertible", "selectedUserType"]
+- !private ["Ps28CustomDebugStringConvertible", "sendPush"]
 - ["Ps28CustomDebugStringConvertible", "setNavBarUI"]
 - !private ["Ps28CustomDebugStringConvertible", "setTitleColor"]
 - ["Ps28CustomDebugStringConvertible", "standard"]
@@ -303,7 +325,10 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "Name"]
 - !private ["Ps23CustomStringConvertible", "NotificationCenter"]
 - !private ["Ps23CustomStringConvertible", "Notifications"]
+- !private ["Ps23CustomStringConvertible", "QBMPushMessage"]
+- !private ["Ps23CustomStringConvertible", "QBRequest"]
 - !private ["Ps23CustomStringConvertible", "RawValue"]
+- !private ["Ps23CustomStringConvertible", "String"]
 - ["Ps23CustomStringConvertible", "UIBarButtonItem"]
 - !private ["Ps23CustomStringConvertible", "UIColor"]
 - !private ["Ps23CustomStringConvertible", "UIImage"]
@@ -316,6 +341,7 @@ depends-member:
 - ["Ps23CustomStringConvertible", "addBtn"]
 - !private ["Ps23CustomStringConvertible", "addGestureRecognizer"]
 - !private ["Ps23CustomStringConvertible", "addSubview"]
+- !private ["Ps23CustomStringConvertible", "alertBody"]
 - ["Ps23CustomStringConvertible", "awakeFromNib"]
 - !private ["Ps23CustomStringConvertible", "backgroundColor"]
 - ["Ps23CustomStringConvertible", "createCustomTopView"]
@@ -343,6 +369,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "rightBarButtonItem"]
 - !private ["Ps23CustomStringConvertible", "rightBarButtonItems"]
 - ["Ps23CustomStringConvertible", "selectedUserType"]
+- !private ["Ps23CustomStringConvertible", "sendPush"]
 - ["Ps23CustomStringConvertible", "setNavBarUI"]
 - !private ["Ps23CustomStringConvertible", "setTitleColor"]
 - ["Ps23CustomStringConvertible", "standard"]
@@ -366,7 +393,10 @@ depends-member:
 - !private ["Ps9Equatable", "Name"]
 - !private ["Ps9Equatable", "NotificationCenter"]
 - !private ["Ps9Equatable", "Notifications"]
+- !private ["Ps9Equatable", "QBMPushMessage"]
+- !private ["Ps9Equatable", "QBRequest"]
 - !private ["Ps9Equatable", "RawValue"]
+- !private ["Ps9Equatable", "String"]
 - ["Ps9Equatable", "UIBarButtonItem"]
 - !private ["Ps9Equatable", "UIColor"]
 - !private ["Ps9Equatable", "UIImage"]
@@ -379,6 +409,7 @@ depends-member:
 - ["Ps9Equatable", "addBtn"]
 - !private ["Ps9Equatable", "addGestureRecognizer"]
 - !private ["Ps9Equatable", "addSubview"]
+- !private ["Ps9Equatable", "alertBody"]
 - ["Ps9Equatable", "awakeFromNib"]
 - !private ["Ps9Equatable", "backgroundColor"]
 - ["Ps9Equatable", "createCustomTopView"]
@@ -408,6 +439,7 @@ depends-member:
 - !private ["Ps9Equatable", "rightBarButtonItem"]
 - !private ["Ps9Equatable", "rightBarButtonItems"]
 - ["Ps9Equatable", "selectedUserType"]
+- !private ["Ps9Equatable", "sendPush"]
 - ["Ps9Equatable", "setNavBarUI"]
 - !private ["Ps9Equatable", "setTitleColor"]
 - ["Ps9Equatable", "standard"]
@@ -442,7 +474,10 @@ depends-member:
 - !private ["Ps8Hashable", "Name"]
 - !private ["Ps8Hashable", "NotificationCenter"]
 - !private ["Ps8Hashable", "Notifications"]
+- !private ["Ps8Hashable", "QBMPushMessage"]
+- !private ["Ps8Hashable", "QBRequest"]
 - !private ["Ps8Hashable", "RawValue"]
+- !private ["Ps8Hashable", "String"]
 - ["Ps8Hashable", "UIBarButtonItem"]
 - !private ["Ps8Hashable", "UIColor"]
 - !private ["Ps8Hashable", "UIImage"]
@@ -455,6 +490,7 @@ depends-member:
 - ["Ps8Hashable", "addBtn"]
 - !private ["Ps8Hashable", "addGestureRecognizer"]
 - !private ["Ps8Hashable", "addSubview"]
+- !private ["Ps8Hashable", "alertBody"]
 - ["Ps8Hashable", "awakeFromNib"]
 - !private ["Ps8Hashable", "backgroundColor"]
 - ["Ps8Hashable", "createCustomTopView"]
@@ -483,6 +519,7 @@ depends-member:
 - !private ["Ps8Hashable", "rightBarButtonItem"]
 - !private ["Ps8Hashable", "rightBarButtonItems"]
 - ["Ps8Hashable", "selectedUserType"]
+- !private ["Ps8Hashable", "sendPush"]
 - ["Ps8Hashable", "setNavBarUI"]
 - !private ["Ps8Hashable", "setTitleColor"]
 - ["Ps8Hashable", "standard"]
@@ -520,7 +557,10 @@ depends-member:
 - !private ["PSo8NSCoding", "Name"]
 - !private ["PSo8NSCoding", "NotificationCenter"]
 - !private ["PSo8NSCoding", "Notifications"]
+- !private ["PSo8NSCoding", "QBMPushMessage"]
+- !private ["PSo8NSCoding", "QBRequest"]
 - !private ["PSo8NSCoding", "RawValue"]
+- !private ["PSo8NSCoding", "String"]
 - ["PSo8NSCoding", "UIBarButtonItem"]
 - !private ["PSo8NSCoding", "UIColor"]
 - !private ["PSo8NSCoding", "UIImage"]
@@ -532,6 +572,7 @@ depends-member:
 - ["PSo8NSCoding", "addBtn"]
 - !private ["PSo8NSCoding", "addGestureRecognizer"]
 - !private ["PSo8NSCoding", "addSubview"]
+- !private ["PSo8NSCoding", "alertBody"]
 - ["PSo8NSCoding", "awakeFromNib"]
 - !private ["PSo8NSCoding", "backgroundColor"]
 - ["PSo8NSCoding", "createCustomTopView"]
@@ -570,6 +611,7 @@ depends-member:
 - ["PSo8NSCoding", ""]
 - !private ["PSo9NSCopying", "Name"]
 - !private ["PSo9NSCopying", "RawValue"]
+- !private ["PSo9NSCopying", "alertBody"]
 - !private ["PSo9NSCopying", "gray"]
 - !private ["PSo9NSCopying", "init"]
 - !private ["PSo9NSCopying", "localized"]
@@ -582,6 +624,9 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "NSNotification"]
 - !private ["PSo26NSExtensionRequestHandling", "NotificationCenter"]
 - !private ["PSo26NSExtensionRequestHandling", "Notifications"]
+- !private ["PSo26NSExtensionRequestHandling", "QBMPushMessage"]
+- !private ["PSo26NSExtensionRequestHandling", "QBRequest"]
+- !private ["PSo26NSExtensionRequestHandling", "String"]
 - ["PSo26NSExtensionRequestHandling", "UIBarButtonItem"]
 - !private ["PSo26NSExtensionRequestHandling", "UIColor"]
 - !private ["PSo26NSExtensionRequestHandling", "UIImage"]
@@ -627,7 +672,10 @@ depends-member:
 - !private ["CSo8NSObject", "Name"]
 - !private ["CSo8NSObject", "NotificationCenter"]
 - !private ["CSo8NSObject", "Notifications"]
+- !private ["CSo8NSObject", "QBMPushMessage"]
+- !private ["CSo8NSObject", "QBRequest"]
 - !private ["CSo8NSObject", "RawValue"]
+- !private ["CSo8NSObject", "String"]
 - ["CSo8NSObject", "UIBarButtonItem"]
 - ["CSo8NSObject", "UIButton"]
 - !private ["CSo8NSObject", "UIColor"]
@@ -640,6 +688,7 @@ depends-member:
 - ["CSo8NSObject", "addBtn"]
 - !private ["CSo8NSObject", "addGestureRecognizer"]
 - !private ["CSo8NSObject", "addSubview"]
+- !private ["CSo8NSObject", "alertBody"]
 - ["CSo8NSObject", "awakeFromNib"]
 - !private ["CSo8NSObject", "backgroundColor"]
 - ["CSo8NSObject", "createCustomTopView"]
@@ -668,6 +717,7 @@ depends-member:
 - !private ["CSo8NSObject", "rightBarButtonItem"]
 - !private ["CSo8NSObject", "rightBarButtonItems"]
 - ["CSo8NSObject", "selectedUserType"]
+- !private ["CSo8NSObject", "sendPush"]
 - ["CSo8NSObject", "setNavBarUI"]
 - !private ["CSo8NSObject", "setTitleColor"]
 - ["CSo8NSObject", "standard"]
@@ -689,7 +739,10 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "Name"]
 - !private ["PSo16NSObjectProtocol", "NotificationCenter"]
 - !private ["PSo16NSObjectProtocol", "Notifications"]
+- !private ["PSo16NSObjectProtocol", "QBMPushMessage"]
+- !private ["PSo16NSObjectProtocol", "QBRequest"]
 - !private ["PSo16NSObjectProtocol", "RawValue"]
+- !private ["PSo16NSObjectProtocol", "String"]
 - ["PSo16NSObjectProtocol", "UIBarButtonItem"]
 - !private ["PSo16NSObjectProtocol", "UIColor"]
 - !private ["PSo16NSObjectProtocol", "UIImage"]
@@ -701,6 +754,7 @@ depends-member:
 - ["PSo16NSObjectProtocol", "addBtn"]
 - !private ["PSo16NSObjectProtocol", "addGestureRecognizer"]
 - !private ["PSo16NSObjectProtocol", "addSubview"]
+- !private ["PSo16NSObjectProtocol", "alertBody"]
 - ["PSo16NSObjectProtocol", "awakeFromNib"]
 - !private ["PSo16NSObjectProtocol", "backgroundColor"]
 - ["PSo16NSObjectProtocol", "createCustomTopView"]
@@ -728,6 +782,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "rightBarButtonItem"]
 - !private ["PSo16NSObjectProtocol", "rightBarButtonItems"]
 - ["PSo16NSObjectProtocol", "selectedUserType"]
+- !private ["PSo16NSObjectProtocol", "sendPush"]
 - ["PSo16NSObjectProtocol", "setNavBarUI"]
 - !private ["PSo16NSObjectProtocol", "setTitleColor"]
 - ["PSo16NSObjectProtocol", "standard"]
@@ -758,6 +813,13 @@ depends-member:
 - !private ["V11DiabetesApp13Notifications", "readingView"]
 - !private ["Ps9OptionSet", "normal"]
 - ["Sq", "deinit"]
+- !private ["CSo14QBMPushMessage", "alertBody"]
+- ["CSo14QBMPushMessage", "deinit"]
+- !private ["CSo14QBMPushMessage", "init"]
+- !private ["CSo18QBMPushMessageBase", "alertBody"]
+- !private ["CSo18QBMPushMessageBase", "init"]
+- ["CSo9QBRequest", "deinit"]
+- !private ["CSo9QBRequest", "sendPush"]
 - !private ["Ps16RawRepresentable", "init"]
 - !private ["Ps16RawRepresentable", "normal"]
 - !private ["Ps16RawRepresentable", "plain"]
@@ -799,6 +861,9 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "NSNotification"]
 - !private ["PSo21UIAppearanceContainer", "NotificationCenter"]
 - !private ["PSo21UIAppearanceContainer", "Notifications"]
+- !private ["PSo21UIAppearanceContainer", "QBMPushMessage"]
+- !private ["PSo21UIAppearanceContainer", "QBRequest"]
+- !private ["PSo21UIAppearanceContainer", "String"]
 - ["PSo21UIAppearanceContainer", "UIBarButtonItem"]
 - !private ["PSo21UIAppearanceContainer", "UIColor"]
 - !private ["PSo21UIAppearanceContainer", "UIImage"]
@@ -861,6 +926,9 @@ depends-member:
 - !private ["PSo18UIContentContainer", "NSNotification"]
 - !private ["PSo18UIContentContainer", "NotificationCenter"]
 - !private ["PSo18UIContentContainer", "Notifications"]
+- !private ["PSo18UIContentContainer", "QBMPushMessage"]
+- !private ["PSo18UIContentContainer", "QBRequest"]
+- !private ["PSo18UIContentContainer", "String"]
 - ["PSo18UIContentContainer", "UIBarButtonItem"]
 - !private ["PSo18UIContentContainer", "UIColor"]
 - !private ["PSo18UIContentContainer", "UIImage"]
@@ -923,6 +991,9 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "NSNotification"]
 - !private ["PSo18UIFocusEnvironment", "NotificationCenter"]
 - !private ["PSo18UIFocusEnvironment", "Notifications"]
+- !private ["PSo18UIFocusEnvironment", "QBMPushMessage"]
+- !private ["PSo18UIFocusEnvironment", "QBRequest"]
+- !private ["PSo18UIFocusEnvironment", "String"]
 - ["PSo18UIFocusEnvironment", "UIBarButtonItem"]
 - !private ["PSo18UIFocusEnvironment", "UIColor"]
 - !private ["PSo18UIFocusEnvironment", "UIImage"]
@@ -998,6 +1069,9 @@ depends-member:
 - !private ["CSo11UIResponder", "NSNotification"]
 - !private ["CSo11UIResponder", "NotificationCenter"]
 - !private ["CSo11UIResponder", "Notifications"]
+- !private ["CSo11UIResponder", "QBMPushMessage"]
+- !private ["CSo11UIResponder", "QBRequest"]
+- !private ["CSo11UIResponder", "String"]
 - ["CSo11UIResponder", "UIBarButtonItem"]
 - ["CSo11UIResponder", "UIButton"]
 - !private ["CSo11UIResponder", "UIColor"]
@@ -1046,6 +1120,9 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "NSNotification"]
 - !private ["PSo30UIResponderStandardEditActions", "NotificationCenter"]
 - !private ["PSo30UIResponderStandardEditActions", "Notifications"]
+- !private ["PSo30UIResponderStandardEditActions", "QBMPushMessage"]
+- !private ["PSo30UIResponderStandardEditActions", "QBRequest"]
+- !private ["PSo30UIResponderStandardEditActions", "String"]
 - ["PSo30UIResponderStandardEditActions", "UIBarButtonItem"]
 - !private ["PSo30UIResponderStandardEditActions", "UIColor"]
 - !private ["PSo30UIResponderStandardEditActions", "UIImage"]
@@ -1094,6 +1171,9 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "NSNotification"]
 - !private ["PSo16UIStateRestoring", "NotificationCenter"]
 - !private ["PSo16UIStateRestoring", "Notifications"]
+- !private ["PSo16UIStateRestoring", "QBMPushMessage"]
+- !private ["PSo16UIStateRestoring", "QBRequest"]
+- !private ["PSo16UIStateRestoring", "String"]
 - ["PSo16UIStateRestoring", "UIBarButtonItem"]
 - !private ["PSo16UIStateRestoring", "UIColor"]
 - !private ["PSo16UIStateRestoring", "UIImage"]
@@ -1141,6 +1221,9 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "NSNotification"]
 - !private ["PSo18UITraitEnvironment", "NotificationCenter"]
 - !private ["PSo18UITraitEnvironment", "Notifications"]
+- !private ["PSo18UITraitEnvironment", "QBMPushMessage"]
+- !private ["PSo18UITraitEnvironment", "QBRequest"]
+- !private ["PSo18UITraitEnvironment", "String"]
 - ["PSo18UITraitEnvironment", "UIBarButtonItem"]
 - !private ["PSo18UITraitEnvironment", "UIColor"]
 - !private ["PSo18UITraitEnvironment", "UIImage"]
@@ -1200,6 +1283,9 @@ depends-member:
 - !private ["CSo16UIViewController", "NSNotification"]
 - !private ["CSo16UIViewController", "NotificationCenter"]
 - !private ["CSo16UIViewController", "Notifications"]
+- !private ["CSo16UIViewController", "QBMPushMessage"]
+- !private ["CSo16UIViewController", "QBRequest"]
+- !private ["CSo16UIViewController", "String"]
 - ["CSo16UIViewController", "UIBarButtonItem"]
 - ["CSo16UIViewController", "UIButton"]
 - !private ["CSo16UIViewController", "UIColor"]
@@ -1242,6 +1328,7 @@ depends-member:
 - !private ["P9Alamofire14URLConvertible", "init"]
 - !private ["P9Alamofire14URLConvertible", "localized"]
 - !private ["Sc", "deinit"]
+- !private ["VSS17UnicodeScalarView", "deinit"]
 - ["CSo12UserDefaults", "deinit"]
 - ["CSo12UserDefaults", "integer"]
 - ["CSo12UserDefaults", "standard"]
@@ -1281,7 +1368,10 @@ depends-member:
 - !private ["Ps9_Hashable", "Name"]
 - !private ["Ps9_Hashable", "NotificationCenter"]
 - !private ["Ps9_Hashable", "Notifications"]
+- !private ["Ps9_Hashable", "QBMPushMessage"]
+- !private ["Ps9_Hashable", "QBRequest"]
 - !private ["Ps9_Hashable", "RawValue"]
+- !private ["Ps9_Hashable", "String"]
 - ["Ps9_Hashable", "UIBarButtonItem"]
 - !private ["Ps9_Hashable", "UIColor"]
 - !private ["Ps9_Hashable", "UIImage"]
@@ -1294,6 +1384,7 @@ depends-member:
 - ["Ps9_Hashable", "addBtn"]
 - !private ["Ps9_Hashable", "addGestureRecognizer"]
 - !private ["Ps9_Hashable", "addSubview"]
+- !private ["Ps9_Hashable", "alertBody"]
 - ["Ps9_Hashable", "awakeFromNib"]
 - !private ["Ps9_Hashable", "backgroundColor"]
 - ["Ps9_Hashable", "createCustomTopView"]
@@ -1322,6 +1413,7 @@ depends-member:
 - !private ["Ps9_Hashable", "rightBarButtonItem"]
 - !private ["Ps9_Hashable", "rightBarButtonItems"]
 - ["Ps9_Hashable", "selectedUserType"]
+- !private ["Ps9_Hashable", "sendPush"]
 - ["Ps9_Hashable", "setNavBarUI"]
 - !private ["Ps9_Hashable", "setTitleColor"]
 - ["Ps9_Hashable", "standard"]
@@ -1343,6 +1435,7 @@ depends-member:
 - !private ["Ps21_ObjectiveCBridgeable", "localized"]
 - ["Ps14_SignedInteger", "init"]
 - ["Ps11_Strideable", "init"]
+- !private ["Vs11_StringCore", "deinit"]
 - !private ["Ps20_SwiftNewtypeWrapper", "init"]
 - ["V11DiabetesApp12userDefaults", "loggedInUserType"]
 - !private ["V11DiabetesApp8userType", "doctor"]
@@ -1355,6 +1448,7 @@ depends-nominal:
 - "Ps7CVarArg"
 - "C11DiabetesApp26CarePlanMainViewController"
 - !private "Vs9Character"
+- !private "VSS13CharacterView"
 - !private "V11DiabetesApp6Colors"
 - "Ps10Comparable"
 - "Ps28CustomDebugStringConvertible"
@@ -1397,6 +1491,9 @@ depends-nominal:
 - !private "V11DiabetesApp13Notifications"
 - !private "Ps9OptionSet"
 - "Sq"
+- "CSo14QBMPushMessage"
+- !private "CSo18QBMPushMessageBase"
+- "CSo9QBRequest"
 - !private "Ps16RawRepresentable"
 - "V10ObjectiveC8Selector"
 - !private "Ps10SetAlgebra"
@@ -1444,6 +1541,7 @@ depends-nominal:
 - !private "Vs5UInt8"
 - !private "P9Alamofire14URLConvertible"
 - !private "Sc"
+- !private "VSS17UnicodeScalarView"
 - "CSo12UserDefaults"
 - "Ps37_DefaultCustomPlaygroundQuickLookable"
 - !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
@@ -1462,6 +1560,7 @@ depends-nominal:
 - "Ps21_ObjectiveCBridgeable"
 - "Ps14_SignedInteger"
 - "Ps11_Strideable"
+- !private "Vs11_StringCore"
 - !private "Ps20_SwiftNewtypeWrapper"
 - "V11DiabetesApp12userDefaults"
 - !private "V11DiabetesApp8userType"

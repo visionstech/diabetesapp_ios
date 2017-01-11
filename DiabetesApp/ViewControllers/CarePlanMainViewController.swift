@@ -32,6 +32,15 @@ class CarePlanMainViewController: UIViewController {
         super.viewDidLoad()
         
         addBtn = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(AddBtn_Click))
+        let pushMessage =  QBMPushMessage()
+        pushMessage.alertBody =  "qeqds"
+        //pushMessage.badge = 1
+        
+        QBRequest .sendPush(pushMessage, toUsers: String("22152133"), successBlock: { (response, event) in
+            
+        }, errorBlock: { (error) in
+            
+        })
      
     }
     

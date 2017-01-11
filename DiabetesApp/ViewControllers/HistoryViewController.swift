@@ -204,6 +204,8 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
                     
                     if self.conditionTxtFld.text == String(conditionsArray[0] as! String) {
                         self.sectionsArray = NSMutableArray(array: JSON.object(forKey: "objectArray") as! NSArray)
+                          let dict: NSDictionary = NSDictionary(dictionary: self.sectionsArray[0] as! NSDictionary)
+                        print(dict)
                     }
                     else {
                         
