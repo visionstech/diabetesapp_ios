@@ -143,8 +143,8 @@ class EditMedicationViewController: UIViewController, UITableViewDelegate, UITab
             
             if let cell: CarePlanMedicationTableViewCell = tblView.cellForRow(at: IndexPath(row: selectedFreqCellIndex, section: 0)) as? CarePlanMedicationTableViewCell {
                 
-                cell.frequencyTxtFld.text = (frequnecyArray[pickerView.selectedRow(inComponent: 0)] as? String)!
-                obj.frequency = (frequnecyArray[pickerView.selectedRow(inComponent: 0)] as? String)!
+                cell.frequencyTxtFld.text = (frequnecyArray[pickerView.selectedRow(inComponent: 0)] as? String)?.localized
+                obj.frequency = ((frequnecyArray[pickerView.selectedRow(inComponent: 0)] as? String)?.localized)!
                 array.replaceObject(at: selectedFreqCellIndex, with: obj)
                 
             }
@@ -219,7 +219,7 @@ class EditMedicationViewController: UIViewController, UITableViewDelegate, UITab
                 break
             case .failure:
                 print("failure")
-                self.present(UtilityClass.displayAlertMessage(message: "Error in adding medication. Please try again." , title: "Error"), animated: true, completion: nil)
+                self.present(UtilityClass.displayAlertMessage(message: "Error in adding medication. Please try again." , title: "SA_STR_ERROR".localized), animated: true, completion: nil)
                 break
                 
             }

@@ -127,7 +127,7 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        let appleArray = UserDefaults.standard.value(forKey: "AppleLanguages") as! NSArray
         setNavBarUI()
         self.tableView.reloadData()
        
@@ -403,7 +403,9 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
         
         cell.isExclusiveTouch = true
         cell.contentView.isExclusiveTouch = true
-        
+        cell.backgroundColor = UIColor.white
+        cell.accessoryType = .disclosureIndicator
+      
         cell.tag = indexPath.row
         cell.dialogID = chatDialog.id!
         

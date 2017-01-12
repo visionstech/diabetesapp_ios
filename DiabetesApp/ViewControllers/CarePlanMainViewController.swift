@@ -32,16 +32,7 @@ class CarePlanMainViewController: UIViewController {
         super.viewDidLoad()
         
         addBtn = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(AddBtn_Click))
-        let pushMessage =  QBMPushMessage()
-        pushMessage.alertBody =  "qeqds"
-        //pushMessage.badge = 1
-        
-        QBRequest .sendPush(pushMessage, toUsers: String("22152133"), successBlock: { (response, event) in
-            
-        }, errorBlock: { (error) in
-            
-        })
-     
+             
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,12 +63,25 @@ class CarePlanMainViewController: UIViewController {
         self.navigationItem.hidesBackButton = true
         self.tabBarController?.navigationItem.hidesBackButton = true
         
-        if selectedUserType == userType.doctor {
-            self.navigationItem.rightBarButtonItem = addBtn
+        
+        
+        if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
+            if selectedUserType == userType.doctor {
+                self.navigationItem.leftBarButtonItem = addBtn
+            }
+            else{
+                self.navigationItem.leftBarButtonItem = nil
+            }
         }
-        else{
-            self.navigationItem.rightBarButtonItem = nil
+        else {
+            if selectedUserType == userType.doctor {
+                self.navigationItem.rightBarButtonItem = addBtn
+            }
+            else{
+                self.navigationItem.rightBarButtonItem = nil
+            }
         }
+
         
         createCustomTopView()
     }
@@ -126,12 +130,29 @@ class CarePlanMainViewController: UIViewController {
                 medicationContainer.isHidden = false
                 readingContainer.isHidden = true
                 
-                if selectedUserType == userType.doctor {
-                    self.navigationItem.rightBarButtonItem = addBtn
+                if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
+                    if selectedUserType == userType.doctor {
+                        self.navigationItem.leftBarButtonItem = addBtn
+                    }
+                    else{
+                        self.navigationItem.leftBarButtonItem = nil
+                    }
                 }
-                else{
-                    self.navigationItem.rightBarButtonItem = nil
+                else {
+                    if selectedUserType == userType.doctor {
+                        self.navigationItem.rightBarButtonItem = addBtn
+                    }
+                    else{
+                        self.navigationItem.rightBarButtonItem = nil
+                    }
                 }
+                
+//                if selectedUserType == userType.doctor {
+//                    self.navigationItem.rightBarButtonItem = addBtn
+//                }
+//                else{
+//                    self.navigationItem.rightBarButtonItem = nil
+//                }
                 
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notifications.medicationView), object: nil)
                 
@@ -147,7 +168,14 @@ class CarePlanMainViewController: UIViewController {
                 medicationContainer.isHidden = true
                 readingContainer.isHidden = false
                 
-                self.navigationItem.rightBarButtonItem = nil
+                if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
+                     self.navigationItem.leftBarButtonItem = nil
+                }
+                else {
+                     self.navigationItem.rightBarButtonItem = nil
+                }
+                
+               
                 
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notifications.readingView), object: nil)
                 

@@ -25,12 +25,15 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     var boolArray = NSMutableArray()
     var noOfDays = "1"
     
+    var obj = NSDictionary()
+    var cellArray = NSArray()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        self.title = "Reading History"
+        self.title = "READING_HISTORY".localized
         self.setUI()
         //self.addNotifications()
         //getHistory()
@@ -83,19 +86,28 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func refreshSelectedSections(section: Int) {
-        print("section \(section)")
-        var count = 0
-        for bool in boolArray {
-            let value: Bool
-            if count == section {
-                value = true
-            }
-            else {
-                value = false
-            }
-            boolArray.replaceObject(at: count, with: value)
-            count += 1
+        
+        var value: Bool =  self.boolArray [section] as! Bool
+        if value == true {
+            value = false
         }
+        else {
+            value = true
+        }
+        boolArray.replaceObject(at: section, with: value)
+//        print("section \(section)")
+//        var count = 0
+//        for bool in boolArray {
+//            let value: Bool
+//            if count == section {
+//                value = true
+//            }
+//            else {
+//                value = false
+//            }
+//            boolArray.replaceObject(at: count, with: value)
+//            count += 1
+//        }
         
         //self.tblView.reloadSections(IndexSet(integer: section ), with: .automatic)
          self.tblView.reloadData()
@@ -177,7 +189,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     
     //MARK: - Api Methods
     func getReadingHistory(condition: String) {
-        
+        if  UserDefaults.standard.string(forKey: userDefaults.selectedPatientID) != nil {
         sectionsArray.removeAllObjects()
         boolArray.removeAllObjects()
         
@@ -249,8 +261,8 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
                 break
                 
             }
+         }
         }
-        
     }
 
     
@@ -285,15 +297,15 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let dict: NSDictionary = sectionsArray[indexPath.section] as! NSDictionary
-        let obj: NSDictionary
+       
         if conditionTxtFld.text == String(conditionsArray[0] as! String) {
             let dateStr: String = String(describing: dict.allKeys.first!)
-            let array: NSArray = NSArray(array: dict.object(forKey: dateStr) as! NSArray)
-            obj = array[indexPath.row] as! NSDictionary
+            cellArray = NSArray(array: dict.object(forKey: dateStr) as! NSArray)
+            obj = cellArray[indexPath.row] as! NSDictionary
         }
         else {
-            let array: NSArray = NSArray(array: dict.object(forKey: "items" as NSCopying)! as! NSArray).copy() as! NSArray
-            obj = array[indexPath.row] as! NSDictionary
+            cellArray = NSArray(array: dict.object(forKey: "items" as NSCopying)! as! NSArray).copy() as! NSArray
+            obj = cellArray[indexPath.row] as! NSDictionary
         }
         
         let cell: HistoryTableViewCell = tableView.dequeueReusableCell(withIdentifier: "historyCell")! as! HistoryTableViewCell
@@ -301,6 +313,17 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         cell.dateLbl.text = String(describing: obj.value(forKey: "created")!)
         cell.conditionLbl.text = String(describing: obj.value(forKey: "condition")!)
         return cell
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let arr =  cellArray .object(at: indexPath.row)
+        
+        let dict =   arr as! NSDictionary
+        
+        //print("\(dict.value(forKey: "reading")!) mg/dl")
+        self.present(UtilityClass.displayAlertMessage(message: "\(dict.value(forKey: "reading")!) mg/dl".localized, title: ""), animated: true, completion: nil)
         
     }
     
@@ -324,7 +347,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
 //        topView.layer.shadowRadius = 10
 //        topView.layer.masksToBounds = true
         topView.layer.cornerRadius = 10
-        let lbl: UILabel = UILabel(frame: CGRect(x: 10, y: 5, width: tableView.frame.size.width-20, height: 35))
+        let lbl: UILabel = UILabel(frame: CGRect(x: 40, y: 5, width: tableView.frame.size.width-80, height: 35))
         let dict: NSDictionary = NSDictionary(dictionary: sectionsArray[section] as! NSDictionary)
         
         lbl.textColor = UIColor.white

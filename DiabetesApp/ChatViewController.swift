@@ -150,7 +150,7 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         let screenSize: CGRect = UIScreen.main.bounds
         let headerLbl: UILabel = UILabel(frame:  CGRect(x: 0, y: 64, width: screenSize.width, height: 30.0))
         headerLbl.backgroundColor = Colors.chatHeaderColor
-        headerLbl.text = "Health Card Number = HC12345678"
+        headerLbl.text = "Health Card Number".localized + "= HC12345678"
         headerLbl.font = Fonts.healthCardFont
         headerLbl.textColor = UIColor.gray
         headerLbl.textAlignment = .center
@@ -175,15 +175,33 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
             
             if selectedUserType != userType.patient {
                 
-                self.navigationItem.rightBarButtonItems = [optionsBtnBar,callBtnBar]
-                self.tabBarController?.navigationItem.rightBarButtonItems = [optionsBtnBar,callBtnBar]
+                if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
+                    self.tabBarController?.navigationItem.leftBarButtonItems = [optionsBtnBar,callBtnBar]
+                    self.navigationItem.leftBarButtonItems = [optionsBtnBar,callBtnBar]
+                }
+                else {
+                    self.tabBarController?.navigationItem.rightBarButtonItems = [optionsBtnBar,callBtnBar]
+                     self.navigationItem.rightBarButtonItems = [optionsBtnBar,callBtnBar]
+                }
+
+               
+//                self.tabBarController?.navigationItem.rightBarButtonItems = [optionsBtnBar,callBtnBar]
                 
             }
         }
         
         else if self.dialog.type == .group && selectedUserType != userType.patient {
             
-            self.navigationItem.rightBarButtonItems = [optionsBtnBar]
+            if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
+               
+                self.navigationItem.leftBarButtonItems = [optionsBtnBar]
+            }
+            else {
+                
+                self.navigationItem.rightBarButtonItems = [optionsBtnBar]
+            }
+
+//            self.navigationItem.rightBarButtonItems = [optionsBtnBar]
         }
         
         //let backBtn: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "back"), style: .plain, target: self, action:  #selector(BackBtn_Click))
@@ -387,7 +405,7 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
     // MARK: - Right Buttons Actions
     func optionsClick() {
         
-        let actionSheet = UIAlertController(title: "", message: "Select Option", preferredStyle: .actionSheet)
+        let actionSheet = UIAlertController(title: "", message: "Select Option".localized, preferredStyle: .actionSheet)
         let patientInfoBtn: UIAlertAction = UIAlertAction(title: ChatInfo.patientInfo, style: .default, handler: { (UIAlertAction)in
             
         })
@@ -409,7 +427,7 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
             self.navigationController?.pushViewController(carePlanViewController, animated: true)
         })
         
-        let cancelBtn: UIAlertAction = UIAlertAction(title: GeneralLabels.cancel, style: .cancel, handler: { (UIAlertAction)in
+        let cancelBtn: UIAlertAction = UIAlertAction(title: GeneralLabels.cancel.localized, style: .cancel, handler: { (UIAlertAction)in
         })
         
         
@@ -453,7 +471,7 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
     
     func videoAudioClick() {
         
-        let actionSheet = UIAlertController(title: "", message: "Select Option", preferredStyle: .actionSheet)
+        let actionSheet = UIAlertController(title: "", message: "Select Option".localized, preferredStyle: .actionSheet)
         
         actionSheet.addAction(UIAlertAction(title: VideoAudioCall.audioCall , style: .default , handler:{ (UIAlertAction)in
             
@@ -464,7 +482,7 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
             self.callWithConferenceType(conferenceType: .video)
         }))
         
-        actionSheet.addAction(UIAlertAction(title: GeneralLabels.cancel, style: UIAlertActionStyle.cancel, handler:{ (UIAlertAction)in
+        actionSheet.addAction(UIAlertAction(title: GeneralLabels.cancel.localized, style: UIAlertActionStyle.cancel, handler:{ (UIAlertAction)in
             
         }))
         

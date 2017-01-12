@@ -101,7 +101,7 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
     
     // MARK: - Api Methods
     func getMedicationsData() {
-        
+        if  UserDefaults.standard.string(forKey: userDefaults.selectedPatientID) != nil {
         let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
         let parameters: Parameters = [
             "userid": patientsID
@@ -137,6 +137,7 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         }
        
+     }
     }
     
     //MARK: - TableView Delegate Methods

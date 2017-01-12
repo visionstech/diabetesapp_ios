@@ -58,13 +58,16 @@ class CarePlanReadingViewController: UIViewController, UITableViewDelegate, UITa
     
     // MARK: - Api Methods
     func getReadingsData() {
+        if  UserDefaults.standard.string(forKey: userDefaults.selectedPatientID) != nil {
+            
         
-        let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+        let patientsID: String? = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
         let parameters: Parameters = [
-            "userid": patientsID
+            "userid": patientsID as Any
             //"userid": "58563eb4d9c776ad70491b7b"
             
         ]
+       
         
         Alamofire.request("\(baseUrl)\(ApiMethods.getcareplanReadings)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
             
@@ -117,8 +120,8 @@ class CarePlanReadingViewController: UIViewController, UITableViewDelegate, UITa
                 break
                 
             }
+         }
         }
-       
     }
     
     

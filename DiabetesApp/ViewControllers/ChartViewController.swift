@@ -64,7 +64,7 @@ class ChartViewController: UIViewController, LineChartDelegate {
     
     // MARK: - Api Methods
     func getChartHistoryData(condition: String) {
-        
+        if  UserDefaults.standard.string(forKey: userDefaults.selectedPatientID) != nil {
         dataArray.removeAllObjects()
         let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
         let parameters: Parameters = [
@@ -122,8 +122,8 @@ class ChartViewController: UIViewController, LineChartDelegate {
                 break
                 
             }
+         }
         }
-        
     }
     
     

@@ -711,6 +711,7 @@ SWIFT_CLASS("_TtC11DiabetesApp20HistoryTableViewCell")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class NSDictionary;
 @class UITapGestureRecognizer;
 
 SWIFT_CLASS("_TtC11DiabetesApp21HistoryViewController")
@@ -724,6 +725,8 @@ SWIFT_CLASS("_TtC11DiabetesApp21HistoryViewController")
 @property (nonatomic, strong) NSMutableArray * _Nonnull sectionsArray;
 @property (nonatomic, strong) NSMutableArray * _Nonnull boolArray;
 @property (nonatomic, copy) NSString * _Nonnull noOfDays;
+@property (nonatomic, strong) NSDictionary * _Nonnull obj;
+@property (nonatomic, strong) NSArray * _Nonnull cellArray;
 - (void)viewDidLoad;
 - (void)viewDidAppear:(BOOL)animated;
 - (void)viewDidDisappear:(BOOL)animated;
@@ -739,6 +742,7 @@ SWIFT_CLASS("_TtC11DiabetesApp21HistoryViewController")
 - (void)getReadingHistoryWithCondition:(NSString * _Nonnull)condition;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 - (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 - (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView;
 - (UIView * _Nullable)tableView:(UITableView * _Nonnull)tableView viewForHeaderInSection:(NSInteger)section;

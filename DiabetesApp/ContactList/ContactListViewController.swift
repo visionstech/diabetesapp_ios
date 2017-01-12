@@ -35,7 +35,7 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
             
         }
         
-        
+        self.navigationItem.title = "Contacts".localized
         // Do any additional setup after loading the view.
         if isGroupMode == false || selectedUserType != userType.educator{
             self.navigationItem.rightBarButtonItems = nil
@@ -178,7 +178,7 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
         // No user selected
         if selectesUsers.count < 2 {
             
-            _ = AlertView(title: "Error", message: "You need to select one patient and one doctor.", cancelButtonTitle: "OK", otherButtonTitle: [""], didClick: { (buttonIndex) in
+            _ = AlertView(title: "SA_STR_ERROR".localized, message: "You need to select one patient and one doctor".localized, cancelButtonTitle: "SA_STR_OK".localized, otherButtonTitle: [""], didClick: { (buttonIndex) in
             })
             return
         }
@@ -381,14 +381,14 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
         
         if selectedUserType == userType.educator {
             if section == 0 {
-                return "Patients"
+                return "Patients".localized
             }
             else {
-                return "Doctors"
+                return "Doctors".localized
             }
         }
         else {
-            return "Patients"
+            return "Patients".localized
         }
         
     }

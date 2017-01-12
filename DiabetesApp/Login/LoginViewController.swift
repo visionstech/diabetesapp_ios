@@ -27,6 +27,8 @@ class LoginViewController: UIViewController, QBCoreDelegate {
     //MARK: - View Load Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("AppleLanguage\(UserDefaults.standard.value(forKey: "AppleLanguages"))")
+        
         
         checkLoginStatus()
     }
