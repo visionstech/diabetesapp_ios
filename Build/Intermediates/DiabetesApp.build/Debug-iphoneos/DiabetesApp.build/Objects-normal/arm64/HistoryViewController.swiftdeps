@@ -7,94 +7,98 @@ provides-member:
 - ["C11DiabetesApp21HistoryViewController", ""]
 provides-dynamic-lookup:
 - "numberOfSections"
-- "viewDidAppear"
-- "listViewNotification"
-- "addNotifications"
-- "noOfDaysNotification"
-- "refreshSelectedSections"
-- "tblView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "didReceiveMemoryWarning"
-- "getHistory"
-- "pickerView"
-- "pickerView"
-- "pickerView"
 - "sectionsArray"
-- "conditionView"
-- "boolArray"
-- "viewDidLoad"
-- "resetUI"
-- "conditionTxtFld"
-- "setUI"
-- "noHistoryAvailableLbl"
-- "noOfDays"
-- "viewDidDisappear"
-- "tapHeader"
+- "addNotifications"
+- "tblView"
 - "getReadingHistory"
 - "numberOfComponents"
+- "noOfDays"
+- "setUI"
+- "getHistory"
+- "cellArray"
+- "viewDidLoad"
+- "obj"
+- "viewDidDisappear"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tapHeader"
+- "noHistoryAvailableLbl"
+- "pickerView"
+- "pickerView"
+- "pickerView"
+- "refreshSelectedSections"
+- "didReceiveMemoryWarning"
+- "listViewNotification"
+- "conditionTxtFld"
+- "viewDidAppear"
+- "boolArray"
 - "ToolBarButtons_Click"
+- "conditionView"
 - "pickerViewContainer"
+- "noOfDaysNotification"
+- "resetUI"
 depends-top-level:
-- !private "NSDictionary"
-- !private "Colors"
-- "UITableViewDelegate"
-- "UITableViewDataSource"
-- "UIPickerView"
-- "UITapGestureRecognizer"
-- !private "+="
-- !private "userDefaults"
-- "UITextField"
-- !private "NotificationCenter"
-- !private "NSCopying"
-- !private "Bundle"
-- !private "!="
-- !private "-"
-- "UIView"
-- !private "NSMutableDictionary"
-- !private "conditionsArray"
-- "String"
-- !private "BooleanLiteralType"
-- !private "UIImageView"
-- "CGFloat"
-- !private "Notifications"
-- !private "UIColor"
-- !private "print"
-- "Int"
-- !private "AnyObject"
-- !private "CGRect"
-- !private "UserDefaults"
-- "UITableView"
-- !private "Dictionary"
-- "StringLiteralType"
-- !private "NSArray"
-- !private "Alamofire"
-- "UIViewController"
-- "NSMutableArray"
-- "NSNotification"
-- !private "ApiMethods"
 - !private "UIImage"
-- "HistoryViewController"
-- !private "NSURL"
-- "UIPickerViewDataSource"
-- !private "Fonts"
+- "StringLiteralType"
 - !private "URL"
 - !private "HistoryTableViewCell"
-- "UnicodeScalarType"
-- "Bool"
+- !private "Colors"
+- !private "userDefaults"
+- !private "CGRect"
+- !private "NotificationCenter"
+- !private "UtilityClass"
+- !private "+="
 - "UITableViewCell"
-- "IndexPath"
-- "UILabel"
-- "CastingPrecedence"
-- "AssignmentPrecedence"
-- !private "=="
 - !private "JSONEncoding"
-- "UIPickerViewDelegate"
+- "IndexPath"
+- !private "BooleanLiteralType"
+- !private "NSURL"
+- !private "Fonts"
 - !private "Parameters"
+- !private "Dictionary"
+- "UIPickerView"
+- "UIViewController"
 - !private ">"
+- "Bool"
+- "UITableViewDataSource"
+- "UITableViewDelegate"
+- "NSNotification"
+- !private "conditionsArray"
+- "CGFloat"
+- "Int"
+- "HistoryViewController"
+- !private "UIImageView"
+- !private "UserDefaults"
+- "NSArray"
+- !private "AnyObject"
+- "UIView"
+- "NSDictionary"
+- !private "UIColor"
+- "String"
+- "UITableView"
+- !private "Bundle"
+- !private "ApiMethods"
+- !private "print"
+- "UITapGestureRecognizer"
+- !private "-"
+- !private "Notifications"
+- "NSMutableArray"
+- !private "!="
+- !private "Alamofire"
+- "UILabel"
+- "AssignmentPrecedence"
+- "UITextField"
+- !private "=="
+- "UnicodeScalarType"
+- "CastingPrecedence"
+- "UIPickerViewDelegate"
+- !private "NSCopying"
+- "UIPickerViewDataSource"
+- !private "NSMutableDictionary"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "Stride"]
 - !private ["Ps9AnyObject", "Alamofire"]
@@ -106,8 +110,8 @@ depends-member:
 - !private ["Ps9AnyObject", "Fonts"]
 - !private ["Ps9AnyObject", "Iterator"]
 - !private ["Ps9AnyObject", "JSONEncoding"]
-- !private ["Ps9AnyObject", "NSArray"]
-- !private ["Ps9AnyObject", "NSDictionary"]
+- ["Ps9AnyObject", "NSArray"]
+- ["Ps9AnyObject", "NSDictionary"]
 - ["Ps9AnyObject", "NSMutableArray"]
 - !private ["Ps9AnyObject", "NSMutableDictionary"]
 - !private ["Ps9AnyObject", "NSNotification"]
@@ -124,6 +128,7 @@ depends-member:
 - !private ["Ps9AnyObject", "UITapGestureRecognizer"]
 - !private ["Ps9AnyObject", "UIView"]
 - !private ["Ps9AnyObject", "UserDefaults"]
+- !private ["Ps9AnyObject", "UtilityClass"]
 - !private ["Ps9AnyObject", "add"]
 - !private ["Ps9AnyObject", "addGestureRecognizer"]
 - ["Ps9AnyObject", "addNotifications"]
@@ -135,6 +140,7 @@ depends-member:
 - ["Ps9AnyObject", "boolArray"]
 - !private ["Ps9AnyObject", "borderColor"]
 - !private ["Ps9AnyObject", "borderWidth"]
+- ["Ps9AnyObject", "cellArray"]
 - !private ["Ps9AnyObject", "cgColor"]
 - !private ["Ps9AnyObject", "clear"]
 - !private ["Ps9AnyObject", "conditionLbl"]
@@ -149,6 +155,7 @@ depends-member:
 - ["Ps9AnyObject", "deinit"]
 - !private ["Ps9AnyObject", "dequeueReusableCell"]
 - ["Ps9AnyObject", "didReceiveMemoryWarning"]
+- !private ["Ps9AnyObject", "displayAlertMessage"]
 - !private ["Ps9AnyObject", "endEditing"]
 - !private ["Ps9AnyObject", "font"]
 - !private ["Ps9AnyObject", "frame"]
@@ -163,6 +170,7 @@ depends-member:
 - !private ["Ps9AnyObject", "layer"]
 - !private ["Ps9AnyObject", "lightGray"]
 - ["Ps9AnyObject", "listViewNotification"]
+- !private ["Ps9AnyObject", "localized"]
 - !private ["Ps9AnyObject", "main"]
 - ["Ps9AnyObject", "noHistoryAvailableLbl"]
 - ["Ps9AnyObject", "noOfDays"]
@@ -171,10 +179,12 @@ depends-member:
 - ["Ps9AnyObject", "numberOfComponentsInPickerView"]
 - ["Ps9AnyObject", "numberOfSections"]
 - ["Ps9AnyObject", "numberOfSectionsInTableView"]
+- ["Ps9AnyObject", "obj"]
 - !private ["Ps9AnyObject", "object"]
 - !private ["Ps9AnyObject", "path"]
 - ["Ps9AnyObject", "pickerView"]
 - ["Ps9AnyObject", "pickerViewContainer"]
+- !private ["Ps9AnyObject", "present"]
 - !private ["Ps9AnyObject", "print"]
 - !private ["Ps9AnyObject", "readingLbl"]
 - ["Ps9AnyObject", "refreshSelectedSections"]
@@ -288,8 +298,8 @@ depends-member:
 - !private ["Ps7CVarArg", "Iterator"]
 - !private ["Ps7CVarArg", "JSONEncoding"]
 - !private ["Ps7CVarArg", "Key"]
-- !private ["Ps7CVarArg", "NSArray"]
-- !private ["Ps7CVarArg", "NSDictionary"]
+- ["Ps7CVarArg", "NSArray"]
+- ["Ps7CVarArg", "NSDictionary"]
 - ["Ps7CVarArg", "NSMutableArray"]
 - !private ["Ps7CVarArg", "NSMutableDictionary"]
 - !private ["Ps7CVarArg", "NSNotification"]
@@ -308,6 +318,7 @@ depends-member:
 - !private ["Ps7CVarArg", "UITapGestureRecognizer"]
 - !private ["Ps7CVarArg", "UIView"]
 - !private ["Ps7CVarArg", "UserDefaults"]
+- !private ["Ps7CVarArg", "UtilityClass"]
 - !private ["Ps7CVarArg", "Value"]
 - !private ["Ps7CVarArg", "_Element"]
 - !private ["Ps7CVarArg", "add"]
@@ -321,6 +332,7 @@ depends-member:
 - ["Ps7CVarArg", "boolArray"]
 - !private ["Ps7CVarArg", "borderColor"]
 - !private ["Ps7CVarArg", "borderWidth"]
+- ["Ps7CVarArg", "cellArray"]
 - !private ["Ps7CVarArg", "cgColor"]
 - !private ["Ps7CVarArg", "clear"]
 - !private ["Ps7CVarArg", "conditionLbl"]
@@ -334,6 +346,7 @@ depends-member:
 - !private ["Ps7CVarArg", "default"]
 - !private ["Ps7CVarArg", "dequeueReusableCell"]
 - ["Ps7CVarArg", "didReceiveMemoryWarning"]
+- !private ["Ps7CVarArg", "displayAlertMessage"]
 - !private ["Ps7CVarArg", "endEditing"]
 - !private ["Ps7CVarArg", "first"]
 - !private ["Ps7CVarArg", "font"]
@@ -349,6 +362,7 @@ depends-member:
 - !private ["Ps7CVarArg", "layer"]
 - !private ["Ps7CVarArg", "lightGray"]
 - ["Ps7CVarArg", "listViewNotification"]
+- !private ["Ps7CVarArg", "localized"]
 - !private ["Ps7CVarArg", "main"]
 - ["Ps7CVarArg", "noHistoryAvailableLbl"]
 - ["Ps7CVarArg", "noOfDays"]
@@ -357,10 +371,12 @@ depends-member:
 - ["Ps7CVarArg", "numberOfComponentsInPickerView"]
 - ["Ps7CVarArg", "numberOfSections"]
 - ["Ps7CVarArg", "numberOfSectionsInTableView"]
+- ["Ps7CVarArg", "obj"]
 - !private ["Ps7CVarArg", "object"]
 - !private ["Ps7CVarArg", "path"]
 - ["Ps7CVarArg", "pickerView"]
 - ["Ps7CVarArg", "pickerViewContainer"]
+- !private ["Ps7CVarArg", "present"]
 - !private ["Ps7CVarArg", "print"]
 - !private ["Ps7CVarArg", "readingLbl"]
 - ["Ps7CVarArg", "refreshSelectedSections"]
@@ -420,6 +436,7 @@ depends-member:
 - !private ["Ps10Comparable", "RawValue"]
 - !private ["Ps10Comparable", "Stride"]
 - ["Ps10Comparable", "init"]
+- !private ["Ps10Comparable", "localized"]
 - !private ["Ps10Comparable", "row"]
 - !private ["Ps10Comparable", "section"]
 - !private ["Ps28CustomDebugStringConvertible", "Alamofire"]
@@ -431,8 +448,8 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "Iterator"]
 - !private ["Ps28CustomDebugStringConvertible", "JSONEncoding"]
 - !private ["Ps28CustomDebugStringConvertible", "Key"]
-- !private ["Ps28CustomDebugStringConvertible", "NSArray"]
-- !private ["Ps28CustomDebugStringConvertible", "NSDictionary"]
+- ["Ps28CustomDebugStringConvertible", "NSArray"]
+- ["Ps28CustomDebugStringConvertible", "NSDictionary"]
 - ["Ps28CustomDebugStringConvertible", "NSMutableArray"]
 - !private ["Ps28CustomDebugStringConvertible", "NSMutableDictionary"]
 - !private ["Ps28CustomDebugStringConvertible", "NSNotification"]
@@ -451,6 +468,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "UITapGestureRecognizer"]
 - !private ["Ps28CustomDebugStringConvertible", "UIView"]
 - !private ["Ps28CustomDebugStringConvertible", "UserDefaults"]
+- !private ["Ps28CustomDebugStringConvertible", "UtilityClass"]
 - !private ["Ps28CustomDebugStringConvertible", "Value"]
 - !private ["Ps28CustomDebugStringConvertible", "_Element"]
 - !private ["Ps28CustomDebugStringConvertible", "add"]
@@ -464,6 +482,7 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "boolArray"]
 - !private ["Ps28CustomDebugStringConvertible", "borderColor"]
 - !private ["Ps28CustomDebugStringConvertible", "borderWidth"]
+- ["Ps28CustomDebugStringConvertible", "cellArray"]
 - !private ["Ps28CustomDebugStringConvertible", "cgColor"]
 - !private ["Ps28CustomDebugStringConvertible", "clear"]
 - !private ["Ps28CustomDebugStringConvertible", "conditionLbl"]
@@ -477,6 +496,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "default"]
 - !private ["Ps28CustomDebugStringConvertible", "dequeueReusableCell"]
 - ["Ps28CustomDebugStringConvertible", "didReceiveMemoryWarning"]
+- !private ["Ps28CustomDebugStringConvertible", "displayAlertMessage"]
 - !private ["Ps28CustomDebugStringConvertible", "endEditing"]
 - !private ["Ps28CustomDebugStringConvertible", "failure"]
 - !private ["Ps28CustomDebugStringConvertible", "first"]
@@ -493,6 +513,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "layer"]
 - !private ["Ps28CustomDebugStringConvertible", "lightGray"]
 - ["Ps28CustomDebugStringConvertible", "listViewNotification"]
+- !private ["Ps28CustomDebugStringConvertible", "localized"]
 - !private ["Ps28CustomDebugStringConvertible", "main"]
 - ["Ps28CustomDebugStringConvertible", "noHistoryAvailableLbl"]
 - ["Ps28CustomDebugStringConvertible", "noOfDays"]
@@ -501,10 +522,12 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "numberOfComponentsInPickerView"]
 - ["Ps28CustomDebugStringConvertible", "numberOfSections"]
 - ["Ps28CustomDebugStringConvertible", "numberOfSectionsInTableView"]
+- ["Ps28CustomDebugStringConvertible", "obj"]
 - !private ["Ps28CustomDebugStringConvertible", "object"]
 - !private ["Ps28CustomDebugStringConvertible", "path"]
 - ["Ps28CustomDebugStringConvertible", "pickerView"]
 - ["Ps28CustomDebugStringConvertible", "pickerViewContainer"]
+- !private ["Ps28CustomDebugStringConvertible", "present"]
 - !private ["Ps28CustomDebugStringConvertible", "print"]
 - !private ["Ps28CustomDebugStringConvertible", "readingLbl"]
 - ["Ps28CustomDebugStringConvertible", "refreshSelectedSections"]
@@ -563,6 +586,7 @@ depends-member:
 - !private ["Ps29CustomPlaygroundQuickLookable", "Stride"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
 - ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "localized"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "size"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "width"]
 - !private ["Ps17CustomReflectable", "Iterator"]
@@ -579,6 +603,7 @@ depends-member:
 - !private ["Ps17CustomReflectable", "count"]
 - !private ["Ps17CustomReflectable", "first"]
 - ["Ps17CustomReflectable", "init"]
+- !private ["Ps17CustomReflectable", "localized"]
 - !private ["Ps17CustomReflectable", "object"]
 - !private ["Ps17CustomReflectable", "removeAllObjects"]
 - !private ["Ps17CustomReflectable", "replaceObject"]
@@ -599,8 +624,8 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "Iterator"]
 - !private ["Ps23CustomStringConvertible", "JSONEncoding"]
 - !private ["Ps23CustomStringConvertible", "Key"]
-- !private ["Ps23CustomStringConvertible", "NSArray"]
-- !private ["Ps23CustomStringConvertible", "NSDictionary"]
+- ["Ps23CustomStringConvertible", "NSArray"]
+- ["Ps23CustomStringConvertible", "NSDictionary"]
 - ["Ps23CustomStringConvertible", "NSMutableArray"]
 - !private ["Ps23CustomStringConvertible", "NSMutableDictionary"]
 - !private ["Ps23CustomStringConvertible", "NSNotification"]
@@ -619,6 +644,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "UITapGestureRecognizer"]
 - !private ["Ps23CustomStringConvertible", "UIView"]
 - !private ["Ps23CustomStringConvertible", "UserDefaults"]
+- !private ["Ps23CustomStringConvertible", "UtilityClass"]
 - !private ["Ps23CustomStringConvertible", "Value"]
 - !private ["Ps23CustomStringConvertible", "_Element"]
 - !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
@@ -633,6 +659,7 @@ depends-member:
 - ["Ps23CustomStringConvertible", "boolArray"]
 - !private ["Ps23CustomStringConvertible", "borderColor"]
 - !private ["Ps23CustomStringConvertible", "borderWidth"]
+- ["Ps23CustomStringConvertible", "cellArray"]
 - !private ["Ps23CustomStringConvertible", "cgColor"]
 - !private ["Ps23CustomStringConvertible", "clear"]
 - !private ["Ps23CustomStringConvertible", "conditionLbl"]
@@ -646,6 +673,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "default"]
 - !private ["Ps23CustomStringConvertible", "dequeueReusableCell"]
 - ["Ps23CustomStringConvertible", "didReceiveMemoryWarning"]
+- !private ["Ps23CustomStringConvertible", "displayAlertMessage"]
 - !private ["Ps23CustomStringConvertible", "endEditing"]
 - !private ["Ps23CustomStringConvertible", "failure"]
 - !private ["Ps23CustomStringConvertible", "first"]
@@ -662,6 +690,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "layer"]
 - !private ["Ps23CustomStringConvertible", "lightGray"]
 - ["Ps23CustomStringConvertible", "listViewNotification"]
+- !private ["Ps23CustomStringConvertible", "localized"]
 - !private ["Ps23CustomStringConvertible", "main"]
 - ["Ps23CustomStringConvertible", "noHistoryAvailableLbl"]
 - ["Ps23CustomStringConvertible", "noOfDays"]
@@ -670,10 +699,12 @@ depends-member:
 - ["Ps23CustomStringConvertible", "numberOfComponentsInPickerView"]
 - ["Ps23CustomStringConvertible", "numberOfSections"]
 - ["Ps23CustomStringConvertible", "numberOfSectionsInTableView"]
+- ["Ps23CustomStringConvertible", "obj"]
 - !private ["Ps23CustomStringConvertible", "object"]
 - !private ["Ps23CustomStringConvertible", "path"]
 - ["Ps23CustomStringConvertible", "pickerView"]
 - ["Ps23CustomStringConvertible", "pickerViewContainer"]
+- !private ["Ps23CustomStringConvertible", "present"]
 - !private ["Ps23CustomStringConvertible", "print"]
 - !private ["Ps23CustomStringConvertible", "readingLbl"]
 - ["Ps23CustomStringConvertible", "refreshSelectedSections"]
@@ -743,8 +774,8 @@ depends-member:
 - !private ["Ps9Equatable", "Fonts"]
 - !private ["Ps9Equatable", "Iterator"]
 - !private ["Ps9Equatable", "JSONEncoding"]
-- !private ["Ps9Equatable", "NSArray"]
-- !private ["Ps9Equatable", "NSDictionary"]
+- ["Ps9Equatable", "NSArray"]
+- ["Ps9Equatable", "NSDictionary"]
 - ["Ps9Equatable", "NSMutableArray"]
 - !private ["Ps9Equatable", "NSMutableDictionary"]
 - !private ["Ps9Equatable", "NSNotification"]
@@ -763,6 +794,7 @@ depends-member:
 - !private ["Ps9Equatable", "UITapGestureRecognizer"]
 - !private ["Ps9Equatable", "UIView"]
 - !private ["Ps9Equatable", "UserDefaults"]
+- !private ["Ps9Equatable", "UtilityClass"]
 - !private ["Ps9Equatable", "_getBuiltinLogicValue"]
 - !private ["Ps9Equatable", "add"]
 - !private ["Ps9Equatable", "addGestureRecognizer"]
@@ -775,6 +807,7 @@ depends-member:
 - ["Ps9Equatable", "boolArray"]
 - !private ["Ps9Equatable", "borderColor"]
 - !private ["Ps9Equatable", "borderWidth"]
+- ["Ps9Equatable", "cellArray"]
 - !private ["Ps9Equatable", "cgColor"]
 - !private ["Ps9Equatable", "clear"]
 - !private ["Ps9Equatable", "conditionLbl"]
@@ -788,6 +821,7 @@ depends-member:
 - !private ["Ps9Equatable", "default"]
 - !private ["Ps9Equatable", "dequeueReusableCell"]
 - ["Ps9Equatable", "didReceiveMemoryWarning"]
+- !private ["Ps9Equatable", "displayAlertMessage"]
 - !private ["Ps9Equatable", "endEditing"]
 - !private ["Ps9Equatable", "font"]
 - !private ["Ps9Equatable", "frame"]
@@ -802,6 +836,7 @@ depends-member:
 - !private ["Ps9Equatable", "layer"]
 - !private ["Ps9Equatable", "lightGray"]
 - ["Ps9Equatable", "listViewNotification"]
+- !private ["Ps9Equatable", "localized"]
 - !private ["Ps9Equatable", "main"]
 - ["Ps9Equatable", "noHistoryAvailableLbl"]
 - ["Ps9Equatable", "noOfDays"]
@@ -810,11 +845,13 @@ depends-member:
 - ["Ps9Equatable", "numberOfComponentsInPickerView"]
 - ["Ps9Equatable", "numberOfSections"]
 - ["Ps9Equatable", "numberOfSectionsInTableView"]
+- ["Ps9Equatable", "obj"]
 - !private ["Ps9Equatable", "object"]
 - !private ["Ps9Equatable", "path"]
 - ["Ps9Equatable", "pickerView"]
 - ["Ps9Equatable", "pickerViewContainer"]
 - !private ["Ps9Equatable", "post"]
+- !private ["Ps9Equatable", "present"]
 - !private ["Ps9Equatable", "print"]
 - !private ["Ps9Equatable", "readingLbl"]
 - ["Ps9Equatable", "refreshSelectedSections"]
@@ -874,6 +911,7 @@ depends-member:
 - !private ["Ps25ExpressibleByArrayLiteral", "count"]
 - !private ["Ps25ExpressibleByArrayLiteral", "first"]
 - ["Ps25ExpressibleByArrayLiteral", "init"]
+- !private ["Ps25ExpressibleByArrayLiteral", "object"]
 - !private ["Ps25ExpressibleByArrayLiteral", "removeAllObjects"]
 - !private ["Ps25ExpressibleByArrayLiteral", "replaceObject"]
 - !private ["Ps25ExpressibleByArrayLiteral", "row"]
@@ -883,7 +921,7 @@ depends-member:
 - !private ["Ps30ExpressibleByDictionaryLiteral", "Key"]
 - !private ["Ps30ExpressibleByDictionaryLiteral", "Value"]
 - !private ["Ps30ExpressibleByDictionaryLiteral", "allKeys"]
-- !private ["Ps30ExpressibleByDictionaryLiteral", "init"]
+- ["Ps30ExpressibleByDictionaryLiteral", "init"]
 - !private ["Ps30ExpressibleByDictionaryLiteral", "object"]
 - !private ["Ps30ExpressibleByDictionaryLiteral", "setObject"]
 - !private ["Ps30ExpressibleByDictionaryLiteral", "setValue"]
@@ -891,15 +929,19 @@ depends-member:
 - !private ["Ps30ExpressibleByDictionaryLiteral", "value"]
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "RawValue"]
 - ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "localized"]
 - !private ["Ps25ExpressibleByFloatLiteral", "Stride"]
 - !private ["Ps27ExpressibleByIntegerLiteral", "Stride"]
 - !private ["Ps23ExpressibleByNilLiteral", "RawValue"]
 - !private ["Ps32ExpressibleByStringInterpolation", "RawValue"]
 - ["Ps32ExpressibleByStringInterpolation", "init"]
+- !private ["Ps32ExpressibleByStringInterpolation", "localized"]
 - !private ["Ps26ExpressibleByStringLiteral", "RawValue"]
 - ["Ps26ExpressibleByStringLiteral", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "localized"]
 - !private ["Ps33ExpressibleByUnicodeScalarLiteral", "RawValue"]
 - ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "localized"]
 - !private ["Sf", "deinit"]
 - !private ["Ps13FloatingPoint", "Stride"]
 - !private ["V11DiabetesApp5Fonts", "HistoryHeaderFont"]
@@ -913,8 +955,8 @@ depends-member:
 - !private ["Ps8Hashable", "Fonts"]
 - !private ["Ps8Hashable", "Iterator"]
 - !private ["Ps8Hashable", "JSONEncoding"]
-- !private ["Ps8Hashable", "NSArray"]
-- !private ["Ps8Hashable", "NSDictionary"]
+- ["Ps8Hashable", "NSArray"]
+- ["Ps8Hashable", "NSDictionary"]
 - ["Ps8Hashable", "NSMutableArray"]
 - !private ["Ps8Hashable", "NSMutableDictionary"]
 - !private ["Ps8Hashable", "NSNotification"]
@@ -933,6 +975,7 @@ depends-member:
 - !private ["Ps8Hashable", "UITapGestureRecognizer"]
 - !private ["Ps8Hashable", "UIView"]
 - !private ["Ps8Hashable", "UserDefaults"]
+- !private ["Ps8Hashable", "UtilityClass"]
 - !private ["Ps8Hashable", "_getBuiltinLogicValue"]
 - !private ["Ps8Hashable", "add"]
 - !private ["Ps8Hashable", "addGestureRecognizer"]
@@ -945,6 +988,7 @@ depends-member:
 - ["Ps8Hashable", "boolArray"]
 - !private ["Ps8Hashable", "borderColor"]
 - !private ["Ps8Hashable", "borderWidth"]
+- ["Ps8Hashable", "cellArray"]
 - !private ["Ps8Hashable", "cgColor"]
 - !private ["Ps8Hashable", "clear"]
 - !private ["Ps8Hashable", "conditionLbl"]
@@ -958,6 +1002,7 @@ depends-member:
 - !private ["Ps8Hashable", "default"]
 - !private ["Ps8Hashable", "dequeueReusableCell"]
 - ["Ps8Hashable", "didReceiveMemoryWarning"]
+- !private ["Ps8Hashable", "displayAlertMessage"]
 - !private ["Ps8Hashable", "endEditing"]
 - !private ["Ps8Hashable", "font"]
 - !private ["Ps8Hashable", "frame"]
@@ -972,6 +1017,7 @@ depends-member:
 - !private ["Ps8Hashable", "layer"]
 - !private ["Ps8Hashable", "lightGray"]
 - ["Ps8Hashable", "listViewNotification"]
+- !private ["Ps8Hashable", "localized"]
 - !private ["Ps8Hashable", "main"]
 - ["Ps8Hashable", "noHistoryAvailableLbl"]
 - ["Ps8Hashable", "noOfDays"]
@@ -980,11 +1026,13 @@ depends-member:
 - ["Ps8Hashable", "numberOfComponentsInPickerView"]
 - ["Ps8Hashable", "numberOfSections"]
 - ["Ps8Hashable", "numberOfSectionsInTableView"]
+- ["Ps8Hashable", "obj"]
 - !private ["Ps8Hashable", "object"]
 - !private ["Ps8Hashable", "path"]
 - ["Ps8Hashable", "pickerView"]
 - ["Ps8Hashable", "pickerViewContainer"]
 - !private ["Ps8Hashable", "post"]
+- !private ["Ps8Hashable", "present"]
 - !private ["Ps8Hashable", "print"]
 - !private ["Ps8Hashable", "readingLbl"]
 - ["Ps8Hashable", "refreshSelectedSections"]
@@ -1051,9 +1099,9 @@ depends-member:
 - ["C11DiabetesApp21HistoryViewController", "IndexPath"]
 - ["C11DiabetesApp21HistoryViewController", "Int"]
 - !private ["C11DiabetesApp21HistoryViewController", "JSONEncoding"]
-- !private ["C11DiabetesApp21HistoryViewController", "NSArray"]
+- ["C11DiabetesApp21HistoryViewController", "NSArray"]
 - !private ["C11DiabetesApp21HistoryViewController", "NSCopying"]
-- !private ["C11DiabetesApp21HistoryViewController", "NSDictionary"]
+- ["C11DiabetesApp21HistoryViewController", "NSDictionary"]
 - ["C11DiabetesApp21HistoryViewController", "NSMutableArray"]
 - !private ["C11DiabetesApp21HistoryViewController", "NSMutableDictionary"]
 - ["C11DiabetesApp21HistoryViewController", "NSNotification"]
@@ -1075,8 +1123,10 @@ depends-member:
 - ["C11DiabetesApp21HistoryViewController", "UIView"]
 - !private ["C11DiabetesApp21HistoryViewController", "URL"]
 - !private ["C11DiabetesApp21HistoryViewController", "UserDefaults"]
+- !private ["C11DiabetesApp21HistoryViewController", "UtilityClass"]
 - ["C11DiabetesApp21HistoryViewController", "addNotifications"]
 - ["C11DiabetesApp21HistoryViewController", "boolArray"]
+- ["C11DiabetesApp21HistoryViewController", "cellArray"]
 - ["C11DiabetesApp21HistoryViewController", "conditionTxtFld"]
 - ["C11DiabetesApp21HistoryViewController", "conditionView"]
 - !private ["C11DiabetesApp21HistoryViewController", "conditionsArray"]
@@ -1095,8 +1145,10 @@ depends-member:
 - ["C11DiabetesApp21HistoryViewController", "numberOfComponentsInPickerView"]
 - ["C11DiabetesApp21HistoryViewController", "numberOfSections"]
 - ["C11DiabetesApp21HistoryViewController", "numberOfSectionsInTableView"]
+- ["C11DiabetesApp21HistoryViewController", "obj"]
 - ["C11DiabetesApp21HistoryViewController", "pickerView"]
 - ["C11DiabetesApp21HistoryViewController", "pickerViewContainer"]
+- !private ["C11DiabetesApp21HistoryViewController", "present"]
 - !private ["C11DiabetesApp21HistoryViewController", "print"]
 - ["C11DiabetesApp21HistoryViewController", "refreshSelectedSections"]
 - ["C11DiabetesApp21HistoryViewController", "resetUI"]
@@ -1161,9 +1213,11 @@ depends-member:
 - !private ["Ps25LosslessStringConvertible", "Stride"]
 - !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
 - ["Ps25LosslessStringConvertible", "init"]
+- !private ["Ps25LosslessStringConvertible", "localized"]
 - !private ["Ps10MirrorPath", "RawValue"]
 - !private ["Ps10MirrorPath", "Stride"]
 - ["Ps10MirrorPath", "init"]
+- !private ["Ps10MirrorPath", "localized"]
 - !private ["Ps17MutableCollection", "Iterator"]
 - !private ["Ps17MutableCollection", "_Element"]
 - !private ["Ps17MutableCollection", "first"]
@@ -1181,6 +1235,7 @@ depends-member:
 - !private ["CSo7NSArray", "count"]
 - ["CSo7NSArray", "deinit"]
 - ["CSo7NSArray", "init"]
+- !private ["CSo7NSArray", "object"]
 - !private ["CSo7NSArray", "removeAllObjects"]
 - !private ["CSo7NSArray", "replaceObject"]
 - !private ["CSo7NSArray", "subscript"]
@@ -1193,8 +1248,8 @@ depends-member:
 - !private ["PSo8NSCoding", "Fonts"]
 - !private ["PSo8NSCoding", "Iterator"]
 - !private ["PSo8NSCoding", "JSONEncoding"]
-- !private ["PSo8NSCoding", "NSArray"]
-- !private ["PSo8NSCoding", "NSDictionary"]
+- ["PSo8NSCoding", "NSArray"]
+- ["PSo8NSCoding", "NSDictionary"]
 - ["PSo8NSCoding", "NSMutableArray"]
 - !private ["PSo8NSCoding", "NSMutableDictionary"]
 - !private ["PSo8NSCoding", "NSNotification"]
@@ -1211,6 +1266,7 @@ depends-member:
 - !private ["PSo8NSCoding", "UITapGestureRecognizer"]
 - !private ["PSo8NSCoding", "UIView"]
 - !private ["PSo8NSCoding", "UserDefaults"]
+- !private ["PSo8NSCoding", "UtilityClass"]
 - !private ["PSo8NSCoding", "add"]
 - !private ["PSo8NSCoding", "addGestureRecognizer"]
 - ["PSo8NSCoding", "addNotifications"]
@@ -1221,6 +1277,7 @@ depends-member:
 - ["PSo8NSCoding", "boolArray"]
 - !private ["PSo8NSCoding", "borderColor"]
 - !private ["PSo8NSCoding", "borderWidth"]
+- ["PSo8NSCoding", "cellArray"]
 - !private ["PSo8NSCoding", "cgColor"]
 - !private ["PSo8NSCoding", "clear"]
 - !private ["PSo8NSCoding", "conditionLbl"]
@@ -1247,6 +1304,7 @@ depends-member:
 - !private ["PSo8NSCoding", "layer"]
 - !private ["PSo8NSCoding", "lightGray"]
 - ["PSo8NSCoding", "listViewNotification"]
+- !private ["PSo8NSCoding", "localized"]
 - ["PSo8NSCoding", "noHistoryAvailableLbl"]
 - ["PSo8NSCoding", "noOfDays"]
 - ["PSo8NSCoding", "noOfDaysNotification"]
@@ -1254,9 +1312,11 @@ depends-member:
 - ["PSo8NSCoding", "numberOfComponentsInPickerView"]
 - ["PSo8NSCoding", "numberOfSections"]
 - ["PSo8NSCoding", "numberOfSectionsInTableView"]
+- ["PSo8NSCoding", "obj"]
 - !private ["PSo8NSCoding", "object"]
 - ["PSo8NSCoding", "pickerView"]
 - ["PSo8NSCoding", "pickerViewContainer"]
+- !private ["PSo8NSCoding", "present"]
 - !private ["PSo8NSCoding", "print"]
 - !private ["PSo8NSCoding", "readingLbl"]
 - ["PSo8NSCoding", "refreshSelectedSections"]
@@ -1313,6 +1373,7 @@ depends-member:
 - ["PSo9NSCopying", "deinit"]
 - ["PSo9NSCopying", "init"]
 - !private ["PSo9NSCopying", "lightGray"]
+- !private ["PSo9NSCopying", "localized"]
 - !private ["PSo9NSCopying", "object"]
 - !private ["PSo9NSCopying", "removeAllObjects"]
 - !private ["PSo9NSCopying", "replaceObject"]
@@ -1323,7 +1384,7 @@ depends-member:
 - !private ["PSo9NSCopying", "white"]
 - !private ["CSo12NSDictionary", "allKeys"]
 - ["CSo12NSDictionary", "deinit"]
-- !private ["CSo12NSDictionary", "init"]
+- ["CSo12NSDictionary", "init"]
 - !private ["CSo12NSDictionary", "object"]
 - !private ["CSo12NSDictionary", "setObject"]
 - !private ["CSo12NSDictionary", "setValue"]
@@ -1336,8 +1397,8 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "Colors"]
 - !private ["PSo26NSExtensionRequestHandling", "Fonts"]
 - !private ["PSo26NSExtensionRequestHandling", "JSONEncoding"]
-- !private ["PSo26NSExtensionRequestHandling", "NSArray"]
-- !private ["PSo26NSExtensionRequestHandling", "NSDictionary"]
+- ["PSo26NSExtensionRequestHandling", "NSArray"]
+- ["PSo26NSExtensionRequestHandling", "NSDictionary"]
 - ["PSo26NSExtensionRequestHandling", "NSMutableArray"]
 - !private ["PSo26NSExtensionRequestHandling", "NSMutableDictionary"]
 - !private ["PSo26NSExtensionRequestHandling", "NSNotification"]
@@ -1353,8 +1414,10 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "UITapGestureRecognizer"]
 - !private ["PSo26NSExtensionRequestHandling", "UIView"]
 - !private ["PSo26NSExtensionRequestHandling", "UserDefaults"]
+- !private ["PSo26NSExtensionRequestHandling", "UtilityClass"]
 - ["PSo26NSExtensionRequestHandling", "addNotifications"]
 - ["PSo26NSExtensionRequestHandling", "boolArray"]
+- ["PSo26NSExtensionRequestHandling", "cellArray"]
 - ["PSo26NSExtensionRequestHandling", "conditionTxtFld"]
 - ["PSo26NSExtensionRequestHandling", "conditionView"]
 - !private ["PSo26NSExtensionRequestHandling", "conditionsArray"]
@@ -1372,8 +1435,10 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "numberOfComponentsInPickerView"]
 - ["PSo26NSExtensionRequestHandling", "numberOfSections"]
 - ["PSo26NSExtensionRequestHandling", "numberOfSectionsInTableView"]
+- ["PSo26NSExtensionRequestHandling", "obj"]
 - ["PSo26NSExtensionRequestHandling", "pickerView"]
 - ["PSo26NSExtensionRequestHandling", "pickerViewContainer"]
+- !private ["PSo26NSExtensionRequestHandling", "present"]
 - !private ["PSo26NSExtensionRequestHandling", "print"]
 - ["PSo26NSExtensionRequestHandling", "refreshSelectedSections"]
 - ["PSo26NSExtensionRequestHandling", "resetUI"]
@@ -1421,7 +1486,7 @@ depends-member:
 - !private ["PSo17NSFastEnumeration", "value"]
 - !private ["C10Foundation25NSFastEnumerationIterator", "Element"]
 - !private ["PSo20NSFetchRequestResult", "allKeys"]
-- !private ["PSo20NSFetchRequestResult", "init"]
+- ["PSo20NSFetchRequestResult", "init"]
 - !private ["PSo20NSFetchRequestResult", "object"]
 - !private ["PSo20NSFetchRequestResult", "setObject"]
 - !private ["PSo20NSFetchRequestResult", "setValue"]
@@ -1444,6 +1509,7 @@ depends-member:
 - !private ["PSo16NSMutableCopying", "copy"]
 - !private ["PSo16NSMutableCopying", "count"]
 - ["PSo16NSMutableCopying", "init"]
+- !private ["PSo16NSMutableCopying", "localized"]
 - !private ["PSo16NSMutableCopying", "object"]
 - !private ["PSo16NSMutableCopying", "removeAllObjects"]
 - !private ["PSo16NSMutableCopying", "replaceObject"]
@@ -1472,9 +1538,9 @@ depends-member:
 - ["CSo8NSObject", "Int"]
 - !private ["CSo8NSObject", "Iterator"]
 - !private ["CSo8NSObject", "JSONEncoding"]
-- !private ["CSo8NSObject", "NSArray"]
+- ["CSo8NSObject", "NSArray"]
 - !private ["CSo8NSObject", "NSCopying"]
-- !private ["CSo8NSObject", "NSDictionary"]
+- ["CSo8NSObject", "NSDictionary"]
 - ["CSo8NSObject", "NSMutableArray"]
 - !private ["CSo8NSObject", "NSMutableDictionary"]
 - ["CSo8NSObject", "NSNotification"]
@@ -1497,6 +1563,7 @@ depends-member:
 - ["CSo8NSObject", "UIView"]
 - !private ["CSo8NSObject", "URL"]
 - !private ["CSo8NSObject", "UserDefaults"]
+- !private ["CSo8NSObject", "UtilityClass"]
 - !private ["CSo8NSObject", "add"]
 - !private ["CSo8NSObject", "addGestureRecognizer"]
 - ["CSo8NSObject", "addNotifications"]
@@ -1508,6 +1575,7 @@ depends-member:
 - ["CSo8NSObject", "boolArray"]
 - !private ["CSo8NSObject", "borderColor"]
 - !private ["CSo8NSObject", "borderWidth"]
+- ["CSo8NSObject", "cellArray"]
 - !private ["CSo8NSObject", "cgColor"]
 - !private ["CSo8NSObject", "clear"]
 - !private ["CSo8NSObject", "conditionLbl"]
@@ -1521,6 +1589,7 @@ depends-member:
 - !private ["CSo8NSObject", "default"]
 - !private ["CSo8NSObject", "dequeueReusableCell"]
 - ["CSo8NSObject", "didReceiveMemoryWarning"]
+- !private ["CSo8NSObject", "displayAlertMessage"]
 - !private ["CSo8NSObject", "endEditing"]
 - !private ["CSo8NSObject", "font"]
 - !private ["CSo8NSObject", "frame"]
@@ -1535,6 +1604,7 @@ depends-member:
 - !private ["CSo8NSObject", "layer"]
 - !private ["CSo8NSObject", "lightGray"]
 - ["CSo8NSObject", "listViewNotification"]
+- !private ["CSo8NSObject", "localized"]
 - !private ["CSo8NSObject", "main"]
 - ["CSo8NSObject", "noHistoryAvailableLbl"]
 - ["CSo8NSObject", "noOfDays"]
@@ -1543,10 +1613,12 @@ depends-member:
 - ["CSo8NSObject", "numberOfComponentsInPickerView"]
 - ["CSo8NSObject", "numberOfSections"]
 - ["CSo8NSObject", "numberOfSectionsInTableView"]
+- ["CSo8NSObject", "obj"]
 - !private ["CSo8NSObject", "object"]
 - !private ["CSo8NSObject", "path"]
 - ["CSo8NSObject", "pickerView"]
 - ["CSo8NSObject", "pickerViewContainer"]
+- !private ["CSo8NSObject", "present"]
 - !private ["CSo8NSObject", "print"]
 - !private ["CSo8NSObject", "readingLbl"]
 - ["CSo8NSObject", "refreshSelectedSections"]
@@ -1601,8 +1673,8 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "Fonts"]
 - !private ["PSo16NSObjectProtocol", "Iterator"]
 - !private ["PSo16NSObjectProtocol", "JSONEncoding"]
-- !private ["PSo16NSObjectProtocol", "NSArray"]
-- !private ["PSo16NSObjectProtocol", "NSDictionary"]
+- ["PSo16NSObjectProtocol", "NSArray"]
+- ["PSo16NSObjectProtocol", "NSDictionary"]
 - ["PSo16NSObjectProtocol", "NSMutableArray"]
 - !private ["PSo16NSObjectProtocol", "NSMutableDictionary"]
 - !private ["PSo16NSObjectProtocol", "NSNotification"]
@@ -1619,6 +1691,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "UITapGestureRecognizer"]
 - !private ["PSo16NSObjectProtocol", "UIView"]
 - !private ["PSo16NSObjectProtocol", "UserDefaults"]
+- !private ["PSo16NSObjectProtocol", "UtilityClass"]
 - !private ["PSo16NSObjectProtocol", "add"]
 - !private ["PSo16NSObjectProtocol", "addGestureRecognizer"]
 - ["PSo16NSObjectProtocol", "addNotifications"]
@@ -1630,6 +1703,7 @@ depends-member:
 - ["PSo16NSObjectProtocol", "boolArray"]
 - !private ["PSo16NSObjectProtocol", "borderColor"]
 - !private ["PSo16NSObjectProtocol", "borderWidth"]
+- ["PSo16NSObjectProtocol", "cellArray"]
 - !private ["PSo16NSObjectProtocol", "cgColor"]
 - !private ["PSo16NSObjectProtocol", "clear"]
 - !private ["PSo16NSObjectProtocol", "conditionLbl"]
@@ -1643,6 +1717,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "default"]
 - !private ["PSo16NSObjectProtocol", "dequeueReusableCell"]
 - ["PSo16NSObjectProtocol", "didReceiveMemoryWarning"]
+- !private ["PSo16NSObjectProtocol", "displayAlertMessage"]
 - !private ["PSo16NSObjectProtocol", "endEditing"]
 - !private ["PSo16NSObjectProtocol", "font"]
 - !private ["PSo16NSObjectProtocol", "frame"]
@@ -1657,6 +1732,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "layer"]
 - !private ["PSo16NSObjectProtocol", "lightGray"]
 - ["PSo16NSObjectProtocol", "listViewNotification"]
+- !private ["PSo16NSObjectProtocol", "localized"]
 - !private ["PSo16NSObjectProtocol", "main"]
 - ["PSo16NSObjectProtocol", "noHistoryAvailableLbl"]
 - ["PSo16NSObjectProtocol", "noOfDays"]
@@ -1665,10 +1741,12 @@ depends-member:
 - ["PSo16NSObjectProtocol", "numberOfComponentsInPickerView"]
 - ["PSo16NSObjectProtocol", "numberOfSections"]
 - ["PSo16NSObjectProtocol", "numberOfSectionsInTableView"]
+- ["PSo16NSObjectProtocol", "obj"]
 - !private ["PSo16NSObjectProtocol", "object"]
 - !private ["PSo16NSObjectProtocol", "path"]
 - ["PSo16NSObjectProtocol", "pickerView"]
 - ["PSo16NSObjectProtocol", "pickerViewContainer"]
+- !private ["PSo16NSObjectProtocol", "present"]
 - !private ["PSo16NSObjectProtocol", "print"]
 - !private ["PSo16NSObjectProtocol", "readingLbl"]
 - ["PSo16NSObjectProtocol", "refreshSelectedSections"]
@@ -1726,6 +1804,7 @@ depends-member:
 - !private ["PSo14NSSecureCoding", "count"]
 - ["PSo14NSSecureCoding", "init"]
 - !private ["PSo14NSSecureCoding", "lightGray"]
+- !private ["PSo14NSSecureCoding", "localized"]
 - !private ["PSo14NSSecureCoding", "object"]
 - !private ["PSo14NSSecureCoding", "removeAllObjects"]
 - !private ["PSo14NSSecureCoding", "replaceObject"]
@@ -1735,6 +1814,7 @@ depends-member:
 - !private ["PSo14NSSecureCoding", "value"]
 - !private ["PSo14NSSecureCoding", "white"]
 - ["CSo8NSString", "init"]
+- !private ["CSo8NSString", "localized"]
 - ["CSo5NSURL", "deinit"]
 - !private ["CSo5NSURL", "init"]
 - ["VCSo14NSNotification4Name", "deinit"]
@@ -1802,10 +1882,13 @@ depends-member:
 - !private ["SS", "RawValue"]
 - ["SS", "deinit"]
 - ["SS", "init"]
+- !private ["SS", "localized"]
 - !private ["Ps16TextOutputStream", "RawValue"]
 - ["Ps16TextOutputStream", "init"]
+- !private ["Ps16TextOutputStream", "localized"]
 - !private ["Ps20TextOutputStreamable", "RawValue"]
 - ["Ps20TextOutputStreamable", "init"]
+- !private ["Ps20TextOutputStreamable", "localized"]
 - !private ["PSo29UIAccessibilityIdentification", "addGestureRecognizer"]
 - !private ["PSo29UIAccessibilityIdentification", "addSubview"]
 - !private ["PSo29UIAccessibilityIdentification", "backgroundColor"]
@@ -1826,6 +1909,7 @@ depends-member:
 - !private ["PSo29UIAccessibilityIdentification", "tag"]
 - !private ["PSo29UIAccessibilityIdentification", "text"]
 - !private ["PSo29UIAccessibilityIdentification", "textColor"]
+- ["CSo17UIAlertController", "deinit"]
 - !private ["PSo12UIAppearance", "addGestureRecognizer"]
 - !private ["PSo12UIAppearance", "addSubview"]
 - !private ["PSo12UIAppearance", "backgroundColor"]
@@ -1853,8 +1937,8 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "Colors"]
 - !private ["PSo21UIAppearanceContainer", "Fonts"]
 - !private ["PSo21UIAppearanceContainer", "JSONEncoding"]
-- !private ["PSo21UIAppearanceContainer", "NSArray"]
-- !private ["PSo21UIAppearanceContainer", "NSDictionary"]
+- ["PSo21UIAppearanceContainer", "NSArray"]
+- ["PSo21UIAppearanceContainer", "NSDictionary"]
 - ["PSo21UIAppearanceContainer", "NSMutableArray"]
 - !private ["PSo21UIAppearanceContainer", "NSMutableDictionary"]
 - !private ["PSo21UIAppearanceContainer", "NSNotification"]
@@ -1870,11 +1954,13 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "UITapGestureRecognizer"]
 - !private ["PSo21UIAppearanceContainer", "UIView"]
 - !private ["PSo21UIAppearanceContainer", "UserDefaults"]
+- !private ["PSo21UIAppearanceContainer", "UtilityClass"]
 - !private ["PSo21UIAppearanceContainer", "addGestureRecognizer"]
 - ["PSo21UIAppearanceContainer", "addNotifications"]
 - !private ["PSo21UIAppearanceContainer", "addSubview"]
 - !private ["PSo21UIAppearanceContainer", "backgroundColor"]
 - ["PSo21UIAppearanceContainer", "boolArray"]
+- ["PSo21UIAppearanceContainer", "cellArray"]
 - !private ["PSo21UIAppearanceContainer", "conditionLbl"]
 - ["PSo21UIAppearanceContainer", "conditionTxtFld"]
 - ["PSo21UIAppearanceContainer", "conditionView"]
@@ -1902,8 +1988,10 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "numberOfComponentsInPickerView"]
 - ["PSo21UIAppearanceContainer", "numberOfSections"]
 - ["PSo21UIAppearanceContainer", "numberOfSectionsInTableView"]
+- ["PSo21UIAppearanceContainer", "obj"]
 - ["PSo21UIAppearanceContainer", "pickerView"]
 - ["PSo21UIAppearanceContainer", "pickerViewContainer"]
+- !private ["PSo21UIAppearanceContainer", "present"]
 - !private ["PSo21UIAppearanceContainer", "print"]
 - !private ["PSo21UIAppearanceContainer", "readingLbl"]
 - ["PSo21UIAppearanceContainer", "refreshSelectedSections"]
@@ -1953,8 +2041,8 @@ depends-member:
 - !private ["PSo18UIContentContainer", "Colors"]
 - !private ["PSo18UIContentContainer", "Fonts"]
 - !private ["PSo18UIContentContainer", "JSONEncoding"]
-- !private ["PSo18UIContentContainer", "NSArray"]
-- !private ["PSo18UIContentContainer", "NSDictionary"]
+- ["PSo18UIContentContainer", "NSArray"]
+- ["PSo18UIContentContainer", "NSDictionary"]
 - ["PSo18UIContentContainer", "NSMutableArray"]
 - !private ["PSo18UIContentContainer", "NSMutableDictionary"]
 - !private ["PSo18UIContentContainer", "NSNotification"]
@@ -1970,8 +2058,10 @@ depends-member:
 - !private ["PSo18UIContentContainer", "UITapGestureRecognizer"]
 - !private ["PSo18UIContentContainer", "UIView"]
 - !private ["PSo18UIContentContainer", "UserDefaults"]
+- !private ["PSo18UIContentContainer", "UtilityClass"]
 - ["PSo18UIContentContainer", "addNotifications"]
 - ["PSo18UIContentContainer", "boolArray"]
+- ["PSo18UIContentContainer", "cellArray"]
 - ["PSo18UIContentContainer", "conditionTxtFld"]
 - ["PSo18UIContentContainer", "conditionView"]
 - !private ["PSo18UIContentContainer", "conditionsArray"]
@@ -1989,8 +2079,10 @@ depends-member:
 - ["PSo18UIContentContainer", "numberOfComponentsInPickerView"]
 - ["PSo18UIContentContainer", "numberOfSections"]
 - ["PSo18UIContentContainer", "numberOfSectionsInTableView"]
+- ["PSo18UIContentContainer", "obj"]
 - ["PSo18UIContentContainer", "pickerView"]
 - ["PSo18UIContentContainer", "pickerViewContainer"]
+- !private ["PSo18UIContentContainer", "present"]
 - !private ["PSo18UIContentContainer", "print"]
 - ["PSo18UIContentContainer", "refreshSelectedSections"]
 - ["PSo18UIContentContainer", "resetUI"]
@@ -2077,8 +2169,8 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "Colors"]
 - !private ["PSo18UIFocusEnvironment", "Fonts"]
 - !private ["PSo18UIFocusEnvironment", "JSONEncoding"]
-- !private ["PSo18UIFocusEnvironment", "NSArray"]
-- !private ["PSo18UIFocusEnvironment", "NSDictionary"]
+- ["PSo18UIFocusEnvironment", "NSArray"]
+- ["PSo18UIFocusEnvironment", "NSDictionary"]
 - ["PSo18UIFocusEnvironment", "NSMutableArray"]
 - !private ["PSo18UIFocusEnvironment", "NSMutableDictionary"]
 - !private ["PSo18UIFocusEnvironment", "NSNotification"]
@@ -2094,11 +2186,13 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "UITapGestureRecognizer"]
 - !private ["PSo18UIFocusEnvironment", "UIView"]
 - !private ["PSo18UIFocusEnvironment", "UserDefaults"]
+- !private ["PSo18UIFocusEnvironment", "UtilityClass"]
 - !private ["PSo18UIFocusEnvironment", "addGestureRecognizer"]
 - ["PSo18UIFocusEnvironment", "addNotifications"]
 - !private ["PSo18UIFocusEnvironment", "addSubview"]
 - !private ["PSo18UIFocusEnvironment", "backgroundColor"]
 - ["PSo18UIFocusEnvironment", "boolArray"]
+- ["PSo18UIFocusEnvironment", "cellArray"]
 - !private ["PSo18UIFocusEnvironment", "conditionLbl"]
 - ["PSo18UIFocusEnvironment", "conditionTxtFld"]
 - ["PSo18UIFocusEnvironment", "conditionView"]
@@ -2126,8 +2220,10 @@ depends-member:
 - ["PSo18UIFocusEnvironment", "numberOfComponentsInPickerView"]
 - ["PSo18UIFocusEnvironment", "numberOfSections"]
 - ["PSo18UIFocusEnvironment", "numberOfSectionsInTableView"]
+- ["PSo18UIFocusEnvironment", "obj"]
 - ["PSo18UIFocusEnvironment", "pickerView"]
 - ["PSo18UIFocusEnvironment", "pickerViewContainer"]
+- !private ["PSo18UIFocusEnvironment", "present"]
 - !private ["PSo18UIFocusEnvironment", "print"]
 - !private ["PSo18UIFocusEnvironment", "readingLbl"]
 - ["PSo18UIFocusEnvironment", "refreshSelectedSections"]
@@ -2211,8 +2307,8 @@ depends-member:
 - !private ["PSo22UIPickerViewDataSource", "Colors"]
 - !private ["PSo22UIPickerViewDataSource", "Fonts"]
 - !private ["PSo22UIPickerViewDataSource", "JSONEncoding"]
-- !private ["PSo22UIPickerViewDataSource", "NSArray"]
-- !private ["PSo22UIPickerViewDataSource", "NSDictionary"]
+- ["PSo22UIPickerViewDataSource", "NSArray"]
+- ["PSo22UIPickerViewDataSource", "NSDictionary"]
 - ["PSo22UIPickerViewDataSource", "NSMutableArray"]
 - !private ["PSo22UIPickerViewDataSource", "NSMutableDictionary"]
 - !private ["PSo22UIPickerViewDataSource", "NSNotification"]
@@ -2227,8 +2323,10 @@ depends-member:
 - !private ["PSo22UIPickerViewDataSource", "UITapGestureRecognizer"]
 - !private ["PSo22UIPickerViewDataSource", "UIView"]
 - !private ["PSo22UIPickerViewDataSource", "UserDefaults"]
+- !private ["PSo22UIPickerViewDataSource", "UtilityClass"]
 - !private ["PSo22UIPickerViewDataSource", "addNotifications"]
 - !private ["PSo22UIPickerViewDataSource", "boolArray"]
+- !private ["PSo22UIPickerViewDataSource", "cellArray"]
 - !private ["PSo22UIPickerViewDataSource", "conditionTxtFld"]
 - !private ["PSo22UIPickerViewDataSource", "conditionView"]
 - !private ["PSo22UIPickerViewDataSource", "conditionsArray"]
@@ -2243,8 +2341,10 @@ depends-member:
 - ["PSo22UIPickerViewDataSource", "numberOfComponentsInPickerView"]
 - ["PSo22UIPickerViewDataSource", "numberOfSections"]
 - ["PSo22UIPickerViewDataSource", "numberOfSectionsInTableView"]
+- !private ["PSo22UIPickerViewDataSource", "obj"]
 - ["PSo22UIPickerViewDataSource", "pickerView"]
 - !private ["PSo22UIPickerViewDataSource", "pickerViewContainer"]
+- !private ["PSo22UIPickerViewDataSource", "present"]
 - !private ["PSo22UIPickerViewDataSource", "print"]
 - !private ["PSo22UIPickerViewDataSource", "refreshSelectedSections"]
 - !private ["PSo22UIPickerViewDataSource", "resetUI"]
@@ -2280,8 +2380,8 @@ depends-member:
 - !private ["PSo20UIPickerViewDelegate", "Colors"]
 - !private ["PSo20UIPickerViewDelegate", "Fonts"]
 - !private ["PSo20UIPickerViewDelegate", "JSONEncoding"]
-- !private ["PSo20UIPickerViewDelegate", "NSArray"]
-- !private ["PSo20UIPickerViewDelegate", "NSDictionary"]
+- ["PSo20UIPickerViewDelegate", "NSArray"]
+- ["PSo20UIPickerViewDelegate", "NSDictionary"]
 - ["PSo20UIPickerViewDelegate", "NSMutableArray"]
 - !private ["PSo20UIPickerViewDelegate", "NSMutableDictionary"]
 - !private ["PSo20UIPickerViewDelegate", "NSNotification"]
@@ -2296,8 +2396,10 @@ depends-member:
 - !private ["PSo20UIPickerViewDelegate", "UITapGestureRecognizer"]
 - !private ["PSo20UIPickerViewDelegate", "UIView"]
 - !private ["PSo20UIPickerViewDelegate", "UserDefaults"]
+- !private ["PSo20UIPickerViewDelegate", "UtilityClass"]
 - !private ["PSo20UIPickerViewDelegate", "addNotifications"]
 - !private ["PSo20UIPickerViewDelegate", "boolArray"]
+- !private ["PSo20UIPickerViewDelegate", "cellArray"]
 - !private ["PSo20UIPickerViewDelegate", "conditionTxtFld"]
 - !private ["PSo20UIPickerViewDelegate", "conditionView"]
 - !private ["PSo20UIPickerViewDelegate", "conditionsArray"]
@@ -2312,8 +2414,10 @@ depends-member:
 - ["PSo20UIPickerViewDelegate", "numberOfComponentsInPickerView"]
 - ["PSo20UIPickerViewDelegate", "numberOfSections"]
 - ["PSo20UIPickerViewDelegate", "numberOfSectionsInTableView"]
+- !private ["PSo20UIPickerViewDelegate", "obj"]
 - ["PSo20UIPickerViewDelegate", "pickerView"]
 - !private ["PSo20UIPickerViewDelegate", "pickerViewContainer"]
+- !private ["PSo20UIPickerViewDelegate", "present"]
 - !private ["PSo20UIPickerViewDelegate", "print"]
 - !private ["PSo20UIPickerViewDelegate", "refreshSelectedSections"]
 - !private ["PSo20UIPickerViewDelegate", "resetUI"]
@@ -2355,9 +2459,9 @@ depends-member:
 - ["CSo11UIResponder", "IndexPath"]
 - ["CSo11UIResponder", "Int"]
 - !private ["CSo11UIResponder", "JSONEncoding"]
-- !private ["CSo11UIResponder", "NSArray"]
+- ["CSo11UIResponder", "NSArray"]
 - !private ["CSo11UIResponder", "NSCopying"]
-- !private ["CSo11UIResponder", "NSDictionary"]
+- ["CSo11UIResponder", "NSDictionary"]
 - ["CSo11UIResponder", "NSMutableArray"]
 - !private ["CSo11UIResponder", "NSMutableDictionary"]
 - ["CSo11UIResponder", "NSNotification"]
@@ -2379,11 +2483,13 @@ depends-member:
 - ["CSo11UIResponder", "UIView"]
 - !private ["CSo11UIResponder", "URL"]
 - !private ["CSo11UIResponder", "UserDefaults"]
+- !private ["CSo11UIResponder", "UtilityClass"]
 - !private ["CSo11UIResponder", "addGestureRecognizer"]
 - ["CSo11UIResponder", "addNotifications"]
 - !private ["CSo11UIResponder", "addSubview"]
 - !private ["CSo11UIResponder", "backgroundColor"]
 - ["CSo11UIResponder", "boolArray"]
+- ["CSo11UIResponder", "cellArray"]
 - !private ["CSo11UIResponder", "conditionLbl"]
 - ["CSo11UIResponder", "conditionTxtFld"]
 - ["CSo11UIResponder", "conditionView"]
@@ -2411,8 +2517,10 @@ depends-member:
 - ["CSo11UIResponder", "numberOfComponentsInPickerView"]
 - ["CSo11UIResponder", "numberOfSections"]
 - ["CSo11UIResponder", "numberOfSectionsInTableView"]
+- ["CSo11UIResponder", "obj"]
 - ["CSo11UIResponder", "pickerView"]
 - ["CSo11UIResponder", "pickerViewContainer"]
+- !private ["CSo11UIResponder", "present"]
 - !private ["CSo11UIResponder", "print"]
 - !private ["CSo11UIResponder", "readingLbl"]
 - ["CSo11UIResponder", "refreshSelectedSections"]
@@ -2456,8 +2564,8 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "Colors"]
 - !private ["PSo30UIResponderStandardEditActions", "Fonts"]
 - !private ["PSo30UIResponderStandardEditActions", "JSONEncoding"]
-- !private ["PSo30UIResponderStandardEditActions", "NSArray"]
-- !private ["PSo30UIResponderStandardEditActions", "NSDictionary"]
+- ["PSo30UIResponderStandardEditActions", "NSArray"]
+- ["PSo30UIResponderStandardEditActions", "NSDictionary"]
 - ["PSo30UIResponderStandardEditActions", "NSMutableArray"]
 - !private ["PSo30UIResponderStandardEditActions", "NSMutableDictionary"]
 - !private ["PSo30UIResponderStandardEditActions", "NSNotification"]
@@ -2473,11 +2581,13 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "UITapGestureRecognizer"]
 - !private ["PSo30UIResponderStandardEditActions", "UIView"]
 - !private ["PSo30UIResponderStandardEditActions", "UserDefaults"]
+- !private ["PSo30UIResponderStandardEditActions", "UtilityClass"]
 - !private ["PSo30UIResponderStandardEditActions", "addGestureRecognizer"]
 - ["PSo30UIResponderStandardEditActions", "addNotifications"]
 - !private ["PSo30UIResponderStandardEditActions", "addSubview"]
 - !private ["PSo30UIResponderStandardEditActions", "backgroundColor"]
 - ["PSo30UIResponderStandardEditActions", "boolArray"]
+- ["PSo30UIResponderStandardEditActions", "cellArray"]
 - !private ["PSo30UIResponderStandardEditActions", "conditionLbl"]
 - ["PSo30UIResponderStandardEditActions", "conditionTxtFld"]
 - ["PSo30UIResponderStandardEditActions", "conditionView"]
@@ -2505,8 +2615,10 @@ depends-member:
 - ["PSo30UIResponderStandardEditActions", "numberOfComponentsInPickerView"]
 - ["PSo30UIResponderStandardEditActions", "numberOfSections"]
 - ["PSo30UIResponderStandardEditActions", "numberOfSectionsInTableView"]
+- ["PSo30UIResponderStandardEditActions", "obj"]
 - ["PSo30UIResponderStandardEditActions", "pickerView"]
 - ["PSo30UIResponderStandardEditActions", "pickerViewContainer"]
+- !private ["PSo30UIResponderStandardEditActions", "present"]
 - !private ["PSo30UIResponderStandardEditActions", "print"]
 - !private ["PSo30UIResponderStandardEditActions", "readingLbl"]
 - ["PSo30UIResponderStandardEditActions", "refreshSelectedSections"]
@@ -2555,8 +2667,8 @@ depends-member:
 - !private ["PSo20UIScrollViewDelegate", "Colors"]
 - !private ["PSo20UIScrollViewDelegate", "Fonts"]
 - !private ["PSo20UIScrollViewDelegate", "JSONEncoding"]
-- !private ["PSo20UIScrollViewDelegate", "NSArray"]
-- !private ["PSo20UIScrollViewDelegate", "NSDictionary"]
+- ["PSo20UIScrollViewDelegate", "NSArray"]
+- ["PSo20UIScrollViewDelegate", "NSDictionary"]
 - ["PSo20UIScrollViewDelegate", "NSMutableArray"]
 - !private ["PSo20UIScrollViewDelegate", "NSMutableDictionary"]
 - !private ["PSo20UIScrollViewDelegate", "NSNotification"]
@@ -2571,8 +2683,10 @@ depends-member:
 - !private ["PSo20UIScrollViewDelegate", "UITapGestureRecognizer"]
 - !private ["PSo20UIScrollViewDelegate", "UIView"]
 - !private ["PSo20UIScrollViewDelegate", "UserDefaults"]
+- !private ["PSo20UIScrollViewDelegate", "UtilityClass"]
 - !private ["PSo20UIScrollViewDelegate", "addNotifications"]
 - !private ["PSo20UIScrollViewDelegate", "boolArray"]
+- !private ["PSo20UIScrollViewDelegate", "cellArray"]
 - !private ["PSo20UIScrollViewDelegate", "conditionTxtFld"]
 - !private ["PSo20UIScrollViewDelegate", "conditionView"]
 - !private ["PSo20UIScrollViewDelegate", "conditionsArray"]
@@ -2587,8 +2701,10 @@ depends-member:
 - ["PSo20UIScrollViewDelegate", "numberOfComponentsInPickerView"]
 - ["PSo20UIScrollViewDelegate", "numberOfSections"]
 - ["PSo20UIScrollViewDelegate", "numberOfSectionsInTableView"]
+- !private ["PSo20UIScrollViewDelegate", "obj"]
 - ["PSo20UIScrollViewDelegate", "pickerView"]
 - !private ["PSo20UIScrollViewDelegate", "pickerViewContainer"]
+- !private ["PSo20UIScrollViewDelegate", "present"]
 - !private ["PSo20UIScrollViewDelegate", "print"]
 - !private ["PSo20UIScrollViewDelegate", "refreshSelectedSections"]
 - !private ["PSo20UIScrollViewDelegate", "resetUI"]
@@ -2624,8 +2740,8 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "Colors"]
 - !private ["PSo16UIStateRestoring", "Fonts"]
 - !private ["PSo16UIStateRestoring", "JSONEncoding"]
-- !private ["PSo16UIStateRestoring", "NSArray"]
-- !private ["PSo16UIStateRestoring", "NSDictionary"]
+- ["PSo16UIStateRestoring", "NSArray"]
+- ["PSo16UIStateRestoring", "NSDictionary"]
 - ["PSo16UIStateRestoring", "NSMutableArray"]
 - !private ["PSo16UIStateRestoring", "NSMutableDictionary"]
 - !private ["PSo16UIStateRestoring", "NSNotification"]
@@ -2641,8 +2757,10 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "UITapGestureRecognizer"]
 - !private ["PSo16UIStateRestoring", "UIView"]
 - !private ["PSo16UIStateRestoring", "UserDefaults"]
+- !private ["PSo16UIStateRestoring", "UtilityClass"]
 - ["PSo16UIStateRestoring", "addNotifications"]
 - ["PSo16UIStateRestoring", "boolArray"]
+- ["PSo16UIStateRestoring", "cellArray"]
 - ["PSo16UIStateRestoring", "conditionTxtFld"]
 - ["PSo16UIStateRestoring", "conditionView"]
 - !private ["PSo16UIStateRestoring", "conditionsArray"]
@@ -2660,8 +2778,10 @@ depends-member:
 - ["PSo16UIStateRestoring", "numberOfComponentsInPickerView"]
 - ["PSo16UIStateRestoring", "numberOfSections"]
 - ["PSo16UIStateRestoring", "numberOfSectionsInTableView"]
+- ["PSo16UIStateRestoring", "obj"]
 - ["PSo16UIStateRestoring", "pickerView"]
 - ["PSo16UIStateRestoring", "pickerViewContainer"]
+- !private ["PSo16UIStateRestoring", "present"]
 - !private ["PSo16UIStateRestoring", "print"]
 - ["PSo16UIStateRestoring", "refreshSelectedSections"]
 - ["PSo16UIStateRestoring", "resetUI"]
@@ -2709,8 +2829,8 @@ depends-member:
 - !private ["PSo21UITableViewDataSource", "Colors"]
 - !private ["PSo21UITableViewDataSource", "Fonts"]
 - !private ["PSo21UITableViewDataSource", "JSONEncoding"]
-- !private ["PSo21UITableViewDataSource", "NSArray"]
-- !private ["PSo21UITableViewDataSource", "NSDictionary"]
+- ["PSo21UITableViewDataSource", "NSArray"]
+- ["PSo21UITableViewDataSource", "NSDictionary"]
 - ["PSo21UITableViewDataSource", "NSMutableArray"]
 - !private ["PSo21UITableViewDataSource", "NSMutableDictionary"]
 - !private ["PSo21UITableViewDataSource", "NSNotification"]
@@ -2725,8 +2845,10 @@ depends-member:
 - !private ["PSo21UITableViewDataSource", "UITapGestureRecognizer"]
 - !private ["PSo21UITableViewDataSource", "UIView"]
 - !private ["PSo21UITableViewDataSource", "UserDefaults"]
+- !private ["PSo21UITableViewDataSource", "UtilityClass"]
 - !private ["PSo21UITableViewDataSource", "addNotifications"]
 - !private ["PSo21UITableViewDataSource", "boolArray"]
+- !private ["PSo21UITableViewDataSource", "cellArray"]
 - !private ["PSo21UITableViewDataSource", "conditionTxtFld"]
 - !private ["PSo21UITableViewDataSource", "conditionView"]
 - !private ["PSo21UITableViewDataSource", "conditionsArray"]
@@ -2741,8 +2863,10 @@ depends-member:
 - ["PSo21UITableViewDataSource", "numberOfComponentsInPickerView"]
 - ["PSo21UITableViewDataSource", "numberOfSections"]
 - ["PSo21UITableViewDataSource", "numberOfSectionsInTableView"]
+- !private ["PSo21UITableViewDataSource", "obj"]
 - ["PSo21UITableViewDataSource", "pickerView"]
 - !private ["PSo21UITableViewDataSource", "pickerViewContainer"]
+- !private ["PSo21UITableViewDataSource", "present"]
 - !private ["PSo21UITableViewDataSource", "print"]
 - !private ["PSo21UITableViewDataSource", "refreshSelectedSections"]
 - !private ["PSo21UITableViewDataSource", "resetUI"]
@@ -2778,8 +2902,8 @@ depends-member:
 - !private ["PSo19UITableViewDelegate", "Colors"]
 - !private ["PSo19UITableViewDelegate", "Fonts"]
 - !private ["PSo19UITableViewDelegate", "JSONEncoding"]
-- !private ["PSo19UITableViewDelegate", "NSArray"]
-- !private ["PSo19UITableViewDelegate", "NSDictionary"]
+- ["PSo19UITableViewDelegate", "NSArray"]
+- ["PSo19UITableViewDelegate", "NSDictionary"]
 - ["PSo19UITableViewDelegate", "NSMutableArray"]
 - !private ["PSo19UITableViewDelegate", "NSMutableDictionary"]
 - !private ["PSo19UITableViewDelegate", "NSNotification"]
@@ -2794,8 +2918,10 @@ depends-member:
 - !private ["PSo19UITableViewDelegate", "UITapGestureRecognizer"]
 - !private ["PSo19UITableViewDelegate", "UIView"]
 - !private ["PSo19UITableViewDelegate", "UserDefaults"]
+- !private ["PSo19UITableViewDelegate", "UtilityClass"]
 - !private ["PSo19UITableViewDelegate", "addNotifications"]
 - !private ["PSo19UITableViewDelegate", "boolArray"]
+- !private ["PSo19UITableViewDelegate", "cellArray"]
 - !private ["PSo19UITableViewDelegate", "conditionTxtFld"]
 - !private ["PSo19UITableViewDelegate", "conditionView"]
 - !private ["PSo19UITableViewDelegate", "conditionsArray"]
@@ -2810,8 +2936,10 @@ depends-member:
 - ["PSo19UITableViewDelegate", "numberOfComponentsInPickerView"]
 - ["PSo19UITableViewDelegate", "numberOfSections"]
 - ["PSo19UITableViewDelegate", "numberOfSectionsInTableView"]
+- !private ["PSo19UITableViewDelegate", "obj"]
 - ["PSo19UITableViewDelegate", "pickerView"]
 - !private ["PSo19UITableViewDelegate", "pickerViewContainer"]
+- !private ["PSo19UITableViewDelegate", "present"]
 - !private ["PSo19UITableViewDelegate", "print"]
 - !private ["PSo19UITableViewDelegate", "refreshSelectedSections"]
 - !private ["PSo19UITableViewDelegate", "resetUI"]
@@ -2856,8 +2984,8 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "Colors"]
 - !private ["PSo18UITraitEnvironment", "Fonts"]
 - !private ["PSo18UITraitEnvironment", "JSONEncoding"]
-- !private ["PSo18UITraitEnvironment", "NSArray"]
-- !private ["PSo18UITraitEnvironment", "NSDictionary"]
+- ["PSo18UITraitEnvironment", "NSArray"]
+- ["PSo18UITraitEnvironment", "NSDictionary"]
 - ["PSo18UITraitEnvironment", "NSMutableArray"]
 - !private ["PSo18UITraitEnvironment", "NSMutableDictionary"]
 - !private ["PSo18UITraitEnvironment", "NSNotification"]
@@ -2873,11 +3001,13 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "UITapGestureRecognizer"]
 - !private ["PSo18UITraitEnvironment", "UIView"]
 - !private ["PSo18UITraitEnvironment", "UserDefaults"]
+- !private ["PSo18UITraitEnvironment", "UtilityClass"]
 - !private ["PSo18UITraitEnvironment", "addGestureRecognizer"]
 - ["PSo18UITraitEnvironment", "addNotifications"]
 - !private ["PSo18UITraitEnvironment", "addSubview"]
 - !private ["PSo18UITraitEnvironment", "backgroundColor"]
 - ["PSo18UITraitEnvironment", "boolArray"]
+- ["PSo18UITraitEnvironment", "cellArray"]
 - !private ["PSo18UITraitEnvironment", "conditionLbl"]
 - ["PSo18UITraitEnvironment", "conditionTxtFld"]
 - ["PSo18UITraitEnvironment", "conditionView"]
@@ -2905,8 +3035,10 @@ depends-member:
 - ["PSo18UITraitEnvironment", "numberOfComponentsInPickerView"]
 - ["PSo18UITraitEnvironment", "numberOfSections"]
 - ["PSo18UITraitEnvironment", "numberOfSectionsInTableView"]
+- ["PSo18UITraitEnvironment", "obj"]
 - ["PSo18UITraitEnvironment", "pickerView"]
 - ["PSo18UITraitEnvironment", "pickerViewContainer"]
+- !private ["PSo18UITraitEnvironment", "present"]
 - !private ["PSo18UITraitEnvironment", "print"]
 - !private ["PSo18UITraitEnvironment", "readingLbl"]
 - ["PSo18UITraitEnvironment", "refreshSelectedSections"]
@@ -2978,9 +3110,9 @@ depends-member:
 - ["CSo16UIViewController", "IndexPath"]
 - ["CSo16UIViewController", "Int"]
 - !private ["CSo16UIViewController", "JSONEncoding"]
-- !private ["CSo16UIViewController", "NSArray"]
+- ["CSo16UIViewController", "NSArray"]
 - !private ["CSo16UIViewController", "NSCopying"]
-- !private ["CSo16UIViewController", "NSDictionary"]
+- ["CSo16UIViewController", "NSDictionary"]
 - ["CSo16UIViewController", "NSMutableArray"]
 - !private ["CSo16UIViewController", "NSMutableDictionary"]
 - ["CSo16UIViewController", "NSNotification"]
@@ -3002,8 +3134,10 @@ depends-member:
 - ["CSo16UIViewController", "UIView"]
 - !private ["CSo16UIViewController", "URL"]
 - !private ["CSo16UIViewController", "UserDefaults"]
+- !private ["CSo16UIViewController", "UtilityClass"]
 - ["CSo16UIViewController", "addNotifications"]
 - ["CSo16UIViewController", "boolArray"]
+- ["CSo16UIViewController", "cellArray"]
 - ["CSo16UIViewController", "conditionTxtFld"]
 - ["CSo16UIViewController", "conditionView"]
 - !private ["CSo16UIViewController", "conditionsArray"]
@@ -3022,8 +3156,10 @@ depends-member:
 - ["CSo16UIViewController", "numberOfComponentsInPickerView"]
 - ["CSo16UIViewController", "numberOfSections"]
 - ["CSo16UIViewController", "numberOfSectionsInTableView"]
+- ["CSo16UIViewController", "obj"]
 - ["CSo16UIViewController", "pickerView"]
 - ["CSo16UIViewController", "pickerViewContainer"]
+- !private ["CSo16UIViewController", "present"]
 - !private ["CSo16UIViewController", "print"]
 - ["CSo16UIViewController", "refreshSelectedSections"]
 - ["CSo16UIViewController", "resetUI"]
@@ -3064,10 +3200,12 @@ depends-member:
 - !private ["P9Alamofire14URLConvertible", "RawValue"]
 - !private ["P9Alamofire14URLConvertible", "deinit"]
 - ["P9Alamofire14URLConvertible", "init"]
+- !private ["P9Alamofire14URLConvertible", "localized"]
 - !private ["Sc", "deinit"]
 - ["CSo12UserDefaults", "deinit"]
 - !private ["CSo12UserDefaults", "standard"]
 - !private ["CSo12UserDefaults", "string"]
+- !private ["C11DiabetesApp12UtilityClass", "displayAlertMessage"]
 - !private ["Ps14_ArrayProtocol", "Iterator"]
 - !private ["Ps14_ArrayProtocol", "_Element"]
 - !private ["Ps14_ArrayProtocol", "first"]
@@ -3099,14 +3237,18 @@ depends-member:
 - !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
 - !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "RawValue"]
 - ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "localized"]
 - !private ["Ps33_ExpressibleByBuiltinFloatLiteral", "Stride"]
 - !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "Stride"]
 - !private ["Ps34_ExpressibleByBuiltinStringLiteral", "RawValue"]
 - ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "localized"]
 - !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "RawValue"]
 - ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "localized"]
 - !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "RawValue"]
 - ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "localized"]
 - !private ["Ps26_ExpressibleByColorLiteral", "cgColor"]
 - !private ["Ps26_ExpressibleByColorLiteral", "clear"]
 - !private ["Ps26_ExpressibleByColorLiteral", "lightGray"]
@@ -3114,6 +3256,7 @@ depends-member:
 - !private ["Ps26_ExpressibleByImageLiteral", "init"]
 - !private ["Ps35_HasCustomAnyHashableRepresentation", "Name"]
 - ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "localized"]
 - !private ["Ps35_HasCustomAnyHashableRepresentation", "value"]
 - !private ["Ps9_Hashable", "Alamofire"]
 - !private ["Ps9_Hashable", "ApiMethods"]
@@ -3123,8 +3266,8 @@ depends-member:
 - !private ["Ps9_Hashable", "Fonts"]
 - !private ["Ps9_Hashable", "Iterator"]
 - !private ["Ps9_Hashable", "JSONEncoding"]
-- !private ["Ps9_Hashable", "NSArray"]
-- !private ["Ps9_Hashable", "NSDictionary"]
+- ["Ps9_Hashable", "NSArray"]
+- ["Ps9_Hashable", "NSDictionary"]
 - ["Ps9_Hashable", "NSMutableArray"]
 - !private ["Ps9_Hashable", "NSMutableDictionary"]
 - !private ["Ps9_Hashable", "NSNotification"]
@@ -3143,6 +3286,7 @@ depends-member:
 - !private ["Ps9_Hashable", "UITapGestureRecognizer"]
 - !private ["Ps9_Hashable", "UIView"]
 - !private ["Ps9_Hashable", "UserDefaults"]
+- !private ["Ps9_Hashable", "UtilityClass"]
 - !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
 - !private ["Ps9_Hashable", "add"]
 - !private ["Ps9_Hashable", "addGestureRecognizer"]
@@ -3155,6 +3299,7 @@ depends-member:
 - ["Ps9_Hashable", "boolArray"]
 - !private ["Ps9_Hashable", "borderColor"]
 - !private ["Ps9_Hashable", "borderWidth"]
+- ["Ps9_Hashable", "cellArray"]
 - !private ["Ps9_Hashable", "cgColor"]
 - !private ["Ps9_Hashable", "clear"]
 - !private ["Ps9_Hashable", "conditionLbl"]
@@ -3168,6 +3313,7 @@ depends-member:
 - !private ["Ps9_Hashable", "default"]
 - !private ["Ps9_Hashable", "dequeueReusableCell"]
 - ["Ps9_Hashable", "didReceiveMemoryWarning"]
+- !private ["Ps9_Hashable", "displayAlertMessage"]
 - !private ["Ps9_Hashable", "endEditing"]
 - !private ["Ps9_Hashable", "font"]
 - !private ["Ps9_Hashable", "frame"]
@@ -3182,6 +3328,7 @@ depends-member:
 - !private ["Ps9_Hashable", "layer"]
 - !private ["Ps9_Hashable", "lightGray"]
 - ["Ps9_Hashable", "listViewNotification"]
+- !private ["Ps9_Hashable", "localized"]
 - !private ["Ps9_Hashable", "main"]
 - ["Ps9_Hashable", "noHistoryAvailableLbl"]
 - ["Ps9_Hashable", "noOfDays"]
@@ -3190,11 +3337,13 @@ depends-member:
 - ["Ps9_Hashable", "numberOfComponentsInPickerView"]
 - ["Ps9_Hashable", "numberOfSections"]
 - ["Ps9_Hashable", "numberOfSectionsInTableView"]
+- ["Ps9_Hashable", "obj"]
 - !private ["Ps9_Hashable", "object"]
 - !private ["Ps9_Hashable", "path"]
 - ["Ps9_Hashable", "pickerView"]
 - ["Ps9_Hashable", "pickerViewContainer"]
 - !private ["Ps9_Hashable", "post"]
+- !private ["Ps9_Hashable", "present"]
 - !private ["Ps9_Hashable", "print"]
 - !private ["Ps9_Hashable", "readingLbl"]
 - ["Ps9_Hashable", "refreshSelectedSections"]
@@ -3256,6 +3405,7 @@ depends-member:
 - !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
 - !private ["Ps21_ObjectiveCBridgeable", "first"]
 - ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Ps21_ObjectiveCBridgeable", "localized"]
 - !private ["Ps21_ObjectiveCBridgeable", "row"]
 - !private ["Ps21_ObjectiveCBridgeable", "section"]
 - !private ["Ps21_ObjectiveCBridgeable", "size"]
@@ -3299,7 +3449,7 @@ depends-nominal:
 - "Ps9Equatable"
 - "Ps25ExpressibleByArrayLiteral"
 - !private "Ps27ExpressibleByBooleanLiteral"
-- !private "Ps30ExpressibleByDictionaryLiteral"
+- "Ps30ExpressibleByDictionaryLiteral"
 - "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
 - !private "Ps25ExpressibleByFloatLiteral"
 - !private "Ps27ExpressibleByIntegerLiteral"
@@ -3340,7 +3490,7 @@ depends-nominal:
 - "PSo26NSExtensionRequestHandling"
 - "PSo17NSFastEnumeration"
 - !private "C10Foundation25NSFastEnumerationIterator"
-- !private "PSo20NSFetchRequestResult"
+- "PSo20NSFetchRequestResult"
 - "CSo14NSMutableArray"
 - "PSo16NSMutableCopying"
 - "CSo19NSMutableDictionary"
@@ -3373,6 +3523,7 @@ depends-nominal:
 - "Ps16TextOutputStream"
 - "Ps20TextOutputStreamable"
 - !private "PSo29UIAccessibilityIdentification"
+- "CSo17UIAlertController"
 - !private "PSo12UIAppearance"
 - "PSo21UIAppearanceContainer"
 - "CSo7UIColor"
@@ -3418,6 +3569,7 @@ depends-nominal:
 - "P9Alamofire14URLConvertible"
 - !private "Sc"
 - "CSo12UserDefaults"
+- !private "C11DiabetesApp12UtilityClass"
 - !private "Ps14_ArrayProtocol"
 - !private "Ps15_CVarArgAligned"
 - !private "Ps22_CVarArgPassedAsDouble"
@@ -3758,4 +3910,4 @@ depends-external:
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController-umbrella.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Modules/module.modulemap"
-interface-hash: "c9d93a12d1e6bb6e31f9b0280e3857eb"
+interface-hash: "dcf93c0df773c45abdaf1962ad486cef"

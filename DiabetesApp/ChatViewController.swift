@@ -169,6 +169,8 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         
         let optionsBtnBar: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "options"), style: UIBarButtonItemStyle.plain , target: self, action: #selector(optionsClick))
         
+        let ReportBarButton: UIBarButtonItem = UIBarButtonItem(title: "Report", style: UIBarButtonItemStyle.plain, target: self, action: #selector(reportClick))
+        
         if self.dialog.type == .private {
             
             let callBtnBar: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "Call"), style: UIBarButtonItemStyle.plain , target: self, action: #selector(videoAudioClick))
@@ -194,11 +196,11 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
             
             if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
                
-                self.navigationItem.leftBarButtonItems = [optionsBtnBar]
+                self.navigationItem.leftBarButtonItems = [optionsBtnBar,ReportBarButton]
             }
             else {
                 
-                self.navigationItem.rightBarButtonItems = [optionsBtnBar]
+                self.navigationItem.rightBarButtonItems = [optionsBtnBar,ReportBarButton]
             }
 
 //            self.navigationItem.rightBarButtonItems = [optionsBtnBar]
@@ -403,6 +405,14 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
     }
     
     // MARK: - Right Buttons Actions
+    
+    func reportClick()  {
+        let reportViewController: ReportViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.ReportViewController) as! ReportViewController
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
+        self.navigationItem.hidesBackButton = true
+        self.navigationController?.pushViewController(reportViewController, animated: true)
+ 
+    }
     func optionsClick() {
         
         let actionSheet = UIAlertController(title: "", message: "Select Option".localized, preferredStyle: .actionSheet)
@@ -659,7 +669,7 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         message.readIDs = [(NSNumber(value: self.senderID))]
         message.markable = true
         message.dateSent = date
-        message.customParameters = ["User" : self.senderDisplayName!]
+        message.customParameters = ["User" : self.senderDisplayName! , "UserType" : self.selectedUserType]
         
         self.sendMessage(message: message)
     }
@@ -969,7 +979,7 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         let paragrpahStyle: NSMutableParagraphStyle = NSMutableParagraphStyle()
         paragrpahStyle.lineBreakMode = NSLineBreakMode.byTruncatingTail
         var attributes = Dictionary<String, AnyObject>()
-        attributes[NSForegroundColorAttributeName] = UIColor(red: 11.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+        
         attributes[NSFontAttributeName] = Fonts.healthCardFont
         attributes[NSParagraphStyleAttributeName] = paragrpahStyle
         
@@ -982,7 +992,19 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
                 strUserName.removeSubrange(dotRange.lowerBound..<strUserName.endIndex)
             }
             
-            
+            if messageItem.customParameters["UserType"] != nil {
+                
+            if (messageItem.customParameters["UserType"] as! NSString).doubleValue == 1 {
+                // Doctor
+                attributes[NSForegroundColorAttributeName] =  UIColor.orange
+            }
+            else if (messageItem.customParameters["UserType"] as! NSString).doubleValue  == 2 {
+                 attributes[NSForegroundColorAttributeName] = UIColor.red
+            }
+            else {
+                attributes[NSForegroundColorAttributeName] = UIColor(red: 11.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+              }
+            }
             
             topLabelAttributedString = NSAttributedString(string:strUserName , attributes: attributes)
            

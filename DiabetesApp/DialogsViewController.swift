@@ -127,7 +127,7 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let appleArray = UserDefaults.standard.value(forKey: "AppleLanguages") as! NSArray
+       // let appleArray = UserDefaults.standard.value(forKey: "AppleLanguages") as! NSArray
         setNavBarUI()
         self.tableView.reloadData()
        
@@ -156,20 +156,9 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
     }
     
     
+    
+    // MARK: - Custom Methods
     func setNavBarUI(){
-        
-        let logoutButton = UIBarButtonItem(title: "SA_STR_LOGOUT".localized, style: UIBarButtonItemStyle.plain, target: self, action: #selector(DialogsViewController.logoutAction))
-        
-        self.title = "MESSAGES".localized
-        self.navigationItem.leftBarButtonItem = logoutButton
-        self.navigationItem.rightBarButtonItems = nil
-        
-        if self.tabBarController != nil {
-            self.tabBarController?.navigationItem.title = "MESSAGES".localized
-            self.tabBarController?.navigationItem.leftBarButtonItem = logoutButton
-            self.tabBarController?.navigationItem.rightBarButtonItems = nil
-            
-        }
         
         if selectedUserType != userType.patient {
             
@@ -179,15 +168,71 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
             groupChatButton.tag = 0
             
             if selectedUserType == userType.doctor {
-                 self.navigationItem.rightBarButtonItems = [chatButton]
+                self.tabBarController?.navigationItem.rightBarButtonItems  = [chatButton]
             }
             else {
-                 self.navigationItem.rightBarButtonItems = [groupChatButton,chatButton]
+                self.tabBarController?.navigationItem.rightBarButtonItems = [groupChatButton,chatButton]
             }
         }
+
+        let logoutButton = UIBarButtonItem(title: "SA_STR_LOGOUT".localized, style: UIBarButtonItemStyle.plain, target: self, action: #selector(DialogsViewController.logoutAction))
+        if self.tabBarController != nil {
+            self.tabBarController?.navigationItem.title = "MESSAGES".localized
+            self.tabBarController?.navigationItem.leftBarButtonItem = logoutButton
+            
+            
+        }
+        
+//        
+//        
+//        self.title = "\("MESSAGES".localized)"
+//        self.tabBarController?.title = "\("MESSAGES".localized)"
+//        self.tabBarController?.navigationItem.title = "\("MESSAGES".localized)"
+//        self.navigationItem.leftBarButtonItem = logoutButton
+//      
+//        self.tabBarController?.navigationItem.leftBarButtonItem = logoutButton
+//       // self.tabBarController?.navigationItem.rightBarButtonItem = nil
+//        self.navigationItem.hidesBackButton = true
+//        self.tabBarController?.navigationItem.hidesBackButton = true
+        
+       
         
         
     }
+    
+    
+//    func setNavBarUI(){
+//        
+//        let logoutButton = UIBarButtonItem(title: "SA_STR_LOGOUT".localized, style: UIBarButtonItemStyle.plain, target: self, action: #selector(DialogsViewController.logoutAction))
+//        
+//        self.title = "MESSAGES".localized
+//        self.navigationItem.leftBarButtonItem = logoutButton
+//        self.navigationItem.rightBarButtonItems = nil
+//        
+//        if self.tabBarController != nil {
+//            self.tabBarController?.navigationItem.title = "MESSAGES".localized
+//            self.tabBarController?.navigationItem.leftBarButtonItem = logoutButton
+//            self.tabBarController?.navigationItem.rightBarButtonItems = nil
+//            
+//        }
+//        
+//        if selectedUserType != userType.patient {
+//            
+//            let chatButton = UIBarButtonItem(image: UIImage(named:"NewMessage" ), style: .plain, target: self, action: #selector(DialogsViewController.GroupAction(_:)))
+//            chatButton.tag = 1
+//            let groupChatButton = UIBarButtonItem(image: UIImage(named:"groupIcon" ), style: .plain, target: self, action: #selector(DialogsViewController.GroupAction(_:)))
+//            groupChatButton.tag = 0
+//            
+//            if selectedUserType == userType.doctor {
+//                 self.navigationItem.rightBarButtonItems = [chatButton]
+//            }
+//            else {
+//                 self.navigationItem.rightBarButtonItems = [groupChatButton,chatButton]
+//            }
+//        }
+//        
+//        
+//    }
     
     //MARK: - QBRTCClientDelegate Delegate
     func didReceiveNewSession(_ session: QBRTCSession!, userInfo: [AnyHashable : Any]! = [:]) {
@@ -272,7 +317,8 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
         
        let viewController: ContactListViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.contactViewController) as! ContactListViewController
         viewController.isGroupMode = (sender.tag == 0 ? true : false)
-       self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
+       self.tabBarController?.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
+        viewController.hidesBottomBarWhenPushed = true
        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
@@ -413,7 +459,7 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
         
         cell.dialogLastMessage?.text = chatDialog.lastMessageText
         cell.dialogName?.text = cellModel.textLabelText
-        //cell.dialogTypeImage.image = cellModel.dialogIcon
+      //cell.dialogTypeImage.image = cellModel.dialogIcon
         cell.unreadMessageCounterLabel.text = cellModel.unreadMessagesCounterLabelText
         cell.unreadMessageCounterHolder.isHidden = cellModel.unreadMessagesCounterHiden
         
@@ -439,9 +485,11 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
         if let dict: [String:Any] = (dialog.data){
             print(dict["PatientID"]!)
              UserDefaults.standard.setValue(String(describing: dict["PatientID"]!), forKey: userDefaults.selectedPatientID)
-            //UserDefaults.standard.setValue("583d82f2d0e391263667c8d8", forKey: userDefaults.selectedPatientID)
+           
         }
-        
+        else {
+         UserDefaults.standard.setValue("583d82f2d0e391263667c8d8", forKey: userDefaults.selectedPatientID)
+        }
         
         self.performSegue(withIdentifier: "SA_STR_SEGUE_GO_TO_CHAT".localized , sender: dialog)
         

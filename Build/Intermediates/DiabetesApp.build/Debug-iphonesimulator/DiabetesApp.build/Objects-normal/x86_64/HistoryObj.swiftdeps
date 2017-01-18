@@ -6,16 +6,16 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp10HistoryObj", ""]
 provides-dynamic-lookup:
-- "condition"
-- "comment"
-- "created"
-- "reading"
-- "id"
 - "day"
+- "created"
+- "id"
+- "condition"
+- "reading"
+- "comment"
 depends-top-level:
+- "String"
 - "NSObject"
 - "HistoryObj"
-- "String"
 depends-member:
 - ["Ps9AnyObject", "String"]
 - ["Ps9AnyObject", "comment"]

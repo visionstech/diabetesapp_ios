@@ -6,22 +6,22 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp28CarePlanReadingTableViewCell", ""]
 provides-dynamic-lookup:
+- "conditionLbl"
 - "setSelected"
+- "setUI"
+- "mainView"
+- "goalLbl"
 - "numberLbl"
 - "awakeFromNib"
-- "conditionLbl"
-- "mainView"
-- "setUI"
-- "goalLbl"
 depends-top-level:
+- !private "UIColor"
+- "Bool"
 - "CarePlanReadingTableViewCell"
-- !private "CGSize"
-- "UITableViewCell"
 - "UILabel"
 - "UIView"
 - "AssignmentPrecedence"
-- "Bool"
-- !private "UIColor"
+- "UITableViewCell"
+- !private "CGSize"
 depends-member:
 - !private ["Ps9AnyObject", "CGSize"]
 - !private ["Ps9AnyObject", "UIColor"]

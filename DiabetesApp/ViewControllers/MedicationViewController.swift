@@ -104,7 +104,8 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
         if  UserDefaults.standard.string(forKey: userDefaults.selectedPatientID) != nil {
         let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
         let parameters: Parameters = [
-            "userid": patientsID
+//            "userid": patientsID
+            "userid": "58563eb4d9c776ad70491b7b"
         ]
         
         Alamofire.request("\(baseUrl)\(ApiMethods.getcareplan)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in

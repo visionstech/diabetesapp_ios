@@ -9,10 +9,10 @@ provides-dynamic-lookup:
 - "didReceiveMemoryWarning"
 - "viewDidLoad"
 depends-top-level:
-- !private "BooleanLiteralType"
 - "AssignmentPrecedence"
-- "UITabBarController"
 - "HomeTabBarController"
+- "UITabBarController"
+- !private "BooleanLiteralType"
 depends-member:
 - ["Ps9AnyObject", "didReceiveMemoryWarning"]
 - !private ["Ps9AnyObject", "hidesBackButton"]

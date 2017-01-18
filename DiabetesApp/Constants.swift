@@ -20,8 +20,8 @@ let baseUrl: String = "http://54.212.229.198:3000/"
 
 
 
-let conditionsArray : NSArray = ["All conditions","Fasting", "Snacks", "Exercise","Pre Breakfast", "Post Breakfast", "Pre Lunch", "Post Lunch", "Pre Dinner", "Post Dinner", "Bedtime"]
-let frequnecyArray : NSArray = ["1 time a day", "2 times a day", "3 times a day", "4 times a day", "5 times a day"]
+let conditionsArray : NSArray = ["All conditions".localized,"Fasting".localized, "Snacks".localized, "Exercise".localized,"Pre Breakfast".localized, "Post Breakfast".localized, "Pre Lunch".localized, "Post Lunch".localized, "Pre Dinner".localized, "Post Dinner".localized, "Bedtime".localized]
+let frequnecyArray : NSArray = ["1 time a day".localized, "2 times a day".localized, "3 times a day".localized, "4 times a day".localized, "5 times a day".localized]
 
 
 /*  ServicesManager
@@ -69,12 +69,14 @@ struct ViewIdentifiers{
     
     static let dialogsViewController        = "DialogsViewController"
     static let tabBarViewController         = "TabBarView"
+    static let doctorTabBarViewController    = "DoctorTabBarView"
     static let carePlanViewController       = "CarePlanView"
     static let historyViewController        = "HistoryView"
     static let messagesViewController       = "MessagesView"
     static let contactViewController        = "ContactsListView"
     static let chatViewController           = "ChatView"
     static let historyMainViewController    = "HistoryMainView"
+    static let ReportViewController         = "ReportView"
     static let editMedicationViewController = "EditMedicationView"
     
 }
@@ -151,6 +153,10 @@ struct Notifications {
     static let readingView      = "ReadingViewNotification"
     static let addMedication    = "AddMedicationNotification"
     static let noOfDays         = "NoOfDaysNotification"
+    
+    static let ReportListHistoryView = "ReportListHistoryView"
+    static let ReportChartHistoryView = "ReportChartHistoryView"
+    
 }
 
 // MARK: - Colors

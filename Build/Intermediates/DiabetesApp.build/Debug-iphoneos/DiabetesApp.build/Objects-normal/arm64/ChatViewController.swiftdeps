@@ -9,239 +9,240 @@ provides-member:
 - ["C11DiabetesApp18ChatViewController", ""]
 - ["SS", "length"]
 provides-dynamic-lookup:
-- "viewDidAppear"
-- "viewWillAppear"
 - "BackBtn_Click"
-- "chatCell"
-- "chatCell"
-- "chatCell"
 - "viewClass"
-- "messageShouldBeRead"
-- "refreshAndReadMessages"
-- "callWithConferenceType"
-- "sendStopTyping"
-- "textView"
+- "viewDidAppear"
 - "optionsClick"
 - "imagePickerViewController"
-- "didPressSend"
-- "didPressSend"
-- "fireSendStopTypingIfNecessary"
-- "storedMessages"
-- "createCustomTopView"
+- "showCharactersNumberError"
+- "chatCell"
+- "chatCell"
+- "chatCell"
 - "viewDidLoad"
-- "detailedCells"
-- "topBackView"
+- "sendStopTyping"
+- "viewDidDisappear"
 - "sendMessage"
-- "attachmentCellsMap"
-- "updateTitle"
-- "attributedString"
-- "unreadMessages"
-- "statusStringFromMessage"
-- "placeHolderTextView"
-- "dialog"
-- "bottomLabelAttributedString"
-- "getGroupMemberName"
-- "didPickAttachmentImage"
-- "canMakeACall"
-- "collectionView"
-- "collectionView"
-- "collectionView"
-- "collectionView"
-- "collectionView"
-- "collectionView"
-- "collectionView"
-- "chatServiceChatDidReconnect"
-- "willResignActiveBlock"
-- "sendBeginTyping"
-- "sendReadStatusForMessage"
-- "topLabelAttributedString"
-- "handleNotSentMessage"
-- "appDelegate"
-- "occupantID"
-- "chatAttachmentService"
-- "chatAttachmentService"
-- "chatAttachmentService"
-- "chatCellDidTapAvatar"
-- "textViewDidChange"
-- "chatService"
-- "chatService"
-- "chatService"
-- "chatService"
-- "chatService"
-- "chatServiceChatDidConnect"
-- "readMessages"
-- "typingTimer"
-- "videoAudioClick"
-- "selectedUserType"
-- "queueManager"
 - "chatCellDidTapContainer"
 - "viewWillDisappear"
-- "showCharactersNumberError"
-- "textViewDidEndEditing"
-- "deferredQueueManager"
-- "deferredQueueManager"
-- "maxCharactersNumber"
-- "groupMembersArray"
-- "viewDidDisappear"
-- "occupantUser"
+- "dialog"
+- "chatService"
+- "chatService"
+- "chatService"
+- "chatService"
+- "chatService"
+- "attributedString"
+- "getGroupMemberName"
+- "messageShouldBeRead"
+- "didPressSend"
+- "didPressSend"
+- "attachmentCellsMap"
+- "refreshAndReadMessages"
 - "prepare"
+- "updateTitle"
+- "storedMessages"
+- "placeHolderTextView"
+- "willResignActiveBlock"
+- "bottomLabelAttributedString"
+- "chatAttachmentService"
+- "chatAttachmentService"
+- "chatAttachmentService"
+- "collectionView"
+- "collectionView"
+- "collectionView"
+- "collectionView"
+- "collectionView"
+- "collectionView"
+- "collectionView"
+- "textViewDidChange"
+- "chatServiceChatDidConnect"
+- "viewWillAppear"
+- "topLabelAttributedString"
+- "sendBeginTyping"
+- "canMakeACall"
+- "handleNotSentMessage"
+- "queueManager"
+- "topBackView"
+- "typingTimer"
+- "readMessages"
+- "detailedCells"
+- "createCustomTopView"
+- "videoAudioClick"
+- "selectedUserType"
+- "unreadMessages"
+- "chatCellDidTapAvatar"
+- "statusStringFromMessage"
+- "groupMembersArray"
+- "callWithConferenceType"
 - "loadMessages"
+- "sendReadStatusForMessage"
+- "textView"
+- "deferredQueueManager"
+- "deferredQueueManager"
+- "appDelegate"
+- "occupantUser"
+- "maxCharactersNumber"
+- "occupantID"
+- "chatServiceChatDidReconnect"
+- "fireSendStopTypingIfNecessary"
+- "textViewDidEndEditing"
+- "didPickAttachmentImage"
 depends-top-level:
-- !private "NSForegroundColorAttributeName"
-- !private "CTTelephonyNetworkInfo"
-- !private "userType"
-- !private "GeneralLabels"
-- !private "Dictionary"
-- !private "UIGraphicsGetImageFromCurrentImageContext"
-- !private "NSMakeRange"
-- "CGPoint"
-- "UInt"
-- !private "+"
-- !private "NSNotification"
-- "NSAttributedString"
-- "UITextView"
-- !private "BooleanLiteralType"
-- !private ">="
-- !private "NSMutableParagraphStyle"
-- "UIApplication"
-- !private "UIImageJPEGRepresentation"
-- !private "SVProgressHUD"
-- !private "NSTextAttachment"
-- !private "Fonts"
-- "IndexPath"
-- !private "UIAlertActionStyle"
-- !private "SVProgressHUDMaskType"
-- !private "UIScreen"
-- !private "floor"
-- !private "TTTAttributedLabel"
-- !private "UIAlertController"
-- !private "UIBarButtonItem"
-- !private "-"
-- "ChatViewController"
-- !private "NSLineBreakMode"
-- !private "VideoAudioCall"
-- !private "QMChatIncomingCell"
-- "QBChatAttachment"
-- "Array"
-- !private "UIPasteboard"
-- "UICollectionView"
-- !private "UITapGestureRecognizer"
-- !private "QBChat"
-- !private "DispatchQueue"
-- "Selector"
-- "NSMutableArray"
-- !private "NSParagraphStyleAttributeName"
-- "QMPlaceHolderTextView"
-- !private "UIAlertAction"
-- !private "UIImagePickerControllerSourceType"
-- !private "QBMPushMessage"
-- "UICollectionViewCell"
-- !private "!="
-- "QMChatViewController"
+- !private "QMChatAttachmentOutgoingCell"
+- !private "UIImageView"
 - "UIView"
-- !private "NSString"
-- !private "URL"
-- "CGSize"
-- "TernaryPrecedence"
-- !private "ChatInfo"
-- !private "QBRTCClient"
-- "AnyClass"
-- !private "ceil"
-- !private "QMChatOutgoingCell"
-- !private "<"
-- !private "Colors"
-- "QMChatCollectionView"
+- !private "!="
+- !private "NSPointerFunctions"
+- !private "UIAlertActionStyle"
+- !private "UIGraphicsEndImageContext"
+- !private "NSMutableParagraphStyle"
 - "QMChatCell"
 - "NSMapTable"
-- !private "QBChatDialogType"
-- !private "NSMutableString"
-- "QBChatDialog"
-- "UIImagePickerController"
-- !private "=="
-- "AssignmentPrecedence"
-- "CastingPrecedence"
-- !private "QMChatAttachmentOutgoingCell"
-- "String"
-- "UIButton"
-- !private "UIGraphicsEndImageContext"
-- !private "CGRect"
-- !private "~="
-- "QMChatAttachmentServiceDelegate"
-- "NSTextCheckingResult"
-- "QMChatAttachmentService"
-- "UINavigationControllerDelegate"
-- !private "&&"
-- "UIImagePickerControllerDelegate"
-- !private "print"
-- !private "QMChatContactRequestCell"
-- !private "HistoryMainViewController"
-- !private "||"
-- "QMPlaceHolderTextViewPasteDelegate"
-- "Timer"
-- "userDefaults"
-- !private "kMessageContainerWidthPadding"
-- "QMDeferredQueueManagerDelegate"
-- "UIImage"
-- "QMChatCellDelegate"
-- "Date"
-- !private "NSMutableDictionary"
-- !private "ServicesManager"
-- "UserDefaults"
-- !private "==="
-- !private "QMChatAttachmentCell"
-- !private "/"
-- !private "UIColor"
-- "Int"
-- "UIStoryboardSegue"
-- !private "UIImageView"
-- !private "QMChatNotificationCell"
-- "QBChatMessage"
-- "UIActionSheetDelegate"
-- "messageTimeDateFormatter"
-- !private "QMMessageNotificationManager"
-- !private "QMMessageStatus"
-- "DateFormatter"
-- !private "CarePlanMainViewController"
-- "CGFloat"
-- !private "..<"
-- !private "QBRequest"
-- !private "QMMessageNotificationType"
-- !private "Error"
-- "QMChatService"
-- !private "QBSession"
-- "QBRTCConferenceType"
-- !private ">"
-- !private "!"
-- !private "QBAVCallPermissions"
-- !private "QMChatAttachmentIncomingCell"
+- !private "QMChatOutgoingCell"
+- "UInt"
+- "IndexPath"
 - !private "UnicodeScalarType"
-- !private "min"
-- !private "NSTextCheckingAllTypes"
-- !private "+="
-- "AppDelegate"
-- "QMChatCellLayoutModel"
-- "QMChatServiceDelegate"
-- "QMDeferredQueueManager"
-- "QMMessageAttachmentStatus"
-- !private "SFSafariViewController"
-- "QMChatConnectionDelegate"
-- !private "<="
-- !private "NotificationCenter"
-- "Void"
-- !private "CallViewController"
-- !private "NSPointerFunctions"
-- !private "NSFontAttributeName"
-- !private "NSNumber"
-- "NSRange"
-- !private "UIGraphicsBeginImageContext"
-- !private "UILabel"
-- "Bool"
-- !private "??"
-- "AnyObject"
-- "Set"
-- "QBUUser"
-- !private "ViewIdentifiers"
+- "Array"
+- "String"
+- "QMChatAttachmentService"
+- !private "Dictionary"
+- !private "-"
 - !private "UIBarButtonItemStyle"
+- !private "DispatchQueue"
+- !private "NSLineBreakMode"
+- !private "TTTAttributedLabel"
+- "QMChatServiceDelegate"
+- !private "UIAlertAction"
+- "QBRTCConferenceType"
+- "QMChatConnectionDelegate"
+- "CGFloat"
+- !private "SVProgressHUDMaskType"
+- !private "CTTelephonyNetworkInfo"
+- !private "NSMakeRange"
+- "QBChatAttachment"
+- !private "GeneralLabels"
+- !private ">="
+- !private "UIGraphicsGetImageFromCurrentImageContext"
+- !private "UIImageJPEGRepresentation"
+- !private "QBMPushMessage"
+- "Selector"
+- "NSRange"
+- !private "NSParagraphStyleAttributeName"
+- !private "ServicesManager"
+- !private "SVProgressHUD"
+- !private "QBRequest"
+- "UIImagePickerController"
+- "QMDeferredQueueManager"
+- "UIButton"
+- !private "QMMessageStatus"
+- "Void"
+- "userDefaults"
+- !private ">"
+- !private "CarePlanMainViewController"
+- !private "HistoryMainViewController"
+- "AnyClass"
+- "UICollectionView"
+- "TernaryPrecedence"
+- !private "+="
+- "QMChatCollectionView"
+- !private "UITapGestureRecognizer"
+- !private "QBChat"
+- "QBChatDialog"
+- "UITextView"
+- "UIImage"
+- "AssignmentPrecedence"
+- !private "Colors"
+- !private "UIColor"
+- "CastingPrecedence"
+- !private "UIPasteboard"
+- !private "ChatInfo"
+- "QMPlaceHolderTextView"
+- !private "=="
+- !private "NSTextAttachment"
+- "UICollectionViewCell"
+- !private "ceil"
+- !private "~="
+- "CGPoint"
+- "Timer"
+- "QMChatService"
+- !private "print"
+- "DateFormatter"
+- !private "kMessageContainerWidthPadding"
+- !private "NSFontAttributeName"
+- !private "<"
+- !private "min"
+- !private "QMMessageNotificationType"
+- "UINavigationControllerDelegate"
+- "ChatViewController"
+- !private "NSMutableString"
+- "QMChatAttachmentServiceDelegate"
+- !private "BooleanLiteralType"
+- !private "QMMessageNotificationManager"
+- "UIActionSheetDelegate"
+- "UIImagePickerControllerDelegate"
+- !private "ViewIdentifiers"
+- !private "||"
+- "Int"
+- !private "==="
+- "NSTextCheckingResult"
+- !private "QMChatAttachmentCell"
+- !private "floor"
+- "QMChatViewController"
+- !private "!"
+- "UserDefaults"
+- !private "NSTextCheckingAllTypes"
+- !private "Fonts"
+- !private "NSMutableDictionary"
+- !private "CallViewController"
+- !private "QMChatNotificationCell"
+- !private "VideoAudioCall"
+- !private "Error"
+- "AnyObject"
+- "NSMutableArray"
+- "QMChatCellLayoutModel"
+- "Bool"
+- !private "NSNotification"
+- "UIStoryboardSegue"
+- "QBChatMessage"
+- "messageTimeDateFormatter"
+- "Date"
+- !private "NSString"
+- !private "..<"
+- !private "/"
+- !private "QMChatIncomingCell"
+- "AppDelegate"
+- !private "URL"
+- !private "QBRTCClient"
+- !private "QBAVCallPermissions"
+- "UIApplication"
+- !private "QMChatAttachmentIncomingCell"
+- !private "UIUserInterfaceLayoutDirection"
+- !private "NSNumber"
+- !private "QBSession"
+- !private "UIImagePickerControllerSourceType"
+- "QBUUser"
+- "Set"
+- !private "userType"
+- !private "UILabel"
+- !private "QBChatDialogType"
+- !private "QMChatContactRequestCell"
+- "QMMessageAttachmentStatus"
+- "QMDeferredQueueManagerDelegate"
+- "CGSize"
+- "QMPlaceHolderTextViewPasteDelegate"
+- !private "NotificationCenter"
+- !private "UIBarButtonItem"
+- !private "UIGraphicsBeginImageContext"
+- !private "<="
+- !private "CGRect"
+- "QMChatCellDelegate"
+- !private "SFSafariViewController"
+- !private "+"
+- !private "??"
+- !private "UIScreen"
+- !private "NSForegroundColorAttributeName"
+- !private "UIAlertController"
+- "NSAttributedString"
+- !private "&&"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "Stride"]
 - !private ["Ps16AbsoluteValuable", "greatestFiniteMagnitude"]
@@ -327,6 +328,7 @@ depends-member:
 - !private ["Ps9AnyObject", "UIPasteboard"]
 - !private ["Ps9AnyObject", "UIScreen"]
 - !private ["Ps9AnyObject", "UITapGestureRecognizer"]
+- !private ["Ps9AnyObject", "UIUserInterfaceLayoutDirection"]
 - ["Ps9AnyObject", "UIView"]
 - !private ["Ps9AnyObject", "UInt"]
 - !private ["Ps9AnyObject", "URL"]
@@ -449,6 +451,7 @@ depends-member:
 - !private ["Ps9AnyObject", "isUserInteractionEnabled"]
 - !private ["Ps9AnyObject", "kMessageContainerWidthPadding"]
 - !private ["Ps9AnyObject", "keyEnumerator"]
+- !private ["Ps9AnyObject", "leftBarButtonItems"]
 - !private ["Ps9AnyObject", "length"]
 - !private ["Ps9AnyObject", "lineBreakMode"]
 - !private ["Ps9AnyObject", "loadEarlierMessages"]
@@ -577,6 +580,7 @@ depends-member:
 - !private ["Ps9AnyObject", "user"]
 - ["Ps9AnyObject", "userDefaults"]
 - !private ["Ps9AnyObject", "userID"]
+- !private ["Ps9AnyObject", "userInterfaceLayoutDirection"]
 - !private ["Ps9AnyObject", "userType"]
 - !private ["Ps9AnyObject", "usersMemoryStorage"]
 - !private ["Ps9AnyObject", "usersService"]
@@ -786,6 +790,7 @@ depends-member:
 - !private ["Ps7CVarArg", "UIPasteboard"]
 - !private ["Ps7CVarArg", "UIScreen"]
 - !private ["Ps7CVarArg", "UITapGestureRecognizer"]
+- !private ["Ps7CVarArg", "UIUserInterfaceLayoutDirection"]
 - ["Ps7CVarArg", "UIView"]
 - !private ["Ps7CVarArg", "UInt"]
 - !private ["Ps7CVarArg", "URL"]
@@ -914,6 +919,7 @@ depends-member:
 - !private ["Ps7CVarArg", "joined"]
 - !private ["Ps7CVarArg", "kMessageContainerWidthPadding"]
 - !private ["Ps7CVarArg", "keyEnumerator"]
+- !private ["Ps7CVarArg", "leftBarButtonItems"]
 - !private ["Ps7CVarArg", "length"]
 - !private ["Ps7CVarArg", "lineBreakMode"]
 - !private ["Ps7CVarArg", "loadEarlierMessages"]
@@ -1041,6 +1047,7 @@ depends-member:
 - !private ["Ps7CVarArg", "user"]
 - ["Ps7CVarArg", "userDefaults"]
 - !private ["Ps7CVarArg", "userID"]
+- !private ["Ps7CVarArg", "userInterfaceLayoutDirection"]
 - !private ["Ps7CVarArg", "userType"]
 - !private ["Ps7CVarArg", "usersMemoryStorage"]
 - !private ["Ps7CVarArg", "usersService"]
@@ -1175,6 +1182,7 @@ depends-member:
 - ["C11DiabetesApp18ChatViewController", "UIStoryboardSegue"]
 - !private ["C11DiabetesApp18ChatViewController", "UITapGestureRecognizer"]
 - ["C11DiabetesApp18ChatViewController", "UITextView"]
+- !private ["C11DiabetesApp18ChatViewController", "UIUserInterfaceLayoutDirection"]
 - ["C11DiabetesApp18ChatViewController", "UIView"]
 - ["C11DiabetesApp18ChatViewController", "UInt"]
 - !private ["C11DiabetesApp18ChatViewController", "URL"]
@@ -1408,6 +1416,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "UIPasteboard"]
 - !private ["Ps28CustomDebugStringConvertible", "UIScreen"]
 - !private ["Ps28CustomDebugStringConvertible", "UITapGestureRecognizer"]
+- !private ["Ps28CustomDebugStringConvertible", "UIUserInterfaceLayoutDirection"]
 - ["Ps28CustomDebugStringConvertible", "UIView"]
 - !private ["Ps28CustomDebugStringConvertible", "UInt"]
 - !private ["Ps28CustomDebugStringConvertible", "URL"]
@@ -1537,6 +1546,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "joined"]
 - !private ["Ps28CustomDebugStringConvertible", "kMessageContainerWidthPadding"]
 - !private ["Ps28CustomDebugStringConvertible", "keyEnumerator"]
+- !private ["Ps28CustomDebugStringConvertible", "leftBarButtonItems"]
 - !private ["Ps28CustomDebugStringConvertible", "length"]
 - !private ["Ps28CustomDebugStringConvertible", "lineBreakMode"]
 - !private ["Ps28CustomDebugStringConvertible", "loadEarlierMessages"]
@@ -1666,6 +1676,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "user"]
 - ["Ps28CustomDebugStringConvertible", "userDefaults"]
 - !private ["Ps28CustomDebugStringConvertible", "userID"]
+- !private ["Ps28CustomDebugStringConvertible", "userInterfaceLayoutDirection"]
 - !private ["Ps28CustomDebugStringConvertible", "userType"]
 - !private ["Ps28CustomDebugStringConvertible", "usersMemoryStorage"]
 - !private ["Ps28CustomDebugStringConvertible", "usersService"]
@@ -1834,6 +1845,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "UIPasteboard"]
 - !private ["Ps23CustomStringConvertible", "UIScreen"]
 - !private ["Ps23CustomStringConvertible", "UITapGestureRecognizer"]
+- !private ["Ps23CustomStringConvertible", "UIUserInterfaceLayoutDirection"]
 - ["Ps23CustomStringConvertible", "UIView"]
 - !private ["Ps23CustomStringConvertible", "UInt"]
 - !private ["Ps23CustomStringConvertible", "URL"]
@@ -1965,6 +1977,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "joined"]
 - !private ["Ps23CustomStringConvertible", "kMessageContainerWidthPadding"]
 - !private ["Ps23CustomStringConvertible", "keyEnumerator"]
+- !private ["Ps23CustomStringConvertible", "leftBarButtonItems"]
 - !private ["Ps23CustomStringConvertible", "length"]
 - !private ["Ps23CustomStringConvertible", "lineBreakMode"]
 - !private ["Ps23CustomStringConvertible", "loadEarlierMessages"]
@@ -2094,6 +2107,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "user"]
 - ["Ps23CustomStringConvertible", "userDefaults"]
 - !private ["Ps23CustomStringConvertible", "userID"]
+- !private ["Ps23CustomStringConvertible", "userInterfaceLayoutDirection"]
 - !private ["Ps23CustomStringConvertible", "userType"]
 - !private ["Ps23CustomStringConvertible", "usersMemoryStorage"]
 - !private ["Ps23CustomStringConvertible", "usersService"]
@@ -2219,6 +2233,7 @@ depends-member:
 - !private ["Ps9Equatable", "UIPasteboard"]
 - !private ["Ps9Equatable", "UIScreen"]
 - !private ["Ps9Equatable", "UITapGestureRecognizer"]
+- !private ["Ps9Equatable", "UIUserInterfaceLayoutDirection"]
 - ["Ps9Equatable", "UIView"]
 - !private ["Ps9Equatable", "UInt"]
 - !private ["Ps9Equatable", "URL"]
@@ -2358,6 +2373,7 @@ depends-member:
 - !private ["Ps9Equatable", "item"]
 - !private ["Ps9Equatable", "kMessageContainerWidthPadding"]
 - !private ["Ps9Equatable", "keyEnumerator"]
+- !private ["Ps9Equatable", "leftBarButtonItems"]
 - !private ["Ps9Equatable", "length"]
 - !private ["Ps9Equatable", "lineBreakMode"]
 - !private ["Ps9Equatable", "link"]
@@ -2432,6 +2448,7 @@ depends-member:
 - !private ["Ps9Equatable", "result"]
 - !private ["Ps9Equatable", "resultType"]
 - !private ["Ps9Equatable", "rightBarButtonItems"]
+- !private ["Ps9Equatable", "rightToLeft"]
 - !private ["Ps9Equatable", "scheduledTimer"]
 - !private ["Ps9Equatable", "section"]
 - ["Ps9Equatable", "selectedUserType"]
@@ -2496,6 +2513,7 @@ depends-member:
 - !private ["Ps9Equatable", "user"]
 - ["Ps9Equatable", "userDefaults"]
 - !private ["Ps9Equatable", "userID"]
+- !private ["Ps9Equatable", "userInterfaceLayoutDirection"]
 - !private ["Ps9Equatable", "userType"]
 - !private ["Ps9Equatable", "usersMemoryStorage"]
 - !private ["Ps9Equatable", "usersService"]
@@ -2705,6 +2723,7 @@ depends-member:
 - !private ["Ps8Hashable", "UIPasteboard"]
 - !private ["Ps8Hashable", "UIScreen"]
 - !private ["Ps8Hashable", "UITapGestureRecognizer"]
+- !private ["Ps8Hashable", "UIUserInterfaceLayoutDirection"]
 - ["Ps8Hashable", "UIView"]
 - !private ["Ps8Hashable", "UInt"]
 - !private ["Ps8Hashable", "URL"]
@@ -2843,6 +2862,7 @@ depends-member:
 - !private ["Ps8Hashable", "item"]
 - !private ["Ps8Hashable", "kMessageContainerWidthPadding"]
 - !private ["Ps8Hashable", "keyEnumerator"]
+- !private ["Ps8Hashable", "leftBarButtonItems"]
 - !private ["Ps8Hashable", "length"]
 - !private ["Ps8Hashable", "lineBreakMode"]
 - !private ["Ps8Hashable", "loadEarlierMessages"]
@@ -2915,6 +2935,7 @@ depends-member:
 - !private ["Ps8Hashable", "result"]
 - !private ["Ps8Hashable", "resultType"]
 - !private ["Ps8Hashable", "rightBarButtonItems"]
+- !private ["Ps8Hashable", "rightToLeft"]
 - !private ["Ps8Hashable", "scheduledTimer"]
 - !private ["Ps8Hashable", "section"]
 - ["Ps8Hashable", "selectedUserType"]
@@ -2978,6 +2999,7 @@ depends-member:
 - !private ["Ps8Hashable", "user"]
 - ["Ps8Hashable", "userDefaults"]
 - !private ["Ps8Hashable", "userID"]
+- !private ["Ps8Hashable", "userInterfaceLayoutDirection"]
 - !private ["Ps8Hashable", "userType"]
 - !private ["Ps8Hashable", "usersMemoryStorage"]
 - !private ["Ps8Hashable", "usersService"]
@@ -3200,6 +3222,7 @@ depends-member:
 - !private ["PSo8NSCoding", "UIPasteboard"]
 - !private ["PSo8NSCoding", "UIScreen"]
 - !private ["PSo8NSCoding", "UITapGestureRecognizer"]
+- !private ["PSo8NSCoding", "UIUserInterfaceLayoutDirection"]
 - ["PSo8NSCoding", "UIView"]
 - !private ["PSo8NSCoding", "UInt"]
 - !private ["PSo8NSCoding", "URL"]
@@ -3301,6 +3324,7 @@ depends-member:
 - !private ["PSo8NSCoding", "isUserInteractionEnabled"]
 - !private ["PSo8NSCoding", "kMessageContainerWidthPadding"]
 - !private ["PSo8NSCoding", "keyEnumerator"]
+- !private ["PSo8NSCoding", "leftBarButtonItems"]
 - !private ["PSo8NSCoding", "length"]
 - !private ["PSo8NSCoding", "lineBreakMode"]
 - ["PSo8NSCoding", "loadMessages"]
@@ -3562,6 +3586,7 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "UIPasteboard"]
 - !private ["PSo26NSExtensionRequestHandling", "UIScreen"]
 - !private ["PSo26NSExtensionRequestHandling", "UITapGestureRecognizer"]
+- !private ["PSo26NSExtensionRequestHandling", "UIUserInterfaceLayoutDirection"]
 - ["PSo26NSExtensionRequestHandling", "UIView"]
 - !private ["PSo26NSExtensionRequestHandling", "UInt"]
 - !private ["PSo26NSExtensionRequestHandling", "URL"]
@@ -3871,6 +3896,7 @@ depends-member:
 - ["CSo8NSObject", "UIStoryboardSegue"]
 - !private ["CSo8NSObject", "UITapGestureRecognizer"]
 - ["CSo8NSObject", "UITextView"]
+- !private ["CSo8NSObject", "UIUserInterfaceLayoutDirection"]
 - ["CSo8NSObject", "UIView"]
 - ["CSo8NSObject", "UInt"]
 - !private ["CSo8NSObject", "URL"]
@@ -3993,6 +4019,7 @@ depends-member:
 - !private ["CSo8NSObject", "isUserInteractionEnabled"]
 - !private ["CSo8NSObject", "kMessageContainerWidthPadding"]
 - !private ["CSo8NSObject", "keyEnumerator"]
+- !private ["CSo8NSObject", "leftBarButtonItems"]
 - !private ["CSo8NSObject", "length"]
 - !private ["CSo8NSObject", "lineBreakMode"]
 - !private ["CSo8NSObject", "loadEarlierMessages"]
@@ -4120,6 +4147,7 @@ depends-member:
 - !private ["CSo8NSObject", "user"]
 - ["CSo8NSObject", "userDefaults"]
 - !private ["CSo8NSObject", "userID"]
+- !private ["CSo8NSObject", "userInterfaceLayoutDirection"]
 - !private ["CSo8NSObject", "userType"]
 - !private ["CSo8NSObject", "usersMemoryStorage"]
 - !private ["CSo8NSObject", "usersService"]
@@ -4218,6 +4246,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "UIPasteboard"]
 - !private ["PSo16NSObjectProtocol", "UIScreen"]
 - !private ["PSo16NSObjectProtocol", "UITapGestureRecognizer"]
+- !private ["PSo16NSObjectProtocol", "UIUserInterfaceLayoutDirection"]
 - ["PSo16NSObjectProtocol", "UIView"]
 - !private ["PSo16NSObjectProtocol", "UInt"]
 - !private ["PSo16NSObjectProtocol", "URL"]
@@ -4341,6 +4370,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "isUserInteractionEnabled"]
 - !private ["PSo16NSObjectProtocol", "kMessageContainerWidthPadding"]
 - !private ["PSo16NSObjectProtocol", "keyEnumerator"]
+- !private ["PSo16NSObjectProtocol", "leftBarButtonItems"]
 - !private ["PSo16NSObjectProtocol", "length"]
 - !private ["PSo16NSObjectProtocol", "lineBreakMode"]
 - !private ["PSo16NSObjectProtocol", "loadEarlierMessages"]
@@ -4469,6 +4499,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "user"]
 - ["PSo16NSObjectProtocol", "userDefaults"]
 - !private ["PSo16NSObjectProtocol", "userID"]
+- !private ["PSo16NSObjectProtocol", "userInterfaceLayoutDirection"]
 - !private ["PSo16NSObjectProtocol", "userType"]
 - !private ["PSo16NSObjectProtocol", "usersMemoryStorage"]
 - !private ["PSo16NSObjectProtocol", "usersService"]
@@ -4737,6 +4768,7 @@ depends-member:
 - !private ["PSo31QMChatAttachmentServiceDelegate", "UIPasteboard"]
 - !private ["PSo31QMChatAttachmentServiceDelegate", "UIScreen"]
 - !private ["PSo31QMChatAttachmentServiceDelegate", "UITapGestureRecognizer"]
+- !private ["PSo31QMChatAttachmentServiceDelegate", "UIUserInterfaceLayoutDirection"]
 - ["PSo31QMChatAttachmentServiceDelegate", "UIView"]
 - !private ["PSo31QMChatAttachmentServiceDelegate", "UInt"]
 - !private ["PSo31QMChatAttachmentServiceDelegate", "URL"]
@@ -4910,6 +4942,7 @@ depends-member:
 - !private ["PSo18QMChatCellDelegate", "UIPasteboard"]
 - !private ["PSo18QMChatCellDelegate", "UIScreen"]
 - !private ["PSo18QMChatCellDelegate", "UITapGestureRecognizer"]
+- !private ["PSo18QMChatCellDelegate", "UIUserInterfaceLayoutDirection"]
 - ["PSo18QMChatCellDelegate", "UIView"]
 - !private ["PSo18QMChatCellDelegate", "UInt"]
 - !private ["PSo18QMChatCellDelegate", "URL"]
@@ -5089,6 +5122,7 @@ depends-member:
 - !private ["PSo30QMChatCollectionViewDataSource", "UIPasteboard"]
 - !private ["PSo30QMChatCollectionViewDataSource", "UIScreen"]
 - !private ["PSo30QMChatCollectionViewDataSource", "UITapGestureRecognizer"]
+- !private ["PSo30QMChatCollectionViewDataSource", "UIUserInterfaceLayoutDirection"]
 - ["PSo30QMChatCollectionViewDataSource", "UIView"]
 - !private ["PSo30QMChatCollectionViewDataSource", "UInt"]
 - !private ["PSo30QMChatCollectionViewDataSource", "URL"]
@@ -5271,6 +5305,7 @@ depends-member:
 - !private ["PSo38QMChatCollectionViewDelegateFlowLayout", "UIPasteboard"]
 - !private ["PSo38QMChatCollectionViewDelegateFlowLayout", "UIScreen"]
 - !private ["PSo38QMChatCollectionViewDelegateFlowLayout", "UITapGestureRecognizer"]
+- !private ["PSo38QMChatCollectionViewDelegateFlowLayout", "UIUserInterfaceLayoutDirection"]
 - ["PSo38QMChatCollectionViewDelegateFlowLayout", "UIView"]
 - !private ["PSo38QMChatCollectionViewDelegateFlowLayout", "UInt"]
 - !private ["PSo38QMChatCollectionViewDelegateFlowLayout", "URL"]
@@ -5454,6 +5489,7 @@ depends-member:
 - !private ["PSo24QMChatConnectionDelegate", "UIPasteboard"]
 - !private ["PSo24QMChatConnectionDelegate", "UIScreen"]
 - !private ["PSo24QMChatConnectionDelegate", "UITapGestureRecognizer"]
+- !private ["PSo24QMChatConnectionDelegate", "UIUserInterfaceLayoutDirection"]
 - ["PSo24QMChatConnectionDelegate", "UIView"]
 - !private ["PSo24QMChatConnectionDelegate", "UInt"]
 - !private ["PSo24QMChatConnectionDelegate", "URL"]
@@ -5665,6 +5701,7 @@ depends-member:
 - !private ["PSo21QMChatServiceDelegate", "UIPasteboard"]
 - !private ["PSo21QMChatServiceDelegate", "UIScreen"]
 - !private ["PSo21QMChatServiceDelegate", "UITapGestureRecognizer"]
+- !private ["PSo21QMChatServiceDelegate", "UIUserInterfaceLayoutDirection"]
 - ["PSo21QMChatServiceDelegate", "UIView"]
 - !private ["PSo21QMChatServiceDelegate", "UInt"]
 - !private ["PSo21QMChatServiceDelegate", "URL"]
@@ -5870,6 +5907,7 @@ depends-member:
 - ["CSo20QMChatViewController", "UIStoryboardSegue"]
 - !private ["CSo20QMChatViewController", "UITapGestureRecognizer"]
 - ["CSo20QMChatViewController", "UITextView"]
+- !private ["CSo20QMChatViewController", "UIUserInterfaceLayoutDirection"]
 - ["CSo20QMChatViewController", "UIView"]
 - ["CSo20QMChatViewController", "UInt"]
 - !private ["CSo20QMChatViewController", "URL"]
@@ -6060,6 +6098,7 @@ depends-member:
 - !private ["PSo30QMDeferredQueueManagerDelegate", "UIPasteboard"]
 - !private ["PSo30QMDeferredQueueManagerDelegate", "UIScreen"]
 - !private ["PSo30QMDeferredQueueManagerDelegate", "UITapGestureRecognizer"]
+- !private ["PSo30QMDeferredQueueManagerDelegate", "UIUserInterfaceLayoutDirection"]
 - ["PSo30QMDeferredQueueManagerDelegate", "UIView"]
 - !private ["PSo30QMDeferredQueueManagerDelegate", "UInt"]
 - !private ["PSo30QMDeferredQueueManagerDelegate", "URL"]
@@ -6263,6 +6302,7 @@ depends-member:
 - !private ["PSo34QMPlaceHolderTextViewPasteDelegate", "UIPasteboard"]
 - !private ["PSo34QMPlaceHolderTextViewPasteDelegate", "UIScreen"]
 - !private ["PSo34QMPlaceHolderTextViewPasteDelegate", "UITapGestureRecognizer"]
+- !private ["PSo34QMPlaceHolderTextViewPasteDelegate", "UIUserInterfaceLayoutDirection"]
 - ["PSo34QMPlaceHolderTextViewPasteDelegate", "UIView"]
 - !private ["PSo34QMPlaceHolderTextViewPasteDelegate", "UInt"]
 - !private ["PSo34QMPlaceHolderTextViewPasteDelegate", "URL"]
@@ -6461,6 +6501,7 @@ depends-member:
 - !private ["Ps16RawRepresentable", "phoneNumber"]
 - !private ["Ps16RawRepresentable", "plain"]
 - !private ["Ps16RawRepresentable", "private"]
+- !private ["Ps16RawRepresentable", "rightToLeft"]
 - ["Ps16RawRepresentable", "sending"]
 - ["Ps16RawRepresentable", "sent"]
 - !private ["Ps16RawRepresentable", "strongMemory"]
@@ -6690,6 +6731,7 @@ depends-member:
 - !private ["PSo21UIActionSheetDelegate", "UIPasteboard"]
 - !private ["PSo21UIActionSheetDelegate", "UIScreen"]
 - !private ["PSo21UIActionSheetDelegate", "UITapGestureRecognizer"]
+- !private ["PSo21UIActionSheetDelegate", "UIUserInterfaceLayoutDirection"]
 - ["PSo21UIActionSheetDelegate", "UIView"]
 - !private ["PSo21UIActionSheetDelegate", "UInt"]
 - !private ["PSo21UIActionSheetDelegate", "URL"]
@@ -6909,6 +6951,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "UIPasteboard"]
 - !private ["PSo21UIAppearanceContainer", "UIScreen"]
 - !private ["PSo21UIAppearanceContainer", "UITapGestureRecognizer"]
+- !private ["PSo21UIAppearanceContainer", "UIUserInterfaceLayoutDirection"]
 - ["PSo21UIAppearanceContainer", "UIView"]
 - !private ["PSo21UIAppearanceContainer", "UInt"]
 - !private ["PSo21UIAppearanceContainer", "URL"]
@@ -7065,6 +7108,7 @@ depends-member:
 - !private ["CSo13UIApplication", "openURL"]
 - ["CSo13UIApplication", "shared"]
 - !private ["CSo13UIApplication", "statusBarFrame"]
+- !private ["CSo13UIApplication", "userInterfaceLayoutDirection"]
 - !private ["PSo21UIApplicationDelegate", "currentUser"]
 - !private ["PSo21UIApplicationDelegate", "session"]
 - ["CSo15UIBarButtonItem", "deinit"]
@@ -7169,6 +7213,7 @@ depends-member:
 - !private ["PSo26UICollectionViewDataSource", "UIPasteboard"]
 - !private ["PSo26UICollectionViewDataSource", "UIScreen"]
 - !private ["PSo26UICollectionViewDataSource", "UITapGestureRecognizer"]
+- !private ["PSo26UICollectionViewDataSource", "UIUserInterfaceLayoutDirection"]
 - ["PSo26UICollectionViewDataSource", "UIView"]
 - !private ["PSo26UICollectionViewDataSource", "UInt"]
 - !private ["PSo26UICollectionViewDataSource", "URL"]
@@ -7351,6 +7396,7 @@ depends-member:
 - !private ["PSo24UICollectionViewDelegate", "UIPasteboard"]
 - !private ["PSo24UICollectionViewDelegate", "UIScreen"]
 - !private ["PSo24UICollectionViewDelegate", "UITapGestureRecognizer"]
+- !private ["PSo24UICollectionViewDelegate", "UIUserInterfaceLayoutDirection"]
 - ["PSo24UICollectionViewDelegate", "UIView"]
 - !private ["PSo24UICollectionViewDelegate", "UInt"]
 - !private ["PSo24UICollectionViewDelegate", "URL"]
@@ -7533,6 +7579,7 @@ depends-member:
 - !private ["PSo34UICollectionViewDelegateFlowLayout", "UIPasteboard"]
 - !private ["PSo34UICollectionViewDelegateFlowLayout", "UIScreen"]
 - !private ["PSo34UICollectionViewDelegateFlowLayout", "UITapGestureRecognizer"]
+- !private ["PSo34UICollectionViewDelegateFlowLayout", "UIUserInterfaceLayoutDirection"]
 - ["PSo34UICollectionViewDelegateFlowLayout", "UIView"]
 - !private ["PSo34UICollectionViewDelegateFlowLayout", "UInt"]
 - !private ["PSo34UICollectionViewDelegateFlowLayout", "URL"]
@@ -7722,6 +7769,7 @@ depends-member:
 - !private ["PSo18UIContentContainer", "UIPasteboard"]
 - !private ["PSo18UIContentContainer", "UIScreen"]
 - !private ["PSo18UIContentContainer", "UITapGestureRecognizer"]
+- !private ["PSo18UIContentContainer", "UIUserInterfaceLayoutDirection"]
 - ["PSo18UIContentContainer", "UIView"]
 - !private ["PSo18UIContentContainer", "UInt"]
 - !private ["PSo18UIContentContainer", "URL"]
@@ -7993,6 +8041,7 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "UIPasteboard"]
 - !private ["PSo18UIFocusEnvironment", "UIScreen"]
 - !private ["PSo18UIFocusEnvironment", "UITapGestureRecognizer"]
+- !private ["PSo18UIFocusEnvironment", "UIUserInterfaceLayoutDirection"]
 - ["PSo18UIFocusEnvironment", "UIView"]
 - !private ["PSo18UIFocusEnvironment", "UInt"]
 - !private ["PSo18UIFocusEnvironment", "URL"]
@@ -8266,6 +8315,7 @@ depends-member:
 - !private ["PSo31UIImagePickerControllerDelegate", "UIPasteboard"]
 - !private ["PSo31UIImagePickerControllerDelegate", "UIScreen"]
 - !private ["PSo31UIImagePickerControllerDelegate", "UITapGestureRecognizer"]
+- !private ["PSo31UIImagePickerControllerDelegate", "UIUserInterfaceLayoutDirection"]
 - ["PSo31UIImagePickerControllerDelegate", "UIView"]
 - !private ["PSo31UIImagePickerControllerDelegate", "UInt"]
 - !private ["PSo31UIImagePickerControllerDelegate", "URL"]
@@ -8465,6 +8515,7 @@ depends-member:
 - !private ["PSo30UINavigationControllerDelegate", "UIPasteboard"]
 - !private ["PSo30UINavigationControllerDelegate", "UIScreen"]
 - !private ["PSo30UINavigationControllerDelegate", "UITapGestureRecognizer"]
+- !private ["PSo30UINavigationControllerDelegate", "UIUserInterfaceLayoutDirection"]
 - ["PSo30UINavigationControllerDelegate", "UIView"]
 - !private ["PSo30UINavigationControllerDelegate", "UInt"]
 - !private ["PSo30UINavigationControllerDelegate", "URL"]
@@ -8562,6 +8613,7 @@ depends-member:
 - !private ["CSo16UINavigationItem", "backBarButtonItem"]
 - ["CSo16UINavigationItem", "deinit"]
 - !private ["CSo16UINavigationItem", "hidesBackButton"]
+- !private ["CSo16UINavigationItem", "leftBarButtonItems"]
 - !private ["CSo16UINavigationItem", "rightBarButtonItems"]
 - !private ["CSo16UINavigationItem", "title"]
 - ["CSo12UIPasteboard", "deinit"]
@@ -8680,6 +8732,7 @@ depends-member:
 - ["CSo11UIResponder", "UIStoryboardSegue"]
 - !private ["CSo11UIResponder", "UITapGestureRecognizer"]
 - ["CSo11UIResponder", "UITextView"]
+- !private ["CSo11UIResponder", "UIUserInterfaceLayoutDirection"]
 - ["CSo11UIResponder", "UIView"]
 - ["CSo11UIResponder", "UInt"]
 - !private ["CSo11UIResponder", "URL"]
@@ -8820,6 +8873,7 @@ depends-member:
 - !private ["CSo11UIResponder", "updateConstraints"]
 - ["CSo11UIResponder", "updateTitle"]
 - ["CSo11UIResponder", "userDefaults"]
+- !private ["CSo11UIResponder", "userInterfaceLayoutDirection"]
 - !private ["CSo11UIResponder", "userType"]
 - ["CSo11UIResponder", "videoAudioClick"]
 - !private ["CSo11UIResponder", "view"]
@@ -8908,6 +8962,7 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "UIPasteboard"]
 - !private ["PSo30UIResponderStandardEditActions", "UIScreen"]
 - !private ["PSo30UIResponderStandardEditActions", "UITapGestureRecognizer"]
+- !private ["PSo30UIResponderStandardEditActions", "UIUserInterfaceLayoutDirection"]
 - ["PSo30UIResponderStandardEditActions", "UIView"]
 - !private ["PSo30UIResponderStandardEditActions", "UInt"]
 - !private ["PSo30UIResponderStandardEditActions", "URL"]
@@ -9047,6 +9102,7 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "updateConstraints"]
 - ["PSo30UIResponderStandardEditActions", "updateTitle"]
 - ["PSo30UIResponderStandardEditActions", "userDefaults"]
+- !private ["PSo30UIResponderStandardEditActions", "userInterfaceLayoutDirection"]
 - !private ["PSo30UIResponderStandardEditActions", "userType"]
 - ["PSo30UIResponderStandardEditActions", "videoAudioClick"]
 - !private ["PSo30UIResponderStandardEditActions", "view"]
@@ -9150,6 +9206,7 @@ depends-member:
 - !private ["PSo20UIScrollViewDelegate", "UIPasteboard"]
 - !private ["PSo20UIScrollViewDelegate", "UIScreen"]
 - !private ["PSo20UIScrollViewDelegate", "UITapGestureRecognizer"]
+- !private ["PSo20UIScrollViewDelegate", "UIUserInterfaceLayoutDirection"]
 - ["PSo20UIScrollViewDelegate", "UIView"]
 - !private ["PSo20UIScrollViewDelegate", "UInt"]
 - !private ["PSo20UIScrollViewDelegate", "URL"]
@@ -9332,6 +9389,7 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "UIPasteboard"]
 - !private ["PSo16UIStateRestoring", "UIScreen"]
 - !private ["PSo16UIStateRestoring", "UITapGestureRecognizer"]
+- !private ["PSo16UIStateRestoring", "UIUserInterfaceLayoutDirection"]
 - ["PSo16UIStateRestoring", "UIView"]
 - !private ["PSo16UIStateRestoring", "UInt"]
 - !private ["PSo16UIStateRestoring", "URL"]
@@ -9543,6 +9601,7 @@ depends-member:
 - !private ["PSo18UITextViewDelegate", "UIPasteboard"]
 - !private ["PSo18UITextViewDelegate", "UIScreen"]
 - !private ["PSo18UITextViewDelegate", "UITapGestureRecognizer"]
+- !private ["PSo18UITextViewDelegate", "UIUserInterfaceLayoutDirection"]
 - ["PSo18UITextViewDelegate", "UIView"]
 - !private ["PSo18UITextViewDelegate", "UInt"]
 - !private ["PSo18UITextViewDelegate", "URL"]
@@ -9726,6 +9785,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "UIPasteboard"]
 - !private ["PSo18UITraitEnvironment", "UIScreen"]
 - !private ["PSo18UITraitEnvironment", "UITapGestureRecognizer"]
+- !private ["PSo18UITraitEnvironment", "UIUserInterfaceLayoutDirection"]
 - ["PSo18UITraitEnvironment", "UIView"]
 - !private ["PSo18UITraitEnvironment", "UInt"]
 - !private ["PSo18UITraitEnvironment", "URL"]
@@ -9876,6 +9936,9 @@ depends-member:
 - ["PSo18UITraitEnvironment", "willPresentActionSheet"]
 - ["PSo18UITraitEnvironment", "willResignActiveBlock"]
 - ["PSo18UITraitEnvironment", ""]
+- !private ["OSC30UIUserInterfaceLayoutDirection", "RawValue"]
+- ["OSC30UIUserInterfaceLayoutDirection", "deinit"]
+- !private ["OSC30UIUserInterfaceLayoutDirection", "rightToLeft"]
 - !private ["CSo6UIView", "addGestureRecognizer"]
 - !private ["CSo6UIView", "addSubview"]
 - !private ["CSo6UIView", "attributedText"]
@@ -10018,6 +10081,7 @@ depends-member:
 - ["CSo16UIViewController", "UIStoryboardSegue"]
 - !private ["CSo16UIViewController", "UITapGestureRecognizer"]
 - ["CSo16UIViewController", "UITextView"]
+- !private ["CSo16UIViewController", "UIUserInterfaceLayoutDirection"]
 - ["CSo16UIViewController", "UIView"]
 - ["CSo16UIViewController", "UInt"]
 - !private ["CSo16UIViewController", "URL"]
@@ -10396,6 +10460,7 @@ depends-member:
 - !private ["Ps9_Hashable", "UIPasteboard"]
 - !private ["Ps9_Hashable", "UIScreen"]
 - !private ["Ps9_Hashable", "UITapGestureRecognizer"]
+- !private ["Ps9_Hashable", "UIUserInterfaceLayoutDirection"]
 - ["Ps9_Hashable", "UIView"]
 - !private ["Ps9_Hashable", "UInt"]
 - !private ["Ps9_Hashable", "URL"]
@@ -10534,6 +10599,7 @@ depends-member:
 - !private ["Ps9_Hashable", "item"]
 - !private ["Ps9_Hashable", "kMessageContainerWidthPadding"]
 - !private ["Ps9_Hashable", "keyEnumerator"]
+- !private ["Ps9_Hashable", "leftBarButtonItems"]
 - !private ["Ps9_Hashable", "length"]
 - !private ["Ps9_Hashable", "lineBreakMode"]
 - !private ["Ps9_Hashable", "loadEarlierMessages"]
@@ -10606,6 +10672,7 @@ depends-member:
 - !private ["Ps9_Hashable", "result"]
 - !private ["Ps9_Hashable", "resultType"]
 - !private ["Ps9_Hashable", "rightBarButtonItems"]
+- !private ["Ps9_Hashable", "rightToLeft"]
 - !private ["Ps9_Hashable", "scheduledTimer"]
 - !private ["Ps9_Hashable", "section"]
 - ["Ps9_Hashable", "selectedUserType"]
@@ -10669,6 +10736,7 @@ depends-member:
 - !private ["Ps9_Hashable", "user"]
 - ["Ps9_Hashable", "userDefaults"]
 - !private ["Ps9_Hashable", "userID"]
+- !private ["Ps9_Hashable", "userInterfaceLayoutDirection"]
 - !private ["Ps9_Hashable", "userType"]
 - !private ["Ps9_Hashable", "usersMemoryStorage"]
 - !private ["Ps9_Hashable", "usersService"]
@@ -11015,6 +11083,7 @@ depends-nominal:
 - "PSo18UITextViewDelegate"
 - !private "CSo9UIToolbar"
 - "PSo18UITraitEnvironment"
+- "OSC30UIUserInterfaceLayoutDirection"
 - "CSo6UIView"
 - "CSo16UIViewController"
 - "Su"

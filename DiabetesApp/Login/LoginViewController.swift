@@ -27,9 +27,6 @@ class LoginViewController: UIViewController, QBCoreDelegate {
     //MARK: - View Load Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("AppleLanguage\(UserDefaults.standard.value(forKey: "AppleLanguages"))")
-        
-        
         checkLoginStatus()
     }
     
@@ -54,7 +51,7 @@ class LoginViewController: UIViewController, QBCoreDelegate {
         if UserDefaults.standard.bool(forKey: userDefaults.isLoggedIn) == true {
             let login: String = UserDefaults.standard.value(forKey: userDefaults.loggedInUserEmail) as! String!
             
-            SVProgressHUD.show(withStatus: "Please wait...".localized)
+            SVProgressHUD.show(withStatus: "Please wait".localized)
             if !QBChat.instance().isConnected {
                 
                 let selectedUser = QBUUser()
@@ -108,15 +105,20 @@ class LoginViewController: UIViewController, QBCoreDelegate {
         registerForRemoteNotification()
         
         
-        let viewController: DialogsViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.dialogsViewController) as! DialogsViewController
+      ////  let viewController: DialogsViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.dialogsViewController) as! DialogsViewController
         
         
-        self.navigationController?.navigationBar.barTintColor = UIColor(patternImage: UIImage(named: "navigationImage.png")!)
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    self.navigationController?.navigationBar.barTintColor = UIColor(patternImage: UIImage(named: "navigationImage.png")!)
+       self.navigationController?.setNavigationBarHidden(false, animated: false)
         if UserDefaults.standard.value(forKey: userDefaults.loggedInUserType) as! NSNumber! == 1 || UserDefaults.standard.value(forKey: userDefaults.loggedInUserType) as! NSNumber! == 3 {
             self.navigationItem.hidesBackButton = false
             self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
-            self.navigationController?.pushViewController(viewController, animated: true)
+           // self.navigationController?.pushViewController(viewController, animated: true)
+            
+            
+            let tabBarController: DoctorTabBarViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.doctorTabBarViewController) as! DoctorTabBarViewController
+            self.navigationController?.pushViewController(tabBarController, animated: true)
+
         }
             
         else {

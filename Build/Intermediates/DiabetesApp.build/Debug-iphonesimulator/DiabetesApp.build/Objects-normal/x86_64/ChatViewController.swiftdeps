@@ -10,238 +10,240 @@ provides-member:
 - ["SS", "length"]
 provides-dynamic-lookup:
 - "typingTimer"
-- "callWithConferenceType"
-- "showCharactersNumberError"
-- "sendStopTyping"
+- "groupMembersArray"
+- "selectedUserType"
+- "viewWillDisappear"
+- "getGroupMemberName"
+- "textViewDidEndEditing"
+- "topBackView"
+- "refreshAndReadMessages"
+- "occupantID"
+- "statusStringFromMessage"
+- "placeHolderTextView"
+- "BackBtn_Click"
+- "readMessages"
+- "textViewDidChange"
+- "chatAttachmentService"
+- "chatAttachmentService"
+- "chatAttachmentService"
+- "unreadMessages"
+- "bottomLabelAttributedString"
+- "didPressSend"
+- "didPressSend"
+- "textView"
+- "canMakeACall"
+- "willResignActiveBlock"
+- "videoAudioClick"
+- "attributedString"
 - "messageShouldBeRead"
 - "detailedCells"
-- "bottomLabelAttributedString"
-- "chatCellDidTapContainer"
-- "chatServiceChatDidConnect"
-- "chatService"
-- "chatService"
-- "chatService"
-- "chatService"
-- "chatService"
-- "updateTitle"
-- "chatCell"
-- "chatCell"
-- "chatCell"
-- "sendMessage"
-- "viewClass"
-- "attachmentCellsMap"
-- "textViewDidEndEditing"
-- "sendBeginTyping"
-- "occupantUser"
-- "unreadMessages"
-- "createCustomTopView"
-- "deferredQueueManager"
-- "deferredQueueManager"
-- "collectionView"
-- "collectionView"
-- "collectionView"
-- "collectionView"
-- "collectionView"
-- "collectionView"
-- "collectionView"
-- "maxCharactersNumber"
-- "readMessages"
 - "storedMessages"
-- "occupantID"
-- "topLabelAttributedString"
-- "viewDidLoad"
-- "viewWillAppear"
-- "fireSendStopTypingIfNecessary"
-- "didPickAttachmentImage"
-- "refreshAndReadMessages"
-- "sendReadStatusForMessage"
-- "chatCellDidTapAvatar"
-- "appDelegate"
-- "textView"
-- "prepare"
 - "chatServiceChatDidReconnect"
-- "viewDidDisappear"
-- "canMakeACall"
-- "viewWillDisappear"
-- "statusStringFromMessage"
-- "BackBtn_Click"
-- "optionsClick"
-- "placeHolderTextView"
-- "groupMembersArray"
-- "topBackView"
-- "willResignActiveBlock"
-- "textViewDidChange"
-- "queueManager"
-- "selectedUserType"
-- "videoAudioClick"
-- "loadMessages"
-- "chatAttachmentService"
-- "chatAttachmentService"
-- "chatAttachmentService"
-- "getGroupMemberName"
-- "didPressSend"
-- "didPressSend"
-- "attributedString"
-- "imagePickerViewController"
 - "dialog"
-- "viewDidAppear"
+- "createCustomTopView"
+- "attachmentCellsMap"
+- "sendBeginTyping"
+- "imagePickerViewController"
+- "collectionView"
+- "collectionView"
+- "collectionView"
+- "collectionView"
+- "collectionView"
+- "collectionView"
+- "collectionView"
+- "sendMessage"
+- "deferredQueueManager"
+- "deferredQueueManager"
+- "chatCell"
+- "chatCell"
+- "chatCell"
+- "updateTitle"
+- "viewClass"
+- "chatServiceChatDidConnect"
+- "viewWillAppear"
+- "callWithConferenceType"
+- "chatService"
+- "chatService"
+- "chatService"
+- "chatService"
+- "chatService"
+- "optionsClick"
+- "queueManager"
 - "handleNotSentMessage"
+- "showCharactersNumberError"
+- "fireSendStopTypingIfNecessary"
+- "maxCharactersNumber"
+- "occupantUser"
+- "chatCellDidTapAvatar"
+- "viewDidDisappear"
+- "viewDidAppear"
+- "loadMessages"
+- "chatCellDidTapContainer"
+- "sendStopTyping"
+- "didPickAttachmentImage"
+- "appDelegate"
+- "prepare"
+- "viewDidLoad"
+- "reportClick"
+- "sendReadStatusForMessage"
+- "topLabelAttributedString"
 depends-top-level:
-- "UIImage"
-- !private "GeneralLabels"
-- !private "-"
-- !private "TTTAttributedLabel"
-- "QBChatDialog"
-- "userDefaults"
-- !private "UIAlertAction"
-- !private "userType"
-- !private "UIImagePickerControllerSourceType"
-- "UIApplication"
-- "UIImagePickerController"
 - "AnyObject"
-- "IndexPath"
-- "String"
-- !private "UIColor"
-- "messageTimeDateFormatter"
-- !private "Error"
-- !private "SFSafariViewController"
-- !private "UIUserInterfaceLayoutDirection"
-- "DateFormatter"
-- !private "NSNotification"
-- !private "NSMakeRange"
-- !private "!"
-- "UIButton"
-- "Void"
-- !private "Dictionary"
-- "AppDelegate"
-- "ChatViewController"
-- !private "CTTelephonyNetworkInfo"
-- !private "||"
-- !private "UIImageJPEGRepresentation"
-- !private "<="
-- !private "QMChatAttachmentOutgoingCell"
-- "CGFloat"
-- !private "UIGraphicsEndImageContext"
-- !private "QBChatDialogType"
-- "CGSize"
-- !private "ServicesManager"
-- "QMChatCellLayoutModel"
-- !private "URL"
-- "UICollectionView"
-- "QMChatViewController"
-- !private "NSParagraphStyleAttributeName"
-- !private "Colors"
-- !private "QBRTCClient"
 - !private ">="
-- "QMChatCell"
-- !private "UIGraphicsGetImageFromCurrentImageContext"
-- "Selector"
-- !private "UIGraphicsBeginImageContext"
 - "QMMessageAttachmentStatus"
-- "QBChatAttachment"
+- "messageTimeDateFormatter"
+- "UIStoryboardSegue"
+- !private "URL"
+- "String"
+- !private "QMChatNotificationCell"
+- !private "NotificationCenter"
+- "DateFormatter"
+- !private "QMMessageStatus"
+- !private "floor"
+- !private "kMessageContainerWidthPadding"
+- !private "NSPointerFunctions"
+- "NSRange"
+- !private "ViewIdentifiers"
+- !private "QBRTCClient"
+- "CGFloat"
+- !private "!="
+- "QMChatCellDelegate"
+- "QBChatDialog"
+- "QBUUser"
+- "QMChatCellLayoutModel"
+- "QMDeferredQueueManagerDelegate"
+- "UICollectionViewCell"
+- "QMChatCollectionView"
+- "ChatViewController"
+- "QMPlaceHolderTextViewPasteDelegate"
+- !private "QBChatDialogType"
+- !private "Error"
+- !private "UILabel"
+- !private "NSMakeRange"
+- !private "ceil"
+- !private "UIAlertAction"
+- "UIActionSheetDelegate"
+- "UIImage"
+- "QMChatService"
+- "NSTextCheckingResult"
+- "UIImagePickerControllerDelegate"
+- !private "+"
+- "userDefaults"
 - !private ">"
+- "UINavigationControllerDelegate"
+- "UserDefaults"
+- !private "UIColor"
+- "Timer"
+- "AnyClass"
+- !private "VideoAudioCall"
+- "QMChatAttachmentServiceDelegate"
+- "NSAttributedString"
+- !private "QBChat"
+- !private "/"
+- !private "NSForegroundColorAttributeName"
+- "UICollectionView"
+- !private "HistoryMainViewController"
+- !private "TTTAttributedLabel"
+- !private "SVProgressHUDMaskType"
+- !private "QMChatAttachmentCell"
+- !private "UIScreen"
+- !private "NSLineBreakMode"
+- "QMChatServiceDelegate"
+- !private "NSFontAttributeName"
+- !private "NSNumber"
+- "UIButton"
+- !private "NSMutableParagraphStyle"
+- "UIApplication"
+- !private "QMChatAttachmentOutgoingCell"
+- "UIView"
+- !private "CarePlanMainViewController"
+- !private "QMChatOutgoingCell"
+- !private "-"
+- "QBChatMessage"
+- "QMChatViewController"
+- !private "DispatchQueue"
+- !private "ChatInfo"
+- !private "SVProgressHUD"
+- "QMPlaceHolderTextView"
+- "UITextView"
+- !private "NSMutableString"
+- !private "NSTextAttachment"
+- !private "NSNotification"
+- !private "QMMessageNotificationManager"
+- !private "QBRequest"
+- !private "ServicesManager"
+- !private "+="
+- !private "Fonts"
+- !private "UIBarButtonItemStyle"
+- "QMChatCell"
+- "Int"
+- !private "ReportViewController"
+- "AppDelegate"
+- !private "NSMutableDictionary"
+- "UIImagePickerController"
+- !private "Dictionary"
+- !private "<="
+- !private "Colors"
+- !private "QMMessageNotificationType"
+- !private "QMChatContactRequestCell"
+- !private "..<"
+- !private "UIBarButtonItem"
+- !private "UIUserInterfaceLayoutDirection"
+- !private "CGRect"
+- !private "??"
+- !private "CTTelephonyNetworkInfo"
+- !private "BooleanLiteralType"
 - !private "UIAlertController"
 - "QMChatConnectionDelegate"
-- !private "QBAVCallPermissions"
-- !private "NSPointerFunctions"
-- "QMChatServiceDelegate"
-- "NSMutableArray"
-- "Set"
-- !private "QBChat"
-- !private "SVProgressHUDMaskType"
-- "QMDeferredQueueManager"
-- "QMChatCellDelegate"
-- !private "UIBarButtonItem"
-- !private "QBMPushMessage"
-- "QMChatAttachmentServiceDelegate"
-- "Bool"
-- !private "UIScreen"
-- !private "&&"
-- "NSMapTable"
-- "QMPlaceHolderTextViewPasteDelegate"
-- !private "NSNumber"
-- !private "QMChatIncomingCell"
-- "CGPoint"
-- "QMDeferredQueueManagerDelegate"
-- "AssignmentPrecedence"
-- !private "=="
-- "UIActionSheetDelegate"
-- !private "NSForegroundColorAttributeName"
-- !private "NSFontAttributeName"
-- !private "+"
-- "CastingPrecedence"
-- "Timer"
-- !private "QMChatAttachmentIncomingCell"
-- "UINavigationControllerDelegate"
-- !private "..<"
-- "TernaryPrecedence"
-- "UIImagePickerControllerDelegate"
-- !private "CallViewController"
-- !private "~="
-- !private "DispatchQueue"
-- !private "<"
-- !private "/"
-- !private "QMMessageStatus"
-- !private "print"
-- !private "UIAlertActionStyle"
-- "Array"
-- !private "BooleanLiteralType"
-- "UInt"
-- !private "min"
-- !private "QMChatNotificationCell"
-- !private "CGRect"
-- !private "==="
-- !private "floor"
-- !private "NSString"
-- "Date"
-- !private "ViewIdentifiers"
-- !private "+="
-- "NSTextCheckingResult"
-- !private "QMChatAttachmentCell"
-- !private "QMMessageNotificationType"
-- !private "QBRequest"
-- !private "SVProgressHUD"
-- !private "Fonts"
-- !private "CarePlanMainViewController"
-- !private "ceil"
-- !private "??"
-- !private "QMMessageNotificationManager"
-- !private "NSMutableString"
-- !private "NotificationCenter"
-- !private "QMChatContactRequestCell"
-- "UIStoryboardSegue"
-- "QMChatAttachmentService"
-- !private "UILabel"
-- "QBChatMessage"
-- !private "UIBarButtonItemStyle"
-- "AnyClass"
-- !private "!="
-- !private "HistoryMainViewController"
-- !private "NSMutableDictionary"
-- "QBUUser"
-- "QMPlaceHolderTextView"
-- !private "UITapGestureRecognizer"
-- "QMChatCollectionView"
 - !private "UnicodeScalarType"
-- !private "QMChatOutgoingCell"
-- !private "UIPasteboard"
+- "Date"
+- !private "GeneralLabels"
+- !private "UIGraphicsEndImageContext"
+- !private "<"
+- "QMChatAttachmentService"
+- "CGPoint"
+- "Bool"
+- "IndexPath"
+- !private "UIGraphicsGetImageFromCurrentImageContext"
+- "CastingPrecedence"
 - !private "QBSession"
-- "QMChatService"
-- !private "VideoAudioCall"
-- !private "NSLineBreakMode"
-- "UICollectionViewCell"
-- "UITextView"
-- !private "NSTextAttachment"
-- "NSAttributedString"
-- "Int"
+- "CGSize"
+- !private "SFSafariViewController"
 - "QBRTCConferenceType"
-- "NSRange"
-- !private "ChatInfo"
-- "UserDefaults"
-- !private "kMessageContainerWidthPadding"
-- !private "NSMutableParagraphStyle"
+- "AssignmentPrecedence"
+- "UInt"
+- "Void"
+- !private "=="
+- !private "QBAVCallPermissions"
+- !private "UIAlertActionStyle"
+- !private "UIPasteboard"
+- "QMDeferredQueueManager"
+- !private "QBMPushMessage"
+- !private "&&"
+- !private "~="
+- !private "QMChatAttachmentIncomingCell"
+- !private "UITapGestureRecognizer"
+- !private "UIGraphicsBeginImageContext"
+- "NSMutableArray"
+- "TernaryPrecedence"
+- !private "QMChatIncomingCell"
 - !private "UIImageView"
-- "UIView"
+- "Set"
+- "Array"
+- !private "CallViewController"
+- !private "UIImageJPEGRepresentation"
+- "QBChatAttachment"
+- "NSMapTable"
+- !private "print"
+- !private "UIImagePickerControllerSourceType"
+- !private "==="
+- !private "NSString"
+- !private "min"
+- "Selector"
+- !private "userType"
+- !private "!"
+- !private "||"
+- !private "NSParagraphStyleAttributeName"
 - !private "NSTextCheckingAllTypes"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "Stride"]
@@ -408,6 +410,7 @@ depends-member:
 - ["Ps9AnyObject", "didPresentActionSheet"]
 - ["Ps9AnyObject", "didPressSend"]
 - !private ["Ps9AnyObject", "dismiss"]
+- !private ["Ps9AnyObject", "doubleValue"]
 - !private ["Ps9AnyObject", "draw"]
 - !private ["Ps9AnyObject", "enableTextCheckingTypes"]
 - !private ["Ps9AnyObject", "endEditing"]
@@ -489,6 +492,7 @@ depends-member:
 - !private ["Ps9AnyObject", "onUserStoppedTyping"]
 - !private ["Ps9AnyObject", "openURL"]
 - ["Ps9AnyObject", "optionsClick"]
+- !private ["Ps9AnyObject", "orange"]
 - !private ["Ps9AnyObject", "performBatchUpdates"]
 - !private ["Ps9AnyObject", "perfromDefferedAction"]
 - !private ["Ps9AnyObject", "phoneNumber"]
@@ -508,6 +512,7 @@ depends-member:
 - !private ["Ps9AnyObject", "readIDs"]
 - ["Ps9AnyObject", "readMessages"]
 - !private ["Ps9AnyObject", "recipientID"]
+- !private ["Ps9AnyObject", "red"]
 - ["Ps9AnyObject", "refreshAndReadMessages"]
 - !private ["Ps9AnyObject", "remove"]
 - !private ["Ps9AnyObject", "removeDelegate"]
@@ -516,6 +521,7 @@ depends-member:
 - !private ["Ps9AnyObject", "removeObserver"]
 - !private ["Ps9AnyObject", "removeSizeFromCache"]
 - !private ["Ps9AnyObject", "removeSubrange"]
+- ["Ps9AnyObject", "reportClick"]
 - !private ["Ps9AnyObject", "result"]
 - !private ["Ps9AnyObject", "resultType"]
 - !private ["Ps9AnyObject", "rightBarButtonItems"]
@@ -872,6 +878,7 @@ depends-member:
 - ["Ps7CVarArg", "didPresentActionSheet"]
 - ["Ps7CVarArg", "didPressSend"]
 - !private ["Ps7CVarArg", "dismiss"]
+- !private ["Ps7CVarArg", "doubleValue"]
 - !private ["Ps7CVarArg", "draw"]
 - !private ["Ps7CVarArg", "enableTextCheckingTypes"]
 - !private ["Ps7CVarArg", "endEditing"]
@@ -957,6 +964,7 @@ depends-member:
 - !private ["Ps7CVarArg", "onUserStoppedTyping"]
 - !private ["Ps7CVarArg", "openURL"]
 - ["Ps7CVarArg", "optionsClick"]
+- !private ["Ps7CVarArg", "orange"]
 - !private ["Ps7CVarArg", "performBatchUpdates"]
 - !private ["Ps7CVarArg", "perfromDefferedAction"]
 - !private ["Ps7CVarArg", "phoneNumber"]
@@ -976,6 +984,7 @@ depends-member:
 - !private ["Ps7CVarArg", "readIDs"]
 - ["Ps7CVarArg", "readMessages"]
 - !private ["Ps7CVarArg", "recipientID"]
+- !private ["Ps7CVarArg", "red"]
 - ["Ps7CVarArg", "refreshAndReadMessages"]
 - !private ["Ps7CVarArg", "remove"]
 - !private ["Ps7CVarArg", "removeDelegate"]
@@ -984,6 +993,7 @@ depends-member:
 - !private ["Ps7CVarArg", "removeObserver"]
 - !private ["Ps7CVarArg", "removeSizeFromCache"]
 - !private ["Ps7CVarArg", "removeSubrange"]
+- ["Ps7CVarArg", "reportClick"]
 - !private ["Ps7CVarArg", "result"]
 - !private ["Ps7CVarArg", "resultType"]
 - !private ["Ps7CVarArg", "rightBarButtonItems"]
@@ -1149,6 +1159,7 @@ depends-member:
 - !private ["C11DiabetesApp18ChatViewController", "QMMessageNotificationType"]
 - !private ["C11DiabetesApp18ChatViewController", "QMMessageStatus"]
 - ["C11DiabetesApp18ChatViewController", "QMPlaceHolderTextView"]
+- !private ["C11DiabetesApp18ChatViewController", "ReportViewController"]
 - !private ["C11DiabetesApp18ChatViewController", "SFSafariViewController"]
 - !private ["C11DiabetesApp18ChatViewController", "SVProgressHUD"]
 - !private ["C11DiabetesApp18ChatViewController", "SVProgressHUDMaskType"]
@@ -1255,6 +1266,7 @@ depends-member:
 - ["C11DiabetesApp18ChatViewController", "queueManager"]
 - ["C11DiabetesApp18ChatViewController", "readMessages"]
 - ["C11DiabetesApp18ChatViewController", "refreshAndReadMessages"]
+- ["C11DiabetesApp18ChatViewController", "reportClick"]
 - ["C11DiabetesApp18ChatViewController", "selectedUserType"]
 - ["C11DiabetesApp18ChatViewController", "sendBeginTyping"]
 - ["C11DiabetesApp18ChatViewController", "sendMessage"]
@@ -1498,6 +1510,7 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "didPresentActionSheet"]
 - ["Ps28CustomDebugStringConvertible", "didPressSend"]
 - !private ["Ps28CustomDebugStringConvertible", "dismiss"]
+- !private ["Ps28CustomDebugStringConvertible", "doubleValue"]
 - !private ["Ps28CustomDebugStringConvertible", "draw"]
 - !private ["Ps28CustomDebugStringConvertible", "enableTextCheckingTypes"]
 - !private ["Ps28CustomDebugStringConvertible", "endEditing"]
@@ -1585,6 +1598,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "onUserStoppedTyping"]
 - !private ["Ps28CustomDebugStringConvertible", "openURL"]
 - ["Ps28CustomDebugStringConvertible", "optionsClick"]
+- !private ["Ps28CustomDebugStringConvertible", "orange"]
 - !private ["Ps28CustomDebugStringConvertible", "performBatchUpdates"]
 - !private ["Ps28CustomDebugStringConvertible", "perfromDefferedAction"]
 - !private ["Ps28CustomDebugStringConvertible", "phoneNumber"]
@@ -1604,6 +1618,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "readIDs"]
 - ["Ps28CustomDebugStringConvertible", "readMessages"]
 - !private ["Ps28CustomDebugStringConvertible", "recipientID"]
+- !private ["Ps28CustomDebugStringConvertible", "red"]
 - ["Ps28CustomDebugStringConvertible", "refreshAndReadMessages"]
 - !private ["Ps28CustomDebugStringConvertible", "remove"]
 - !private ["Ps28CustomDebugStringConvertible", "removeDelegate"]
@@ -1612,6 +1627,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "removeObserver"]
 - !private ["Ps28CustomDebugStringConvertible", "removeSizeFromCache"]
 - !private ["Ps28CustomDebugStringConvertible", "removeSubrange"]
+- ["Ps28CustomDebugStringConvertible", "reportClick"]
 - !private ["Ps28CustomDebugStringConvertible", "result"]
 - !private ["Ps28CustomDebugStringConvertible", "resultType"]
 - !private ["Ps28CustomDebugStringConvertible", "rightBarButtonItems"]
@@ -1703,6 +1719,7 @@ depends-member:
 - !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "absoluteString"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "append"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "doubleValue"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "endIndex"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "hasPrefix"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "height"]
@@ -1929,6 +1946,7 @@ depends-member:
 - ["Ps23CustomStringConvertible", "didPresentActionSheet"]
 - ["Ps23CustomStringConvertible", "didPressSend"]
 - !private ["Ps23CustomStringConvertible", "dismiss"]
+- !private ["Ps23CustomStringConvertible", "doubleValue"]
 - !private ["Ps23CustomStringConvertible", "draw"]
 - !private ["Ps23CustomStringConvertible", "enableTextCheckingTypes"]
 - !private ["Ps23CustomStringConvertible", "endEditing"]
@@ -2016,6 +2034,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "onUserStoppedTyping"]
 - !private ["Ps23CustomStringConvertible", "openURL"]
 - ["Ps23CustomStringConvertible", "optionsClick"]
+- !private ["Ps23CustomStringConvertible", "orange"]
 - !private ["Ps23CustomStringConvertible", "performBatchUpdates"]
 - !private ["Ps23CustomStringConvertible", "perfromDefferedAction"]
 - !private ["Ps23CustomStringConvertible", "phoneNumber"]
@@ -2035,6 +2054,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "readIDs"]
 - ["Ps23CustomStringConvertible", "readMessages"]
 - !private ["Ps23CustomStringConvertible", "recipientID"]
+- !private ["Ps23CustomStringConvertible", "red"]
 - ["Ps23CustomStringConvertible", "refreshAndReadMessages"]
 - !private ["Ps23CustomStringConvertible", "remove"]
 - !private ["Ps23CustomStringConvertible", "removeDelegate"]
@@ -2043,6 +2063,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "removeObserver"]
 - !private ["Ps23CustomStringConvertible", "removeSizeFromCache"]
 - !private ["Ps23CustomStringConvertible", "removeSubrange"]
+- ["Ps23CustomStringConvertible", "reportClick"]
 - !private ["Ps23CustomStringConvertible", "result"]
 - !private ["Ps23CustomStringConvertible", "resultType"]
 - !private ["Ps23CustomStringConvertible", "rightBarButtonItems"]
@@ -2326,6 +2347,7 @@ depends-member:
 - ["Ps9Equatable", "didPresentActionSheet"]
 - ["Ps9Equatable", "didPressSend"]
 - !private ["Ps9Equatable", "dismiss"]
+- !private ["Ps9Equatable", "doubleValue"]
 - !private ["Ps9Equatable", "draw"]
 - !private ["Ps9Equatable", "enableTextCheckingTypes"]
 - !private ["Ps9Equatable", "endEditing"]
@@ -2416,6 +2438,7 @@ depends-member:
 - !private ["Ps9Equatable", "onUserStoppedTyping"]
 - !private ["Ps9Equatable", "openURL"]
 - ["Ps9Equatable", "optionsClick"]
+- !private ["Ps9Equatable", "orange"]
 - !private ["Ps9Equatable", "performBatchUpdates"]
 - !private ["Ps9Equatable", "perfromDefferedAction"]
 - !private ["Ps9Equatable", "phoneNumber"]
@@ -2437,6 +2460,7 @@ depends-member:
 - !private ["Ps9Equatable", "readIDs"]
 - ["Ps9Equatable", "readMessages"]
 - !private ["Ps9Equatable", "recipientID"]
+- !private ["Ps9Equatable", "red"]
 - ["Ps9Equatable", "refreshAndReadMessages"]
 - !private ["Ps9Equatable", "remove"]
 - !private ["Ps9Equatable", "removeDelegate"]
@@ -2445,6 +2469,7 @@ depends-member:
 - !private ["Ps9Equatable", "removeObserver"]
 - !private ["Ps9Equatable", "removeSizeFromCache"]
 - !private ["Ps9Equatable", "removeSubrange"]
+- ["Ps9Equatable", "reportClick"]
 - !private ["Ps9Equatable", "result"]
 - !private ["Ps9Equatable", "resultType"]
 - !private ["Ps9Equatable", "rightBarButtonItems"]
@@ -2570,6 +2595,7 @@ depends-member:
 - !private ["Ps30ExpressibleByDictionaryLiteral", "subscript"]
 - !private ["Ps30ExpressibleByDictionaryLiteral", "value"]
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "append"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "doubleValue"]
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "endIndex"]
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "hasPrefix"]
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
@@ -2603,6 +2629,7 @@ depends-member:
 - !private ["Ps32ExpressibleByStringInterpolation", "range"]
 - !private ["Ps32ExpressibleByStringInterpolation", "removeSubrange"]
 - !private ["Ps26ExpressibleByStringLiteral", "append"]
+- !private ["Ps26ExpressibleByStringLiteral", "doubleValue"]
 - !private ["Ps26ExpressibleByStringLiteral", "endIndex"]
 - !private ["Ps26ExpressibleByStringLiteral", "hasPrefix"]
 - !private ["Ps26ExpressibleByStringLiteral", "init"]
@@ -2616,6 +2643,7 @@ depends-member:
 - !private ["Ps26ExpressibleByStringLiteral", "removeSubrange"]
 - !private ["Ps26ExpressibleByStringLiteral", "substring"]
 - !private ["Ps33ExpressibleByUnicodeScalarLiteral", "append"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "doubleValue"]
 - !private ["Ps33ExpressibleByUnicodeScalarLiteral", "endIndex"]
 - !private ["Ps33ExpressibleByUnicodeScalarLiteral", "hasPrefix"]
 - !private ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
@@ -2818,6 +2846,7 @@ depends-member:
 - ["Ps8Hashable", "didPresentActionSheet"]
 - ["Ps8Hashable", "didPressSend"]
 - !private ["Ps8Hashable", "dismiss"]
+- !private ["Ps8Hashable", "doubleValue"]
 - !private ["Ps8Hashable", "draw"]
 - !private ["Ps8Hashable", "enableTextCheckingTypes"]
 - !private ["Ps8Hashable", "endEditing"]
@@ -2905,6 +2934,7 @@ depends-member:
 - !private ["Ps8Hashable", "onUserStoppedTyping"]
 - !private ["Ps8Hashable", "openURL"]
 - ["Ps8Hashable", "optionsClick"]
+- !private ["Ps8Hashable", "orange"]
 - !private ["Ps8Hashable", "performBatchUpdates"]
 - !private ["Ps8Hashable", "perfromDefferedAction"]
 - !private ["Ps8Hashable", "phoneNumber"]
@@ -2926,6 +2956,7 @@ depends-member:
 - !private ["Ps8Hashable", "readIDs"]
 - ["Ps8Hashable", "readMessages"]
 - !private ["Ps8Hashable", "recipientID"]
+- !private ["Ps8Hashable", "red"]
 - ["Ps8Hashable", "refreshAndReadMessages"]
 - !private ["Ps8Hashable", "remove"]
 - !private ["Ps8Hashable", "removeDelegate"]
@@ -2934,6 +2965,7 @@ depends-member:
 - !private ["Ps8Hashable", "removeObserver"]
 - !private ["Ps8Hashable", "removeSizeFromCache"]
 - !private ["Ps8Hashable", "removeSubrange"]
+- ["Ps8Hashable", "reportClick"]
 - !private ["Ps8Hashable", "result"]
 - !private ["Ps8Hashable", "resultType"]
 - !private ["Ps8Hashable", "rightBarButtonItems"]
@@ -3291,6 +3323,7 @@ depends-member:
 - ["PSo8NSCoding", "didPresentActionSheet"]
 - ["PSo8NSCoding", "didPressSend"]
 - !private ["PSo8NSCoding", "dismiss"]
+- !private ["PSo8NSCoding", "doubleValue"]
 - !private ["PSo8NSCoding", "draw"]
 - !private ["PSo8NSCoding", "enableTextCheckingTypes"]
 - !private ["PSo8NSCoding", "endEditing"]
@@ -3353,6 +3386,7 @@ depends-member:
 - !private ["PSo8NSCoding", "onUserIsTyping"]
 - !private ["PSo8NSCoding", "onUserStoppedTyping"]
 - ["PSo8NSCoding", "optionsClick"]
+- !private ["PSo8NSCoding", "orange"]
 - !private ["PSo8NSCoding", "performBatchUpdates"]
 - !private ["PSo8NSCoding", "phoneNumber"]
 - !private ["PSo8NSCoding", "placeHolder"]
@@ -3370,11 +3404,13 @@ depends-member:
 - !private ["PSo8NSCoding", "readIDs"]
 - ["PSo8NSCoding", "readMessages"]
 - !private ["PSo8NSCoding", "recipientID"]
+- !private ["PSo8NSCoding", "red"]
 - ["PSo8NSCoding", "refreshAndReadMessages"]
 - !private ["PSo8NSCoding", "removeFromSuperview"]
 - !private ["PSo8NSCoding", "removeObject"]
 - !private ["PSo8NSCoding", "removeSizeFromCache"]
 - !private ["PSo8NSCoding", "removeSubrange"]
+- ["PSo8NSCoding", "reportClick"]
 - !private ["PSo8NSCoding", "resultType"]
 - !private ["PSo8NSCoding", "rightBarButtonItems"]
 - ["PSo8NSCoding", "selectedUserType"]
@@ -3458,6 +3494,7 @@ depends-member:
 - !private ["PSo9NSCopying", "deinit"]
 - !private ["PSo9NSCopying", "deliveredIDs"]
 - !private ["PSo9NSCopying", "dialogID"]
+- !private ["PSo9NSCopying", "doubleValue"]
 - !private ["PSo9NSCopying", "endIndex"]
 - !private ["PSo9NSCopying", "fullName"]
 - !private ["PSo9NSCopying", "gray"]
@@ -3482,11 +3519,13 @@ depends-member:
 - !private ["PSo9NSCopying", "occupantIDs"]
 - !private ["PSo9NSCopying", "onUserIsTyping"]
 - !private ["PSo9NSCopying", "onUserStoppedTyping"]
+- !private ["PSo9NSCopying", "orange"]
 - !private ["PSo9NSCopying", "phoneNumber"]
 - !private ["PSo9NSCopying", "range"]
 - !private ["PSo9NSCopying", "rangeOfComposedCharacterSequences"]
 - !private ["PSo9NSCopying", "readIDs"]
 - !private ["PSo9NSCopying", "recipientID"]
+- !private ["PSo9NSCopying", "red"]
 - !private ["PSo9NSCopying", "removeObject"]
 - !private ["PSo9NSCopying", "removeSubrange"]
 - !private ["PSo9NSCopying", "resultType"]
@@ -3667,6 +3706,7 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "queueManager"]
 - ["PSo26NSExtensionRequestHandling", "readMessages"]
 - ["PSo26NSExtensionRequestHandling", "refreshAndReadMessages"]
+- ["PSo26NSExtensionRequestHandling", "reportClick"]
 - ["PSo26NSExtensionRequestHandling", "selectedUserType"]
 - ["PSo26NSExtensionRequestHandling", "sendBeginTyping"]
 - ["PSo26NSExtensionRequestHandling", "sendMessage"]
@@ -3752,6 +3792,7 @@ depends-member:
 - !private ["PSo16NSMutableCopying", "add"]
 - !private ["PSo16NSMutableCopying", "append"]
 - !private ["PSo16NSMutableCopying", "count"]
+- !private ["PSo16NSMutableCopying", "doubleValue"]
 - !private ["PSo16NSMutableCopying", "endIndex"]
 - !private ["PSo16NSMutableCopying", "hasPrefix"]
 - ["PSo16NSMutableCopying", "init"]
@@ -3865,6 +3906,7 @@ depends-member:
 - !private ["CSo8NSObject", "QMMessageNotificationType"]
 - !private ["CSo8NSObject", "QMMessageStatus"]
 - ["CSo8NSObject", "QMPlaceHolderTextView"]
+- !private ["CSo8NSObject", "ReportViewController"]
 - !private ["CSo8NSObject", "SFSafariViewController"]
 - !private ["CSo8NSObject", "SVProgressHUD"]
 - !private ["CSo8NSObject", "SVProgressHUDMaskType"]
@@ -3978,6 +4020,7 @@ depends-member:
 - ["CSo8NSObject", "didPresentActionSheet"]
 - ["CSo8NSObject", "didPressSend"]
 - !private ["CSo8NSObject", "dismiss"]
+- !private ["CSo8NSObject", "doubleValue"]
 - !private ["CSo8NSObject", "draw"]
 - !private ["CSo8NSObject", "enableTextCheckingTypes"]
 - !private ["CSo8NSObject", "endEditing"]
@@ -4059,6 +4102,7 @@ depends-member:
 - !private ["CSo8NSObject", "onUserStoppedTyping"]
 - !private ["CSo8NSObject", "openURL"]
 - ["CSo8NSObject", "optionsClick"]
+- !private ["CSo8NSObject", "orange"]
 - !private ["CSo8NSObject", "performBatchUpdates"]
 - !private ["CSo8NSObject", "perfromDefferedAction"]
 - !private ["CSo8NSObject", "phoneNumber"]
@@ -4078,6 +4122,7 @@ depends-member:
 - !private ["CSo8NSObject", "readIDs"]
 - ["CSo8NSObject", "readMessages"]
 - !private ["CSo8NSObject", "recipientID"]
+- !private ["CSo8NSObject", "red"]
 - ["CSo8NSObject", "refreshAndReadMessages"]
 - !private ["CSo8NSObject", "remove"]
 - !private ["CSo8NSObject", "removeDelegate"]
@@ -4086,6 +4131,7 @@ depends-member:
 - !private ["CSo8NSObject", "removeObserver"]
 - !private ["CSo8NSObject", "removeSizeFromCache"]
 - !private ["CSo8NSObject", "removeSubrange"]
+- ["CSo8NSObject", "reportClick"]
 - !private ["CSo8NSObject", "result"]
 - !private ["CSo8NSObject", "resultType"]
 - !private ["CSo8NSObject", "rightBarButtonItems"]
@@ -4329,6 +4375,7 @@ depends-member:
 - ["PSo16NSObjectProtocol", "didPresentActionSheet"]
 - ["PSo16NSObjectProtocol", "didPressSend"]
 - !private ["PSo16NSObjectProtocol", "dismiss"]
+- !private ["PSo16NSObjectProtocol", "doubleValue"]
 - !private ["PSo16NSObjectProtocol", "draw"]
 - !private ["PSo16NSObjectProtocol", "enableTextCheckingTypes"]
 - !private ["PSo16NSObjectProtocol", "endEditing"]
@@ -4410,6 +4457,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "onUserStoppedTyping"]
 - !private ["PSo16NSObjectProtocol", "openURL"]
 - ["PSo16NSObjectProtocol", "optionsClick"]
+- !private ["PSo16NSObjectProtocol", "orange"]
 - !private ["PSo16NSObjectProtocol", "performBatchUpdates"]
 - !private ["PSo16NSObjectProtocol", "perfromDefferedAction"]
 - !private ["PSo16NSObjectProtocol", "phoneNumber"]
@@ -4429,6 +4477,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "readIDs"]
 - ["PSo16NSObjectProtocol", "readMessages"]
 - !private ["PSo16NSObjectProtocol", "recipientID"]
+- !private ["PSo16NSObjectProtocol", "red"]
 - ["PSo16NSObjectProtocol", "refreshAndReadMessages"]
 - !private ["PSo16NSObjectProtocol", "remove"]
 - !private ["PSo16NSObjectProtocol", "removeDelegate"]
@@ -4437,6 +4486,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "removeObserver"]
 - !private ["PSo16NSObjectProtocol", "removeSizeFromCache"]
 - !private ["PSo16NSObjectProtocol", "removeSubrange"]
+- ["PSo16NSObjectProtocol", "reportClick"]
 - !private ["PSo16NSObjectProtocol", "result"]
 - !private ["PSo16NSObjectProtocol", "resultType"]
 - !private ["PSo16NSObjectProtocol", "rightBarButtonItems"]
@@ -4531,6 +4581,7 @@ depends-member:
 - !private ["PSo14NSSecureCoding", "append"]
 - !private ["PSo14NSSecureCoding", "black"]
 - !private ["PSo14NSSecureCoding", "count"]
+- !private ["PSo14NSSecureCoding", "doubleValue"]
 - !private ["PSo14NSSecureCoding", "draw"]
 - !private ["PSo14NSSecureCoding", "endIndex"]
 - !private ["PSo14NSSecureCoding", "gray"]
@@ -4543,9 +4594,11 @@ depends-member:
 - !private ["PSo14NSSecureCoding", "lineBreakMode"]
 - !private ["PSo14NSSecureCoding", "localized"]
 - !private ["PSo14NSSecureCoding", "lowercased"]
+- !private ["PSo14NSSecureCoding", "orange"]
 - !private ["PSo14NSSecureCoding", "phoneNumber"]
 - !private ["PSo14NSSecureCoding", "range"]
 - !private ["PSo14NSSecureCoding", "rangeOfComposedCharacterSequences"]
+- !private ["PSo14NSSecureCoding", "red"]
 - !private ["PSo14NSSecureCoding", "removeSubrange"]
 - !private ["PSo14NSSecureCoding", "resultType"]
 - !private ["PSo14NSSecureCoding", "setValue"]
@@ -4558,6 +4611,7 @@ depends-member:
 - !private ["PSo14NSSecureCoding", "withRenderingMode"]
 - !private ["CSo8NSString", "append"]
 - ["CSo8NSString", "deinit"]
+- !private ["CSo8NSString", "doubleValue"]
 - !private ["CSo8NSString", "endIndex"]
 - !private ["CSo8NSString", "hasPrefix"]
 - !private ["CSo8NSString", "init"]
@@ -4836,6 +4890,7 @@ depends-member:
 - !private ["PSo31QMChatAttachmentServiceDelegate", "queueManager"]
 - !private ["PSo31QMChatAttachmentServiceDelegate", "readMessages"]
 - !private ["PSo31QMChatAttachmentServiceDelegate", "refreshAndReadMessages"]
+- !private ["PSo31QMChatAttachmentServiceDelegate", "reportClick"]
 - !private ["PSo31QMChatAttachmentServiceDelegate", "selectedUserType"]
 - !private ["PSo31QMChatAttachmentServiceDelegate", "sendBeginTyping"]
 - !private ["PSo31QMChatAttachmentServiceDelegate", "sendMessage"]
@@ -5010,6 +5065,7 @@ depends-member:
 - !private ["PSo18QMChatCellDelegate", "queueManager"]
 - !private ["PSo18QMChatCellDelegate", "readMessages"]
 - !private ["PSo18QMChatCellDelegate", "refreshAndReadMessages"]
+- !private ["PSo18QMChatCellDelegate", "reportClick"]
 - !private ["PSo18QMChatCellDelegate", "selectedUserType"]
 - !private ["PSo18QMChatCellDelegate", "sendBeginTyping"]
 - !private ["PSo18QMChatCellDelegate", "sendMessage"]
@@ -5195,6 +5251,7 @@ depends-member:
 - ["PSo30QMChatCollectionViewDataSource", "queueManager"]
 - ["PSo30QMChatCollectionViewDataSource", "readMessages"]
 - ["PSo30QMChatCollectionViewDataSource", "refreshAndReadMessages"]
+- ["PSo30QMChatCollectionViewDataSource", "reportClick"]
 - ["PSo30QMChatCollectionViewDataSource", "selectedUserType"]
 - ["PSo30QMChatCollectionViewDataSource", "sendBeginTyping"]
 - ["PSo30QMChatCollectionViewDataSource", "sendMessage"]
@@ -5378,6 +5435,7 @@ depends-member:
 - ["PSo38QMChatCollectionViewDelegateFlowLayout", "queueManager"]
 - ["PSo38QMChatCollectionViewDelegateFlowLayout", "readMessages"]
 - ["PSo38QMChatCollectionViewDelegateFlowLayout", "refreshAndReadMessages"]
+- ["PSo38QMChatCollectionViewDelegateFlowLayout", "reportClick"]
 - ["PSo38QMChatCollectionViewDelegateFlowLayout", "selectedUserType"]
 - ["PSo38QMChatCollectionViewDelegateFlowLayout", "sendBeginTyping"]
 - ["PSo38QMChatCollectionViewDelegateFlowLayout", "sendMessage"]
@@ -5560,6 +5618,7 @@ depends-member:
 - !private ["PSo24QMChatConnectionDelegate", "queueManager"]
 - !private ["PSo24QMChatConnectionDelegate", "readMessages"]
 - !private ["PSo24QMChatConnectionDelegate", "refreshAndReadMessages"]
+- !private ["PSo24QMChatConnectionDelegate", "reportClick"]
 - !private ["PSo24QMChatConnectionDelegate", "selectedUserType"]
 - !private ["PSo24QMChatConnectionDelegate", "sendBeginTyping"]
 - !private ["PSo24QMChatConnectionDelegate", "sendMessage"]
@@ -5772,6 +5831,7 @@ depends-member:
 - !private ["PSo21QMChatServiceDelegate", "queueManager"]
 - !private ["PSo21QMChatServiceDelegate", "readMessages"]
 - !private ["PSo21QMChatServiceDelegate", "refreshAndReadMessages"]
+- !private ["PSo21QMChatServiceDelegate", "reportClick"]
 - !private ["PSo21QMChatServiceDelegate", "selectedUserType"]
 - !private ["PSo21QMChatServiceDelegate", "sendBeginTyping"]
 - !private ["PSo21QMChatServiceDelegate", "sendMessage"]
@@ -5876,6 +5936,7 @@ depends-member:
 - !private ["CSo20QMChatViewController", "QMMessageNotificationType"]
 - !private ["CSo20QMChatViewController", "QMMessageStatus"]
 - ["CSo20QMChatViewController", "QMPlaceHolderTextView"]
+- !private ["CSo20QMChatViewController", "ReportViewController"]
 - !private ["CSo20QMChatViewController", "SFSafariViewController"]
 - !private ["CSo20QMChatViewController", "SVProgressHUD"]
 - !private ["CSo20QMChatViewController", "SVProgressHUDMaskType"]
@@ -5982,6 +6043,7 @@ depends-member:
 - ["CSo20QMChatViewController", "queueManager"]
 - ["CSo20QMChatViewController", "readMessages"]
 - ["CSo20QMChatViewController", "refreshAndReadMessages"]
+- ["CSo20QMChatViewController", "reportClick"]
 - ["CSo20QMChatViewController", "selectedUserType"]
 - ["CSo20QMChatViewController", "sendBeginTyping"]
 - ["CSo20QMChatViewController", "sendMessage"]
@@ -6166,6 +6228,7 @@ depends-member:
 - !private ["PSo30QMDeferredQueueManagerDelegate", "queueManager"]
 - !private ["PSo30QMDeferredQueueManagerDelegate", "readMessages"]
 - !private ["PSo30QMDeferredQueueManagerDelegate", "refreshAndReadMessages"]
+- !private ["PSo30QMDeferredQueueManagerDelegate", "reportClick"]
 - !private ["PSo30QMDeferredQueueManagerDelegate", "selectedUserType"]
 - !private ["PSo30QMDeferredQueueManagerDelegate", "sendBeginTyping"]
 - !private ["PSo30QMDeferredQueueManagerDelegate", "sendMessage"]
@@ -6370,6 +6433,7 @@ depends-member:
 - !private ["PSo34QMPlaceHolderTextViewPasteDelegate", "queueManager"]
 - !private ["PSo34QMPlaceHolderTextViewPasteDelegate", "readMessages"]
 - !private ["PSo34QMPlaceHolderTextViewPasteDelegate", "refreshAndReadMessages"]
+- !private ["PSo34QMPlaceHolderTextViewPasteDelegate", "reportClick"]
 - !private ["PSo34QMPlaceHolderTextViewPasteDelegate", "selectedUserType"]
 - !private ["PSo34QMPlaceHolderTextViewPasteDelegate", "sendBeginTyping"]
 - !private ["PSo34QMPlaceHolderTextViewPasteDelegate", "sendMessage"]
@@ -6514,6 +6578,7 @@ depends-member:
 - !private ["P10Foundation20ReferenceConvertible", "init"]
 - !private ["P10Foundation20ReferenceConvertible", "item"]
 - !private ["P10Foundation20ReferenceConvertible", "section"]
+- ["C11DiabetesApp20ReportViewController", "deinit"]
 - ["CSo22SFSafariViewController", "deinit"]
 - !private ["CSo22SFSafariViewController", "init"]
 - !private ["CSo13SVProgressHUD", "dismiss"]
@@ -6799,6 +6864,7 @@ depends-member:
 - !private ["PSo21UIActionSheetDelegate", "queueManager"]
 - !private ["PSo21UIActionSheetDelegate", "readMessages"]
 - !private ["PSo21UIActionSheetDelegate", "refreshAndReadMessages"]
+- !private ["PSo21UIActionSheetDelegate", "reportClick"]
 - !private ["PSo21UIActionSheetDelegate", "selectedUserType"]
 - !private ["PSo21UIActionSheetDelegate", "sendBeginTyping"]
 - !private ["PSo21UIActionSheetDelegate", "sendMessage"]
@@ -7054,6 +7120,7 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "readMessages"]
 - ["PSo21UIAppearanceContainer", "refreshAndReadMessages"]
 - !private ["PSo21UIAppearanceContainer", "removeFromSuperview"]
+- ["PSo21UIAppearanceContainer", "reportClick"]
 - ["PSo21UIAppearanceContainer", "selectedUserType"]
 - ["PSo21UIAppearanceContainer", "sendBeginTyping"]
 - ["PSo21UIAppearanceContainer", "sendMessage"]
@@ -7286,6 +7353,7 @@ depends-member:
 - ["PSo26UICollectionViewDataSource", "queueManager"]
 - ["PSo26UICollectionViewDataSource", "readMessages"]
 - ["PSo26UICollectionViewDataSource", "refreshAndReadMessages"]
+- ["PSo26UICollectionViewDataSource", "reportClick"]
 - ["PSo26UICollectionViewDataSource", "selectedUserType"]
 - ["PSo26UICollectionViewDataSource", "sendBeginTyping"]
 - ["PSo26UICollectionViewDataSource", "sendMessage"]
@@ -7469,6 +7537,7 @@ depends-member:
 - ["PSo24UICollectionViewDelegate", "queueManager"]
 - ["PSo24UICollectionViewDelegate", "readMessages"]
 - ["PSo24UICollectionViewDelegate", "refreshAndReadMessages"]
+- ["PSo24UICollectionViewDelegate", "reportClick"]
 - ["PSo24UICollectionViewDelegate", "selectedUserType"]
 - ["PSo24UICollectionViewDelegate", "sendBeginTyping"]
 - ["PSo24UICollectionViewDelegate", "sendMessage"]
@@ -7652,6 +7721,7 @@ depends-member:
 - ["PSo34UICollectionViewDelegateFlowLayout", "queueManager"]
 - ["PSo34UICollectionViewDelegateFlowLayout", "readMessages"]
 - ["PSo34UICollectionViewDelegateFlowLayout", "refreshAndReadMessages"]
+- ["PSo34UICollectionViewDelegateFlowLayout", "reportClick"]
 - ["PSo34UICollectionViewDelegateFlowLayout", "selectedUserType"]
 - ["PSo34UICollectionViewDelegateFlowLayout", "sendBeginTyping"]
 - ["PSo34UICollectionViewDelegateFlowLayout", "sendMessage"]
@@ -7694,6 +7764,8 @@ depends-member:
 - ["CSo7UIColor", "deinit"]
 - !private ["CSo7UIColor", "gray"]
 - !private ["CSo7UIColor", "init"]
+- !private ["CSo7UIColor", "orange"]
+- !private ["CSo7UIColor", "red"]
 - !private ["CSo7UIColor", "white"]
 - ["PSo18UIContentContainer", "BackBtn_Click"]
 - !private ["PSo18UIContentContainer", "CGFloat"]
@@ -7850,6 +7922,7 @@ depends-member:
 - ["PSo18UIContentContainer", "queueManager"]
 - ["PSo18UIContentContainer", "readMessages"]
 - ["PSo18UIContentContainer", "refreshAndReadMessages"]
+- ["PSo18UIContentContainer", "reportClick"]
 - ["PSo18UIContentContainer", "selectedUserType"]
 - ["PSo18UIContentContainer", "sendBeginTyping"]
 - ["PSo18UIContentContainer", "sendMessage"]
@@ -8144,6 +8217,7 @@ depends-member:
 - ["PSo18UIFocusEnvironment", "readMessages"]
 - ["PSo18UIFocusEnvironment", "refreshAndReadMessages"]
 - !private ["PSo18UIFocusEnvironment", "removeFromSuperview"]
+- ["PSo18UIFocusEnvironment", "reportClick"]
 - ["PSo18UIFocusEnvironment", "selectedUserType"]
 - ["PSo18UIFocusEnvironment", "sendBeginTyping"]
 - ["PSo18UIFocusEnvironment", "sendMessage"]
@@ -8383,6 +8457,7 @@ depends-member:
 - !private ["PSo31UIImagePickerControllerDelegate", "queueManager"]
 - !private ["PSo31UIImagePickerControllerDelegate", "readMessages"]
 - !private ["PSo31UIImagePickerControllerDelegate", "refreshAndReadMessages"]
+- !private ["PSo31UIImagePickerControllerDelegate", "reportClick"]
 - !private ["PSo31UIImagePickerControllerDelegate", "selectedUserType"]
 - !private ["PSo31UIImagePickerControllerDelegate", "sendBeginTyping"]
 - !private ["PSo31UIImagePickerControllerDelegate", "sendMessage"]
@@ -8583,6 +8658,7 @@ depends-member:
 - !private ["PSo30UINavigationControllerDelegate", "queueManager"]
 - !private ["PSo30UINavigationControllerDelegate", "readMessages"]
 - !private ["PSo30UINavigationControllerDelegate", "refreshAndReadMessages"]
+- !private ["PSo30UINavigationControllerDelegate", "reportClick"]
 - !private ["PSo30UINavigationControllerDelegate", "selectedUserType"]
 - !private ["PSo30UINavigationControllerDelegate", "sendBeginTyping"]
 - !private ["PSo30UINavigationControllerDelegate", "sendMessage"]
@@ -8701,6 +8777,7 @@ depends-member:
 - !private ["CSo11UIResponder", "QMMessageNotificationType"]
 - !private ["CSo11UIResponder", "QMMessageStatus"]
 - ["CSo11UIResponder", "QMPlaceHolderTextView"]
+- !private ["CSo11UIResponder", "ReportViewController"]
 - !private ["CSo11UIResponder", "SFSafariViewController"]
 - !private ["CSo11UIResponder", "SVProgressHUD"]
 - !private ["CSo11UIResponder", "SVProgressHUDMaskType"]
@@ -8839,6 +8916,7 @@ depends-member:
 - ["CSo11UIResponder", "readMessages"]
 - ["CSo11UIResponder", "refreshAndReadMessages"]
 - !private ["CSo11UIResponder", "removeFromSuperview"]
+- ["CSo11UIResponder", "reportClick"]
 - ["CSo11UIResponder", "selectedUserType"]
 - ["CSo11UIResponder", "sendBeginTyping"]
 - ["CSo11UIResponder", "sendMessage"]
@@ -9068,6 +9146,7 @@ depends-member:
 - ["PSo30UIResponderStandardEditActions", "readMessages"]
 - ["PSo30UIResponderStandardEditActions", "refreshAndReadMessages"]
 - !private ["PSo30UIResponderStandardEditActions", "removeFromSuperview"]
+- ["PSo30UIResponderStandardEditActions", "reportClick"]
 - ["PSo30UIResponderStandardEditActions", "selectedUserType"]
 - ["PSo30UIResponderStandardEditActions", "sendBeginTyping"]
 - ["PSo30UIResponderStandardEditActions", "sendMessage"]
@@ -9279,6 +9358,7 @@ depends-member:
 - ["PSo20UIScrollViewDelegate", "queueManager"]
 - ["PSo20UIScrollViewDelegate", "readMessages"]
 - ["PSo20UIScrollViewDelegate", "refreshAndReadMessages"]
+- ["PSo20UIScrollViewDelegate", "reportClick"]
 - ["PSo20UIScrollViewDelegate", "selectedUserType"]
 - ["PSo20UIScrollViewDelegate", "sendBeginTyping"]
 - ["PSo20UIScrollViewDelegate", "sendMessage"]
@@ -9470,6 +9550,7 @@ depends-member:
 - ["PSo16UIStateRestoring", "queueManager"]
 - ["PSo16UIStateRestoring", "readMessages"]
 - ["PSo16UIStateRestoring", "refreshAndReadMessages"]
+- ["PSo16UIStateRestoring", "reportClick"]
 - ["PSo16UIStateRestoring", "selectedUserType"]
 - ["PSo16UIStateRestoring", "sendBeginTyping"]
 - ["PSo16UIStateRestoring", "sendMessage"]
@@ -9508,7 +9589,7 @@ depends-member:
 - ["PSo16UIStateRestoring", "willPresentActionSheet"]
 - ["PSo16UIStateRestoring", "willResignActiveBlock"]
 - ["PSo16UIStateRestoring", ""]
-- !private ["CSo12UIStoryboard", "deinit"]
+- ["CSo12UIStoryboard", "deinit"]
 - !private ["CSo12UIStoryboard", "instantiateViewController"]
 - ["CSo18UITabBarController", "deinit"]
 - !private ["CSo18UITabBarController", "navigationController"]
@@ -9674,6 +9755,7 @@ depends-member:
 - ["PSo18UITextViewDelegate", "queueManager"]
 - ["PSo18UITextViewDelegate", "readMessages"]
 - ["PSo18UITextViewDelegate", "refreshAndReadMessages"]
+- ["PSo18UITextViewDelegate", "reportClick"]
 - ["PSo18UITextViewDelegate", "selectedUserType"]
 - ["PSo18UITextViewDelegate", "sendBeginTyping"]
 - ["PSo18UITextViewDelegate", "sendMessage"]
@@ -9889,6 +9971,7 @@ depends-member:
 - ["PSo18UITraitEnvironment", "readMessages"]
 - ["PSo18UITraitEnvironment", "refreshAndReadMessages"]
 - !private ["PSo18UITraitEnvironment", "removeFromSuperview"]
+- ["PSo18UITraitEnvironment", "reportClick"]
 - ["PSo18UITraitEnvironment", "selectedUserType"]
 - ["PSo18UITraitEnvironment", "sendBeginTyping"]
 - ["PSo18UITraitEnvironment", "sendMessage"]
@@ -10050,6 +10133,7 @@ depends-member:
 - !private ["CSo16UIViewController", "QMMessageNotificationType"]
 - !private ["CSo16UIViewController", "QMMessageStatus"]
 - ["CSo16UIViewController", "QMPlaceHolderTextView"]
+- !private ["CSo16UIViewController", "ReportViewController"]
 - !private ["CSo16UIViewController", "SFSafariViewController"]
 - !private ["CSo16UIViewController", "SVProgressHUD"]
 - !private ["CSo16UIViewController", "SVProgressHUDMaskType"]
@@ -10117,7 +10201,7 @@ depends-member:
 - ["CSo16UIViewController", "createCustomTopView"]
 - !private ["CSo16UIViewController", "currentUser"]
 - ["CSo16UIViewController", "deferredQueueManager"]
-- !private ["CSo16UIViewController", "deinit"]
+- ["CSo16UIViewController", "deinit"]
 - !private ["CSo16UIViewController", "delegate"]
 - ["CSo16UIViewController", "detailedCells"]
 - ["CSo16UIViewController", "dialog"]
@@ -10164,6 +10248,7 @@ depends-member:
 - ["CSo16UIViewController", "queueManager"]
 - ["CSo16UIViewController", "readMessages"]
 - ["CSo16UIViewController", "refreshAndReadMessages"]
+- ["CSo16UIViewController", "reportClick"]
 - ["CSo16UIViewController", "selectedUserType"]
 - ["CSo16UIViewController", "sendBeginTyping"]
 - ["CSo16UIViewController", "sendMessage"]
@@ -10241,6 +10326,7 @@ depends-member:
 - ["CSo12UserDefaults", "standard"]
 - !private ["V11DiabetesApp14VideoAudioCall", "audioCall"]
 - !private ["V11DiabetesApp14VideoAudioCall", "videoCall"]
+- !private ["V11DiabetesApp15ViewIdentifiers", "ReportViewController"]
 - !private ["V11DiabetesApp15ViewIdentifiers", "carePlanViewController"]
 - !private ["V11DiabetesApp15ViewIdentifiers", "historyMainViewController"]
 - !private ["Ps14_ArrayProtocol", "Element"]
@@ -10355,6 +10441,8 @@ depends-member:
 - !private ["Ps26_ExpressibleByColorLiteral", "black"]
 - !private ["Ps26_ExpressibleByColorLiteral", "gray"]
 - !private ["Ps26_ExpressibleByColorLiteral", "init"]
+- !private ["Ps26_ExpressibleByColorLiteral", "orange"]
+- !private ["Ps26_ExpressibleByColorLiteral", "red"]
 - !private ["Ps26_ExpressibleByColorLiteral", "white"]
 - !private ["Ps34_ExpressibleByFileReferenceLiteral", "absoluteString"]
 - !private ["Ps34_ExpressibleByFileReferenceLiteral", "init"]
@@ -10364,6 +10452,7 @@ depends-member:
 - !private ["Ps26_ExpressibleByImageLiteral", "withRenderingMode"]
 - !private ["Ps35_HasCustomAnyHashableRepresentation", "Name"]
 - !private ["Ps35_HasCustomAnyHashableRepresentation", "append"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "doubleValue"]
 - !private ["Ps35_HasCustomAnyHashableRepresentation", "endIndex"]
 - !private ["Ps35_HasCustomAnyHashableRepresentation", "hasPrefix"]
 - !private ["Ps35_HasCustomAnyHashableRepresentation", "init"]
@@ -10555,6 +10644,7 @@ depends-member:
 - ["Ps9_Hashable", "didPresentActionSheet"]
 - ["Ps9_Hashable", "didPressSend"]
 - !private ["Ps9_Hashable", "dismiss"]
+- !private ["Ps9_Hashable", "doubleValue"]
 - !private ["Ps9_Hashable", "draw"]
 - !private ["Ps9_Hashable", "enableTextCheckingTypes"]
 - !private ["Ps9_Hashable", "endEditing"]
@@ -10642,6 +10732,7 @@ depends-member:
 - !private ["Ps9_Hashable", "onUserStoppedTyping"]
 - !private ["Ps9_Hashable", "openURL"]
 - ["Ps9_Hashable", "optionsClick"]
+- !private ["Ps9_Hashable", "orange"]
 - !private ["Ps9_Hashable", "performBatchUpdates"]
 - !private ["Ps9_Hashable", "perfromDefferedAction"]
 - !private ["Ps9_Hashable", "phoneNumber"]
@@ -10663,6 +10754,7 @@ depends-member:
 - !private ["Ps9_Hashable", "readIDs"]
 - ["Ps9_Hashable", "readMessages"]
 - !private ["Ps9_Hashable", "recipientID"]
+- !private ["Ps9_Hashable", "red"]
 - ["Ps9_Hashable", "refreshAndReadMessages"]
 - !private ["Ps9_Hashable", "remove"]
 - !private ["Ps9_Hashable", "removeDelegate"]
@@ -10671,6 +10763,7 @@ depends-member:
 - !private ["Ps9_Hashable", "removeObserver"]
 - !private ["Ps9_Hashable", "removeSizeFromCache"]
 - !private ["Ps9_Hashable", "removeSubrange"]
+- ["Ps9_Hashable", "reportClick"]
 - !private ["Ps9_Hashable", "result"]
 - !private ["Ps9_Hashable", "resultType"]
 - !private ["Ps9_Hashable", "rightBarButtonItems"]
@@ -11004,6 +11097,7 @@ depends-nominal:
 - !private "Ps25RangeReplaceableIndexable"
 - "Ps16RawRepresentable"
 - !private "P10Foundation20ReferenceConvertible"
+- "C11DiabetesApp20ReportViewController"
 - "CSo22SFSafariViewController"
 - !private "CSo13SVProgressHUD"
 - "OSC21SVProgressHUDMaskType"
@@ -11076,7 +11170,7 @@ depends-nominal:
 - !private "CSo12UIScrollView"
 - "PSo20UIScrollViewDelegate"
 - "PSo16UIStateRestoring"
-- !private "CSo12UIStoryboard"
+- "CSo12UIStoryboard"
 - "CSo18UITabBarController"
 - !private "PSo16UITabBarDelegate"
 - "CSo22UITapGestureRecognizer"
@@ -11445,4 +11539,4 @@ depends-external:
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController-umbrella.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Modules/module.modulemap"
-interface-hash: "716b6f7ec9680202730225697ef723f4"
+interface-hash: "7beec468571eb0a54e35b4ecbd098608"

@@ -35,7 +35,7 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
             
         }
         
-        self.navigationItem.title = "Contacts".localized
+        self.tabBarController?.navigationItem.title = "Contacts".localized
         // Do any additional setup after loading the view.
         if isGroupMode == false || selectedUserType != userType.educator{
             self.navigationItem.rightBarButtonItems = nil

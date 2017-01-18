@@ -6,75 +6,75 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp19LoginViewController", ""]
 provides-dynamic-lookup:
+- "patientBtn"
+- "didReceiveMemoryWarning"
+- "viewWillAppear"
 - "passwordTxtFld"
-- "segmentUserType"
-- "viewDidLoad"
+- "navigateToNextScreen"
+- "loginToQuickBlox"
+- "LoginBtn_Click"
+- "usernameTxtFld"
+- "SelectUserTypBtns_Click"
 - "textFieldShouldReturn"
 - "registerForRemoteNotification"
-- "SelectUserTypBtns_Click"
-- "checkLoginStatus"
-- "loginToQuickBlox"
-- "usernameTxtFld"
-- "navigateToNextScreen"
-- "patientBtn"
-- "viewWillAppear"
-- "didReceiveMemoryWarning"
 - "doctorBtn"
-- "LoginBtn_Click"
+- "checkLoginStatus"
+- "viewDidLoad"
+- "segmentUserType"
 - "selectedUserType"
 depends-top-level:
-- !private "||"
+- "UITextField"
+- !private "UIUserNotificationSettings"
+- !private "Parameters"
+- !private "!"
+- !private "UIImage"
+- !private "userType"
+- !private "SVProgressHUD"
+- !private "NSMutableArray"
+- !private "JSONEncoding"
+- !private "Void"
+- !private "BooleanLiteralType"
+- !private "StringLiteralType"
+- "UISegmentedControl"
+- !private "NSNumber"
+- !private "DoctorTabBarViewController"
+- !private "ServicesManager"
+- "Int"
+- !private "HomeTabBarController"
+- "UIButton"
+- "CastingPrecedence"
+- !private "UIApplication"
+- !private "UIColor"
+- !private "UIUserNotificationType"
 - !private "CharacterSet"
 - "AssignmentPrecedence"
 - !private "=="
-- "CastingPrecedence"
-- "String"
-- !private "QBRequest"
-- "UITextField"
-- !private "JSONEncoding"
-- !private "UIUserNotificationSettings"
-- !private "baseUrl"
-- !private "ViewIdentifiers"
-- !private "AppDelegate"
-- "UIButton"
-- "UISegmentedControl"
-- !private "Parameters"
-- !private "SVProgressHUDMaskType"
-- !private "userDefaults"
-- !private "UIImage"
-- !private "BooleanLiteralType"
-- !private "QBUUser"
-- !private "QBChat"
-- !private "DialogsViewController"
-- !private "StringLiteralType"
-- !private "Array"
-- "Bool"
-- !private "!"
-- "UIViewController"
-- "LoginViewController"
-- !private "NSNumber"
-- "Int"
-- !private "UIColor"
-- !private "SVProgressHUD"
-- !private "UserDefaults"
-- !private "HomeTabBarController"
-- "QBCoreDelegate"
-- !private "Dictionary"
-- !private "UIUserNotificationType"
-- !private "AnyObject"
-- !private "UIBarButtonItem"
 - !private "NSDictionary"
 - !private "print"
-- !private "Void"
-- !private "UIApplication"
-- !private "UtilityClass"
-- !private "ApiMethods"
-- !private "Colors"
-- !private "NSMutableArray"
-- !private "UIRemoteNotificationType"
+- !private "userDefaults"
 - !private "Alamofire"
-- !private "ServicesManager"
-- !private "userType"
+- "String"
+- !private "QBRequest"
+- !private "Array"
+- "Bool"
+- !private "UtilityClass"
+- !private "SVProgressHUDMaskType"
+- !private "QBUUser"
+- !private "UserDefaults"
+- !private "||"
+- !private "QBChat"
+- !private "baseUrl"
+- !private "ViewIdentifiers"
+- "QBCoreDelegate"
+- "LoginViewController"
+- !private "AppDelegate"
+- !private "Colors"
+- "UIViewController"
+- !private "AnyObject"
+- !private "UIBarButtonItem"
+- !private "Dictionary"
+- !private "UIRemoteNotificationType"
+- !private "ApiMethods"
 depends-member:
 - !private ["Ps9AnyObject", "Alamofire"]
 - !private ["Ps9AnyObject", "ApiMethods"]
@@ -550,10 +550,10 @@ depends-member:
 - !private ["C9Alamofire11DataRequest", "responseJSON"]
 - !private ["V9Alamofire12DataResponse", "deinit"]
 - !private ["V9Alamofire12DataResponse", "result"]
-- ["C11DiabetesApp21DialogsViewController", "deinit"]
 - !private ["Vs10Dictionary", "Key"]
 - !private ["Vs10Dictionary", "Value"]
 - ["Vs10Dictionary", "deinit"]
+- ["C11DiabetesApp26DoctorTabBarViewController", "deinit"]
 - !private ["Sd", "deinit"]
 - !private ["Ps9Equatable", "Alamofire"]
 - !private ["Ps9Equatable", "ApiMethods"]
@@ -827,7 +827,7 @@ depends-member:
 - ["C11DiabetesApp19LoginViewController", "Bool"]
 - !private ["C11DiabetesApp19LoginViewController", "CharacterSet"]
 - !private ["C11DiabetesApp19LoginViewController", "Colors"]
-- !private ["C11DiabetesApp19LoginViewController", "DialogsViewController"]
+- !private ["C11DiabetesApp19LoginViewController", "DoctorTabBarViewController"]
 - !private ["C11DiabetesApp19LoginViewController", "HomeTabBarController"]
 - ["C11DiabetesApp19LoginViewController", "Int"]
 - !private ["C11DiabetesApp19LoginViewController", "JSONEncoding"]
@@ -1075,7 +1075,7 @@ depends-member:
 - ["CSo8NSObject", "Bool"]
 - !private ["CSo8NSObject", "CharacterSet"]
 - !private ["CSo8NSObject", "Colors"]
-- !private ["CSo8NSObject", "DialogsViewController"]
+- !private ["CSo8NSObject", "DoctorTabBarViewController"]
 - !private ["CSo8NSObject", "HomeTabBarController"]
 - ["CSo8NSObject", "Int"]
 - !private ["CSo8NSObject", "JSONEncoding"]
@@ -1728,7 +1728,7 @@ depends-member:
 - ["CSo11UIResponder", "Bool"]
 - !private ["CSo11UIResponder", "CharacterSet"]
 - !private ["CSo11UIResponder", "Colors"]
-- !private ["CSo11UIResponder", "DialogsViewController"]
+- !private ["CSo11UIResponder", "DoctorTabBarViewController"]
 - !private ["CSo11UIResponder", "HomeTabBarController"]
 - ["CSo11UIResponder", "Int"]
 - !private ["CSo11UIResponder", "JSONEncoding"]
@@ -2031,7 +2031,7 @@ depends-member:
 - ["CSo16UIViewController", "Bool"]
 - !private ["CSo16UIViewController", "CharacterSet"]
 - !private ["CSo16UIViewController", "Colors"]
-- !private ["CSo16UIViewController", "DialogsViewController"]
+- !private ["CSo16UIViewController", "DoctorTabBarViewController"]
 - !private ["CSo16UIViewController", "HomeTabBarController"]
 - ["CSo16UIViewController", "Int"]
 - !private ["CSo16UIViewController", "JSONEncoding"]
@@ -2115,7 +2115,7 @@ depends-member:
 - !private ["CSo12UserDefaults", "synchronize"]
 - !private ["CSo12UserDefaults", "value"]
 - !private ["C11DiabetesApp12UtilityClass", "displayAlertMessage"]
-- !private ["V11DiabetesApp15ViewIdentifiers", "dialogsViewController"]
+- !private ["V11DiabetesApp15ViewIdentifiers", "doctorTabBarViewController"]
 - !private ["V11DiabetesApp15ViewIdentifiers", "tabBarViewController"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "backgroundColor"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "barTintColor"]
@@ -2306,8 +2306,8 @@ depends-nominal:
 - !private "V10Foundation4Data"
 - "C9Alamofire11DataRequest"
 - !private "V9Alamofire12DataResponse"
-- "C11DiabetesApp21DialogsViewController"
 - "Vs10Dictionary"
+- "C11DiabetesApp26DoctorTabBarViewController"
 - !private "Sd"
 - "Ps9Equatable"
 - !private "Ps25ExpressibleByArrayLiteral"

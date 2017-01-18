@@ -215,9 +215,10 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
                     print("JSON \(JSON)")
                     
                     if self.conditionTxtFld.text == String(conditionsArray[0] as! String) {
+                        let mainArray: NSArray = NSMutableArray(array: JSON.object(forKey: "objectArray") as! NSArray)
+                        if mainArray.count != 0 {
                         self.sectionsArray = NSMutableArray(array: JSON.object(forKey: "objectArray") as! NSArray)
-                          let dict: NSDictionary = NSDictionary(dictionary: self.sectionsArray[0] as! NSDictionary)
-                        print(dict)
+                        }
                     }
                     else {
                         
@@ -249,7 +250,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
                         self.boolArray.add(false)
                     }
 
-                    print(self.sectionsArray)
+                   
                     self.tblView.reloadData()
                     self.resetUI()
                 }
@@ -312,6 +313,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         cell.readingLbl.text = "\(obj.value(forKey: "reading")!) mg/dl"
         cell.dateLbl.text = String(describing: obj.value(forKey: "created")!)
         cell.conditionLbl.text = String(describing: obj.value(forKey: "condition")!)
+        cell.selectionStyle = .none
         return cell
         
     }
@@ -363,12 +365,24 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
             
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapHeader(gestureReconizer:)))
             headerView.addGestureRecognizer(tapGesture)
+             var arrowImgView =  UIImageView()
+            if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
+                
+                 arrowImgView = UIImageView(frame: CGRect(x:17 , y: 14, width: 17, height: 17))
+                headerView.addSubview(arrowImgView)
+            }
+            else {
+                
+                 arrowImgView = UIImageView(frame: CGRect(x:headerView.frame.size.width-27 , y: 14, width: 17, height: 17))
+                headerView.addSubview(arrowImgView)
+            }
             
-            let arrowImgView: UIImageView = UIImageView(frame: CGRect(x:headerView.frame.size.width-27 , y: 14, width: 17, height: 17))
-            headerView.addSubview(arrowImgView)
+            
             
             let bool : Bool = boolArray[section] as! Bool
             if bool == true {
+                
+               
                 let bottomView: UIView = UIView(frame: CGRect(x: 0, y: 35, width: tableView.frame.size.width, height: 10))
                 bottomView.backgroundColor = Colors.historyHeaderColor
                 headerView.addSubview(bottomView)
