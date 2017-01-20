@@ -872,6 +872,7 @@ SWIFT_CLASS("_TtC11DiabetesApp24ReportCarePlanController")
 - (void)addNotifications;
 - (void)readingNotificationWithNotification:(NSNotification * _Nonnull)notification;
 - (void)getReadingsData;
+- (void)getDoctorReadingsData;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section;
 - (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
@@ -897,13 +898,16 @@ SWIFT_CLASS("_TtC11DiabetesApp25ReportChartViewController")
 @property (nonatomic, copy) NSString * _Nonnull noOfDays;
 @property (nonatomic, readonly, strong) NSArray * _Nonnull chartConditionsArray;
 @property (nonatomic, strong) NSMutableArray * _Nonnull dataArray;
+@property (nonatomic, readonly) NSInteger selectedUserType;
 - (void)viewDidLoad;
 - (void)viewDidAppear:(BOOL)animated;
 - (void)viewDidDisappear:(BOOL)animated;
 - (void)didReceiveMemoryWarning;
 - (void)resetUI;
 - (void)getChartHistoryDataWithCondition:(NSString * _Nonnull)condition;
+- (void)getDoctorChartHistoryDataWithCondition:(NSString * _Nonnull)condition;
 - (void)chartViewNotificationWithNotification:(NSNotification * _Nonnull)notification;
+- (void)doctorchartViewNotificationWithNotification:(NSNotification * _Nonnull)notification;
 - (void)noOfDaysNotificationWithNotification:(NSNotification * _Nonnull)notification;
 - (void)setUI;
 - (void)addNotifications;
@@ -930,6 +934,7 @@ SWIFT_CLASS("_TtC11DiabetesApp27ReportHistoryViewController")
 @property (nonatomic, copy) NSString * _Nonnull noOfDays;
 @property (nonatomic, strong) NSDictionary * _Nonnull obj;
 @property (nonatomic, strong) NSArray * _Nonnull cellArray;
+@property (nonatomic, readonly) NSInteger selectedUserType;
 - (void)viewDidLoad;
 - (void)viewDidAppear:(BOOL)animated;
 - (void)viewDidDisappear:(BOOL)animated;
@@ -941,6 +946,7 @@ SWIFT_CLASS("_TtC11DiabetesApp27ReportHistoryViewController")
 - (void)listViewNotificationWithNotification:(NSNotification * _Nonnull)notification;
 - (void)noOfDaysNotificationWithNotification:(NSNotification * _Nonnull)notification;
 - (IBAction)ToolBarButtons_Click:(id _Nonnull)sender;
+- (void)getDoctorReportReadingHistoryWithCondition:(NSString * _Nonnull)condition;
 - (void)getReportReadingHistoryWithCondition:(NSString * _Nonnull)condition;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
@@ -980,7 +986,7 @@ SWIFT_CLASS("_TtC11DiabetesApp27ReportNewCarePlanController")
 - (void)resetUI;
 - (void)addNotifications;
 - (void)readingNotificationWithNotification:(NSNotification * _Nonnull)notification;
-- (void)getReadingsData;
+- (void)getDoctorReadingData;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section;
 - (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
@@ -992,13 +998,20 @@ SWIFT_CLASS("_TtC11DiabetesApp27ReportNewCarePlanController")
 @end
 
 @class UIScrollView;
+@class NSLayoutConstraint;
 
 SWIFT_CLASS("_TtC11DiabetesApp20ReportViewController")
 @interface ReportViewController : UIViewController <UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, weak) IBOutlet UITableView * _Null_unspecified medicationTbl;
 @property (nonatomic, weak) IBOutlet UIScrollView * _Null_unspecified scrollView;
 @property (nonatomic, weak) IBOutlet UITableView * _Null_unspecified summaryTbl;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint * _Null_unspecified doctorActionViewHeight;
+@property (nonatomic, weak) IBOutlet UIView * _Null_unspecified educatorActionView;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint * _Null_unspecified educatorActionViewHeight;
+@property (nonatomic, weak) IBOutlet UIView * _Null_unspecified doctorAcionView;
 @property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified listBtn;
+@property (nonatomic, weak) IBOutlet UIView * _Null_unspecified newReadingViewContainer;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified lbl;
 @property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified chartBtn;
 @property (nonatomic, weak) IBOutlet UIView * _Null_unspecified listViewContainer;
 @property (nonatomic, weak) IBOutlet UIView * _Null_unspecified chartViewContainer;
@@ -1007,7 +1020,7 @@ SWIFT_CLASS("_TtC11DiabetesApp20ReportViewController")
 @property (nonatomic, strong) NSArray * _Nonnull summaryArray;
 @property (nonatomic, strong) NSMutableArray * _Nonnull summaryTxtArray;
 @property (nonatomic, strong) NSMutableArray * _Nonnull medicationArray;
-@property (nonatomic, strong) NSArray * _Nonnull currentMedArray;
+@property (nonatomic, strong) NSMutableArray * _Nonnull newMedicationArray;
 @property (nonatomic, readonly) NSInteger selectedUserType;
 - (void)awakeFromNib;
 - (void)viewDidLoad;
@@ -1028,6 +1041,7 @@ SWIFT_CLASS("_TtC11DiabetesApp20ReportViewController")
 - (IBAction)ViewModeButtons_Click:(UIButton * _Nonnull)sender;
 - (void)BackBtn_Click;
 - (void)getEducatorReportAPI;
+- (void)doctorReportAPI;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end

@@ -6,99 +6,106 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp20ReportViewController", ""]
 provides-dynamic-lookup:
-- "summaryTxtArray"
-- "medicationTbl"
-- "viewDidLoad"
-- "viewWillDisappear"
-- "listViewContainer"
-- "topBackView"
-- "chartBtn"
-- "summaryArray"
-- "getEducatorReportAPI"
-- "setNavBarUI"
-- "selectedUserType"
 - "viewDidLayoutSubviews"
-- "listBtn"
-- "getSelectedNoOfDays"
-- "BackBtn_Click"
-- "numberOfSections"
+- "educatorActionViewHeight"
+- "viewWillDisappear"
 - "viewWillAppear"
-- "segmentControl"
-- "currentMedArray"
+- "viewDidLoad"
+- "listViewContainer"
 - "summaryTbl"
-- "chartViewContainer"
-- "createCustomTopView"
-- "awakeFromNib"
-- "medicationArray"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "ViewModeButtons_Click"
-- "didReceiveMemoryWarning"
 - "scrollView"
+- "summaryTxtArray"
 - "SegmentControl_ValueChange"
+- "doctorAcionView"
+- "newMedicationArray"
+- "awakeFromNib"
+- "doctorReportAPI"
+- "doctorActionViewHeight"
+- "chartViewContainer"
+- "medicationArray"
+- "getEducatorReportAPI"
+- "selectedUserType"
+- "topBackView"
+- "listBtn"
+- "lbl"
+- "educatorActionView"
+- "BackBtn_Click"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "numberOfSections"
+- "newReadingViewContainer"
+- "segmentControl"
+- "ViewModeButtons_Click"
+- "summaryArray"
+- "chartBtn"
+- "setNavBarUI"
+- "getSelectedNoOfDays"
+- "medicationTbl"
+- "didReceiveMemoryWarning"
+- "createCustomTopView"
 depends-top-level:
-- "AssignmentPrecedence"
-- !private "=="
-- !private "UITapGestureRecognizer"
-- !private "ReportMedicationTableViewCell"
-- !private "Colors"
-- !private "BooleanLiteralType"
-- !private "CGSize"
-- !private "Parameters"
-- !private "AnyObject"
-- "UITableViewCell"
-- "UITableView"
-- "ReportViewController"
-- !private "Alamofire"
 - "CGFloat"
-- !private "SummaryTableViewCell"
-- !private "JSONEncoding"
-- "Bool"
-- !private "NSNotification"
-- !private "UIImageView"
-- "UIScrollView"
-- !private "Array"
-- "UITableViewDelegate"
-- "UIView"
-- !private "Fonts"
-- "UIViewController"
-- !private "NSFontAttributeName"
-- !private "HistoryDays"
-- !private "Notifications"
-- !private "-"
-- !private "Dictionary"
-- "UITableViewDataSource"
-- !private "UnicodeScalarType"
-- "String"
-- !private "CGRect"
-- !private "print"
-- "Int"
-- "userDefaults"
-- "UISegmentedControl"
-- "NSArray"
 - !private "UIImage"
-- !private "NSDictionary"
-- "NSMutableArray"
+- !private "SummaryTableViewCell"
+- !private "Dictionary"
+- !private "Parameters"
+- "NSLayoutConstraint"
+- "String"
+- !private "Colors"
+- "UIView"
+- "UITableViewDelegate"
 - !private "CarePlanObj"
+- !private "HistoryDays"
+- "UITableViewDataSource"
+- !private "UITapGestureRecognizer"
 - !private "NotificationCenter"
-- "IndexPath"
+- "UIViewController"
+- "Int"
+- !private "CGRect"
+- !private "AnyObject"
+- !private "NSDictionary"
+- "UserDefaults"
+- !private ">"
+- "UITableView"
+- "UILabel"
+- !private "NSForegroundColorAttributeName"
+- !private "Alamofire"
+- "NSMutableArray"
+- !private "userType"
+- !private "UnicodeScalarType"
+- "Bool"
+- "UIScrollView"
 - "UIButton"
 - !private "UIColor"
-- "UserDefaults"
-- !private "NSForegroundColorAttributeName"
-- "CastingPrecedence"
-- !private "UILabel"
-- !private "userType"
 - !private "~="
+- !private "=="
+- "AssignmentPrecedence"
+- "CastingPrecedence"
+- !private "print"
+- "ReportViewController"
+- "NSArray"
+- "userDefaults"
+- "UITableViewCell"
+- !private "NSFontAttributeName"
+- "IndexPath"
+- "UISegmentedControl"
+- !private "Array"
+- !private "UIImageView"
+- !private "Fonts"
+- !private "NSNotification"
+- !private "JSONEncoding"
+- !private "ReportMedicationTableViewCell"
+- !private "Notifications"
+- !private "BooleanLiteralType"
+- !private "-"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "Stride"]
 - !private ["Ps9AnyObject", "Alamofire"]
 - ["Ps9AnyObject", "BackBtn_Click"]
 - !private ["Ps9AnyObject", "CGRect"]
-- !private ["Ps9AnyObject", "CGSize"]
 - !private ["Ps9AnyObject", "CarePlanObj"]
 - !private ["Ps9AnyObject", "Colors"]
 - !private ["Ps9AnyObject", "Element"]
@@ -136,16 +143,20 @@ depends-member:
 - !private ["Ps9AnyObject", "capitalized"]
 - ["Ps9AnyObject", "chartBtn"]
 - ["Ps9AnyObject", "chartViewContainer"]
-- !private ["Ps9AnyObject", "contentSize"]
+- !private ["Ps9AnyObject", "constant"]
 - !private ["Ps9AnyObject", "count"]
 - ["Ps9AnyObject", "createCustomTopView"]
-- ["Ps9AnyObject", "currentMedArray"]
 - !private ["Ps9AnyObject", "default"]
 - !private ["Ps9AnyObject", "deinit"]
 - !private ["Ps9AnyObject", "dequeueReusableCell"]
 - ["Ps9AnyObject", "didReceiveMemoryWarning"]
+- ["Ps9AnyObject", "doctorAcionView"]
+- ["Ps9AnyObject", "doctorActionViewHeight"]
+- ["Ps9AnyObject", "doctorReportAPI"]
 - !private ["Ps9AnyObject", "dosage"]
 - !private ["Ps9AnyObject", "dosageTxtFld"]
+- ["Ps9AnyObject", "educatorActionView"]
+- ["Ps9AnyObject", "educatorActionViewHeight"]
 - !private ["Ps9AnyObject", "font"]
 - !private ["Ps9AnyObject", "frame"]
 - ["Ps9AnyObject", "getEducatorReportAPI"]
@@ -161,6 +172,7 @@ depends-member:
 - !private ["Ps9AnyObject", "isHidden"]
 - !private ["Ps9AnyObject", "isUserInteractionEnabled"]
 - !private ["Ps9AnyObject", "layoutIfNeeded"]
+- ["Ps9AnyObject", "lbl"]
 - !private ["Ps9AnyObject", "leftBarButtonItem"]
 - ["Ps9AnyObject", "listBtn"]
 - ["Ps9AnyObject", "listViewContainer"]
@@ -173,6 +185,8 @@ depends-member:
 - !private ["Ps9AnyObject", "navigationBar"]
 - !private ["Ps9AnyObject", "navigationController"]
 - !private ["Ps9AnyObject", "navigationItem"]
+- ["Ps9AnyObject", "newMedicationArray"]
+- ["Ps9AnyObject", "newReadingViewContainer"]
 - ["Ps9AnyObject", "numberOfSections"]
 - ["Ps9AnyObject", "numberOfSectionsInTableView"]
 - !private ["Ps9AnyObject", "object"]
@@ -208,7 +222,6 @@ depends-member:
 - !private ["Ps9AnyObject", "setTitleColor"]
 - !private ["Ps9AnyObject", "setTitleTextAttributes"]
 - ["Ps9AnyObject", "standard"]
-- !private ["Ps9AnyObject", "string"]
 - !private ["Ps9AnyObject", "subscript"]
 - ["Ps9AnyObject", "summaryArray"]
 - ["Ps9AnyObject", "summaryTbl"]
@@ -246,7 +259,6 @@ depends-member:
 - !private ["PSo15CALayerDelegate", "addSubview"]
 - !private ["PSo15CALayerDelegate", "ansTxtLbl"]
 - !private ["PSo15CALayerDelegate", "backgroundColor"]
-- !private ["PSo15CALayerDelegate", "contentSize"]
 - !private ["PSo15CALayerDelegate", "dequeueReusableCell"]
 - !private ["PSo15CALayerDelegate", "dosageTxtFld"]
 - !private ["PSo15CALayerDelegate", "font"]
@@ -273,13 +285,10 @@ depends-member:
 - ["VSC6CGRect", "deinit"]
 - !private ["VSC6CGRect", "init"]
 - !private ["VSC6CGRect", "size"]
-- ["VSC6CGSize", "deinit"]
-- !private ["VSC6CGSize", "init"]
 - !private ["VSC6CGSize", "width"]
 - !private ["Ps7CVarArg", "Alamofire"]
 - ["Ps7CVarArg", "BackBtn_Click"]
 - !private ["Ps7CVarArg", "CGRect"]
-- !private ["Ps7CVarArg", "CGSize"]
 - !private ["Ps7CVarArg", "CarePlanObj"]
 - !private ["Ps7CVarArg", "Colors"]
 - !private ["Ps7CVarArg", "Element"]
@@ -320,15 +329,19 @@ depends-member:
 - !private ["Ps7CVarArg", "capitalized"]
 - ["Ps7CVarArg", "chartBtn"]
 - ["Ps7CVarArg", "chartViewContainer"]
-- !private ["Ps7CVarArg", "contentSize"]
+- !private ["Ps7CVarArg", "constant"]
 - !private ["Ps7CVarArg", "count"]
 - ["Ps7CVarArg", "createCustomTopView"]
-- ["Ps7CVarArg", "currentMedArray"]
 - !private ["Ps7CVarArg", "default"]
 - !private ["Ps7CVarArg", "dequeueReusableCell"]
 - ["Ps7CVarArg", "didReceiveMemoryWarning"]
+- ["Ps7CVarArg", "doctorAcionView"]
+- ["Ps7CVarArg", "doctorActionViewHeight"]
+- ["Ps7CVarArg", "doctorReportAPI"]
 - !private ["Ps7CVarArg", "dosage"]
 - !private ["Ps7CVarArg", "dosageTxtFld"]
+- ["Ps7CVarArg", "educatorActionView"]
+- ["Ps7CVarArg", "educatorActionViewHeight"]
 - !private ["Ps7CVarArg", "font"]
 - !private ["Ps7CVarArg", "frame"]
 - ["Ps7CVarArg", "getEducatorReportAPI"]
@@ -344,6 +357,7 @@ depends-member:
 - !private ["Ps7CVarArg", "isHidden"]
 - !private ["Ps7CVarArg", "isUserInteractionEnabled"]
 - !private ["Ps7CVarArg", "layoutIfNeeded"]
+- ["Ps7CVarArg", "lbl"]
 - !private ["Ps7CVarArg", "leftBarButtonItem"]
 - ["Ps7CVarArg", "listBtn"]
 - ["Ps7CVarArg", "listViewContainer"]
@@ -356,6 +370,8 @@ depends-member:
 - !private ["Ps7CVarArg", "navigationBar"]
 - !private ["Ps7CVarArg", "navigationController"]
 - !private ["Ps7CVarArg", "navigationItem"]
+- ["Ps7CVarArg", "newMedicationArray"]
+- ["Ps7CVarArg", "newReadingViewContainer"]
 - ["Ps7CVarArg", "numberOfSections"]
 - ["Ps7CVarArg", "numberOfSectionsInTableView"]
 - !private ["Ps7CVarArg", "object"]
@@ -390,7 +406,6 @@ depends-member:
 - !private ["Ps7CVarArg", "setTitleColor"]
 - !private ["Ps7CVarArg", "setTitleTextAttributes"]
 - ["Ps7CVarArg", "standard"]
-- !private ["Ps7CVarArg", "string"]
 - !private ["Ps7CVarArg", "subscript"]
 - ["Ps7CVarArg", "summaryArray"]
 - ["Ps7CVarArg", "summaryTbl"]
@@ -436,7 +451,6 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "Alamofire"]
 - ["Ps28CustomDebugStringConvertible", "BackBtn_Click"]
 - !private ["Ps28CustomDebugStringConvertible", "CGRect"]
-- !private ["Ps28CustomDebugStringConvertible", "CGSize"]
 - !private ["Ps28CustomDebugStringConvertible", "CarePlanObj"]
 - !private ["Ps28CustomDebugStringConvertible", "Colors"]
 - !private ["Ps28CustomDebugStringConvertible", "Element"]
@@ -477,15 +491,19 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "capitalized"]
 - ["Ps28CustomDebugStringConvertible", "chartBtn"]
 - ["Ps28CustomDebugStringConvertible", "chartViewContainer"]
-- !private ["Ps28CustomDebugStringConvertible", "contentSize"]
+- !private ["Ps28CustomDebugStringConvertible", "constant"]
 - !private ["Ps28CustomDebugStringConvertible", "count"]
 - ["Ps28CustomDebugStringConvertible", "createCustomTopView"]
-- ["Ps28CustomDebugStringConvertible", "currentMedArray"]
 - !private ["Ps28CustomDebugStringConvertible", "default"]
 - !private ["Ps28CustomDebugStringConvertible", "dequeueReusableCell"]
 - ["Ps28CustomDebugStringConvertible", "didReceiveMemoryWarning"]
+- ["Ps28CustomDebugStringConvertible", "doctorAcionView"]
+- ["Ps28CustomDebugStringConvertible", "doctorActionViewHeight"]
+- ["Ps28CustomDebugStringConvertible", "doctorReportAPI"]
 - !private ["Ps28CustomDebugStringConvertible", "dosage"]
 - !private ["Ps28CustomDebugStringConvertible", "dosageTxtFld"]
+- ["Ps28CustomDebugStringConvertible", "educatorActionView"]
+- ["Ps28CustomDebugStringConvertible", "educatorActionViewHeight"]
 - !private ["Ps28CustomDebugStringConvertible", "failure"]
 - !private ["Ps28CustomDebugStringConvertible", "font"]
 - !private ["Ps28CustomDebugStringConvertible", "frame"]
@@ -502,6 +520,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "isHidden"]
 - !private ["Ps28CustomDebugStringConvertible", "isUserInteractionEnabled"]
 - !private ["Ps28CustomDebugStringConvertible", "layoutIfNeeded"]
+- ["Ps28CustomDebugStringConvertible", "lbl"]
 - !private ["Ps28CustomDebugStringConvertible", "leftBarButtonItem"]
 - ["Ps28CustomDebugStringConvertible", "listBtn"]
 - ["Ps28CustomDebugStringConvertible", "listViewContainer"]
@@ -514,6 +533,8 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "navigationBar"]
 - !private ["Ps28CustomDebugStringConvertible", "navigationController"]
 - !private ["Ps28CustomDebugStringConvertible", "navigationItem"]
+- ["Ps28CustomDebugStringConvertible", "newMedicationArray"]
+- ["Ps28CustomDebugStringConvertible", "newReadingViewContainer"]
 - ["Ps28CustomDebugStringConvertible", "numberOfSections"]
 - ["Ps28CustomDebugStringConvertible", "numberOfSectionsInTableView"]
 - !private ["Ps28CustomDebugStringConvertible", "object"]
@@ -553,7 +574,6 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "setTitleTextAttributes"]
 - !private ["Ps28CustomDebugStringConvertible", "size"]
 - ["Ps28CustomDebugStringConvertible", "standard"]
-- !private ["Ps28CustomDebugStringConvertible", "string"]
 - !private ["Ps28CustomDebugStringConvertible", "subscript"]
 - !private ["Ps28CustomDebugStringConvertible", "success"]
 - ["Ps28CustomDebugStringConvertible", "summaryArray"]
@@ -609,7 +629,6 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "Alamofire"]
 - ["Ps23CustomStringConvertible", "BackBtn_Click"]
 - !private ["Ps23CustomStringConvertible", "CGRect"]
-- !private ["Ps23CustomStringConvertible", "CGSize"]
 - !private ["Ps23CustomStringConvertible", "CarePlanObj"]
 - !private ["Ps23CustomStringConvertible", "Colors"]
 - !private ["Ps23CustomStringConvertible", "Element"]
@@ -651,15 +670,19 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "capitalized"]
 - ["Ps23CustomStringConvertible", "chartBtn"]
 - ["Ps23CustomStringConvertible", "chartViewContainer"]
-- !private ["Ps23CustomStringConvertible", "contentSize"]
+- !private ["Ps23CustomStringConvertible", "constant"]
 - !private ["Ps23CustomStringConvertible", "count"]
 - ["Ps23CustomStringConvertible", "createCustomTopView"]
-- ["Ps23CustomStringConvertible", "currentMedArray"]
 - !private ["Ps23CustomStringConvertible", "default"]
 - !private ["Ps23CustomStringConvertible", "dequeueReusableCell"]
 - ["Ps23CustomStringConvertible", "didReceiveMemoryWarning"]
+- ["Ps23CustomStringConvertible", "doctorAcionView"]
+- ["Ps23CustomStringConvertible", "doctorActionViewHeight"]
+- ["Ps23CustomStringConvertible", "doctorReportAPI"]
 - !private ["Ps23CustomStringConvertible", "dosage"]
 - !private ["Ps23CustomStringConvertible", "dosageTxtFld"]
+- ["Ps23CustomStringConvertible", "educatorActionView"]
+- ["Ps23CustomStringConvertible", "educatorActionViewHeight"]
 - !private ["Ps23CustomStringConvertible", "failure"]
 - !private ["Ps23CustomStringConvertible", "font"]
 - !private ["Ps23CustomStringConvertible", "frame"]
@@ -676,6 +699,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "isHidden"]
 - !private ["Ps23CustomStringConvertible", "isUserInteractionEnabled"]
 - !private ["Ps23CustomStringConvertible", "layoutIfNeeded"]
+- ["Ps23CustomStringConvertible", "lbl"]
 - !private ["Ps23CustomStringConvertible", "leftBarButtonItem"]
 - ["Ps23CustomStringConvertible", "listBtn"]
 - ["Ps23CustomStringConvertible", "listViewContainer"]
@@ -688,6 +712,8 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "navigationBar"]
 - !private ["Ps23CustomStringConvertible", "navigationController"]
 - !private ["Ps23CustomStringConvertible", "navigationItem"]
+- ["Ps23CustomStringConvertible", "newMedicationArray"]
+- ["Ps23CustomStringConvertible", "newReadingViewContainer"]
 - ["Ps23CustomStringConvertible", "numberOfSections"]
 - ["Ps23CustomStringConvertible", "numberOfSectionsInTableView"]
 - !private ["Ps23CustomStringConvertible", "object"]
@@ -726,7 +752,6 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "setTitleColor"]
 - !private ["Ps23CustomStringConvertible", "setTitleTextAttributes"]
 - ["Ps23CustomStringConvertible", "standard"]
-- !private ["Ps23CustomStringConvertible", "string"]
 - !private ["Ps23CustomStringConvertible", "subscript"]
 - !private ["Ps23CustomStringConvertible", "success"]
 - ["Ps23CustomStringConvertible", "summaryArray"]
@@ -764,7 +789,6 @@ depends-member:
 - !private ["Ps9Equatable", "Alamofire"]
 - ["Ps9Equatable", "BackBtn_Click"]
 - !private ["Ps9Equatable", "CGRect"]
-- !private ["Ps9Equatable", "CGSize"]
 - !private ["Ps9Equatable", "CarePlanObj"]
 - !private ["Ps9Equatable", "Colors"]
 - !private ["Ps9Equatable", "Element"]
@@ -804,15 +828,19 @@ depends-member:
 - !private ["Ps9Equatable", "capitalized"]
 - ["Ps9Equatable", "chartBtn"]
 - ["Ps9Equatable", "chartViewContainer"]
-- !private ["Ps9Equatable", "contentSize"]
+- !private ["Ps9Equatable", "constant"]
 - !private ["Ps9Equatable", "count"]
 - ["Ps9Equatable", "createCustomTopView"]
-- ["Ps9Equatable", "currentMedArray"]
 - !private ["Ps9Equatable", "default"]
 - !private ["Ps9Equatable", "dequeueReusableCell"]
 - ["Ps9Equatable", "didReceiveMemoryWarning"]
+- ["Ps9Equatable", "doctorAcionView"]
+- ["Ps9Equatable", "doctorActionViewHeight"]
+- ["Ps9Equatable", "doctorReportAPI"]
 - !private ["Ps9Equatable", "dosage"]
 - !private ["Ps9Equatable", "dosageTxtFld"]
+- ["Ps9Equatable", "educatorActionView"]
+- ["Ps9Equatable", "educatorActionViewHeight"]
 - !private ["Ps9Equatable", "font"]
 - !private ["Ps9Equatable", "frame"]
 - ["Ps9Equatable", "getEducatorReportAPI"]
@@ -828,6 +856,7 @@ depends-member:
 - !private ["Ps9Equatable", "isHidden"]
 - !private ["Ps9Equatable", "isUserInteractionEnabled"]
 - !private ["Ps9Equatable", "layoutIfNeeded"]
+- ["Ps9Equatable", "lbl"]
 - !private ["Ps9Equatable", "leftBarButtonItem"]
 - ["Ps9Equatable", "listBtn"]
 - ["Ps9Equatable", "listViewContainer"]
@@ -840,6 +869,8 @@ depends-member:
 - !private ["Ps9Equatable", "navigationBar"]
 - !private ["Ps9Equatable", "navigationController"]
 - !private ["Ps9Equatable", "navigationItem"]
+- ["Ps9Equatable", "newMedicationArray"]
+- ["Ps9Equatable", "newReadingViewContainer"]
 - !private ["Ps9Equatable", "normal"]
 - ["Ps9Equatable", "numberOfSections"]
 - ["Ps9Equatable", "numberOfSectionsInTableView"]
@@ -879,7 +910,6 @@ depends-member:
 - !private ["Ps9Equatable", "setTitleTextAttributes"]
 - !private ["Ps9Equatable", "size"]
 - ["Ps9Equatable", "standard"]
-- !private ["Ps9Equatable", "string"]
 - !private ["Ps9Equatable", "subscript"]
 - ["Ps9Equatable", "summaryArray"]
 - ["Ps9Equatable", "summaryTbl"]
@@ -946,7 +976,6 @@ depends-member:
 - !private ["Ps8Hashable", "Alamofire"]
 - ["Ps8Hashable", "BackBtn_Click"]
 - !private ["Ps8Hashable", "CGRect"]
-- !private ["Ps8Hashable", "CGSize"]
 - !private ["Ps8Hashable", "CarePlanObj"]
 - !private ["Ps8Hashable", "Colors"]
 - !private ["Ps8Hashable", "Element"]
@@ -986,15 +1015,19 @@ depends-member:
 - !private ["Ps8Hashable", "capitalized"]
 - ["Ps8Hashable", "chartBtn"]
 - ["Ps8Hashable", "chartViewContainer"]
-- !private ["Ps8Hashable", "contentSize"]
+- !private ["Ps8Hashable", "constant"]
 - !private ["Ps8Hashable", "count"]
 - ["Ps8Hashable", "createCustomTopView"]
-- ["Ps8Hashable", "currentMedArray"]
 - !private ["Ps8Hashable", "default"]
 - !private ["Ps8Hashable", "dequeueReusableCell"]
 - ["Ps8Hashable", "didReceiveMemoryWarning"]
+- ["Ps8Hashable", "doctorAcionView"]
+- ["Ps8Hashable", "doctorActionViewHeight"]
+- ["Ps8Hashable", "doctorReportAPI"]
 - !private ["Ps8Hashable", "dosage"]
 - !private ["Ps8Hashable", "dosageTxtFld"]
+- ["Ps8Hashable", "educatorActionView"]
+- ["Ps8Hashable", "educatorActionViewHeight"]
 - !private ["Ps8Hashable", "font"]
 - !private ["Ps8Hashable", "frame"]
 - ["Ps8Hashable", "getEducatorReportAPI"]
@@ -1010,6 +1043,7 @@ depends-member:
 - !private ["Ps8Hashable", "isHidden"]
 - !private ["Ps8Hashable", "isUserInteractionEnabled"]
 - !private ["Ps8Hashable", "layoutIfNeeded"]
+- ["Ps8Hashable", "lbl"]
 - !private ["Ps8Hashable", "leftBarButtonItem"]
 - ["Ps8Hashable", "listBtn"]
 - ["Ps8Hashable", "listViewContainer"]
@@ -1022,6 +1056,8 @@ depends-member:
 - !private ["Ps8Hashable", "navigationBar"]
 - !private ["Ps8Hashable", "navigationController"]
 - !private ["Ps8Hashable", "navigationItem"]
+- ["Ps8Hashable", "newMedicationArray"]
+- ["Ps8Hashable", "newReadingViewContainer"]
 - ["Ps8Hashable", "numberOfSections"]
 - ["Ps8Hashable", "numberOfSectionsInTableView"]
 - !private ["Ps8Hashable", "object"]
@@ -1058,7 +1094,6 @@ depends-member:
 - !private ["Ps8Hashable", "setTitleColor"]
 - !private ["Ps8Hashable", "setTitleTextAttributes"]
 - ["Ps8Hashable", "standard"]
-- !private ["Ps8Hashable", "string"]
 - !private ["Ps8Hashable", "subscript"]
 - ["Ps8Hashable", "summaryArray"]
 - ["Ps8Hashable", "summaryTbl"]
@@ -1140,7 +1175,6 @@ depends-member:
 - !private ["PSo8NSCoding", "Alamofire"]
 - ["PSo8NSCoding", "BackBtn_Click"]
 - !private ["PSo8NSCoding", "CGRect"]
-- !private ["PSo8NSCoding", "CGSize"]
 - !private ["PSo8NSCoding", "CarePlanObj"]
 - !private ["PSo8NSCoding", "Colors"]
 - !private ["PSo8NSCoding", "Element"]
@@ -1178,13 +1212,16 @@ depends-member:
 - !private ["PSo8NSCoding", "capitalized"]
 - ["PSo8NSCoding", "chartBtn"]
 - ["PSo8NSCoding", "chartViewContainer"]
-- !private ["PSo8NSCoding", "contentSize"]
 - !private ["PSo8NSCoding", "count"]
 - ["PSo8NSCoding", "createCustomTopView"]
-- ["PSo8NSCoding", "currentMedArray"]
 - !private ["PSo8NSCoding", "dequeueReusableCell"]
 - ["PSo8NSCoding", "didReceiveMemoryWarning"]
+- ["PSo8NSCoding", "doctorAcionView"]
+- ["PSo8NSCoding", "doctorActionViewHeight"]
+- ["PSo8NSCoding", "doctorReportAPI"]
 - !private ["PSo8NSCoding", "dosageTxtFld"]
+- ["PSo8NSCoding", "educatorActionView"]
+- ["PSo8NSCoding", "educatorActionViewHeight"]
 - !private ["PSo8NSCoding", "font"]
 - !private ["PSo8NSCoding", "frame"]
 - ["PSo8NSCoding", "getEducatorReportAPI"]
@@ -1198,6 +1235,7 @@ depends-member:
 - !private ["PSo8NSCoding", "isHidden"]
 - !private ["PSo8NSCoding", "isUserInteractionEnabled"]
 - !private ["PSo8NSCoding", "layoutIfNeeded"]
+- ["PSo8NSCoding", "lbl"]
 - !private ["PSo8NSCoding", "leftBarButtonItem"]
 - ["PSo8NSCoding", "listBtn"]
 - ["PSo8NSCoding", "listViewContainer"]
@@ -1209,6 +1247,8 @@ depends-member:
 - !private ["PSo8NSCoding", "navigationBar"]
 - !private ["PSo8NSCoding", "navigationController"]
 - !private ["PSo8NSCoding", "navigationItem"]
+- ["PSo8NSCoding", "newMedicationArray"]
+- ["PSo8NSCoding", "newReadingViewContainer"]
 - ["PSo8NSCoding", "numberOfSections"]
 - ["PSo8NSCoding", "numberOfSectionsInTableView"]
 - !private ["PSo8NSCoding", "object"]
@@ -1287,7 +1327,6 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "Alamofire"]
 - ["PSo26NSExtensionRequestHandling", "BackBtn_Click"]
 - !private ["PSo26NSExtensionRequestHandling", "CGRect"]
-- !private ["PSo26NSExtensionRequestHandling", "CGSize"]
 - !private ["PSo26NSExtensionRequestHandling", "CarePlanObj"]
 - !private ["PSo26NSExtensionRequestHandling", "Colors"]
 - !private ["PSo26NSExtensionRequestHandling", "Fonts"]
@@ -1315,13 +1354,18 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "chartBtn"]
 - ["PSo26NSExtensionRequestHandling", "chartViewContainer"]
 - ["PSo26NSExtensionRequestHandling", "createCustomTopView"]
-- ["PSo26NSExtensionRequestHandling", "currentMedArray"]
 - ["PSo26NSExtensionRequestHandling", "didReceiveMemoryWarning"]
+- ["PSo26NSExtensionRequestHandling", "doctorAcionView"]
+- ["PSo26NSExtensionRequestHandling", "doctorActionViewHeight"]
+- ["PSo26NSExtensionRequestHandling", "doctorReportAPI"]
+- ["PSo26NSExtensionRequestHandling", "educatorActionView"]
+- ["PSo26NSExtensionRequestHandling", "educatorActionViewHeight"]
 - ["PSo26NSExtensionRequestHandling", "getEducatorReportAPI"]
 - ["PSo26NSExtensionRequestHandling", "getSelectedNoOfDays"]
 - ["PSo26NSExtensionRequestHandling", "indexPathForPreferredFocusedView"]
 - ["PSo26NSExtensionRequestHandling", "indexPathForPreferredFocusedViewInTableView"]
 - !private ["PSo26NSExtensionRequestHandling", "init"]
+- ["PSo26NSExtensionRequestHandling", "lbl"]
 - ["PSo26NSExtensionRequestHandling", "listBtn"]
 - ["PSo26NSExtensionRequestHandling", "listViewContainer"]
 - ["PSo26NSExtensionRequestHandling", "medicationArray"]
@@ -1329,6 +1373,8 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "navigationBar"]
 - !private ["PSo26NSExtensionRequestHandling", "navigationController"]
 - !private ["PSo26NSExtensionRequestHandling", "navigationItem"]
+- ["PSo26NSExtensionRequestHandling", "newMedicationArray"]
+- ["PSo26NSExtensionRequestHandling", "newReadingViewContainer"]
 - ["PSo26NSExtensionRequestHandling", "numberOfSections"]
 - ["PSo26NSExtensionRequestHandling", "numberOfSectionsInTableView"]
 - !private ["PSo26NSExtensionRequestHandling", "popViewController"]
@@ -1380,6 +1426,7 @@ depends-member:
 - !private ["C10Foundation25NSFastEnumerationIterator", "Element"]
 - !private ["PSo20NSFetchRequestResult", "object"]
 - !private ["PSo20NSFetchRequestResult", "value"]
+- !private ["CSo18NSLayoutConstraint", "constant"]
 - !private ["CSo14NSMutableArray", "Iterator"]
 - !private ["CSo14NSMutableArray", "add"]
 - !private ["CSo14NSMutableArray", "count"]
@@ -1406,7 +1453,6 @@ depends-member:
 - ["CSo8NSObject", "Bool"]
 - ["CSo8NSObject", "CGFloat"]
 - !private ["CSo8NSObject", "CGRect"]
-- !private ["CSo8NSObject", "CGSize"]
 - !private ["CSo8NSObject", "CarePlanObj"]
 - !private ["CSo8NSObject", "Colors"]
 - !private ["CSo8NSObject", "Element"]
@@ -1420,6 +1466,7 @@ depends-member:
 - !private ["CSo8NSObject", "NSDictionary"]
 - !private ["CSo8NSObject", "NSFontAttributeName"]
 - !private ["CSo8NSObject", "NSForegroundColorAttributeName"]
+- ["CSo8NSObject", "NSLayoutConstraint"]
 - ["CSo8NSObject", "NSMutableArray"]
 - !private ["CSo8NSObject", "NSNotification"]
 - !private ["CSo8NSObject", "Name"]
@@ -1435,7 +1482,7 @@ depends-member:
 - !private ["CSo8NSObject", "UIColor"]
 - !private ["CSo8NSObject", "UIImage"]
 - !private ["CSo8NSObject", "UIImageView"]
-- !private ["CSo8NSObject", "UILabel"]
+- ["CSo8NSObject", "UILabel"]
 - ["CSo8NSObject", "UIScrollView"]
 - ["CSo8NSObject", "UISegmentedControl"]
 - ["CSo8NSObject", "UITableView"]
@@ -1454,16 +1501,20 @@ depends-member:
 - !private ["CSo8NSObject", "capitalized"]
 - ["CSo8NSObject", "chartBtn"]
 - ["CSo8NSObject", "chartViewContainer"]
-- !private ["CSo8NSObject", "contentSize"]
+- !private ["CSo8NSObject", "constant"]
 - !private ["CSo8NSObject", "count"]
 - ["CSo8NSObject", "createCustomTopView"]
-- ["CSo8NSObject", "currentMedArray"]
 - !private ["CSo8NSObject", "default"]
 - !private ["CSo8NSObject", "deinit"]
 - !private ["CSo8NSObject", "dequeueReusableCell"]
 - ["CSo8NSObject", "didReceiveMemoryWarning"]
+- ["CSo8NSObject", "doctorAcionView"]
+- ["CSo8NSObject", "doctorActionViewHeight"]
+- ["CSo8NSObject", "doctorReportAPI"]
 - !private ["CSo8NSObject", "dosage"]
 - !private ["CSo8NSObject", "dosageTxtFld"]
+- ["CSo8NSObject", "educatorActionView"]
+- ["CSo8NSObject", "educatorActionViewHeight"]
 - !private ["CSo8NSObject", "font"]
 - !private ["CSo8NSObject", "frame"]
 - ["CSo8NSObject", "getEducatorReportAPI"]
@@ -1479,6 +1530,7 @@ depends-member:
 - !private ["CSo8NSObject", "isHidden"]
 - !private ["CSo8NSObject", "isUserInteractionEnabled"]
 - !private ["CSo8NSObject", "layoutIfNeeded"]
+- ["CSo8NSObject", "lbl"]
 - !private ["CSo8NSObject", "leftBarButtonItem"]
 - ["CSo8NSObject", "listBtn"]
 - ["CSo8NSObject", "listViewContainer"]
@@ -1491,6 +1543,8 @@ depends-member:
 - !private ["CSo8NSObject", "navigationBar"]
 - !private ["CSo8NSObject", "navigationController"]
 - !private ["CSo8NSObject", "navigationItem"]
+- ["CSo8NSObject", "newMedicationArray"]
+- ["CSo8NSObject", "newReadingViewContainer"]
 - ["CSo8NSObject", "numberOfSections"]
 - ["CSo8NSObject", "numberOfSectionsInTableView"]
 - !private ["CSo8NSObject", "object"]
@@ -1525,7 +1579,6 @@ depends-member:
 - !private ["CSo8NSObject", "setTitleColor"]
 - !private ["CSo8NSObject", "setTitleTextAttributes"]
 - ["CSo8NSObject", "standard"]
-- !private ["CSo8NSObject", "string"]
 - !private ["CSo8NSObject", "subscript"]
 - ["CSo8NSObject", "summaryArray"]
 - ["CSo8NSObject", "summaryTbl"]
@@ -1552,7 +1605,6 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "Alamofire"]
 - ["PSo16NSObjectProtocol", "BackBtn_Click"]
 - !private ["PSo16NSObjectProtocol", "CGRect"]
-- !private ["PSo16NSObjectProtocol", "CGSize"]
 - !private ["PSo16NSObjectProtocol", "CarePlanObj"]
 - !private ["PSo16NSObjectProtocol", "Colors"]
 - !private ["PSo16NSObjectProtocol", "Element"]
@@ -1590,15 +1642,19 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "capitalized"]
 - ["PSo16NSObjectProtocol", "chartBtn"]
 - ["PSo16NSObjectProtocol", "chartViewContainer"]
-- !private ["PSo16NSObjectProtocol", "contentSize"]
+- !private ["PSo16NSObjectProtocol", "constant"]
 - !private ["PSo16NSObjectProtocol", "count"]
 - ["PSo16NSObjectProtocol", "createCustomTopView"]
-- ["PSo16NSObjectProtocol", "currentMedArray"]
 - !private ["PSo16NSObjectProtocol", "default"]
 - !private ["PSo16NSObjectProtocol", "dequeueReusableCell"]
 - ["PSo16NSObjectProtocol", "didReceiveMemoryWarning"]
+- ["PSo16NSObjectProtocol", "doctorAcionView"]
+- ["PSo16NSObjectProtocol", "doctorActionViewHeight"]
+- ["PSo16NSObjectProtocol", "doctorReportAPI"]
 - !private ["PSo16NSObjectProtocol", "dosage"]
 - !private ["PSo16NSObjectProtocol", "dosageTxtFld"]
+- ["PSo16NSObjectProtocol", "educatorActionView"]
+- ["PSo16NSObjectProtocol", "educatorActionViewHeight"]
 - !private ["PSo16NSObjectProtocol", "font"]
 - !private ["PSo16NSObjectProtocol", "frame"]
 - ["PSo16NSObjectProtocol", "getEducatorReportAPI"]
@@ -1614,6 +1670,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "isHidden"]
 - !private ["PSo16NSObjectProtocol", "isUserInteractionEnabled"]
 - !private ["PSo16NSObjectProtocol", "layoutIfNeeded"]
+- ["PSo16NSObjectProtocol", "lbl"]
 - !private ["PSo16NSObjectProtocol", "leftBarButtonItem"]
 - ["PSo16NSObjectProtocol", "listBtn"]
 - ["PSo16NSObjectProtocol", "listViewContainer"]
@@ -1626,6 +1683,8 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "navigationBar"]
 - !private ["PSo16NSObjectProtocol", "navigationController"]
 - !private ["PSo16NSObjectProtocol", "navigationItem"]
+- ["PSo16NSObjectProtocol", "newMedicationArray"]
+- ["PSo16NSObjectProtocol", "newReadingViewContainer"]
 - ["PSo16NSObjectProtocol", "numberOfSections"]
 - ["PSo16NSObjectProtocol", "numberOfSectionsInTableView"]
 - !private ["PSo16NSObjectProtocol", "object"]
@@ -1660,7 +1719,6 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "setTitleColor"]
 - !private ["PSo16NSObjectProtocol", "setTitleTextAttributes"]
 - ["PSo16NSObjectProtocol", "standard"]
-- !private ["PSo16NSObjectProtocol", "string"]
 - !private ["PSo16NSObjectProtocol", "subscript"]
 - ["PSo16NSObjectProtocol", "summaryArray"]
 - ["PSo16NSObjectProtocol", "summaryTbl"]
@@ -1735,7 +1793,6 @@ depends-member:
 - ["C11DiabetesApp20ReportViewController", "Bool"]
 - ["C11DiabetesApp20ReportViewController", "CGFloat"]
 - !private ["C11DiabetesApp20ReportViewController", "CGRect"]
-- !private ["C11DiabetesApp20ReportViewController", "CGSize"]
 - !private ["C11DiabetesApp20ReportViewController", "CarePlanObj"]
 - !private ["C11DiabetesApp20ReportViewController", "Colors"]
 - !private ["C11DiabetesApp20ReportViewController", "Fonts"]
@@ -1747,6 +1804,7 @@ depends-member:
 - !private ["C11DiabetesApp20ReportViewController", "NSDictionary"]
 - !private ["C11DiabetesApp20ReportViewController", "NSFontAttributeName"]
 - !private ["C11DiabetesApp20ReportViewController", "NSForegroundColorAttributeName"]
+- ["C11DiabetesApp20ReportViewController", "NSLayoutConstraint"]
 - ["C11DiabetesApp20ReportViewController", "NSMutableArray"]
 - !private ["C11DiabetesApp20ReportViewController", "NSNotification"]
 - !private ["C11DiabetesApp20ReportViewController", "NotificationCenter"]
@@ -1760,7 +1818,7 @@ depends-member:
 - !private ["C11DiabetesApp20ReportViewController", "UIColor"]
 - !private ["C11DiabetesApp20ReportViewController", "UIImage"]
 - !private ["C11DiabetesApp20ReportViewController", "UIImageView"]
-- !private ["C11DiabetesApp20ReportViewController", "UILabel"]
+- ["C11DiabetesApp20ReportViewController", "UILabel"]
 - ["C11DiabetesApp20ReportViewController", "UIScrollView"]
 - ["C11DiabetesApp20ReportViewController", "UISegmentedControl"]
 - ["C11DiabetesApp20ReportViewController", "UITableView"]
@@ -1773,20 +1831,27 @@ depends-member:
 - ["C11DiabetesApp20ReportViewController", "chartBtn"]
 - ["C11DiabetesApp20ReportViewController", "chartViewContainer"]
 - ["C11DiabetesApp20ReportViewController", "createCustomTopView"]
-- ["C11DiabetesApp20ReportViewController", "currentMedArray"]
 - ["C11DiabetesApp20ReportViewController", "deinit"]
 - ["C11DiabetesApp20ReportViewController", "didReceiveMemoryWarning"]
+- ["C11DiabetesApp20ReportViewController", "doctorAcionView"]
+- ["C11DiabetesApp20ReportViewController", "doctorActionViewHeight"]
+- ["C11DiabetesApp20ReportViewController", "doctorReportAPI"]
+- ["C11DiabetesApp20ReportViewController", "educatorActionView"]
+- ["C11DiabetesApp20ReportViewController", "educatorActionViewHeight"]
 - ["C11DiabetesApp20ReportViewController", "getEducatorReportAPI"]
 - ["C11DiabetesApp20ReportViewController", "getSelectedNoOfDays"]
 - ["C11DiabetesApp20ReportViewController", "indexPathForPreferredFocusedView"]
 - ["C11DiabetesApp20ReportViewController", "indexPathForPreferredFocusedViewInTableView"]
 - ["C11DiabetesApp20ReportViewController", "init"]
+- ["C11DiabetesApp20ReportViewController", "lbl"]
 - ["C11DiabetesApp20ReportViewController", "listBtn"]
 - ["C11DiabetesApp20ReportViewController", "listViewContainer"]
 - ["C11DiabetesApp20ReportViewController", "medicationArray"]
 - ["C11DiabetesApp20ReportViewController", "medicationTbl"]
 - !private ["C11DiabetesApp20ReportViewController", "navigationController"]
 - !private ["C11DiabetesApp20ReportViewController", "navigationItem"]
+- ["C11DiabetesApp20ReportViewController", "newMedicationArray"]
+- ["C11DiabetesApp20ReportViewController", "newReadingViewContainer"]
 - ["C11DiabetesApp20ReportViewController", "numberOfSections"]
 - ["C11DiabetesApp20ReportViewController", "numberOfSectionsInTableView"]
 - !private ["C11DiabetesApp20ReportViewController", "print"]
@@ -1869,7 +1934,6 @@ depends-member:
 - !private ["PSo29UIAccessibilityIdentification", "addSubview"]
 - !private ["PSo29UIAccessibilityIdentification", "ansTxtLbl"]
 - !private ["PSo29UIAccessibilityIdentification", "backgroundColor"]
-- !private ["PSo29UIAccessibilityIdentification", "contentSize"]
 - !private ["PSo29UIAccessibilityIdentification", "dequeueReusableCell"]
 - !private ["PSo29UIAccessibilityIdentification", "dosageTxtFld"]
 - !private ["PSo29UIAccessibilityIdentification", "font"]
@@ -1895,7 +1959,6 @@ depends-member:
 - !private ["PSo12UIAppearance", "addSubview"]
 - !private ["PSo12UIAppearance", "ansTxtLbl"]
 - !private ["PSo12UIAppearance", "backgroundColor"]
-- !private ["PSo12UIAppearance", "contentSize"]
 - !private ["PSo12UIAppearance", "dequeueReusableCell"]
 - !private ["PSo12UIAppearance", "dosageTxtFld"]
 - !private ["PSo12UIAppearance", "font"]
@@ -1920,7 +1983,6 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "Alamofire"]
 - ["PSo21UIAppearanceContainer", "BackBtn_Click"]
 - !private ["PSo21UIAppearanceContainer", "CGRect"]
-- !private ["PSo21UIAppearanceContainer", "CGSize"]
 - !private ["PSo21UIAppearanceContainer", "CarePlanObj"]
 - !private ["PSo21UIAppearanceContainer", "Colors"]
 - !private ["PSo21UIAppearanceContainer", "Fonts"]
@@ -1951,12 +2013,15 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "backgroundColor"]
 - ["PSo21UIAppearanceContainer", "chartBtn"]
 - ["PSo21UIAppearanceContainer", "chartViewContainer"]
-- !private ["PSo21UIAppearanceContainer", "contentSize"]
 - ["PSo21UIAppearanceContainer", "createCustomTopView"]
-- ["PSo21UIAppearanceContainer", "currentMedArray"]
 - !private ["PSo21UIAppearanceContainer", "dequeueReusableCell"]
 - ["PSo21UIAppearanceContainer", "didReceiveMemoryWarning"]
+- ["PSo21UIAppearanceContainer", "doctorAcionView"]
+- ["PSo21UIAppearanceContainer", "doctorActionViewHeight"]
+- ["PSo21UIAppearanceContainer", "doctorReportAPI"]
 - !private ["PSo21UIAppearanceContainer", "dosageTxtFld"]
+- ["PSo21UIAppearanceContainer", "educatorActionView"]
+- ["PSo21UIAppearanceContainer", "educatorActionViewHeight"]
 - !private ["PSo21UIAppearanceContainer", "font"]
 - !private ["PSo21UIAppearanceContainer", "frame"]
 - ["PSo21UIAppearanceContainer", "getEducatorReportAPI"]
@@ -1968,6 +2033,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "isHidden"]
 - !private ["PSo21UIAppearanceContainer", "isUserInteractionEnabled"]
 - !private ["PSo21UIAppearanceContainer", "layoutIfNeeded"]
+- ["PSo21UIAppearanceContainer", "lbl"]
 - ["PSo21UIAppearanceContainer", "listBtn"]
 - ["PSo21UIAppearanceContainer", "listViewContainer"]
 - !private ["PSo21UIAppearanceContainer", "medNameLbl"]
@@ -1977,6 +2043,8 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "navigationBar"]
 - !private ["PSo21UIAppearanceContainer", "navigationController"]
 - !private ["PSo21UIAppearanceContainer", "navigationItem"]
+- ["PSo21UIAppearanceContainer", "newMedicationArray"]
+- ["PSo21UIAppearanceContainer", "newReadingViewContainer"]
 - ["PSo21UIAppearanceContainer", "numberOfSections"]
 - ["PSo21UIAppearanceContainer", "numberOfSectionsInTableView"]
 - !private ["PSo21UIAppearanceContainer", "popViewController"]
@@ -2039,7 +2107,6 @@ depends-member:
 - !private ["PSo18UIContentContainer", "Alamofire"]
 - ["PSo18UIContentContainer", "BackBtn_Click"]
 - !private ["PSo18UIContentContainer", "CGRect"]
-- !private ["PSo18UIContentContainer", "CGSize"]
 - !private ["PSo18UIContentContainer", "CarePlanObj"]
 - !private ["PSo18UIContentContainer", "Colors"]
 - !private ["PSo18UIContentContainer", "Fonts"]
@@ -2067,13 +2134,18 @@ depends-member:
 - ["PSo18UIContentContainer", "chartBtn"]
 - ["PSo18UIContentContainer", "chartViewContainer"]
 - ["PSo18UIContentContainer", "createCustomTopView"]
-- ["PSo18UIContentContainer", "currentMedArray"]
 - ["PSo18UIContentContainer", "didReceiveMemoryWarning"]
+- ["PSo18UIContentContainer", "doctorAcionView"]
+- ["PSo18UIContentContainer", "doctorActionViewHeight"]
+- ["PSo18UIContentContainer", "doctorReportAPI"]
+- ["PSo18UIContentContainer", "educatorActionView"]
+- ["PSo18UIContentContainer", "educatorActionViewHeight"]
 - ["PSo18UIContentContainer", "getEducatorReportAPI"]
 - ["PSo18UIContentContainer", "getSelectedNoOfDays"]
 - ["PSo18UIContentContainer", "indexPathForPreferredFocusedView"]
 - ["PSo18UIContentContainer", "indexPathForPreferredFocusedViewInTableView"]
 - !private ["PSo18UIContentContainer", "init"]
+- ["PSo18UIContentContainer", "lbl"]
 - ["PSo18UIContentContainer", "listBtn"]
 - ["PSo18UIContentContainer", "listViewContainer"]
 - ["PSo18UIContentContainer", "medicationArray"]
@@ -2081,6 +2153,8 @@ depends-member:
 - !private ["PSo18UIContentContainer", "navigationBar"]
 - !private ["PSo18UIContentContainer", "navigationController"]
 - !private ["PSo18UIContentContainer", "navigationItem"]
+- ["PSo18UIContentContainer", "newMedicationArray"]
+- ["PSo18UIContentContainer", "newReadingViewContainer"]
 - ["PSo18UIContentContainer", "numberOfSections"]
 - ["PSo18UIContentContainer", "numberOfSectionsInTableView"]
 - !private ["PSo18UIContentContainer", "popViewController"]
@@ -2122,6 +2196,7 @@ depends-member:
 - ["PSo18UIContentContainer", ""]
 - !private ["PSo30UIContentSizeCategoryAdjusting", "font"]
 - !private ["PSo30UIContentSizeCategoryAdjusting", "init"]
+- !private ["PSo30UIContentSizeCategoryAdjusting", "isHidden"]
 - !private ["PSo30UIContentSizeCategoryAdjusting", "text"]
 - !private ["PSo30UIContentSizeCategoryAdjusting", "textColor"]
 - !private ["CSo9UIControl", "backgroundColor"]
@@ -2136,7 +2211,6 @@ depends-member:
 - !private ["PSo17UICoordinateSpace", "addSubview"]
 - !private ["PSo17UICoordinateSpace", "ansTxtLbl"]
 - !private ["PSo17UICoordinateSpace", "backgroundColor"]
-- !private ["PSo17UICoordinateSpace", "contentSize"]
 - !private ["PSo17UICoordinateSpace", "dequeueReusableCell"]
 - !private ["PSo17UICoordinateSpace", "dosageTxtFld"]
 - !private ["PSo17UICoordinateSpace", "font"]
@@ -2162,7 +2236,6 @@ depends-member:
 - !private ["PSo13UIDynamicItem", "addSubview"]
 - !private ["PSo13UIDynamicItem", "ansTxtLbl"]
 - !private ["PSo13UIDynamicItem", "backgroundColor"]
-- !private ["PSo13UIDynamicItem", "contentSize"]
 - !private ["PSo13UIDynamicItem", "dequeueReusableCell"]
 - !private ["PSo13UIDynamicItem", "dosageTxtFld"]
 - !private ["PSo13UIDynamicItem", "font"]
@@ -2187,7 +2260,6 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "Alamofire"]
 - ["PSo18UIFocusEnvironment", "BackBtn_Click"]
 - !private ["PSo18UIFocusEnvironment", "CGRect"]
-- !private ["PSo18UIFocusEnvironment", "CGSize"]
 - !private ["PSo18UIFocusEnvironment", "CarePlanObj"]
 - !private ["PSo18UIFocusEnvironment", "Colors"]
 - !private ["PSo18UIFocusEnvironment", "Fonts"]
@@ -2218,12 +2290,15 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "backgroundColor"]
 - ["PSo18UIFocusEnvironment", "chartBtn"]
 - ["PSo18UIFocusEnvironment", "chartViewContainer"]
-- !private ["PSo18UIFocusEnvironment", "contentSize"]
 - ["PSo18UIFocusEnvironment", "createCustomTopView"]
-- ["PSo18UIFocusEnvironment", "currentMedArray"]
 - !private ["PSo18UIFocusEnvironment", "dequeueReusableCell"]
 - ["PSo18UIFocusEnvironment", "didReceiveMemoryWarning"]
+- ["PSo18UIFocusEnvironment", "doctorAcionView"]
+- ["PSo18UIFocusEnvironment", "doctorActionViewHeight"]
+- ["PSo18UIFocusEnvironment", "doctorReportAPI"]
 - !private ["PSo18UIFocusEnvironment", "dosageTxtFld"]
+- ["PSo18UIFocusEnvironment", "educatorActionView"]
+- ["PSo18UIFocusEnvironment", "educatorActionViewHeight"]
 - !private ["PSo18UIFocusEnvironment", "font"]
 - !private ["PSo18UIFocusEnvironment", "frame"]
 - ["PSo18UIFocusEnvironment", "getEducatorReportAPI"]
@@ -2235,6 +2310,7 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "isHidden"]
 - !private ["PSo18UIFocusEnvironment", "isUserInteractionEnabled"]
 - !private ["PSo18UIFocusEnvironment", "layoutIfNeeded"]
+- ["PSo18UIFocusEnvironment", "lbl"]
 - ["PSo18UIFocusEnvironment", "listBtn"]
 - ["PSo18UIFocusEnvironment", "listViewContainer"]
 - !private ["PSo18UIFocusEnvironment", "medNameLbl"]
@@ -2244,6 +2320,8 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "navigationBar"]
 - !private ["PSo18UIFocusEnvironment", "navigationController"]
 - !private ["PSo18UIFocusEnvironment", "navigationItem"]
+- ["PSo18UIFocusEnvironment", "newMedicationArray"]
+- ["PSo18UIFocusEnvironment", "newReadingViewContainer"]
 - ["PSo18UIFocusEnvironment", "numberOfSections"]
 - ["PSo18UIFocusEnvironment", "numberOfSectionsInTableView"]
 - !private ["PSo18UIFocusEnvironment", "popViewController"]
@@ -2297,7 +2375,6 @@ depends-member:
 - !private ["PSo11UIFocusItem", "addSubview"]
 - !private ["PSo11UIFocusItem", "ansTxtLbl"]
 - !private ["PSo11UIFocusItem", "backgroundColor"]
-- !private ["PSo11UIFocusItem", "contentSize"]
 - !private ["PSo11UIFocusItem", "dequeueReusableCell"]
 - !private ["PSo11UIFocusItem", "dosageTxtFld"]
 - !private ["PSo11UIFocusItem", "font"]
@@ -2334,6 +2411,7 @@ depends-member:
 - ["CSo7UILabel", "deinit"]
 - !private ["CSo7UILabel", "font"]
 - !private ["CSo7UILabel", "init"]
+- !private ["CSo7UILabel", "isHidden"]
 - !private ["CSo7UILabel", "text"]
 - !private ["CSo7UILabel", "textColor"]
 - !private ["CSo15UINavigationBar", "addSubview"]
@@ -2353,7 +2431,6 @@ depends-member:
 - ["CSo11UIResponder", "Bool"]
 - ["CSo11UIResponder", "CGFloat"]
 - !private ["CSo11UIResponder", "CGRect"]
-- !private ["CSo11UIResponder", "CGSize"]
 - !private ["CSo11UIResponder", "CarePlanObj"]
 - !private ["CSo11UIResponder", "Colors"]
 - !private ["CSo11UIResponder", "Fonts"]
@@ -2365,6 +2442,7 @@ depends-member:
 - !private ["CSo11UIResponder", "NSDictionary"]
 - !private ["CSo11UIResponder", "NSFontAttributeName"]
 - !private ["CSo11UIResponder", "NSForegroundColorAttributeName"]
+- ["CSo11UIResponder", "NSLayoutConstraint"]
 - ["CSo11UIResponder", "NSMutableArray"]
 - !private ["CSo11UIResponder", "NSNotification"]
 - !private ["CSo11UIResponder", "NotificationCenter"]
@@ -2378,7 +2456,7 @@ depends-member:
 - !private ["CSo11UIResponder", "UIColor"]
 - !private ["CSo11UIResponder", "UIImage"]
 - !private ["CSo11UIResponder", "UIImageView"]
-- !private ["CSo11UIResponder", "UILabel"]
+- ["CSo11UIResponder", "UILabel"]
 - ["CSo11UIResponder", "UIScrollView"]
 - ["CSo11UIResponder", "UISegmentedControl"]
 - ["CSo11UIResponder", "UITableView"]
@@ -2394,12 +2472,15 @@ depends-member:
 - !private ["CSo11UIResponder", "backgroundColor"]
 - ["CSo11UIResponder", "chartBtn"]
 - ["CSo11UIResponder", "chartViewContainer"]
-- !private ["CSo11UIResponder", "contentSize"]
 - ["CSo11UIResponder", "createCustomTopView"]
-- ["CSo11UIResponder", "currentMedArray"]
 - !private ["CSo11UIResponder", "dequeueReusableCell"]
 - ["CSo11UIResponder", "didReceiveMemoryWarning"]
+- ["CSo11UIResponder", "doctorAcionView"]
+- ["CSo11UIResponder", "doctorActionViewHeight"]
+- ["CSo11UIResponder", "doctorReportAPI"]
 - !private ["CSo11UIResponder", "dosageTxtFld"]
+- ["CSo11UIResponder", "educatorActionView"]
+- ["CSo11UIResponder", "educatorActionViewHeight"]
 - !private ["CSo11UIResponder", "font"]
 - !private ["CSo11UIResponder", "frame"]
 - ["CSo11UIResponder", "getEducatorReportAPI"]
@@ -2411,6 +2492,7 @@ depends-member:
 - !private ["CSo11UIResponder", "isHidden"]
 - !private ["CSo11UIResponder", "isUserInteractionEnabled"]
 - !private ["CSo11UIResponder", "layoutIfNeeded"]
+- ["CSo11UIResponder", "lbl"]
 - ["CSo11UIResponder", "listBtn"]
 - ["CSo11UIResponder", "listViewContainer"]
 - !private ["CSo11UIResponder", "medNameLbl"]
@@ -2420,6 +2502,8 @@ depends-member:
 - !private ["CSo11UIResponder", "navigationBar"]
 - !private ["CSo11UIResponder", "navigationController"]
 - !private ["CSo11UIResponder", "navigationItem"]
+- ["CSo11UIResponder", "newMedicationArray"]
+- ["CSo11UIResponder", "newReadingViewContainer"]
 - ["CSo11UIResponder", "numberOfSections"]
 - ["CSo11UIResponder", "numberOfSectionsInTableView"]
 - !private ["CSo11UIResponder", "popViewController"]
@@ -2471,7 +2555,6 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "Alamofire"]
 - ["PSo30UIResponderStandardEditActions", "BackBtn_Click"]
 - !private ["PSo30UIResponderStandardEditActions", "CGRect"]
-- !private ["PSo30UIResponderStandardEditActions", "CGSize"]
 - !private ["PSo30UIResponderStandardEditActions", "CarePlanObj"]
 - !private ["PSo30UIResponderStandardEditActions", "Colors"]
 - !private ["PSo30UIResponderStandardEditActions", "Fonts"]
@@ -2502,12 +2585,15 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "backgroundColor"]
 - ["PSo30UIResponderStandardEditActions", "chartBtn"]
 - ["PSo30UIResponderStandardEditActions", "chartViewContainer"]
-- !private ["PSo30UIResponderStandardEditActions", "contentSize"]
 - ["PSo30UIResponderStandardEditActions", "createCustomTopView"]
-- ["PSo30UIResponderStandardEditActions", "currentMedArray"]
 - !private ["PSo30UIResponderStandardEditActions", "dequeueReusableCell"]
 - ["PSo30UIResponderStandardEditActions", "didReceiveMemoryWarning"]
+- ["PSo30UIResponderStandardEditActions", "doctorAcionView"]
+- ["PSo30UIResponderStandardEditActions", "doctorActionViewHeight"]
+- ["PSo30UIResponderStandardEditActions", "doctorReportAPI"]
 - !private ["PSo30UIResponderStandardEditActions", "dosageTxtFld"]
+- ["PSo30UIResponderStandardEditActions", "educatorActionView"]
+- ["PSo30UIResponderStandardEditActions", "educatorActionViewHeight"]
 - !private ["PSo30UIResponderStandardEditActions", "font"]
 - !private ["PSo30UIResponderStandardEditActions", "frame"]
 - ["PSo30UIResponderStandardEditActions", "getEducatorReportAPI"]
@@ -2519,6 +2605,7 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "isHidden"]
 - !private ["PSo30UIResponderStandardEditActions", "isUserInteractionEnabled"]
 - !private ["PSo30UIResponderStandardEditActions", "layoutIfNeeded"]
+- ["PSo30UIResponderStandardEditActions", "lbl"]
 - ["PSo30UIResponderStandardEditActions", "listBtn"]
 - ["PSo30UIResponderStandardEditActions", "listViewContainer"]
 - !private ["PSo30UIResponderStandardEditActions", "medNameLbl"]
@@ -2528,6 +2615,8 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "navigationBar"]
 - !private ["PSo30UIResponderStandardEditActions", "navigationController"]
 - !private ["PSo30UIResponderStandardEditActions", "navigationItem"]
+- ["PSo30UIResponderStandardEditActions", "newMedicationArray"]
+- ["PSo30UIResponderStandardEditActions", "newReadingViewContainer"]
 - ["PSo30UIResponderStandardEditActions", "numberOfSections"]
 - ["PSo30UIResponderStandardEditActions", "numberOfSectionsInTableView"]
 - !private ["PSo30UIResponderStandardEditActions", "popViewController"]
@@ -2577,7 +2666,6 @@ depends-member:
 - ["PSo30UIResponderStandardEditActions", "viewWillAppear"]
 - ["PSo30UIResponderStandardEditActions", "viewWillDisappear"]
 - ["PSo30UIResponderStandardEditActions", ""]
-- !private ["CSo12UIScrollView", "contentSize"]
 - !private ["CSo12UIScrollView", "dequeueReusableCell"]
 - !private ["CSo12UIScrollView", "frame"]
 - !private ["CSo12UIScrollView", "reloadData"]
@@ -2585,7 +2673,6 @@ depends-member:
 - !private ["PSo20UIScrollViewDelegate", "Alamofire"]
 - !private ["PSo20UIScrollViewDelegate", "BackBtn_Click"]
 - !private ["PSo20UIScrollViewDelegate", "CGRect"]
-- !private ["PSo20UIScrollViewDelegate", "CGSize"]
 - !private ["PSo20UIScrollViewDelegate", "CarePlanObj"]
 - !private ["PSo20UIScrollViewDelegate", "Colors"]
 - !private ["PSo20UIScrollViewDelegate", "Fonts"]
@@ -2610,20 +2697,27 @@ depends-member:
 - !private ["PSo20UIScrollViewDelegate", "chartBtn"]
 - !private ["PSo20UIScrollViewDelegate", "chartViewContainer"]
 - !private ["PSo20UIScrollViewDelegate", "createCustomTopView"]
+- !private ["PSo20UIScrollViewDelegate", "doctorAcionView"]
+- !private ["PSo20UIScrollViewDelegate", "doctorActionViewHeight"]
+- !private ["PSo20UIScrollViewDelegate", "doctorReportAPI"]
+- !private ["PSo20UIScrollViewDelegate", "educatorActionView"]
+- !private ["PSo20UIScrollViewDelegate", "educatorActionViewHeight"]
 - !private ["PSo20UIScrollViewDelegate", "getEducatorReportAPI"]
 - !private ["PSo20UIScrollViewDelegate", "getSelectedNoOfDays"]
 - ["PSo20UIScrollViewDelegate", "indexPathForPreferredFocusedView"]
 - ["PSo20UIScrollViewDelegate", "indexPathForPreferredFocusedViewInTableView"]
+- !private ["PSo20UIScrollViewDelegate", "lbl"]
 - !private ["PSo20UIScrollViewDelegate", "listBtn"]
 - !private ["PSo20UIScrollViewDelegate", "listViewContainer"]
 - !private ["PSo20UIScrollViewDelegate", "medicationArray"]
 - !private ["PSo20UIScrollViewDelegate", "medicationTbl"]
 - !private ["PSo20UIScrollViewDelegate", "navigationController"]
 - !private ["PSo20UIScrollViewDelegate", "navigationItem"]
+- !private ["PSo20UIScrollViewDelegate", "newMedicationArray"]
+- !private ["PSo20UIScrollViewDelegate", "newReadingViewContainer"]
 - ["PSo20UIScrollViewDelegate", "numberOfSections"]
 - ["PSo20UIScrollViewDelegate", "numberOfSectionsInTableView"]
 - !private ["PSo20UIScrollViewDelegate", "print"]
-- !private ["PSo20UIScrollViewDelegate", "scrollView"]
 - ["PSo20UIScrollViewDelegate", "scrollViewDidEndDecelerating"]
 - ["PSo20UIScrollViewDelegate", "scrollViewDidEndDragging"]
 - ["PSo20UIScrollViewDelegate", "scrollViewDidEndScrollingAnimation"]
@@ -2659,7 +2753,6 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "Alamofire"]
 - ["PSo16UIStateRestoring", "BackBtn_Click"]
 - !private ["PSo16UIStateRestoring", "CGRect"]
-- !private ["PSo16UIStateRestoring", "CGSize"]
 - !private ["PSo16UIStateRestoring", "CarePlanObj"]
 - !private ["PSo16UIStateRestoring", "Colors"]
 - !private ["PSo16UIStateRestoring", "Fonts"]
@@ -2687,13 +2780,18 @@ depends-member:
 - ["PSo16UIStateRestoring", "chartBtn"]
 - ["PSo16UIStateRestoring", "chartViewContainer"]
 - ["PSo16UIStateRestoring", "createCustomTopView"]
-- ["PSo16UIStateRestoring", "currentMedArray"]
 - ["PSo16UIStateRestoring", "didReceiveMemoryWarning"]
+- ["PSo16UIStateRestoring", "doctorAcionView"]
+- ["PSo16UIStateRestoring", "doctorActionViewHeight"]
+- ["PSo16UIStateRestoring", "doctorReportAPI"]
+- ["PSo16UIStateRestoring", "educatorActionView"]
+- ["PSo16UIStateRestoring", "educatorActionViewHeight"]
 - ["PSo16UIStateRestoring", "getEducatorReportAPI"]
 - ["PSo16UIStateRestoring", "getSelectedNoOfDays"]
 - ["PSo16UIStateRestoring", "indexPathForPreferredFocusedView"]
 - ["PSo16UIStateRestoring", "indexPathForPreferredFocusedViewInTableView"]
 - !private ["PSo16UIStateRestoring", "init"]
+- ["PSo16UIStateRestoring", "lbl"]
 - ["PSo16UIStateRestoring", "listBtn"]
 - ["PSo16UIStateRestoring", "listViewContainer"]
 - ["PSo16UIStateRestoring", "medicationArray"]
@@ -2701,6 +2799,8 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "navigationBar"]
 - !private ["PSo16UIStateRestoring", "navigationController"]
 - !private ["PSo16UIStateRestoring", "navigationItem"]
+- ["PSo16UIStateRestoring", "newMedicationArray"]
+- ["PSo16UIStateRestoring", "newReadingViewContainer"]
 - ["PSo16UIStateRestoring", "numberOfSections"]
 - ["PSo16UIStateRestoring", "numberOfSectionsInTableView"]
 - !private ["PSo16UIStateRestoring", "popViewController"]
@@ -2760,7 +2860,6 @@ depends-member:
 - !private ["PSo21UITableViewDataSource", "Alamofire"]
 - !private ["PSo21UITableViewDataSource", "BackBtn_Click"]
 - !private ["PSo21UITableViewDataSource", "CGRect"]
-- !private ["PSo21UITableViewDataSource", "CGSize"]
 - !private ["PSo21UITableViewDataSource", "CarePlanObj"]
 - !private ["PSo21UITableViewDataSource", "Colors"]
 - !private ["PSo21UITableViewDataSource", "Fonts"]
@@ -2785,20 +2884,27 @@ depends-member:
 - !private ["PSo21UITableViewDataSource", "chartBtn"]
 - !private ["PSo21UITableViewDataSource", "chartViewContainer"]
 - !private ["PSo21UITableViewDataSource", "createCustomTopView"]
+- !private ["PSo21UITableViewDataSource", "doctorAcionView"]
+- !private ["PSo21UITableViewDataSource", "doctorActionViewHeight"]
+- !private ["PSo21UITableViewDataSource", "doctorReportAPI"]
+- !private ["PSo21UITableViewDataSource", "educatorActionView"]
+- !private ["PSo21UITableViewDataSource", "educatorActionViewHeight"]
 - !private ["PSo21UITableViewDataSource", "getEducatorReportAPI"]
 - !private ["PSo21UITableViewDataSource", "getSelectedNoOfDays"]
 - ["PSo21UITableViewDataSource", "indexPathForPreferredFocusedView"]
 - ["PSo21UITableViewDataSource", "indexPathForPreferredFocusedViewInTableView"]
+- !private ["PSo21UITableViewDataSource", "lbl"]
 - !private ["PSo21UITableViewDataSource", "listBtn"]
 - !private ["PSo21UITableViewDataSource", "listViewContainer"]
 - !private ["PSo21UITableViewDataSource", "medicationArray"]
 - !private ["PSo21UITableViewDataSource", "medicationTbl"]
 - !private ["PSo21UITableViewDataSource", "navigationController"]
 - !private ["PSo21UITableViewDataSource", "navigationItem"]
+- !private ["PSo21UITableViewDataSource", "newMedicationArray"]
+- !private ["PSo21UITableViewDataSource", "newReadingViewContainer"]
 - ["PSo21UITableViewDataSource", "numberOfSections"]
 - ["PSo21UITableViewDataSource", "numberOfSectionsInTableView"]
 - !private ["PSo21UITableViewDataSource", "print"]
-- !private ["PSo21UITableViewDataSource", "scrollView"]
 - ["PSo21UITableViewDataSource", "scrollViewDidEndDecelerating"]
 - ["PSo21UITableViewDataSource", "scrollViewDidEndDragging"]
 - ["PSo21UITableViewDataSource", "scrollViewDidEndScrollingAnimation"]
@@ -2832,7 +2938,6 @@ depends-member:
 - !private ["PSo19UITableViewDelegate", "Alamofire"]
 - !private ["PSo19UITableViewDelegate", "BackBtn_Click"]
 - !private ["PSo19UITableViewDelegate", "CGRect"]
-- !private ["PSo19UITableViewDelegate", "CGSize"]
 - !private ["PSo19UITableViewDelegate", "CarePlanObj"]
 - !private ["PSo19UITableViewDelegate", "Colors"]
 - !private ["PSo19UITableViewDelegate", "Fonts"]
@@ -2857,20 +2962,27 @@ depends-member:
 - !private ["PSo19UITableViewDelegate", "chartBtn"]
 - !private ["PSo19UITableViewDelegate", "chartViewContainer"]
 - !private ["PSo19UITableViewDelegate", "createCustomTopView"]
+- !private ["PSo19UITableViewDelegate", "doctorAcionView"]
+- !private ["PSo19UITableViewDelegate", "doctorActionViewHeight"]
+- !private ["PSo19UITableViewDelegate", "doctorReportAPI"]
+- !private ["PSo19UITableViewDelegate", "educatorActionView"]
+- !private ["PSo19UITableViewDelegate", "educatorActionViewHeight"]
 - !private ["PSo19UITableViewDelegate", "getEducatorReportAPI"]
 - !private ["PSo19UITableViewDelegate", "getSelectedNoOfDays"]
 - ["PSo19UITableViewDelegate", "indexPathForPreferredFocusedView"]
 - ["PSo19UITableViewDelegate", "indexPathForPreferredFocusedViewInTableView"]
+- !private ["PSo19UITableViewDelegate", "lbl"]
 - !private ["PSo19UITableViewDelegate", "listBtn"]
 - !private ["PSo19UITableViewDelegate", "listViewContainer"]
 - !private ["PSo19UITableViewDelegate", "medicationArray"]
 - !private ["PSo19UITableViewDelegate", "medicationTbl"]
 - !private ["PSo19UITableViewDelegate", "navigationController"]
 - !private ["PSo19UITableViewDelegate", "navigationItem"]
+- !private ["PSo19UITableViewDelegate", "newMedicationArray"]
+- !private ["PSo19UITableViewDelegate", "newReadingViewContainer"]
 - ["PSo19UITableViewDelegate", "numberOfSections"]
 - ["PSo19UITableViewDelegate", "numberOfSectionsInTableView"]
 - !private ["PSo19UITableViewDelegate", "print"]
-- !private ["PSo19UITableViewDelegate", "scrollView"]
 - ["PSo19UITableViewDelegate", "scrollViewDidEndDecelerating"]
 - ["PSo19UITableViewDelegate", "scrollViewDidEndDragging"]
 - ["PSo19UITableViewDelegate", "scrollViewDidEndScrollingAnimation"]
@@ -2909,7 +3021,6 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "Alamofire"]
 - ["PSo18UITraitEnvironment", "BackBtn_Click"]
 - !private ["PSo18UITraitEnvironment", "CGRect"]
-- !private ["PSo18UITraitEnvironment", "CGSize"]
 - !private ["PSo18UITraitEnvironment", "CarePlanObj"]
 - !private ["PSo18UITraitEnvironment", "Colors"]
 - !private ["PSo18UITraitEnvironment", "Fonts"]
@@ -2940,12 +3051,15 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "backgroundColor"]
 - ["PSo18UITraitEnvironment", "chartBtn"]
 - ["PSo18UITraitEnvironment", "chartViewContainer"]
-- !private ["PSo18UITraitEnvironment", "contentSize"]
 - ["PSo18UITraitEnvironment", "createCustomTopView"]
-- ["PSo18UITraitEnvironment", "currentMedArray"]
 - !private ["PSo18UITraitEnvironment", "dequeueReusableCell"]
 - ["PSo18UITraitEnvironment", "didReceiveMemoryWarning"]
+- ["PSo18UITraitEnvironment", "doctorAcionView"]
+- ["PSo18UITraitEnvironment", "doctorActionViewHeight"]
+- ["PSo18UITraitEnvironment", "doctorReportAPI"]
 - !private ["PSo18UITraitEnvironment", "dosageTxtFld"]
+- ["PSo18UITraitEnvironment", "educatorActionView"]
+- ["PSo18UITraitEnvironment", "educatorActionViewHeight"]
 - !private ["PSo18UITraitEnvironment", "font"]
 - !private ["PSo18UITraitEnvironment", "frame"]
 - ["PSo18UITraitEnvironment", "getEducatorReportAPI"]
@@ -2957,6 +3071,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "isHidden"]
 - !private ["PSo18UITraitEnvironment", "isUserInteractionEnabled"]
 - !private ["PSo18UITraitEnvironment", "layoutIfNeeded"]
+- ["PSo18UITraitEnvironment", "lbl"]
 - ["PSo18UITraitEnvironment", "listBtn"]
 - ["PSo18UITraitEnvironment", "listViewContainer"]
 - !private ["PSo18UITraitEnvironment", "medNameLbl"]
@@ -2966,6 +3081,8 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "navigationBar"]
 - !private ["PSo18UITraitEnvironment", "navigationController"]
 - !private ["PSo18UITraitEnvironment", "navigationItem"]
+- ["PSo18UITraitEnvironment", "newMedicationArray"]
+- ["PSo18UITraitEnvironment", "newReadingViewContainer"]
 - ["PSo18UITraitEnvironment", "numberOfSections"]
 - ["PSo18UITraitEnvironment", "numberOfSectionsInTableView"]
 - !private ["PSo18UITraitEnvironment", "popViewController"]
@@ -3019,7 +3136,6 @@ depends-member:
 - !private ["CSo6UIView", "addSubview"]
 - !private ["CSo6UIView", "ansTxtLbl"]
 - !private ["CSo6UIView", "backgroundColor"]
-- !private ["CSo6UIView", "contentSize"]
 - ["CSo6UIView", "deinit"]
 - !private ["CSo6UIView", "dequeueReusableCell"]
 - !private ["CSo6UIView", "dosageTxtFld"]
@@ -3048,7 +3164,6 @@ depends-member:
 - ["CSo16UIViewController", "Bool"]
 - ["CSo16UIViewController", "CGFloat"]
 - !private ["CSo16UIViewController", "CGRect"]
-- !private ["CSo16UIViewController", "CGSize"]
 - !private ["CSo16UIViewController", "CarePlanObj"]
 - !private ["CSo16UIViewController", "Colors"]
 - !private ["CSo16UIViewController", "Fonts"]
@@ -3060,6 +3175,7 @@ depends-member:
 - !private ["CSo16UIViewController", "NSDictionary"]
 - !private ["CSo16UIViewController", "NSFontAttributeName"]
 - !private ["CSo16UIViewController", "NSForegroundColorAttributeName"]
+- ["CSo16UIViewController", "NSLayoutConstraint"]
 - ["CSo16UIViewController", "NSMutableArray"]
 - !private ["CSo16UIViewController", "NSNotification"]
 - !private ["CSo16UIViewController", "NotificationCenter"]
@@ -3073,7 +3189,7 @@ depends-member:
 - !private ["CSo16UIViewController", "UIColor"]
 - !private ["CSo16UIViewController", "UIImage"]
 - !private ["CSo16UIViewController", "UIImageView"]
-- !private ["CSo16UIViewController", "UILabel"]
+- ["CSo16UIViewController", "UILabel"]
 - ["CSo16UIViewController", "UIScrollView"]
 - ["CSo16UIViewController", "UISegmentedControl"]
 - ["CSo16UIViewController", "UITableView"]
@@ -3086,14 +3202,19 @@ depends-member:
 - ["CSo16UIViewController", "chartBtn"]
 - ["CSo16UIViewController", "chartViewContainer"]
 - ["CSo16UIViewController", "createCustomTopView"]
-- ["CSo16UIViewController", "currentMedArray"]
 - ["CSo16UIViewController", "deinit"]
 - ["CSo16UIViewController", "didReceiveMemoryWarning"]
+- ["CSo16UIViewController", "doctorAcionView"]
+- ["CSo16UIViewController", "doctorActionViewHeight"]
+- ["CSo16UIViewController", "doctorReportAPI"]
+- ["CSo16UIViewController", "educatorActionView"]
+- ["CSo16UIViewController", "educatorActionViewHeight"]
 - ["CSo16UIViewController", "getEducatorReportAPI"]
 - ["CSo16UIViewController", "getSelectedNoOfDays"]
 - ["CSo16UIViewController", "indexPathForPreferredFocusedView"]
 - ["CSo16UIViewController", "indexPathForPreferredFocusedViewInTableView"]
 - ["CSo16UIViewController", "init"]
+- ["CSo16UIViewController", "lbl"]
 - ["CSo16UIViewController", "listBtn"]
 - ["CSo16UIViewController", "listViewContainer"]
 - ["CSo16UIViewController", "medicationArray"]
@@ -3101,6 +3222,8 @@ depends-member:
 - !private ["CSo16UIViewController", "navigationBar"]
 - !private ["CSo16UIViewController", "navigationController"]
 - !private ["CSo16UIViewController", "navigationItem"]
+- ["CSo16UIViewController", "newMedicationArray"]
+- ["CSo16UIViewController", "newReadingViewContainer"]
 - ["CSo16UIViewController", "numberOfSections"]
 - ["CSo16UIViewController", "numberOfSectionsInTableView"]
 - !private ["CSo16UIViewController", "popViewController"]
@@ -3153,14 +3276,12 @@ depends-member:
 - ["CSo12UserDefaults", "deinit"]
 - ["CSo12UserDefaults", "integer"]
 - ["CSo12UserDefaults", "standard"]
-- !private ["CSo12UserDefaults", "string"]
 - !private ["Ps15_CVarArgAligned", "Stride"]
 - !private ["Ps22_CVarArgPassedAsDouble", "Stride"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "addGestureRecognizer"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "addSubview"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "ansTxtLbl"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "backgroundColor"]
-- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "contentSize"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "dequeueReusableCell"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "dosageTxtFld"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "font"]
@@ -3211,7 +3332,6 @@ depends-member:
 - !private ["Ps9_Hashable", "Alamofire"]
 - ["Ps9_Hashable", "BackBtn_Click"]
 - !private ["Ps9_Hashable", "CGRect"]
-- !private ["Ps9_Hashable", "CGSize"]
 - !private ["Ps9_Hashable", "CarePlanObj"]
 - !private ["Ps9_Hashable", "Colors"]
 - !private ["Ps9_Hashable", "Element"]
@@ -3251,15 +3371,19 @@ depends-member:
 - !private ["Ps9_Hashable", "capitalized"]
 - ["Ps9_Hashable", "chartBtn"]
 - ["Ps9_Hashable", "chartViewContainer"]
-- !private ["Ps9_Hashable", "contentSize"]
+- !private ["Ps9_Hashable", "constant"]
 - !private ["Ps9_Hashable", "count"]
 - ["Ps9_Hashable", "createCustomTopView"]
-- ["Ps9_Hashable", "currentMedArray"]
 - !private ["Ps9_Hashable", "default"]
 - !private ["Ps9_Hashable", "dequeueReusableCell"]
 - ["Ps9_Hashable", "didReceiveMemoryWarning"]
+- ["Ps9_Hashable", "doctorAcionView"]
+- ["Ps9_Hashable", "doctorActionViewHeight"]
+- ["Ps9_Hashable", "doctorReportAPI"]
 - !private ["Ps9_Hashable", "dosage"]
 - !private ["Ps9_Hashable", "dosageTxtFld"]
+- ["Ps9_Hashable", "educatorActionView"]
+- ["Ps9_Hashable", "educatorActionViewHeight"]
 - !private ["Ps9_Hashable", "font"]
 - !private ["Ps9_Hashable", "frame"]
 - ["Ps9_Hashable", "getEducatorReportAPI"]
@@ -3275,6 +3399,7 @@ depends-member:
 - !private ["Ps9_Hashable", "isHidden"]
 - !private ["Ps9_Hashable", "isUserInteractionEnabled"]
 - !private ["Ps9_Hashable", "layoutIfNeeded"]
+- ["Ps9_Hashable", "lbl"]
 - !private ["Ps9_Hashable", "leftBarButtonItem"]
 - ["Ps9_Hashable", "listBtn"]
 - ["Ps9_Hashable", "listViewContainer"]
@@ -3287,6 +3412,8 @@ depends-member:
 - !private ["Ps9_Hashable", "navigationBar"]
 - !private ["Ps9_Hashable", "navigationController"]
 - !private ["Ps9_Hashable", "navigationItem"]
+- ["Ps9_Hashable", "newMedicationArray"]
+- ["Ps9_Hashable", "newReadingViewContainer"]
 - ["Ps9_Hashable", "numberOfSections"]
 - ["Ps9_Hashable", "numberOfSectionsInTableView"]
 - !private ["Ps9_Hashable", "object"]
@@ -3323,7 +3450,6 @@ depends-member:
 - !private ["Ps9_Hashable", "setTitleColor"]
 - !private ["Ps9_Hashable", "setTitleTextAttributes"]
 - ["Ps9_Hashable", "standard"]
-- !private ["Ps9_Hashable", "string"]
 - !private ["Ps9_Hashable", "subscript"]
 - ["Ps9_Hashable", "summaryArray"]
 - ["Ps9_Hashable", "summaryTbl"]
@@ -3371,7 +3497,6 @@ depends-member:
 - ["Ps11_Strideable", "init"]
 - !private ["Ps20_SwiftNewtypeWrapper", "init"]
 - ["V11DiabetesApp12userDefaults", "loggedInUserType"]
-- !private ["V11DiabetesApp12userDefaults", "selectedPatientID"]
 - !private ["V11DiabetesApp8userType", "doctor"]
 depends-nominal:
 - !private "Ps16AbsoluteValuable"
@@ -3384,7 +3509,7 @@ depends-nominal:
 - "PSo15CALayerDelegate"
 - "V12CoreGraphics7CGFloat"
 - "VSC6CGRect"
-- "VSC6CGSize"
+- !private "VSC6CGSize"
 - "Ps7CVarArg"
 - "C11DiabetesApp11CarePlanObj"
 - !private "Vs9Character"
@@ -3442,6 +3567,7 @@ depends-nominal:
 - "PSo17NSFastEnumeration"
 - !private "C10Foundation25NSFastEnumerationIterator"
 - !private "PSo20NSFetchRequestResult"
+- !private "CSo18NSLayoutConstraint"
 - "CSo14NSMutableArray"
 - "PSo16NSMutableCopying"
 - !private "CSo14NSNotification"
@@ -3862,4 +3988,4 @@ depends-external:
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController-umbrella.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Modules/module.modulemap"
-interface-hash: "cbe7d175a2045ebf1a3cc67fbfeef0c9"
+interface-hash: "e1dd4db87f17faff7a12df28111faa73"

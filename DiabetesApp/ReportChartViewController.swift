@@ -26,6 +26,7 @@ class ReportChartViewController: UIViewController , LineChartDelegate {
     //    let chartConditionsArray : NSArray = ["Fasting", "Snacks", "Exercise","Pre Breakfast", "Post Breakfast", "Pre Lunch", "Post Lunch", "Pre Dinner", "Post Dinner", "Bedtime"]
     let chartConditionsArray : NSArray = ["F", "S", "E","PrB", "PoB", "PrL", "PoL", "PrD", "PoD", "B"]
     var dataArray: NSMutableArray = NSMutableArray()
+     let selectedUserType: Int = Int(UserDefaults.standard.integer(forKey: userDefaults.loggedInUserType))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +41,7 @@ class ReportChartViewController: UIViewController , LineChartDelegate {
     }
     
     override func viewDidDisappear(_ animated: Bool) {
+        
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: Notifications.chartHistoryView), object: nil)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: Notifications.noOfDays), object: nil)
     }
@@ -115,6 +117,73 @@ class ReportChartViewController: UIViewController , LineChartDelegate {
                         
                     }
                     
+                     self.resetUI()
+                    
+                    break
+                case .failure:
+                    print("failure")
+                    self.resetUI()
+                    break
+                    
+                }
+            }
+        }
+    }
+    
+    
+    func getDoctorChartHistoryData(condition: String) {
+        if  UserDefaults.standard.string(forKey: userDefaults.selectedPatientID) != nil {
+            dataArray.removeAllObjects()
+            let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+            let parameters: Parameters = [
+                "taskid": "5878ce306e4778515545c6dc",
+                "patientid": "58563eb4d9c776ad70491b7b",
+                "numDaysBack": noOfDays,
+                "condition": "All conditions"
+            ]
+            
+            print(parameters)
+            
+            Alamofire.request("http://54.212.229.198:3000/getdoctorreport", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+                
+                print("Validation Successful ")
+                
+                switch response.result {
+                    
+                case .success:
+                    
+                    if let JSON: NSDictionary = response.result.value! as? NSDictionary {
+                        let objectArray : NSDictionary = NSDictionary(dictionary: JSON.object(forKey: "glucoseReadingsChart") as! NSDictionary)
+                        let mainArray: NSArray = NSMutableArray(array: objectArray.object(forKey: "objectArray") as! NSArray)
+                        if mainArray.count > 0 {
+                            for dict in mainArray {
+                                let mainDict: NSDictionary = dict as! NSDictionary
+                                if (mainDict.allKeys.first != nil)  {
+                                    let dateStr: String = String(describing: mainDict.allKeys.first!)
+                                    let readingsArray: NSArray = mainDict.object(forKey: dateStr) as! NSArray
+                                    // var data: Array = [CGFloat]
+                                    var data: [CGFloat] = []
+                                    for i in 0..<self.chartConditionsArray.count {
+                                        data.append(0)
+                                        for dict in readingsArray {
+                                            let ob: NSDictionary = dict as! NSDictionary
+                                            let conditionIndex: Int = ob.value(forKey: "conditionIndex")! as! Int
+                                            if i == conditionIndex {
+                                                data[i] = ob.value(forKey: "reading")! as! CGFloat
+                                                break
+                                            }
+                                        }
+                                    }
+                                    self.dataArray.add(data)
+                                }
+                            }
+                            
+                            print("data \(self.dataArray)")
+                            self.resetUI()
+                        }
+                        
+                    }
+                    self.resetUI() 
                     break
                 case .failure:
                     print("failure")
@@ -133,11 +202,20 @@ class ReportChartViewController: UIViewController , LineChartDelegate {
         // self.drawChart()
     }
     
+    func doctorchartViewNotification(notification: NSNotification) {
+        getDoctorChartHistoryData(condition: conditionsArray[0] as! String)
+    }
+    
     func noOfDaysNotification(notification: NSNotification) {
         
         noOfDays = String(describing: notification.value(forKey: "object")!)
         print("noOfDays \(noOfDays)")
-        getChartHistoryData(condition: conditionsArray[0] as! String)
+          if selectedUserType == userType.doctor {
+             getDoctorChartHistoryData(condition: conditionsArray[0] as! String)
+          }else {
+              getChartHistoryData(condition: conditionsArray[0] as! String)
+        }
+      
         
     }
     
@@ -161,6 +239,8 @@ class ReportChartViewController: UIViewController , LineChartDelegate {
     func addNotifications() {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.chartViewNotification(notification:)), name: NSNotification.Name(rawValue: Notifications.chartHistoryView), object: nil)
+        
+         NotificationCenter.default.addObserver(self, selector: #selector(self.doctorchartViewNotification(notification:)), name: NSNotification.Name(rawValue: Notifications.chartHistoryView), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.noOfDaysNotification(notification:)), name: NSNotification.Name(rawValue: Notifications.noOfDays), object: nil)
     }
     

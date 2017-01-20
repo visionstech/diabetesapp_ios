@@ -23,7 +23,7 @@ class ReportNewCarePlanController: UIViewController , UITableViewDelegate, UITab
     }
     override func viewWillAppear(_ animated: Bool) {
         addNotifications()
-        getReadingsData()
+        getDoctorReadingData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -57,21 +57,21 @@ class ReportNewCarePlanController: UIViewController , UITableViewDelegate, UITab
     }
     
     // MARK: - Api Methods
-    func getReadingsData() {
+    func getDoctorReadingData(){
         if  UserDefaults.standard.string(forKey: userDefaults.selectedPatientID) != nil {
             
             
-            let patientsID: String? = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+          //  let patientsID: String? = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
             let parameters: Parameters = [
+                "taskid": "5878ce306e4778515545c6dc",
                 "patientid": "58563eb4d9c776ad70491b7b",
-                "educatorid":"58563eb4d9c776ad70491b97",
                 "numDaysBack": "1",
                 "condition": "All conditions"
             ]
             
             print(parameters)
             
-            Alamofire.request("http://54.212.229.198:3000/geteducatorreport", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+            Alamofire.request("http://54.212.229.198:3000/getdoctorreport", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
                 
                 print(response)
                 
@@ -81,7 +81,7 @@ class ReportNewCarePlanController: UIViewController , UITableViewDelegate, UITab
                     
                     if let JSON: NSDictionary = response.result.value! as? NSDictionary {
                         print(JSON)
-                        let arr  = NSMutableArray(array: JSON.object(forKey: "readingsTime")as! NSArray)
+                        let arr  = NSMutableArray(array: JSON.object(forKey: "updatedReading")as! NSArray)
                         self.array.removeAllObjects()
                         for time in frequnecyArray {
                             let mainDict: NSMutableDictionary = NSMutableDictionary()
@@ -114,6 +114,9 @@ class ReportNewCarePlanController: UIViewController , UITableViewDelegate, UITab
                         
                         print(self.array)
                     }
+                    
+                    
+                    
                     self.tblView.reloadData()
                     self.resetUI()
                     
@@ -130,6 +133,7 @@ class ReportNewCarePlanController: UIViewController , UITableViewDelegate, UITab
             }
         }
     }
+    
     
     
     //MARK: - TableView Delegate Methods
@@ -149,9 +153,18 @@ class ReportNewCarePlanController: UIViewController , UITableViewDelegate, UITab
         let mainDict: NSMutableDictionary = array[indexPath.section] as! NSMutableDictionary
         let itemsArray: NSMutableArray = mainDict.object(forKey: "data") as! NSMutableArray
         
-        let cell : CarePlanReadingTableViewCell = tableView.dequeueReusableCell(withIdentifier: "readingsCell")! as! CarePlanReadingTableViewCell
+        let cell : ReportCarePlanReadingViewCell = tableView.dequeueReusableCell(withIdentifier: "readingsCell")! as! ReportCarePlanReadingViewCell
         cell.selectionStyle = .none
         cell.tag = indexPath.row
+        if selectedUserType == userType.doctor {
+            cell.goalLbl.isUserInteractionEnabled = true
+            cell.conditionLbl.isUserInteractionEnabled = true
+        }
+        else {
+            cell.goalLbl.isUserInteractionEnabled = false
+            cell.conditionLbl.isUserInteractionEnabled = false
+        }
+
         if let obj: CarePlanReadingObj = itemsArray[indexPath.row] as? CarePlanReadingObj {
             cell.goalLbl.text = obj.goal
             cell.conditionLbl.text = obj.frequency

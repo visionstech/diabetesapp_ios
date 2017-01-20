@@ -28,6 +28,8 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
     var obj = NSDictionary()
     var cellArray = NSArray()
     
+      let selectedUserType: Int = Int(UserDefaults.standard.integer(forKey: userDefaults.loggedInUserType))
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,7 +40,14 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
         //self.addNotifications()
         //getHistory()
         conditionTxtFld.text = conditionsArray[0] as? String
-        getReportReadingHistory(condition: conditionsArray[0] as! String)
+        if selectedUserType == userType.doctor {
+           
+             getDoctorReportReadingHistory(condition: conditionsArray[0] as! String)
+        }
+        else {
+             getReportReadingHistory(condition: conditionsArray[0] as! String)
+        }
+       
     }
     override func viewDidAppear(_ animated: Bool) {
         self.addNotifications()
@@ -79,10 +88,18 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func addNotifications() {
+        if selectedUserType == userType.doctor {
+            
+            NotificationCenter.default.addObserver(self, selector: #selector(self.listViewNotification(notification:)), name: NSNotification.Name(rawValue: Notifications.DoctorReportListHistoryView), object: nil)
+            
+            NotificationCenter.default.addObserver(self, selector: #selector(self.noOfDaysNotification(notification:)), name: NSNotification.Name(rawValue: Notifications.noOfDays), object: nil)
+        }
+        else {
+            NotificationCenter.default.addObserver(self, selector: #selector(self.listViewNotification(notification:)), name: NSNotification.Name(rawValue: Notifications.ReportListHistoryView), object: nil)
+            
+            NotificationCenter.default.addObserver(self, selector: #selector(self.noOfDaysNotification(notification:)), name: NSNotification.Name(rawValue: Notifications.noOfDays), object: nil)
+        }
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.listViewNotification(notification:)), name: NSNotification.Name(rawValue: Notifications.ReportListHistoryView), object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(self.noOfDaysNotification(notification:)), name: NSNotification.Name(rawValue: Notifications.noOfDays), object: nil)
     }
     
     func refreshSelectedSections(section: Int) {
@@ -124,7 +141,14 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
         noOfDays = String(describing: notification.value(forKey: "object")!)
         print("noOfDays \(noOfDays)")
         //getHistory()
-        getReportReadingHistory(condition: conditionTxtFld.text!)
+        if selectedUserType == userType.doctor {
+            
+            getDoctorReportReadingHistory(condition: conditionTxtFld.text!)
+        }
+        else {
+            getReportReadingHistory(condition: conditionTxtFld.text!)
+        }
+       
         
     }
     
@@ -135,14 +159,99 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
             
             conditionTxtFld.text = conditionsArray[pickerView.selectedRow(inComponent: 0)] as? String
             // Api Method
-            getReportReadingHistory(condition: conditionTxtFld.text!)
-            //getHistory()
+            if selectedUserType == userType.doctor {
+                
+                getDoctorReportReadingHistory(condition: conditionTxtFld.text!)
+            }
+            else {
+                getReportReadingHistory(condition: conditionTxtFld.text! )
+            }
         }
     }
     
    
     
     //MARK: - Api Methods
+    
+    func getDoctorReportReadingHistory(condition: String) {
+        
+        if  UserDefaults.standard.string(forKey: userDefaults.selectedPatientID) != nil {
+            sectionsArray.removeAllObjects()
+            boolArray.removeAllObjects()
+            
+            // let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+            let parameters: Parameters = [
+                "taskid": "5878ce306e4778515545c6dc",
+                "patientid": "58563eb4d9c776ad70491b7b",
+                "numDaysBack": noOfDays,
+                "condition": condition
+            ]
+            
+            print(parameters)
+            
+            Alamofire.request("http://54.212.229.198:3000/getdoctorreport", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+                
+                print("Validation Successful ")
+                
+                switch response.result {
+                    
+                case .success:
+                    
+                    if let JSON: NSDictionary = response.result.value! as? NSDictionary {
+                        
+                        print("JSON \(JSON)")
+                        
+                        let objectArray : NSDictionary = NSDictionary(dictionary: JSON.object(forKey: "glucoseReadings") as! NSDictionary)
+                        if self.conditionTxtFld.text == String(conditionsArray[0] as! String) {
+                            self.sectionsArray = NSMutableArray(array: objectArray.object(forKey: "objectArray") as! NSArray)
+                            
+                        }
+                        else {
+                            
+                            let mainArray: NSArray = NSMutableArray(array: objectArray.object(forKey: "objectArray") as! NSArray)
+                            if mainArray.count != 0 {
+                                let mainDict: NSMutableDictionary = NSMutableDictionary()
+                                var count = 0
+                                let itemsArray = NSMutableArray()
+                                for dict in mainArray {
+                                    let obj: NSDictionary = dict as! NSDictionary
+                                    let dateStr: String = String(describing: obj.allKeys.first!)
+                                    if count == 0 {
+                                        mainDict.setValue(dateStr, forKey: "start_date")
+                                    }
+                                    else if count == mainArray.count-1 {
+                                        mainDict.setValue(dateStr, forKey: "end_date")
+                                    }
+                                    let array: NSArray = NSArray(array: (dict as AnyObject).object(forKey: dateStr) as! NSArray)
+                                    itemsArray.addObjects(from: array as! [Any])
+                                    
+                                    count += 1
+                                }
+                                mainDict.setObject(itemsArray.copy(), forKey: "items" as NSCopying)
+                                self.sectionsArray.add(mainDict)
+                            }
+                        }
+                        
+                        for _ in self.sectionsArray {
+                            self.boolArray.add(false)
+                        }
+                        
+                        print(self.sectionsArray)
+                        self.tblView.reloadData()
+                        self.resetUI()
+                    }
+                    
+                    break
+                case .failure:
+                    print("failure")
+                    
+                    break
+                    
+                }
+            }
+        }
+        
+    }
     func getReportReadingHistory(condition: String) {
         if  UserDefaults.standard.string(forKey: userDefaults.selectedPatientID) != nil {
             sectionsArray.removeAllObjects()
@@ -153,7 +262,7 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
                 "patientid": "58563eb4d9c776ad70491b7b",
                 "educatorid":"58563eb4d9c776ad70491b97",
                 "numDaysBack": noOfDays,
-                "condition": "All conditions"
+                "condition":  condition
             ]
             
             print(parameters)

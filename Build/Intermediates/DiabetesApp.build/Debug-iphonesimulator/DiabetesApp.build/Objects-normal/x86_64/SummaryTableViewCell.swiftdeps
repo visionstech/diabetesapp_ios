@@ -6,15 +6,15 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp20SummaryTableViewCell", ""]
 provides-dynamic-lookup:
-- "setSelected"
-- "awakeFromNib"
 - "ansTxtLbl"
+- "awakeFromNib"
+- "setSelected"
 - "nameTxtLbl"
 depends-top-level:
-- "UITableViewCell"
-- "UILabel"
 - "Bool"
+- "UILabel"
 - "SummaryTableViewCell"
+- "UITableViewCell"
 depends-member:
 - ["Ps9AnyObject", "ansTxtLbl"]
 - ["Ps9AnyObject", "awakeFromNib"]

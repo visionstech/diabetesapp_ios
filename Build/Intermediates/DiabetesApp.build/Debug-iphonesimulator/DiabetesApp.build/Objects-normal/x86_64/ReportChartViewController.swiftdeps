@@ -6,75 +6,80 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp25ReportChartViewController", ""]
 provides-dynamic-lookup:
-- "noOfDaysNotification"
-- "glucoseLbl"
-- "lineChart"
-- "viewDidAppear"
-- "chartView"
-- "hyperLbl"
-- "viewDidLoad"
-- "label"
-- "chartViewNotification"
-- "deviationLbl"
-- "getChartHistoryData"
-- "didReceiveMemoryWarning"
-- "dataArray"
-- "drawChart"
-- "hbaLbl"
-- "readingsView"
-- "didSelectDataPoint"
-- "noOfDays"
-- "setUI"
-- "addNotifications"
-- "chartConditionsArray"
-- "viewDidDisappear"
-- "hyposLbl"
 - "resetUI"
+- "viewDidLoad"
+- "hyposLbl"
+- "drawChart"
+- "didSelectDataPoint"
+- "chartConditionsArray"
+- "dataArray"
+- "getDoctorChartHistoryData"
+- "deviationLbl"
+- "chartView"
+- "selectedUserType"
+- "viewDidDisappear"
+- "doctorchartViewNotification"
+- "lineChart"
+- "hyperLbl"
+- "label"
+- "viewDidAppear"
+- "setUI"
+- "noOfDaysNotification"
+- "addNotifications"
+- "readingsView"
+- "glucoseLbl"
+- "didReceiveMemoryWarning"
+- "chartViewNotification"
+- "noOfDays"
+- "getChartHistoryData"
+- "hbaLbl"
 depends-top-level:
-- !private "Notifications"
-- "String"
-- "UILabel"
-- !private "BooleanLiteralType"
-- !private "Int"
-- "LineChart"
+- !private "conditionsArray"
 - "Bool"
-- !private "!="
-- !private "Dictionary"
-- "NSArray"
-- "UIView"
+- !private "NSTextAlignment"
+- "Int"
+- !private "Notifications"
 - "StringLiteralType"
 - !private "print"
-- !private "conditionsArray"
-- !private "Colors"
-- !private "..<"
-- !private "Parameters"
-- !private "JSONEncoding"
-- "NSMutableArray"
-- "AssignmentPrecedence"
-- !private "=="
-- "CastingPrecedence"
 - "Array"
+- "UserDefaults"
 - !private ">"
+- !private "userType"
 - "UIViewController"
-- "UnicodeScalarType"
-- !private "NotificationCenter"
-- !private "NSLayoutConstraint"
 - !private "Alamofire"
+- !private "BooleanLiteralType"
+- !private "Parameters"
 - "ReportChartViewController"
 - !private "UIFont"
-- "CGFloat"
-- !private "UserDefaults"
-- !private "NSDictionary"
-- "LineChartDelegate"
-- !private "NSTextAlignment"
+- "NSArray"
+- "LineChart"
+- !private "NotificationCenter"
 - !private "AnyObject"
+- !private "Dictionary"
+- !private "JSONEncoding"
+- "UnicodeScalarType"
+- "CGFloat"
+- !private "Colors"
+- !private "!="
+- "UILabel"
+- "UIView"
+- "NSMutableArray"
+- "String"
 - "NSNotification"
-- !private "userDefaults"
+- !private "NSLayoutConstraint"
+- "LineChartDelegate"
+- "CastingPrecedence"
+- "userDefaults"
+- !private "..<"
+- !private "NSDictionary"
+- "AssignmentPrecedence"
+- !private "=="
 depends-member:
 - !private ["VC11DiabetesApp9LineChart9Animation", "enabled"]
 - !private ["Ps9AnyObject", "Alamofire"]
 - !private ["Ps9AnyObject", "Colors"]
 - ["Ps9AnyObject", "Element"]
+- ["Ps9AnyObject", "Int"]
 - !private ["Ps9AnyObject", "Iterator"]
 - !private ["Ps9AnyObject", "JSONEncoding"]
 - !private ["Ps9AnyObject", "LineChart"]
@@ -89,7 +94,7 @@ depends-member:
 - !private ["Ps9AnyObject", "String"]
 - !private ["Ps9AnyObject", "UIFont"]
 - ["Ps9AnyObject", "UILabel"]
-- !private ["Ps9AnyObject", "UserDefaults"]
+- ["Ps9AnyObject", "UserDefaults"]
 - !private ["Ps9AnyObject", "add"]
 - !private ["Ps9AnyObject", "addConstraints"]
 - !private ["Ps9AnyObject", "addLine"]
@@ -113,14 +118,17 @@ depends-member:
 - ["Ps9AnyObject", "deviationLbl"]
 - ["Ps9AnyObject", "didReceiveMemoryWarning"]
 - ["Ps9AnyObject", "didSelectDataPoint"]
+- ["Ps9AnyObject", "doctorchartViewNotification"]
 - ["Ps9AnyObject", "drawChart"]
 - !private ["Ps9AnyObject", "font"]
 - ["Ps9AnyObject", "getChartHistoryData"]
+- ["Ps9AnyObject", "getDoctorChartHistoryData"]
 - ["Ps9AnyObject", "glucoseLbl"]
 - ["Ps9AnyObject", "hbaLbl"]
 - ["Ps9AnyObject", "hyperLbl"]
 - ["Ps9AnyObject", "hyposLbl"]
 - ["Ps9AnyObject", "init"]
+- ["Ps9AnyObject", "integer"]
 - !private ["Ps9AnyObject", "isHidden"]
 - ["Ps9AnyObject", "label"]
 - !private ["Ps9AnyObject", "layer"]
@@ -136,15 +144,17 @@ depends-member:
 - !private ["Ps9AnyObject", "removeObserver"]
 - ["Ps9AnyObject", "resetUI"]
 - !private ["Ps9AnyObject", "responseJSON"]
+- ["Ps9AnyObject", "selectedUserType"]
 - ["Ps9AnyObject", "setUI"]
-- !private ["Ps9AnyObject", "standard"]
+- ["Ps9AnyObject", "standard"]
 - !private ["Ps9AnyObject", "string"]
 - !private ["Ps9AnyObject", "subscript"]
 - !private ["Ps9AnyObject", "text"]
 - !private ["Ps9AnyObject", "textAlignment"]
 - !private ["Ps9AnyObject", "textColor"]
 - !private ["Ps9AnyObject", "translatesAutoresizingMaskIntoConstraints"]
-- !private ["Ps9AnyObject", "userDefaults"]
+- ["Ps9AnyObject", "userDefaults"]
+- !private ["Ps9AnyObject", "userType"]
 - !private ["Ps9AnyObject", "value"]
 - ["Ps9AnyObject", "viewDidAppear"]
 - ["Ps9AnyObject", "viewDidDisappear"]
@@ -187,6 +197,7 @@ depends-member:
 - !private ["Ps17BitwiseOperations", "IntegerLiteralType"]
 - !private ["Ps17BitwiseOperations", "Stride"]
 - !private ["Ps17BitwiseOperations", "_DisabledRangeIndex"]
+- ["Ps17BitwiseOperations", "init"]
 - !private ["Sb", "_getBuiltinLogicValue"]
 - ["Sb", "deinit"]
 - !private ["CSo7CALayer", "cornerRadius"]
@@ -217,6 +228,7 @@ depends-member:
 - !private ["Ps7CVarArg", "Colors"]
 - ["Ps7CVarArg", "Element"]
 - !private ["Ps7CVarArg", "Index"]
+- ["Ps7CVarArg", "Int"]
 - !private ["Ps7CVarArg", "IntegerLiteralType"]
 - !private ["Ps7CVarArg", "Iterator"]
 - !private ["Ps7CVarArg", "JSONEncoding"]
@@ -235,7 +247,7 @@ depends-member:
 - !private ["Ps7CVarArg", "SubSequence"]
 - !private ["Ps7CVarArg", "UIFont"]
 - ["Ps7CVarArg", "UILabel"]
-- !private ["Ps7CVarArg", "UserDefaults"]
+- ["Ps7CVarArg", "UserDefaults"]
 - !private ["Ps7CVarArg", "Value"]
 - !private ["Ps7CVarArg", "_DisabledRangeIndex"]
 - !private ["Ps7CVarArg", "_Element"]
@@ -263,15 +275,18 @@ depends-member:
 - ["Ps7CVarArg", "deviationLbl"]
 - ["Ps7CVarArg", "didReceiveMemoryWarning"]
 - ["Ps7CVarArg", "didSelectDataPoint"]
+- ["Ps7CVarArg", "doctorchartViewNotification"]
 - ["Ps7CVarArg", "drawChart"]
 - !private ["Ps7CVarArg", "first"]
 - !private ["Ps7CVarArg", "font"]
 - ["Ps7CVarArg", "getChartHistoryData"]
+- ["Ps7CVarArg", "getDoctorChartHistoryData"]
 - ["Ps7CVarArg", "glucoseLbl"]
 - ["Ps7CVarArg", "hbaLbl"]
 - ["Ps7CVarArg", "hyperLbl"]
 - ["Ps7CVarArg", "hyposLbl"]
 - ["Ps7CVarArg", "init"]
+- ["Ps7CVarArg", "integer"]
 - !private ["Ps7CVarArg", "isHidden"]
 - ["Ps7CVarArg", "label"]
 - !private ["Ps7CVarArg", "layer"]
@@ -286,15 +301,17 @@ depends-member:
 - !private ["Ps7CVarArg", "removeFromSuperview"]
 - !private ["Ps7CVarArg", "removeObserver"]
 - ["Ps7CVarArg", "resetUI"]
+- ["Ps7CVarArg", "selectedUserType"]
 - ["Ps7CVarArg", "setUI"]
-- !private ["Ps7CVarArg", "standard"]
+- ["Ps7CVarArg", "standard"]
 - !private ["Ps7CVarArg", "string"]
 - !private ["Ps7CVarArg", "subscript"]
 - !private ["Ps7CVarArg", "text"]
 - !private ["Ps7CVarArg", "textAlignment"]
 - !private ["Ps7CVarArg", "textColor"]
 - !private ["Ps7CVarArg", "translatesAutoresizingMaskIntoConstraints"]
-- !private ["Ps7CVarArg", "userDefaults"]
+- ["Ps7CVarArg", "userDefaults"]
+- !private ["Ps7CVarArg", "userType"]
 - !private ["Ps7CVarArg", "value"]
 - ["Ps7CVarArg", "viewDidAppear"]
 - ["Ps7CVarArg", "viewDidDisappear"]
@@ -327,6 +344,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "Colors"]
 - ["Ps28CustomDebugStringConvertible", "Element"]
 - !private ["Ps28CustomDebugStringConvertible", "Index"]
+- ["Ps28CustomDebugStringConvertible", "Int"]
 - !private ["Ps28CustomDebugStringConvertible", "Iterator"]
 - !private ["Ps28CustomDebugStringConvertible", "JSONEncoding"]
 - !private ["Ps28CustomDebugStringConvertible", "Key"]
@@ -343,7 +361,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "SubSequence"]
 - !private ["Ps28CustomDebugStringConvertible", "UIFont"]
 - ["Ps28CustomDebugStringConvertible", "UILabel"]
-- !private ["Ps28CustomDebugStringConvertible", "UserDefaults"]
+- ["Ps28CustomDebugStringConvertible", "UserDefaults"]
 - !private ["Ps28CustomDebugStringConvertible", "Value"]
 - !private ["Ps28CustomDebugStringConvertible", "_Element"]
 - !private ["Ps28CustomDebugStringConvertible", "add"]
@@ -370,16 +388,19 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "deviationLbl"]
 - ["Ps28CustomDebugStringConvertible", "didReceiveMemoryWarning"]
 - ["Ps28CustomDebugStringConvertible", "didSelectDataPoint"]
+- ["Ps28CustomDebugStringConvertible", "doctorchartViewNotification"]
 - ["Ps28CustomDebugStringConvertible", "drawChart"]
 - !private ["Ps28CustomDebugStringConvertible", "failure"]
 - !private ["Ps28CustomDebugStringConvertible", "first"]
 - !private ["Ps28CustomDebugStringConvertible", "font"]
 - ["Ps28CustomDebugStringConvertible", "getChartHistoryData"]
+- ["Ps28CustomDebugStringConvertible", "getDoctorChartHistoryData"]
 - ["Ps28CustomDebugStringConvertible", "glucoseLbl"]
 - ["Ps28CustomDebugStringConvertible", "hbaLbl"]
 - ["Ps28CustomDebugStringConvertible", "hyperLbl"]
 - ["Ps28CustomDebugStringConvertible", "hyposLbl"]
 - ["Ps28CustomDebugStringConvertible", "init"]
+- ["Ps28CustomDebugStringConvertible", "integer"]
 - !private ["Ps28CustomDebugStringConvertible", "isHidden"]
 - ["Ps28CustomDebugStringConvertible", "label"]
 - !private ["Ps28CustomDebugStringConvertible", "layer"]
@@ -396,8 +417,9 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "resetUI"]
 - !private ["Ps28CustomDebugStringConvertible", "responseJSON"]
 - !private ["Ps28CustomDebugStringConvertible", "result"]
+- ["Ps28CustomDebugStringConvertible", "selectedUserType"]
 - ["Ps28CustomDebugStringConvertible", "setUI"]
-- !private ["Ps28CustomDebugStringConvertible", "standard"]
+- ["Ps28CustomDebugStringConvertible", "standard"]
 - !private ["Ps28CustomDebugStringConvertible", "string"]
 - !private ["Ps28CustomDebugStringConvertible", "subscript"]
 - !private ["Ps28CustomDebugStringConvertible", "success"]
@@ -405,7 +427,8 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "textAlignment"]
 - !private ["Ps28CustomDebugStringConvertible", "textColor"]
 - !private ["Ps28CustomDebugStringConvertible", "translatesAutoresizingMaskIntoConstraints"]
-- !private ["Ps28CustomDebugStringConvertible", "userDefaults"]
+- ["Ps28CustomDebugStringConvertible", "userDefaults"]
+- !private ["Ps28CustomDebugStringConvertible", "userType"]
 - !private ["Ps28CustomDebugStringConvertible", "value"]
 - ["Ps28CustomDebugStringConvertible", "viewDidAppear"]
 - ["Ps28CustomDebugStringConvertible", "viewDidDisappear"]
@@ -443,6 +466,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "Colors"]
 - ["Ps23CustomStringConvertible", "Element"]
 - !private ["Ps23CustomStringConvertible", "Index"]
+- ["Ps23CustomStringConvertible", "Int"]
 - !private ["Ps23CustomStringConvertible", "IntegerLiteralType"]
 - !private ["Ps23CustomStringConvertible", "Iterator"]
 - !private ["Ps23CustomStringConvertible", "JSONEncoding"]
@@ -461,7 +485,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "SubSequence"]
 - !private ["Ps23CustomStringConvertible", "UIFont"]
 - ["Ps23CustomStringConvertible", "UILabel"]
-- !private ["Ps23CustomStringConvertible", "UserDefaults"]
+- ["Ps23CustomStringConvertible", "UserDefaults"]
 - !private ["Ps23CustomStringConvertible", "Value"]
 - !private ["Ps23CustomStringConvertible", "_DisabledRangeIndex"]
 - !private ["Ps23CustomStringConvertible", "_Element"]
@@ -490,16 +514,19 @@ depends-member:
 - ["Ps23CustomStringConvertible", "deviationLbl"]
 - ["Ps23CustomStringConvertible", "didReceiveMemoryWarning"]
 - ["Ps23CustomStringConvertible", "didSelectDataPoint"]
+- ["Ps23CustomStringConvertible", "doctorchartViewNotification"]
 - ["Ps23CustomStringConvertible", "drawChart"]
 - !private ["Ps23CustomStringConvertible", "failure"]
 - !private ["Ps23CustomStringConvertible", "first"]
 - !private ["Ps23CustomStringConvertible", "font"]
 - ["Ps23CustomStringConvertible", "getChartHistoryData"]
+- ["Ps23CustomStringConvertible", "getDoctorChartHistoryData"]
 - ["Ps23CustomStringConvertible", "glucoseLbl"]
 - ["Ps23CustomStringConvertible", "hbaLbl"]
 - ["Ps23CustomStringConvertible", "hyperLbl"]
 - ["Ps23CustomStringConvertible", "hyposLbl"]
 - ["Ps23CustomStringConvertible", "init"]
+- ["Ps23CustomStringConvertible", "integer"]
 - !private ["Ps23CustomStringConvertible", "isHidden"]
 - ["Ps23CustomStringConvertible", "label"]
 - !private ["Ps23CustomStringConvertible", "layer"]
@@ -516,8 +543,9 @@ depends-member:
 - ["Ps23CustomStringConvertible", "resetUI"]
 - !private ["Ps23CustomStringConvertible", "responseJSON"]
 - !private ["Ps23CustomStringConvertible", "result"]
+- ["Ps23CustomStringConvertible", "selectedUserType"]
 - ["Ps23CustomStringConvertible", "setUI"]
-- !private ["Ps23CustomStringConvertible", "standard"]
+- ["Ps23CustomStringConvertible", "standard"]
 - !private ["Ps23CustomStringConvertible", "string"]
 - !private ["Ps23CustomStringConvertible", "subscript"]
 - !private ["Ps23CustomStringConvertible", "success"]
@@ -525,7 +553,8 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "textAlignment"]
 - !private ["Ps23CustomStringConvertible", "textColor"]
 - !private ["Ps23CustomStringConvertible", "translatesAutoresizingMaskIntoConstraints"]
-- !private ["Ps23CustomStringConvertible", "userDefaults"]
+- ["Ps23CustomStringConvertible", "userDefaults"]
+- !private ["Ps23CustomStringConvertible", "userType"]
 - !private ["Ps23CustomStringConvertible", "value"]
 - ["Ps23CustomStringConvertible", "viewDidAppear"]
 - ["Ps23CustomStringConvertible", "viewDidDisappear"]
@@ -555,6 +584,7 @@ depends-member:
 - !private ["Ps9Equatable", "Alamofire"]
 - !private ["Ps9Equatable", "Colors"]
 - ["Ps9Equatable", "Element"]
+- ["Ps9Equatable", "Int"]
 - !private ["Ps9Equatable", "IntegerLiteralType"]
 - !private ["Ps9Equatable", "Iterator"]
 - !private ["Ps9Equatable", "JSONEncoding"]
@@ -571,7 +601,7 @@ depends-member:
 - !private ["Ps9Equatable", "String"]
 - !private ["Ps9Equatable", "UIFont"]
 - ["Ps9Equatable", "UILabel"]
-- !private ["Ps9Equatable", "UserDefaults"]
+- ["Ps9Equatable", "UserDefaults"]
 - !private ["Ps9Equatable", "_DisabledRangeIndex"]
 - !private ["Ps9Equatable", "_Element"]
 - !private ["Ps9Equatable", "_getBuiltinLogicValue"]
@@ -598,14 +628,17 @@ depends-member:
 - ["Ps9Equatable", "deviationLbl"]
 - ["Ps9Equatable", "didReceiveMemoryWarning"]
 - ["Ps9Equatable", "didSelectDataPoint"]
+- ["Ps9Equatable", "doctorchartViewNotification"]
 - ["Ps9Equatable", "drawChart"]
 - !private ["Ps9Equatable", "font"]
 - ["Ps9Equatable", "getChartHistoryData"]
+- ["Ps9Equatable", "getDoctorChartHistoryData"]
 - ["Ps9Equatable", "glucoseLbl"]
 - ["Ps9Equatable", "hbaLbl"]
 - ["Ps9Equatable", "hyperLbl"]
 - ["Ps9Equatable", "hyposLbl"]
 - ["Ps9Equatable", "init"]
+- ["Ps9Equatable", "integer"]
 - !private ["Ps9Equatable", "isHidden"]
 - ["Ps9Equatable", "label"]
 - !private ["Ps9Equatable", "layer"]
@@ -622,15 +655,17 @@ depends-member:
 - !private ["Ps9Equatable", "removeFromSuperview"]
 - !private ["Ps9Equatable", "removeObserver"]
 - ["Ps9Equatable", "resetUI"]
+- ["Ps9Equatable", "selectedUserType"]
 - ["Ps9Equatable", "setUI"]
-- !private ["Ps9Equatable", "standard"]
+- ["Ps9Equatable", "standard"]
 - !private ["Ps9Equatable", "string"]
 - !private ["Ps9Equatable", "subscript"]
 - !private ["Ps9Equatable", "text"]
 - !private ["Ps9Equatable", "textAlignment"]
 - !private ["Ps9Equatable", "textColor"]
 - !private ["Ps9Equatable", "translatesAutoresizingMaskIntoConstraints"]
-- !private ["Ps9Equatable", "userDefaults"]
+- ["Ps9Equatable", "userDefaults"]
+- !private ["Ps9Equatable", "userType"]
 - !private ["Ps9Equatable", "value"]
 - ["Ps9Equatable", "viewDidAppear"]
 - ["Ps9Equatable", "viewDidDisappear"]
@@ -662,6 +697,7 @@ depends-member:
 - !private ["Ps27ExpressibleByIntegerLiteral", "IntegerLiteralType"]
 - !private ["Ps27ExpressibleByIntegerLiteral", "Stride"]
 - !private ["Ps27ExpressibleByIntegerLiteral", "_DisabledRangeIndex"]
+- ["Ps27ExpressibleByIntegerLiteral", "init"]
 - ["Ps32ExpressibleByStringInterpolation", "init"]
 - ["Ps26ExpressibleByStringLiteral", "init"]
 - ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
@@ -671,6 +707,7 @@ depends-member:
 - !private ["Ps8Hashable", "Alamofire"]
 - !private ["Ps8Hashable", "Colors"]
 - ["Ps8Hashable", "Element"]
+- ["Ps8Hashable", "Int"]
 - !private ["Ps8Hashable", "IntegerLiteralType"]
 - !private ["Ps8Hashable", "Iterator"]
 - !private ["Ps8Hashable", "JSONEncoding"]
@@ -687,7 +724,7 @@ depends-member:
 - !private ["Ps8Hashable", "String"]
 - !private ["Ps8Hashable", "UIFont"]
 - ["Ps8Hashable", "UILabel"]
-- !private ["Ps8Hashable", "UserDefaults"]
+- ["Ps8Hashable", "UserDefaults"]
 - !private ["Ps8Hashable", "_DisabledRangeIndex"]
 - !private ["Ps8Hashable", "_getBuiltinLogicValue"]
 - !private ["Ps8Hashable", "add"]
@@ -713,14 +750,17 @@ depends-member:
 - ["Ps8Hashable", "deviationLbl"]
 - ["Ps8Hashable", "didReceiveMemoryWarning"]
 - ["Ps8Hashable", "didSelectDataPoint"]
+- ["Ps8Hashable", "doctorchartViewNotification"]
 - ["Ps8Hashable", "drawChart"]
 - !private ["Ps8Hashable", "font"]
 - ["Ps8Hashable", "getChartHistoryData"]
+- ["Ps8Hashable", "getDoctorChartHistoryData"]
 - ["Ps8Hashable", "glucoseLbl"]
 - ["Ps8Hashable", "hbaLbl"]
 - ["Ps8Hashable", "hyperLbl"]
 - ["Ps8Hashable", "hyposLbl"]
 - ["Ps8Hashable", "init"]
+- ["Ps8Hashable", "integer"]
 - !private ["Ps8Hashable", "isHidden"]
 - ["Ps8Hashable", "label"]
 - !private ["Ps8Hashable", "layer"]
@@ -737,15 +777,17 @@ depends-member:
 - !private ["Ps8Hashable", "removeFromSuperview"]
 - !private ["Ps8Hashable", "removeObserver"]
 - ["Ps8Hashable", "resetUI"]
+- ["Ps8Hashable", "selectedUserType"]
 - ["Ps8Hashable", "setUI"]
-- !private ["Ps8Hashable", "standard"]
+- ["Ps8Hashable", "standard"]
 - !private ["Ps8Hashable", "string"]
 - !private ["Ps8Hashable", "subscript"]
 - !private ["Ps8Hashable", "text"]
 - !private ["Ps8Hashable", "textAlignment"]
 - !private ["Ps8Hashable", "textColor"]
 - !private ["Ps8Hashable", "translatesAutoresizingMaskIntoConstraints"]
-- !private ["Ps8Hashable", "userDefaults"]
+- ["Ps8Hashable", "userDefaults"]
+- !private ["Ps8Hashable", "userType"]
 - !private ["Ps8Hashable", "value"]
 - ["Ps8Hashable", "viewDidAppear"]
 - ["Ps8Hashable", "viewDidDisappear"]
@@ -781,6 +823,7 @@ depends-member:
 - !private ["Si", "Stride"]
 - !private ["Si", "_DisabledRangeIndex"]
 - ["Si", "deinit"]
+- ["Si", "init"]
 - !private ["Vs5Int16", "deinit"]
 - !private ["Vs5Int32", "deinit"]
 - !private ["Vs5Int64", "deinit"]
@@ -788,9 +831,11 @@ depends-member:
 - !private ["Ps7Integer", "IntegerLiteralType"]
 - !private ["Ps7Integer", "Stride"]
 - !private ["Ps7Integer", "_DisabledRangeIndex"]
+- ["Ps7Integer", "init"]
 - !private ["Ps17IntegerArithmetic", "IntegerLiteralType"]
 - !private ["Ps17IntegerArithmetic", "Stride"]
 - !private ["Ps17IntegerArithmetic", "_DisabledRangeIndex"]
+- ["Ps17IntegerArithmetic", "init"]
 - !private ["Ps16IteratorProtocol", "Element"]
 - !private ["V9Alamofire12JSONEncoding", "default"]
 - ["V9Alamofire12JSONEncoding", "deinit"]
@@ -809,6 +854,7 @@ depends-member:
 - !private ["C11DiabetesApp9LineChart", "y"]
 - !private ["P11DiabetesApp17LineChartDelegate", "Alamofire"]
 - !private ["P11DiabetesApp17LineChartDelegate", "Colors"]
+- ["P11DiabetesApp17LineChartDelegate", "Int"]
 - !private ["P11DiabetesApp17LineChartDelegate", "JSONEncoding"]
 - !private ["P11DiabetesApp17LineChartDelegate", "LineChart"]
 - !private ["P11DiabetesApp17LineChartDelegate", "NSDictionary"]
@@ -821,7 +867,7 @@ depends-member:
 - !private ["P11DiabetesApp17LineChartDelegate", "String"]
 - !private ["P11DiabetesApp17LineChartDelegate", "UIFont"]
 - ["P11DiabetesApp17LineChartDelegate", "UILabel"]
-- !private ["P11DiabetesApp17LineChartDelegate", "UserDefaults"]
+- ["P11DiabetesApp17LineChartDelegate", "UserDefaults"]
 - !private ["P11DiabetesApp17LineChartDelegate", "addNotifications"]
 - !private ["P11DiabetesApp17LineChartDelegate", "chartConditionsArray"]
 - !private ["P11DiabetesApp17LineChartDelegate", "chartView"]
@@ -830,8 +876,10 @@ depends-member:
 - !private ["P11DiabetesApp17LineChartDelegate", "dataArray"]
 - !private ["P11DiabetesApp17LineChartDelegate", "deviationLbl"]
 - ["P11DiabetesApp17LineChartDelegate", "didSelectDataPoint"]
+- !private ["P11DiabetesApp17LineChartDelegate", "doctorchartViewNotification"]
 - !private ["P11DiabetesApp17LineChartDelegate", "drawChart"]
 - !private ["P11DiabetesApp17LineChartDelegate", "getChartHistoryData"]
+- !private ["P11DiabetesApp17LineChartDelegate", "getDoctorChartHistoryData"]
 - !private ["P11DiabetesApp17LineChartDelegate", "glucoseLbl"]
 - !private ["P11DiabetesApp17LineChartDelegate", "hbaLbl"]
 - !private ["P11DiabetesApp17LineChartDelegate", "hyperLbl"]
@@ -843,8 +891,10 @@ depends-member:
 - !private ["P11DiabetesApp17LineChartDelegate", "print"]
 - !private ["P11DiabetesApp17LineChartDelegate", "readingsView"]
 - !private ["P11DiabetesApp17LineChartDelegate", "resetUI"]
+- !private ["P11DiabetesApp17LineChartDelegate", "selectedUserType"]
 - !private ["P11DiabetesApp17LineChartDelegate", "setUI"]
-- !private ["P11DiabetesApp17LineChartDelegate", "userDefaults"]
+- ["P11DiabetesApp17LineChartDelegate", "userDefaults"]
+- !private ["P11DiabetesApp17LineChartDelegate", "userType"]
 - ["P11DiabetesApp17LineChartDelegate", ""]
 - !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
 - ["Ps25LosslessStringConvertible", "init"]
@@ -878,6 +928,7 @@ depends-member:
 - !private ["PSo8NSCoding", "Alamofire"]
 - !private ["PSo8NSCoding", "Colors"]
 - ["PSo8NSCoding", "Element"]
+- ["PSo8NSCoding", "Int"]
 - !private ["PSo8NSCoding", "Iterator"]
 - !private ["PSo8NSCoding", "JSONEncoding"]
 - !private ["PSo8NSCoding", "LineChart"]
@@ -892,7 +943,7 @@ depends-member:
 - !private ["PSo8NSCoding", "String"]
 - !private ["PSo8NSCoding", "UIFont"]
 - ["PSo8NSCoding", "UILabel"]
-- !private ["PSo8NSCoding", "UserDefaults"]
+- ["PSo8NSCoding", "UserDefaults"]
 - !private ["PSo8NSCoding", "add"]
 - !private ["PSo8NSCoding", "addConstraints"]
 - !private ["PSo8NSCoding", "addLine"]
@@ -913,9 +964,11 @@ depends-member:
 - ["PSo8NSCoding", "deviationLbl"]
 - ["PSo8NSCoding", "didReceiveMemoryWarning"]
 - ["PSo8NSCoding", "didSelectDataPoint"]
+- ["PSo8NSCoding", "doctorchartViewNotification"]
 - ["PSo8NSCoding", "drawChart"]
 - !private ["PSo8NSCoding", "font"]
 - ["PSo8NSCoding", "getChartHistoryData"]
+- ["PSo8NSCoding", "getDoctorChartHistoryData"]
 - ["PSo8NSCoding", "glucoseLbl"]
 - ["PSo8NSCoding", "hbaLbl"]
 - ["PSo8NSCoding", "hyperLbl"]
@@ -934,13 +987,15 @@ depends-member:
 - !private ["PSo8NSCoding", "removeAllObjects"]
 - !private ["PSo8NSCoding", "removeFromSuperview"]
 - ["PSo8NSCoding", "resetUI"]
+- ["PSo8NSCoding", "selectedUserType"]
 - ["PSo8NSCoding", "setUI"]
 - !private ["PSo8NSCoding", "subscript"]
 - !private ["PSo8NSCoding", "text"]
 - !private ["PSo8NSCoding", "textAlignment"]
 - !private ["PSo8NSCoding", "textColor"]
 - !private ["PSo8NSCoding", "translatesAutoresizingMaskIntoConstraints"]
-- !private ["PSo8NSCoding", "userDefaults"]
+- ["PSo8NSCoding", "userDefaults"]
+- !private ["PSo8NSCoding", "userType"]
 - !private ["PSo8NSCoding", "value"]
 - ["PSo8NSCoding", "viewDidAppear"]
 - ["PSo8NSCoding", "viewDidDisappear"]
@@ -966,6 +1021,7 @@ depends-member:
 - !private ["CSo12NSDictionary", "value"]
 - !private ["PSo26NSExtensionRequestHandling", "Alamofire"]
 - !private ["PSo26NSExtensionRequestHandling", "Colors"]
+- ["PSo26NSExtensionRequestHandling", "Int"]
 - !private ["PSo26NSExtensionRequestHandling", "JSONEncoding"]
 - !private ["PSo26NSExtensionRequestHandling", "LineChart"]
 - !private ["PSo26NSExtensionRequestHandling", "NSDictionary"]
@@ -978,7 +1034,7 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "String"]
 - !private ["PSo26NSExtensionRequestHandling", "UIFont"]
 - ["PSo26NSExtensionRequestHandling", "UILabel"]
-- !private ["PSo26NSExtensionRequestHandling", "UserDefaults"]
+- ["PSo26NSExtensionRequestHandling", "UserDefaults"]
 - ["PSo26NSExtensionRequestHandling", "addNotifications"]
 - ["PSo26NSExtensionRequestHandling", "chartConditionsArray"]
 - ["PSo26NSExtensionRequestHandling", "chartView"]
@@ -988,8 +1044,10 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "deviationLbl"]
 - ["PSo26NSExtensionRequestHandling", "didReceiveMemoryWarning"]
 - ["PSo26NSExtensionRequestHandling", "didSelectDataPoint"]
+- ["PSo26NSExtensionRequestHandling", "doctorchartViewNotification"]
 - ["PSo26NSExtensionRequestHandling", "drawChart"]
 - ["PSo26NSExtensionRequestHandling", "getChartHistoryData"]
+- ["PSo26NSExtensionRequestHandling", "getDoctorChartHistoryData"]
 - ["PSo26NSExtensionRequestHandling", "glucoseLbl"]
 - ["PSo26NSExtensionRequestHandling", "hbaLbl"]
 - ["PSo26NSExtensionRequestHandling", "hyperLbl"]
@@ -1002,8 +1060,10 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "print"]
 - ["PSo26NSExtensionRequestHandling", "readingsView"]
 - ["PSo26NSExtensionRequestHandling", "resetUI"]
+- ["PSo26NSExtensionRequestHandling", "selectedUserType"]
 - ["PSo26NSExtensionRequestHandling", "setUI"]
-- !private ["PSo26NSExtensionRequestHandling", "userDefaults"]
+- ["PSo26NSExtensionRequestHandling", "userDefaults"]
+- !private ["PSo26NSExtensionRequestHandling", "userType"]
 - ["PSo26NSExtensionRequestHandling", "viewDidAppear"]
 - ["PSo26NSExtensionRequestHandling", "viewDidDisappear"]
 - ["PSo26NSExtensionRequestHandling", "viewDidLoad"]
@@ -1052,7 +1112,7 @@ depends-member:
 - ["CSo8NSObject", "CGFloat"]
 - !private ["CSo8NSObject", "Colors"]
 - ["CSo8NSObject", "Element"]
-- !private ["CSo8NSObject", "Int"]
+- ["CSo8NSObject", "Int"]
 - !private ["CSo8NSObject", "Iterator"]
 - !private ["CSo8NSObject", "JSONEncoding"]
 - ["CSo8NSObject", "LineChart"]
@@ -1070,7 +1130,7 @@ depends-member:
 - !private ["CSo8NSObject", "UIFont"]
 - ["CSo8NSObject", "UILabel"]
 - ["CSo8NSObject", "UIView"]
-- !private ["CSo8NSObject", "UserDefaults"]
+- ["CSo8NSObject", "UserDefaults"]
 - !private ["CSo8NSObject", "add"]
 - !private ["CSo8NSObject", "addConstraints"]
 - !private ["CSo8NSObject", "addLine"]
@@ -1094,14 +1154,17 @@ depends-member:
 - ["CSo8NSObject", "deviationLbl"]
 - ["CSo8NSObject", "didReceiveMemoryWarning"]
 - ["CSo8NSObject", "didSelectDataPoint"]
+- ["CSo8NSObject", "doctorchartViewNotification"]
 - ["CSo8NSObject", "drawChart"]
 - !private ["CSo8NSObject", "font"]
 - ["CSo8NSObject", "getChartHistoryData"]
+- ["CSo8NSObject", "getDoctorChartHistoryData"]
 - ["CSo8NSObject", "glucoseLbl"]
 - ["CSo8NSObject", "hbaLbl"]
 - ["CSo8NSObject", "hyperLbl"]
 - ["CSo8NSObject", "hyposLbl"]
 - ["CSo8NSObject", "init"]
+- ["CSo8NSObject", "integer"]
 - !private ["CSo8NSObject", "isHidden"]
 - ["CSo8NSObject", "label"]
 - !private ["CSo8NSObject", "layer"]
@@ -1116,15 +1179,17 @@ depends-member:
 - !private ["CSo8NSObject", "removeFromSuperview"]
 - !private ["CSo8NSObject", "removeObserver"]
 - ["CSo8NSObject", "resetUI"]
+- ["CSo8NSObject", "selectedUserType"]
 - ["CSo8NSObject", "setUI"]
-- !private ["CSo8NSObject", "standard"]
+- ["CSo8NSObject", "standard"]
 - !private ["CSo8NSObject", "string"]
 - !private ["CSo8NSObject", "subscript"]
 - !private ["CSo8NSObject", "text"]
 - !private ["CSo8NSObject", "textAlignment"]
 - !private ["CSo8NSObject", "textColor"]
 - !private ["CSo8NSObject", "translatesAutoresizingMaskIntoConstraints"]
-- !private ["CSo8NSObject", "userDefaults"]
+- ["CSo8NSObject", "userDefaults"]
+- !private ["CSo8NSObject", "userType"]
 - !private ["CSo8NSObject", "value"]
 - ["CSo8NSObject", "viewDidAppear"]
 - ["CSo8NSObject", "viewDidDisappear"]
@@ -1134,6 +1199,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "Alamofire"]
 - !private ["PSo16NSObjectProtocol", "Colors"]
 - ["PSo16NSObjectProtocol", "Element"]
+- ["PSo16NSObjectProtocol", "Int"]
 - !private ["PSo16NSObjectProtocol", "Iterator"]
 - !private ["PSo16NSObjectProtocol", "JSONEncoding"]
 - !private ["PSo16NSObjectProtocol", "LineChart"]
@@ -1148,7 +1214,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "String"]
 - !private ["PSo16NSObjectProtocol", "UIFont"]
 - ["PSo16NSObjectProtocol", "UILabel"]
-- !private ["PSo16NSObjectProtocol", "UserDefaults"]
+- ["PSo16NSObjectProtocol", "UserDefaults"]
 - !private ["PSo16NSObjectProtocol", "add"]
 - !private ["PSo16NSObjectProtocol", "addConstraints"]
 - !private ["PSo16NSObjectProtocol", "addLine"]
@@ -1172,14 +1238,17 @@ depends-member:
 - ["PSo16NSObjectProtocol", "deviationLbl"]
 - ["PSo16NSObjectProtocol", "didReceiveMemoryWarning"]
 - ["PSo16NSObjectProtocol", "didSelectDataPoint"]
+- ["PSo16NSObjectProtocol", "doctorchartViewNotification"]
 - ["PSo16NSObjectProtocol", "drawChart"]
 - !private ["PSo16NSObjectProtocol", "font"]
 - ["PSo16NSObjectProtocol", "getChartHistoryData"]
+- ["PSo16NSObjectProtocol", "getDoctorChartHistoryData"]
 - ["PSo16NSObjectProtocol", "glucoseLbl"]
 - ["PSo16NSObjectProtocol", "hbaLbl"]
 - ["PSo16NSObjectProtocol", "hyperLbl"]
 - ["PSo16NSObjectProtocol", "hyposLbl"]
 - ["PSo16NSObjectProtocol", "init"]
+- ["PSo16NSObjectProtocol", "integer"]
 - !private ["PSo16NSObjectProtocol", "isHidden"]
 - ["PSo16NSObjectProtocol", "label"]
 - !private ["PSo16NSObjectProtocol", "layer"]
@@ -1194,15 +1263,17 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "removeFromSuperview"]
 - !private ["PSo16NSObjectProtocol", "removeObserver"]
 - ["PSo16NSObjectProtocol", "resetUI"]
+- ["PSo16NSObjectProtocol", "selectedUserType"]
 - ["PSo16NSObjectProtocol", "setUI"]
-- !private ["PSo16NSObjectProtocol", "standard"]
+- ["PSo16NSObjectProtocol", "standard"]
 - !private ["PSo16NSObjectProtocol", "string"]
 - !private ["PSo16NSObjectProtocol", "subscript"]
 - !private ["PSo16NSObjectProtocol", "text"]
 - !private ["PSo16NSObjectProtocol", "textAlignment"]
 - !private ["PSo16NSObjectProtocol", "textColor"]
 - !private ["PSo16NSObjectProtocol", "translatesAutoresizingMaskIntoConstraints"]
-- !private ["PSo16NSObjectProtocol", "userDefaults"]
+- ["PSo16NSObjectProtocol", "userDefaults"]
+- !private ["PSo16NSObjectProtocol", "userType"]
 - !private ["PSo16NSObjectProtocol", "value"]
 - ["PSo16NSObjectProtocol", "viewDidAppear"]
 - ["PSo16NSObjectProtocol", "viewDidDisappear"]
@@ -1283,7 +1354,7 @@ depends-member:
 - ["C11DiabetesApp25ReportChartViewController", "Bool"]
 - ["C11DiabetesApp25ReportChartViewController", "CGFloat"]
 - !private ["C11DiabetesApp25ReportChartViewController", "Colors"]
-- !private ["C11DiabetesApp25ReportChartViewController", "Int"]
+- ["C11DiabetesApp25ReportChartViewController", "Int"]
 - !private ["C11DiabetesApp25ReportChartViewController", "JSONEncoding"]
 - ["C11DiabetesApp25ReportChartViewController", "LineChart"]
 - ["C11DiabetesApp25ReportChartViewController", "NSArray"]
@@ -1299,7 +1370,7 @@ depends-member:
 - !private ["C11DiabetesApp25ReportChartViewController", "UIFont"]
 - ["C11DiabetesApp25ReportChartViewController", "UILabel"]
 - ["C11DiabetesApp25ReportChartViewController", "UIView"]
-- !private ["C11DiabetesApp25ReportChartViewController", "UserDefaults"]
+- ["C11DiabetesApp25ReportChartViewController", "UserDefaults"]
 - ["C11DiabetesApp25ReportChartViewController", "addNotifications"]
 - ["C11DiabetesApp25ReportChartViewController", "chartConditionsArray"]
 - ["C11DiabetesApp25ReportChartViewController", "chartView"]
@@ -1310,8 +1381,10 @@ depends-member:
 - ["C11DiabetesApp25ReportChartViewController", "deviationLbl"]
 - ["C11DiabetesApp25ReportChartViewController", "didReceiveMemoryWarning"]
 - ["C11DiabetesApp25ReportChartViewController", "didSelectDataPoint"]
+- ["C11DiabetesApp25ReportChartViewController", "doctorchartViewNotification"]
 - ["C11DiabetesApp25ReportChartViewController", "drawChart"]
 - ["C11DiabetesApp25ReportChartViewController", "getChartHistoryData"]
+- ["C11DiabetesApp25ReportChartViewController", "getDoctorChartHistoryData"]
 - ["C11DiabetesApp25ReportChartViewController", "glucoseLbl"]
 - ["C11DiabetesApp25ReportChartViewController", "hbaLbl"]
 - ["C11DiabetesApp25ReportChartViewController", "hyperLbl"]
@@ -1324,8 +1397,10 @@ depends-member:
 - !private ["C11DiabetesApp25ReportChartViewController", "print"]
 - ["C11DiabetesApp25ReportChartViewController", "readingsView"]
 - ["C11DiabetesApp25ReportChartViewController", "resetUI"]
+- ["C11DiabetesApp25ReportChartViewController", "selectedUserType"]
 - ["C11DiabetesApp25ReportChartViewController", "setUI"]
-- !private ["C11DiabetesApp25ReportChartViewController", "userDefaults"]
+- ["C11DiabetesApp25ReportChartViewController", "userDefaults"]
+- !private ["C11DiabetesApp25ReportChartViewController", "userType"]
 - ["C11DiabetesApp25ReportChartViewController", "viewDidAppear"]
 - ["C11DiabetesApp25ReportChartViewController", "viewDidDisappear"]
 - ["C11DiabetesApp25ReportChartViewController", "viewDidLoad"]
@@ -1359,9 +1434,11 @@ depends-member:
 - !private ["Ps13SignedInteger", "IntegerLiteralType"]
 - !private ["Ps13SignedInteger", "Stride"]
 - !private ["Ps13SignedInteger", "_DisabledRangeIndex"]
+- ["Ps13SignedInteger", "init"]
 - !private ["Ps12SignedNumber", "IntegerLiteralType"]
 - !private ["Ps12SignedNumber", "Stride"]
 - !private ["Ps12SignedNumber", "_DisabledRangeIndex"]
+- ["Ps12SignedNumber", "init"]
 - !private ["Vs5Slice", "Index"]
 - !private ["Vs5Slice", "Iterator"]
 - !private ["Vs5Slice", "SubSequence"]
@@ -1369,6 +1446,7 @@ depends-member:
 - !private ["Ps10Strideable", "IntegerLiteralType"]
 - !private ["Ps10Strideable", "Stride"]
 - !private ["Ps10Strideable", "_DisabledRangeIndex"]
+- ["Ps10Strideable", "init"]
 - ["SS", "deinit"]
 - ["SS", "init"]
 - ["Ps16TextOutputStream", "init"]
@@ -1411,6 +1489,7 @@ depends-member:
 - !private ["PSo12UIAppearance", "y"]
 - !private ["PSo21UIAppearanceContainer", "Alamofire"]
 - !private ["PSo21UIAppearanceContainer", "Colors"]
+- ["PSo21UIAppearanceContainer", "Int"]
 - !private ["PSo21UIAppearanceContainer", "JSONEncoding"]
 - !private ["PSo21UIAppearanceContainer", "LineChart"]
 - !private ["PSo21UIAppearanceContainer", "NSDictionary"]
@@ -1423,7 +1502,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "String"]
 - !private ["PSo21UIAppearanceContainer", "UIFont"]
 - ["PSo21UIAppearanceContainer", "UILabel"]
-- !private ["PSo21UIAppearanceContainer", "UserDefaults"]
+- ["PSo21UIAppearanceContainer", "UserDefaults"]
 - !private ["PSo21UIAppearanceContainer", "addConstraints"]
 - !private ["PSo21UIAppearanceContainer", "addLine"]
 - ["PSo21UIAppearanceContainer", "addNotifications"]
@@ -1440,9 +1519,11 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "deviationLbl"]
 - ["PSo21UIAppearanceContainer", "didReceiveMemoryWarning"]
 - ["PSo21UIAppearanceContainer", "didSelectDataPoint"]
+- ["PSo21UIAppearanceContainer", "doctorchartViewNotification"]
 - ["PSo21UIAppearanceContainer", "drawChart"]
 - !private ["PSo21UIAppearanceContainer", "font"]
 - ["PSo21UIAppearanceContainer", "getChartHistoryData"]
+- ["PSo21UIAppearanceContainer", "getDoctorChartHistoryData"]
 - ["PSo21UIAppearanceContainer", "glucoseLbl"]
 - ["PSo21UIAppearanceContainer", "hbaLbl"]
 - ["PSo21UIAppearanceContainer", "hyperLbl"]
@@ -1458,12 +1539,14 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "readingsView"]
 - !private ["PSo21UIAppearanceContainer", "removeFromSuperview"]
 - ["PSo21UIAppearanceContainer", "resetUI"]
+- ["PSo21UIAppearanceContainer", "selectedUserType"]
 - ["PSo21UIAppearanceContainer", "setUI"]
 - !private ["PSo21UIAppearanceContainer", "text"]
 - !private ["PSo21UIAppearanceContainer", "textAlignment"]
 - !private ["PSo21UIAppearanceContainer", "textColor"]
 - !private ["PSo21UIAppearanceContainer", "translatesAutoresizingMaskIntoConstraints"]
-- !private ["PSo21UIAppearanceContainer", "userDefaults"]
+- ["PSo21UIAppearanceContainer", "userDefaults"]
+- !private ["PSo21UIAppearanceContainer", "userType"]
 - ["PSo21UIAppearanceContainer", "viewDidAppear"]
 - ["PSo21UIAppearanceContainer", "viewDidDisappear"]
 - ["PSo21UIAppearanceContainer", "viewDidLoad"]
@@ -1473,6 +1556,7 @@ depends-member:
 - ["CSo7UIColor", "deinit"]
 - !private ["PSo18UIContentContainer", "Alamofire"]
 - !private ["PSo18UIContentContainer", "Colors"]
+- ["PSo18UIContentContainer", "Int"]
 - !private ["PSo18UIContentContainer", "JSONEncoding"]
 - !private ["PSo18UIContentContainer", "LineChart"]
 - !private ["PSo18UIContentContainer", "NSDictionary"]
@@ -1485,7 +1569,7 @@ depends-member:
 - !private ["PSo18UIContentContainer", "String"]
 - !private ["PSo18UIContentContainer", "UIFont"]
 - ["PSo18UIContentContainer", "UILabel"]
-- !private ["PSo18UIContentContainer", "UserDefaults"]
+- ["PSo18UIContentContainer", "UserDefaults"]
 - ["PSo18UIContentContainer", "addNotifications"]
 - ["PSo18UIContentContainer", "chartConditionsArray"]
 - ["PSo18UIContentContainer", "chartView"]
@@ -1495,8 +1579,10 @@ depends-member:
 - ["PSo18UIContentContainer", "deviationLbl"]
 - ["PSo18UIContentContainer", "didReceiveMemoryWarning"]
 - ["PSo18UIContentContainer", "didSelectDataPoint"]
+- ["PSo18UIContentContainer", "doctorchartViewNotification"]
 - ["PSo18UIContentContainer", "drawChart"]
 - ["PSo18UIContentContainer", "getChartHistoryData"]
+- ["PSo18UIContentContainer", "getDoctorChartHistoryData"]
 - ["PSo18UIContentContainer", "glucoseLbl"]
 - ["PSo18UIContentContainer", "hbaLbl"]
 - ["PSo18UIContentContainer", "hyperLbl"]
@@ -1509,8 +1595,10 @@ depends-member:
 - !private ["PSo18UIContentContainer", "print"]
 - ["PSo18UIContentContainer", "readingsView"]
 - ["PSo18UIContentContainer", "resetUI"]
+- ["PSo18UIContentContainer", "selectedUserType"]
 - ["PSo18UIContentContainer", "setUI"]
-- !private ["PSo18UIContentContainer", "userDefaults"]
+- ["PSo18UIContentContainer", "userDefaults"]
+- !private ["PSo18UIContentContainer", "userType"]
 - ["PSo18UIContentContainer", "viewDidAppear"]
 - ["PSo18UIContentContainer", "viewDidDisappear"]
 - ["PSo18UIContentContainer", "viewDidLoad"]
@@ -1560,6 +1648,7 @@ depends-member:
 - !private ["PSo13UIDynamicItem", "y"]
 - !private ["PSo18UIFocusEnvironment", "Alamofire"]
 - !private ["PSo18UIFocusEnvironment", "Colors"]
+- ["PSo18UIFocusEnvironment", "Int"]
 - !private ["PSo18UIFocusEnvironment", "JSONEncoding"]
 - !private ["PSo18UIFocusEnvironment", "LineChart"]
 - !private ["PSo18UIFocusEnvironment", "NSDictionary"]
@@ -1572,7 +1661,7 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "String"]
 - !private ["PSo18UIFocusEnvironment", "UIFont"]
 - ["PSo18UIFocusEnvironment", "UILabel"]
-- !private ["PSo18UIFocusEnvironment", "UserDefaults"]
+- ["PSo18UIFocusEnvironment", "UserDefaults"]
 - !private ["PSo18UIFocusEnvironment", "addConstraints"]
 - !private ["PSo18UIFocusEnvironment", "addLine"]
 - ["PSo18UIFocusEnvironment", "addNotifications"]
@@ -1589,9 +1678,11 @@ depends-member:
 - ["PSo18UIFocusEnvironment", "deviationLbl"]
 - ["PSo18UIFocusEnvironment", "didReceiveMemoryWarning"]
 - ["PSo18UIFocusEnvironment", "didSelectDataPoint"]
+- ["PSo18UIFocusEnvironment", "doctorchartViewNotification"]
 - ["PSo18UIFocusEnvironment", "drawChart"]
 - !private ["PSo18UIFocusEnvironment", "font"]
 - ["PSo18UIFocusEnvironment", "getChartHistoryData"]
+- ["PSo18UIFocusEnvironment", "getDoctorChartHistoryData"]
 - ["PSo18UIFocusEnvironment", "glucoseLbl"]
 - ["PSo18UIFocusEnvironment", "hbaLbl"]
 - ["PSo18UIFocusEnvironment", "hyperLbl"]
@@ -1607,12 +1698,14 @@ depends-member:
 - ["PSo18UIFocusEnvironment", "readingsView"]
 - !private ["PSo18UIFocusEnvironment", "removeFromSuperview"]
 - ["PSo18UIFocusEnvironment", "resetUI"]
+- ["PSo18UIFocusEnvironment", "selectedUserType"]
 - ["PSo18UIFocusEnvironment", "setUI"]
 - !private ["PSo18UIFocusEnvironment", "text"]
 - !private ["PSo18UIFocusEnvironment", "textAlignment"]
 - !private ["PSo18UIFocusEnvironment", "textColor"]
 - !private ["PSo18UIFocusEnvironment", "translatesAutoresizingMaskIntoConstraints"]
-- !private ["PSo18UIFocusEnvironment", "userDefaults"]
+- ["PSo18UIFocusEnvironment", "userDefaults"]
+- !private ["PSo18UIFocusEnvironment", "userType"]
 - ["PSo18UIFocusEnvironment", "viewDidAppear"]
 - ["PSo18UIFocusEnvironment", "viewDidDisappear"]
 - ["PSo18UIFocusEnvironment", "viewDidLoad"]
@@ -1652,7 +1745,7 @@ depends-member:
 - ["CSo11UIResponder", "Bool"]
 - ["CSo11UIResponder", "CGFloat"]
 - !private ["CSo11UIResponder", "Colors"]
-- !private ["CSo11UIResponder", "Int"]
+- ["CSo11UIResponder", "Int"]
 - !private ["CSo11UIResponder", "JSONEncoding"]
 - ["CSo11UIResponder", "LineChart"]
 - ["CSo11UIResponder", "NSArray"]
@@ -1668,7 +1761,7 @@ depends-member:
 - !private ["CSo11UIResponder", "UIFont"]
 - ["CSo11UIResponder", "UILabel"]
 - ["CSo11UIResponder", "UIView"]
-- !private ["CSo11UIResponder", "UserDefaults"]
+- ["CSo11UIResponder", "UserDefaults"]
 - !private ["CSo11UIResponder", "addConstraints"]
 - !private ["CSo11UIResponder", "addLine"]
 - ["CSo11UIResponder", "addNotifications"]
@@ -1685,9 +1778,11 @@ depends-member:
 - ["CSo11UIResponder", "deviationLbl"]
 - ["CSo11UIResponder", "didReceiveMemoryWarning"]
 - ["CSo11UIResponder", "didSelectDataPoint"]
+- ["CSo11UIResponder", "doctorchartViewNotification"]
 - ["CSo11UIResponder", "drawChart"]
 - !private ["CSo11UIResponder", "font"]
 - ["CSo11UIResponder", "getChartHistoryData"]
+- ["CSo11UIResponder", "getDoctorChartHistoryData"]
 - ["CSo11UIResponder", "glucoseLbl"]
 - ["CSo11UIResponder", "hbaLbl"]
 - ["CSo11UIResponder", "hyperLbl"]
@@ -1703,12 +1798,14 @@ depends-member:
 - ["CSo11UIResponder", "readingsView"]
 - !private ["CSo11UIResponder", "removeFromSuperview"]
 - ["CSo11UIResponder", "resetUI"]
+- ["CSo11UIResponder", "selectedUserType"]
 - ["CSo11UIResponder", "setUI"]
 - !private ["CSo11UIResponder", "text"]
 - !private ["CSo11UIResponder", "textAlignment"]
 - !private ["CSo11UIResponder", "textColor"]
 - !private ["CSo11UIResponder", "translatesAutoresizingMaskIntoConstraints"]
-- !private ["CSo11UIResponder", "userDefaults"]
+- ["CSo11UIResponder", "userDefaults"]
+- !private ["CSo11UIResponder", "userType"]
 - ["CSo11UIResponder", "viewDidAppear"]
 - ["CSo11UIResponder", "viewDidDisappear"]
 - ["CSo11UIResponder", "viewDidLoad"]
@@ -1716,6 +1813,7 @@ depends-member:
 - !private ["CSo11UIResponder", "y"]
 - !private ["PSo30UIResponderStandardEditActions", "Alamofire"]
 - !private ["PSo30UIResponderStandardEditActions", "Colors"]
+- ["PSo30UIResponderStandardEditActions", "Int"]
 - !private ["PSo30UIResponderStandardEditActions", "JSONEncoding"]
 - !private ["PSo30UIResponderStandardEditActions", "LineChart"]
 - !private ["PSo30UIResponderStandardEditActions", "NSDictionary"]
@@ -1728,7 +1826,7 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "String"]
 - !private ["PSo30UIResponderStandardEditActions", "UIFont"]
 - ["PSo30UIResponderStandardEditActions", "UILabel"]
-- !private ["PSo30UIResponderStandardEditActions", "UserDefaults"]
+- ["PSo30UIResponderStandardEditActions", "UserDefaults"]
 - !private ["PSo30UIResponderStandardEditActions", "addConstraints"]
 - !private ["PSo30UIResponderStandardEditActions", "addLine"]
 - ["PSo30UIResponderStandardEditActions", "addNotifications"]
@@ -1745,9 +1843,11 @@ depends-member:
 - ["PSo30UIResponderStandardEditActions", "deviationLbl"]
 - ["PSo30UIResponderStandardEditActions", "didReceiveMemoryWarning"]
 - ["PSo30UIResponderStandardEditActions", "didSelectDataPoint"]
+- ["PSo30UIResponderStandardEditActions", "doctorchartViewNotification"]
 - ["PSo30UIResponderStandardEditActions", "drawChart"]
 - !private ["PSo30UIResponderStandardEditActions", "font"]
 - ["PSo30UIResponderStandardEditActions", "getChartHistoryData"]
+- ["PSo30UIResponderStandardEditActions", "getDoctorChartHistoryData"]
 - ["PSo30UIResponderStandardEditActions", "glucoseLbl"]
 - ["PSo30UIResponderStandardEditActions", "hbaLbl"]
 - ["PSo30UIResponderStandardEditActions", "hyperLbl"]
@@ -1763,12 +1863,14 @@ depends-member:
 - ["PSo30UIResponderStandardEditActions", "readingsView"]
 - !private ["PSo30UIResponderStandardEditActions", "removeFromSuperview"]
 - ["PSo30UIResponderStandardEditActions", "resetUI"]
+- ["PSo30UIResponderStandardEditActions", "selectedUserType"]
 - ["PSo30UIResponderStandardEditActions", "setUI"]
 - !private ["PSo30UIResponderStandardEditActions", "text"]
 - !private ["PSo30UIResponderStandardEditActions", "textAlignment"]
 - !private ["PSo30UIResponderStandardEditActions", "textColor"]
 - !private ["PSo30UIResponderStandardEditActions", "translatesAutoresizingMaskIntoConstraints"]
-- !private ["PSo30UIResponderStandardEditActions", "userDefaults"]
+- ["PSo30UIResponderStandardEditActions", "userDefaults"]
+- !private ["PSo30UIResponderStandardEditActions", "userType"]
 - ["PSo30UIResponderStandardEditActions", "viewDidAppear"]
 - ["PSo30UIResponderStandardEditActions", "viewDidDisappear"]
 - ["PSo30UIResponderStandardEditActions", "viewDidLoad"]
@@ -1777,6 +1879,7 @@ depends-member:
 - ["PSo30UIResponderStandardEditActions", ""]
 - !private ["PSo16UIStateRestoring", "Alamofire"]
 - !private ["PSo16UIStateRestoring", "Colors"]
+- ["PSo16UIStateRestoring", "Int"]
 - !private ["PSo16UIStateRestoring", "JSONEncoding"]
 - !private ["PSo16UIStateRestoring", "LineChart"]
 - !private ["PSo16UIStateRestoring", "NSDictionary"]
@@ -1789,7 +1892,7 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "String"]
 - !private ["PSo16UIStateRestoring", "UIFont"]
 - ["PSo16UIStateRestoring", "UILabel"]
-- !private ["PSo16UIStateRestoring", "UserDefaults"]
+- ["PSo16UIStateRestoring", "UserDefaults"]
 - ["PSo16UIStateRestoring", "addNotifications"]
 - ["PSo16UIStateRestoring", "chartConditionsArray"]
 - ["PSo16UIStateRestoring", "chartView"]
@@ -1799,8 +1902,10 @@ depends-member:
 - ["PSo16UIStateRestoring", "deviationLbl"]
 - ["PSo16UIStateRestoring", "didReceiveMemoryWarning"]
 - ["PSo16UIStateRestoring", "didSelectDataPoint"]
+- ["PSo16UIStateRestoring", "doctorchartViewNotification"]
 - ["PSo16UIStateRestoring", "drawChart"]
 - ["PSo16UIStateRestoring", "getChartHistoryData"]
+- ["PSo16UIStateRestoring", "getDoctorChartHistoryData"]
 - ["PSo16UIStateRestoring", "glucoseLbl"]
 - ["PSo16UIStateRestoring", "hbaLbl"]
 - ["PSo16UIStateRestoring", "hyperLbl"]
@@ -1813,14 +1918,17 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "print"]
 - ["PSo16UIStateRestoring", "readingsView"]
 - ["PSo16UIStateRestoring", "resetUI"]
+- ["PSo16UIStateRestoring", "selectedUserType"]
 - ["PSo16UIStateRestoring", "setUI"]
-- !private ["PSo16UIStateRestoring", "userDefaults"]
+- ["PSo16UIStateRestoring", "userDefaults"]
+- !private ["PSo16UIStateRestoring", "userType"]
 - ["PSo16UIStateRestoring", "viewDidAppear"]
 - ["PSo16UIStateRestoring", "viewDidDisappear"]
 - ["PSo16UIStateRestoring", "viewDidLoad"]
 - ["PSo16UIStateRestoring", ""]
 - !private ["PSo18UITraitEnvironment", "Alamofire"]
 - !private ["PSo18UITraitEnvironment", "Colors"]
+- ["PSo18UITraitEnvironment", "Int"]
 - !private ["PSo18UITraitEnvironment", "JSONEncoding"]
 - !private ["PSo18UITraitEnvironment", "LineChart"]
 - !private ["PSo18UITraitEnvironment", "NSDictionary"]
@@ -1833,7 +1941,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "String"]
 - !private ["PSo18UITraitEnvironment", "UIFont"]
 - ["PSo18UITraitEnvironment", "UILabel"]
-- !private ["PSo18UITraitEnvironment", "UserDefaults"]
+- ["PSo18UITraitEnvironment", "UserDefaults"]
 - !private ["PSo18UITraitEnvironment", "addConstraints"]
 - !private ["PSo18UITraitEnvironment", "addLine"]
 - ["PSo18UITraitEnvironment", "addNotifications"]
@@ -1850,9 +1958,11 @@ depends-member:
 - ["PSo18UITraitEnvironment", "deviationLbl"]
 - ["PSo18UITraitEnvironment", "didReceiveMemoryWarning"]
 - ["PSo18UITraitEnvironment", "didSelectDataPoint"]
+- ["PSo18UITraitEnvironment", "doctorchartViewNotification"]
 - ["PSo18UITraitEnvironment", "drawChart"]
 - !private ["PSo18UITraitEnvironment", "font"]
 - ["PSo18UITraitEnvironment", "getChartHistoryData"]
+- ["PSo18UITraitEnvironment", "getDoctorChartHistoryData"]
 - ["PSo18UITraitEnvironment", "glucoseLbl"]
 - ["PSo18UITraitEnvironment", "hbaLbl"]
 - ["PSo18UITraitEnvironment", "hyperLbl"]
@@ -1868,12 +1978,14 @@ depends-member:
 - ["PSo18UITraitEnvironment", "readingsView"]
 - !private ["PSo18UITraitEnvironment", "removeFromSuperview"]
 - ["PSo18UITraitEnvironment", "resetUI"]
+- ["PSo18UITraitEnvironment", "selectedUserType"]
 - ["PSo18UITraitEnvironment", "setUI"]
 - !private ["PSo18UITraitEnvironment", "text"]
 - !private ["PSo18UITraitEnvironment", "textAlignment"]
 - !private ["PSo18UITraitEnvironment", "textColor"]
 - !private ["PSo18UITraitEnvironment", "translatesAutoresizingMaskIntoConstraints"]
-- !private ["PSo18UITraitEnvironment", "userDefaults"]
+- ["PSo18UITraitEnvironment", "userDefaults"]
+- !private ["PSo18UITraitEnvironment", "userType"]
 - ["PSo18UITraitEnvironment", "viewDidAppear"]
 - ["PSo18UITraitEnvironment", "viewDidDisappear"]
 - ["PSo18UITraitEnvironment", "viewDidLoad"]
@@ -1904,7 +2016,7 @@ depends-member:
 - ["CSo16UIViewController", "Bool"]
 - ["CSo16UIViewController", "CGFloat"]
 - !private ["CSo16UIViewController", "Colors"]
-- !private ["CSo16UIViewController", "Int"]
+- ["CSo16UIViewController", "Int"]
 - !private ["CSo16UIViewController", "JSONEncoding"]
 - ["CSo16UIViewController", "LineChart"]
 - ["CSo16UIViewController", "NSArray"]
@@ -1920,7 +2032,7 @@ depends-member:
 - !private ["CSo16UIViewController", "UIFont"]
 - ["CSo16UIViewController", "UILabel"]
 - ["CSo16UIViewController", "UIView"]
-- !private ["CSo16UIViewController", "UserDefaults"]
+- ["CSo16UIViewController", "UserDefaults"]
 - ["CSo16UIViewController", "addNotifications"]
 - ["CSo16UIViewController", "chartConditionsArray"]
 - ["CSo16UIViewController", "chartView"]
@@ -1931,8 +2043,10 @@ depends-member:
 - ["CSo16UIViewController", "deviationLbl"]
 - ["CSo16UIViewController", "didReceiveMemoryWarning"]
 - ["CSo16UIViewController", "didSelectDataPoint"]
+- ["CSo16UIViewController", "doctorchartViewNotification"]
 - ["CSo16UIViewController", "drawChart"]
 - ["CSo16UIViewController", "getChartHistoryData"]
+- ["CSo16UIViewController", "getDoctorChartHistoryData"]
 - ["CSo16UIViewController", "glucoseLbl"]
 - ["CSo16UIViewController", "hbaLbl"]
 - ["CSo16UIViewController", "hyperLbl"]
@@ -1945,8 +2059,10 @@ depends-member:
 - !private ["CSo16UIViewController", "print"]
 - ["CSo16UIViewController", "readingsView"]
 - ["CSo16UIViewController", "resetUI"]
+- ["CSo16UIViewController", "selectedUserType"]
 - ["CSo16UIViewController", "setUI"]
-- !private ["CSo16UIViewController", "userDefaults"]
+- ["CSo16UIViewController", "userDefaults"]
+- !private ["CSo16UIViewController", "userType"]
 - ["CSo16UIViewController", "viewDidAppear"]
 - ["CSo16UIViewController", "viewDidDisappear"]
 - ["CSo16UIViewController", "viewDidLoad"]
@@ -1960,7 +2076,8 @@ depends-member:
 - ["P9Alamofire14URLConvertible", "init"]
 - !private ["Sc", "deinit"]
 - ["CSo12UserDefaults", "deinit"]
-- !private ["CSo12UserDefaults", "standard"]
+- ["CSo12UserDefaults", "integer"]
+- ["CSo12UserDefaults", "standard"]
 - !private ["CSo12UserDefaults", "string"]
 - !private ["Ps14_ArrayProtocol", "Index"]
 - !private ["Ps14_ArrayProtocol", "Iterator"]
@@ -1999,6 +2116,7 @@ depends-member:
 - !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "IntegerLiteralType"]
 - !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "Stride"]
 - !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "_DisabledRangeIndex"]
+- ["Ps35_ExpressibleByBuiltinIntegerLiteral", "init"]
 - ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
 - ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
 - ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
@@ -2008,6 +2126,7 @@ depends-member:
 - !private ["Ps9_Hashable", "Alamofire"]
 - !private ["Ps9_Hashable", "Colors"]
 - ["Ps9_Hashable", "Element"]
+- ["Ps9_Hashable", "Int"]
 - !private ["Ps9_Hashable", "IntegerLiteralType"]
 - !private ["Ps9_Hashable", "Iterator"]
 - !private ["Ps9_Hashable", "JSONEncoding"]
@@ -2024,7 +2143,7 @@ depends-member:
 - !private ["Ps9_Hashable", "String"]
 - !private ["Ps9_Hashable", "UIFont"]
 - ["Ps9_Hashable", "UILabel"]
-- !private ["Ps9_Hashable", "UserDefaults"]
+- ["Ps9_Hashable", "UserDefaults"]
 - !private ["Ps9_Hashable", "_DisabledRangeIndex"]
 - !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
 - !private ["Ps9_Hashable", "add"]
@@ -2050,14 +2169,17 @@ depends-member:
 - ["Ps9_Hashable", "deviationLbl"]
 - ["Ps9_Hashable", "didReceiveMemoryWarning"]
 - ["Ps9_Hashable", "didSelectDataPoint"]
+- ["Ps9_Hashable", "doctorchartViewNotification"]
 - ["Ps9_Hashable", "drawChart"]
 - !private ["Ps9_Hashable", "font"]
 - ["Ps9_Hashable", "getChartHistoryData"]
+- ["Ps9_Hashable", "getDoctorChartHistoryData"]
 - ["Ps9_Hashable", "glucoseLbl"]
 - ["Ps9_Hashable", "hbaLbl"]
 - ["Ps9_Hashable", "hyperLbl"]
 - ["Ps9_Hashable", "hyposLbl"]
 - ["Ps9_Hashable", "init"]
+- ["Ps9_Hashable", "integer"]
 - !private ["Ps9_Hashable", "isHidden"]
 - ["Ps9_Hashable", "label"]
 - !private ["Ps9_Hashable", "layer"]
@@ -2074,15 +2196,17 @@ depends-member:
 - !private ["Ps9_Hashable", "removeFromSuperview"]
 - !private ["Ps9_Hashable", "removeObserver"]
 - ["Ps9_Hashable", "resetUI"]
+- ["Ps9_Hashable", "selectedUserType"]
 - ["Ps9_Hashable", "setUI"]
-- !private ["Ps9_Hashable", "standard"]
+- ["Ps9_Hashable", "standard"]
 - !private ["Ps9_Hashable", "string"]
 - !private ["Ps9_Hashable", "subscript"]
 - !private ["Ps9_Hashable", "text"]
 - !private ["Ps9_Hashable", "textAlignment"]
 - !private ["Ps9_Hashable", "textColor"]
 - !private ["Ps9_Hashable", "translatesAutoresizingMaskIntoConstraints"]
-- !private ["Ps9_Hashable", "userDefaults"]
+- ["Ps9_Hashable", "userDefaults"]
+- !private ["Ps9_Hashable", "userType"]
 - !private ["Ps9_Hashable", "value"]
 - ["Ps9_Hashable", "viewDidAppear"]
 - ["Ps9_Hashable", "viewDidDisappear"]
@@ -2093,12 +2217,15 @@ depends-member:
 - !private ["Ps14_Incrementable", "IntegerLiteralType"]
 - !private ["Ps14_Incrementable", "Stride"]
 - !private ["Ps14_Incrementable", "_DisabledRangeIndex"]
+- ["Ps14_Incrementable", "init"]
 - !private ["Ps8_Integer", "IntegerLiteralType"]
 - !private ["Ps8_Integer", "Stride"]
 - !private ["Ps8_Integer", "_DisabledRangeIndex"]
+- ["Ps8_Integer", "init"]
 - !private ["Ps18_IntegerArithmetic", "IntegerLiteralType"]
 - !private ["Ps18_IntegerArithmetic", "Stride"]
 - !private ["Ps18_IntegerArithmetic", "_DisabledRangeIndex"]
+- ["Ps18_IntegerArithmetic", "init"]
 - !private ["Ps21_ObjectiveCBridgeable", "Index"]
 - !private ["Ps21_ObjectiveCBridgeable", "IntegerLiteralType"]
 - !private ["Ps21_ObjectiveCBridgeable", "Iterator"]
@@ -2117,11 +2244,15 @@ depends-member:
 - !private ["Ps14_SignedInteger", "IntegerLiteralType"]
 - !private ["Ps14_SignedInteger", "Stride"]
 - !private ["Ps14_SignedInteger", "_DisabledRangeIndex"]
+- ["Ps14_SignedInteger", "init"]
 - !private ["Ps11_Strideable", "IntegerLiteralType"]
 - !private ["Ps11_Strideable", "Stride"]
 - !private ["Ps11_Strideable", "_DisabledRangeIndex"]
+- ["Ps11_Strideable", "init"]
 - !private ["Ps20_SwiftNewtypeWrapper", "init"]
+- ["V11DiabetesApp12userDefaults", "loggedInUserType"]
 - !private ["V11DiabetesApp12userDefaults", "selectedPatientID"]
+- !private ["V11DiabetesApp8userType", "doctor"]
 depends-nominal:
 - !private "VC11DiabetesApp9LineChart9Animation"
 - "Ps9AnyObject"
@@ -2129,7 +2260,7 @@ depends-nominal:
 - !private "Ps23BidirectionalCollection"
 - !private "Ps22BidirectionalIndexable"
 - !private "Vs18BidirectionalSlice"
-- !private "Ps17BitwiseOperations"
+- "Ps17BitwiseOperations"
 - "Sb"
 - "CSo7CALayer"
 - "PSo15CALayerDelegate"
@@ -2157,7 +2288,7 @@ depends-nominal:
 - !private "Ps27ExpressibleByBooleanLiteral"
 - !private "Ps30ExpressibleByDictionaryLiteral"
 - "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
-- !private "Ps27ExpressibleByIntegerLiteral"
+- "Ps27ExpressibleByIntegerLiteral"
 - "Ps32ExpressibleByStringInterpolation"
 - "Ps26ExpressibleByStringLiteral"
 - "Ps33ExpressibleByUnicodeScalarLiteral"
@@ -2173,8 +2304,8 @@ depends-nominal:
 - !private "Vs5Int32"
 - !private "Vs5Int64"
 - !private "Vs4Int8"
-- !private "Ps7Integer"
-- !private "Ps17IntegerArithmetic"
+- "Ps7Integer"
+- "Ps17IntegerArithmetic"
 - !private "Ps16IteratorProtocol"
 - "V9Alamofire12JSONEncoding"
 - !private "VC11DiabetesApp9LineChart6Labels"
@@ -2223,10 +2354,10 @@ depends-nominal:
 - "V10ObjectiveC8Selector"
 - "Ps8Sequence"
 - !private "Ps10SetAlgebra"
-- !private "Ps13SignedInteger"
-- !private "Ps12SignedNumber"
+- "Ps13SignedInteger"
+- "Ps12SignedNumber"
 - !private "Vs5Slice"
-- !private "Ps10Strideable"
+- "Ps10Strideable"
 - "SS"
 - "Ps16TextOutputStream"
 - "Ps20TextOutputStreamable"
@@ -2261,21 +2392,22 @@ depends-nominal:
 - !private "Ps24_DestructorSafeContainer"
 - !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
 - "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
-- !private "Ps35_ExpressibleByBuiltinIntegerLiteral"
+- "Ps35_ExpressibleByBuiltinIntegerLiteral"
 - "Ps34_ExpressibleByBuiltinStringLiteral"
 - "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
 - "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
 - "Ps35_HasCustomAnyHashableRepresentation"
 - "Ps9_Hashable"
-- !private "Ps14_Incrementable"
-- !private "Ps8_Integer"
-- !private "Ps18_IntegerArithmetic"
+- "Ps14_Incrementable"
+- "Ps8_Integer"
+- "Ps18_IntegerArithmetic"
 - "Ps21_ObjectiveCBridgeable"
 - !private "Vs26_OptionalNilComparisonType"
-- !private "Ps14_SignedInteger"
-- !private "Ps11_Strideable"
+- "Ps14_SignedInteger"
+- "Ps11_Strideable"
 - !private "Ps20_SwiftNewtypeWrapper"
-- !private "V11DiabetesApp12userDefaults"
+- "V11DiabetesApp12userDefaults"
+- !private "V11DiabetesApp8userType"
 depends-dynamic-lookup:
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
@@ -2589,4 +2721,4 @@ depends-external:
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController-umbrella.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Modules/module.modulemap"
-interface-hash: "a90f066d0d28157f8cf485b4e189392b"
+interface-hash: "7f2e9ef748efb8576ff5a3fc2d4bcc97"

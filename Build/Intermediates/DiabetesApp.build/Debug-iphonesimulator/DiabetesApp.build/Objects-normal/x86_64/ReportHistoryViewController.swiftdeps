@@ -6,94 +6,97 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp27ReportHistoryViewController", ""]
 provides-dynamic-lookup:
-- "cellArray"
-- "pickerViewContainer"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tapHeader"
-- "addNotifications"
-- "viewDidAppear"
-- "tblView"
-- "noHistoryAvailableLbl"
-- "numberOfComponents"
-- "boolArray"
-- "conditionTxtFld"
-- "resetUI"
 - "viewDidDisappear"
-- "numberOfSections"
-- "noOfDays"
-- "noOfDaysNotification"
-- "obj"
-- "didReceiveMemoryWarning"
-- "listViewNotification"
-- "pickerView"
-- "pickerView"
-- "pickerView"
-- "viewDidLoad"
-- "refreshSelectedSections"
-- "ToolBarButtons_Click"
-- "getReportReadingHistory"
-- "conditionView"
-- "setUI"
 - "sectionsArray"
+- "conditionView"
+- "boolArray"
+- "pickerViewContainer"
+- "numberOfSections"
+- "noOfDaysNotification"
+- "viewDidAppear"
+- "getDoctorReportReadingHistory"
+- "selectedUserType"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "noHistoryAvailableLbl"
+- "didReceiveMemoryWarning"
+- "obj"
+- "conditionTxtFld"
+- "getReportReadingHistory"
+- "tapHeader"
+- "tblView"
+- "cellArray"
+- "refreshSelectedSections"
+- "resetUI"
+- "numberOfComponents"
+- "ToolBarButtons_Click"
+- "pickerView"
+- "pickerView"
+- "pickerView"
+- "setUI"
+- "viewDidLoad"
+- "noOfDays"
+- "listViewNotification"
+- "addNotifications"
 depends-top-level:
-- "UITableView"
-- "NSMutableArray"
-- "IndexPath"
-- !private "print"
-- !private "userDefaults"
-- "UIPickerView"
-- !private ">"
-- "NSDictionary"
-- !private "HistoryTableViewCell"
-- "UnicodeScalarType"
-- !private "NotificationCenter"
-- !private "UserDefaults"
-- !private "Colors"
+- !private "NSCopying"
 - !private "NSMutableDictionary"
-- "UILabel"
+- "StringLiteralType"
 - !private "JSONEncoding"
-- "UITableViewDataSource"
-- "UIPickerViewDataSource"
-- "UITapGestureRecognizer"
+- "UIView"
+- "userDefaults"
+- !private "NotificationCenter"
+- "UITableViewCell"
+- "UnicodeScalarType"
+- !private "BooleanLiteralType"
+- !private "Dictionary"
+- !private "!="
 - "UITextField"
 - "UIPickerViewDelegate"
-- "CGFloat"
-- !private "UIColor"
-- "NSArray"
-- !private "UtilityClass"
 - "Bool"
-- "ReportHistoryViewController"
-- !private "AnyObject"
-- !private "Alamofire"
-- !private "-"
-- !private "UIImage"
-- !private "Parameters"
-- !private "BooleanLiteralType"
-- "NSNotification"
-- !private "CGRect"
-- "StringLiteralType"
-- "UITableViewDelegate"
-- "UIViewController"
 - !private "UIImageView"
-- "UIView"
-- "AssignmentPrecedence"
-- "UITableViewCell"
-- "CastingPrecedence"
-- !private "NSCopying"
+- !private "UIImage"
+- "UIPickerViewDataSource"
+- !private "Parameters"
 - "String"
-- !private "Fonts"
-- !private "Dictionary"
-- !private "=="
-- !private "conditionsArray"
+- !private "Alamofire"
+- !private "AnyObject"
+- !private "UtilityClass"
+- "CGFloat"
+- !private "HistoryTableViewCell"
 - !private "Notifications"
-- !private "!="
-- !private "+="
+- "NSNotification"
+- "IndexPath"
+- !private "-"
+- "UITableView"
+- "UIViewController"
 - "Int"
+- !private "Fonts"
+- !private "+="
+- "UITapGestureRecognizer"
+- "UserDefaults"
+- "UIPickerView"
+- "UITableViewDataSource"
+- "ReportHistoryViewController"
+- !private "UIColor"
+- !private "conditionsArray"
+- "UITableViewDelegate"
+- "UILabel"
+- !private "Colors"
+- !private "CGRect"
+- "NSMutableArray"
+- "NSDictionary"
+- !private "print"
+- "NSArray"
+- !private "userType"
+- "CastingPrecedence"
+- !private ">"
+- !private "=="
+- "AssignmentPrecedence"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "Stride"]
 - !private ["Ps9AnyObject", "Alamofire"]
@@ -101,6 +104,7 @@ depends-member:
 - !private ["Ps9AnyObject", "Colors"]
 - !private ["Ps9AnyObject", "Element"]
 - !private ["Ps9AnyObject", "Fonts"]
+- ["Ps9AnyObject", "Int"]
 - !private ["Ps9AnyObject", "Iterator"]
 - !private ["Ps9AnyObject", "JSONEncoding"]
 - ["Ps9AnyObject", "NSArray"]
@@ -119,7 +123,7 @@ depends-member:
 - !private ["Ps9AnyObject", "UILabel"]
 - !private ["Ps9AnyObject", "UITapGestureRecognizer"]
 - !private ["Ps9AnyObject", "UIView"]
-- !private ["Ps9AnyObject", "UserDefaults"]
+- ["Ps9AnyObject", "UserDefaults"]
 - !private ["Ps9AnyObject", "UtilityClass"]
 - !private ["Ps9AnyObject", "add"]
 - !private ["Ps9AnyObject", "addGestureRecognizer"]
@@ -151,12 +155,14 @@ depends-member:
 - !private ["Ps9AnyObject", "endEditing"]
 - !private ["Ps9AnyObject", "font"]
 - !private ["Ps9AnyObject", "frame"]
+- ["Ps9AnyObject", "getDoctorReportReadingHistory"]
 - ["Ps9AnyObject", "getReportReadingHistory"]
 - !private ["Ps9AnyObject", "image"]
 - ["Ps9AnyObject", "indexPathForPreferredFocusedView"]
 - ["Ps9AnyObject", "indexPathForPreferredFocusedViewInTableView"]
 - ["Ps9AnyObject", "init"]
 - !private ["Ps9AnyObject", "inputView"]
+- ["Ps9AnyObject", "integer"]
 - !private ["Ps9AnyObject", "isHidden"]
 - !private ["Ps9AnyObject", "layer"]
 - !private ["Ps9AnyObject", "lightGray"]
@@ -199,11 +205,12 @@ depends-member:
 - ["Ps9AnyObject", "sectionIndexTitlesForTableView"]
 - ["Ps9AnyObject", "sectionsArray"]
 - !private ["Ps9AnyObject", "selectedRow"]
+- ["Ps9AnyObject", "selectedUserType"]
 - !private ["Ps9AnyObject", "selectionStyle"]
 - !private ["Ps9AnyObject", "setObject"]
 - ["Ps9AnyObject", "setUI"]
 - !private ["Ps9AnyObject", "setValue"]
-- !private ["Ps9AnyObject", "standard"]
+- ["Ps9AnyObject", "standard"]
 - !private ["Ps9AnyObject", "string"]
 - !private ["Ps9AnyObject", "subscript"]
 - ["Ps9AnyObject", "tableView"]
@@ -213,7 +220,8 @@ depends-member:
 - !private ["Ps9AnyObject", "text"]
 - !private ["Ps9AnyObject", "textColor"]
 - !private ["Ps9AnyObject", "title"]
-- !private ["Ps9AnyObject", "userDefaults"]
+- ["Ps9AnyObject", "userDefaults"]
+- !private ["Ps9AnyObject", "userType"]
 - !private ["Ps9AnyObject", "value"]
 - !private ["Ps9AnyObject", "view"]
 - ["Ps9AnyObject", "viewDidAppear"]
@@ -239,6 +247,7 @@ depends-member:
 - !private ["Ps22BidirectionalIndexable", "section"]
 - !private ["Ps19BinaryFloatingPoint", "Stride"]
 - !private ["Ps17BitwiseOperations", "Stride"]
+- ["Ps17BitwiseOperations", "init"]
 - !private ["Sb", "_getBuiltinLogicValue"]
 - ["Sb", "deinit"]
 - !private ["CSo7CALayer", "borderColor"]
@@ -280,6 +289,7 @@ depends-member:
 - !private ["Ps7CVarArg", "CGRect"]
 - !private ["Ps7CVarArg", "Colors"]
 - !private ["Ps7CVarArg", "Fonts"]
+- ["Ps7CVarArg", "Int"]
 - !private ["Ps7CVarArg", "Iterator"]
 - !private ["Ps7CVarArg", "JSONEncoding"]
 - !private ["Ps7CVarArg", "Key"]
@@ -301,7 +311,7 @@ depends-member:
 - !private ["Ps7CVarArg", "UILabel"]
 - !private ["Ps7CVarArg", "UITapGestureRecognizer"]
 - !private ["Ps7CVarArg", "UIView"]
-- !private ["Ps7CVarArg", "UserDefaults"]
+- ["Ps7CVarArg", "UserDefaults"]
 - !private ["Ps7CVarArg", "UtilityClass"]
 - !private ["Ps7CVarArg", "Value"]
 - !private ["Ps7CVarArg", "_Element"]
@@ -335,12 +345,14 @@ depends-member:
 - !private ["Ps7CVarArg", "first"]
 - !private ["Ps7CVarArg", "font"]
 - !private ["Ps7CVarArg", "frame"]
+- ["Ps7CVarArg", "getDoctorReportReadingHistory"]
 - ["Ps7CVarArg", "getReportReadingHistory"]
 - !private ["Ps7CVarArg", "image"]
 - ["Ps7CVarArg", "indexPathForPreferredFocusedView"]
 - ["Ps7CVarArg", "indexPathForPreferredFocusedViewInTableView"]
 - ["Ps7CVarArg", "init"]
 - !private ["Ps7CVarArg", "inputView"]
+- ["Ps7CVarArg", "integer"]
 - !private ["Ps7CVarArg", "isHidden"]
 - !private ["Ps7CVarArg", "layer"]
 - !private ["Ps7CVarArg", "lightGray"]
@@ -382,11 +394,12 @@ depends-member:
 - ["Ps7CVarArg", "sectionIndexTitlesForTableView"]
 - ["Ps7CVarArg", "sectionsArray"]
 - !private ["Ps7CVarArg", "selectedRow"]
+- ["Ps7CVarArg", "selectedUserType"]
 - !private ["Ps7CVarArg", "selectionStyle"]
 - !private ["Ps7CVarArg", "setObject"]
 - ["Ps7CVarArg", "setUI"]
 - !private ["Ps7CVarArg", "setValue"]
-- !private ["Ps7CVarArg", "standard"]
+- ["Ps7CVarArg", "standard"]
 - !private ["Ps7CVarArg", "string"]
 - !private ["Ps7CVarArg", "subscript"]
 - ["Ps7CVarArg", "tableView"]
@@ -396,7 +409,8 @@ depends-member:
 - !private ["Ps7CVarArg", "text"]
 - !private ["Ps7CVarArg", "textColor"]
 - !private ["Ps7CVarArg", "title"]
-- !private ["Ps7CVarArg", "userDefaults"]
+- ["Ps7CVarArg", "userDefaults"]
+- !private ["Ps7CVarArg", "userType"]
 - !private ["Ps7CVarArg", "value"]
 - !private ["Ps7CVarArg", "view"]
 - ["Ps7CVarArg", "viewDidAppear"]
@@ -425,6 +439,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "CGRect"]
 - !private ["Ps28CustomDebugStringConvertible", "Colors"]
 - !private ["Ps28CustomDebugStringConvertible", "Fonts"]
+- ["Ps28CustomDebugStringConvertible", "Int"]
 - !private ["Ps28CustomDebugStringConvertible", "Iterator"]
 - !private ["Ps28CustomDebugStringConvertible", "JSONEncoding"]
 - !private ["Ps28CustomDebugStringConvertible", "Key"]
@@ -446,7 +461,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "UILabel"]
 - !private ["Ps28CustomDebugStringConvertible", "UITapGestureRecognizer"]
 - !private ["Ps28CustomDebugStringConvertible", "UIView"]
-- !private ["Ps28CustomDebugStringConvertible", "UserDefaults"]
+- ["Ps28CustomDebugStringConvertible", "UserDefaults"]
 - !private ["Ps28CustomDebugStringConvertible", "UtilityClass"]
 - !private ["Ps28CustomDebugStringConvertible", "Value"]
 - !private ["Ps28CustomDebugStringConvertible", "_Element"]
@@ -481,12 +496,14 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "first"]
 - !private ["Ps28CustomDebugStringConvertible", "font"]
 - !private ["Ps28CustomDebugStringConvertible", "frame"]
+- ["Ps28CustomDebugStringConvertible", "getDoctorReportReadingHistory"]
 - ["Ps28CustomDebugStringConvertible", "getReportReadingHistory"]
 - !private ["Ps28CustomDebugStringConvertible", "image"]
 - ["Ps28CustomDebugStringConvertible", "indexPathForPreferredFocusedView"]
 - ["Ps28CustomDebugStringConvertible", "indexPathForPreferredFocusedViewInTableView"]
 - ["Ps28CustomDebugStringConvertible", "init"]
 - !private ["Ps28CustomDebugStringConvertible", "inputView"]
+- ["Ps28CustomDebugStringConvertible", "integer"]
 - !private ["Ps28CustomDebugStringConvertible", "isHidden"]
 - !private ["Ps28CustomDebugStringConvertible", "layer"]
 - !private ["Ps28CustomDebugStringConvertible", "lightGray"]
@@ -532,12 +549,13 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "sectionIndexTitlesForTableView"]
 - ["Ps28CustomDebugStringConvertible", "sectionsArray"]
 - !private ["Ps28CustomDebugStringConvertible", "selectedRow"]
+- ["Ps28CustomDebugStringConvertible", "selectedUserType"]
 - !private ["Ps28CustomDebugStringConvertible", "selectionStyle"]
 - !private ["Ps28CustomDebugStringConvertible", "setObject"]
 - ["Ps28CustomDebugStringConvertible", "setUI"]
 - !private ["Ps28CustomDebugStringConvertible", "setValue"]
 - !private ["Ps28CustomDebugStringConvertible", "size"]
-- !private ["Ps28CustomDebugStringConvertible", "standard"]
+- ["Ps28CustomDebugStringConvertible", "standard"]
 - !private ["Ps28CustomDebugStringConvertible", "string"]
 - !private ["Ps28CustomDebugStringConvertible", "subscript"]
 - !private ["Ps28CustomDebugStringConvertible", "success"]
@@ -548,7 +566,8 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "text"]
 - !private ["Ps28CustomDebugStringConvertible", "textColor"]
 - !private ["Ps28CustomDebugStringConvertible", "title"]
-- !private ["Ps28CustomDebugStringConvertible", "userDefaults"]
+- ["Ps28CustomDebugStringConvertible", "userDefaults"]
+- !private ["Ps28CustomDebugStringConvertible", "userType"]
 - !private ["Ps28CustomDebugStringConvertible", "value"]
 - !private ["Ps28CustomDebugStringConvertible", "view"]
 - ["Ps28CustomDebugStringConvertible", "viewDidAppear"]
@@ -596,6 +615,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "CGRect"]
 - !private ["Ps23CustomStringConvertible", "Colors"]
 - !private ["Ps23CustomStringConvertible", "Fonts"]
+- ["Ps23CustomStringConvertible", "Int"]
 - !private ["Ps23CustomStringConvertible", "Iterator"]
 - !private ["Ps23CustomStringConvertible", "JSONEncoding"]
 - !private ["Ps23CustomStringConvertible", "Key"]
@@ -617,7 +637,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "UILabel"]
 - !private ["Ps23CustomStringConvertible", "UITapGestureRecognizer"]
 - !private ["Ps23CustomStringConvertible", "UIView"]
-- !private ["Ps23CustomStringConvertible", "UserDefaults"]
+- ["Ps23CustomStringConvertible", "UserDefaults"]
 - !private ["Ps23CustomStringConvertible", "UtilityClass"]
 - !private ["Ps23CustomStringConvertible", "Value"]
 - !private ["Ps23CustomStringConvertible", "_Element"]
@@ -653,12 +673,14 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "first"]
 - !private ["Ps23CustomStringConvertible", "font"]
 - !private ["Ps23CustomStringConvertible", "frame"]
+- ["Ps23CustomStringConvertible", "getDoctorReportReadingHistory"]
 - ["Ps23CustomStringConvertible", "getReportReadingHistory"]
 - !private ["Ps23CustomStringConvertible", "image"]
 - ["Ps23CustomStringConvertible", "indexPathForPreferredFocusedView"]
 - ["Ps23CustomStringConvertible", "indexPathForPreferredFocusedViewInTableView"]
 - ["Ps23CustomStringConvertible", "init"]
 - !private ["Ps23CustomStringConvertible", "inputView"]
+- ["Ps23CustomStringConvertible", "integer"]
 - !private ["Ps23CustomStringConvertible", "isHidden"]
 - !private ["Ps23CustomStringConvertible", "layer"]
 - !private ["Ps23CustomStringConvertible", "lightGray"]
@@ -704,11 +726,12 @@ depends-member:
 - ["Ps23CustomStringConvertible", "sectionIndexTitlesForTableView"]
 - ["Ps23CustomStringConvertible", "sectionsArray"]
 - !private ["Ps23CustomStringConvertible", "selectedRow"]
+- ["Ps23CustomStringConvertible", "selectedUserType"]
 - !private ["Ps23CustomStringConvertible", "selectionStyle"]
 - !private ["Ps23CustomStringConvertible", "setObject"]
 - ["Ps23CustomStringConvertible", "setUI"]
 - !private ["Ps23CustomStringConvertible", "setValue"]
-- !private ["Ps23CustomStringConvertible", "standard"]
+- ["Ps23CustomStringConvertible", "standard"]
 - !private ["Ps23CustomStringConvertible", "string"]
 - !private ["Ps23CustomStringConvertible", "subscript"]
 - !private ["Ps23CustomStringConvertible", "success"]
@@ -719,7 +742,8 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "text"]
 - !private ["Ps23CustomStringConvertible", "textColor"]
 - !private ["Ps23CustomStringConvertible", "title"]
-- !private ["Ps23CustomStringConvertible", "userDefaults"]
+- ["Ps23CustomStringConvertible", "userDefaults"]
+- !private ["Ps23CustomStringConvertible", "userType"]
 - !private ["Ps23CustomStringConvertible", "value"]
 - !private ["Ps23CustomStringConvertible", "view"]
 - ["Ps23CustomStringConvertible", "viewDidAppear"]
@@ -742,6 +766,7 @@ depends-member:
 - !private ["Ps9Equatable", "CGRect"]
 - !private ["Ps9Equatable", "Colors"]
 - !private ["Ps9Equatable", "Fonts"]
+- ["Ps9Equatable", "Int"]
 - !private ["Ps9Equatable", "Iterator"]
 - !private ["Ps9Equatable", "JSONEncoding"]
 - ["Ps9Equatable", "NSArray"]
@@ -762,7 +787,7 @@ depends-member:
 - !private ["Ps9Equatable", "UILabel"]
 - !private ["Ps9Equatable", "UITapGestureRecognizer"]
 - !private ["Ps9Equatable", "UIView"]
-- !private ["Ps9Equatable", "UserDefaults"]
+- ["Ps9Equatable", "UserDefaults"]
 - !private ["Ps9Equatable", "UtilityClass"]
 - !private ["Ps9Equatable", "_getBuiltinLogicValue"]
 - !private ["Ps9Equatable", "add"]
@@ -794,12 +819,14 @@ depends-member:
 - !private ["Ps9Equatable", "endEditing"]
 - !private ["Ps9Equatable", "font"]
 - !private ["Ps9Equatable", "frame"]
+- ["Ps9Equatable", "getDoctorReportReadingHistory"]
 - ["Ps9Equatable", "getReportReadingHistory"]
 - !private ["Ps9Equatable", "image"]
 - ["Ps9Equatable", "indexPathForPreferredFocusedView"]
 - ["Ps9Equatable", "indexPathForPreferredFocusedViewInTableView"]
 - ["Ps9Equatable", "init"]
 - !private ["Ps9Equatable", "inputView"]
+- ["Ps9Equatable", "integer"]
 - !private ["Ps9Equatable", "isHidden"]
 - !private ["Ps9Equatable", "layer"]
 - !private ["Ps9Equatable", "lightGray"]
@@ -845,12 +872,13 @@ depends-member:
 - ["Ps9Equatable", "sectionIndexTitlesForTableView"]
 - ["Ps9Equatable", "sectionsArray"]
 - !private ["Ps9Equatable", "selectedRow"]
+- ["Ps9Equatable", "selectedUserType"]
 - !private ["Ps9Equatable", "selectionStyle"]
 - !private ["Ps9Equatable", "setObject"]
 - ["Ps9Equatable", "setUI"]
 - !private ["Ps9Equatable", "setValue"]
 - !private ["Ps9Equatable", "size"]
-- !private ["Ps9Equatable", "standard"]
+- ["Ps9Equatable", "standard"]
 - !private ["Ps9Equatable", "string"]
 - !private ["Ps9Equatable", "subscript"]
 - ["Ps9Equatable", "tableView"]
@@ -860,7 +888,8 @@ depends-member:
 - !private ["Ps9Equatable", "text"]
 - !private ["Ps9Equatable", "textColor"]
 - !private ["Ps9Equatable", "title"]
-- !private ["Ps9Equatable", "userDefaults"]
+- ["Ps9Equatable", "userDefaults"]
+- !private ["Ps9Equatable", "userType"]
 - !private ["Ps9Equatable", "value"]
 - !private ["Ps9Equatable", "view"]
 - ["Ps9Equatable", "viewDidAppear"]
@@ -900,6 +929,7 @@ depends-member:
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "localized"]
 - !private ["Ps25ExpressibleByFloatLiteral", "Stride"]
 - !private ["Ps27ExpressibleByIntegerLiteral", "Stride"]
+- ["Ps27ExpressibleByIntegerLiteral", "init"]
 - !private ["Ps23ExpressibleByNilLiteral", "RawValue"]
 - !private ["Ps32ExpressibleByStringInterpolation", "RawValue"]
 - ["Ps32ExpressibleByStringInterpolation", "init"]
@@ -919,6 +949,7 @@ depends-member:
 - !private ["Ps8Hashable", "CGRect"]
 - !private ["Ps8Hashable", "Colors"]
 - !private ["Ps8Hashable", "Fonts"]
+- ["Ps8Hashable", "Int"]
 - !private ["Ps8Hashable", "Iterator"]
 - !private ["Ps8Hashable", "JSONEncoding"]
 - ["Ps8Hashable", "NSArray"]
@@ -939,7 +970,7 @@ depends-member:
 - !private ["Ps8Hashable", "UILabel"]
 - !private ["Ps8Hashable", "UITapGestureRecognizer"]
 - !private ["Ps8Hashable", "UIView"]
-- !private ["Ps8Hashable", "UserDefaults"]
+- ["Ps8Hashable", "UserDefaults"]
 - !private ["Ps8Hashable", "UtilityClass"]
 - !private ["Ps8Hashable", "_getBuiltinLogicValue"]
 - !private ["Ps8Hashable", "add"]
@@ -971,12 +1002,14 @@ depends-member:
 - !private ["Ps8Hashable", "endEditing"]
 - !private ["Ps8Hashable", "font"]
 - !private ["Ps8Hashable", "frame"]
+- ["Ps8Hashable", "getDoctorReportReadingHistory"]
 - ["Ps8Hashable", "getReportReadingHistory"]
 - !private ["Ps8Hashable", "image"]
 - ["Ps8Hashable", "indexPathForPreferredFocusedView"]
 - ["Ps8Hashable", "indexPathForPreferredFocusedViewInTableView"]
 - ["Ps8Hashable", "init"]
 - !private ["Ps8Hashable", "inputView"]
+- ["Ps8Hashable", "integer"]
 - !private ["Ps8Hashable", "isHidden"]
 - !private ["Ps8Hashable", "layer"]
 - !private ["Ps8Hashable", "lightGray"]
@@ -1022,11 +1055,12 @@ depends-member:
 - ["Ps8Hashable", "sectionIndexTitlesForTableView"]
 - ["Ps8Hashable", "sectionsArray"]
 - !private ["Ps8Hashable", "selectedRow"]
+- ["Ps8Hashable", "selectedUserType"]
 - !private ["Ps8Hashable", "selectionStyle"]
 - !private ["Ps8Hashable", "setObject"]
 - ["Ps8Hashable", "setUI"]
 - !private ["Ps8Hashable", "setValue"]
-- !private ["Ps8Hashable", "standard"]
+- ["Ps8Hashable", "standard"]
 - !private ["Ps8Hashable", "string"]
 - !private ["Ps8Hashable", "subscript"]
 - ["Ps8Hashable", "tableView"]
@@ -1036,7 +1070,8 @@ depends-member:
 - !private ["Ps8Hashable", "text"]
 - !private ["Ps8Hashable", "textColor"]
 - !private ["Ps8Hashable", "title"]
-- !private ["Ps8Hashable", "userDefaults"]
+- ["Ps8Hashable", "userDefaults"]
+- !private ["Ps8Hashable", "userType"]
 - !private ["Ps8Hashable", "value"]
 - !private ["Ps8Hashable", "view"]
 - ["Ps8Hashable", "viewDidAppear"]
@@ -1072,12 +1107,15 @@ depends-member:
 - !private ["Vs16IndexingIterator", "Element"]
 - !private ["Si", "Stride"]
 - ["Si", "deinit"]
+- ["Si", "init"]
 - !private ["Vs5Int16", "deinit"]
 - !private ["Vs5Int32", "deinit"]
 - !private ["Vs5Int64", "deinit"]
 - !private ["Vs4Int8", "deinit"]
 - !private ["Ps7Integer", "Stride"]
+- ["Ps7Integer", "init"]
 - !private ["Ps17IntegerArithmetic", "Stride"]
+- ["Ps17IntegerArithmetic", "init"]
 - !private ["Ps16IteratorProtocol", "Element"]
 - !private ["V9Alamofire12JSONEncoding", "default"]
 - ["V9Alamofire12JSONEncoding", "deinit"]
@@ -1116,6 +1154,7 @@ depends-member:
 - !private ["PSo8NSCoding", "CGRect"]
 - !private ["PSo8NSCoding", "Colors"]
 - !private ["PSo8NSCoding", "Fonts"]
+- ["PSo8NSCoding", "Int"]
 - !private ["PSo8NSCoding", "Iterator"]
 - !private ["PSo8NSCoding", "JSONEncoding"]
 - ["PSo8NSCoding", "NSArray"]
@@ -1134,7 +1173,7 @@ depends-member:
 - !private ["PSo8NSCoding", "UILabel"]
 - !private ["PSo8NSCoding", "UITapGestureRecognizer"]
 - !private ["PSo8NSCoding", "UIView"]
-- !private ["PSo8NSCoding", "UserDefaults"]
+- ["PSo8NSCoding", "UserDefaults"]
 - !private ["PSo8NSCoding", "UtilityClass"]
 - !private ["PSo8NSCoding", "add"]
 - !private ["PSo8NSCoding", "addGestureRecognizer"]
@@ -1162,6 +1201,7 @@ depends-member:
 - !private ["PSo8NSCoding", "endEditing"]
 - !private ["PSo8NSCoding", "font"]
 - !private ["PSo8NSCoding", "frame"]
+- ["PSo8NSCoding", "getDoctorReportReadingHistory"]
 - ["PSo8NSCoding", "getReportReadingHistory"]
 - !private ["PSo8NSCoding", "image"]
 - ["PSo8NSCoding", "indexPathForPreferredFocusedView"]
@@ -1208,6 +1248,7 @@ depends-member:
 - ["PSo8NSCoding", "sectionIndexTitlesForTableView"]
 - ["PSo8NSCoding", "sectionsArray"]
 - !private ["PSo8NSCoding", "selectedRow"]
+- ["PSo8NSCoding", "selectedUserType"]
 - !private ["PSo8NSCoding", "selectionStyle"]
 - !private ["PSo8NSCoding", "setObject"]
 - ["PSo8NSCoding", "setUI"]
@@ -1220,7 +1261,8 @@ depends-member:
 - !private ["PSo8NSCoding", "text"]
 - !private ["PSo8NSCoding", "textColor"]
 - !private ["PSo8NSCoding", "title"]
-- !private ["PSo8NSCoding", "userDefaults"]
+- ["PSo8NSCoding", "userDefaults"]
+- !private ["PSo8NSCoding", "userType"]
 - !private ["PSo8NSCoding", "value"]
 - !private ["PSo8NSCoding", "view"]
 - ["PSo8NSCoding", "viewDidAppear"]
@@ -1263,6 +1305,7 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "CGRect"]
 - !private ["PSo26NSExtensionRequestHandling", "Colors"]
 - !private ["PSo26NSExtensionRequestHandling", "Fonts"]
+- ["PSo26NSExtensionRequestHandling", "Int"]
 - !private ["PSo26NSExtensionRequestHandling", "JSONEncoding"]
 - ["PSo26NSExtensionRequestHandling", "NSArray"]
 - ["PSo26NSExtensionRequestHandling", "NSDictionary"]
@@ -1279,7 +1322,7 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "UILabel"]
 - !private ["PSo26NSExtensionRequestHandling", "UITapGestureRecognizer"]
 - !private ["PSo26NSExtensionRequestHandling", "UIView"]
-- !private ["PSo26NSExtensionRequestHandling", "UserDefaults"]
+- ["PSo26NSExtensionRequestHandling", "UserDefaults"]
 - !private ["PSo26NSExtensionRequestHandling", "UtilityClass"]
 - ["PSo26NSExtensionRequestHandling", "addNotifications"]
 - ["PSo26NSExtensionRequestHandling", "boolArray"]
@@ -1288,6 +1331,7 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "conditionView"]
 - !private ["PSo26NSExtensionRequestHandling", "conditionsArray"]
 - ["PSo26NSExtensionRequestHandling", "didReceiveMemoryWarning"]
+- ["PSo26NSExtensionRequestHandling", "getDoctorReportReadingHistory"]
 - ["PSo26NSExtensionRequestHandling", "getReportReadingHistory"]
 - ["PSo26NSExtensionRequestHandling", "indexPathForPreferredFocusedView"]
 - ["PSo26NSExtensionRequestHandling", "indexPathForPreferredFocusedViewInTableView"]
@@ -1322,12 +1366,14 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "sectionIndexTitles"]
 - ["PSo26NSExtensionRequestHandling", "sectionIndexTitlesForTableView"]
 - ["PSo26NSExtensionRequestHandling", "sectionsArray"]
+- ["PSo26NSExtensionRequestHandling", "selectedUserType"]
 - ["PSo26NSExtensionRequestHandling", "setUI"]
 - ["PSo26NSExtensionRequestHandling", "tableView"]
 - ["PSo26NSExtensionRequestHandling", "tapHeader"]
 - ["PSo26NSExtensionRequestHandling", "tblView"]
 - !private ["PSo26NSExtensionRequestHandling", "title"]
-- !private ["PSo26NSExtensionRequestHandling", "userDefaults"]
+- ["PSo26NSExtensionRequestHandling", "userDefaults"]
+- !private ["PSo26NSExtensionRequestHandling", "userType"]
 - !private ["PSo26NSExtensionRequestHandling", "view"]
 - ["PSo26NSExtensionRequestHandling", "viewDidAppear"]
 - ["PSo26NSExtensionRequestHandling", "viewDidDisappear"]
@@ -1423,7 +1469,7 @@ depends-member:
 - ["CSo8NSObject", "UITapGestureRecognizer"]
 - ["CSo8NSObject", "UITextField"]
 - ["CSo8NSObject", "UIView"]
-- !private ["CSo8NSObject", "UserDefaults"]
+- ["CSo8NSObject", "UserDefaults"]
 - !private ["CSo8NSObject", "UtilityClass"]
 - !private ["CSo8NSObject", "add"]
 - !private ["CSo8NSObject", "addGestureRecognizer"]
@@ -1454,12 +1500,14 @@ depends-member:
 - !private ["CSo8NSObject", "endEditing"]
 - !private ["CSo8NSObject", "font"]
 - !private ["CSo8NSObject", "frame"]
+- ["CSo8NSObject", "getDoctorReportReadingHistory"]
 - ["CSo8NSObject", "getReportReadingHistory"]
 - !private ["CSo8NSObject", "image"]
 - ["CSo8NSObject", "indexPathForPreferredFocusedView"]
 - ["CSo8NSObject", "indexPathForPreferredFocusedViewInTableView"]
 - ["CSo8NSObject", "init"]
 - !private ["CSo8NSObject", "inputView"]
+- ["CSo8NSObject", "integer"]
 - !private ["CSo8NSObject", "isHidden"]
 - !private ["CSo8NSObject", "layer"]
 - !private ["CSo8NSObject", "lightGray"]
@@ -1501,11 +1549,12 @@ depends-member:
 - ["CSo8NSObject", "sectionIndexTitlesForTableView"]
 - ["CSo8NSObject", "sectionsArray"]
 - !private ["CSo8NSObject", "selectedRow"]
+- ["CSo8NSObject", "selectedUserType"]
 - !private ["CSo8NSObject", "selectionStyle"]
 - !private ["CSo8NSObject", "setObject"]
 - ["CSo8NSObject", "setUI"]
 - !private ["CSo8NSObject", "setValue"]
-- !private ["CSo8NSObject", "standard"]
+- ["CSo8NSObject", "standard"]
 - !private ["CSo8NSObject", "string"]
 - !private ["CSo8NSObject", "subscript"]
 - ["CSo8NSObject", "tableView"]
@@ -1515,7 +1564,8 @@ depends-member:
 - !private ["CSo8NSObject", "text"]
 - !private ["CSo8NSObject", "textColor"]
 - !private ["CSo8NSObject", "title"]
-- !private ["CSo8NSObject", "userDefaults"]
+- ["CSo8NSObject", "userDefaults"]
+- !private ["CSo8NSObject", "userType"]
 - !private ["CSo8NSObject", "value"]
 - !private ["CSo8NSObject", "view"]
 - ["CSo8NSObject", "viewDidAppear"]
@@ -1528,6 +1578,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "CGRect"]
 - !private ["PSo16NSObjectProtocol", "Colors"]
 - !private ["PSo16NSObjectProtocol", "Fonts"]
+- ["PSo16NSObjectProtocol", "Int"]
 - !private ["PSo16NSObjectProtocol", "Iterator"]
 - !private ["PSo16NSObjectProtocol", "JSONEncoding"]
 - ["PSo16NSObjectProtocol", "NSArray"]
@@ -1546,7 +1597,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "UILabel"]
 - !private ["PSo16NSObjectProtocol", "UITapGestureRecognizer"]
 - !private ["PSo16NSObjectProtocol", "UIView"]
-- !private ["PSo16NSObjectProtocol", "UserDefaults"]
+- ["PSo16NSObjectProtocol", "UserDefaults"]
 - !private ["PSo16NSObjectProtocol", "UtilityClass"]
 - !private ["PSo16NSObjectProtocol", "add"]
 - !private ["PSo16NSObjectProtocol", "addGestureRecognizer"]
@@ -1577,12 +1628,14 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "endEditing"]
 - !private ["PSo16NSObjectProtocol", "font"]
 - !private ["PSo16NSObjectProtocol", "frame"]
+- ["PSo16NSObjectProtocol", "getDoctorReportReadingHistory"]
 - ["PSo16NSObjectProtocol", "getReportReadingHistory"]
 - !private ["PSo16NSObjectProtocol", "image"]
 - ["PSo16NSObjectProtocol", "indexPathForPreferredFocusedView"]
 - ["PSo16NSObjectProtocol", "indexPathForPreferredFocusedViewInTableView"]
 - ["PSo16NSObjectProtocol", "init"]
 - !private ["PSo16NSObjectProtocol", "inputView"]
+- ["PSo16NSObjectProtocol", "integer"]
 - !private ["PSo16NSObjectProtocol", "isHidden"]
 - !private ["PSo16NSObjectProtocol", "layer"]
 - !private ["PSo16NSObjectProtocol", "lightGray"]
@@ -1624,11 +1677,12 @@ depends-member:
 - ["PSo16NSObjectProtocol", "sectionIndexTitlesForTableView"]
 - ["PSo16NSObjectProtocol", "sectionsArray"]
 - !private ["PSo16NSObjectProtocol", "selectedRow"]
+- ["PSo16NSObjectProtocol", "selectedUserType"]
 - !private ["PSo16NSObjectProtocol", "selectionStyle"]
 - !private ["PSo16NSObjectProtocol", "setObject"]
 - ["PSo16NSObjectProtocol", "setUI"]
 - !private ["PSo16NSObjectProtocol", "setValue"]
-- !private ["PSo16NSObjectProtocol", "standard"]
+- ["PSo16NSObjectProtocol", "standard"]
 - !private ["PSo16NSObjectProtocol", "string"]
 - !private ["PSo16NSObjectProtocol", "subscript"]
 - ["PSo16NSObjectProtocol", "tableView"]
@@ -1638,7 +1692,8 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "text"]
 - !private ["PSo16NSObjectProtocol", "textColor"]
 - !private ["PSo16NSObjectProtocol", "title"]
-- !private ["PSo16NSObjectProtocol", "userDefaults"]
+- ["PSo16NSObjectProtocol", "userDefaults"]
+- !private ["PSo16NSObjectProtocol", "userType"]
 - !private ["PSo16NSObjectProtocol", "value"]
 - !private ["PSo16NSObjectProtocol", "view"]
 - ["PSo16NSObjectProtocol", "viewDidAppear"]
@@ -1675,6 +1730,7 @@ depends-member:
 - !private ["CSo18NotificationCenter", "default"]
 - ["CSo18NotificationCenter", "deinit"]
 - !private ["CSo18NotificationCenter", "removeObserver"]
+- !private ["V11DiabetesApp13Notifications", "DoctorReportListHistoryView"]
 - !private ["V11DiabetesApp13Notifications", "ReportListHistoryView"]
 - !private ["V11DiabetesApp13Notifications", "noOfDays"]
 - !private ["Sq", "RawValue"]
@@ -1733,7 +1789,7 @@ depends-member:
 - ["C11DiabetesApp27ReportHistoryViewController", "UITapGestureRecognizer"]
 - ["C11DiabetesApp27ReportHistoryViewController", "UITextField"]
 - ["C11DiabetesApp27ReportHistoryViewController", "UIView"]
-- !private ["C11DiabetesApp27ReportHistoryViewController", "UserDefaults"]
+- ["C11DiabetesApp27ReportHistoryViewController", "UserDefaults"]
 - !private ["C11DiabetesApp27ReportHistoryViewController", "UtilityClass"]
 - ["C11DiabetesApp27ReportHistoryViewController", "addNotifications"]
 - ["C11DiabetesApp27ReportHistoryViewController", "boolArray"]
@@ -1743,6 +1799,7 @@ depends-member:
 - !private ["C11DiabetesApp27ReportHistoryViewController", "conditionsArray"]
 - ["C11DiabetesApp27ReportHistoryViewController", "deinit"]
 - ["C11DiabetesApp27ReportHistoryViewController", "didReceiveMemoryWarning"]
+- ["C11DiabetesApp27ReportHistoryViewController", "getDoctorReportReadingHistory"]
 - ["C11DiabetesApp27ReportHistoryViewController", "getReportReadingHistory"]
 - ["C11DiabetesApp27ReportHistoryViewController", "indexPathForPreferredFocusedView"]
 - ["C11DiabetesApp27ReportHistoryViewController", "indexPathForPreferredFocusedViewInTableView"]
@@ -1777,12 +1834,14 @@ depends-member:
 - ["C11DiabetesApp27ReportHistoryViewController", "sectionIndexTitles"]
 - ["C11DiabetesApp27ReportHistoryViewController", "sectionIndexTitlesForTableView"]
 - ["C11DiabetesApp27ReportHistoryViewController", "sectionsArray"]
+- ["C11DiabetesApp27ReportHistoryViewController", "selectedUserType"]
 - ["C11DiabetesApp27ReportHistoryViewController", "setUI"]
 - ["C11DiabetesApp27ReportHistoryViewController", "tableView"]
 - ["C11DiabetesApp27ReportHistoryViewController", "tapHeader"]
 - ["C11DiabetesApp27ReportHistoryViewController", "tblView"]
 - !private ["C11DiabetesApp27ReportHistoryViewController", "title"]
-- !private ["C11DiabetesApp27ReportHistoryViewController", "userDefaults"]
+- ["C11DiabetesApp27ReportHistoryViewController", "userDefaults"]
+- !private ["C11DiabetesApp27ReportHistoryViewController", "userType"]
 - !private ["C11DiabetesApp27ReportHistoryViewController", "view"]
 - ["C11DiabetesApp27ReportHistoryViewController", "viewDidAppear"]
 - ["C11DiabetesApp27ReportHistoryViewController", "viewDidDisappear"]
@@ -1818,8 +1877,11 @@ depends-member:
 - !private ["Ps8Sequence", "subscript"]
 - !private ["Ps8Sequence", "value"]
 - !private ["Ps13SignedInteger", "Stride"]
+- ["Ps13SignedInteger", "init"]
 - !private ["Ps12SignedNumber", "Stride"]
+- ["Ps12SignedNumber", "init"]
 - !private ["Ps10Strideable", "Stride"]
+- ["Ps10Strideable", "init"]
 - !private ["SS", "RawValue"]
 - ["SS", "deinit"]
 - ["SS", "init"]
@@ -1877,6 +1939,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "CGRect"]
 - !private ["PSo21UIAppearanceContainer", "Colors"]
 - !private ["PSo21UIAppearanceContainer", "Fonts"]
+- ["PSo21UIAppearanceContainer", "Int"]
 - !private ["PSo21UIAppearanceContainer", "JSONEncoding"]
 - ["PSo21UIAppearanceContainer", "NSArray"]
 - ["PSo21UIAppearanceContainer", "NSDictionary"]
@@ -1893,7 +1956,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "UILabel"]
 - !private ["PSo21UIAppearanceContainer", "UITapGestureRecognizer"]
 - !private ["PSo21UIAppearanceContainer", "UIView"]
-- !private ["PSo21UIAppearanceContainer", "UserDefaults"]
+- ["PSo21UIAppearanceContainer", "UserDefaults"]
 - !private ["PSo21UIAppearanceContainer", "UtilityClass"]
 - !private ["PSo21UIAppearanceContainer", "addGestureRecognizer"]
 - ["PSo21UIAppearanceContainer", "addNotifications"]
@@ -1911,6 +1974,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "endEditing"]
 - !private ["PSo21UIAppearanceContainer", "font"]
 - !private ["PSo21UIAppearanceContainer", "frame"]
+- ["PSo21UIAppearanceContainer", "getDoctorReportReadingHistory"]
 - ["PSo21UIAppearanceContainer", "getReportReadingHistory"]
 - !private ["PSo21UIAppearanceContainer", "image"]
 - ["PSo21UIAppearanceContainer", "indexPathForPreferredFocusedView"]
@@ -1952,6 +2016,7 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "sectionIndexTitlesForTableView"]
 - ["PSo21UIAppearanceContainer", "sectionsArray"]
 - !private ["PSo21UIAppearanceContainer", "selectedRow"]
+- ["PSo21UIAppearanceContainer", "selectedUserType"]
 - !private ["PSo21UIAppearanceContainer", "selectionStyle"]
 - ["PSo21UIAppearanceContainer", "setUI"]
 - ["PSo21UIAppearanceContainer", "tableView"]
@@ -1961,7 +2026,8 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "text"]
 - !private ["PSo21UIAppearanceContainer", "textColor"]
 - !private ["PSo21UIAppearanceContainer", "title"]
-- !private ["PSo21UIAppearanceContainer", "userDefaults"]
+- ["PSo21UIAppearanceContainer", "userDefaults"]
+- !private ["PSo21UIAppearanceContainer", "userType"]
 - !private ["PSo21UIAppearanceContainer", "view"]
 - ["PSo21UIAppearanceContainer", "viewDidAppear"]
 - ["PSo21UIAppearanceContainer", "viewDidDisappear"]
@@ -1978,6 +2044,7 @@ depends-member:
 - !private ["PSo18UIContentContainer", "CGRect"]
 - !private ["PSo18UIContentContainer", "Colors"]
 - !private ["PSo18UIContentContainer", "Fonts"]
+- ["PSo18UIContentContainer", "Int"]
 - !private ["PSo18UIContentContainer", "JSONEncoding"]
 - ["PSo18UIContentContainer", "NSArray"]
 - ["PSo18UIContentContainer", "NSDictionary"]
@@ -1994,7 +2061,7 @@ depends-member:
 - !private ["PSo18UIContentContainer", "UILabel"]
 - !private ["PSo18UIContentContainer", "UITapGestureRecognizer"]
 - !private ["PSo18UIContentContainer", "UIView"]
-- !private ["PSo18UIContentContainer", "UserDefaults"]
+- ["PSo18UIContentContainer", "UserDefaults"]
 - !private ["PSo18UIContentContainer", "UtilityClass"]
 - ["PSo18UIContentContainer", "addNotifications"]
 - ["PSo18UIContentContainer", "boolArray"]
@@ -2003,6 +2070,7 @@ depends-member:
 - ["PSo18UIContentContainer", "conditionView"]
 - !private ["PSo18UIContentContainer", "conditionsArray"]
 - ["PSo18UIContentContainer", "didReceiveMemoryWarning"]
+- ["PSo18UIContentContainer", "getDoctorReportReadingHistory"]
 - ["PSo18UIContentContainer", "getReportReadingHistory"]
 - ["PSo18UIContentContainer", "indexPathForPreferredFocusedView"]
 - ["PSo18UIContentContainer", "indexPathForPreferredFocusedViewInTableView"]
@@ -2037,12 +2105,14 @@ depends-member:
 - ["PSo18UIContentContainer", "sectionIndexTitles"]
 - ["PSo18UIContentContainer", "sectionIndexTitlesForTableView"]
 - ["PSo18UIContentContainer", "sectionsArray"]
+- ["PSo18UIContentContainer", "selectedUserType"]
 - ["PSo18UIContentContainer", "setUI"]
 - ["PSo18UIContentContainer", "tableView"]
 - ["PSo18UIContentContainer", "tapHeader"]
 - ["PSo18UIContentContainer", "tblView"]
 - !private ["PSo18UIContentContainer", "title"]
-- !private ["PSo18UIContentContainer", "userDefaults"]
+- ["PSo18UIContentContainer", "userDefaults"]
+- !private ["PSo18UIContentContainer", "userType"]
 - !private ["PSo18UIContentContainer", "view"]
 - ["PSo18UIContentContainer", "viewDidAppear"]
 - ["PSo18UIContentContainer", "viewDidDisappear"]
@@ -2104,6 +2174,7 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "CGRect"]
 - !private ["PSo18UIFocusEnvironment", "Colors"]
 - !private ["PSo18UIFocusEnvironment", "Fonts"]
+- ["PSo18UIFocusEnvironment", "Int"]
 - !private ["PSo18UIFocusEnvironment", "JSONEncoding"]
 - ["PSo18UIFocusEnvironment", "NSArray"]
 - ["PSo18UIFocusEnvironment", "NSDictionary"]
@@ -2120,7 +2191,7 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "UILabel"]
 - !private ["PSo18UIFocusEnvironment", "UITapGestureRecognizer"]
 - !private ["PSo18UIFocusEnvironment", "UIView"]
-- !private ["PSo18UIFocusEnvironment", "UserDefaults"]
+- ["PSo18UIFocusEnvironment", "UserDefaults"]
 - !private ["PSo18UIFocusEnvironment", "UtilityClass"]
 - !private ["PSo18UIFocusEnvironment", "addGestureRecognizer"]
 - ["PSo18UIFocusEnvironment", "addNotifications"]
@@ -2138,6 +2209,7 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "endEditing"]
 - !private ["PSo18UIFocusEnvironment", "font"]
 - !private ["PSo18UIFocusEnvironment", "frame"]
+- ["PSo18UIFocusEnvironment", "getDoctorReportReadingHistory"]
 - ["PSo18UIFocusEnvironment", "getReportReadingHistory"]
 - !private ["PSo18UIFocusEnvironment", "image"]
 - ["PSo18UIFocusEnvironment", "indexPathForPreferredFocusedView"]
@@ -2179,6 +2251,7 @@ depends-member:
 - ["PSo18UIFocusEnvironment", "sectionIndexTitlesForTableView"]
 - ["PSo18UIFocusEnvironment", "sectionsArray"]
 - !private ["PSo18UIFocusEnvironment", "selectedRow"]
+- ["PSo18UIFocusEnvironment", "selectedUserType"]
 - !private ["PSo18UIFocusEnvironment", "selectionStyle"]
 - ["PSo18UIFocusEnvironment", "setUI"]
 - ["PSo18UIFocusEnvironment", "tableView"]
@@ -2188,7 +2261,8 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "text"]
 - !private ["PSo18UIFocusEnvironment", "textColor"]
 - !private ["PSo18UIFocusEnvironment", "title"]
-- !private ["PSo18UIFocusEnvironment", "userDefaults"]
+- ["PSo18UIFocusEnvironment", "userDefaults"]
+- !private ["PSo18UIFocusEnvironment", "userType"]
 - !private ["PSo18UIFocusEnvironment", "view"]
 - ["PSo18UIFocusEnvironment", "viewDidAppear"]
 - ["PSo18UIFocusEnvironment", "viewDidDisappear"]
@@ -2241,6 +2315,7 @@ depends-member:
 - !private ["PSo22UIPickerViewDataSource", "CGRect"]
 - !private ["PSo22UIPickerViewDataSource", "Colors"]
 - !private ["PSo22UIPickerViewDataSource", "Fonts"]
+- ["PSo22UIPickerViewDataSource", "Int"]
 - !private ["PSo22UIPickerViewDataSource", "JSONEncoding"]
 - ["PSo22UIPickerViewDataSource", "NSArray"]
 - ["PSo22UIPickerViewDataSource", "NSDictionary"]
@@ -2256,7 +2331,7 @@ depends-member:
 - !private ["PSo22UIPickerViewDataSource", "UILabel"]
 - !private ["PSo22UIPickerViewDataSource", "UITapGestureRecognizer"]
 - !private ["PSo22UIPickerViewDataSource", "UIView"]
-- !private ["PSo22UIPickerViewDataSource", "UserDefaults"]
+- ["PSo22UIPickerViewDataSource", "UserDefaults"]
 - !private ["PSo22UIPickerViewDataSource", "UtilityClass"]
 - !private ["PSo22UIPickerViewDataSource", "addNotifications"]
 - !private ["PSo22UIPickerViewDataSource", "boolArray"]
@@ -2264,6 +2339,7 @@ depends-member:
 - !private ["PSo22UIPickerViewDataSource", "conditionTxtFld"]
 - !private ["PSo22UIPickerViewDataSource", "conditionView"]
 - !private ["PSo22UIPickerViewDataSource", "conditionsArray"]
+- !private ["PSo22UIPickerViewDataSource", "getDoctorReportReadingHistory"]
 - !private ["PSo22UIPickerViewDataSource", "getReportReadingHistory"]
 - ["PSo22UIPickerViewDataSource", "indexPathForPreferredFocusedView"]
 - ["PSo22UIPickerViewDataSource", "indexPathForPreferredFocusedViewInTableView"]
@@ -2297,12 +2373,14 @@ depends-member:
 - ["PSo22UIPickerViewDataSource", "sectionIndexTitles"]
 - ["PSo22UIPickerViewDataSource", "sectionIndexTitlesForTableView"]
 - !private ["PSo22UIPickerViewDataSource", "sectionsArray"]
+- !private ["PSo22UIPickerViewDataSource", "selectedUserType"]
 - !private ["PSo22UIPickerViewDataSource", "setUI"]
 - ["PSo22UIPickerViewDataSource", "tableView"]
 - !private ["PSo22UIPickerViewDataSource", "tapHeader"]
 - !private ["PSo22UIPickerViewDataSource", "tblView"]
 - !private ["PSo22UIPickerViewDataSource", "title"]
-- !private ["PSo22UIPickerViewDataSource", "userDefaults"]
+- ["PSo22UIPickerViewDataSource", "userDefaults"]
+- !private ["PSo22UIPickerViewDataSource", "userType"]
 - !private ["PSo22UIPickerViewDataSource", "view"]
 - ["PSo22UIPickerViewDataSource", "viewForZooming"]
 - ["PSo22UIPickerViewDataSource", "viewForZoomingInScrollView"]
@@ -2311,6 +2389,7 @@ depends-member:
 - !private ["PSo20UIPickerViewDelegate", "CGRect"]
 - !private ["PSo20UIPickerViewDelegate", "Colors"]
 - !private ["PSo20UIPickerViewDelegate", "Fonts"]
+- ["PSo20UIPickerViewDelegate", "Int"]
 - !private ["PSo20UIPickerViewDelegate", "JSONEncoding"]
 - ["PSo20UIPickerViewDelegate", "NSArray"]
 - ["PSo20UIPickerViewDelegate", "NSDictionary"]
@@ -2326,7 +2405,7 @@ depends-member:
 - !private ["PSo20UIPickerViewDelegate", "UILabel"]
 - !private ["PSo20UIPickerViewDelegate", "UITapGestureRecognizer"]
 - !private ["PSo20UIPickerViewDelegate", "UIView"]
-- !private ["PSo20UIPickerViewDelegate", "UserDefaults"]
+- ["PSo20UIPickerViewDelegate", "UserDefaults"]
 - !private ["PSo20UIPickerViewDelegate", "UtilityClass"]
 - !private ["PSo20UIPickerViewDelegate", "addNotifications"]
 - !private ["PSo20UIPickerViewDelegate", "boolArray"]
@@ -2334,6 +2413,7 @@ depends-member:
 - !private ["PSo20UIPickerViewDelegate", "conditionTxtFld"]
 - !private ["PSo20UIPickerViewDelegate", "conditionView"]
 - !private ["PSo20UIPickerViewDelegate", "conditionsArray"]
+- !private ["PSo20UIPickerViewDelegate", "getDoctorReportReadingHistory"]
 - !private ["PSo20UIPickerViewDelegate", "getReportReadingHistory"]
 - ["PSo20UIPickerViewDelegate", "indexPathForPreferredFocusedView"]
 - ["PSo20UIPickerViewDelegate", "indexPathForPreferredFocusedViewInTableView"]
@@ -2367,12 +2447,14 @@ depends-member:
 - ["PSo20UIPickerViewDelegate", "sectionIndexTitles"]
 - ["PSo20UIPickerViewDelegate", "sectionIndexTitlesForTableView"]
 - !private ["PSo20UIPickerViewDelegate", "sectionsArray"]
+- !private ["PSo20UIPickerViewDelegate", "selectedUserType"]
 - !private ["PSo20UIPickerViewDelegate", "setUI"]
 - ["PSo20UIPickerViewDelegate", "tableView"]
 - !private ["PSo20UIPickerViewDelegate", "tapHeader"]
 - !private ["PSo20UIPickerViewDelegate", "tblView"]
 - !private ["PSo20UIPickerViewDelegate", "title"]
-- !private ["PSo20UIPickerViewDelegate", "userDefaults"]
+- ["PSo20UIPickerViewDelegate", "userDefaults"]
+- !private ["PSo20UIPickerViewDelegate", "userType"]
 - !private ["PSo20UIPickerViewDelegate", "view"]
 - ["PSo20UIPickerViewDelegate", "viewForZooming"]
 - ["PSo20UIPickerViewDelegate", "viewForZoomingInScrollView"]
@@ -2409,7 +2491,7 @@ depends-member:
 - ["CSo11UIResponder", "UITapGestureRecognizer"]
 - ["CSo11UIResponder", "UITextField"]
 - ["CSo11UIResponder", "UIView"]
-- !private ["CSo11UIResponder", "UserDefaults"]
+- ["CSo11UIResponder", "UserDefaults"]
 - !private ["CSo11UIResponder", "UtilityClass"]
 - !private ["CSo11UIResponder", "addGestureRecognizer"]
 - ["CSo11UIResponder", "addNotifications"]
@@ -2427,6 +2509,7 @@ depends-member:
 - !private ["CSo11UIResponder", "endEditing"]
 - !private ["CSo11UIResponder", "font"]
 - !private ["CSo11UIResponder", "frame"]
+- ["CSo11UIResponder", "getDoctorReportReadingHistory"]
 - ["CSo11UIResponder", "getReportReadingHistory"]
 - !private ["CSo11UIResponder", "image"]
 - ["CSo11UIResponder", "indexPathForPreferredFocusedView"]
@@ -2468,6 +2551,7 @@ depends-member:
 - ["CSo11UIResponder", "sectionIndexTitlesForTableView"]
 - ["CSo11UIResponder", "sectionsArray"]
 - !private ["CSo11UIResponder", "selectedRow"]
+- ["CSo11UIResponder", "selectedUserType"]
 - !private ["CSo11UIResponder", "selectionStyle"]
 - ["CSo11UIResponder", "setUI"]
 - ["CSo11UIResponder", "tableView"]
@@ -2477,7 +2561,8 @@ depends-member:
 - !private ["CSo11UIResponder", "text"]
 - !private ["CSo11UIResponder", "textColor"]
 - !private ["CSo11UIResponder", "title"]
-- !private ["CSo11UIResponder", "userDefaults"]
+- ["CSo11UIResponder", "userDefaults"]
+- !private ["CSo11UIResponder", "userType"]
 - !private ["CSo11UIResponder", "view"]
 - ["CSo11UIResponder", "viewDidAppear"]
 - ["CSo11UIResponder", "viewDidDisappear"]
@@ -2488,6 +2573,7 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "CGRect"]
 - !private ["PSo30UIResponderStandardEditActions", "Colors"]
 - !private ["PSo30UIResponderStandardEditActions", "Fonts"]
+- ["PSo30UIResponderStandardEditActions", "Int"]
 - !private ["PSo30UIResponderStandardEditActions", "JSONEncoding"]
 - ["PSo30UIResponderStandardEditActions", "NSArray"]
 - ["PSo30UIResponderStandardEditActions", "NSDictionary"]
@@ -2504,7 +2590,7 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "UILabel"]
 - !private ["PSo30UIResponderStandardEditActions", "UITapGestureRecognizer"]
 - !private ["PSo30UIResponderStandardEditActions", "UIView"]
-- !private ["PSo30UIResponderStandardEditActions", "UserDefaults"]
+- ["PSo30UIResponderStandardEditActions", "UserDefaults"]
 - !private ["PSo30UIResponderStandardEditActions", "UtilityClass"]
 - !private ["PSo30UIResponderStandardEditActions", "addGestureRecognizer"]
 - ["PSo30UIResponderStandardEditActions", "addNotifications"]
@@ -2522,6 +2608,7 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "endEditing"]
 - !private ["PSo30UIResponderStandardEditActions", "font"]
 - !private ["PSo30UIResponderStandardEditActions", "frame"]
+- ["PSo30UIResponderStandardEditActions", "getDoctorReportReadingHistory"]
 - ["PSo30UIResponderStandardEditActions", "getReportReadingHistory"]
 - !private ["PSo30UIResponderStandardEditActions", "image"]
 - ["PSo30UIResponderStandardEditActions", "indexPathForPreferredFocusedView"]
@@ -2563,6 +2650,7 @@ depends-member:
 - ["PSo30UIResponderStandardEditActions", "sectionIndexTitlesForTableView"]
 - ["PSo30UIResponderStandardEditActions", "sectionsArray"]
 - !private ["PSo30UIResponderStandardEditActions", "selectedRow"]
+- ["PSo30UIResponderStandardEditActions", "selectedUserType"]
 - !private ["PSo30UIResponderStandardEditActions", "selectionStyle"]
 - ["PSo30UIResponderStandardEditActions", "setUI"]
 - ["PSo30UIResponderStandardEditActions", "tableView"]
@@ -2572,7 +2660,8 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "text"]
 - !private ["PSo30UIResponderStandardEditActions", "textColor"]
 - !private ["PSo30UIResponderStandardEditActions", "title"]
-- !private ["PSo30UIResponderStandardEditActions", "userDefaults"]
+- ["PSo30UIResponderStandardEditActions", "userDefaults"]
+- !private ["PSo30UIResponderStandardEditActions", "userType"]
 - !private ["PSo30UIResponderStandardEditActions", "view"]
 - ["PSo30UIResponderStandardEditActions", "viewDidAppear"]
 - ["PSo30UIResponderStandardEditActions", "viewDidDisappear"]
@@ -2588,6 +2677,7 @@ depends-member:
 - !private ["PSo20UIScrollViewDelegate", "CGRect"]
 - !private ["PSo20UIScrollViewDelegate", "Colors"]
 - !private ["PSo20UIScrollViewDelegate", "Fonts"]
+- ["PSo20UIScrollViewDelegate", "Int"]
 - !private ["PSo20UIScrollViewDelegate", "JSONEncoding"]
 - ["PSo20UIScrollViewDelegate", "NSArray"]
 - ["PSo20UIScrollViewDelegate", "NSDictionary"]
@@ -2603,7 +2693,7 @@ depends-member:
 - !private ["PSo20UIScrollViewDelegate", "UILabel"]
 - !private ["PSo20UIScrollViewDelegate", "UITapGestureRecognizer"]
 - !private ["PSo20UIScrollViewDelegate", "UIView"]
-- !private ["PSo20UIScrollViewDelegate", "UserDefaults"]
+- ["PSo20UIScrollViewDelegate", "UserDefaults"]
 - !private ["PSo20UIScrollViewDelegate", "UtilityClass"]
 - !private ["PSo20UIScrollViewDelegate", "addNotifications"]
 - !private ["PSo20UIScrollViewDelegate", "boolArray"]
@@ -2611,6 +2701,7 @@ depends-member:
 - !private ["PSo20UIScrollViewDelegate", "conditionTxtFld"]
 - !private ["PSo20UIScrollViewDelegate", "conditionView"]
 - !private ["PSo20UIScrollViewDelegate", "conditionsArray"]
+- !private ["PSo20UIScrollViewDelegate", "getDoctorReportReadingHistory"]
 - !private ["PSo20UIScrollViewDelegate", "getReportReadingHistory"]
 - ["PSo20UIScrollViewDelegate", "indexPathForPreferredFocusedView"]
 - ["PSo20UIScrollViewDelegate", "indexPathForPreferredFocusedViewInTableView"]
@@ -2644,12 +2735,14 @@ depends-member:
 - ["PSo20UIScrollViewDelegate", "sectionIndexTitles"]
 - ["PSo20UIScrollViewDelegate", "sectionIndexTitlesForTableView"]
 - !private ["PSo20UIScrollViewDelegate", "sectionsArray"]
+- !private ["PSo20UIScrollViewDelegate", "selectedUserType"]
 - !private ["PSo20UIScrollViewDelegate", "setUI"]
 - ["PSo20UIScrollViewDelegate", "tableView"]
 - !private ["PSo20UIScrollViewDelegate", "tapHeader"]
 - !private ["PSo20UIScrollViewDelegate", "tblView"]
 - !private ["PSo20UIScrollViewDelegate", "title"]
-- !private ["PSo20UIScrollViewDelegate", "userDefaults"]
+- ["PSo20UIScrollViewDelegate", "userDefaults"]
+- !private ["PSo20UIScrollViewDelegate", "userType"]
 - !private ["PSo20UIScrollViewDelegate", "view"]
 - ["PSo20UIScrollViewDelegate", "viewForZooming"]
 - ["PSo20UIScrollViewDelegate", "viewForZoomingInScrollView"]
@@ -2658,6 +2751,7 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "CGRect"]
 - !private ["PSo16UIStateRestoring", "Colors"]
 - !private ["PSo16UIStateRestoring", "Fonts"]
+- ["PSo16UIStateRestoring", "Int"]
 - !private ["PSo16UIStateRestoring", "JSONEncoding"]
 - ["PSo16UIStateRestoring", "NSArray"]
 - ["PSo16UIStateRestoring", "NSDictionary"]
@@ -2674,7 +2768,7 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "UILabel"]
 - !private ["PSo16UIStateRestoring", "UITapGestureRecognizer"]
 - !private ["PSo16UIStateRestoring", "UIView"]
-- !private ["PSo16UIStateRestoring", "UserDefaults"]
+- ["PSo16UIStateRestoring", "UserDefaults"]
 - !private ["PSo16UIStateRestoring", "UtilityClass"]
 - ["PSo16UIStateRestoring", "addNotifications"]
 - ["PSo16UIStateRestoring", "boolArray"]
@@ -2683,6 +2777,7 @@ depends-member:
 - ["PSo16UIStateRestoring", "conditionView"]
 - !private ["PSo16UIStateRestoring", "conditionsArray"]
 - ["PSo16UIStateRestoring", "didReceiveMemoryWarning"]
+- ["PSo16UIStateRestoring", "getDoctorReportReadingHistory"]
 - ["PSo16UIStateRestoring", "getReportReadingHistory"]
 - ["PSo16UIStateRestoring", "indexPathForPreferredFocusedView"]
 - ["PSo16UIStateRestoring", "indexPathForPreferredFocusedViewInTableView"]
@@ -2717,12 +2812,14 @@ depends-member:
 - ["PSo16UIStateRestoring", "sectionIndexTitles"]
 - ["PSo16UIStateRestoring", "sectionIndexTitlesForTableView"]
 - ["PSo16UIStateRestoring", "sectionsArray"]
+- ["PSo16UIStateRestoring", "selectedUserType"]
 - ["PSo16UIStateRestoring", "setUI"]
 - ["PSo16UIStateRestoring", "tableView"]
 - ["PSo16UIStateRestoring", "tapHeader"]
 - ["PSo16UIStateRestoring", "tblView"]
 - !private ["PSo16UIStateRestoring", "title"]
-- !private ["PSo16UIStateRestoring", "userDefaults"]
+- ["PSo16UIStateRestoring", "userDefaults"]
+- !private ["PSo16UIStateRestoring", "userType"]
 - !private ["PSo16UIStateRestoring", "view"]
 - ["PSo16UIStateRestoring", "viewDidAppear"]
 - ["PSo16UIStateRestoring", "viewDidDisappear"]
@@ -2746,6 +2843,7 @@ depends-member:
 - !private ["PSo21UITableViewDataSource", "CGRect"]
 - !private ["PSo21UITableViewDataSource", "Colors"]
 - !private ["PSo21UITableViewDataSource", "Fonts"]
+- ["PSo21UITableViewDataSource", "Int"]
 - !private ["PSo21UITableViewDataSource", "JSONEncoding"]
 - ["PSo21UITableViewDataSource", "NSArray"]
 - ["PSo21UITableViewDataSource", "NSDictionary"]
@@ -2761,7 +2859,7 @@ depends-member:
 - !private ["PSo21UITableViewDataSource", "UILabel"]
 - !private ["PSo21UITableViewDataSource", "UITapGestureRecognizer"]
 - !private ["PSo21UITableViewDataSource", "UIView"]
-- !private ["PSo21UITableViewDataSource", "UserDefaults"]
+- ["PSo21UITableViewDataSource", "UserDefaults"]
 - !private ["PSo21UITableViewDataSource", "UtilityClass"]
 - !private ["PSo21UITableViewDataSource", "addNotifications"]
 - !private ["PSo21UITableViewDataSource", "boolArray"]
@@ -2769,6 +2867,7 @@ depends-member:
 - !private ["PSo21UITableViewDataSource", "conditionTxtFld"]
 - !private ["PSo21UITableViewDataSource", "conditionView"]
 - !private ["PSo21UITableViewDataSource", "conditionsArray"]
+- !private ["PSo21UITableViewDataSource", "getDoctorReportReadingHistory"]
 - !private ["PSo21UITableViewDataSource", "getReportReadingHistory"]
 - ["PSo21UITableViewDataSource", "indexPathForPreferredFocusedView"]
 - ["PSo21UITableViewDataSource", "indexPathForPreferredFocusedViewInTableView"]
@@ -2802,12 +2901,14 @@ depends-member:
 - ["PSo21UITableViewDataSource", "sectionIndexTitles"]
 - ["PSo21UITableViewDataSource", "sectionIndexTitlesForTableView"]
 - !private ["PSo21UITableViewDataSource", "sectionsArray"]
+- !private ["PSo21UITableViewDataSource", "selectedUserType"]
 - !private ["PSo21UITableViewDataSource", "setUI"]
 - ["PSo21UITableViewDataSource", "tableView"]
 - !private ["PSo21UITableViewDataSource", "tapHeader"]
 - !private ["PSo21UITableViewDataSource", "tblView"]
 - !private ["PSo21UITableViewDataSource", "title"]
-- !private ["PSo21UITableViewDataSource", "userDefaults"]
+- ["PSo21UITableViewDataSource", "userDefaults"]
+- !private ["PSo21UITableViewDataSource", "userType"]
 - !private ["PSo21UITableViewDataSource", "view"]
 - ["PSo21UITableViewDataSource", "viewForZooming"]
 - ["PSo21UITableViewDataSource", "viewForZoomingInScrollView"]
@@ -2816,6 +2917,7 @@ depends-member:
 - !private ["PSo19UITableViewDelegate", "CGRect"]
 - !private ["PSo19UITableViewDelegate", "Colors"]
 - !private ["PSo19UITableViewDelegate", "Fonts"]
+- ["PSo19UITableViewDelegate", "Int"]
 - !private ["PSo19UITableViewDelegate", "JSONEncoding"]
 - ["PSo19UITableViewDelegate", "NSArray"]
 - ["PSo19UITableViewDelegate", "NSDictionary"]
@@ -2831,7 +2933,7 @@ depends-member:
 - !private ["PSo19UITableViewDelegate", "UILabel"]
 - !private ["PSo19UITableViewDelegate", "UITapGestureRecognizer"]
 - !private ["PSo19UITableViewDelegate", "UIView"]
-- !private ["PSo19UITableViewDelegate", "UserDefaults"]
+- ["PSo19UITableViewDelegate", "UserDefaults"]
 - !private ["PSo19UITableViewDelegate", "UtilityClass"]
 - !private ["PSo19UITableViewDelegate", "addNotifications"]
 - !private ["PSo19UITableViewDelegate", "boolArray"]
@@ -2839,6 +2941,7 @@ depends-member:
 - !private ["PSo19UITableViewDelegate", "conditionTxtFld"]
 - !private ["PSo19UITableViewDelegate", "conditionView"]
 - !private ["PSo19UITableViewDelegate", "conditionsArray"]
+- !private ["PSo19UITableViewDelegate", "getDoctorReportReadingHistory"]
 - !private ["PSo19UITableViewDelegate", "getReportReadingHistory"]
 - ["PSo19UITableViewDelegate", "indexPathForPreferredFocusedView"]
 - ["PSo19UITableViewDelegate", "indexPathForPreferredFocusedViewInTableView"]
@@ -2872,12 +2975,14 @@ depends-member:
 - ["PSo19UITableViewDelegate", "sectionIndexTitles"]
 - ["PSo19UITableViewDelegate", "sectionIndexTitlesForTableView"]
 - !private ["PSo19UITableViewDelegate", "sectionsArray"]
+- !private ["PSo19UITableViewDelegate", "selectedUserType"]
 - !private ["PSo19UITableViewDelegate", "setUI"]
 - ["PSo19UITableViewDelegate", "tableView"]
 - !private ["PSo19UITableViewDelegate", "tapHeader"]
 - !private ["PSo19UITableViewDelegate", "tblView"]
 - !private ["PSo19UITableViewDelegate", "title"]
-- !private ["PSo19UITableViewDelegate", "userDefaults"]
+- ["PSo19UITableViewDelegate", "userDefaults"]
+- !private ["PSo19UITableViewDelegate", "userType"]
 - !private ["PSo19UITableViewDelegate", "view"]
 - ["PSo19UITableViewDelegate", "viewForZooming"]
 - ["PSo19UITableViewDelegate", "viewForZoomingInScrollView"]
@@ -2895,6 +3000,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "CGRect"]
 - !private ["PSo18UITraitEnvironment", "Colors"]
 - !private ["PSo18UITraitEnvironment", "Fonts"]
+- ["PSo18UITraitEnvironment", "Int"]
 - !private ["PSo18UITraitEnvironment", "JSONEncoding"]
 - ["PSo18UITraitEnvironment", "NSArray"]
 - ["PSo18UITraitEnvironment", "NSDictionary"]
@@ -2911,7 +3017,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "UILabel"]
 - !private ["PSo18UITraitEnvironment", "UITapGestureRecognizer"]
 - !private ["PSo18UITraitEnvironment", "UIView"]
-- !private ["PSo18UITraitEnvironment", "UserDefaults"]
+- ["PSo18UITraitEnvironment", "UserDefaults"]
 - !private ["PSo18UITraitEnvironment", "UtilityClass"]
 - !private ["PSo18UITraitEnvironment", "addGestureRecognizer"]
 - ["PSo18UITraitEnvironment", "addNotifications"]
@@ -2929,6 +3035,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "endEditing"]
 - !private ["PSo18UITraitEnvironment", "font"]
 - !private ["PSo18UITraitEnvironment", "frame"]
+- ["PSo18UITraitEnvironment", "getDoctorReportReadingHistory"]
 - ["PSo18UITraitEnvironment", "getReportReadingHistory"]
 - !private ["PSo18UITraitEnvironment", "image"]
 - ["PSo18UITraitEnvironment", "indexPathForPreferredFocusedView"]
@@ -2970,6 +3077,7 @@ depends-member:
 - ["PSo18UITraitEnvironment", "sectionIndexTitlesForTableView"]
 - ["PSo18UITraitEnvironment", "sectionsArray"]
 - !private ["PSo18UITraitEnvironment", "selectedRow"]
+- ["PSo18UITraitEnvironment", "selectedUserType"]
 - !private ["PSo18UITraitEnvironment", "selectionStyle"]
 - ["PSo18UITraitEnvironment", "setUI"]
 - ["PSo18UITraitEnvironment", "tableView"]
@@ -2979,7 +3087,8 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "text"]
 - !private ["PSo18UITraitEnvironment", "textColor"]
 - !private ["PSo18UITraitEnvironment", "title"]
-- !private ["PSo18UITraitEnvironment", "userDefaults"]
+- ["PSo18UITraitEnvironment", "userDefaults"]
+- !private ["PSo18UITraitEnvironment", "userType"]
 - !private ["PSo18UITraitEnvironment", "view"]
 - ["PSo18UITraitEnvironment", "viewDidAppear"]
 - ["PSo18UITraitEnvironment", "viewDidDisappear"]
@@ -3041,7 +3150,7 @@ depends-member:
 - ["CSo16UIViewController", "UITapGestureRecognizer"]
 - ["CSo16UIViewController", "UITextField"]
 - ["CSo16UIViewController", "UIView"]
-- !private ["CSo16UIViewController", "UserDefaults"]
+- ["CSo16UIViewController", "UserDefaults"]
 - !private ["CSo16UIViewController", "UtilityClass"]
 - ["CSo16UIViewController", "addNotifications"]
 - ["CSo16UIViewController", "boolArray"]
@@ -3051,6 +3160,7 @@ depends-member:
 - !private ["CSo16UIViewController", "conditionsArray"]
 - ["CSo16UIViewController", "deinit"]
 - ["CSo16UIViewController", "didReceiveMemoryWarning"]
+- ["CSo16UIViewController", "getDoctorReportReadingHistory"]
 - ["CSo16UIViewController", "getReportReadingHistory"]
 - ["CSo16UIViewController", "indexPathForPreferredFocusedView"]
 - ["CSo16UIViewController", "indexPathForPreferredFocusedViewInTableView"]
@@ -3085,12 +3195,14 @@ depends-member:
 - ["CSo16UIViewController", "sectionIndexTitles"]
 - ["CSo16UIViewController", "sectionIndexTitlesForTableView"]
 - ["CSo16UIViewController", "sectionsArray"]
+- ["CSo16UIViewController", "selectedUserType"]
 - ["CSo16UIViewController", "setUI"]
 - ["CSo16UIViewController", "tableView"]
 - ["CSo16UIViewController", "tapHeader"]
 - ["CSo16UIViewController", "tblView"]
 - !private ["CSo16UIViewController", "title"]
-- !private ["CSo16UIViewController", "userDefaults"]
+- ["CSo16UIViewController", "userDefaults"]
+- !private ["CSo16UIViewController", "userType"]
 - !private ["CSo16UIViewController", "view"]
 - ["CSo16UIViewController", "viewDidAppear"]
 - ["CSo16UIViewController", "viewDidDisappear"]
@@ -3109,7 +3221,8 @@ depends-member:
 - !private ["P9Alamofire14URLConvertible", "localized"]
 - !private ["Sc", "deinit"]
 - ["CSo12UserDefaults", "deinit"]
-- !private ["CSo12UserDefaults", "standard"]
+- ["CSo12UserDefaults", "integer"]
+- ["CSo12UserDefaults", "standard"]
 - !private ["CSo12UserDefaults", "string"]
 - !private ["C11DiabetesApp12UtilityClass", "displayAlertMessage"]
 - !private ["Ps14_ArrayProtocol", "Iterator"]
@@ -3147,6 +3260,7 @@ depends-member:
 - !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "localized"]
 - !private ["Ps33_ExpressibleByBuiltinFloatLiteral", "Stride"]
 - !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "Stride"]
+- ["Ps35_ExpressibleByBuiltinIntegerLiteral", "init"]
 - !private ["Ps34_ExpressibleByBuiltinStringLiteral", "RawValue"]
 - ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
 - !private ["Ps34_ExpressibleByBuiltinStringLiteral", "localized"]
@@ -3169,6 +3283,7 @@ depends-member:
 - !private ["Ps9_Hashable", "CGRect"]
 - !private ["Ps9_Hashable", "Colors"]
 - !private ["Ps9_Hashable", "Fonts"]
+- ["Ps9_Hashable", "Int"]
 - !private ["Ps9_Hashable", "Iterator"]
 - !private ["Ps9_Hashable", "JSONEncoding"]
 - ["Ps9_Hashable", "NSArray"]
@@ -3189,7 +3304,7 @@ depends-member:
 - !private ["Ps9_Hashable", "UILabel"]
 - !private ["Ps9_Hashable", "UITapGestureRecognizer"]
 - !private ["Ps9_Hashable", "UIView"]
-- !private ["Ps9_Hashable", "UserDefaults"]
+- ["Ps9_Hashable", "UserDefaults"]
 - !private ["Ps9_Hashable", "UtilityClass"]
 - !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
 - !private ["Ps9_Hashable", "add"]
@@ -3221,12 +3336,14 @@ depends-member:
 - !private ["Ps9_Hashable", "endEditing"]
 - !private ["Ps9_Hashable", "font"]
 - !private ["Ps9_Hashable", "frame"]
+- ["Ps9_Hashable", "getDoctorReportReadingHistory"]
 - ["Ps9_Hashable", "getReportReadingHistory"]
 - !private ["Ps9_Hashable", "image"]
 - ["Ps9_Hashable", "indexPathForPreferredFocusedView"]
 - ["Ps9_Hashable", "indexPathForPreferredFocusedViewInTableView"]
 - ["Ps9_Hashable", "init"]
 - !private ["Ps9_Hashable", "inputView"]
+- ["Ps9_Hashable", "integer"]
 - !private ["Ps9_Hashable", "isHidden"]
 - !private ["Ps9_Hashable", "layer"]
 - !private ["Ps9_Hashable", "lightGray"]
@@ -3272,11 +3389,12 @@ depends-member:
 - ["Ps9_Hashable", "sectionIndexTitlesForTableView"]
 - ["Ps9_Hashable", "sectionsArray"]
 - !private ["Ps9_Hashable", "selectedRow"]
+- ["Ps9_Hashable", "selectedUserType"]
 - !private ["Ps9_Hashable", "selectionStyle"]
 - !private ["Ps9_Hashable", "setObject"]
 - ["Ps9_Hashable", "setUI"]
 - !private ["Ps9_Hashable", "setValue"]
-- !private ["Ps9_Hashable", "standard"]
+- ["Ps9_Hashable", "standard"]
 - !private ["Ps9_Hashable", "string"]
 - !private ["Ps9_Hashable", "subscript"]
 - ["Ps9_Hashable", "tableView"]
@@ -3286,7 +3404,8 @@ depends-member:
 - !private ["Ps9_Hashable", "text"]
 - !private ["Ps9_Hashable", "textColor"]
 - !private ["Ps9_Hashable", "title"]
-- !private ["Ps9_Hashable", "userDefaults"]
+- ["Ps9_Hashable", "userDefaults"]
+- !private ["Ps9_Hashable", "userType"]
 - !private ["Ps9_Hashable", "value"]
 - !private ["Ps9_Hashable", "view"]
 - ["Ps9_Hashable", "viewDidAppear"]
@@ -3297,8 +3416,11 @@ depends-member:
 - !private ["Ps9_Hashable", "white"]
 - ["Ps9_Hashable", ""]
 - !private ["Ps14_Incrementable", "Stride"]
+- ["Ps14_Incrementable", "init"]
 - !private ["Ps8_Integer", "Stride"]
+- ["Ps8_Integer", "init"]
 - !private ["Ps18_IntegerArithmetic", "Stride"]
+- ["Ps18_IntegerArithmetic", "init"]
 - !private ["Ps21_ObjectiveCBridgeable", "Iterator"]
 - !private ["Ps21_ObjectiveCBridgeable", "Key"]
 - !private ["Ps21_ObjectiveCBridgeable", "RawValue"]
@@ -3315,9 +3437,13 @@ depends-member:
 - !private ["Ps21_ObjectiveCBridgeable", "width"]
 - ["Vs26_OptionalNilComparisonType", "deinit"]
 - !private ["Ps14_SignedInteger", "Stride"]
+- ["Ps14_SignedInteger", "init"]
 - !private ["Ps11_Strideable", "Stride"]
+- ["Ps11_Strideable", "init"]
 - !private ["Ps20_SwiftNewtypeWrapper", "init"]
+- ["V11DiabetesApp12userDefaults", "loggedInUserType"]
 - !private ["V11DiabetesApp12userDefaults", "selectedPatientID"]
+- !private ["V11DiabetesApp8userType", "doctor"]
 depends-nominal:
 - !private "Ps16AbsoluteValuable"
 - "Ps9AnyObject"
@@ -3325,7 +3451,7 @@ depends-nominal:
 - !private "Ps23BidirectionalCollection"
 - !private "Ps22BidirectionalIndexable"
 - !private "Ps19BinaryFloatingPoint"
-- !private "Ps17BitwiseOperations"
+- "Ps17BitwiseOperations"
 - "Sb"
 - "CSo7CALayer"
 - !private "PSo15CALayerDelegate"
@@ -3353,7 +3479,7 @@ depends-nominal:
 - "Ps30ExpressibleByDictionaryLiteral"
 - "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
 - !private "Ps25ExpressibleByFloatLiteral"
-- !private "Ps27ExpressibleByIntegerLiteral"
+- "Ps27ExpressibleByIntegerLiteral"
 - !private "Ps23ExpressibleByNilLiteral"
 - "Ps32ExpressibleByStringInterpolation"
 - "Ps26ExpressibleByStringLiteral"
@@ -3374,8 +3500,8 @@ depends-nominal:
 - !private "Vs5Int32"
 - !private "Vs5Int64"
 - !private "Vs4Int8"
-- !private "Ps7Integer"
-- !private "Ps17IntegerArithmetic"
+- "Ps7Integer"
+- "Ps17IntegerArithmetic"
 - !private "Ps16IteratorProtocol"
 - "V9Alamofire12JSONEncoding"
 - "Ps25LosslessStringConvertible"
@@ -3416,9 +3542,9 @@ depends-nominal:
 - !private "O9Alamofire6Result"
 - "V10ObjectiveC8Selector"
 - "Ps8Sequence"
-- !private "Ps13SignedInteger"
-- !private "Ps12SignedNumber"
-- !private "Ps10Strideable"
+- "Ps13SignedInteger"
+- "Ps12SignedNumber"
+- "Ps10Strideable"
 - "SS"
 - "Ps16TextOutputStream"
 - "Ps20TextOutputStreamable"
@@ -3478,7 +3604,7 @@ depends-nominal:
 - !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
 - "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
 - !private "Ps33_ExpressibleByBuiltinFloatLiteral"
-- !private "Ps35_ExpressibleByBuiltinIntegerLiteral"
+- "Ps35_ExpressibleByBuiltinIntegerLiteral"
 - "Ps34_ExpressibleByBuiltinStringLiteral"
 - "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
 - "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
@@ -3486,15 +3612,16 @@ depends-nominal:
 - !private "Ps26_ExpressibleByImageLiteral"
 - "Ps35_HasCustomAnyHashableRepresentation"
 - "Ps9_Hashable"
-- !private "Ps14_Incrementable"
-- !private "Ps8_Integer"
-- !private "Ps18_IntegerArithmetic"
+- "Ps14_Incrementable"
+- "Ps8_Integer"
+- "Ps18_IntegerArithmetic"
 - "Ps21_ObjectiveCBridgeable"
 - "Vs26_OptionalNilComparisonType"
-- !private "Ps14_SignedInteger"
-- !private "Ps11_Strideable"
+- "Ps14_SignedInteger"
+- "Ps11_Strideable"
 - !private "Ps20_SwiftNewtypeWrapper"
-- !private "V11DiabetesApp12userDefaults"
+- "V11DiabetesApp12userDefaults"
+- !private "V11DiabetesApp8userType"
 depends-dynamic-lookup:
 - !private "tag"
 - !private "object"
@@ -3810,4 +3937,4 @@ depends-external:
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController-umbrella.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Modules/module.modulemap"
-interface-hash: "595a8f486afb84e83270034c69ed0b94"
+interface-hash: "0f41ae65f79c6011907c526bc54136f6"

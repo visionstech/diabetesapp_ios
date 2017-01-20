@@ -8,16 +8,16 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "String"
-- "Timeline"
-- !private "Array"
-- "CFAbsoluteTime"
-- !private "StringLiteralType"
-- "AssignmentPrecedence"
-- "CustomStringConvertible"
 - "CustomDebugStringConvertible"
-- !private "-"
+- "CustomStringConvertible"
+- !private "StringLiteralType"
 - "TimeInterval"
+- "AssignmentPrecedence"
+- "CFAbsoluteTime"
 - !private "+"
+- "Timeline"
+- !private "-"
+- !private "Array"
 depends-member:
 - !private ["Ps9AnyObject", "init"]
 - !private ["Sa", "Element"]

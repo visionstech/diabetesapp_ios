@@ -6,19 +6,19 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp9AlertView", ""]
 provides-dynamic-lookup:
-- "alertView"
 - "alert"
+- "alertView"
 depends-top-level:
-- "Int"
-- "Unmanaged"
-- "UIAlertView"
-- "String"
-- "AlertView"
-- "AssignmentPrecedence"
 - "Void"
-- !private "StringLiteralType"
-- "NSObject"
+- "AssignmentPrecedence"
+- "Int"
 - "UIAlertViewDelegate"
+- "Unmanaged"
+- !private "StringLiteralType"
+- "AlertView"
+- "String"
+- "NSObject"
+- "UIAlertView"
 depends-member:
 - ["C11DiabetesApp9AlertView", "Int"]
 - ["C11DiabetesApp9AlertView", "NSObject"]

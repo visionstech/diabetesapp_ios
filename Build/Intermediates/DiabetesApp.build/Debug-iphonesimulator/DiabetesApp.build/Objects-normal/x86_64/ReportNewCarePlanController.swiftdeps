@@ -6,62 +6,62 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp27ReportNewCarePlanController", ""]
 provides-dynamic-lookup:
-- "viewDidLoad"
-- "viewDidDisappear"
-- "addNotifications"
-- "resetUI"
-- "getReadingsData"
-- "tblView"
-- "readingNotification"
-- "array"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "viewWillAppear"
 - "didReceiveMemoryWarning"
+- "array"
 - "numberOfSections"
+- "addNotifications"
+- "viewWillAppear"
+- "getDoctorReadingData"
+- "tblView"
+- "viewDidLoad"
+- "resetUI"
+- "readingNotification"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "viewDidDisappear"
 depends-top-level:
-- !private "Parameters"
-- !private "NSCopying"
-- "UITableViewDataSource"
-- "AssignmentPrecedence"
-- "CastingPrecedence"
-- !private "print"
-- !private "+"
-- !private "CarePlanReadingHeaderTableViewCell"
-- !private "=="
 - !private "!="
-- !private "Dictionary"
-- !private "NotificationCenter"
-- "UITableView"
-- "CGFloat"
-- "UIViewController"
-- "Int"
-- !private "CarePlanReadingObj"
-- !private ">"
-- !private "String"
-- !private "frequnecyArray"
-- !private "Alamofire"
-- !private "NSArray"
-- "NSNotification"
-- "Bool"
-- !private "UserDefaults"
-- !private "userDefaults"
-- "UIView"
-- "IndexPath"
-- "NSMutableArray"
-- "UITableViewCell"
 - !private "BooleanLiteralType"
-- !private "CarePlanReadingTableViewCell"
-- "ReportNewCarePlanController"
-- !private "JSONEncoding"
-- !private "NSDictionary"
-- !private "UnicodeScalarType"
-- !private "Notifications"
 - !private "NSMutableDictionary"
+- "UITableViewCell"
+- "Int"
+- !private "JSONEncoding"
+- !private "NSCopying"
+- !private "CarePlanReadingObj"
+- !private "UserDefaults"
+- "UIViewController"
+- !private "Dictionary"
+- !private "Alamofire"
+- !private "NotificationCenter"
+- !private "frequnecyArray"
+- "NSMutableArray"
+- !private "+"
+- !private ">"
+- "Bool"
+- !private "Parameters"
+- "ReportNewCarePlanController"
+- !private "CarePlanReadingTableViewCell"
+- "CastingPrecedence"
+- "AssignmentPrecedence"
+- "UITableViewDataSource"
+- !private "UnicodeScalarType"
+- !private "print"
+- "UIView"
+- !private "NSDictionary"
+- !private "NSArray"
+- "CGFloat"
 - "UITableViewDelegate"
+- !private "Notifications"
+- !private "=="
+- "UITableView"
+- !private "String"
+- "IndexPath"
+- "NSNotification"
+- !private "CarePlanReadingHeaderTableViewCell"
+- !private "userDefaults"
 depends-member:
 - !private ["Ps9AnyObject", "Alamofire"]
 - !private ["Ps9AnyObject", "CarePlanReadingObj"]
@@ -88,7 +88,7 @@ depends-member:
 - !private ["Ps9AnyObject", "frequency"]
 - !private ["Ps9AnyObject", "frequencyLbl"]
 - !private ["Ps9AnyObject", "frequnecyArray"]
-- ["Ps9AnyObject", "getReadingsData"]
+- ["Ps9AnyObject", "getDoctorReadingData"]
 - !private ["Ps9AnyObject", "goal"]
 - !private ["Ps9AnyObject", "goalLbl"]
 - !private ["Ps9AnyObject", "id"]
@@ -184,7 +184,7 @@ depends-member:
 - !private ["Ps7CVarArg", "frequency"]
 - !private ["Ps7CVarArg", "frequencyLbl"]
 - !private ["Ps7CVarArg", "frequnecyArray"]
-- ["Ps7CVarArg", "getReadingsData"]
+- ["Ps7CVarArg", "getDoctorReadingData"]
 - !private ["Ps7CVarArg", "goal"]
 - !private ["Ps7CVarArg", "goalLbl"]
 - !private ["Ps7CVarArg", "id"]
@@ -286,7 +286,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "frequency"]
 - !private ["Ps28CustomDebugStringConvertible", "frequencyLbl"]
 - !private ["Ps28CustomDebugStringConvertible", "frequnecyArray"]
-- ["Ps28CustomDebugStringConvertible", "getReadingsData"]
+- ["Ps28CustomDebugStringConvertible", "getDoctorReadingData"]
 - !private ["Ps28CustomDebugStringConvertible", "goal"]
 - !private ["Ps28CustomDebugStringConvertible", "goalLbl"]
 - !private ["Ps28CustomDebugStringConvertible", "id"]
@@ -390,7 +390,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "frequency"]
 - !private ["Ps23CustomStringConvertible", "frequencyLbl"]
 - !private ["Ps23CustomStringConvertible", "frequnecyArray"]
-- ["Ps23CustomStringConvertible", "getReadingsData"]
+- ["Ps23CustomStringConvertible", "getDoctorReadingData"]
 - !private ["Ps23CustomStringConvertible", "goal"]
 - !private ["Ps23CustomStringConvertible", "goalLbl"]
 - !private ["Ps23CustomStringConvertible", "id"]
@@ -480,7 +480,7 @@ depends-member:
 - !private ["Ps9Equatable", "frequency"]
 - !private ["Ps9Equatable", "frequencyLbl"]
 - !private ["Ps9Equatable", "frequnecyArray"]
-- ["Ps9Equatable", "getReadingsData"]
+- ["Ps9Equatable", "getDoctorReadingData"]
 - !private ["Ps9Equatable", "goal"]
 - !private ["Ps9Equatable", "goalLbl"]
 - !private ["Ps9Equatable", "id"]
@@ -588,7 +588,7 @@ depends-member:
 - !private ["Ps8Hashable", "frequency"]
 - !private ["Ps8Hashable", "frequencyLbl"]
 - !private ["Ps8Hashable", "frequnecyArray"]
-- ["Ps8Hashable", "getReadingsData"]
+- ["Ps8Hashable", "getDoctorReadingData"]
 - !private ["Ps8Hashable", "goal"]
 - !private ["Ps8Hashable", "goalLbl"]
 - !private ["Ps8Hashable", "id"]
@@ -702,7 +702,7 @@ depends-member:
 - ["PSo8NSCoding", "didReceiveMemoryWarning"]
 - !private ["PSo8NSCoding", "frequencyLbl"]
 - !private ["PSo8NSCoding", "frequnecyArray"]
-- ["PSo8NSCoding", "getReadingsData"]
+- ["PSo8NSCoding", "getDoctorReadingData"]
 - !private ["PSo8NSCoding", "goalLbl"]
 - ["PSo8NSCoding", "indexPathForPreferredFocusedView"]
 - ["PSo8NSCoding", "indexPathForPreferredFocusedViewInTableView"]
@@ -781,7 +781,7 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "array"]
 - ["PSo26NSExtensionRequestHandling", "didReceiveMemoryWarning"]
 - !private ["PSo26NSExtensionRequestHandling", "frequnecyArray"]
-- ["PSo26NSExtensionRequestHandling", "getReadingsData"]
+- ["PSo26NSExtensionRequestHandling", "getDoctorReadingData"]
 - ["PSo26NSExtensionRequestHandling", "indexPathForPreferredFocusedView"]
 - ["PSo26NSExtensionRequestHandling", "indexPathForPreferredFocusedViewInTableView"]
 - !private ["PSo26NSExtensionRequestHandling", "init"]
@@ -891,7 +891,7 @@ depends-member:
 - !private ["CSo8NSObject", "frequency"]
 - !private ["CSo8NSObject", "frequencyLbl"]
 - !private ["CSo8NSObject", "frequnecyArray"]
-- ["CSo8NSObject", "getReadingsData"]
+- ["CSo8NSObject", "getDoctorReadingData"]
 - !private ["CSo8NSObject", "goal"]
 - !private ["CSo8NSObject", "goalLbl"]
 - !private ["CSo8NSObject", "id"]
@@ -966,7 +966,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "frequency"]
 - !private ["PSo16NSObjectProtocol", "frequencyLbl"]
 - !private ["PSo16NSObjectProtocol", "frequnecyArray"]
-- ["PSo16NSObjectProtocol", "getReadingsData"]
+- ["PSo16NSObjectProtocol", "getDoctorReadingData"]
 - !private ["PSo16NSObjectProtocol", "goal"]
 - !private ["PSo16NSObjectProtocol", "goalLbl"]
 - !private ["PSo16NSObjectProtocol", "id"]
@@ -1077,7 +1077,7 @@ depends-member:
 - ["C11DiabetesApp27ReportNewCarePlanController", "deinit"]
 - ["C11DiabetesApp27ReportNewCarePlanController", "didReceiveMemoryWarning"]
 - !private ["C11DiabetesApp27ReportNewCarePlanController", "frequnecyArray"]
-- ["C11DiabetesApp27ReportNewCarePlanController", "getReadingsData"]
+- ["C11DiabetesApp27ReportNewCarePlanController", "getDoctorReadingData"]
 - ["C11DiabetesApp27ReportNewCarePlanController", "indexPathForPreferredFocusedView"]
 - ["C11DiabetesApp27ReportNewCarePlanController", "indexPathForPreferredFocusedViewInTableView"]
 - ["C11DiabetesApp27ReportNewCarePlanController", "init"]
@@ -1173,7 +1173,7 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "didReceiveMemoryWarning"]
 - !private ["PSo21UIAppearanceContainer", "frequencyLbl"]
 - !private ["PSo21UIAppearanceContainer", "frequnecyArray"]
-- ["PSo21UIAppearanceContainer", "getReadingsData"]
+- ["PSo21UIAppearanceContainer", "getDoctorReadingData"]
 - !private ["PSo21UIAppearanceContainer", "goalLbl"]
 - ["PSo21UIAppearanceContainer", "indexPathForPreferredFocusedView"]
 - ["PSo21UIAppearanceContainer", "indexPathForPreferredFocusedViewInTableView"]
@@ -1226,7 +1226,7 @@ depends-member:
 - ["PSo18UIContentContainer", "array"]
 - ["PSo18UIContentContainer", "didReceiveMemoryWarning"]
 - !private ["PSo18UIContentContainer", "frequnecyArray"]
-- ["PSo18UIContentContainer", "getReadingsData"]
+- ["PSo18UIContentContainer", "getDoctorReadingData"]
 - ["PSo18UIContentContainer", "indexPathForPreferredFocusedView"]
 - ["PSo18UIContentContainer", "indexPathForPreferredFocusedViewInTableView"]
 - !private ["PSo18UIContentContainer", "init"]
@@ -1296,7 +1296,7 @@ depends-member:
 - ["PSo18UIFocusEnvironment", "didReceiveMemoryWarning"]
 - !private ["PSo18UIFocusEnvironment", "frequencyLbl"]
 - !private ["PSo18UIFocusEnvironment", "frequnecyArray"]
-- ["PSo18UIFocusEnvironment", "getReadingsData"]
+- ["PSo18UIFocusEnvironment", "getDoctorReadingData"]
 - !private ["PSo18UIFocusEnvironment", "goalLbl"]
 - ["PSo18UIFocusEnvironment", "indexPathForPreferredFocusedView"]
 - ["PSo18UIFocusEnvironment", "indexPathForPreferredFocusedViewInTableView"]
@@ -1382,7 +1382,7 @@ depends-member:
 - ["CSo11UIResponder", "didReceiveMemoryWarning"]
 - !private ["CSo11UIResponder", "frequencyLbl"]
 - !private ["CSo11UIResponder", "frequnecyArray"]
-- ["CSo11UIResponder", "getReadingsData"]
+- ["CSo11UIResponder", "getDoctorReadingData"]
 - !private ["CSo11UIResponder", "goalLbl"]
 - ["CSo11UIResponder", "indexPathForPreferredFocusedView"]
 - ["CSo11UIResponder", "indexPathForPreferredFocusedViewInTableView"]
@@ -1437,7 +1437,7 @@ depends-member:
 - ["PSo30UIResponderStandardEditActions", "didReceiveMemoryWarning"]
 - !private ["PSo30UIResponderStandardEditActions", "frequencyLbl"]
 - !private ["PSo30UIResponderStandardEditActions", "frequnecyArray"]
-- ["PSo30UIResponderStandardEditActions", "getReadingsData"]
+- ["PSo30UIResponderStandardEditActions", "getDoctorReadingData"]
 - !private ["PSo30UIResponderStandardEditActions", "goalLbl"]
 - ["PSo30UIResponderStandardEditActions", "indexPathForPreferredFocusedView"]
 - ["PSo30UIResponderStandardEditActions", "indexPathForPreferredFocusedViewInTableView"]
@@ -1492,7 +1492,7 @@ depends-member:
 - !private ["PSo20UIScrollViewDelegate", "addNotifications"]
 - !private ["PSo20UIScrollViewDelegate", "array"]
 - !private ["PSo20UIScrollViewDelegate", "frequnecyArray"]
-- !private ["PSo20UIScrollViewDelegate", "getReadingsData"]
+- !private ["PSo20UIScrollViewDelegate", "getDoctorReadingData"]
 - ["PSo20UIScrollViewDelegate", "indexPathForPreferredFocusedView"]
 - ["PSo20UIScrollViewDelegate", "indexPathForPreferredFocusedViewInTableView"]
 - ["PSo20UIScrollViewDelegate", "numberOfSections"]
@@ -1534,7 +1534,7 @@ depends-member:
 - ["PSo16UIStateRestoring", "array"]
 - ["PSo16UIStateRestoring", "didReceiveMemoryWarning"]
 - !private ["PSo16UIStateRestoring", "frequnecyArray"]
-- ["PSo16UIStateRestoring", "getReadingsData"]
+- ["PSo16UIStateRestoring", "getDoctorReadingData"]
 - ["PSo16UIStateRestoring", "indexPathForPreferredFocusedView"]
 - ["PSo16UIStateRestoring", "indexPathForPreferredFocusedViewInTableView"]
 - !private ["PSo16UIStateRestoring", "init"]
@@ -1592,7 +1592,7 @@ depends-member:
 - !private ["PSo21UITableViewDataSource", "addNotifications"]
 - !private ["PSo21UITableViewDataSource", "array"]
 - !private ["PSo21UITableViewDataSource", "frequnecyArray"]
-- !private ["PSo21UITableViewDataSource", "getReadingsData"]
+- !private ["PSo21UITableViewDataSource", "getDoctorReadingData"]
 - ["PSo21UITableViewDataSource", "indexPathForPreferredFocusedView"]
 - ["PSo21UITableViewDataSource", "indexPathForPreferredFocusedViewInTableView"]
 - ["PSo21UITableViewDataSource", "numberOfSections"]
@@ -1633,7 +1633,7 @@ depends-member:
 - !private ["PSo19UITableViewDelegate", "addNotifications"]
 - !private ["PSo19UITableViewDelegate", "array"]
 - !private ["PSo19UITableViewDelegate", "frequnecyArray"]
-- !private ["PSo19UITableViewDelegate", "getReadingsData"]
+- !private ["PSo19UITableViewDelegate", "getDoctorReadingData"]
 - ["PSo19UITableViewDelegate", "indexPathForPreferredFocusedView"]
 - ["PSo19UITableViewDelegate", "indexPathForPreferredFocusedViewInTableView"]
 - ["PSo19UITableViewDelegate", "numberOfSections"]
@@ -1678,7 +1678,7 @@ depends-member:
 - ["PSo18UITraitEnvironment", "didReceiveMemoryWarning"]
 - !private ["PSo18UITraitEnvironment", "frequencyLbl"]
 - !private ["PSo18UITraitEnvironment", "frequnecyArray"]
-- ["PSo18UITraitEnvironment", "getReadingsData"]
+- ["PSo18UITraitEnvironment", "getDoctorReadingData"]
 - !private ["PSo18UITraitEnvironment", "goalLbl"]
 - ["PSo18UITraitEnvironment", "indexPathForPreferredFocusedView"]
 - ["PSo18UITraitEnvironment", "indexPathForPreferredFocusedViewInTableView"]
@@ -1755,7 +1755,7 @@ depends-member:
 - ["CSo16UIViewController", "deinit"]
 - ["CSo16UIViewController", "didReceiveMemoryWarning"]
 - !private ["CSo16UIViewController", "frequnecyArray"]
-- ["CSo16UIViewController", "getReadingsData"]
+- ["CSo16UIViewController", "getDoctorReadingData"]
 - ["CSo16UIViewController", "indexPathForPreferredFocusedView"]
 - ["CSo16UIViewController", "indexPathForPreferredFocusedViewInTableView"]
 - ["CSo16UIViewController", "init"]
@@ -1846,7 +1846,7 @@ depends-member:
 - !private ["Ps9_Hashable", "frequency"]
 - !private ["Ps9_Hashable", "frequencyLbl"]
 - !private ["Ps9_Hashable", "frequnecyArray"]
-- ["Ps9_Hashable", "getReadingsData"]
+- ["Ps9_Hashable", "getDoctorReadingData"]
 - !private ["Ps9_Hashable", "goal"]
 - !private ["Ps9_Hashable", "goalLbl"]
 - !private ["Ps9_Hashable", "id"]
@@ -2352,4 +2352,4 @@ depends-external:
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController-umbrella.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Modules/module.modulemap"
-interface-hash: "59396ccc11701f3d272d30d07578662d"
+interface-hash: "aaf54b5bdb742368e383ac06c254d31a"

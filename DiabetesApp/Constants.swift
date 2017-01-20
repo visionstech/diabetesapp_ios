@@ -157,6 +157,9 @@ struct Notifications {
     static let ReportListHistoryView = "ReportListHistoryView"
     static let ReportChartHistoryView = "ReportChartHistoryView"
     
+    static let DoctorReportListHistoryView = "DoctorReportListHistoryView"
+    static let DoctorReportChartHistoryView = "DoctorReportChartHistoryView"
+    
 }
 
 // MARK: - Colors

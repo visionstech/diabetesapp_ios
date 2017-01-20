@@ -8,10 +8,13 @@
 
 import UIKit
 import  Alamofire
-class ReportCarePlanController: UIViewController , UITableViewDelegate, UITableViewDataSource {
+
+ let selectedUserType: Int = Int(UserDefaults.standard.integer(forKey: userDefaults.loggedInUserType))
+class ReportCarePlanController: UIViewController , UITableViewDelegate, UITableViewDataSource , UITextFieldDelegate {
     
     @IBOutlet weak var tblView: UITableView!
-    
+    var selectedIndex = Int()
+    var selectedIndexPath = IndexPath()
     var array = NSMutableArray()
     
     override func viewDidLoad() {
@@ -22,7 +25,12 @@ class ReportCarePlanController: UIViewController , UITableViewDelegate, UITableV
     }
     override func viewWillAppear(_ animated: Bool) {
         addNotifications()
-        getReadingsData()
+         if selectedUserType == userType.doctor {
+            getDoctorReadingsData()
+         } else{
+           getReadingsData()
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -49,7 +57,41 @@ class ReportCarePlanController: UIViewController , UITableViewDelegate, UITableV
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.readingNotification(notification:)), name: NSNotification.Name(rawValue: Notifications.readingView), object: nil)
     }
-    
+     //MARK: - textfield  Delegates
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField.accessibilityValue == "goal" {
+            let selectedIndex : Int = Int(textField.accessibilityLabel!)!
+            let mainDict: NSMutableDictionary = array[textField.tag] as! NSMutableDictionary
+            let itemsArray: NSMutableArray = mainDict.object(forKey: "data") as! NSMutableArray
+            let obj: CarePlanReadingObj = itemsArray[selectedIndex] as! CarePlanReadingObj
+            let str: NSString = NSString(string: textField.text!)
+            let resultString: String = str.replacingCharacters(in: range, with:string)
+            obj.goal  = ((resultString) as NSString) as String
+            itemsArray.replaceObject(at:textField.tag, with: obj)
+            let mSectioDict = (array[textField.tag] as AnyObject) as! NSDictionary
+            let sectionsDict = NSMutableDictionary(dictionary:mSectioDict)
+         array.replaceObject(at:textField.tag, with: sectionsDict)
+
+        }
+        else {
+            let selectedIndex : Int = Int(textField.accessibilityLabel!)!
+            let mainDict: NSMutableDictionary = array[textField.tag] as! NSMutableDictionary
+            let itemsArray: NSMutableArray = mainDict.object(forKey: "data") as! NSMutableArray
+            let obj: CarePlanReadingObj = itemsArray[selectedIndex] as! CarePlanReadingObj
+            let str: NSString = NSString(string: textField.text!)
+            let resultString: String = str.replacingCharacters(in: range, with:string)
+            obj.frequency  = ((resultString) as NSString) as String
+            itemsArray.replaceObject(at:textField.tag, with: obj)
+            let mSectioDict = (array[textField.tag] as AnyObject) as! NSDictionary
+            let sectionsDict = NSMutableDictionary(dictionary:mSectioDict)
+            array.replaceObject(at: textField.tag, with: sectionsDict)
+
+        }
+
+       
+      return true
+    }
+
     //MARK: - Notifications Methods
     func readingNotification(notification: NSNotification) {
         
@@ -60,7 +102,7 @@ class ReportCarePlanController: UIViewController , UITableViewDelegate, UITableV
         if  UserDefaults.standard.string(forKey: userDefaults.selectedPatientID) != nil {
             
             
-            let patientsID: String? = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+          //  let patientsID: String? = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
             let parameters: Parameters = [
                 "patientid": "58563eb4d9c776ad70491b7b",
                 "educatorid":"58563eb4d9c776ad70491b97",
@@ -130,6 +172,79 @@ class ReportCarePlanController: UIViewController , UITableViewDelegate, UITableV
         }
     }
     
+    func getDoctorReadingsData() {
+        if  UserDefaults.standard.string(forKey: userDefaults.selectedPatientID) != nil {
+            
+            
+            //  let patientsID: String? = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+            let parameters: Parameters = [
+                "taskid": "5878ce306e4778515545c6dc",
+                "patientid": "58563eb4d9c776ad70491b7b",
+                "numDaysBack": "1",
+                "condition": "All conditions"
+            ]
+            print(parameters)
+            
+            Alamofire.request("http://54.212.229.198:3000/getdoctorreport", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+                
+                print(response)
+                
+                switch response.result {
+                case .success:
+                    print("Validation Successful")
+                    
+                    if let JSON: NSDictionary = response.result.value! as? NSDictionary {
+                        print(JSON)
+                        let arr  = NSMutableArray(array: JSON.object(forKey: "readingsTime")as! NSArray)
+                        self.array.removeAllObjects()
+                        for time in frequnecyArray {
+                            let mainDict: NSMutableDictionary = NSMutableDictionary()
+                            mainDict.setValue(String(describing: time), forKey: "frequency")
+                            let itemsArray: NSMutableArray = NSMutableArray()
+                            for data in arr {
+                                let dict: NSDictionary = data as! NSDictionary
+                                let obj = CarePlanReadingObj()
+                                obj.id = dict.value(forKey: "_id") as! String
+                                // Between
+                                let goalStr: String = dict.value(forKey: "goal") as! String
+                                obj.goal = goalStr.replacingOccurrences(of: "Between ", with: "")
+                                //obj.goal = dict.value(forKey: "goal") as! String
+                                obj.time = dict.value(forKey: "time") as! String
+                                obj.frequency = dict.value(forKey: "frequency") as! String
+                                print(String(describing: time))
+                                if String(describing: time) == obj.time {
+                                    itemsArray.add(obj)
+                                }
+                            }
+                            
+                            if itemsArray.count > 0{
+                                //                                for i : Int in 0 ..< itemsArray.count {
+                                mainDict.setObject(itemsArray, forKey: "data" as NSCopying)
+                                self.array.add(mainDict)
+                                // }
+                            }
+                            
+                        }
+                        
+                        print(self.array)
+                    }
+                    self.tblView.reloadData()
+                    self.resetUI()
+                    
+                    break
+                    
+                case .failure:
+                    print("failure")
+                    self.tblView.reloadData()
+                    self.resetUI()
+                    
+                    break
+                    
+                }
+            }
+        }
+    }
+    
     
     //MARK: - TableView Delegate Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -147,13 +262,27 @@ class ReportCarePlanController: UIViewController , UITableViewDelegate, UITableV
         
         let mainDict: NSMutableDictionary = array[indexPath.section] as! NSMutableDictionary
         let itemsArray: NSMutableArray = mainDict.object(forKey: "data") as! NSMutableArray
-        
-        let cell : CarePlanReadingTableViewCell = tableView.dequeueReusableCell(withIdentifier: "readingsCell")! as! CarePlanReadingTableViewCell
+        let cell : ReportCarePlanReadingViewCell = tableView.dequeueReusableCell(withIdentifier: "readingsCell")! as! ReportCarePlanReadingViewCell
         cell.selectionStyle = .none
         cell.tag = indexPath.row
+        if selectedUserType == userType.doctor {
+            cell.goalLbl.isUserInteractionEnabled = false
+            cell.conditionLbl.isUserInteractionEnabled = false
+        }
+        else {
+            cell.goalLbl.isUserInteractionEnabled = true
+            cell.conditionLbl.isUserInteractionEnabled = true
+        }
+        cell.goalLbl.delegate = self
         if let obj: CarePlanReadingObj = itemsArray[indexPath.row] as? CarePlanReadingObj {
+            cell.goalLbl.tag = indexPath.section
+            cell.goalLbl.accessibilityLabel = "\(indexPath.row)"
+            cell.goalLbl.accessibilityValue = "goal"
             cell.goalLbl.text = obj.goal
             cell.conditionLbl.text = obj.frequency
+            cell.conditionLbl.tag = indexPath.section
+            cell.conditionLbl.accessibilityLabel = "\(indexPath.row)"
+            cell.conditionLbl.accessibilityValue = "Condition"
             cell.numberLbl.text = "\(indexPath.row+1)."
         }
         
