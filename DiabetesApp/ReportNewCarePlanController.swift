@@ -17,7 +17,12 @@ class ReportNewCarePlanController: UIViewController , UITableViewDelegate, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if selectedUserType == userType.doctor {
         
+        }
+          else {
+            
+        }
         // Do any additional setup after loading the view.
         
     }
@@ -49,11 +54,12 @@ class ReportNewCarePlanController: UIViewController , UITableViewDelegate, UITab
     func addNotifications(){
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.readingNotification(notification:)), name: NSNotification.Name(rawValue: Notifications.readingView), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.readingNotification(notification:)), name: NSNotification.Name(rawValue: Notifications.newReadingView), object: nil)
     }
     
     //MARK: - Notifications Methods
     func readingNotification(notification: NSNotification) {
-        
+        tblView.reloadData()
     }
     
     // MARK: - Api Methods
@@ -156,13 +162,22 @@ class ReportNewCarePlanController: UIViewController , UITableViewDelegate, UITab
         let cell : ReportCarePlanReadingViewCell = tableView.dequeueReusableCell(withIdentifier: "readingsCell")! as! ReportCarePlanReadingViewCell
         cell.selectionStyle = .none
         cell.tag = indexPath.row
+        
         if selectedUserType == userType.doctor {
-            cell.goalLbl.isUserInteractionEnabled = true
-            cell.conditionLbl.isUserInteractionEnabled = true
+            if UserDefaults.standard.bool(forKey: "NewReadEditBool") {
+                cell.goalLbl.isUserInteractionEnabled = true
+                cell.conditionLbl.isUserInteractionEnabled = true
+            }
+            else {
+                cell.goalLbl.isUserInteractionEnabled = false
+                cell.conditionLbl.isUserInteractionEnabled = false
+            }
         }
         else {
-            cell.goalLbl.isUserInteractionEnabled = false
-            cell.conditionLbl.isUserInteractionEnabled = false
+            
+                cell.goalLbl.isUserInteractionEnabled = false
+                cell.conditionLbl.isUserInteractionEnabled = false
+            
         }
 
         if let obj: CarePlanReadingObj = itemsArray[indexPath.row] as? CarePlanReadingObj {

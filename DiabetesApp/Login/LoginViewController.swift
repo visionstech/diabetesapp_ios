@@ -179,7 +179,8 @@ class LoginViewController: UIViewController, QBCoreDelegate {
             let parameters: Parameters = [
                 "username": username,
                 "password": password,
-                "typeid" : selectedUserType
+                "typeid" : selectedUserType,
+                "devicetoken" : "kshfjb656312616"
             ]
             
             Alamofire.request("\(baseUrl)\(ApiMethods.login)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in

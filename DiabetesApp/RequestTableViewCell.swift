@@ -21,6 +21,7 @@ class RequestTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBOutlet weak var lblDoctorEductor: UILabel!
     @IBOutlet weak var lblEducator: UILabel!
     @IBOutlet weak var lblRequestStatus: UILabel!
     @IBOutlet weak var lbPatientName: UILabel!

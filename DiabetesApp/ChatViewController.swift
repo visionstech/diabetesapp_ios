@@ -47,6 +47,8 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
     var groupMembersArray = NSMutableArray()
     
     var topBackView:UIView = UIView()
+    var topUserImageView : UIView = UIView()
+    
     
     
     
@@ -239,6 +241,7 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
     
     override func viewWillDisappear(_ animated: Bool) {
         topBackView.removeFromSuperview()
+        topUserImageView.removeFromSuperview()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -288,22 +291,39 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
     // MARK: - Custom Top View
     func createCustomTopView() {
         
-        topBackView = UIView(frame: CGRect(x: 0, y: 0, width: 74, height: 40))
+        topBackView = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 40))
         topBackView.backgroundColor = UIColor(patternImage: UIImage(named: "topBackBtn")!)
-        let userImgView: UIImageView = UIImageView(frame: CGRect(x: 35, y: 3, width: 34, height: 34))
+        
+        
+        
+        topUserImageView =  UIView(frame: CGRect(x: 50 , y: 0, width: 35, height: 35))
+        let userImgView: UIImageView = UIImageView(frame: CGRect(x: 0, y: 3, width: 34, height: 34))
         userImgView.image = UIImage(named: "user.png")
-        topBackView.addSubview(userImgView)
+
+         topUserImageView.addSubview(userImgView)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(BackBtn_Click))
         topBackView.addGestureRecognizer(tapGesture)
         topBackView.isUserInteractionEnabled = true
         
+        let tapGestureImage = UITapGestureRecognizer(target: self, action: #selector(UserImageClick))
+        topUserImageView.addGestureRecognizer(tapGestureImage)
+        topUserImageView.isUserInteractionEnabled = true
+        
+        
+        
         self.navigationController?.navigationBar.addSubview(topBackView)
         self.tabBarController?.navigationController?.navigationBar.addSubview(topBackView)
+        
+        self.navigationController?.navigationBar.addSubview(topUserImageView)
+        self.tabBarController?.navigationController?.navigationBar.addSubview(topUserImageView)
     }
     
     func BackBtn_Click(){
         self.navigationController?.popViewController(animated: true)
+    }
+    func UserImageClick()  {
+        
     }
 
     

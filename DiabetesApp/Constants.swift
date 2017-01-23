@@ -106,8 +106,8 @@ struct userDefaults{
 // MARK: - Api Methods
 struct ApiMethods{
     
-    //static let login       = "login"
-    static let login       = "getdataios"
+    static let login       = "login"
+//    static let login       = "getdataios"
     static let getPatients = "getpatients"
     static let updatePatient = "updatepatient"
     static let getPatDoctors  = "getPatDoctors"
@@ -125,6 +125,8 @@ struct ApiMethods{
     static let updatecareplan = "updatecareplan"
     static let getglucoseDaysCondition = "getglucoseDaysCondition"
     static let getglucoseDaysConditionChart = "getglucoseDaysConditionChart"
+    static let editEducatorReport = "savetask"
+    static let getTasks = "getTasks"  
 }
 
 // MARK: - GeneralLabels
@@ -151,6 +153,7 @@ struct Notifications {
     static let listHistoryView  = "ListViewNotification"
     static let medicationView   = "MedicationViewNotification"
     static let readingView      = "ReadingViewNotification"
+    static let newReadingView   = "NewReadingView"
     static let addMedication    = "AddMedicationNotification"
     static let noOfDays         = "NoOfDaysNotification"
     

@@ -10,13 +10,16 @@ import UIKit
 import  Alamofire
 
  let selectedUserType: Int = Int(UserDefaults.standard.integer(forKey: userDefaults.loggedInUserType))
-class ReportCarePlanController: UIViewController , UITableViewDelegate, UITableViewDataSource , UITextFieldDelegate {
+class ReportCarePlanController: UIViewController , UITableViewDelegate, UITableViewDataSource , UITextFieldDelegate , UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var tblView: UITableView!
     var selectedIndex = Int()
-    var selectedIndexPath = IndexPath()
+    var selectedIndexPath = Int()
     var array = NSMutableArray()
+    var currentEditReadingArray = NSMutableArray()
     
+    @IBOutlet var pickerViewContainer: UIView!
+    @IBOutlet weak var pickerView: UIPickerView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,7 +27,7 @@ class ReportCarePlanController: UIViewController , UITableViewDelegate, UITableV
         
     }
     override func viewWillAppear(_ animated: Bool) {
-        addNotifications()
+            addNotifications()
          if selectedUserType == userType.doctor {
             getDoctorReadingsData()
          } else{
@@ -58,6 +61,47 @@ class ReportCarePlanController: UIViewController , UITableViewDelegate, UITableV
         NotificationCenter.default.addObserver(self, selector: #selector(self.readingNotification(notification:)), name: NSNotification.Name(rawValue: Notifications.readingView), object: nil)
     }
      //MARK: - textfield  Delegates
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        let selectedIndex : Int = Int(textField.accessibilityLabel!)!
+        let mainDict: NSMutableDictionary = array[textField.tag] as! NSMutableDictionary
+        let itemsArray: NSMutableArray = mainDict.object(forKey: "data") as! NSMutableArray
+        let obj: CarePlanReadingObj = itemsArray[selectedIndex] as! CarePlanReadingObj
+        let readDict: NSMutableDictionary = NSMutableDictionary()
+        readDict.setValue(obj.id, forKey: "id")
+        readDict.setValue(obj.frequency, forKey: "frequency")
+        readDict.setValue(obj.goal, forKey: "goal")
+        if self.currentEditReadingArray.count > 0 {
+        for i in 0..<self.currentEditReadingArray.count {
+                let id: String = (currentEditReadingArray.object(at:i) as AnyObject).value(forKey: "id") as! String
+                print(id)
+                if id == obj.id {
+                    currentEditReadingArray.replaceObject(at:i, with: readDict)
+                    return
+                }
+            }
+            currentEditReadingArray.add(readDict)
+            
+        }
+        else {
+            currentEditReadingArray.add(readDict)
+        }
+
+        UserDefaults.standard.setValue(currentEditReadingArray, forKey: "currentEditReadingArray")
+        UserDefaults.standard.synchronize()
+//        currentEditReadingArray.add(readDict)
+
+       
+       
+    }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField.accessibilityValue  != "goal" {
+        selectedIndex = Int(textField.accessibilityLabel!)!
+        selectedIndexPath =  textField.tag
+        }
+        
+        
+    }
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField.accessibilityValue == "goal" {
             let selectedIndex : Int = Int(textField.accessibilityLabel!)!
@@ -67,33 +111,18 @@ class ReportCarePlanController: UIViewController , UITableViewDelegate, UITableV
             let str: NSString = NSString(string: textField.text!)
             let resultString: String = str.replacingCharacters(in: range, with:string)
             obj.goal  = ((resultString) as NSString) as String
-            itemsArray.replaceObject(at:textField.tag, with: obj)
+            itemsArray.replaceObject(at:selectedIndex, with: obj)
             let mSectioDict = (array[textField.tag] as AnyObject) as! NSDictionary
             let sectionsDict = NSMutableDictionary(dictionary:mSectioDict)
-         array.replaceObject(at:textField.tag, with: sectionsDict)
+            array.replaceObject(at:textField.tag, with: sectionsDict)
 
         }
-        else {
-            let selectedIndex : Int = Int(textField.accessibilityLabel!)!
-            let mainDict: NSMutableDictionary = array[textField.tag] as! NSMutableDictionary
-            let itemsArray: NSMutableArray = mainDict.object(forKey: "data") as! NSMutableArray
-            let obj: CarePlanReadingObj = itemsArray[selectedIndex] as! CarePlanReadingObj
-            let str: NSString = NSString(string: textField.text!)
-            let resultString: String = str.replacingCharacters(in: range, with:string)
-            obj.frequency  = ((resultString) as NSString) as String
-            itemsArray.replaceObject(at:textField.tag, with: obj)
-            let mSectioDict = (array[textField.tag] as AnyObject) as! NSDictionary
-            let sectionsDict = NSMutableDictionary(dictionary:mSectioDict)
-            array.replaceObject(at: textField.tag, with: sectionsDict)
-
-        }
-
-       
-      return true
+             return true
     }
 
     //MARK: - Notifications Methods
     func readingNotification(notification: NSNotification) {
+        tblView.reloadData()
         
     }
     
@@ -265,15 +294,27 @@ class ReportCarePlanController: UIViewController , UITableViewDelegate, UITableV
         let cell : ReportCarePlanReadingViewCell = tableView.dequeueReusableCell(withIdentifier: "readingsCell")! as! ReportCarePlanReadingViewCell
         cell.selectionStyle = .none
         cell.tag = indexPath.row
+       
         if selectedUserType == userType.doctor {
+          
             cell.goalLbl.isUserInteractionEnabled = false
             cell.conditionLbl.isUserInteractionEnabled = false
+           
+            
         }
         else {
-            cell.goalLbl.isUserInteractionEnabled = true
-            cell.conditionLbl.isUserInteractionEnabled = true
+            if UserDefaults.standard.bool(forKey: "CurrentReadEditBool") {
+                cell.goalLbl.isUserInteractionEnabled = true
+                cell.conditionLbl.isUserInteractionEnabled = true
+            }
+            else {
+            cell.goalLbl.isUserInteractionEnabled = false
+            cell.conditionLbl.isUserInteractionEnabled = false
+            }
         }
+       
         cell.goalLbl.delegate = self
+        cell.conditionLbl.delegate = self
         if let obj: CarePlanReadingObj = itemsArray[indexPath.row] as? CarePlanReadingObj {
             cell.goalLbl.tag = indexPath.section
             cell.goalLbl.accessibilityLabel = "\(indexPath.row)"
@@ -283,6 +324,7 @@ class ReportCarePlanController: UIViewController , UITableViewDelegate, UITableV
             cell.conditionLbl.tag = indexPath.section
             cell.conditionLbl.accessibilityLabel = "\(indexPath.row)"
             cell.conditionLbl.accessibilityValue = "Condition"
+            cell.conditionLbl.inputView = pickerViewContainer
             cell.numberLbl.text = "\(indexPath.row+1)."
         }
         
@@ -306,10 +348,42 @@ class ReportCarePlanController: UIViewController , UITableViewDelegate, UITableV
     }
     
     
+    //MARK:- PickerView Delegate Methods
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return conditionsArray.count
+    }
     
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return conditionsArray[row] as? String
+    }
     
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+  
     
-    /*
+    @IBAction func ToolBarButtons_Click(_ sender: Any) {
+        print(selectedIndexPath , selectedIndex)
+        let mainDict: NSMutableDictionary = array[selectedIndexPath] as! NSMutableDictionary
+        let itemsArray: NSMutableArray = mainDict.object(forKey: "data") as! NSMutableArray
+        let obj: CarePlanReadingObj = itemsArray[selectedIndex] as! CarePlanReadingObj
+        obj.frequency  = conditionsArray[pickerView.selectedRow(inComponent: 0)] as! String
+        itemsArray.replaceObject(at:selectedIndex, with: obj)
+        let mSectioDict = (array[selectedIndexPath] as AnyObject) as! NSDictionary
+        let sectionsDict = NSMutableDictionary(dictionary:mSectioDict)
+        array.replaceObject(at:selectedIndexPath, with: sectionsDict)
+        self.view.endEditing(true)
+        tblView.reloadData()
+        let placesData = NSKeyedArchiver.archivedData(withRootObject: currentEditReadingArray)
+        UserDefaults.standard.set(placesData, forKey: "currentEditReadingArray")
+        UserDefaults.standard.set(currentEditReadingArray, forKey: "currentEditReadingArray")
+        UserDefaults.standard.synchronize()
+
+        print(currentEditReadingArray)
+        
+        
+    }
+        /*
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation

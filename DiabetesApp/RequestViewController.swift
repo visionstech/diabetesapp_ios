@@ -7,31 +7,34 @@
 //
 
 import UIKit
+import Alamofire
 
 class RequestViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
-
+ let selectedUserType: Int = Int(UserDefaults.standard.integer(forKey: userDefaults.loggedInUserType))
+    var userTypeString = String()
+    var requestListArray = NSMutableArray()
+    
+    
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-      setNavBarUI()
+     
+       
         // Do any additional setup after loading the view.
     }
     
-//    // MARK: - Custom Top View
-//    func createCustomTopView() {
-//        
-//        topBackView = UIView(frame: CGRect(x: 0, y: 0, width: 74, height: 40))
-//        topBackView.backgroundColor = UIColor(patternImage: UIImage(named: "topBackBtn")!)
-//        let userImgView: UIImageView = UIImageView(frame: CGRect(x: 35, y: 3, width: 34, height: 34))
-//        userImgView.image = UIImage(named: "user.png")
-//        topBackView.addSubview(userImgView)
-//        
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(BackBtn_Click))
-//        topBackView.addGestureRecognizer(tapGesture)
-//        topBackView.isUserInteractionEnabled = true
-//        
-//        self.tabBarController?.navigationController?.navigationBar.addSubview(topBackView)
-//        self.navigationController?.navigationBar.addSubview(topBackView)
-//    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setNavBarUI()
+        
+        if selectedUserType == userType.doctor {
+            userTypeString = "Doctor"
+        }
+        if selectedUserType == userType.educator {
+            userTypeString = "Educator"
+        }
+         getRequestTask()
+    }
     
     // MARK: - Custom Methods
     func setNavBarUI(){
@@ -39,12 +42,10 @@ class RequestViewController: UIViewController,UITableViewDelegate,UITableViewDat
         self.title = "\("Requests".localized)"
         self.tabBarController?.title = "\("Requests".localized)"
         self.tabBarController?.navigationItem.title = "\("Requests".localized)"
-        self.navigationItem.leftBarButtonItem = nil
-        self.navigationItem.rightBarButtonItems = nil
-        self.tabBarController?.navigationItem.leftBarButtonItem = nil
-        self.tabBarController?.navigationItem.rightBarButtonItem = nil
-        self.navigationItem.hidesBackButton = true
-        self.tabBarController?.navigationItem.hidesBackButton = true
+        self.parent?.navigationItem.leftBarButtonItem = nil
+        self.parent?.navigationItem.rightBarButtonItems = nil
+        self.parent?.navigationItem.hidesBackButton = true
+        
         
         //createCustomTopView()
         
@@ -57,14 +58,93 @@ class RequestViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-     return 5
+     return requestListArray.count
     }
     
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
      let cell: RequestTableViewCell = tableView.dequeueReusableCell(withIdentifier: "requestCell")! as! RequestTableViewCell
     
+       let obj = requestListArray[indexPath.row] as! ReqestObject
+    
+    if selectedUserType == userType.doctor {
+        cell.lblDoctorEductor.text = "Educator"
+         cell.lblEducator.text = obj.educatorName
+    }
+    if selectedUserType == userType.educator {
+        cell.lblDoctorEductor.text = "Doctor"
+         cell.lblEducator.text = obj.doctorName
+    }
+    
+      cell.lbPatientName.text = obj.patientName
+    
+      cell.lblTime.text = obj.time
+      cell.lblRequestStatus.text = obj.status
+    
+      cell.accessoryType = .disclosureIndicator
+      cell.selectionStyle = .none
+    
+    
     return cell;
     
+    }
+    
+    func getRequestTask() {
+        
+        if  UserDefaults.standard.string(forKey: userDefaults.selectedPatientID) != nil {
+           
+            
+            let userID: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserID)!
+            let parameters: Parameters = [
+                "usertype": userTypeString,
+                "userid": userID,
+               
+            ]
+            
+            print(parameters)
+            
+            
+            
+            Alamofire.request("\(baseUrl)\(ApiMethods.getTasks)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+                
+                print("Validation Successful ")
+                
+                switch response.result {
+                    
+                case .success:
+                    
+                    if let JSON: NSArray = response.result.value! as? NSArray {
+                       self.requestListArray .removeAllObjects()
+                        print("JSON \(JSON)")
+                        for data in JSON {
+                            let dict: NSDictionary = data as! NSDictionary
+                            let requestObj = ReqestObject()
+                            requestObj.date = dict.value(forKey: "date") as! String
+                            if self.selectedUserType == userType.doctor {
+                                requestObj.educatorName = dict.value(forKey: "educatorName") as! String
+                            }
+                            else if self.selectedUserType == userType.educator {
+                                requestObj.doctorName = dict.value(forKey: "doctorName") as! String
+                            }
+                           
+                            requestObj.patientName = dict.value(forKey: "patientName") as! String
+                            requestObj.taskid = dict.value(forKey: "taskid") as! String
+                            requestObj.time =   dict.value(forKey: "time") as! String
+                            requestObj.status =   dict.value(forKey: "status") as! String
+                            self.requestListArray.add(requestObj)
+                        }
+                        self.tableView.reloadData()
+                        
+                    }
+                    
+                    break
+                case .failure:
+                    print("failure")
+                    
+                    break
+                    
+                }
+            }
+        }
     }
     
     /*

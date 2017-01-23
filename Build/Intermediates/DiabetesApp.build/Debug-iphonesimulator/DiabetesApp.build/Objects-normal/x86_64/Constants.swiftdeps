@@ -49,43 +49,42 @@ provides-member:
 - ["V11DiabetesApp5Fonts", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "TimeInterval"
-- "UIColor"
-- "kChatPresenceTimeInterval"
-- "baseUrl"
-- "userType"
-- "GeneralLabels"
-- "Array"
-- "/"
-- "CGFloat"
-- "UInt"
-- "FloatLiteralType"
-- "conditionsArray"
-- "userDefaults"
-- "IntegerLiteralType"
-- "Fonts"
-- "ApiMethods"
 - "ChatInfo"
-- "kMessageContainerWidthPadding"
-- "CellIdentifiers"
-- "NSArray"
-- "Notifications"
+- "UIFont"
 - "String"
-- "StringLiteralType"
+- "CGFloat"
+- "baseUrl"
+- "Notifications"
+- "kChatPresenceTimeInterval"
+- "Array"
+- "ApiMethods"
 - "ViewIdentifiers"
 - "kDialogsPageLimit"
-- "frequnecyArray"
+- "userType"
+- "GeneralLabels"
+- "kMessageContainerWidthPadding"
+- "Fonts"
 - "Constants"
-- "Colors"
-- "HistoryDays"
+- "frequnecyArray"
+- "StringLiteralType"
 - "VideoAudioCall"
-- "UIFont"
+- "NSArray"
+- "conditionsArray"
+- "userDefaults"
+- "TimeInterval"
+- "/"
+- "UIColor"
+- "HistoryDays"
+- "UInt"
+- "Colors"
+- "CellIdentifiers"
 depends-member:
 - ["Ps9AnyObject", "Element"]
 - ["Ps9AnyObject", "init"]
 - ["Ps9AnyObject", "localized"]
 - ["Ps9AnyObject", ""]
 - ["V11DiabetesApp10ApiMethods", "addcareplan"]
+- ["V11DiabetesApp10ApiMethods", "editEducatorReport"]
 - ["V11DiabetesApp10ApiMethods", "getDocEducators"]
 - ["V11DiabetesApp10ApiMethods", "getDocPatients"]
 - ["V11DiabetesApp10ApiMethods", "getEduDoctors"]
@@ -93,6 +92,7 @@ depends-member:
 - ["V11DiabetesApp10ApiMethods", "getPatDoctors"]
 - ["V11DiabetesApp10ApiMethods", "getPatEducators"]
 - ["V11DiabetesApp10ApiMethods", "getPatients"]
+- ["V11DiabetesApp10ApiMethods", "getTasks"]
 - ["V11DiabetesApp10ApiMethods", "getcareplan"]
 - ["V11DiabetesApp10ApiMethods", "getcareplanReadings"]
 - ["V11DiabetesApp10ApiMethods", "getglucose"]
@@ -211,6 +211,7 @@ depends-member:
 - ["V11DiabetesApp13Notifications", "init"]
 - ["V11DiabetesApp13Notifications", "listHistoryView"]
 - ["V11DiabetesApp13Notifications", "medicationView"]
+- ["V11DiabetesApp13Notifications", "newReadingView"]
 - ["V11DiabetesApp13Notifications", "noOfDays"]
 - ["V11DiabetesApp13Notifications", "readingView"]
 - ["Sq", "deinit"]
@@ -644,4 +645,4 @@ depends-external:
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController-umbrella.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Modules/module.modulemap"
-interface-hash: "2d32841cfc951b520dd7a187472ac58d"
+interface-hash: "599cb8957e83055f7b699b97cc9badd2"

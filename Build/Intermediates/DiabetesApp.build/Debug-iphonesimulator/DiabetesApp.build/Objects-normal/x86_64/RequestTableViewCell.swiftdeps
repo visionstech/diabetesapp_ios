@@ -6,23 +6,25 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp20RequestTableViewCell", ""]
 provides-dynamic-lookup:
-- "lblTime"
-- "lblRequestStatus"
-- "setSelected"
+- "lblDoctorEductor"
 - "userImageView"
+- "setSelected"
 - "lbPatientName"
 - "lblEducator"
 - "awakeFromNib"
+- "lblTime"
+- "lblRequestStatus"
 depends-top-level:
-- "UIImageView"
-- "Bool"
-- "UILabel"
 - "RequestTableViewCell"
+- "Bool"
+- "UIImageView"
+- "UILabel"
 - "UITableViewCell"
 depends-member:
 - ["Ps9AnyObject", "awakeFromNib"]
 - !private ["Ps9AnyObject", "init"]
 - ["Ps9AnyObject", "lbPatientName"]
+- ["Ps9AnyObject", "lblDoctorEductor"]
 - ["Ps9AnyObject", "lblEducator"]
 - ["Ps9AnyObject", "lblRequestStatus"]
 - ["Ps9AnyObject", "lblTime"]
@@ -33,6 +35,7 @@ depends-member:
 - ["PSo15CALayerDelegate", "awakeFromNib"]
 - !private ["PSo15CALayerDelegate", "init"]
 - ["PSo15CALayerDelegate", "lbPatientName"]
+- ["PSo15CALayerDelegate", "lblDoctorEductor"]
 - ["PSo15CALayerDelegate", "lblEducator"]
 - ["PSo15CALayerDelegate", "lblRequestStatus"]
 - ["PSo15CALayerDelegate", "lblTime"]
@@ -42,6 +45,7 @@ depends-member:
 - ["Ps7CVarArg", "awakeFromNib"]
 - !private ["Ps7CVarArg", "init"]
 - ["Ps7CVarArg", "lbPatientName"]
+- ["Ps7CVarArg", "lblDoctorEductor"]
 - ["Ps7CVarArg", "lblEducator"]
 - ["Ps7CVarArg", "lblRequestStatus"]
 - ["Ps7CVarArg", "lblTime"]
@@ -51,6 +55,7 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "awakeFromNib"]
 - !private ["Ps28CustomDebugStringConvertible", "init"]
 - ["Ps28CustomDebugStringConvertible", "lbPatientName"]
+- ["Ps28CustomDebugStringConvertible", "lblDoctorEductor"]
 - ["Ps28CustomDebugStringConvertible", "lblEducator"]
 - ["Ps28CustomDebugStringConvertible", "lblRequestStatus"]
 - ["Ps28CustomDebugStringConvertible", "lblTime"]
@@ -60,6 +65,7 @@ depends-member:
 - ["Ps23CustomStringConvertible", "awakeFromNib"]
 - !private ["Ps23CustomStringConvertible", "init"]
 - ["Ps23CustomStringConvertible", "lbPatientName"]
+- ["Ps23CustomStringConvertible", "lblDoctorEductor"]
 - ["Ps23CustomStringConvertible", "lblEducator"]
 - ["Ps23CustomStringConvertible", "lblRequestStatus"]
 - ["Ps23CustomStringConvertible", "lblTime"]
@@ -69,6 +75,7 @@ depends-member:
 - ["Ps9Equatable", "awakeFromNib"]
 - !private ["Ps9Equatable", "init"]
 - ["Ps9Equatable", "lbPatientName"]
+- ["Ps9Equatable", "lblDoctorEductor"]
 - ["Ps9Equatable", "lblEducator"]
 - ["Ps9Equatable", "lblRequestStatus"]
 - ["Ps9Equatable", "lblTime"]
@@ -78,6 +85,7 @@ depends-member:
 - ["Ps8Hashable", "awakeFromNib"]
 - !private ["Ps8Hashable", "init"]
 - ["Ps8Hashable", "lbPatientName"]
+- ["Ps8Hashable", "lblDoctorEductor"]
 - ["Ps8Hashable", "lblEducator"]
 - ["Ps8Hashable", "lblRequestStatus"]
 - ["Ps8Hashable", "lblTime"]
@@ -89,6 +97,7 @@ depends-member:
 - ["PSo8NSCoding", "awakeFromNib"]
 - !private ["PSo8NSCoding", "init"]
 - ["PSo8NSCoding", "lbPatientName"]
+- ["PSo8NSCoding", "lblDoctorEductor"]
 - ["PSo8NSCoding", "lblEducator"]
 - ["PSo8NSCoding", "lblRequestStatus"]
 - ["PSo8NSCoding", "lblTime"]
@@ -101,6 +110,7 @@ depends-member:
 - ["CSo8NSObject", "awakeFromNib"]
 - ["CSo8NSObject", "init"]
 - ["CSo8NSObject", "lbPatientName"]
+- ["CSo8NSObject", "lblDoctorEductor"]
 - ["CSo8NSObject", "lblEducator"]
 - ["CSo8NSObject", "lblRequestStatus"]
 - ["CSo8NSObject", "lblTime"]
@@ -109,6 +119,7 @@ depends-member:
 - ["PSo16NSObjectProtocol", "awakeFromNib"]
 - !private ["PSo16NSObjectProtocol", "init"]
 - ["PSo16NSObjectProtocol", "lbPatientName"]
+- ["PSo16NSObjectProtocol", "lblDoctorEductor"]
 - ["PSo16NSObjectProtocol", "lblEducator"]
 - ["PSo16NSObjectProtocol", "lblRequestStatus"]
 - ["PSo16NSObjectProtocol", "lblTime"]
@@ -123,6 +134,7 @@ depends-member:
 - ["C11DiabetesApp20RequestTableViewCell", "deinit"]
 - ["C11DiabetesApp20RequestTableViewCell", "init"]
 - ["C11DiabetesApp20RequestTableViewCell", "lbPatientName"]
+- ["C11DiabetesApp20RequestTableViewCell", "lblDoctorEductor"]
 - ["C11DiabetesApp20RequestTableViewCell", "lblEducator"]
 - ["C11DiabetesApp20RequestTableViewCell", "lblRequestStatus"]
 - ["C11DiabetesApp20RequestTableViewCell", "lblTime"]
@@ -131,6 +143,7 @@ depends-member:
 - ["PSo29UIAccessibilityIdentification", "awakeFromNib"]
 - !private ["PSo29UIAccessibilityIdentification", "init"]
 - ["PSo29UIAccessibilityIdentification", "lbPatientName"]
+- ["PSo29UIAccessibilityIdentification", "lblDoctorEductor"]
 - ["PSo29UIAccessibilityIdentification", "lblEducator"]
 - ["PSo29UIAccessibilityIdentification", "lblRequestStatus"]
 - ["PSo29UIAccessibilityIdentification", "lblTime"]
@@ -140,6 +153,7 @@ depends-member:
 - ["PSo12UIAppearance", "awakeFromNib"]
 - !private ["PSo12UIAppearance", "init"]
 - ["PSo12UIAppearance", "lbPatientName"]
+- ["PSo12UIAppearance", "lblDoctorEductor"]
 - ["PSo12UIAppearance", "lblEducator"]
 - ["PSo12UIAppearance", "lblRequestStatus"]
 - ["PSo12UIAppearance", "lblTime"]
@@ -149,6 +163,7 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "awakeFromNib"]
 - !private ["PSo21UIAppearanceContainer", "init"]
 - ["PSo21UIAppearanceContainer", "lbPatientName"]
+- ["PSo21UIAppearanceContainer", "lblDoctorEductor"]
 - ["PSo21UIAppearanceContainer", "lblEducator"]
 - ["PSo21UIAppearanceContainer", "lblRequestStatus"]
 - ["PSo21UIAppearanceContainer", "lblTime"]
@@ -158,6 +173,7 @@ depends-member:
 - ["PSo17UICoordinateSpace", "awakeFromNib"]
 - !private ["PSo17UICoordinateSpace", "init"]
 - ["PSo17UICoordinateSpace", "lbPatientName"]
+- ["PSo17UICoordinateSpace", "lblDoctorEductor"]
 - ["PSo17UICoordinateSpace", "lblEducator"]
 - ["PSo17UICoordinateSpace", "lblRequestStatus"]
 - ["PSo17UICoordinateSpace", "lblTime"]
@@ -167,6 +183,7 @@ depends-member:
 - ["PSo13UIDynamicItem", "awakeFromNib"]
 - !private ["PSo13UIDynamicItem", "init"]
 - ["PSo13UIDynamicItem", "lbPatientName"]
+- ["PSo13UIDynamicItem", "lblDoctorEductor"]
 - ["PSo13UIDynamicItem", "lblEducator"]
 - ["PSo13UIDynamicItem", "lblRequestStatus"]
 - ["PSo13UIDynamicItem", "lblTime"]
@@ -176,6 +193,7 @@ depends-member:
 - ["PSo18UIFocusEnvironment", "awakeFromNib"]
 - !private ["PSo18UIFocusEnvironment", "init"]
 - ["PSo18UIFocusEnvironment", "lbPatientName"]
+- ["PSo18UIFocusEnvironment", "lblDoctorEductor"]
 - ["PSo18UIFocusEnvironment", "lblEducator"]
 - ["PSo18UIFocusEnvironment", "lblRequestStatus"]
 - ["PSo18UIFocusEnvironment", "lblTime"]
@@ -185,6 +203,7 @@ depends-member:
 - ["PSo11UIFocusItem", "awakeFromNib"]
 - !private ["PSo11UIFocusItem", "init"]
 - ["PSo11UIFocusItem", "lbPatientName"]
+- ["PSo11UIFocusItem", "lblDoctorEductor"]
 - ["PSo11UIFocusItem", "lblEducator"]
 - ["PSo11UIFocusItem", "lblRequestStatus"]
 - ["PSo11UIFocusItem", "lblTime"]
@@ -194,6 +213,7 @@ depends-member:
 - ["PSo27UIGestureRecognizerDelegate", "awakeFromNib"]
 - !private ["PSo27UIGestureRecognizerDelegate", "init"]
 - ["PSo27UIGestureRecognizerDelegate", "lbPatientName"]
+- ["PSo27UIGestureRecognizerDelegate", "lblDoctorEductor"]
 - ["PSo27UIGestureRecognizerDelegate", "lblEducator"]
 - ["PSo27UIGestureRecognizerDelegate", "lblRequestStatus"]
 - ["PSo27UIGestureRecognizerDelegate", "lblTime"]
@@ -206,6 +226,7 @@ depends-member:
 - ["CSo11UIResponder", "awakeFromNib"]
 - ["CSo11UIResponder", "init"]
 - ["CSo11UIResponder", "lbPatientName"]
+- ["CSo11UIResponder", "lblDoctorEductor"]
 - ["CSo11UIResponder", "lblEducator"]
 - ["CSo11UIResponder", "lblRequestStatus"]
 - ["CSo11UIResponder", "lblTime"]
@@ -214,6 +235,7 @@ depends-member:
 - ["PSo30UIResponderStandardEditActions", "awakeFromNib"]
 - !private ["PSo30UIResponderStandardEditActions", "init"]
 - ["PSo30UIResponderStandardEditActions", "lbPatientName"]
+- ["PSo30UIResponderStandardEditActions", "lblDoctorEductor"]
 - ["PSo30UIResponderStandardEditActions", "lblEducator"]
 - ["PSo30UIResponderStandardEditActions", "lblRequestStatus"]
 - ["PSo30UIResponderStandardEditActions", "lblTime"]
@@ -227,6 +249,7 @@ depends-member:
 - ["CSo15UITableViewCell", "deinit"]
 - ["CSo15UITableViewCell", "init"]
 - ["CSo15UITableViewCell", "lbPatientName"]
+- ["CSo15UITableViewCell", "lblDoctorEductor"]
 - ["CSo15UITableViewCell", "lblEducator"]
 - ["CSo15UITableViewCell", "lblRequestStatus"]
 - ["CSo15UITableViewCell", "lblTime"]
@@ -237,6 +260,7 @@ depends-member:
 - ["PSo18UITraitEnvironment", "awakeFromNib"]
 - !private ["PSo18UITraitEnvironment", "init"]
 - ["PSo18UITraitEnvironment", "lbPatientName"]
+- ["PSo18UITraitEnvironment", "lblDoctorEductor"]
 - ["PSo18UITraitEnvironment", "lblEducator"]
 - ["PSo18UITraitEnvironment", "lblRequestStatus"]
 - ["PSo18UITraitEnvironment", "lblTime"]
@@ -249,6 +273,7 @@ depends-member:
 - ["CSo6UIView", "awakeFromNib"]
 - ["CSo6UIView", "init"]
 - ["CSo6UIView", "lbPatientName"]
+- ["CSo6UIView", "lblDoctorEductor"]
 - ["CSo6UIView", "lblEducator"]
 - ["CSo6UIView", "lblRequestStatus"]
 - ["CSo6UIView", "lblTime"]
@@ -257,6 +282,7 @@ depends-member:
 - ["Ps37_DefaultCustomPlaygroundQuickLookable", "awakeFromNib"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "init"]
 - ["Ps37_DefaultCustomPlaygroundQuickLookable", "lbPatientName"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", "lblDoctorEductor"]
 - ["Ps37_DefaultCustomPlaygroundQuickLookable", "lblEducator"]
 - ["Ps37_DefaultCustomPlaygroundQuickLookable", "lblRequestStatus"]
 - ["Ps37_DefaultCustomPlaygroundQuickLookable", "lblTime"]
@@ -266,6 +292,7 @@ depends-member:
 - ["Ps9_Hashable", "awakeFromNib"]
 - !private ["Ps9_Hashable", "init"]
 - ["Ps9_Hashable", "lbPatientName"]
+- ["Ps9_Hashable", "lblDoctorEductor"]
 - ["Ps9_Hashable", "lblEducator"]
 - ["Ps9_Hashable", "lblRequestStatus"]
 - ["Ps9_Hashable", "lblTime"]
@@ -617,4 +644,4 @@ depends-external:
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController-umbrella.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Modules/module.modulemap"
-interface-hash: "c5f45f59c4434b1c824beacbbb0a4537"
+interface-hash: "05e59b526c0de0845fb370460a9dbf70"
