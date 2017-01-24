@@ -877,6 +877,7 @@ SWIFT_CLASS("_TtC11DiabetesApp24ReportCarePlanController")
 - (void)viewDidDisappear:(BOOL)animated;
 - (void)resetUI;
 - (void)addNotifications;
+- (BOOL)textFieldShouldReturn:(UITextField * _Nonnull)textField;
 - (void)textFieldDidEndEditing:(UITextField * _Nonnull)textField;
 - (void)textFieldDidBeginEditing:(UITextField * _Nonnull)textField;
 - (BOOL)textField:(UITextField * _Nonnull)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString * _Nonnull)string;
@@ -1039,6 +1040,7 @@ SWIFT_CLASS("_TtC11DiabetesApp20ReportViewController")
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint * _Null_unspecified newReadingContainerHeight;
 @property (nonatomic, weak) IBOutlet UIView * _Null_unspecified glucoseReadingView;
 @property (nonatomic, weak) IBOutlet UITextView * _Null_unspecified educatorCommentTxtViw;
+@property (nonatomic, weak) IBOutlet UISegmentedControl * _Null_unspecified actionSegmentControl;
 @property (nonatomic, weak) IBOutlet UIView * _Null_unspecified currentReadingView;
 @property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified readNewEdit;
 @property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified currentReadEdit;
@@ -1070,8 +1072,10 @@ SWIFT_CLASS("_TtC11DiabetesApp20ReportViewController")
 @property (nonatomic) BOOL currentMedEditBool;
 @property (nonatomic, strong) NSDictionary * _Nonnull editCurrentMedDict;
 @property (nonatomic, strong) NSMutableArray * _Nonnull editCurrentMedArray;
+@property (nonatomic, strong) NSMutableArray * _Nonnull oldCurrentMedArray;
 @property (nonatomic, strong) NSArray * _Nonnull editCurrentReadArray;
 @property (nonatomic, readonly) NSInteger selectedUserType;
+@property (nonatomic, copy) NSString * _Nonnull taskID;
 - (void)awakeFromNib;
 - (void)viewDidLoad;
 - (void)viewDidLayoutSubviews;
@@ -1083,10 +1087,15 @@ SWIFT_CLASS("_TtC11DiabetesApp20ReportViewController")
 - (IBAction)currentReadEditAction:(UIButton * _Nonnull)sender;
 - (IBAction)readNewEditAction:(UIButton * _Nonnull)sender;
 - (IBAction)ViewModeButtons_Click:(UIButton * _Nonnull)sender;
+- (IBAction)declineBtn_Click:(id _Nonnull)sender;
+- (IBAction)approveBtn_Click:(id _Nonnull)sender;
 - (IBAction)SegmentControl_ValueChange:(id _Nonnull)sender;
 - (void)didReceiveMemoryWarning;
 - (BOOL)textField:(UITextField * _Nonnull)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString * _Nonnull)string;
+- (void)textFieldDidBeginEditing:(UITextField * _Nonnull)textField;
 - (void)textFieldDidEndEditing:(UITextField * _Nonnull)textField;
+- (void)textViewDidBeginEditing:(UITextView * _Nonnull)textView;
+- (void)textViewDidEndEditing:(UITextView * _Nonnull)textView;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section;
 - (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 - (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView;
@@ -1149,6 +1158,7 @@ SWIFT_CLASS("_TtC11DiabetesApp21RequestViewController")
 - (void)didReceiveMemoryWarning;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 - (void)getRequestTask;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;

@@ -173,6 +173,10 @@
 		8FC5F7221E0AB0880086326D /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC5F7211E0AB0880086326D /* ContactListViewController.swift */; };
 		8FC5F7251E0AB6E70086326D /* ContactObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC5F7241E0AB6E70086326D /* ContactObj.swift */; };
 		8FCA595B1E2F982F003864B0 /* ReportNewCarePlanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCA595A1E2F982E003864B0 /* ReportNewCarePlanController.swift */; };
+		8FEDC81D1E37636F00DBA9DB /* TPKeyboardAvoidingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEDC8161E37636F00DBA9DB /* TPKeyboardAvoidingCollectionView.m */; };
+		8FEDC81E1E37636F00DBA9DB /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEDC8181E37636F00DBA9DB /* TPKeyboardAvoidingScrollView.m */; };
+		8FEDC81F1E37636F00DBA9DB /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEDC81A1E37636F00DBA9DB /* TPKeyboardAvoidingTableView.m */; };
+		8FEDC8201E37636F00DBA9DB /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEDC81C1E37636F00DBA9DB /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		8FFBA8D11E289B9F006F9F71 /* DoctorTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFBA8D01E289B9F006F9F71 /* DoctorTabBarViewController.swift */; };
 		8FFBA8D31E289CBE006F9F71 /* RequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFBA8D21E289CBE006F9F71 /* RequestViewController.swift */; };
 		8FFBA8D61E28A661006F9F71 /* RequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFBA8D51E28A661006F9F71 /* RequestTableViewCell.swift */; };
@@ -421,6 +425,14 @@
 		8FC5F7211E0AB0880086326D /* ContactListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactListViewController.swift; path = ContactList/ContactListViewController.swift; sourceTree = "<group>"; };
 		8FC5F7241E0AB6E70086326D /* ContactObj.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactObj.swift; path = Modal/ContactObj.swift; sourceTree = "<group>"; };
 		8FCA595A1E2F982E003864B0 /* ReportNewCarePlanController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportNewCarePlanController.swift; sourceTree = "<group>"; };
+		8FEDC8151E37636F00DBA9DB /* TPKeyboardAvoidingCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingCollectionView.h; sourceTree = "<group>"; };
+		8FEDC8161E37636F00DBA9DB /* TPKeyboardAvoidingCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingCollectionView.m; sourceTree = "<group>"; };
+		8FEDC8171E37636F00DBA9DB /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
+		8FEDC8181E37636F00DBA9DB /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
+		8FEDC8191E37636F00DBA9DB /* TPKeyboardAvoidingTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingTableView.h; sourceTree = "<group>"; };
+		8FEDC81A1E37636F00DBA9DB /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingTableView.m; sourceTree = "<group>"; };
+		8FEDC81B1E37636F00DBA9DB /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
+		8FEDC81C1E37636F00DBA9DB /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 		8FFBA8D01E289B9F006F9F71 /* DoctorTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoctorTabBarViewController.swift; sourceTree = "<group>"; };
 		8FFBA8D21E289CBE006F9F71 /* RequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestViewController.swift; sourceTree = "<group>"; };
 		8FFBA8D51E28A661006F9F71 /* RequestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTableViewCell.swift; sourceTree = "<group>"; };
@@ -1057,6 +1069,15 @@
 		8FC5F7111E0A9FFA0086326D /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				8FEDC8211E37637200DBA9DB /* TPKeyboardExternal */,
+				8FEDC8151E37636F00DBA9DB /* TPKeyboardAvoidingCollectionView.h */,
+				8FEDC8161E37636F00DBA9DB /* TPKeyboardAvoidingCollectionView.m */,
+				8FEDC8171E37636F00DBA9DB /* TPKeyboardAvoidingScrollView.h */,
+				8FEDC8181E37636F00DBA9DB /* TPKeyboardAvoidingScrollView.m */,
+				8FEDC8191E37636F00DBA9DB /* TPKeyboardAvoidingTableView.h */,
+				8FEDC81A1E37636F00DBA9DB /* TPKeyboardAvoidingTableView.m */,
+				8FEDC81B1E37636F00DBA9DB /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
+				8FEDC81C1E37636F00DBA9DB /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
 				8FC5F7001E0A97EF0086326D /* NotificationService.swift */,
 				8FC5F6F81E0A8FF40086326D /* ServicesManager.swift */,
 				8FC5F7061E0A99DD0086326D /* MPGNotification */,
@@ -1083,6 +1104,13 @@
 				8EAD3BC61E1648DE00FDE796 /* HistoryObj.swift */,
 			);
 			name = Modal;
+			sourceTree = "<group>";
+		};
+		8FEDC8211E37637200DBA9DB /* TPKeyboardExternal */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = TPKeyboardExternal;
 			sourceTree = "<group>";
 		};
 		8FFBA8D41E28A620006F9F71 /* Cell */ = {
@@ -1509,6 +1537,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FC5F6C21E0A89E10086326D /* DiabetesApp.xcdatamodeld in Sources */,
+				8FEDC8201E37636F00DBA9DB /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				8E13A8C21E0BEB460069D0B7 /* LocalVideoView.m in Sources */,
 				0F4BE9D61E2CEE0C008F16E5 /* ReportCarePlanController.swift in Sources */,
 				8E2DBE7F1E1B770600F20C29 /* CarePlanMainViewController.swift in Sources */,
@@ -1529,6 +1558,7 @@
 				8E13A8CD1E0BEB460069D0B7 /* BaseSettingsCell.m in Sources */,
 				8FC5F71B1E0AA92C0086326D /* HomeTabBarController.swift in Sources */,
 				0F4BE9D21E2CD5CE008F16E5 /* ReportChartViewController.swift in Sources */,
+				8FEDC81E1E37636F00DBA9DB /* TPKeyboardAvoidingScrollView.m in Sources */,
 				8E13A8DF1E0BEC5A0069D0B7 /* QBButtonsFactory.m in Sources */,
 				8E13A8C61E0BEB460069D0B7 /* SessionSettingsViewController.m in Sources */,
 				8E13A8DE1E0BEC5A0069D0B7 /* QBButton.m in Sources */,
@@ -1543,8 +1573,10 @@
 				8E13A87F1E0BEA970069D0B7 /* UsersDataSource.m in Sources */,
 				8E13A8CE1E0BEB460069D0B7 /* SwitchItemModel.m in Sources */,
 				8FC5F7221E0AB0880086326D /* ContactListViewController.swift in Sources */,
+				8FEDC81F1E37636F00DBA9DB /* TPKeyboardAvoidingTableView.m in Sources */,
 				8E458C811E0BD04F00A4E136 /* AlertViewWithTextField.swift in Sources */,
 				8E2DBE811E1B7AF000F20C29 /* CarePlanReadingViewController.swift in Sources */,
+				8FEDC81D1E37636F00DBA9DB /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				8FC5F70F1E0A99DD0086326D /* QMMessageNotification.m in Sources */,
 				8E13A8C91E0BEB460069D0B7 /* SettingsSectionModel.m in Sources */,
 				8E13A85C1E0BEA190069D0B7 /* QBAVCallPermissions.m in Sources */,

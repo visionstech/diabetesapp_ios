@@ -81,6 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,NotificationServiceDelegat
         subscription.notificationChannel = QBMNotificationChannel.APNS
         subscription.deviceUDID = deviceIdentifier
         subscription.deviceToken = deviceToken
+        UserDefaults.standard .set(deviceToken, forKey: "DeviceToken")
         QBRequest.createSubscription(subscription, successBlock: { (response: QBResponse!, objects: [QBMSubscription]?) -> Void in
             //
         }) { (response: QBResponse!) -> Void in
@@ -97,6 +98,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate,NotificationServiceDelegat
         print("my push is: %@", userInfo)
         guard application.applicationState == UIApplicationState.inactive else {
             return
+        }
+        if let messageFrom : String = userInfo["type"] as? String {
+            if messageFrom == "Report" {
+                
+                let navigatonController: UINavigationController! = self.window?.rootViewController as! UINavigationController
+                let viewController: ReportViewController = UIStoryboard(name:"Main", bundle: nil).instantiateViewController(withIdentifier: ViewIdentifiers.ReportViewController) as! ReportViewController
+                    viewController.taskID = (userInfo["taskid"] as! String)
+                    application.applicationIconBadgeNumber = Int(userInfo["badgeCounter"] as! String)!
+                    navigatonController.pushViewController(viewController, animated: true)
+            }
         }
         
         guard let dialogID = userInfo["SA_STR_PUSH_NOTIFICATION_DIALOG_ID".localized] as? String else {

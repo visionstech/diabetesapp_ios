@@ -78,6 +78,7 @@ struct ViewIdentifiers{
     static let historyMainViewController    = "HistoryMainView"
     static let ReportViewController         = "ReportView"
     static let editMedicationViewController = "EditMedicationView"
+    static let requestViewController        = "RequestListView"
     
 }
 

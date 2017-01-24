@@ -356,6 +356,7 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
                 UserDefaults.standard.setValue("", forKey: userDefaults.loggedInUserEmail)
                 UserDefaults.standard.setValue("", forKey: userDefaults.loggedInUserPassword)
                 UserDefaults.standard.setValue("", forKey: userDefaults.selectedPatientID)
+                UserDefaults.standard.setValue("", forKey: userDefaults.loggedInUserType)
                 UserDefaults.standard.synchronize()
                 
                 SVProgressHUD.dismiss()

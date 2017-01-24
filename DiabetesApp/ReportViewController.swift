@@ -1,4 +1,4 @@
-//
+			//
 //  ReportViewController.swift
 //  DiabetesApp
 //
@@ -21,6 +21,7 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
     @IBOutlet weak var glucoseReadingView: UIView!
     @IBOutlet weak var educatorCommentTxtViw: UITextView!
     
+    @IBOutlet weak var actionSegmentControl: UISegmentedControl!
     @IBOutlet weak var currentReadingView: UIView!
     @IBOutlet weak var readNewEdit: UIButton!
     @IBOutlet weak var currentReadEdit: UIButton!
@@ -67,8 +68,13 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
     var currentMedEditBool = Bool()
     var editCurrentMedDict = NSDictionary()
     var editCurrentMedArray = NSMutableArray()
+    var oldCurrentMedArray = NSMutableArray()
     var editCurrentReadArray = NSArray()
     let selectedUserType: Int = Int(UserDefaults.standard.integer(forKey: userDefaults.loggedInUserType))
+    
+    var taskID = String()
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setNavBarUI()
@@ -77,7 +83,8 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
+        educatorCommentTxtViw.text = "Please add comments to justify your decision"
+        educatorCommentTxtViw.textColor = UIColor.lightGray
         if selectedUserType == userType.doctor {
             doctorReportAPI()
             
@@ -134,6 +141,8 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
     
     override func viewWillAppear(_ animated: Bool) {
         editCurrentMedArray.removeAllObjects()
+        oldCurrentMedArray.removeAllObjects()
+        
         UserDefaults.standard.set(false, forKey:"CurrentReadEditBool")
         UserDefaults.standard.set(NSArray(), forKey:"currentEditReadingArray")
         UserDefaults.standard.set(false, forKey: "NewReadEditBool")
@@ -172,7 +181,8 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
             self.view.endEditing(true)
             currentMedEdit.setTitle("Edit", for: .normal)
         }
-        print(editCurrentMedArray)
+        print("editCurrentMedArray\(editCurrentMedArray)")
+        print("oldCurrentMedArray\(oldCurrentMedArray)")
         medicationTbl.reloadData()
     }
    func newMedEditActon(_ sender: UIButton) {
@@ -260,6 +270,68 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
             }
         }
     }
+    //MARK: - Approve & Decline Button Methods
+    
+    @IBAction func declineBtn_Click(_ sender: Any) {
+        SVProgressHUD.show(withStatus: "SA_STR_LOADING".localized, maskType: SVProgressHUDMaskType.clear)
+        // let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+        let parameters: Parameters = [
+            "": "" ]
+        
+        Alamofire.request("", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+            
+            print("Validation Successful ")
+            
+            switch response.result {
+                
+            case .success:
+                
+                SVProgressHUD.dismiss()
+                if let JSON: NSDictionary = response.result.value! as? NSDictionary {
+                    SVProgressHUD.dismiss()
+                }
+                
+                break
+            case .failure:
+                print("failure")
+                SVProgressHUD.showError(withStatus:response.result.error?.localizedDescription )
+                break
+                
+            }
+        }
+        
+    }
+    
+    @IBAction func approveBtn_Click(_ sender: Any) {
+        
+        SVProgressHUD.show(withStatus: "SA_STR_LOADING".localized, maskType: SVProgressHUDMaskType.clear)
+        // let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+        let parameters: Parameters = [
+            "": "" ]
+        
+        Alamofire.request("", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+            
+            print("Validation Successful ")
+            
+            switch response.result {
+                
+            case .success:
+                
+                SVProgressHUD.dismiss()
+                if let JSON: NSDictionary = response.result.value! as? NSDictionary {
+                    SVProgressHUD.dismiss()
+                }
+                
+                break
+            case .failure:
+                print("failure")
+                SVProgressHUD.showError(withStatus:response.result.error?.localizedDescription )
+                break
+                
+            }
+        }
+        
+    }
 
     //MARK: - SegmentControl Methods
     @IBAction func SegmentControl_ValueChange(_ sender: Any) {
@@ -305,13 +377,50 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
 
         }
     }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if selectedUserType == userType.doctor {
+//            let obj: CarePlanObj = newMedicationArray[textField.tag] as! CarePlanObj
+//            obj.dosage  = ((textField.text!) as NSString) as String
+//            newMedicationArray.replaceObject(at:textField.tag, with: obj)
+//            print("obj.answer\(obj.dosage)")
+            
+        }
+        else
+        {
+            let obj: CarePlanObj = medicationArray[textField.tag] as! CarePlanObj
+            let mainDict: NSMutableDictionary = NSMutableDictionary()
+            mainDict.setValue(obj.id, forKey: "id")
+            mainDict.setValue(obj.name, forKey: "name")
+            mainDict.setValue(obj.dosage, forKey: "dosage")
+            if self.oldCurrentMedArray.count > 0 {
+                for i in 0..<self.oldCurrentMedArray.count {
+                    let id: String = (oldCurrentMedArray.object(at:i) as AnyObject).value(forKey: "id") as! String
+                    print(id)
+                    if id == obj.id {
+                        return
+                    }
+                }
+                oldCurrentMedArray.add(mainDict)
+                
+            }
+            else {
+                oldCurrentMedArray.add(mainDict)
+            }
+            
+           
+            print("obj.answer\(obj.dosage)")
+            
+            
+        }
+
+    }
     func textFieldDidEndEditing(_ textField: UITextField) {
         if selectedUserType == userType.doctor {
             let obj: CarePlanObj = newMedicationArray[textField.tag] as! CarePlanObj
             obj.dosage  = ((textField.text!) as NSString) as String
             newMedicationArray.replaceObject(at:textField.tag, with: obj)
             print("obj.answer\(obj.dosage)")
-           
+            
         }
         else
         {
@@ -323,27 +432,40 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
             mainDict.setValue(obj.name, forKey: "name")
             mainDict.setValue(obj.dosage, forKey: "dosage")
             if self.editCurrentMedArray.count > 0 {
-            for i in 0..<self.editCurrentMedArray.count {
-                let id: String = (editCurrentMedArray.object(at:i) as AnyObject).value(forKey: "id") as! String
-                print(id)
-                if id == obj.id {
-                editCurrentMedArray.replaceObject(at:i, with: mainDict)
-                return
+                for i in 0..<self.editCurrentMedArray.count {
+                    let id: String = (editCurrentMedArray.object(at:i) as AnyObject).value(forKey: "id") as! String
+                    print(id)
+                    if id == obj.id {
+                        editCurrentMedArray.replaceObject(at:i, with: mainDict)
+                        return
+                    }
                 }
-            }
                 editCurrentMedArray.add(mainDict)
-            
+                
             }
             else {
                 editCurrentMedArray.add(mainDict)
             }
-
+            
             print("obj.answer\(obj.dosage)")
             
             
         }
-
         
+    }
+   // MARK: - TextView Delegates
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if educatorCommentTxtViw.textColor == UIColor.lightGray {
+            educatorCommentTxtViw.text = nil
+            educatorCommentTxtViw.textColor = UIColor.darkGray
+        }
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if educatorCommentTxtViw.text.isEmpty {
+            educatorCommentTxtViw.text = "Please add comments to justify your decision"
+            educatorCommentTxtViw.textColor = UIColor.lightGray
+        }
     }
 
         // MARK: - TableView Delegates
@@ -619,7 +741,7 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
                 
             case .success:
                 
-                SVProgressHUD.dismiss()
+                
                 if let JSON: NSDictionary = response.result.value! as? NSDictionary {
                     self.summaryTxtArray.removeAllObjects()
                     print("JSON \(JSON)")
@@ -630,6 +752,7 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
                     self.summaryTbl.reloadData()
                     
                     let jsonArr : NSMutableArray = NSMutableArray(array:JSON.object(forKey: "medication") as! NSArray)
+                    print(jsonArr.count)
                     let objectArray : NSDictionary = NSDictionary(dictionary: JSON.object(forKey: "glucoseReadings") as! NSDictionary)
                     let glucoseReadingArr: NSArray = NSMutableArray(array: objectArray.object(forKey: "objectArray") as! NSArray)
 
@@ -641,7 +764,7 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
                         obj.id = dict.value(forKey: "_id") as! String
                         obj.name = dict.value(forKey: "name") as! String
                        
-                        self.dynamicEducatorViewLayout(medArrCount:jsonArr.count, readingArrcount: readingArr.count , glucoseReadingCount:glucoseReadingArr.count)
+                        
                         
                         let timingArray : NSMutableArray = NSMutableArray(array: (data as AnyObject).object(forKey: "timing") as! NSArray)
                        
@@ -651,9 +774,10 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
 //                        obj.frequency = String(describing: dict.value(forKey: "frequency"))
                         self.medicationArray.add(obj)
                     }
-                  self.medicationTbl.reloadData()
+                    self.dynamicEducatorViewLayout(medArrCount:jsonArr.count, readingArrcount: readingArr.count , glucoseReadingCount:glucoseReadingArr.count)
+                    self.medicationTbl.reloadData()
                     
-                    
+                    SVProgressHUD.dismiss()
                 }
                 
                 break
@@ -683,21 +807,25 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
 
             print("MedJSONString\(updateMedJSONString)")
             print("ReadJSONString\(updateReadJSONString)")
-                
-                
-                
-                let parameters: Parameters = [
-                    "patientID": "58563eb4d9c776ad70491b7b",
-                    "educatorID":"58563eb4d9c776ad70491b97",
-                    "doctorID": "58563eb4d9c776ad70491b95",
+            var actionSegment = String()
+            if actionSegmentControl.selectedSegmentIndex == 0 {
+                actionSegment = "No change"
+            }
+            else {
+                actionSegment = "Changes mode"
+            }
+            let parameters: Parameters = [
+                    "patientid": "58563eb4d9c776ad70491b7b",
+                    "educatorid":"58563eb4d9c776ad70491b97",
+                    "doctorid": "58563eb4d9c776ad70491b95",
                     "isApproved": false,
                     "isDeclined" :false,
-                    "updatedMedication" : updateMedJSONString,
-                    "updatedReading" : updateReadJSONString,
+                    "updatedmeds" : updateMedJSONString,
+                    "updatedread" : updateReadJSONString,
                     "comment" : educatorCommentTxtViw.text,
-                    "action":"No change",
+                    "action":actionSegment,
                     "hcNumber": "ffrtrtrtr@23423",
-                    "hba1c":""
+                    "hba":""
             ]
             print("Parameters \(parameters)")
 
@@ -764,7 +892,7 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
                     let arr : NSArray = JSON.object(forKey: "educatorComment") as! NSArray
                     self.doctorCommentTextView.text = arr.object(at: 0) as! String
                     let jsonArr : NSMutableArray = NSMutableArray(array:JSON.object(forKey: "medication") as! NSArray)
-                
+                     print(jsonArr.count)
                     if jsonArr.count > 0 {
                         self.medicationArray.removeAllObjects()
                     for data in jsonArr {
@@ -831,25 +959,59 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
     {
 //        glucoseReadingLayoutConstraint.constant = CGFloat((glucoseReadingCount * 60) + 200)
 //        self.medicationView.setY(y:glucoseReadingView.frame.origin.y + glucoseReadingLayoutConstraint.constant)
+        if medArrCount > 0 {
         self.medicationViewHeight.constant = CGFloat((medArrCount * 63) + 49)
-        self.readingScheduleView.setY(y: self.medicationView.frame.origin.y +  self.medicationViewHeight.constant)
-        currentReadingContainerHeight.constant   = CGFloat((readingArrcount * 160)) ;
-        newReadingContainerHeight.constant = 0.0
-        newRedEditConstraint.constant = 0.0
-        readingScheduleHeightConstraint.constant = CGFloat((readingArrcount * 160)) ;
+        }
+        else {
+          self.medicationViewHeight.constant = 0.0
+        }
+        if readingArrcount > 0{
+            self.readingScheduleView.setY(y: self.medicationView.frame.origin.y +  self.medicationViewHeight.constant)
+            currentReadingContainerHeight.constant   = CGFloat((readingArrcount * 160)) ;
+            newReadingContainerHeight.constant = 0.0
+            newRedEditConstraint.constant = 0.0
+            readingScheduleHeightConstraint.constant = CGFloat((readingArrcount * 160)) ;
+        }
+        else {
+            self.readingScheduleView.setY(y: self.medicationView.frame.origin.y +  self.medicationViewHeight.constant)
+            currentReadingContainerHeight.constant   = 0.0 ;
+            newReadingContainerHeight.constant = 0.0
+            newRedEditConstraint.constant = 0.0
+            readingScheduleHeightConstraint.constant = 0.0 ;
+
+        }
+        
         self.educatorActionView.setY(y: readingScheduleView.frame.origin.y + readingScheduleHeightConstraint.constant)
         scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: educatorActionView.frame.origin.y + educatorActionView.frame.size.height)
         print( educatorActionView.frame.origin.y)
     }
     func dynamicDoctorViewLayout(medArrCount : Int , readingArrcount: Int , updateReadingCount : Int, glucoseReadingCount : Int)
     {
-//        glucoseReadingLayoutConstraint.constant = CGFloat((glucoseReadingCount * 60) + 200)
-//        self.medicationView.setY(y:glucoseReadingView.frame.origin.y + glucoseReadingLayoutConstraint.constant)
-        self.medicationViewHeight.constant = CGFloat((medArrCount * 63) + 98)
+        if medArrCount > 0 {
+            self.medicationViewHeight.constant = CGFloat((medArrCount * 63) + 98)
+        }
+        else {
+            self.medicationViewHeight.constant = 0.0
+        }
         self.readingScheduleView.setY(y: self.medicationView.frame.origin.y +  self.medicationViewHeight.constant)
-        currentReadingContainerHeight.constant   = CGFloat((readingArrcount * 160) + 50) ;
-        newReadingContainerHeight.constant = CGFloat((updateReadingCount * 160)) ;
-        readingScheduleHeightConstraint.constant = CGFloat((readingArrcount * 160) + 50 + Int(newReadingContainerHeight.constant));
+        if readingArrcount == 0 {
+             currentReadingContainerHeight.constant   = 0.0 ;
+            
+        }
+        else  if updateReadingCount == 0 {
+           
+            newReadingContainerHeight.constant = 0.0 ;
+        }
+
+        else  {
+            
+            currentReadingContainerHeight.constant   = CGFloat((readingArrcount * 160) + 50) ;
+            newReadingContainerHeight.constant = CGFloat((updateReadingCount * 160)) ;
+            
+            
+        }
+        
+        readingScheduleHeightConstraint.constant = self.currentReadingContainerHeight.constant + newReadingContainerHeight.constant
         educatorViewHeightConstraint.constant = 0.0
         self.doctorAcionView.setY(y: readingScheduleView.frame.origin.y + readingScheduleHeightConstraint.constant)
         scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: doctorAcionView.frame.origin.y + doctorAcionView.frame.size.height)

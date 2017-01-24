@@ -75,7 +75,7 @@ class ChartViewController: UIViewController, LineChartDelegate {
         
         print(parameters)
         
-        Alamofire.request("http://54.212.229.198:3000/\(ApiMethods.getglucoseDaysConditionChart)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+        Alamofire.request("http://54.244.176.114:3000/\(ApiMethods.getglucoseDaysConditionChart)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
             
             print("Validation Successful ")
             

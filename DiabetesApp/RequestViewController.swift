@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SVProgressHUD
 
 class RequestViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
  let selectedUserType: Int = Int(UserDefaults.standard.integer(forKey: userDefaults.loggedInUserType))
@@ -88,8 +89,21 @@ class RequestViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     }
     
-    func getRequestTask() {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        let reqObj =  requestListArray.object(at: indexPath.row) as! ReqestObject
+        
+        let viewController: ReportViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.ReportViewController) as! ReportViewController
+        viewController.taskID = reqObj.taskid
+        self.tabBarController?.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
+        viewController.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(viewController, animated: true)
+        
+        
+    }
+    func getRequestTask() {
+//         SVProgressHUD.show(withStatus: "SA_STR_LOADING".localized, maskType: SVProgressHUDMaskType.clear)
         if  UserDefaults.standard.string(forKey: userDefaults.selectedPatientID) != nil {
            
             
@@ -111,6 +125,7 @@ class RequestViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 switch response.result {
                     
                 case .success:
+//                    SVProgressHUD.dismiss()
                     
                     if let JSON: NSArray = response.result.value! as? NSArray {
                        self.requestListArray .removeAllObjects()
@@ -125,7 +140,6 @@ class RequestViewController: UIViewController,UITableViewDelegate,UITableViewDat
                             else if self.selectedUserType == userType.educator {
                                 requestObj.doctorName = dict.value(forKey: "doctorName") as! String
                             }
-                           
                             requestObj.patientName = dict.value(forKey: "patientName") as! String
                             requestObj.taskid = dict.value(forKey: "taskid") as! String
                             requestObj.time =   dict.value(forKey: "time") as! String
@@ -138,6 +152,7 @@ class RequestViewController: UIViewController,UITableViewDelegate,UITableViewDat
                     
                     break
                 case .failure:
+//                    SVProgressHUD.showError(withStatus:response.result.error?.localizedDescription )
                     print("failure")
                     
                     break

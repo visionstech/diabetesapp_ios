@@ -60,7 +60,41 @@ class ReportCarePlanController: UIViewController , UITableViewDelegate, UITableV
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.readingNotification(notification:)), name: NSNotification.Name(rawValue: Notifications.readingView), object: nil)
     }
-     //MARK: - textfield  Delegates
+    //MARK: - textfield  Delegates
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let selectedIndex : Int = Int(textField.accessibilityLabel!)!
+        let mainDict: NSMutableDictionary = array[textField.tag] as! NSMutableDictionary
+        let itemsArray: NSMutableArray = mainDict.object(forKey: "data") as! NSMutableArray
+        let obj: CarePlanReadingObj = itemsArray[selectedIndex] as! CarePlanReadingObj
+        let readDict: NSMutableDictionary = NSMutableDictionary()
+        readDict.setValue(obj.id, forKey: "id")
+        readDict.setValue(obj.frequency, forKey: "frequency")
+        readDict.setValue(obj.goal, forKey: "goal")
+        if self.currentEditReadingArray.count > 0 {
+            for i in 0..<self.currentEditReadingArray.count {
+                let id: String = (currentEditReadingArray.object(at:i) as AnyObject).value(forKey: "id") as! String
+                print(id)
+                if id == obj.id {
+                    currentEditReadingArray.replaceObject(at:i, with: readDict)
+                    textField.resignFirstResponder()
+                    UserDefaults.standard.setValue(currentEditReadingArray, forKey: "currentEditReadingArray")
+                    UserDefaults.standard.synchronize()
+                    return true
+                }
+            }
+            currentEditReadingArray.add(readDict)
+            
+        }
+        else {
+            currentEditReadingArray.add(readDict)
+        }
+        
+        UserDefaults.standard.setValue(currentEditReadingArray, forKey: "currentEditReadingArray")
+        UserDefaults.standard.synchronize()
+        
+        textField.resignFirstResponder()
+        return true
+    }
     func textFieldDidEndEditing(_ textField: UITextField) {
         
         let selectedIndex : Int = Int(textField.accessibilityLabel!)!
@@ -72,11 +106,13 @@ class ReportCarePlanController: UIViewController , UITableViewDelegate, UITableV
         readDict.setValue(obj.frequency, forKey: "frequency")
         readDict.setValue(obj.goal, forKey: "goal")
         if self.currentEditReadingArray.count > 0 {
-        for i in 0..<self.currentEditReadingArray.count {
+            for i in 0..<self.currentEditReadingArray.count {
                 let id: String = (currentEditReadingArray.object(at:i) as AnyObject).value(forKey: "id") as! String
                 print(id)
                 if id == obj.id {
                     currentEditReadingArray.replaceObject(at:i, with: readDict)
+                    UserDefaults.standard.setValue(currentEditReadingArray, forKey: "currentEditReadingArray")
+                    UserDefaults.standard.synchronize()
                     return
                 }
             }
@@ -86,18 +122,18 @@ class ReportCarePlanController: UIViewController , UITableViewDelegate, UITableV
         else {
             currentEditReadingArray.add(readDict)
         }
-
+        
         UserDefaults.standard.setValue(currentEditReadingArray, forKey: "currentEditReadingArray")
         UserDefaults.standard.synchronize()
-//        currentEditReadingArray.add(readDict)
-
-       
-       
+        //        currentEditReadingArray.add(readDict)
+        
+        
+        
     }
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField.accessibilityValue  != "goal" {
-        selectedIndex = Int(textField.accessibilityLabel!)!
-        selectedIndexPath =  textField.tag
+            selectedIndex = Int(textField.accessibilityLabel!)!
+            selectedIndexPath =  textField.tag
         }
         
         
@@ -115,9 +151,9 @@ class ReportCarePlanController: UIViewController , UITableViewDelegate, UITableV
             let mSectioDict = (array[textField.tag] as AnyObject) as! NSDictionary
             let sectionsDict = NSMutableDictionary(dictionary:mSectioDict)
             array.replaceObject(at:textField.tag, with: sectionsDict)
-
+            
         }
-             return true
+        return true
     }
 
     //MARK: - Notifications Methods
