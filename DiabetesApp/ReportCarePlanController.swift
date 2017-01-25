@@ -28,10 +28,17 @@ class ReportCarePlanController: UIViewController , UITableViewDelegate, UITableV
     }
     override func viewWillAppear(_ animated: Bool) {
             addNotifications()
+        
+        let taskID: String =  UserDefaults.standard.value(forKey:"taskID") as! String
+        if !taskID.isEmpty {
+            getDoctorSingleData()
+        }
+        else {
          if selectedUserType == userType.doctor {
             getDoctorReadingsData()
          } else{
            getReadingsData()
+        }
         }
         
     }
@@ -236,6 +243,78 @@ class ReportCarePlanController: UIViewController , UITableViewDelegate, UITableV
             }
         }
     }
+    func getDoctorSingleData() {
+        if  UserDefaults.standard.string(forKey: userDefaults.selectedPatientID) != nil {
+            
+            
+            //  let patientsID: String? = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+            let parameters: Parameters = [
+                "patientid": "58563eb4d9c776ad70491b7b",
+                "numDaysBack": "1",
+                "condition": "All conditions"
+            ]
+            print(parameters)
+            
+            Alamofire.request("http://54.212.229.198:3000/getdoctorsingle", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+                
+                print(response)
+                
+                switch response.result {
+                case .success:
+                    print("Validation Successful")
+                    
+                    if let JSON: NSDictionary = response.result.value! as? NSDictionary {
+                        print(JSON)
+                        let arr  = NSMutableArray(array: JSON.object(forKey: "readingsTime")as! NSArray)
+                        self.array.removeAllObjects()
+                        for time in frequnecyArray {
+                            let mainDict: NSMutableDictionary = NSMutableDictionary()
+                            mainDict.setValue(String(describing: time), forKey: "frequency")
+                            let itemsArray: NSMutableArray = NSMutableArray()
+                            for data in arr {
+                                let dict: NSDictionary = data as! NSDictionary
+                                let obj = CarePlanReadingObj()
+                                obj.id = dict.value(forKey: "_id") as! String
+                                // Between
+                                let goalStr: String = dict.value(forKey: "goal") as! String
+                                obj.goal = goalStr.replacingOccurrences(of: "Between ", with: "")
+                                //obj.goal = dict.value(forKey: "goal") as! String
+                                obj.time = dict.value(forKey: "time") as! String
+                                obj.frequency = dict.value(forKey: "frequency") as! String
+                                print(String(describing: time))
+                                if String(describing: time) == obj.time {
+                                    itemsArray.add(obj)
+                                }
+                            }
+                            
+                            if itemsArray.count > 0{
+                                //                                for i : Int in 0 ..< itemsArray.count {
+                                mainDict.setObject(itemsArray, forKey: "data" as NSCopying)
+                                self.array.add(mainDict)
+                                // }
+                            }
+                            
+                        }
+                        
+                        print(self.array)
+                    }
+                    self.tblView.reloadData()
+                    self.resetUI()
+                    
+                    break
+                    
+                case .failure:
+                    print("failure")
+                    self.tblView.reloadData()
+                    self.resetUI()
+                    
+                    break
+                    
+                }
+            }
+        }
+    }
+
     
     func getDoctorReadingsData() {
         if  UserDefaults.standard.string(forKey: userDefaults.selectedPatientID) != nil {

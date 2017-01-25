@@ -8,88 +8,90 @@ provides-member:
 - ["C11DiabetesApp24ReportCarePlanController", ""]
 provides-dynamic-lookup:
 - "numberOfSections"
-- "textFieldDidEndEditing"
-- "ToolBarButtons_Click"
-- "getReadingsData"
 - "resetUI"
-- "textFieldDidBeginEditing"
-- "array"
-- "viewWillAppear"
-- "currentEditReadingArray"
-- "textFieldShouldReturn"
-- "getDoctorReadingsData"
-- "readingNotification"
+- "ToolBarButtons_Click"
 - "selectedIndex"
-- "pickerView"
-- "pickerView"
-- "pickerView"
-- "didReceiveMemoryWarning"
-- "selectedIndexPath"
 - "viewDidLoad"
-- "addNotifications"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
 - "textField"
+- "selectedIndexPath"
+- "pickerView"
+- "pickerView"
+- "pickerView"
+- "textFieldShouldReturn"
+- "didReceiveMemoryWarning"
+- "currentEditReadingArray"
+- "textFieldDidEndEditing"
+- "getDoctorReadingsData"
 - "numberOfComponents"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
+- "array"
+- "getReadingsData"
+- "addNotifications"
+- "textFieldDidBeginEditing"
 - "pickerViewContainer"
-- "tblView"
+- "readingNotification"
+- "getDoctorSingleData"
 - "viewDidDisappear"
+- "tblView"
+- "viewWillAppear"
 depends-top-level:
-- !private "NSMutableDictionary"
-- !private "Alamofire"
-- !private "NSDictionary"
-- "String"
-- !private "NotificationCenter"
-- "selectedUserType"
-- !private "NSString"
-- !private "UnicodeScalarType"
-- !private ">"
-- "Int"
-- !private "userType"
-- "UITableView"
-- "CGFloat"
-- "UserDefaults"
-- !private "NSKeyedArchiver"
-- "UITableViewDataSource"
-- !private "ReportCarePlanReadingViewCell"
-- "UITableViewDelegate"
-- "UIPickerViewDelegate"
-- !private "JSONEncoding"
-- "UITextFieldDelegate"
-- !private "frequnecyArray"
-- "UIPickerViewDataSource"
-- "UIPickerView"
-- !private "BooleanLiteralType"
-- "Bool"
-- !private "NSArray"
-- "NSNotification"
-- "UIView"
-- "CastingPrecedence"
-- !private "=="
-- "NSMutableArray"
-- "UITextField"
-- "AssignmentPrecedence"
-- !private "Parameters"
-- !private "!="
-- "ReportCarePlanController"
-- !private "print"
-- !private "Dictionary"
-- "IndexPath"
-- "NSRange"
-- !private "CarePlanReadingObj"
-- !private "AnyObject"
-- !private "..<"
-- !private "conditionsArray"
-- "UITableViewCell"
-- "userDefaults"
-- "UIViewController"
-- !private "NSCopying"
-- !private "Notifications"
-- !private "CarePlanReadingHeaderTableViewCell"
 - !private "+"
+- !private "Alamofire"
+- !private "!"
+- !private "CarePlanReadingHeaderTableViewCell"
+- !private "=="
+- "AssignmentPrecedence"
+- "selectedUserType"
+- "CastingPrecedence"
+- "UITableView"
+- "Int"
+- "UserDefaults"
+- "NSNotification"
+- !private "UnicodeScalarType"
+- "UIPickerView"
+- "userDefaults"
+- "String"
+- !private "NSArray"
+- "NSRange"
+- "IndexPath"
+- !private "!="
+- "UITextField"
+- !private "Notifications"
+- "ReportCarePlanController"
+- !private "NSMutableDictionary"
+- "Bool"
+- "NSMutableArray"
+- !private "print"
+- !private "frequnecyArray"
+- !private ">"
+- "UIViewController"
+- !private "AnyObject"
+- !private "JSONEncoding"
+- !private "conditionsArray"
+- !private "NSDictionary"
+- "UITextFieldDelegate"
+- !private "..<"
+- !private "NotificationCenter"
+- !private "NSString"
+- "UIPickerViewDelegate"
+- !private "BooleanLiteralType"
+- !private "CarePlanReadingObj"
+- "UITableViewCell"
+- !private "ReportCarePlanReadingViewCell"
+- !private "Dictionary"
+- "UITableViewDelegate"
+- "UITableViewDataSource"
+- "CGFloat"
+- !private "Parameters"
+- !private "NSKeyedArchiver"
+- "UIView"
+- "UIPickerViewDataSource"
+- !private "userType"
+- !private "NSCopying"
 depends-member:
 - !private ["Ps9AnyObject", "Alamofire"]
 - !private ["Ps9AnyObject", "CarePlanReadingObj"]
@@ -130,6 +132,7 @@ depends-member:
 - !private ["Ps9AnyObject", "frequencyLbl"]
 - !private ["Ps9AnyObject", "frequnecyArray"]
 - ["Ps9AnyObject", "getDoctorReadingsData"]
+- ["Ps9AnyObject", "getDoctorSingleData"]
 - ["Ps9AnyObject", "getReadingsData"]
 - !private ["Ps9AnyObject", "goal"]
 - !private ["Ps9AnyObject", "goalLbl"]
@@ -139,6 +142,7 @@ depends-member:
 - ["Ps9AnyObject", "init"]
 - !private ["Ps9AnyObject", "inputView"]
 - ["Ps9AnyObject", "integer"]
+- !private ["Ps9AnyObject", "isEmpty"]
 - !private ["Ps9AnyObject", "isHidden"]
 - !private ["Ps9AnyObject", "isUserInteractionEnabled"]
 - !private ["Ps9AnyObject", "numberLbl"]
@@ -283,6 +287,7 @@ depends-member:
 - !private ["Ps7CVarArg", "frequencyLbl"]
 - !private ["Ps7CVarArg", "frequnecyArray"]
 - ["Ps7CVarArg", "getDoctorReadingsData"]
+- ["Ps7CVarArg", "getDoctorSingleData"]
 - ["Ps7CVarArg", "getReadingsData"]
 - !private ["Ps7CVarArg", "goal"]
 - !private ["Ps7CVarArg", "goalLbl"]
@@ -292,6 +297,7 @@ depends-member:
 - ["Ps7CVarArg", "init"]
 - !private ["Ps7CVarArg", "inputView"]
 - ["Ps7CVarArg", "integer"]
+- !private ["Ps7CVarArg", "isEmpty"]
 - !private ["Ps7CVarArg", "isHidden"]
 - !private ["Ps7CVarArg", "isUserInteractionEnabled"]
 - !private ["Ps7CVarArg", "numberLbl"]
@@ -379,6 +385,7 @@ depends-member:
 - !private ["Ps10Comparable", "Stride"]
 - !private ["Ps10Comparable", "_DisabledRangeIndex"]
 - ["Ps10Comparable", "init"]
+- !private ["Ps10Comparable", "isEmpty"]
 - !private ["Ps10Comparable", "replacingOccurrences"]
 - !private ["Ps10Comparable", "row"]
 - !private ["Ps10Comparable", "section"]
@@ -426,6 +433,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "frequencyLbl"]
 - !private ["Ps28CustomDebugStringConvertible", "frequnecyArray"]
 - ["Ps28CustomDebugStringConvertible", "getDoctorReadingsData"]
+- ["Ps28CustomDebugStringConvertible", "getDoctorSingleData"]
 - ["Ps28CustomDebugStringConvertible", "getReadingsData"]
 - !private ["Ps28CustomDebugStringConvertible", "goal"]
 - !private ["Ps28CustomDebugStringConvertible", "goalLbl"]
@@ -435,6 +443,7 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "init"]
 - !private ["Ps28CustomDebugStringConvertible", "inputView"]
 - ["Ps28CustomDebugStringConvertible", "integer"]
+- !private ["Ps28CustomDebugStringConvertible", "isEmpty"]
 - !private ["Ps28CustomDebugStringConvertible", "isHidden"]
 - !private ["Ps28CustomDebugStringConvertible", "isUserInteractionEnabled"]
 - !private ["Ps28CustomDebugStringConvertible", "numberLbl"]
@@ -513,6 +522,7 @@ depends-member:
 - !private ["Ps29CustomPlaygroundQuickLookable", "_DisabledRangeIndex"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
 - ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "isEmpty"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "replacingCharacters"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "replacingOccurrences"]
 - !private ["Ps17CustomReflectable", "IntegerLiteralType"]
@@ -526,6 +536,7 @@ depends-member:
 - !private ["Ps17CustomReflectable", "add"]
 - !private ["Ps17CustomReflectable", "count"]
 - ["Ps17CustomReflectable", "init"]
+- !private ["Ps17CustomReflectable", "isEmpty"]
 - !private ["Ps17CustomReflectable", "object"]
 - !private ["Ps17CustomReflectable", "removeAllObjects"]
 - !private ["Ps17CustomReflectable", "replaceObject"]
@@ -581,6 +592,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "frequencyLbl"]
 - !private ["Ps23CustomStringConvertible", "frequnecyArray"]
 - ["Ps23CustomStringConvertible", "getDoctorReadingsData"]
+- ["Ps23CustomStringConvertible", "getDoctorSingleData"]
 - ["Ps23CustomStringConvertible", "getReadingsData"]
 - !private ["Ps23CustomStringConvertible", "goal"]
 - !private ["Ps23CustomStringConvertible", "goalLbl"]
@@ -590,6 +602,7 @@ depends-member:
 - ["Ps23CustomStringConvertible", "init"]
 - !private ["Ps23CustomStringConvertible", "inputView"]
 - ["Ps23CustomStringConvertible", "integer"]
+- !private ["Ps23CustomStringConvertible", "isEmpty"]
 - !private ["Ps23CustomStringConvertible", "isHidden"]
 - !private ["Ps23CustomStringConvertible", "isUserInteractionEnabled"]
 - !private ["Ps23CustomStringConvertible", "numberLbl"]
@@ -714,6 +727,7 @@ depends-member:
 - !private ["Ps9Equatable", "frequencyLbl"]
 - !private ["Ps9Equatable", "frequnecyArray"]
 - ["Ps9Equatable", "getDoctorReadingsData"]
+- ["Ps9Equatable", "getDoctorSingleData"]
 - ["Ps9Equatable", "getReadingsData"]
 - !private ["Ps9Equatable", "goal"]
 - !private ["Ps9Equatable", "goalLbl"]
@@ -723,6 +737,7 @@ depends-member:
 - ["Ps9Equatable", "init"]
 - !private ["Ps9Equatable", "inputView"]
 - ["Ps9Equatable", "integer"]
+- !private ["Ps9Equatable", "isEmpty"]
 - !private ["Ps9Equatable", "isHidden"]
 - !private ["Ps9Equatable", "isUserInteractionEnabled"]
 - !private ["Ps9Equatable", "none"]
@@ -814,6 +829,7 @@ depends-member:
 - !private ["Ps30ExpressibleByDictionaryLiteral", "setValue"]
 - !private ["Ps30ExpressibleByDictionaryLiteral", "value"]
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "isEmpty"]
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "replacingCharacters"]
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "replacingOccurrences"]
 - !private ["Ps27ExpressibleByIntegerLiteral", "IntegerLiteralType"]
@@ -821,11 +837,14 @@ depends-member:
 - !private ["Ps27ExpressibleByIntegerLiteral", "_DisabledRangeIndex"]
 - ["Ps27ExpressibleByIntegerLiteral", "init"]
 - !private ["Ps32ExpressibleByStringInterpolation", "init"]
+- !private ["Ps32ExpressibleByStringInterpolation", "isEmpty"]
 - !private ["Ps32ExpressibleByStringInterpolation", "replacingOccurrences"]
 - !private ["Ps26ExpressibleByStringLiteral", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "isEmpty"]
 - !private ["Ps26ExpressibleByStringLiteral", "replacingCharacters"]
 - !private ["Ps26ExpressibleByStringLiteral", "replacingOccurrences"]
 - !private ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "isEmpty"]
 - !private ["Ps33ExpressibleByUnicodeScalarLiteral", "replacingCharacters"]
 - !private ["Ps33ExpressibleByUnicodeScalarLiteral", "replacingOccurrences"]
 - !private ["Sf", "deinit"]
@@ -872,6 +891,7 @@ depends-member:
 - !private ["Ps8Hashable", "frequencyLbl"]
 - !private ["Ps8Hashable", "frequnecyArray"]
 - ["Ps8Hashable", "getDoctorReadingsData"]
+- ["Ps8Hashable", "getDoctorSingleData"]
 - ["Ps8Hashable", "getReadingsData"]
 - !private ["Ps8Hashable", "goal"]
 - !private ["Ps8Hashable", "goalLbl"]
@@ -881,6 +901,7 @@ depends-member:
 - ["Ps8Hashable", "init"]
 - !private ["Ps8Hashable", "inputView"]
 - ["Ps8Hashable", "integer"]
+- !private ["Ps8Hashable", "isEmpty"]
 - !private ["Ps8Hashable", "isHidden"]
 - !private ["Ps8Hashable", "isUserInteractionEnabled"]
 - !private ["Ps8Hashable", "none"]
@@ -992,11 +1013,13 @@ depends-member:
 - ["V9Alamofire12JSONEncoding", "deinit"]
 - !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
 - !private ["Ps25LosslessStringConvertible", "init"]
+- !private ["Ps25LosslessStringConvertible", "isEmpty"]
 - !private ["Ps25LosslessStringConvertible", "replacingOccurrences"]
 - !private ["Ps10MirrorPath", "IntegerLiteralType"]
 - !private ["Ps10MirrorPath", "Stride"]
 - !private ["Ps10MirrorPath", "_DisabledRangeIndex"]
 - ["Ps10MirrorPath", "init"]
+- !private ["Ps10MirrorPath", "isEmpty"]
 - !private ["Ps10MirrorPath", "replacingOccurrences"]
 - !private ["Ps17MutableCollection", "row"]
 - !private ["Ps17MutableCollection", "section"]
@@ -1045,12 +1068,14 @@ depends-member:
 - !private ["PSo8NSCoding", "frequencyLbl"]
 - !private ["PSo8NSCoding", "frequnecyArray"]
 - ["PSo8NSCoding", "getDoctorReadingsData"]
+- ["PSo8NSCoding", "getDoctorSingleData"]
 - ["PSo8NSCoding", "getReadingsData"]
 - !private ["PSo8NSCoding", "goalLbl"]
 - ["PSo8NSCoding", "indexPathForPreferredFocusedView"]
 - ["PSo8NSCoding", "indexPathForPreferredFocusedViewInTableView"]
 - ["PSo8NSCoding", "init"]
 - !private ["PSo8NSCoding", "inputView"]
+- !private ["PSo8NSCoding", "isEmpty"]
 - !private ["PSo8NSCoding", "isHidden"]
 - !private ["PSo8NSCoding", "isUserInteractionEnabled"]
 - !private ["PSo8NSCoding", "numberLbl"]
@@ -1119,6 +1144,7 @@ depends-member:
 - !private ["PSo9NSCopying", "count"]
 - !private ["PSo9NSCopying", "deinit"]
 - ["PSo9NSCopying", "init"]
+- !private ["PSo9NSCopying", "isEmpty"]
 - !private ["PSo9NSCopying", "object"]
 - !private ["PSo9NSCopying", "removeAllObjects"]
 - !private ["PSo9NSCopying", "replaceObject"]
@@ -1155,6 +1181,7 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "didReceiveMemoryWarning"]
 - !private ["PSo26NSExtensionRequestHandling", "frequnecyArray"]
 - ["PSo26NSExtensionRequestHandling", "getDoctorReadingsData"]
+- ["PSo26NSExtensionRequestHandling", "getDoctorSingleData"]
 - ["PSo26NSExtensionRequestHandling", "getReadingsData"]
 - ["PSo26NSExtensionRequestHandling", "indexPathForPreferredFocusedView"]
 - ["PSo26NSExtensionRequestHandling", "indexPathForPreferredFocusedViewInTableView"]
@@ -1234,6 +1261,7 @@ depends-member:
 - !private ["PSo16NSMutableCopying", "add"]
 - !private ["PSo16NSMutableCopying", "count"]
 - ["PSo16NSMutableCopying", "init"]
+- !private ["PSo16NSMutableCopying", "isEmpty"]
 - !private ["PSo16NSMutableCopying", "object"]
 - !private ["PSo16NSMutableCopying", "removeAllObjects"]
 - !private ["PSo16NSMutableCopying", "replaceObject"]
@@ -1303,6 +1331,7 @@ depends-member:
 - !private ["CSo8NSObject", "frequencyLbl"]
 - !private ["CSo8NSObject", "frequnecyArray"]
 - ["CSo8NSObject", "getDoctorReadingsData"]
+- ["CSo8NSObject", "getDoctorSingleData"]
 - ["CSo8NSObject", "getReadingsData"]
 - !private ["CSo8NSObject", "goal"]
 - !private ["CSo8NSObject", "goalLbl"]
@@ -1312,6 +1341,7 @@ depends-member:
 - ["CSo8NSObject", "init"]
 - !private ["CSo8NSObject", "inputView"]
 - ["CSo8NSObject", "integer"]
+- !private ["CSo8NSObject", "isEmpty"]
 - !private ["CSo8NSObject", "isHidden"]
 - !private ["CSo8NSObject", "isUserInteractionEnabled"]
 - !private ["CSo8NSObject", "numberLbl"]
@@ -1416,6 +1446,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "frequencyLbl"]
 - !private ["PSo16NSObjectProtocol", "frequnecyArray"]
 - ["PSo16NSObjectProtocol", "getDoctorReadingsData"]
+- ["PSo16NSObjectProtocol", "getDoctorSingleData"]
 - ["PSo16NSObjectProtocol", "getReadingsData"]
 - !private ["PSo16NSObjectProtocol", "goal"]
 - !private ["PSo16NSObjectProtocol", "goalLbl"]
@@ -1425,6 +1456,7 @@ depends-member:
 - ["PSo16NSObjectProtocol", "init"]
 - !private ["PSo16NSObjectProtocol", "inputView"]
 - ["PSo16NSObjectProtocol", "integer"]
+- !private ["PSo16NSObjectProtocol", "isEmpty"]
 - !private ["PSo16NSObjectProtocol", "isHidden"]
 - !private ["PSo16NSObjectProtocol", "isUserInteractionEnabled"]
 - !private ["PSo16NSObjectProtocol", "numberLbl"]
@@ -1497,6 +1529,7 @@ depends-member:
 - !private ["PSo14NSSecureCoding", "add"]
 - !private ["PSo14NSSecureCoding", "count"]
 - ["PSo14NSSecureCoding", "init"]
+- !private ["PSo14NSSecureCoding", "isEmpty"]
 - !private ["PSo14NSSecureCoding", "object"]
 - !private ["PSo14NSSecureCoding", "removeAllObjects"]
 - !private ["PSo14NSSecureCoding", "replaceObject"]
@@ -1508,6 +1541,7 @@ depends-member:
 - !private ["PSo14NSSecureCoding", "value"]
 - ["CSo8NSString", "deinit"]
 - !private ["CSo8NSString", "init"]
+- !private ["CSo8NSString", "isEmpty"]
 - !private ["CSo8NSString", "replacingCharacters"]
 - !private ["CSo8NSString", "replacingOccurrences"]
 - ["VCSo14NSNotification4Name", "deinit"]
@@ -1571,6 +1605,7 @@ depends-member:
 - ["C11DiabetesApp24ReportCarePlanController", "didReceiveMemoryWarning"]
 - !private ["C11DiabetesApp24ReportCarePlanController", "frequnecyArray"]
 - ["C11DiabetesApp24ReportCarePlanController", "getDoctorReadingsData"]
+- ["C11DiabetesApp24ReportCarePlanController", "getDoctorSingleData"]
 - ["C11DiabetesApp24ReportCarePlanController", "getReadingsData"]
 - ["C11DiabetesApp24ReportCarePlanController", "indexPathForPreferredFocusedView"]
 - ["C11DiabetesApp24ReportCarePlanController", "indexPathForPreferredFocusedViewInTableView"]
@@ -1662,10 +1697,13 @@ depends-member:
 - ["Ps10Strideable", "init"]
 - ["SS", "deinit"]
 - !private ["SS", "init"]
+- !private ["SS", "isEmpty"]
 - !private ["SS", "replacingOccurrences"]
 - !private ["Ps16TextOutputStream", "init"]
+- !private ["Ps16TextOutputStream", "isEmpty"]
 - !private ["Ps16TextOutputStream", "replacingOccurrences"]
 - !private ["Ps20TextOutputStreamable", "init"]
+- !private ["Ps20TextOutputStreamable", "isEmpty"]
 - !private ["Ps20TextOutputStreamable", "replacingOccurrences"]
 - !private ["PSo29UIAccessibilityIdentification", "accessibilityLabel"]
 - !private ["PSo29UIAccessibilityIdentification", "accessibilityValue"]
@@ -1731,6 +1769,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "frequencyLbl"]
 - !private ["PSo21UIAppearanceContainer", "frequnecyArray"]
 - ["PSo21UIAppearanceContainer", "getDoctorReadingsData"]
+- ["PSo21UIAppearanceContainer", "getDoctorSingleData"]
 - ["PSo21UIAppearanceContainer", "getReadingsData"]
 - !private ["PSo21UIAppearanceContainer", "goalLbl"]
 - ["PSo21UIAppearanceContainer", "indexPathForPreferredFocusedView"]
@@ -1811,6 +1850,7 @@ depends-member:
 - ["PSo18UIContentContainer", "didReceiveMemoryWarning"]
 - !private ["PSo18UIContentContainer", "frequnecyArray"]
 - ["PSo18UIContentContainer", "getDoctorReadingsData"]
+- ["PSo18UIContentContainer", "getDoctorSingleData"]
 - ["PSo18UIContentContainer", "getReadingsData"]
 - ["PSo18UIContentContainer", "indexPathForPreferredFocusedView"]
 - ["PSo18UIContentContainer", "indexPathForPreferredFocusedViewInTableView"]
@@ -1939,6 +1979,7 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "frequencyLbl"]
 - !private ["PSo18UIFocusEnvironment", "frequnecyArray"]
 - ["PSo18UIFocusEnvironment", "getDoctorReadingsData"]
+- ["PSo18UIFocusEnvironment", "getDoctorSingleData"]
 - ["PSo18UIFocusEnvironment", "getReadingsData"]
 - !private ["PSo18UIFocusEnvironment", "goalLbl"]
 - ["PSo18UIFocusEnvironment", "indexPathForPreferredFocusedView"]
@@ -2051,6 +2092,7 @@ depends-member:
 - !private ["PSo22UIPickerViewDataSource", "currentEditReadingArray"]
 - !private ["PSo22UIPickerViewDataSource", "frequnecyArray"]
 - !private ["PSo22UIPickerViewDataSource", "getDoctorReadingsData"]
+- !private ["PSo22UIPickerViewDataSource", "getDoctorSingleData"]
 - !private ["PSo22UIPickerViewDataSource", "getReadingsData"]
 - ["PSo22UIPickerViewDataSource", "indexPathForPreferredFocusedView"]
 - ["PSo22UIPickerViewDataSource", "indexPathForPreferredFocusedViewInTableView"]
@@ -2114,6 +2156,7 @@ depends-member:
 - !private ["PSo20UIPickerViewDelegate", "currentEditReadingArray"]
 - !private ["PSo20UIPickerViewDelegate", "frequnecyArray"]
 - !private ["PSo20UIPickerViewDelegate", "getDoctorReadingsData"]
+- !private ["PSo20UIPickerViewDelegate", "getDoctorSingleData"]
 - !private ["PSo20UIPickerViewDelegate", "getReadingsData"]
 - ["PSo20UIPickerViewDelegate", "indexPathForPreferredFocusedView"]
 - ["PSo20UIPickerViewDelegate", "indexPathForPreferredFocusedViewInTableView"]
@@ -2202,6 +2245,7 @@ depends-member:
 - !private ["CSo11UIResponder", "frequencyLbl"]
 - !private ["CSo11UIResponder", "frequnecyArray"]
 - ["CSo11UIResponder", "getDoctorReadingsData"]
+- ["CSo11UIResponder", "getDoctorSingleData"]
 - ["CSo11UIResponder", "getReadingsData"]
 - !private ["CSo11UIResponder", "goalLbl"]
 - ["CSo11UIResponder", "indexPathForPreferredFocusedView"]
@@ -2288,6 +2332,7 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "frequencyLbl"]
 - !private ["PSo30UIResponderStandardEditActions", "frequnecyArray"]
 - ["PSo30UIResponderStandardEditActions", "getDoctorReadingsData"]
+- ["PSo30UIResponderStandardEditActions", "getDoctorSingleData"]
 - ["PSo30UIResponderStandardEditActions", "getReadingsData"]
 - !private ["PSo30UIResponderStandardEditActions", "goalLbl"]
 - ["PSo30UIResponderStandardEditActions", "indexPathForPreferredFocusedView"]
@@ -2369,6 +2414,7 @@ depends-member:
 - !private ["PSo20UIScrollViewDelegate", "currentEditReadingArray"]
 - !private ["PSo20UIScrollViewDelegate", "frequnecyArray"]
 - !private ["PSo20UIScrollViewDelegate", "getDoctorReadingsData"]
+- !private ["PSo20UIScrollViewDelegate", "getDoctorSingleData"]
 - !private ["PSo20UIScrollViewDelegate", "getReadingsData"]
 - ["PSo20UIScrollViewDelegate", "indexPathForPreferredFocusedView"]
 - ["PSo20UIScrollViewDelegate", "indexPathForPreferredFocusedViewInTableView"]
@@ -2434,6 +2480,7 @@ depends-member:
 - ["PSo16UIStateRestoring", "didReceiveMemoryWarning"]
 - !private ["PSo16UIStateRestoring", "frequnecyArray"]
 - ["PSo16UIStateRestoring", "getDoctorReadingsData"]
+- ["PSo16UIStateRestoring", "getDoctorSingleData"]
 - ["PSo16UIStateRestoring", "getReadingsData"]
 - ["PSo16UIStateRestoring", "indexPathForPreferredFocusedView"]
 - ["PSo16UIStateRestoring", "indexPathForPreferredFocusedViewInTableView"]
@@ -2514,6 +2561,7 @@ depends-member:
 - !private ["PSo21UITableViewDataSource", "currentEditReadingArray"]
 - !private ["PSo21UITableViewDataSource", "frequnecyArray"]
 - !private ["PSo21UITableViewDataSource", "getDoctorReadingsData"]
+- !private ["PSo21UITableViewDataSource", "getDoctorSingleData"]
 - !private ["PSo21UITableViewDataSource", "getReadingsData"]
 - ["PSo21UITableViewDataSource", "indexPathForPreferredFocusedView"]
 - ["PSo21UITableViewDataSource", "indexPathForPreferredFocusedViewInTableView"]
@@ -2577,6 +2625,7 @@ depends-member:
 - !private ["PSo19UITableViewDelegate", "currentEditReadingArray"]
 - !private ["PSo19UITableViewDelegate", "frequnecyArray"]
 - !private ["PSo19UITableViewDelegate", "getDoctorReadingsData"]
+- !private ["PSo19UITableViewDelegate", "getDoctorSingleData"]
 - !private ["PSo19UITableViewDelegate", "getReadingsData"]
 - ["PSo19UITableViewDelegate", "indexPathForPreferredFocusedView"]
 - ["PSo19UITableViewDelegate", "indexPathForPreferredFocusedViewInTableView"]
@@ -2649,6 +2698,7 @@ depends-member:
 - !private ["PSo19UITextFieldDelegate", "currentEditReadingArray"]
 - !private ["PSo19UITextFieldDelegate", "frequnecyArray"]
 - !private ["PSo19UITextFieldDelegate", "getDoctorReadingsData"]
+- !private ["PSo19UITextFieldDelegate", "getDoctorSingleData"]
 - !private ["PSo19UITextFieldDelegate", "getReadingsData"]
 - ["PSo19UITextFieldDelegate", "indexPathForPreferredFocusedView"]
 - ["PSo19UITextFieldDelegate", "indexPathForPreferredFocusedViewInTableView"]
@@ -2737,6 +2787,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "frequencyLbl"]
 - !private ["PSo18UITraitEnvironment", "frequnecyArray"]
 - ["PSo18UITraitEnvironment", "getDoctorReadingsData"]
+- ["PSo18UITraitEnvironment", "getDoctorSingleData"]
 - ["PSo18UITraitEnvironment", "getReadingsData"]
 - !private ["PSo18UITraitEnvironment", "goalLbl"]
 - ["PSo18UITraitEnvironment", "indexPathForPreferredFocusedView"]
@@ -2852,6 +2903,7 @@ depends-member:
 - ["CSo16UIViewController", "didReceiveMemoryWarning"]
 - !private ["CSo16UIViewController", "frequnecyArray"]
 - ["CSo16UIViewController", "getDoctorReadingsData"]
+- ["CSo16UIViewController", "getDoctorSingleData"]
 - ["CSo16UIViewController", "getReadingsData"]
 - ["CSo16UIViewController", "indexPathForPreferredFocusedView"]
 - ["CSo16UIViewController", "indexPathForPreferredFocusedViewInTableView"]
@@ -2907,6 +2959,7 @@ depends-member:
 - !private ["Vs5UInt8", "deinit"]
 - !private ["P9Alamofire14URLConvertible", "deinit"]
 - !private ["P9Alamofire14URLConvertible", "init"]
+- !private ["P9Alamofire14URLConvertible", "isEmpty"]
 - !private ["P9Alamofire14URLConvertible", "replacingOccurrences"]
 - !private ["Sc", "deinit"]
 - !private ["CSo12UserDefaults", "bool"]
@@ -2917,6 +2970,7 @@ depends-member:
 - ["CSo12UserDefaults", "standard"]
 - !private ["CSo12UserDefaults", "string"]
 - !private ["CSo12UserDefaults", "synchronize"]
+- !private ["CSo12UserDefaults", "value"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "accessibilityLabel"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "accessibilityValue"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "conditionLbl"]
@@ -2937,19 +2991,24 @@ depends-member:
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "text"]
 - !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
 - !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "isEmpty"]
 - !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "replacingOccurrences"]
 - !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "IntegerLiteralType"]
 - !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "Stride"]
 - !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "_DisabledRangeIndex"]
 - ["Ps35_ExpressibleByBuiltinIntegerLiteral", "init"]
 - !private ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "isEmpty"]
 - !private ["Ps34_ExpressibleByBuiltinStringLiteral", "replacingOccurrences"]
 - !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "isEmpty"]
 - !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "replacingOccurrences"]
 - !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "isEmpty"]
 - !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "replacingOccurrences"]
 - !private ["Ps35_HasCustomAnyHashableRepresentation", "Name"]
 - !private ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "isEmpty"]
 - !private ["Ps35_HasCustomAnyHashableRepresentation", "replacingCharacters"]
 - !private ["Ps35_HasCustomAnyHashableRepresentation", "replacingOccurrences"]
 - !private ["Ps9_Hashable", "Alamofire"]
@@ -2993,6 +3052,7 @@ depends-member:
 - !private ["Ps9_Hashable", "frequencyLbl"]
 - !private ["Ps9_Hashable", "frequnecyArray"]
 - ["Ps9_Hashable", "getDoctorReadingsData"]
+- ["Ps9_Hashable", "getDoctorSingleData"]
 - ["Ps9_Hashable", "getReadingsData"]
 - !private ["Ps9_Hashable", "goal"]
 - !private ["Ps9_Hashable", "goalLbl"]
@@ -3002,6 +3062,7 @@ depends-member:
 - ["Ps9_Hashable", "init"]
 - !private ["Ps9_Hashable", "inputView"]
 - ["Ps9_Hashable", "integer"]
+- !private ["Ps9_Hashable", "isEmpty"]
 - !private ["Ps9_Hashable", "isHidden"]
 - !private ["Ps9_Hashable", "isUserInteractionEnabled"]
 - !private ["Ps9_Hashable", "none"]
@@ -3094,6 +3155,7 @@ depends-member:
 - !private ["Ps21_ObjectiveCBridgeable", "_DisabledRangeIndex"]
 - !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
 - ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Ps21_ObjectiveCBridgeable", "isEmpty"]
 - !private ["Ps21_ObjectiveCBridgeable", "replacingOccurrences"]
 - !private ["Ps21_ObjectiveCBridgeable", "row"]
 - !private ["Ps21_ObjectiveCBridgeable", "section"]
@@ -3580,4 +3642,4 @@ depends-external:
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController-umbrella.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Modules/module.modulemap"
-interface-hash: "105c8200223da2c06b6773ee90306efd"
+interface-hash: "15fddab89c50efb3e9cdbd9d92671102"

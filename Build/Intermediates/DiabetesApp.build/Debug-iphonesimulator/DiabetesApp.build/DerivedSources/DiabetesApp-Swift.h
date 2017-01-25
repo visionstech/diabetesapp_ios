@@ -883,6 +883,7 @@ SWIFT_CLASS("_TtC11DiabetesApp24ReportCarePlanController")
 - (BOOL)textField:(UITextField * _Nonnull)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString * _Nonnull)string;
 - (void)readingNotificationWithNotification:(NSNotification * _Nonnull)notification;
 - (void)getReadingsData;
+- (void)getDoctorSingleData;
 - (void)getDoctorReadingsData;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section;
 - (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView;
@@ -976,6 +977,7 @@ SWIFT_CLASS("_TtC11DiabetesApp27ReportHistoryViewController")
 - (void)noOfDaysNotificationWithNotification:(NSNotification * _Nonnull)notification;
 - (IBAction)ToolBarButtons_Click:(id _Nonnull)sender;
 - (void)getDoctorReportReadingHistoryWithCondition:(NSString * _Nonnull)condition;
+- (void)getDoctorSingleReadingHistoryWithCondition:(NSString * _Nonnull)condition;
 - (void)getReportReadingHistoryWithCondition:(NSString * _Nonnull)condition;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
@@ -1064,6 +1066,7 @@ SWIFT_CLASS("_TtC11DiabetesApp20ReportViewController")
 @property (nonatomic, weak) IBOutlet UIView * _Null_unspecified listViewContainer;
 @property (nonatomic, weak) IBOutlet UIView * _Null_unspecified chartViewContainer;
 @property (nonatomic, weak) IBOutlet UISegmentedControl * _Null_unspecified segmentControl;
+@property (nonatomic) NSInteger sections;
 @property (nonatomic, strong) UIView * _Nonnull topBackView;
 @property (nonatomic, strong) NSArray * _Nonnull summaryArray;
 @property (nonatomic, strong) NSMutableArray * _Nonnull summaryTxtArray;
@@ -1109,7 +1112,10 @@ SWIFT_CLASS("_TtC11DiabetesApp20ReportViewController")
 - (void)BackBtn_Click;
 - (void)getEducatorReportAPI;
 - (void)editEducatorReportAPI;
+- (void)popToViewController;
 - (void)doctorReportAPI;
+- (void)doctorSingleReportAPI;
+- (void)dynamicEducatorDoctorViewLayoutWithMedArrCount:(NSInteger)medArrCount readingArrcount:(NSInteger)readingArrcount glucoseReadingCount:(NSInteger)glucoseReadingCount;
 - (void)dynamicEducatorViewLayoutWithMedArrCount:(NSInteger)medArrCount readingArrcount:(NSInteger)readingArrcount glucoseReadingCount:(NSInteger)glucoseReadingCount;
 - (void)dynamicDoctorViewLayoutWithMedArrCount:(NSInteger)medArrCount readingArrcount:(NSInteger)readingArrcount updateReadingCount:(NSInteger)updateReadingCount glucoseReadingCount:(NSInteger)glucoseReadingCount;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;

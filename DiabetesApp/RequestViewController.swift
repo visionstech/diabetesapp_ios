@@ -96,6 +96,8 @@ class RequestViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         let viewController: ReportViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.ReportViewController) as! ReportViewController
         viewController.taskID = reqObj.taskid
+        UserDefaults.standard.set(reqObj.taskid, forKey: "taskID")
+        UserDefaults.standard.synchronize()
         self.tabBarController?.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         viewController.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(viewController, animated: true)
@@ -126,11 +128,13 @@ class RequestViewController: UIViewController,UITableViewDelegate,UITableViewDat
                     
                 case .success:
 //                    SVProgressHUD.dismiss()
+                    print(response.result.value!)
                     
-                    if let JSON: NSArray = response.result.value! as? NSArray {
+                    if let JSON: NSDictionary = response.result.value! as? NSDictionary {
                        self.requestListArray .removeAllObjects()
                         print("JSON \(JSON)")
-                        for data in JSON {
+                        if  let jsonArray :  NSArray = JSON.value(forKey: "taskList") as? NSArray{
+                        for data in jsonArray {
                             let dict: NSDictionary = data as! NSDictionary
                             let requestObj = ReqestObject()
                             requestObj.date = dict.value(forKey: "date") as! String
@@ -145,6 +149,7 @@ class RequestViewController: UIViewController,UITableViewDelegate,UITableViewDat
                             requestObj.time =   dict.value(forKey: "time") as! String
                             requestObj.status =   dict.value(forKey: "status") as! String
                             self.requestListArray.add(requestObj)
+                         }
                         }
                         self.tableView.reloadData()
                         

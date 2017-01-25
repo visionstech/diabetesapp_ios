@@ -430,6 +430,8 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         let reportViewController: ReportViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.ReportViewController) as! ReportViewController
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         self.navigationItem.hidesBackButton = true
+        UserDefaults.standard.set("", forKey: "taskID")
+        UserDefaults.standard.synchronize()
         self.navigationController?.pushViewController(reportViewController, animated: true)
  
     }

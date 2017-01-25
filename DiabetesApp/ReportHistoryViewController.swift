@@ -40,6 +40,12 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
         //self.addNotifications()
         //getHistory()
         conditionTxtFld.text = conditionsArray[0] as? String
+        
+        let taskID: String =  UserDefaults.standard.value(forKey:"taskID") as! String
+        if !taskID.isEmpty {
+            getDoctorSingleReadingHistory(condition: conditionsArray[0] as! String)
+        }
+        else {
         if selectedUserType == userType.doctor {
            
              getDoctorReportReadingHistory(condition: conditionsArray[0] as! String)
@@ -47,7 +53,7 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
         else {
              getReportReadingHistory(condition: conditionsArray[0] as! String)
         }
-       
+        }
     }
     override func viewDidAppear(_ animated: Bool) {
         self.addNotifications()
@@ -252,6 +258,83 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
         }
         
     }
+    func getDoctorSingleReadingHistory(condition: String) {
+        
+        if  UserDefaults.standard.string(forKey: userDefaults.selectedPatientID) != nil {
+            sectionsArray.removeAllObjects()
+            boolArray.removeAllObjects()
+            
+            // let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+            let parameters: Parameters = [
+                "patientid": "58563eb4d9c776ad70491b7b",
+                "numDaysBack": "1",
+                "condition": "All conditions"
+            ]
+            print(parameters)
+            Alamofire.request("http://54.212.229.198:3000/getdoctorsingle", method: .post, parameters:parameters, encoding: JSONEncoding.default).responseJSON { response in
+                
+                print("Validation Successful ")
+                
+                switch response.result {
+                    
+                case .success:
+                    
+                    if let JSON: NSDictionary = response.result.value! as? NSDictionary {
+                        
+                        print("JSON \(JSON)")
+                        
+                        let objectArray : NSDictionary = NSDictionary(dictionary: JSON.object(forKey: "glucoseReadings") as! NSDictionary)
+                        if self.conditionTxtFld.text == String(conditionsArray[0] as! String) {
+                            self.sectionsArray = NSMutableArray(array: objectArray.object(forKey: "objectArray") as! NSArray)
+                            
+                        }
+                        else {
+                            
+                            let mainArray: NSArray = NSMutableArray(array: objectArray.object(forKey: "objectArray") as! NSArray)
+                            if mainArray.count != 0 {
+                                let mainDict: NSMutableDictionary = NSMutableDictionary()
+                                var count = 0
+                                let itemsArray = NSMutableArray()
+                                for dict in mainArray {
+                                    let obj: NSDictionary = dict as! NSDictionary
+                                    let dateStr: String = String(describing: obj.allKeys.first!)
+                                    if count == 0 {
+                                        mainDict.setValue(dateStr, forKey: "start_date")
+                                    }
+                                    else if count == mainArray.count-1 {
+                                        mainDict.setValue(dateStr, forKey: "end_date")
+                                    }
+                                    let array: NSArray = NSArray(array: (dict as AnyObject).object(forKey: dateStr) as! NSArray)
+                                    itemsArray.addObjects(from: array as! [Any])
+                                    
+                                    count += 1
+                                }
+                                mainDict.setObject(itemsArray.copy(), forKey: "items" as NSCopying)
+                                self.sectionsArray.add(mainDict)
+                            }
+                        }
+                        
+                        for _ in self.sectionsArray {
+                            self.boolArray.add(false)
+                        }
+                        
+                        print(self.sectionsArray)
+                        self.tblView.reloadData()
+                        self.resetUI()
+                    }
+                    
+                    break
+                case .failure:
+                    print("failure")
+                    
+                    break
+                    
+                }
+            }
+        }
+        
+    }
+
     func getReportReadingHistory(condition: String) {
         if  UserDefaults.standard.string(forKey: userDefaults.selectedPatientID) != nil {
             sectionsArray.removeAllObjects()

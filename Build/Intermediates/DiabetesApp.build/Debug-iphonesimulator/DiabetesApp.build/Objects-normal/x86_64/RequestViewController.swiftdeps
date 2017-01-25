@@ -6,52 +6,52 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp21RequestViewController", ""]
 provides-dynamic-lookup:
-- "userTypeString"
-- "getRequestTask"
-- "viewDidAppear"
-- "selectedUserType"
+- "setNavBarUI"
+- "didReceiveMemoryWarning"
 - "viewDidLoad"
 - "requestListArray"
-- "setNavBarUI"
+- "selectedUserType"
+- "userTypeString"
+- "viewDidAppear"
+- "getRequestTask"
 - "tableView"
 - "tableView"
 - "tableView"
 - "tableView"
-- "didReceiveMemoryWarning"
 depends-top-level:
-- !private "NSDictionary"
-- "userDefaults"
-- "UITableViewCell"
-- !private "userType"
-- "NSMutableArray"
-- !private "=="
-- "UITableViewDelegate"
-- !private "Parameters"
-- "String"
-- "UITableViewDataSource"
-- "AssignmentPrecedence"
-- "CastingPrecedence"
-- !private "ViewIdentifiers"
-- !private "!="
-- !private "print"
-- !private "ApiMethods"
 - !private "baseUrl"
-- !private "NSArray"
-- "UITableView"
-- !private "ReportViewController"
-- !private "RequestTableViewCell"
-- "Bool"
-- !private "UIBarButtonItem"
-- !private "Alamofire"
-- !private "ReqestObject"
-- "UserDefaults"
+- !private "ApiMethods"
 - "Int"
+- !private "=="
+- "UITableViewCell"
+- "UserDefaults"
+- "AssignmentPrecedence"
+- !private "userType"
+- "Bool"
+- !private "RequestTableViewCell"
+- "CastingPrecedence"
+- !private "ReqestObject"
+- !private "Alamofire"
+- !private "ViewIdentifiers"
+- !private "JSONEncoding"
+- "String"
+- !private "print"
+- !private "Parameters"
+- "IndexPath"
+- !private "BooleanLiteralType"
+- !private "!="
 - "UIViewController"
 - !private "Dictionary"
-- "IndexPath"
+- !private "NSDictionary"
+- !private "ReportViewController"
+- !private "NSArray"
+- "UITableViewDataSource"
+- "UITableViewDelegate"
+- "UITableView"
 - "RequestViewController"
-- !private "JSONEncoding"
-- !private "BooleanLiteralType"
+- !private "UIBarButtonItem"
+- "NSMutableArray"
+- "userDefaults"
 depends-member:
 - !private ["Ps9AnyObject", "Alamofire"]
 - !private ["Ps9AnyObject", "ApiMethods"]
@@ -120,12 +120,14 @@ depends-member:
 - ["Ps9AnyObject", "sectionIndexTitlesForTableView"]
 - ["Ps9AnyObject", "selectedUserType"]
 - !private ["Ps9AnyObject", "selectionStyle"]
+- !private ["Ps9AnyObject", "set"]
 - ["Ps9AnyObject", "setNavBarUI"]
 - ["Ps9AnyObject", "standard"]
 - !private ["Ps9AnyObject", "status"]
 - !private ["Ps9AnyObject", "storyboard"]
 - !private ["Ps9AnyObject", "string"]
 - !private ["Ps9AnyObject", "subscript"]
+- !private ["Ps9AnyObject", "synchronize"]
 - !private ["Ps9AnyObject", "tabBarController"]
 - ["Ps9AnyObject", "tableView"]
 - !private ["Ps9AnyObject", "taskID"]
@@ -225,12 +227,14 @@ depends-member:
 - ["Ps7CVarArg", "sectionIndexTitlesForTableView"]
 - ["Ps7CVarArg", "selectedUserType"]
 - !private ["Ps7CVarArg", "selectionStyle"]
+- !private ["Ps7CVarArg", "set"]
 - ["Ps7CVarArg", "setNavBarUI"]
 - ["Ps7CVarArg", "standard"]
 - !private ["Ps7CVarArg", "status"]
 - !private ["Ps7CVarArg", "storyboard"]
 - !private ["Ps7CVarArg", "string"]
 - !private ["Ps7CVarArg", "subscript"]
+- !private ["Ps7CVarArg", "synchronize"]
 - !private ["Ps7CVarArg", "tabBarController"]
 - ["Ps7CVarArg", "tableView"]
 - !private ["Ps7CVarArg", "taskID"]
@@ -325,6 +329,7 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "sectionIndexTitlesForTableView"]
 - ["Ps28CustomDebugStringConvertible", "selectedUserType"]
 - !private ["Ps28CustomDebugStringConvertible", "selectionStyle"]
+- !private ["Ps28CustomDebugStringConvertible", "set"]
 - ["Ps28CustomDebugStringConvertible", "setNavBarUI"]
 - ["Ps28CustomDebugStringConvertible", "standard"]
 - !private ["Ps28CustomDebugStringConvertible", "status"]
@@ -332,6 +337,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "string"]
 - !private ["Ps28CustomDebugStringConvertible", "subscript"]
 - !private ["Ps28CustomDebugStringConvertible", "success"]
+- !private ["Ps28CustomDebugStringConvertible", "synchronize"]
 - !private ["Ps28CustomDebugStringConvertible", "tabBarController"]
 - ["Ps28CustomDebugStringConvertible", "tableView"]
 - !private ["Ps28CustomDebugStringConvertible", "taskID"]
@@ -436,6 +442,7 @@ depends-member:
 - ["Ps23CustomStringConvertible", "sectionIndexTitlesForTableView"]
 - ["Ps23CustomStringConvertible", "selectedUserType"]
 - !private ["Ps23CustomStringConvertible", "selectionStyle"]
+- !private ["Ps23CustomStringConvertible", "set"]
 - ["Ps23CustomStringConvertible", "setNavBarUI"]
 - ["Ps23CustomStringConvertible", "standard"]
 - !private ["Ps23CustomStringConvertible", "status"]
@@ -443,6 +450,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "string"]
 - !private ["Ps23CustomStringConvertible", "subscript"]
 - !private ["Ps23CustomStringConvertible", "success"]
+- !private ["Ps23CustomStringConvertible", "synchronize"]
 - !private ["Ps23CustomStringConvertible", "tabBarController"]
 - ["Ps23CustomStringConvertible", "tableView"]
 - !private ["Ps23CustomStringConvertible", "taskID"]
@@ -538,12 +546,14 @@ depends-member:
 - ["Ps9Equatable", "sectionIndexTitlesForTableView"]
 - ["Ps9Equatable", "selectedUserType"]
 - !private ["Ps9Equatable", "selectionStyle"]
+- !private ["Ps9Equatable", "set"]
 - ["Ps9Equatable", "setNavBarUI"]
 - ["Ps9Equatable", "standard"]
 - !private ["Ps9Equatable", "status"]
 - !private ["Ps9Equatable", "storyboard"]
 - !private ["Ps9Equatable", "string"]
 - !private ["Ps9Equatable", "subscript"]
+- !private ["Ps9Equatable", "synchronize"]
 - !private ["Ps9Equatable", "tabBarController"]
 - ["Ps9Equatable", "tableView"]
 - !private ["Ps9Equatable", "taskID"]
@@ -655,12 +665,14 @@ depends-member:
 - ["Ps8Hashable", "sectionIndexTitlesForTableView"]
 - ["Ps8Hashable", "selectedUserType"]
 - !private ["Ps8Hashable", "selectionStyle"]
+- !private ["Ps8Hashable", "set"]
 - ["Ps8Hashable", "setNavBarUI"]
 - ["Ps8Hashable", "standard"]
 - !private ["Ps8Hashable", "status"]
 - !private ["Ps8Hashable", "storyboard"]
 - !private ["Ps8Hashable", "string"]
 - !private ["Ps8Hashable", "subscript"]
+- !private ["Ps8Hashable", "synchronize"]
 - !private ["Ps8Hashable", "tabBarController"]
 - ["Ps8Hashable", "tableView"]
 - !private ["Ps8Hashable", "taskID"]
@@ -954,12 +966,14 @@ depends-member:
 - ["CSo8NSObject", "sectionIndexTitlesForTableView"]
 - ["CSo8NSObject", "selectedUserType"]
 - !private ["CSo8NSObject", "selectionStyle"]
+- !private ["CSo8NSObject", "set"]
 - ["CSo8NSObject", "setNavBarUI"]
 - ["CSo8NSObject", "standard"]
 - !private ["CSo8NSObject", "status"]
 - !private ["CSo8NSObject", "storyboard"]
 - !private ["CSo8NSObject", "string"]
 - !private ["CSo8NSObject", "subscript"]
+- !private ["CSo8NSObject", "synchronize"]
 - !private ["CSo8NSObject", "tabBarController"]
 - ["CSo8NSObject", "tableView"]
 - !private ["CSo8NSObject", "taskID"]
@@ -1040,12 +1054,14 @@ depends-member:
 - ["PSo16NSObjectProtocol", "sectionIndexTitlesForTableView"]
 - ["PSo16NSObjectProtocol", "selectedUserType"]
 - !private ["PSo16NSObjectProtocol", "selectionStyle"]
+- !private ["PSo16NSObjectProtocol", "set"]
 - ["PSo16NSObjectProtocol", "setNavBarUI"]
 - ["PSo16NSObjectProtocol", "standard"]
 - !private ["PSo16NSObjectProtocol", "status"]
 - !private ["PSo16NSObjectProtocol", "storyboard"]
 - !private ["PSo16NSObjectProtocol", "string"]
 - !private ["PSo16NSObjectProtocol", "subscript"]
+- !private ["PSo16NSObjectProtocol", "synchronize"]
 - !private ["PSo16NSObjectProtocol", "tabBarController"]
 - ["PSo16NSObjectProtocol", "tableView"]
 - !private ["PSo16NSObjectProtocol", "taskID"]
@@ -1953,8 +1969,10 @@ depends-member:
 - !private ["Sc", "deinit"]
 - ["CSo12UserDefaults", "deinit"]
 - ["CSo12UserDefaults", "integer"]
+- !private ["CSo12UserDefaults", "set"]
 - ["CSo12UserDefaults", "standard"]
 - !private ["CSo12UserDefaults", "string"]
+- !private ["CSo12UserDefaults", "synchronize"]
 - !private ["V11DiabetesApp15ViewIdentifiers", "ReportViewController"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "accessoryType"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "dequeueReusableCell"]
@@ -2049,12 +2067,14 @@ depends-member:
 - ["Ps9_Hashable", "sectionIndexTitlesForTableView"]
 - ["Ps9_Hashable", "selectedUserType"]
 - !private ["Ps9_Hashable", "selectionStyle"]
+- !private ["Ps9_Hashable", "set"]
 - ["Ps9_Hashable", "setNavBarUI"]
 - ["Ps9_Hashable", "standard"]
 - !private ["Ps9_Hashable", "status"]
 - !private ["Ps9_Hashable", "storyboard"]
 - !private ["Ps9_Hashable", "string"]
 - !private ["Ps9_Hashable", "subscript"]
+- !private ["Ps9_Hashable", "synchronize"]
 - !private ["Ps9_Hashable", "tabBarController"]
 - ["Ps9_Hashable", "tableView"]
 - !private ["Ps9_Hashable", "taskID"]

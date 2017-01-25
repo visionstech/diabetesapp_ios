@@ -347,10 +347,8 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
                 ServicesManager.instance().authService.remove(strongSelf)
                 UserDefaults.standard.set(false, forKey: userDefaults.isLoggedIn)
                 ServicesManager.instance().lastActivityDate = nil;
-                
                 // Update UserDefaults
                 UserDefaults.standard.set(false, forKey: userDefaults.isLoggedIn)
-                
                 UserDefaults.standard.setValue("" , forKey: userDefaults.loggedInUserID)
                 UserDefaults.standard.setValue("", forKey: userDefaults.loggedInUsername)
                 UserDefaults.standard.setValue("", forKey: userDefaults.loggedInUserEmail)
@@ -358,10 +356,9 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
                 UserDefaults.standard.setValue("", forKey: userDefaults.selectedPatientID)
                 UserDefaults.standard.setValue("", forKey: userDefaults.loggedInUserType)
                 UserDefaults.standard.synchronize()
-                
                 SVProgressHUD.dismiss()
                 if self?.tabBarController != nil {
-                    self?.tabBarController?.navigationController?.popToRootViewController(animated: true)
+                self?.tabBarController?.navigationController?.popToRootViewController(animated: true)
                 }
                 else{
                      let _ = strongSelf.navigationController?.popToRootViewController(animated: true)
