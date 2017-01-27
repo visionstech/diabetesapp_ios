@@ -105,9 +105,6 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
             self.heightForSectionHeader = 40.0
             
             self.updateTitle()
-            
-            
-            self.collectionView?.backgroundColor = UIColor.white
             self.inputToolbar?.contentView?.backgroundColor = UIColor.white
             self.inputToolbar?.contentView?.textView?.placeHolder = "SA_STR_MESSAGE_PLACEHOLDER".localized
             
@@ -430,8 +427,9 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         let reportViewController: ReportViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.ReportViewController) as! ReportViewController
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         self.navigationItem.hidesBackButton = true
-        UserDefaults.standard.set("", forKey: "taskID")
-        UserDefaults.standard.synchronize()
+       UserDefaults.standard.set(true, forKey:"groupChat")
+       UserDefaults.standard.synchronize()
+        
         self.navigationController?.pushViewController(reportViewController, animated: true)
  
     }
@@ -452,7 +450,8 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         })
         
         let carePlanBtn: UIAlertAction = UIAlertAction(title: ChatInfo.carePlan, style: .default, handler: { (UIAlertAction)in
-            
+            UserDefaults.standard.set(false, forKey:"MedEditBool")
+            UserDefaults.standard.synchronize()
             let carePlanViewController: CarePlanMainViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.carePlanViewController) as! CarePlanMainViewController
             self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
             self.navigationItem.hidesBackButton = true

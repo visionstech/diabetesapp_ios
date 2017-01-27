@@ -8,14 +8,14 @@ provides-member:
 provides-dynamic-lookup:
 - "displayAlertMessage"
 depends-top-level:
-- "NSObject"
-- !private "UIAlertControllerStyle"
 - "UIAlertController"
-- !private "UIAlertAction"
+- !private "UIAlertControllerStyle"
 - "UtilityClass"
-- !private "UIAlertActionStyle"
 - !private "StringLiteralType"
+- !private "UIAlertActionStyle"
 - "String"
+- "NSObject"
+- !private "UIAlertAction"
 depends-member:
 - !private ["Ps9AnyObject", "UIAlertAction"]
 - !private ["Ps9AnyObject", "UIAlertActionStyle"]

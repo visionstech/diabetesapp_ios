@@ -96,8 +96,10 @@ class RequestViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         let viewController: ReportViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.ReportViewController) as! ReportViewController
         viewController.taskID = reqObj.taskid
+        UserDefaults.standard.set(false, forKey:"groupChat")
         UserDefaults.standard.set(reqObj.taskid, forKey: "taskID")
         UserDefaults.standard.synchronize()
+
         self.tabBarController?.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         viewController.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(viewController, animated: true)

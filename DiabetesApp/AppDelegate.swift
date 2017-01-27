@@ -105,6 +105,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,NotificationServiceDelegat
                 let navigatonController: UINavigationController! = self.window?.rootViewController as! UINavigationController
                 let viewController: ReportViewController = UIStoryboard(name:"Main", bundle: nil).instantiateViewController(withIdentifier: ViewIdentifiers.ReportViewController) as! ReportViewController
                     viewController.taskID = (userInfo["taskid"] as! String)
+                    UserDefaults.standard.set(false, forKey:"groupChat")
+                    UserDefaults.standard.set((userInfo["taskid"] as! String), forKey: "taskID")
+                    UserDefaults.standard.synchronize()
+
                     application.applicationIconBadgeNumber = Int(userInfo["badgeCounter"] as! String)!
                     navigatonController.pushViewController(viewController, animated: true)
             }

@@ -10,15 +10,15 @@ provides-member:
 - ["C11DiabetesApp19NotificationService", ""]
 provides-dynamic-lookup:
 depends-top-level:
+- !private "!="
+- !private "!"
+- !private "ServicesManager"
+- "QBChatDialog"
 - "NotificationServiceDelegate"
 - "String"
-- "AssignmentPrecedence"
-- !private "!="
 - !private "Void"
-- !private "!"
 - "NotificationService"
-- "QBChatDialog"
-- !private "ServicesManager"
+- "AssignmentPrecedence"
 depends-member:
 - !private ["Ps9AnyObject", "ServicesManager"]
 - !private ["Ps9AnyObject", "chatService"]

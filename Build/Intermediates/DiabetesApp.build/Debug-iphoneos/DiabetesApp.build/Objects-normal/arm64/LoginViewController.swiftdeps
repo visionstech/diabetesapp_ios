@@ -6,75 +6,75 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp19LoginViewController", ""]
 provides-dynamic-lookup:
-- "LoginBtn_Click"
 - "textFieldShouldReturn"
-- "patientBtn"
+- "doctorBtn"
 - "viewWillAppear"
-- "passwordTxtFld"
+- "segmentUserType"
+- "checkLoginStatus"
+- "didReceiveMemoryWarning"
 - "usernameTxtFld"
 - "navigateToNextScreen"
-- "SelectUserTypBtns_Click"
-- "checkLoginStatus"
-- "registerForRemoteNotification"
-- "selectedUserType"
-- "segmentUserType"
-- "doctorBtn"
 - "viewDidLoad"
+- "registerForRemoteNotification"
 - "loginToQuickBlox"
-- "didReceiveMemoryWarning"
+- "passwordTxtFld"
+- "patientBtn"
+- "selectedUserType"
+- "SelectUserTypBtns_Click"
+- "LoginBtn_Click"
 depends-top-level:
-- "UIViewController"
+- !private "HomeTabBarController"
+- !private "UIColor"
+- "String"
+- "UIButton"
+- !private "Array"
+- !private "CharacterSet"
+- "AssignmentPrecedence"
+- !private "=="
+- "CastingPrecedence"
+- !private "UIRemoteNotificationType"
+- "QBCoreDelegate"
+- !private "ViewIdentifiers"
+- !private "QBUUser"
+- !private "QBRequest"
+- !private "AppDelegate"
+- "Bool"
+- !private "NSDictionary"
+- !private "UIUserNotificationType"
+- !private "ServicesManager"
+- !private "||"
+- !private "DoctorTabBarViewController"
+- !private "Parameters"
+- "LoginViewController"
+- !private "print"
+- !private "Dictionary"
+- !private "Colors"
+- !private "ApiMethods"
+- "UITextField"
+- !private "!"
 - !private "userDefaults"
-- !private "NSMutableArray"
-- !private "QBChat"
+- "UISegmentedControl"
+- !private "UIImage"
+- !private "UIBarButtonItem"
+- !private "UserDefaults"
 - !private "SVProgressHUD"
 - !private "AnyObject"
-- !private "UIUserNotificationType"
-- !private "UIApplication"
-- "String"
-- !private "UIImage"
-- !private "HomeTabBarController"
-- !private "SVProgressHUDMaskType"
-- !private "BooleanLiteralType"
-- !private "Colors"
-- !private "NSDictionary"
-- !private "print"
-- !private "Void"
-- !private "NSNumber"
-- "Int"
-- !private "QBRequest"
-- !private "ApiMethods"
-- !private "UserDefaults"
-- "UISegmentedControl"
-- "UIButton"
-- !private "StringLiteralType"
-- !private "!"
-- !private "||"
-- !private "UtilityClass"
-- !private "CharacterSet"
-- !private "Alamofire"
-- !private "ViewIdentifiers"
-- !private "baseUrl"
-- !private "userType"
-- !private "ServicesManager"
-- !private "DialogsViewController"
-- "UITextField"
-- !private "AppDelegate"
-- !private "UIRemoteNotificationType"
 - !private "JSONEncoding"
-- !private "Parameters"
-- !private "UIColor"
-- "CastingPrecedence"
-- "QBCoreDelegate"
-- !private "QBUUser"
-- "AssignmentPrecedence"
-- "Bool"
-- !private "=="
-- "LoginViewController"
-- !private "Dictionary"
-- !private "Array"
+- !private "userType"
+- "Int"
+- !private "Void"
 - !private "UIUserNotificationSettings"
-- !private "UIBarButtonItem"
+- !private "BooleanLiteralType"
+- !private "QBChat"
+- !private "NSNumber"
+- "UIViewController"
+- !private "NSMutableArray"
+- !private "SVProgressHUDMaskType"
+- !private "UIApplication"
+- !private "baseUrl"
+- !private "Alamofire"
+- !private "StringLiteralType"
+- !private "UtilityClass"
 depends-member:
 - !private ["Ps9AnyObject", "Alamofire"]
 - !private ["Ps9AnyObject", "ApiMethods"]
@@ -550,10 +550,10 @@ depends-member:
 - !private ["C9Alamofire11DataRequest", "responseJSON"]
 - !private ["V9Alamofire12DataResponse", "deinit"]
 - !private ["V9Alamofire12DataResponse", "result"]
-- ["C11DiabetesApp21DialogsViewController", "deinit"]
 - !private ["Vs10Dictionary", "Key"]
 - !private ["Vs10Dictionary", "Value"]
 - ["Vs10Dictionary", "deinit"]
+- ["C11DiabetesApp26DoctorTabBarViewController", "deinit"]
 - !private ["Sd", "deinit"]
 - !private ["Ps9Equatable", "Alamofire"]
 - !private ["Ps9Equatable", "ApiMethods"]
@@ -827,7 +827,7 @@ depends-member:
 - ["C11DiabetesApp19LoginViewController", "Bool"]
 - !private ["C11DiabetesApp19LoginViewController", "CharacterSet"]
 - !private ["C11DiabetesApp19LoginViewController", "Colors"]
-- !private ["C11DiabetesApp19LoginViewController", "DialogsViewController"]
+- !private ["C11DiabetesApp19LoginViewController", "DoctorTabBarViewController"]
 - !private ["C11DiabetesApp19LoginViewController", "HomeTabBarController"]
 - ["C11DiabetesApp19LoginViewController", "Int"]
 - !private ["C11DiabetesApp19LoginViewController", "JSONEncoding"]
@@ -1075,7 +1075,7 @@ depends-member:
 - ["CSo8NSObject", "Bool"]
 - !private ["CSo8NSObject", "CharacterSet"]
 - !private ["CSo8NSObject", "Colors"]
-- !private ["CSo8NSObject", "DialogsViewController"]
+- !private ["CSo8NSObject", "DoctorTabBarViewController"]
 - !private ["CSo8NSObject", "HomeTabBarController"]
 - ["CSo8NSObject", "Int"]
 - !private ["CSo8NSObject", "JSONEncoding"]
@@ -1728,7 +1728,7 @@ depends-member:
 - ["CSo11UIResponder", "Bool"]
 - !private ["CSo11UIResponder", "CharacterSet"]
 - !private ["CSo11UIResponder", "Colors"]
-- !private ["CSo11UIResponder", "DialogsViewController"]
+- !private ["CSo11UIResponder", "DoctorTabBarViewController"]
 - !private ["CSo11UIResponder", "HomeTabBarController"]
 - ["CSo11UIResponder", "Int"]
 - !private ["CSo11UIResponder", "JSONEncoding"]
@@ -2031,7 +2031,7 @@ depends-member:
 - ["CSo16UIViewController", "Bool"]
 - !private ["CSo16UIViewController", "CharacterSet"]
 - !private ["CSo16UIViewController", "Colors"]
-- !private ["CSo16UIViewController", "DialogsViewController"]
+- !private ["CSo16UIViewController", "DoctorTabBarViewController"]
 - !private ["CSo16UIViewController", "HomeTabBarController"]
 - ["CSo16UIViewController", "Int"]
 - !private ["CSo16UIViewController", "JSONEncoding"]
@@ -2115,7 +2115,7 @@ depends-member:
 - !private ["CSo12UserDefaults", "synchronize"]
 - !private ["CSo12UserDefaults", "value"]
 - !private ["C11DiabetesApp12UtilityClass", "displayAlertMessage"]
-- !private ["V11DiabetesApp15ViewIdentifiers", "dialogsViewController"]
+- !private ["V11DiabetesApp15ViewIdentifiers", "doctorTabBarViewController"]
 - !private ["V11DiabetesApp15ViewIdentifiers", "tabBarViewController"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "backgroundColor"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "barTintColor"]
@@ -2306,8 +2306,8 @@ depends-nominal:
 - !private "V10Foundation4Data"
 - "C9Alamofire11DataRequest"
 - !private "V9Alamofire12DataResponse"
-- "C11DiabetesApp21DialogsViewController"
 - "Vs10Dictionary"
+- "C11DiabetesApp26DoctorTabBarViewController"
 - !private "Sd"
 - "Ps9Equatable"
 - !private "Ps25ExpressibleByArrayLiteral"
@@ -2584,13 +2584,13 @@ depends-external:
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Alamofire/Alamofire.framework/Headers/Alamofire-Swift.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Alamofire/Alamofire.framework/Headers/Alamofire-umbrella.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Alamofire/Alamofire.framework/Modules/module.modulemap"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreData.swiftmodule"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework/Headers/SVRadialGradientLayer.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework/Headers/SVProgressHUD.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework/Headers/SVProgressAnimatedView.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework/Headers/SVIndefiniteAnimatedView.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework/Headers/SVProgressHUD-umbrella.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework/Modules/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreData.swiftmodule"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/Bolts.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFTaskCompletionSource.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFTask.h"

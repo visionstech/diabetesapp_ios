@@ -17,7 +17,7 @@ class ReportCarePlanController: UIViewController , UITableViewDelegate, UITableV
     var selectedIndexPath = Int()
     var array = NSMutableArray()
     var currentEditReadingArray = NSMutableArray()
-    
+    var reportUSer = String()
     @IBOutlet var pickerViewContainer: UIView!
     @IBOutlet weak var pickerView: UIPickerView!
     override func viewDidLoad() {
@@ -29,18 +29,26 @@ class ReportCarePlanController: UIViewController , UITableViewDelegate, UITableV
     override func viewWillAppear(_ animated: Bool) {
             addNotifications()
         
-        let taskID: String =  UserDefaults.standard.value(forKey:"taskID") as! String
-        if !taskID.isEmpty {
-            getDoctorSingleData()
+        
+        
+        if !UserDefaults.standard.bool(forKey: "groupChat") {
+            if selectedUserType == userType.doctor {
+                getDoctorReadingsData()
+            }
+            else{
+               getReadingsData()
+            }
         }
         else {
-         if selectedUserType == userType.doctor {
-            getDoctorReadingsData()
-         } else{
-           getReadingsData()
+            if selectedUserType == userType.doctor {
+                getDoctorSingleData()
+            }
+            else{
+               getReadingsData()
+            }
         }
-        }
-        
+
+                
     }
     
     override func didReceiveMemoryWarning() {

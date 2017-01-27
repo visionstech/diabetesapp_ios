@@ -378,6 +378,7 @@ SWIFT_CLASS("_TtC11DiabetesApp18ChatViewController")
 @property (nonatomic, strong) QBUUser * _Nonnull occupantUser;
 @property (nonatomic, strong) NSMutableArray * _Nonnull groupMembersArray;
 @property (nonatomic, strong) UIView * _Nonnull topBackView;
+@property (nonatomic, strong) UIView * _Nonnull topUserImageView;
 @property (nonatomic, strong) UIImagePickerController * _Nonnull imagePickerViewController;
 @property (nonatomic, copy) NSArray<QBChatMessage *> * _Nullable unreadMessages;
 - (void)viewDidLoad;
@@ -389,12 +390,14 @@ SWIFT_CLASS("_TtC11DiabetesApp18ChatViewController")
 - (NSString * _Nonnull)getGroupMemberNameWithOccupant_id:(NSInteger)occupant_id;
 - (void)createCustomTopView;
 - (void)BackBtn_Click;
+- (void)UserImageClick;
 - (void)updateTitle;
 - (NSArray<QBChatMessage *> * _Nullable)storedMessages;
 - (void)loadMessages;
 - (void)sendReadStatusForMessageWithMessage:(QBChatMessage * _Nonnull)message;
 - (BOOL)messageShouldBeReadWithMessage:(QBChatMessage * _Nonnull)message;
 - (void)readMessagesWithMessages:(NSArray<QBChatMessage *> * _Nonnull)messages;
+- (void)reportClick;
 - (void)optionsClick;
 - (void)videoAudioClick;
 - (void)callWithConferenceTypeWithConferenceType:(QBRTCConferenceType)conferenceType;
@@ -605,7 +608,7 @@ SWIFT_CLASS("_TtC11DiabetesApp21DialogsViewController")
 
 
 SWIFT_CLASS("_TtC11DiabetesApp26DoctorTabBarViewController")
-@interface DoctorTabBarViewController : UIViewController
+@interface DoctorTabBarViewController : UITabBarController
 - (void)viewDidLoad;
 - (void)didReceiveMemoryWarning;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
@@ -858,6 +861,315 @@ SWIFT_CLASS("_TtC11DiabetesApp24MedicationViewController")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+
+SWIFT_CLASS("_TtC11DiabetesApp24ReportCarePlanController")
+@interface ReportCarePlanController : UIViewController <UIScrollViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDelegate>
+@property (nonatomic, weak) IBOutlet UITableView * _Null_unspecified tblView;
+@property (nonatomic) NSInteger selectedIndex;
+@property (nonatomic) NSInteger selectedIndexPath;
+@property (nonatomic, strong) NSMutableArray * _Nonnull array;
+@property (nonatomic, strong) NSMutableArray * _Nonnull currentEditReadingArray;
+@property (nonatomic, strong) IBOutlet UIView * _Null_unspecified pickerViewContainer;
+@property (nonatomic, weak) IBOutlet UIPickerView * _Null_unspecified pickerView;
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
+- (void)didReceiveMemoryWarning;
+- (void)viewDidDisappear:(BOOL)animated;
+- (void)resetUI;
+- (void)addNotifications;
+- (BOOL)textFieldShouldReturn:(UITextField * _Nonnull)textField;
+- (void)textFieldDidEndEditing:(UITextField * _Nonnull)textField;
+- (void)textFieldDidBeginEditing:(UITextField * _Nonnull)textField;
+- (BOOL)textField:(UITextField * _Nonnull)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString * _Nonnull)string;
+- (void)readingNotificationWithNotification:(NSNotification * _Nonnull)notification;
+- (void)getReadingsData;
+- (void)getDoctorSingleData;
+- (void)getDoctorReadingsData;
+- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section;
+- (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView;
+- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (UIView * _Nullable)tableView:(UITableView * _Nonnull)tableView viewForHeaderInSection:(NSInteger)section;
+- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForHeaderInSection:(NSInteger)section;
+- (NSInteger)pickerView:(UIPickerView * _Nonnull)pickerView numberOfRowsInComponent:(NSInteger)component;
+- (NSString * _Nullable)pickerView:(UIPickerView * _Nonnull)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component;
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView * _Nonnull)pickerView;
+- (IBAction)ToolBarButtons_Click:(id _Nonnull)sender;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC11DiabetesApp29ReportCarePlanReadingViewCell")
+@interface ReportCarePlanReadingViewCell : UITableViewCell
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified numberLbl;
+@property (nonatomic, weak) IBOutlet UIView * _Null_unspecified mainView;
+@property (nonatomic, weak) IBOutlet UITextField * _Null_unspecified conditionLbl;
+@property (nonatomic, weak) IBOutlet UITextField * _Null_unspecified goalLbl;
+- (void)awakeFromNib;
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated;
+- (void)setUIWithView:(UIView * _Nonnull)view;
+- (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC11DiabetesApp25ReportChartViewController")
+@interface ReportChartViewController : UIViewController
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified glucoseLbl;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified deviationLbl;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified hyposLbl;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified hyperLbl;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified hbaLbl;
+@property (nonatomic, weak) IBOutlet UIView * _Null_unspecified chartView;
+@property (nonatomic, weak) IBOutlet UIView * _Null_unspecified readingsView;
+@property (nonatomic, strong) UILabel * _Nonnull label;
+@property (nonatomic, strong) LineChart * _Null_unspecified lineChart;
+@property (nonatomic, copy) NSString * _Nonnull noOfDays;
+@property (nonatomic, readonly, strong) NSArray * _Nonnull chartConditionsArray;
+@property (nonatomic, strong) NSMutableArray * _Nonnull dataArray;
+@property (nonatomic, readonly) NSInteger selectedUserType;
+- (void)viewDidLoad;
+- (void)viewDidAppear:(BOOL)animated;
+- (void)viewDidDisappear:(BOOL)animated;
+- (void)didReceiveMemoryWarning;
+- (void)resetUI;
+- (void)getChartHistoryDataWithCondition:(NSString * _Nonnull)condition;
+- (void)getDoctorChartHistoryDataWithCondition:(NSString * _Nonnull)condition;
+- (void)chartViewNotificationWithNotification:(NSNotification * _Nonnull)notification;
+- (void)doctorchartViewNotificationWithNotification:(NSNotification * _Nonnull)notification;
+- (void)noOfDaysNotificationWithNotification:(NSNotification * _Nonnull)notification;
+- (void)setUI;
+- (void)addNotifications;
+- (void)drawChart;
+/**
+  Line chart delegate method.
+*/
+- (void)didSelectDataPoint:(CGFloat)x yValues:(NSArray<NSNumber *> * _Nonnull)yValues;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC11DiabetesApp27ReportHistoryViewController")
+@interface ReportHistoryViewController : UIViewController <UIScrollViewDelegate, UITableViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDataSource>
+@property (nonatomic, weak) IBOutlet UITableView * _Null_unspecified tblView;
+@property (nonatomic, weak) IBOutlet UIView * _Null_unspecified conditionView;
+@property (nonatomic, weak) IBOutlet UITextField * _Null_unspecified conditionTxtFld;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified noHistoryAvailableLbl;
+@property (nonatomic, strong) IBOutlet UIView * _Null_unspecified pickerViewContainer;
+@property (nonatomic, weak) IBOutlet UIPickerView * _Null_unspecified pickerView;
+@property (nonatomic, strong) NSMutableArray * _Nonnull sectionsArray;
+@property (nonatomic, strong) NSMutableArray * _Nonnull boolArray;
+@property (nonatomic, copy) NSString * _Nonnull noOfDays;
+@property (nonatomic, strong) NSDictionary * _Nonnull obj;
+@property (nonatomic, strong) NSArray * _Nonnull cellArray;
+@property (nonatomic, readonly) NSInteger selectedUserType;
+- (void)viewDidLoad;
+- (void)viewDidAppear:(BOOL)animated;
+- (void)viewDidDisappear:(BOOL)animated;
+- (void)didReceiveMemoryWarning;
+- (void)setUI;
+- (void)resetUI;
+- (void)addNotifications;
+- (void)refreshSelectedSectionsWithSection:(NSInteger)section;
+- (void)listViewNotificationWithNotification:(NSNotification * _Nonnull)notification;
+- (void)noOfDaysNotificationWithNotification:(NSNotification * _Nonnull)notification;
+- (IBAction)ToolBarButtons_Click:(id _Nonnull)sender;
+- (void)getDoctorReportReadingHistoryWithCondition:(NSString * _Nonnull)condition;
+- (void)getDoctorSingleReadingHistoryWithCondition:(NSString * _Nonnull)condition;
+- (void)getReportReadingHistoryWithCondition:(NSString * _Nonnull)condition;
+- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section;
+- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView;
+- (UIView * _Nullable)tableView:(UITableView * _Nonnull)tableView viewForHeaderInSection:(NSInteger)section;
+- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForHeaderInSection:(NSInteger)section;
+- (void)tapHeaderWithGestureReconizer:(UITapGestureRecognizer * _Nonnull)gestureReconizer;
+- (NSInteger)pickerView:(UIPickerView * _Nonnull)pickerView numberOfRowsInComponent:(NSInteger)component;
+- (NSString * _Nullable)pickerView:(UIPickerView * _Nonnull)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component;
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView * _Nonnull)pickerView;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC11DiabetesApp29ReportMedicationTableViewCell")
+@interface ReportMedicationTableViewCell : UITableViewCell
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified medNameLbl;
+@property (nonatomic, weak) IBOutlet UITextField * _Null_unspecified dosageTxtFld;
+- (void)awakeFromNib;
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated;
+- (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC11DiabetesApp27ReportNewCarePlanController")
+@interface ReportNewCarePlanController : UIViewController <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate>
+@property (nonatomic, weak) IBOutlet UITableView * _Null_unspecified tblView;
+@property (nonatomic, strong) NSMutableArray * _Nonnull array;
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
+- (void)didReceiveMemoryWarning;
+- (void)viewDidDisappear:(BOOL)animated;
+- (void)resetUI;
+- (void)addNotifications;
+- (void)readingNotificationWithNotification:(NSNotification * _Nonnull)notification;
+- (void)getDoctorReadingData;
+- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section;
+- (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView;
+- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (UIView * _Nullable)tableView:(UITableView * _Nonnull)tableView viewForHeaderInSection:(NSInteger)section;
+- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForHeaderInSection:(NSInteger)section;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class UIScrollView;
+@class NSLayoutConstraint;
+
+SWIFT_CLASS("_TtC11DiabetesApp20ReportViewController")
+@interface ReportViewController : UIViewController <UIScrollViewDelegate, UITableViewDelegate, UITextFieldDelegate, UITableViewDataSource>
+@property (nonatomic, weak) IBOutlet UIView * _Null_unspecified newReadingEditView;
+@property (nonatomic, weak) IBOutlet UIView * _Null_unspecified medicationView;
+@property (nonatomic, weak) IBOutlet UITableView * _Null_unspecified medicationTbl;
+@property (nonatomic, weak) IBOutlet UIScrollView * _Null_unspecified scrollView;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint * _Null_unspecified medicationViewHeight;
+@property (nonatomic, weak) IBOutlet UIView * _Null_unspecified readingScheduleView;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint * _Null_unspecified newReadingContainerHeight;
+@property (nonatomic, weak) IBOutlet UIView * _Null_unspecified glucoseReadingView;
+@property (nonatomic, weak) IBOutlet UITextView * _Null_unspecified educatorCommentTxtViw;
+@property (nonatomic, weak) IBOutlet UISegmentedControl * _Null_unspecified actionSegmentControl;
+@property (nonatomic, weak) IBOutlet UIView * _Null_unspecified currentReadingView;
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified readNewEdit;
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified currentReadEdit;
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified currentMedEdit;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint * _Null_unspecified glucoseReadingLayoutConstraint;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint * _Null_unspecified educatorViewHeightConstraint;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint * _Null_unspecified currentReadingContainerHeight;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint * _Null_unspecified readingScheduleHeightConstraint;
+@property (nonatomic, weak) IBOutlet UITableView * _Null_unspecified summaryTbl;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint * _Null_unspecified newRedEditConstraint;
+@property (nonatomic, weak) IBOutlet UITextView * _Null_unspecified doctorCommentTextView;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint * _Null_unspecified doctorActionViewHeight;
+@property (nonatomic, weak) IBOutlet UIView * _Null_unspecified educatorActionView;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint * _Null_unspecified educatorActionViewHeight;
+@property (nonatomic, weak) IBOutlet UIView * _Null_unspecified doctorAcionView;
+@property (nonatomic, strong) UIButton * _Null_unspecified editButton;
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified listBtn;
+@property (nonatomic, weak) IBOutlet UIView * _Null_unspecified newReadingViewContainer;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified lbl;
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified chartBtn;
+@property (nonatomic, weak) IBOutlet UIView * _Null_unspecified listViewContainer;
+@property (nonatomic, weak) IBOutlet UIView * _Null_unspecified chartViewContainer;
+@property (nonatomic, weak) IBOutlet UISegmentedControl * _Null_unspecified segmentControl;
+@property (nonatomic) NSInteger sections;
+@property (nonatomic, strong) UIView * _Nonnull topBackView;
+@property (nonatomic, strong) NSArray * _Nonnull summaryArray;
+@property (nonatomic, strong) NSMutableArray * _Nonnull summaryTxtArray;
+@property (nonatomic, strong) NSMutableArray * _Nonnull medicationArray;
+@property (nonatomic, strong) NSMutableArray * _Nonnull newMedicationArray;
+@property (nonatomic) BOOL currentMedEditBool;
+@property (nonatomic, strong) NSDictionary * _Nonnull editCurrentMedDict;
+@property (nonatomic, strong) NSMutableArray * _Nonnull editCurrentMedArray;
+@property (nonatomic, strong) NSMutableArray * _Nonnull oldCurrentMedArray;
+@property (nonatomic, strong) NSArray * _Nonnull editCurrentReadArray;
+@property (nonatomic, readonly) NSInteger selectedUserType;
+@property (nonatomic, copy) NSString * _Nonnull taskID;
+- (void)awakeFromNib;
+- (void)viewDidLoad;
+- (void)viewDidLayoutSubviews;
+- (void)viewWillDisappear:(BOOL)animated;
+- (void)viewWillAppear:(BOOL)animated;
+- (IBAction)sendRequestToDoctor:(id _Nonnull)sender;
+- (IBAction)currentMedEditActon:(UIButton * _Nonnull)sender;
+- (void)newMedEditActon:(UIButton * _Nonnull)sender;
+- (IBAction)currentReadEditAction:(UIButton * _Nonnull)sender;
+- (IBAction)readNewEditAction:(UIButton * _Nonnull)sender;
+- (IBAction)ViewModeButtons_Click:(UIButton * _Nonnull)sender;
+- (IBAction)declineBtn_Click:(id _Nonnull)sender;
+- (IBAction)approveBtn_Click:(id _Nonnull)sender;
+- (IBAction)SegmentControl_ValueChange:(id _Nonnull)sender;
+- (void)didReceiveMemoryWarning;
+- (BOOL)textField:(UITextField * _Nonnull)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString * _Nonnull)string;
+- (void)textFieldDidBeginEditing:(UITextField * _Nonnull)textField;
+- (void)textFieldDidEndEditing:(UITextField * _Nonnull)textField;
+- (void)textViewDidBeginEditing:(UITextView * _Nonnull)textView;
+- (void)textViewDidEndEditing:(UITextView * _Nonnull)textView;
+- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section;
+- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView;
+- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForHeaderInSection:(NSInteger)section;
+- (UIView * _Nullable)tableView:(UITableView * _Nonnull)tableView viewForHeaderInSection:(NSInteger)section;
+- (void)createCustomTopView;
+- (void)setNavBarUI;
+- (NSString * _Nonnull)getSelectedNoOfDays;
+- (void)callDoctorOrEducatorReportAPI;
+- (void)BackBtn_Click;
+- (void)getEducatorReportAPI;
+- (void)editEducatorReportAPI;
+- (void)popToViewController;
+- (void)doctorReportAPI;
+- (void)doctorSingleReportAPI;
+- (void)dynamicEducatorDoctorViewLayoutWithMedArrCount:(NSInteger)medArrCount readingArrcount:(NSInteger)readingArrcount glucoseReadingCount:(NSInteger)glucoseReadingCount;
+- (void)dynamicEducatorViewLayoutWithMedArrCount:(NSInteger)medArrCount readingArrcount:(NSInteger)readingArrcount glucoseReadingCount:(NSInteger)glucoseReadingCount;
+- (void)dynamicDoctorViewLayoutWithMedArrCount:(NSInteger)medArrCount readingArrcount:(NSInteger)readingArrcount updateReadingCount:(NSInteger)updateReadingCount glucoseReadingCount:(NSInteger)glucoseReadingCount;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC11DiabetesApp12ReqestObject")
+@interface ReqestObject : NSObject
+@property (nonatomic, copy) NSString * _Nonnull educatorName;
+@property (nonatomic, copy) NSString * _Nonnull doctorName;
+@property (nonatomic, copy) NSString * _Nonnull patientName;
+@property (nonatomic, copy) NSString * _Nonnull full_name;
+@property (nonatomic, copy) NSString * _Nonnull taskid;
+@property (nonatomic, copy) NSString * _Nonnull time;
+@property (nonatomic, copy) NSString * _Nonnull date;
+@property (nonatomic, copy) NSString * _Nonnull status;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC11DiabetesApp20RequestTableViewCell")
+@interface RequestTableViewCell : UITableViewCell
+- (void)awakeFromNib;
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified lblDoctorEductor;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified lblEducator;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified lblRequestStatus;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified lbPatientName;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified lblTime;
+@property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified userImageView;
+- (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC11DiabetesApp21RequestViewController")
+@interface RequestViewController : UIViewController <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate>
+@property (nonatomic, readonly) NSInteger selectedUserType;
+@property (nonatomic, copy) NSString * _Nonnull userTypeString;
+@property (nonatomic, strong) NSMutableArray * _Nonnull requestListArray;
+@property (nonatomic, weak) IBOutlet UITableView * _Null_unspecified tableView;
+- (void)viewDidLoad;
+- (void)viewDidAppear:(BOOL)animated;
+- (void)setNavBarUI;
+- (void)didReceiveMemoryWarning;
+- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section;
+- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (void)getRequestTask;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class NSDate;
 @class NSError;
 
@@ -897,6 +1209,45 @@ SWIFT_CLASS("_TtC11DiabetesApp15ServicesManager")
 - (NSArray<QBUUser *> * _Nullable)sortedUsersWithoutCurrentUser;
 - (void)chatService:(QMChatService * _Nonnull)chatService didAddMessageToMemoryStorage:(QBChatMessage * _Nonnull)message forDialogID:(NSString * _Nonnull)dialogID;
 - (void)logoutUserWithCompletionWithCompletion:(void (^ _Nonnull)(BOOL))completion;
+@end
+
+
+SWIFT_CLASS("_TtC11DiabetesApp20SummaryTableViewCell")
+@interface SummaryTableViewCell : UITableViewCell
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified ansTxtLbl;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified nameTxtLbl;
+- (void)awakeFromNib;
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated;
+- (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface UIView (SWIFT_EXTENSION(DiabetesApp))
+/**
+  Set x Position
+  :param: x CGFloat
+  by DaRk-_-D0G
+*/
+- (void)setXWithX:(CGFloat)x;
+/**
+  Set y Position
+  :param: y CGFloat
+  by DaRk-_-D0G
+*/
+- (void)setYWithY:(CGFloat)y;
+/**
+  Set Width
+  :param: width CGFloat
+  by DaRk-_-D0G
+*/
+- (void)setWidthWithWidth:(CGFloat)width;
+/**
+  Set Height
+  :param: height CGFloat
+  by DaRk-_-D0G
+*/
+- (void)setHeightWithHeight:(CGFloat)height;
 @end
 
 @class UIAlertController;

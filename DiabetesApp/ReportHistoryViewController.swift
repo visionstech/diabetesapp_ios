@@ -40,19 +40,21 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
         //self.addNotifications()
         //getHistory()
         conditionTxtFld.text = conditionsArray[0] as? String
-        
-        let taskID: String =  UserDefaults.standard.value(forKey:"taskID") as! String
-        if !taskID.isEmpty {
-            getDoctorSingleReadingHistory(condition: conditionsArray[0] as! String)
+        if !UserDefaults.standard.bool(forKey: "groupChat") {
+            if selectedUserType == userType.doctor {
+                 getDoctorReportReadingHistory(condition: conditionsArray[0] as! String)
+            }
+            else{
+                  getReportReadingHistory(condition: conditionsArray[0] as! String)
+            }
         }
         else {
-        if selectedUserType == userType.doctor {
-           
-             getDoctorReportReadingHistory(condition: conditionsArray[0] as! String)
-        }
-        else {
-             getReportReadingHistory(condition: conditionsArray[0] as! String)
-        }
+            if selectedUserType == userType.doctor {
+                getDoctorSingleReadingHistory(condition: conditionsArray[0] as! String)
+            }
+            else{
+                getReportReadingHistory(condition: conditionsArray[0] as! String)
+            }
         }
     }
     override func viewDidAppear(_ animated: Bool) {

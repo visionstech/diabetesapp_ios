@@ -7,91 +7,92 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp24ReportCarePlanController", ""]
 provides-dynamic-lookup:
-- "numberOfSections"
-- "resetUI"
-- "ToolBarButtons_Click"
-- "selectedIndex"
-- "viewDidLoad"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "textField"
-- "selectedIndexPath"
 - "pickerView"
 - "pickerView"
 - "pickerView"
-- "textFieldShouldReturn"
-- "didReceiveMemoryWarning"
 - "currentEditReadingArray"
-- "textFieldDidEndEditing"
-- "getDoctorReadingsData"
-- "numberOfComponents"
+- "viewDidLoad"
+- "didReceiveMemoryWarning"
 - "array"
+- "resetUI"
+- "viewWillAppear"
+- "tblView"
+- "textFieldShouldReturn"
+- "reportUSer"
+- "numberOfSections"
 - "getReadingsData"
-- "addNotifications"
+- "textField"
 - "textFieldDidBeginEditing"
+- "getDoctorReadingsData"
 - "pickerViewContainer"
+- "textFieldDidEndEditing"
+- "selectedIndex"
+- "viewDidDisappear"
+- "numberOfComponents"
+- "selectedIndexPath"
+- "ToolBarButtons_Click"
 - "readingNotification"
 - "getDoctorSingleData"
-- "viewDidDisappear"
-- "tblView"
-- "viewWillAppear"
+- "addNotifications"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
 depends-top-level:
-- !private "+"
-- !private "Alamofire"
-- !private "!"
-- !private "CarePlanReadingHeaderTableViewCell"
+- "UserDefaults"
+- !private "userType"
+- !private "frequnecyArray"
+- "UITableViewCell"
+- "Int"
+- !private "JSONEncoding"
+- !private "NSCopying"
 - !private "=="
 - "AssignmentPrecedence"
 - "selectedUserType"
+- !private "..<"
+- "UIView"
 - "CastingPrecedence"
-- "UITableView"
-- "Int"
-- "UserDefaults"
-- "NSNotification"
-- !private "UnicodeScalarType"
-- "UIPickerView"
-- "userDefaults"
-- "String"
-- !private "NSArray"
-- "NSRange"
-- "IndexPath"
-- !private "!="
 - "UITextField"
+- !private "Alamofire"
+- !private "NSString"
+- "NSMutableArray"
+- "UIPickerView"
+- !private "NSArray"
+- !private "Dictionary"
 - !private "Notifications"
+- "UIPickerViewDataSource"
+- !private "NSDictionary"
+- "UIPickerViewDelegate"
+- "UIViewController"
+- "UITextFieldDelegate"
+- "UITableView"
+- "UITableViewDataSource"
+- !private "print"
+- !private "NSKeyedArchiver"
+- "UITableViewDelegate"
+- !private "BooleanLiteralType"
+- !private "!="
+- "NSRange"
+- !private "AnyObject"
+- !private "UnicodeScalarType"
+- "CGFloat"
+- !private "CarePlanReadingHeaderTableViewCell"
+- "String"
+- !private "conditionsArray"
 - "ReportCarePlanController"
 - !private "NSMutableDictionary"
 - "Bool"
-- "NSMutableArray"
-- !private "print"
-- !private "frequnecyArray"
-- !private ">"
-- "UIViewController"
-- !private "AnyObject"
-- !private "JSONEncoding"
-- !private "conditionsArray"
-- !private "NSDictionary"
-- "UITextFieldDelegate"
-- !private "..<"
-- !private "NotificationCenter"
-- !private "NSString"
-- "UIPickerViewDelegate"
-- !private "BooleanLiteralType"
-- !private "CarePlanReadingObj"
-- "UITableViewCell"
 - !private "ReportCarePlanReadingViewCell"
-- !private "Dictionary"
-- "UITableViewDelegate"
-- "UITableViewDataSource"
-- "CGFloat"
 - !private "Parameters"
-- !private "NSKeyedArchiver"
-- "UIView"
-- "UIPickerViewDataSource"
-- !private "userType"
-- !private "NSCopying"
+- "IndexPath"
+- "NSNotification"
+- !private "+"
+- !private "!"
+- !private "NotificationCenter"
+- "userDefaults"
+- !private "CarePlanReadingObj"
+- !private ">"
 depends-member:
 - !private ["Ps9AnyObject", "Alamofire"]
 - !private ["Ps9AnyObject", "CarePlanReadingObj"]
@@ -107,7 +108,7 @@ depends-member:
 - !private ["Ps9AnyObject", "Name"]
 - !private ["Ps9AnyObject", "NotificationCenter"]
 - !private ["Ps9AnyObject", "Notifications"]
-- !private ["Ps9AnyObject", "String"]
+- ["Ps9AnyObject", "String"]
 - ["Ps9AnyObject", "ToolBarButtons_Click"]
 - !private ["Ps9AnyObject", "UserDefaults"]
 - !private ["Ps9AnyObject", "accessibilityLabel"]
@@ -142,7 +143,6 @@ depends-member:
 - ["Ps9AnyObject", "init"]
 - !private ["Ps9AnyObject", "inputView"]
 - ["Ps9AnyObject", "integer"]
-- !private ["Ps9AnyObject", "isEmpty"]
 - !private ["Ps9AnyObject", "isHidden"]
 - !private ["Ps9AnyObject", "isUserInteractionEnabled"]
 - !private ["Ps9AnyObject", "numberLbl"]
@@ -161,6 +161,7 @@ depends-member:
 - !private ["Ps9AnyObject", "replaceObject"]
 - !private ["Ps9AnyObject", "replacingCharacters"]
 - !private ["Ps9AnyObject", "replacingOccurrences"]
+- ["Ps9AnyObject", "reportUSer"]
 - ["Ps9AnyObject", "resetUI"]
 - !private ["Ps9AnyObject", "resignFirstResponder"]
 - !private ["Ps9AnyObject", "responseJSON"]
@@ -261,7 +262,7 @@ depends-member:
 - !private ["Ps7CVarArg", "NotificationCenter"]
 - !private ["Ps7CVarArg", "Notifications"]
 - !private ["Ps7CVarArg", "Stride"]
-- !private ["Ps7CVarArg", "String"]
+- ["Ps7CVarArg", "String"]
 - ["Ps7CVarArg", "ToolBarButtons_Click"]
 - !private ["Ps7CVarArg", "UserDefaults"]
 - !private ["Ps7CVarArg", "Value"]
@@ -297,7 +298,6 @@ depends-member:
 - ["Ps7CVarArg", "init"]
 - !private ["Ps7CVarArg", "inputView"]
 - ["Ps7CVarArg", "integer"]
-- !private ["Ps7CVarArg", "isEmpty"]
 - !private ["Ps7CVarArg", "isHidden"]
 - !private ["Ps7CVarArg", "isUserInteractionEnabled"]
 - !private ["Ps7CVarArg", "numberLbl"]
@@ -316,6 +316,7 @@ depends-member:
 - !private ["Ps7CVarArg", "replaceObject"]
 - !private ["Ps7CVarArg", "replacingCharacters"]
 - !private ["Ps7CVarArg", "replacingOccurrences"]
+- ["Ps7CVarArg", "reportUSer"]
 - ["Ps7CVarArg", "resetUI"]
 - !private ["Ps7CVarArg", "resignFirstResponder"]
 - ["Ps7CVarArg", "scrollViewDidEndDecelerating"]
@@ -385,7 +386,6 @@ depends-member:
 - !private ["Ps10Comparable", "Stride"]
 - !private ["Ps10Comparable", "_DisabledRangeIndex"]
 - ["Ps10Comparable", "init"]
-- !private ["Ps10Comparable", "isEmpty"]
 - !private ["Ps10Comparable", "replacingOccurrences"]
 - !private ["Ps10Comparable", "row"]
 - !private ["Ps10Comparable", "section"]
@@ -406,7 +406,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "Name"]
 - !private ["Ps28CustomDebugStringConvertible", "NotificationCenter"]
 - !private ["Ps28CustomDebugStringConvertible", "Notifications"]
-- !private ["Ps28CustomDebugStringConvertible", "String"]
+- ["Ps28CustomDebugStringConvertible", "String"]
 - ["Ps28CustomDebugStringConvertible", "ToolBarButtons_Click"]
 - !private ["Ps28CustomDebugStringConvertible", "UserDefaults"]
 - !private ["Ps28CustomDebugStringConvertible", "Value"]
@@ -443,7 +443,6 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "init"]
 - !private ["Ps28CustomDebugStringConvertible", "inputView"]
 - ["Ps28CustomDebugStringConvertible", "integer"]
-- !private ["Ps28CustomDebugStringConvertible", "isEmpty"]
 - !private ["Ps28CustomDebugStringConvertible", "isHidden"]
 - !private ["Ps28CustomDebugStringConvertible", "isUserInteractionEnabled"]
 - !private ["Ps28CustomDebugStringConvertible", "numberLbl"]
@@ -462,6 +461,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "replaceObject"]
 - !private ["Ps28CustomDebugStringConvertible", "replacingCharacters"]
 - !private ["Ps28CustomDebugStringConvertible", "replacingOccurrences"]
+- ["Ps28CustomDebugStringConvertible", "reportUSer"]
 - ["Ps28CustomDebugStringConvertible", "resetUI"]
 - !private ["Ps28CustomDebugStringConvertible", "resignFirstResponder"]
 - !private ["Ps28CustomDebugStringConvertible", "responseJSON"]
@@ -522,7 +522,6 @@ depends-member:
 - !private ["Ps29CustomPlaygroundQuickLookable", "_DisabledRangeIndex"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
 - ["Ps29CustomPlaygroundQuickLookable", "init"]
-- !private ["Ps29CustomPlaygroundQuickLookable", "isEmpty"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "replacingCharacters"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "replacingOccurrences"]
 - !private ["Ps17CustomReflectable", "IntegerLiteralType"]
@@ -536,7 +535,6 @@ depends-member:
 - !private ["Ps17CustomReflectable", "add"]
 - !private ["Ps17CustomReflectable", "count"]
 - ["Ps17CustomReflectable", "init"]
-- !private ["Ps17CustomReflectable", "isEmpty"]
 - !private ["Ps17CustomReflectable", "object"]
 - !private ["Ps17CustomReflectable", "removeAllObjects"]
 - !private ["Ps17CustomReflectable", "replaceObject"]
@@ -563,7 +561,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "NotificationCenter"]
 - !private ["Ps23CustomStringConvertible", "Notifications"]
 - !private ["Ps23CustomStringConvertible", "Stride"]
-- !private ["Ps23CustomStringConvertible", "String"]
+- ["Ps23CustomStringConvertible", "String"]
 - ["Ps23CustomStringConvertible", "ToolBarButtons_Click"]
 - !private ["Ps23CustomStringConvertible", "UserDefaults"]
 - !private ["Ps23CustomStringConvertible", "Value"]
@@ -602,7 +600,6 @@ depends-member:
 - ["Ps23CustomStringConvertible", "init"]
 - !private ["Ps23CustomStringConvertible", "inputView"]
 - ["Ps23CustomStringConvertible", "integer"]
-- !private ["Ps23CustomStringConvertible", "isEmpty"]
 - !private ["Ps23CustomStringConvertible", "isHidden"]
 - !private ["Ps23CustomStringConvertible", "isUserInteractionEnabled"]
 - !private ["Ps23CustomStringConvertible", "numberLbl"]
@@ -621,6 +618,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "replaceObject"]
 - !private ["Ps23CustomStringConvertible", "replacingCharacters"]
 - !private ["Ps23CustomStringConvertible", "replacingOccurrences"]
+- ["Ps23CustomStringConvertible", "reportUSer"]
 - ["Ps23CustomStringConvertible", "resetUI"]
 - !private ["Ps23CustomStringConvertible", "resignFirstResponder"]
 - !private ["Ps23CustomStringConvertible", "responseJSON"]
@@ -700,7 +698,7 @@ depends-member:
 - !private ["Ps9Equatable", "NotificationCenter"]
 - !private ["Ps9Equatable", "Notifications"]
 - !private ["Ps9Equatable", "Stride"]
-- !private ["Ps9Equatable", "String"]
+- ["Ps9Equatable", "String"]
 - ["Ps9Equatable", "ToolBarButtons_Click"]
 - !private ["Ps9Equatable", "UserDefaults"]
 - !private ["Ps9Equatable", "_DisabledRangeIndex"]
@@ -737,7 +735,6 @@ depends-member:
 - ["Ps9Equatable", "init"]
 - !private ["Ps9Equatable", "inputView"]
 - ["Ps9Equatable", "integer"]
-- !private ["Ps9Equatable", "isEmpty"]
 - !private ["Ps9Equatable", "isHidden"]
 - !private ["Ps9Equatable", "isUserInteractionEnabled"]
 - !private ["Ps9Equatable", "none"]
@@ -758,6 +755,7 @@ depends-member:
 - !private ["Ps9Equatable", "replaceObject"]
 - !private ["Ps9Equatable", "replacingCharacters"]
 - !private ["Ps9Equatable", "replacingOccurrences"]
+- ["Ps9Equatable", "reportUSer"]
 - ["Ps9Equatable", "resetUI"]
 - !private ["Ps9Equatable", "resignFirstResponder"]
 - !private ["Ps9Equatable", "row"]
@@ -828,23 +826,19 @@ depends-member:
 - !private ["Ps30ExpressibleByDictionaryLiteral", "setObject"]
 - !private ["Ps30ExpressibleByDictionaryLiteral", "setValue"]
 - !private ["Ps30ExpressibleByDictionaryLiteral", "value"]
-- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
-- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "isEmpty"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "replacingCharacters"]
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "replacingOccurrences"]
 - !private ["Ps27ExpressibleByIntegerLiteral", "IntegerLiteralType"]
 - !private ["Ps27ExpressibleByIntegerLiteral", "Stride"]
 - !private ["Ps27ExpressibleByIntegerLiteral", "_DisabledRangeIndex"]
 - ["Ps27ExpressibleByIntegerLiteral", "init"]
-- !private ["Ps32ExpressibleByStringInterpolation", "init"]
-- !private ["Ps32ExpressibleByStringInterpolation", "isEmpty"]
+- ["Ps32ExpressibleByStringInterpolation", "init"]
 - !private ["Ps32ExpressibleByStringInterpolation", "replacingOccurrences"]
-- !private ["Ps26ExpressibleByStringLiteral", "init"]
-- !private ["Ps26ExpressibleByStringLiteral", "isEmpty"]
+- ["Ps26ExpressibleByStringLiteral", "init"]
 - !private ["Ps26ExpressibleByStringLiteral", "replacingCharacters"]
 - !private ["Ps26ExpressibleByStringLiteral", "replacingOccurrences"]
-- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
-- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "isEmpty"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
 - !private ["Ps33ExpressibleByUnicodeScalarLiteral", "replacingCharacters"]
 - !private ["Ps33ExpressibleByUnicodeScalarLiteral", "replacingOccurrences"]
 - !private ["Sf", "deinit"]
@@ -865,7 +859,7 @@ depends-member:
 - !private ["Ps8Hashable", "NotificationCenter"]
 - !private ["Ps8Hashable", "Notifications"]
 - !private ["Ps8Hashable", "Stride"]
-- !private ["Ps8Hashable", "String"]
+- ["Ps8Hashable", "String"]
 - ["Ps8Hashable", "ToolBarButtons_Click"]
 - !private ["Ps8Hashable", "UserDefaults"]
 - !private ["Ps8Hashable", "_DisabledRangeIndex"]
@@ -901,7 +895,6 @@ depends-member:
 - ["Ps8Hashable", "init"]
 - !private ["Ps8Hashable", "inputView"]
 - ["Ps8Hashable", "integer"]
-- !private ["Ps8Hashable", "isEmpty"]
 - !private ["Ps8Hashable", "isHidden"]
 - !private ["Ps8Hashable", "isUserInteractionEnabled"]
 - !private ["Ps8Hashable", "none"]
@@ -922,6 +915,7 @@ depends-member:
 - !private ["Ps8Hashable", "replaceObject"]
 - !private ["Ps8Hashable", "replacingCharacters"]
 - !private ["Ps8Hashable", "replacingOccurrences"]
+- ["Ps8Hashable", "reportUSer"]
 - ["Ps8Hashable", "resetUI"]
 - !private ["Ps8Hashable", "resignFirstResponder"]
 - !private ["Ps8Hashable", "row"]
@@ -1012,14 +1006,12 @@ depends-member:
 - !private ["V9Alamofire12JSONEncoding", "default"]
 - ["V9Alamofire12JSONEncoding", "deinit"]
 - !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
-- !private ["Ps25LosslessStringConvertible", "init"]
-- !private ["Ps25LosslessStringConvertible", "isEmpty"]
+- ["Ps25LosslessStringConvertible", "init"]
 - !private ["Ps25LosslessStringConvertible", "replacingOccurrences"]
 - !private ["Ps10MirrorPath", "IntegerLiteralType"]
 - !private ["Ps10MirrorPath", "Stride"]
 - !private ["Ps10MirrorPath", "_DisabledRangeIndex"]
 - ["Ps10MirrorPath", "init"]
-- !private ["Ps10MirrorPath", "isEmpty"]
 - !private ["Ps10MirrorPath", "replacingOccurrences"]
 - !private ["Ps17MutableCollection", "row"]
 - !private ["Ps17MutableCollection", "section"]
@@ -1049,7 +1041,7 @@ depends-member:
 - !private ["PSo8NSCoding", "Name"]
 - !private ["PSo8NSCoding", "NotificationCenter"]
 - !private ["PSo8NSCoding", "Notifications"]
-- !private ["PSo8NSCoding", "String"]
+- ["PSo8NSCoding", "String"]
 - ["PSo8NSCoding", "ToolBarButtons_Click"]
 - !private ["PSo8NSCoding", "UserDefaults"]
 - !private ["PSo8NSCoding", "accessibilityLabel"]
@@ -1075,7 +1067,6 @@ depends-member:
 - ["PSo8NSCoding", "indexPathForPreferredFocusedViewInTableView"]
 - ["PSo8NSCoding", "init"]
 - !private ["PSo8NSCoding", "inputView"]
-- !private ["PSo8NSCoding", "isEmpty"]
 - !private ["PSo8NSCoding", "isHidden"]
 - !private ["PSo8NSCoding", "isUserInteractionEnabled"]
 - !private ["PSo8NSCoding", "numberLbl"]
@@ -1093,6 +1084,7 @@ depends-member:
 - !private ["PSo8NSCoding", "replaceObject"]
 - !private ["PSo8NSCoding", "replacingCharacters"]
 - !private ["PSo8NSCoding", "replacingOccurrences"]
+- ["PSo8NSCoding", "reportUSer"]
 - ["PSo8NSCoding", "resetUI"]
 - !private ["PSo8NSCoding", "resignFirstResponder"]
 - ["PSo8NSCoding", "scrollViewDidEndDecelerating"]
@@ -1144,7 +1136,6 @@ depends-member:
 - !private ["PSo9NSCopying", "count"]
 - !private ["PSo9NSCopying", "deinit"]
 - ["PSo9NSCopying", "init"]
-- !private ["PSo9NSCopying", "isEmpty"]
 - !private ["PSo9NSCopying", "object"]
 - !private ["PSo9NSCopying", "removeAllObjects"]
 - !private ["PSo9NSCopying", "replaceObject"]
@@ -1171,7 +1162,7 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "NSString"]
 - !private ["PSo26NSExtensionRequestHandling", "NotificationCenter"]
 - !private ["PSo26NSExtensionRequestHandling", "Notifications"]
-- !private ["PSo26NSExtensionRequestHandling", "String"]
+- ["PSo26NSExtensionRequestHandling", "String"]
 - ["PSo26NSExtensionRequestHandling", "ToolBarButtons_Click"]
 - !private ["PSo26NSExtensionRequestHandling", "UserDefaults"]
 - ["PSo26NSExtensionRequestHandling", "addNotifications"]
@@ -1194,6 +1185,7 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "pickerViewContainer"]
 - !private ["PSo26NSExtensionRequestHandling", "print"]
 - ["PSo26NSExtensionRequestHandling", "readingNotification"]
+- ["PSo26NSExtensionRequestHandling", "reportUSer"]
 - ["PSo26NSExtensionRequestHandling", "resetUI"]
 - ["PSo26NSExtensionRequestHandling", "scrollViewDidEndDecelerating"]
 - ["PSo26NSExtensionRequestHandling", "scrollViewDidEndDragging"]
@@ -1261,7 +1253,6 @@ depends-member:
 - !private ["PSo16NSMutableCopying", "add"]
 - !private ["PSo16NSMutableCopying", "count"]
 - ["PSo16NSMutableCopying", "init"]
-- !private ["PSo16NSMutableCopying", "isEmpty"]
 - !private ["PSo16NSMutableCopying", "object"]
 - !private ["PSo16NSMutableCopying", "removeAllObjects"]
 - !private ["PSo16NSMutableCopying", "replaceObject"]
@@ -1341,7 +1332,6 @@ depends-member:
 - ["CSo8NSObject", "init"]
 - !private ["CSo8NSObject", "inputView"]
 - ["CSo8NSObject", "integer"]
-- !private ["CSo8NSObject", "isEmpty"]
 - !private ["CSo8NSObject", "isHidden"]
 - !private ["CSo8NSObject", "isUserInteractionEnabled"]
 - !private ["CSo8NSObject", "numberLbl"]
@@ -1360,6 +1350,7 @@ depends-member:
 - !private ["CSo8NSObject", "replaceObject"]
 - !private ["CSo8NSObject", "replacingCharacters"]
 - !private ["CSo8NSObject", "replacingOccurrences"]
+- ["CSo8NSObject", "reportUSer"]
 - ["CSo8NSObject", "resetUI"]
 - !private ["CSo8NSObject", "resignFirstResponder"]
 - ["CSo8NSObject", "scrollViewDidEndDecelerating"]
@@ -1422,7 +1413,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "Name"]
 - !private ["PSo16NSObjectProtocol", "NotificationCenter"]
 - !private ["PSo16NSObjectProtocol", "Notifications"]
-- !private ["PSo16NSObjectProtocol", "String"]
+- ["PSo16NSObjectProtocol", "String"]
 - ["PSo16NSObjectProtocol", "ToolBarButtons_Click"]
 - !private ["PSo16NSObjectProtocol", "UserDefaults"]
 - !private ["PSo16NSObjectProtocol", "accessibilityLabel"]
@@ -1456,7 +1447,6 @@ depends-member:
 - ["PSo16NSObjectProtocol", "init"]
 - !private ["PSo16NSObjectProtocol", "inputView"]
 - ["PSo16NSObjectProtocol", "integer"]
-- !private ["PSo16NSObjectProtocol", "isEmpty"]
 - !private ["PSo16NSObjectProtocol", "isHidden"]
 - !private ["PSo16NSObjectProtocol", "isUserInteractionEnabled"]
 - !private ["PSo16NSObjectProtocol", "numberLbl"]
@@ -1475,6 +1465,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "replaceObject"]
 - !private ["PSo16NSObjectProtocol", "replacingCharacters"]
 - !private ["PSo16NSObjectProtocol", "replacingOccurrences"]
+- ["PSo16NSObjectProtocol", "reportUSer"]
 - ["PSo16NSObjectProtocol", "resetUI"]
 - !private ["PSo16NSObjectProtocol", "resignFirstResponder"]
 - ["PSo16NSObjectProtocol", "scrollViewDidEndDecelerating"]
@@ -1529,7 +1520,6 @@ depends-member:
 - !private ["PSo14NSSecureCoding", "add"]
 - !private ["PSo14NSSecureCoding", "count"]
 - ["PSo14NSSecureCoding", "init"]
-- !private ["PSo14NSSecureCoding", "isEmpty"]
 - !private ["PSo14NSSecureCoding", "object"]
 - !private ["PSo14NSSecureCoding", "removeAllObjects"]
 - !private ["PSo14NSSecureCoding", "replaceObject"]
@@ -1541,7 +1531,6 @@ depends-member:
 - !private ["PSo14NSSecureCoding", "value"]
 - ["CSo8NSString", "deinit"]
 - !private ["CSo8NSString", "init"]
-- !private ["CSo8NSString", "isEmpty"]
 - !private ["CSo8NSString", "replacingCharacters"]
 - !private ["CSo8NSString", "replacingOccurrences"]
 - ["VCSo14NSNotification4Name", "deinit"]
@@ -1618,6 +1607,7 @@ depends-member:
 - ["C11DiabetesApp24ReportCarePlanController", "pickerViewContainer"]
 - !private ["C11DiabetesApp24ReportCarePlanController", "print"]
 - ["C11DiabetesApp24ReportCarePlanController", "readingNotification"]
+- ["C11DiabetesApp24ReportCarePlanController", "reportUSer"]
 - ["C11DiabetesApp24ReportCarePlanController", "resetUI"]
 - ["C11DiabetesApp24ReportCarePlanController", "scrollViewDidEndDecelerating"]
 - ["C11DiabetesApp24ReportCarePlanController", "scrollViewDidEndDragging"]
@@ -1696,14 +1686,11 @@ depends-member:
 - !private ["Ps10Strideable", "_DisabledRangeIndex"]
 - ["Ps10Strideable", "init"]
 - ["SS", "deinit"]
-- !private ["SS", "init"]
-- !private ["SS", "isEmpty"]
+- ["SS", "init"]
 - !private ["SS", "replacingOccurrences"]
-- !private ["Ps16TextOutputStream", "init"]
-- !private ["Ps16TextOutputStream", "isEmpty"]
+- ["Ps16TextOutputStream", "init"]
 - !private ["Ps16TextOutputStream", "replacingOccurrences"]
-- !private ["Ps20TextOutputStreamable", "init"]
-- !private ["Ps20TextOutputStreamable", "isEmpty"]
+- ["Ps20TextOutputStreamable", "init"]
 - !private ["Ps20TextOutputStreamable", "replacingOccurrences"]
 - !private ["PSo29UIAccessibilityIdentification", "accessibilityLabel"]
 - !private ["PSo29UIAccessibilityIdentification", "accessibilityValue"]
@@ -1752,7 +1739,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "NSString"]
 - !private ["PSo21UIAppearanceContainer", "NotificationCenter"]
 - !private ["PSo21UIAppearanceContainer", "Notifications"]
-- !private ["PSo21UIAppearanceContainer", "String"]
+- ["PSo21UIAppearanceContainer", "String"]
 - ["PSo21UIAppearanceContainer", "ToolBarButtons_Click"]
 - !private ["PSo21UIAppearanceContainer", "UserDefaults"]
 - !private ["PSo21UIAppearanceContainer", "accessibilityLabel"]
@@ -1788,6 +1775,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "print"]
 - ["PSo21UIAppearanceContainer", "readingNotification"]
 - !private ["PSo21UIAppearanceContainer", "reloadData"]
+- ["PSo21UIAppearanceContainer", "reportUSer"]
 - ["PSo21UIAppearanceContainer", "resetUI"]
 - !private ["PSo21UIAppearanceContainer", "resignFirstResponder"]
 - ["PSo21UIAppearanceContainer", "scrollViewDidEndDecelerating"]
@@ -1840,7 +1828,7 @@ depends-member:
 - !private ["PSo18UIContentContainer", "NSString"]
 - !private ["PSo18UIContentContainer", "NotificationCenter"]
 - !private ["PSo18UIContentContainer", "Notifications"]
-- !private ["PSo18UIContentContainer", "String"]
+- ["PSo18UIContentContainer", "String"]
 - ["PSo18UIContentContainer", "ToolBarButtons_Click"]
 - !private ["PSo18UIContentContainer", "UserDefaults"]
 - ["PSo18UIContentContainer", "addNotifications"]
@@ -1863,6 +1851,7 @@ depends-member:
 - ["PSo18UIContentContainer", "pickerViewContainer"]
 - !private ["PSo18UIContentContainer", "print"]
 - ["PSo18UIContentContainer", "readingNotification"]
+- ["PSo18UIContentContainer", "reportUSer"]
 - ["PSo18UIContentContainer", "resetUI"]
 - ["PSo18UIContentContainer", "scrollViewDidEndDecelerating"]
 - ["PSo18UIContentContainer", "scrollViewDidEndDragging"]
@@ -1962,7 +1951,7 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "NSString"]
 - !private ["PSo18UIFocusEnvironment", "NotificationCenter"]
 - !private ["PSo18UIFocusEnvironment", "Notifications"]
-- !private ["PSo18UIFocusEnvironment", "String"]
+- ["PSo18UIFocusEnvironment", "String"]
 - ["PSo18UIFocusEnvironment", "ToolBarButtons_Click"]
 - !private ["PSo18UIFocusEnvironment", "UserDefaults"]
 - !private ["PSo18UIFocusEnvironment", "accessibilityLabel"]
@@ -1998,6 +1987,7 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "print"]
 - ["PSo18UIFocusEnvironment", "readingNotification"]
 - !private ["PSo18UIFocusEnvironment", "reloadData"]
+- ["PSo18UIFocusEnvironment", "reportUSer"]
 - ["PSo18UIFocusEnvironment", "resetUI"]
 - !private ["PSo18UIFocusEnvironment", "resignFirstResponder"]
 - ["PSo18UIFocusEnvironment", "scrollViewDidEndDecelerating"]
@@ -2084,7 +2074,7 @@ depends-member:
 - !private ["PSo22UIPickerViewDataSource", "NSString"]
 - !private ["PSo22UIPickerViewDataSource", "NotificationCenter"]
 - !private ["PSo22UIPickerViewDataSource", "Notifications"]
-- !private ["PSo22UIPickerViewDataSource", "String"]
+- ["PSo22UIPickerViewDataSource", "String"]
 - !private ["PSo22UIPickerViewDataSource", "UserDefaults"]
 - !private ["PSo22UIPickerViewDataSource", "addNotifications"]
 - !private ["PSo22UIPickerViewDataSource", "array"]
@@ -2148,7 +2138,7 @@ depends-member:
 - !private ["PSo20UIPickerViewDelegate", "NSString"]
 - !private ["PSo20UIPickerViewDelegate", "NotificationCenter"]
 - !private ["PSo20UIPickerViewDelegate", "Notifications"]
-- !private ["PSo20UIPickerViewDelegate", "String"]
+- ["PSo20UIPickerViewDelegate", "String"]
 - !private ["PSo20UIPickerViewDelegate", "UserDefaults"]
 - !private ["PSo20UIPickerViewDelegate", "addNotifications"]
 - !private ["PSo20UIPickerViewDelegate", "array"]
@@ -2264,6 +2254,7 @@ depends-member:
 - !private ["CSo11UIResponder", "print"]
 - ["CSo11UIResponder", "readingNotification"]
 - !private ["CSo11UIResponder", "reloadData"]
+- ["CSo11UIResponder", "reportUSer"]
 - ["CSo11UIResponder", "resetUI"]
 - !private ["CSo11UIResponder", "resignFirstResponder"]
 - ["CSo11UIResponder", "scrollViewDidEndDecelerating"]
@@ -2315,7 +2306,7 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "NSString"]
 - !private ["PSo30UIResponderStandardEditActions", "NotificationCenter"]
 - !private ["PSo30UIResponderStandardEditActions", "Notifications"]
-- !private ["PSo30UIResponderStandardEditActions", "String"]
+- ["PSo30UIResponderStandardEditActions", "String"]
 - ["PSo30UIResponderStandardEditActions", "ToolBarButtons_Click"]
 - !private ["PSo30UIResponderStandardEditActions", "UserDefaults"]
 - !private ["PSo30UIResponderStandardEditActions", "accessibilityLabel"]
@@ -2351,6 +2342,7 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "print"]
 - ["PSo30UIResponderStandardEditActions", "readingNotification"]
 - !private ["PSo30UIResponderStandardEditActions", "reloadData"]
+- ["PSo30UIResponderStandardEditActions", "reportUSer"]
 - ["PSo30UIResponderStandardEditActions", "resetUI"]
 - !private ["PSo30UIResponderStandardEditActions", "resignFirstResponder"]
 - ["PSo30UIResponderStandardEditActions", "scrollViewDidEndDecelerating"]
@@ -2406,7 +2398,7 @@ depends-member:
 - !private ["PSo20UIScrollViewDelegate", "NSString"]
 - !private ["PSo20UIScrollViewDelegate", "NotificationCenter"]
 - !private ["PSo20UIScrollViewDelegate", "Notifications"]
-- !private ["PSo20UIScrollViewDelegate", "String"]
+- ["PSo20UIScrollViewDelegate", "String"]
 - !private ["PSo20UIScrollViewDelegate", "UserDefaults"]
 - !private ["PSo20UIScrollViewDelegate", "addNotifications"]
 - !private ["PSo20UIScrollViewDelegate", "array"]
@@ -2470,7 +2462,7 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "NSString"]
 - !private ["PSo16UIStateRestoring", "NotificationCenter"]
 - !private ["PSo16UIStateRestoring", "Notifications"]
-- !private ["PSo16UIStateRestoring", "String"]
+- ["PSo16UIStateRestoring", "String"]
 - ["PSo16UIStateRestoring", "ToolBarButtons_Click"]
 - !private ["PSo16UIStateRestoring", "UserDefaults"]
 - ["PSo16UIStateRestoring", "addNotifications"]
@@ -2493,6 +2485,7 @@ depends-member:
 - ["PSo16UIStateRestoring", "pickerViewContainer"]
 - !private ["PSo16UIStateRestoring", "print"]
 - ["PSo16UIStateRestoring", "readingNotification"]
+- ["PSo16UIStateRestoring", "reportUSer"]
 - ["PSo16UIStateRestoring", "resetUI"]
 - ["PSo16UIStateRestoring", "scrollViewDidEndDecelerating"]
 - ["PSo16UIStateRestoring", "scrollViewDidEndDragging"]
@@ -2553,7 +2546,7 @@ depends-member:
 - !private ["PSo21UITableViewDataSource", "NSString"]
 - !private ["PSo21UITableViewDataSource", "NotificationCenter"]
 - !private ["PSo21UITableViewDataSource", "Notifications"]
-- !private ["PSo21UITableViewDataSource", "String"]
+- ["PSo21UITableViewDataSource", "String"]
 - !private ["PSo21UITableViewDataSource", "UserDefaults"]
 - !private ["PSo21UITableViewDataSource", "addNotifications"]
 - !private ["PSo21UITableViewDataSource", "array"]
@@ -2617,7 +2610,7 @@ depends-member:
 - !private ["PSo19UITableViewDelegate", "NSString"]
 - !private ["PSo19UITableViewDelegate", "NotificationCenter"]
 - !private ["PSo19UITableViewDelegate", "Notifications"]
-- !private ["PSo19UITableViewDelegate", "String"]
+- ["PSo19UITableViewDelegate", "String"]
 - !private ["PSo19UITableViewDelegate", "UserDefaults"]
 - !private ["PSo19UITableViewDelegate", "addNotifications"]
 - !private ["PSo19UITableViewDelegate", "array"]
@@ -2690,7 +2683,7 @@ depends-member:
 - !private ["PSo19UITextFieldDelegate", "NSString"]
 - !private ["PSo19UITextFieldDelegate", "NotificationCenter"]
 - !private ["PSo19UITextFieldDelegate", "Notifications"]
-- !private ["PSo19UITextFieldDelegate", "String"]
+- ["PSo19UITextFieldDelegate", "String"]
 - !private ["PSo19UITextFieldDelegate", "UserDefaults"]
 - !private ["PSo19UITextFieldDelegate", "addNotifications"]
 - !private ["PSo19UITextFieldDelegate", "array"]
@@ -2770,7 +2763,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "NSString"]
 - !private ["PSo18UITraitEnvironment", "NotificationCenter"]
 - !private ["PSo18UITraitEnvironment", "Notifications"]
-- !private ["PSo18UITraitEnvironment", "String"]
+- ["PSo18UITraitEnvironment", "String"]
 - ["PSo18UITraitEnvironment", "ToolBarButtons_Click"]
 - !private ["PSo18UITraitEnvironment", "UserDefaults"]
 - !private ["PSo18UITraitEnvironment", "accessibilityLabel"]
@@ -2806,6 +2799,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "print"]
 - ["PSo18UITraitEnvironment", "readingNotification"]
 - !private ["PSo18UITraitEnvironment", "reloadData"]
+- ["PSo18UITraitEnvironment", "reportUSer"]
 - ["PSo18UITraitEnvironment", "resetUI"]
 - !private ["PSo18UITraitEnvironment", "resignFirstResponder"]
 - ["PSo18UITraitEnvironment", "scrollViewDidEndDecelerating"]
@@ -2916,6 +2910,7 @@ depends-member:
 - ["CSo16UIViewController", "pickerViewContainer"]
 - !private ["CSo16UIViewController", "print"]
 - ["CSo16UIViewController", "readingNotification"]
+- ["CSo16UIViewController", "reportUSer"]
 - ["CSo16UIViewController", "resetUI"]
 - ["CSo16UIViewController", "scrollViewDidEndDecelerating"]
 - ["CSo16UIViewController", "scrollViewDidEndDragging"]
@@ -2958,8 +2953,7 @@ depends-member:
 - !private ["Vs6UInt64", "deinit"]
 - !private ["Vs5UInt8", "deinit"]
 - !private ["P9Alamofire14URLConvertible", "deinit"]
-- !private ["P9Alamofire14URLConvertible", "init"]
-- !private ["P9Alamofire14URLConvertible", "isEmpty"]
+- ["P9Alamofire14URLConvertible", "init"]
 - !private ["P9Alamofire14URLConvertible", "replacingOccurrences"]
 - !private ["Sc", "deinit"]
 - !private ["CSo12UserDefaults", "bool"]
@@ -2970,7 +2964,6 @@ depends-member:
 - ["CSo12UserDefaults", "standard"]
 - !private ["CSo12UserDefaults", "string"]
 - !private ["CSo12UserDefaults", "synchronize"]
-- !private ["CSo12UserDefaults", "value"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "accessibilityLabel"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "accessibilityValue"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "conditionLbl"]
@@ -2990,25 +2983,20 @@ depends-member:
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "tag"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "text"]
 - !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
-- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
-- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "isEmpty"]
+- ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
 - !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "replacingOccurrences"]
 - !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "IntegerLiteralType"]
 - !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "Stride"]
 - !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "_DisabledRangeIndex"]
 - ["Ps35_ExpressibleByBuiltinIntegerLiteral", "init"]
-- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
-- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "isEmpty"]
+- ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
 - !private ["Ps34_ExpressibleByBuiltinStringLiteral", "replacingOccurrences"]
-- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
-- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "isEmpty"]
+- ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
 - !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "replacingOccurrences"]
-- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
-- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "isEmpty"]
+- ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
 - !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "replacingOccurrences"]
 - !private ["Ps35_HasCustomAnyHashableRepresentation", "Name"]
 - !private ["Ps35_HasCustomAnyHashableRepresentation", "init"]
-- !private ["Ps35_HasCustomAnyHashableRepresentation", "isEmpty"]
 - !private ["Ps35_HasCustomAnyHashableRepresentation", "replacingCharacters"]
 - !private ["Ps35_HasCustomAnyHashableRepresentation", "replacingOccurrences"]
 - !private ["Ps9_Hashable", "Alamofire"]
@@ -3026,7 +3014,7 @@ depends-member:
 - !private ["Ps9_Hashable", "NotificationCenter"]
 - !private ["Ps9_Hashable", "Notifications"]
 - !private ["Ps9_Hashable", "Stride"]
-- !private ["Ps9_Hashable", "String"]
+- ["Ps9_Hashable", "String"]
 - ["Ps9_Hashable", "ToolBarButtons_Click"]
 - !private ["Ps9_Hashable", "UserDefaults"]
 - !private ["Ps9_Hashable", "_DisabledRangeIndex"]
@@ -3062,7 +3050,6 @@ depends-member:
 - ["Ps9_Hashable", "init"]
 - !private ["Ps9_Hashable", "inputView"]
 - ["Ps9_Hashable", "integer"]
-- !private ["Ps9_Hashable", "isEmpty"]
 - !private ["Ps9_Hashable", "isHidden"]
 - !private ["Ps9_Hashable", "isUserInteractionEnabled"]
 - !private ["Ps9_Hashable", "none"]
@@ -3083,6 +3070,7 @@ depends-member:
 - !private ["Ps9_Hashable", "replaceObject"]
 - !private ["Ps9_Hashable", "replacingCharacters"]
 - !private ["Ps9_Hashable", "replacingOccurrences"]
+- ["Ps9_Hashable", "reportUSer"]
 - ["Ps9_Hashable", "resetUI"]
 - !private ["Ps9_Hashable", "resignFirstResponder"]
 - !private ["Ps9_Hashable", "row"]
@@ -3155,7 +3143,6 @@ depends-member:
 - !private ["Ps21_ObjectiveCBridgeable", "_DisabledRangeIndex"]
 - !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
 - ["Ps21_ObjectiveCBridgeable", "init"]
-- !private ["Ps21_ObjectiveCBridgeable", "isEmpty"]
 - !private ["Ps21_ObjectiveCBridgeable", "replacingOccurrences"]
 - !private ["Ps21_ObjectiveCBridgeable", "row"]
 - !private ["Ps21_ObjectiveCBridgeable", "section"]
@@ -3200,11 +3187,11 @@ depends-nominal:
 - "Ps25ExpressibleByArrayLiteral"
 - !private "Ps27ExpressibleByBooleanLiteral"
 - !private "Ps30ExpressibleByDictionaryLiteral"
-- !private "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
 - "Ps27ExpressibleByIntegerLiteral"
-- !private "Ps32ExpressibleByStringInterpolation"
-- !private "Ps26ExpressibleByStringLiteral"
-- !private "Ps33ExpressibleByUnicodeScalarLiteral"
+- "Ps32ExpressibleByStringInterpolation"
+- "Ps26ExpressibleByStringLiteral"
+- "Ps33ExpressibleByUnicodeScalarLiteral"
 - !private "Sf"
 - "O9Alamofire10HTTPMethod"
 - "Ps8Hashable"
@@ -3222,7 +3209,7 @@ depends-nominal:
 - "Ps17IntegerArithmetic"
 - !private "Ps16IteratorProtocol"
 - "V9Alamofire12JSONEncoding"
-- !private "Ps25LosslessStringConvertible"
+- "Ps25LosslessStringConvertible"
 - "Ps10MirrorPath"
 - !private "Ps17MutableCollection"
 - !private "Ps16MutableIndexable"
@@ -3265,8 +3252,8 @@ depends-nominal:
 - "Ps12SignedNumber"
 - "Ps10Strideable"
 - "SS"
-- !private "Ps16TextOutputStream"
-- !private "Ps20TextOutputStreamable"
+- "Ps16TextOutputStream"
+- "Ps20TextOutputStreamable"
 - !private "PSo29UIAccessibilityIdentification"
 - !private "PSo12UIAppearance"
 - "PSo21UIAppearanceContainer"
@@ -3305,16 +3292,16 @@ depends-nominal:
 - !private "Vs6UInt32"
 - !private "Vs6UInt64"
 - !private "Vs5UInt8"
-- !private "P9Alamofire14URLConvertible"
+- "P9Alamofire14URLConvertible"
 - !private "Sc"
 - "CSo12UserDefaults"
 - !private "Ps37_DefaultCustomPlaygroundQuickLookable"
 - !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
-- !private "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
 - "Ps35_ExpressibleByBuiltinIntegerLiteral"
-- !private "Ps34_ExpressibleByBuiltinStringLiteral"
-- !private "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
-- !private "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- "Ps34_ExpressibleByBuiltinStringLiteral"
+- "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
 - !private "Ps35_HasCustomAnyHashableRepresentation"
 - "Ps9_Hashable"
 - "Ps14_Incrementable"
@@ -3642,4 +3629,4 @@ depends-external:
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController-umbrella.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Modules/module.modulemap"
-interface-hash: "15fddab89c50efb3e9cdbd9d92671102"
+interface-hash: "3711c9e911c55b019c1894644dad3bfb"

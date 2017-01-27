@@ -194,7 +194,67 @@ class ReportChartViewController: UIViewController , LineChartDelegate {
             }
         }
     }
-    
+    func getDoctorSingleChartHistoryData(condition: String) {
+        if  UserDefaults.standard.string(forKey: userDefaults.selectedPatientID) != nil {
+            dataArray.removeAllObjects()
+            let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+            let parameters: Parameters = [
+                "patientid": "58563eb4d9c776ad70491b7b",
+                "numDaysBack": "1",
+                "condition": "All conditions"
+            ]
+            print(parameters)
+            Alamofire.request("http://54.212.229.198:3000/getdoctorsingle", method: .post, parameters:parameters, encoding: JSONEncoding.default).responseJSON { response in
+                
+                print("Validation Successful ")
+                
+                switch response.result {
+                    
+                case .success:
+                    
+                    if let JSON: NSDictionary = response.result.value! as? NSDictionary {
+                        let objectArray : NSDictionary = NSDictionary(dictionary: JSON.object(forKey: "glucoseReadingsChart") as! NSDictionary)
+                        let mainArray: NSArray = NSMutableArray(array: objectArray.object(forKey: "objectArray") as! NSArray)
+                        if mainArray.count > 0 {
+                            for dict in mainArray {
+                                let mainDict: NSDictionary = dict as! NSDictionary
+                                if (mainDict.allKeys.first != nil)  {
+                                    let dateStr: String = String(describing: mainDict.allKeys.first!)
+                                    let readingsArray: NSArray = mainDict.object(forKey: dateStr) as! NSArray
+                                    // var data: Array = [CGFloat]
+                                    var data: [CGFloat] = []
+                                    for i in 0..<self.chartConditionsArray.count {
+                                        data.append(0)
+                                        for dict in readingsArray {
+                                            let ob: NSDictionary = dict as! NSDictionary
+                                            let conditionIndex: Int = ob.value(forKey: "conditionIndex")! as! Int
+                                            if i == conditionIndex {
+                                                data[i] = ob.value(forKey: "reading")! as! CGFloat
+                                                break
+                                            }
+                                        }
+                                    }
+                                    self.dataArray.add(data)
+                                }
+                            }
+                            
+                            print("data \(self.dataArray)")
+                            self.resetUI()
+                        }
+                        
+                    }
+                    self.resetUI()
+                    break
+                case .failure:
+                    print("failure")
+                    self.resetUI()
+                    break
+                    
+                }
+            }
+        }
+    }
+
     
     //MARK: - Notifications Methods
     func chartViewNotification(notification: NSNotification) {
@@ -203,7 +263,12 @@ class ReportChartViewController: UIViewController , LineChartDelegate {
     }
     
     func doctorchartViewNotification(notification: NSNotification) {
+        if UserDefaults.standard.bool(forKey: "groupChat") {
+            getDoctorSingleChartHistoryData(condition:conditionsArray[0] as! String )
+        }
+        else {
         getDoctorChartHistoryData(condition: conditionsArray[0] as! String)
+        }
     }
     
     func noOfDaysNotification(notification: NSNotification) {

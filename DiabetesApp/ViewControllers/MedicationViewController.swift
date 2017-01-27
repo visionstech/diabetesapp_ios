@@ -105,22 +105,22 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
         let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
         let parameters: Parameters = [
 //            "userid": patientsID
-            "userid": "58563eb4d9c776ad70491b7b"
+           "userid": "58563eb4d9c776ad70491b7b"
         ]
-        
+         print(parameters)
         Alamofire.request("\(baseUrl)\(ApiMethods.getcareplan)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
             switch response.result {
             case .success:
                 print("Validation Successful")
                 if let JSON: NSArray = response.result.value as? NSArray {
+                    print(JSON)
                     for data in JSON {
                         let dict: NSDictionary = data as! NSDictionary
                         let obj = CarePlanObj()
                         obj.id = dict.value(forKey: "_id") as! String
                         obj.name = dict.value(forKey: "name") as! String
-                        
-                        obj.dosage = String(describing: dict.value(forKey: "dosage"))
-                        obj.frequency = String(describing: dict.value(forKey: "frequency"))
+                        obj.dosage = String(describing: dict.value(forKey: "dosage") as! String)
+                        obj.frequency = String(describing: dict.value(forKey: "frequency")as! String)
                         self.array.add(obj)
                     }
                 }

@@ -6,99 +6,99 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp27ReportHistoryViewController", ""]
 provides-dynamic-lookup:
-- "didReceiveMemoryWarning"
-- "viewDidLoad"
-- "noOfDaysNotification"
-- "ToolBarButtons_Click"
-- "sectionsArray"
-- "selectedUserType"
-- "noOfDays"
-- "addNotifications"
-- "setUI"
 - "noHistoryAvailableLbl"
-- "boolArray"
-- "obj"
-- "conditionTxtFld"
-- "getDoctorReportReadingHistory"
-- "pickerView"
-- "pickerView"
-- "pickerView"
+- "noOfDays"
 - "listViewNotification"
-- "numberOfComponents"
-- "refreshSelectedSections"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
 - "pickerViewContainer"
-- "viewDidDisappear"
-- "getReportReadingHistory"
-- "tapHeader"
-- "viewDidAppear"
-- "conditionView"
-- "tblView"
-- "getDoctorSingleReadingHistory"
-- "resetUI"
+- "addNotifications"
+- "getDoctorReportReadingHistory"
+- "numberOfComponents"
 - "cellArray"
+- "ToolBarButtons_Click"
+- "refreshSelectedSections"
+- "didReceiveMemoryWarning"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "viewDidAppear"
+- "noOfDaysNotification"
+- "getDoctorSingleReadingHistory"
+- "selectedUserType"
+- "viewDidLoad"
+- "resetUI"
+- "tapHeader"
+- "boolArray"
+- "viewDidDisappear"
 - "numberOfSections"
+- "conditionTxtFld"
+- "pickerView"
+- "pickerView"
+- "pickerView"
+- "tblView"
+- "conditionView"
+- "getReportReadingHistory"
+- "setUI"
+- "obj"
+- "sectionsArray"
 depends-top-level:
-- "UITableViewCell"
-- !private "-"
-- "UITextField"
-- "Int"
-- !private "UIImageView"
-- "UserDefaults"
-- "UIView"
-- !private "Dictionary"
-- "String"
-- !private "Notifications"
-- !private "Alamofire"
-- "CGFloat"
-- !private "UIImage"
-- "NSDictionary"
-- "NSArray"
-- "ReportHistoryViewController"
+- !private "print"
+- !private "AnyObject"
 - !private "NotificationCenter"
-- "StringLiteralType"
-- !private "BooleanLiteralType"
-- "userDefaults"
-- !private ">"
+- !private "NSMutableDictionary"
 - "CastingPrecedence"
 - "Bool"
-- "IndexPath"
-- "AssignmentPrecedence"
-- "UILabel"
-- !private "userType"
-- !private "NSMutableDictionary"
-- !private "JSONEncoding"
 - !private "conditionsArray"
-- !private "Colors"
-- !private "=="
-- !private "Fonts"
-- !private "HistoryTableViewCell"
-- !private "UIColor"
-- !private "!="
-- "UnicodeScalarType"
-- !private "UtilityClass"
-- "NSMutableArray"
-- !private "+="
-- !private "CGRect"
-- !private "AnyObject"
-- "UIPickerViewDataSource"
-- "NSNotification"
-- !private "NSCopying"
-- "UITapGestureRecognizer"
-- "UIPickerViewDelegate"
 - "UIPickerView"
-- "UITableView"
-- !private "print"
-- "UITableViewDelegate"
-- "UITableViewDataSource"
-- "UIViewController"
+- "AssignmentPrecedence"
+- !private "=="
 - !private "!"
+- "UITableView"
+- "String"
 - !private "Parameters"
+- "NSArray"
+- !private "Fonts"
+- "UILabel"
+- "StringLiteralType"
+- "userDefaults"
+- !private "Notifications"
+- !private "Dictionary"
+- "UITapGestureRecognizer"
+- "UITextField"
+- "ReportHistoryViewController"
+- !private "JSONEncoding"
+- !private "+="
+- !private "BooleanLiteralType"
+- !private "UIColor"
+- !private "userType"
+- "IndexPath"
+- !private "HistoryTableViewCell"
+- "NSDictionary"
+- !private "NSCopying"
+- !private "-"
+- !private "Alamofire"
+- !private "UIImage"
+- "CGFloat"
+- !private "UtilityClass"
+- !private "Colors"
+- "UserDefaults"
+- "NSMutableArray"
+- "Int"
+- "UIViewController"
+- "UIPickerViewDelegate"
+- "UIView"
+- "UITableViewCell"
+- !private "UIImageView"
+- "UITableViewDataSource"
+- "UITableViewDelegate"
+- "UnicodeScalarType"
+- !private ">"
+- !private "!="
+- "NSNotification"
+- !private "CGRect"
+- "UIPickerViewDataSource"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "Stride"]
 - !private ["Ps9AnyObject", "Alamofire"]
@@ -135,6 +135,7 @@ depends-member:
 - !private ["Ps9AnyObject", "addSubview"]
 - !private ["Ps9AnyObject", "allKeys"]
 - !private ["Ps9AnyObject", "backgroundColor"]
+- !private ["Ps9AnyObject", "bool"]
 - ["Ps9AnyObject", "boolArray"]
 - !private ["Ps9AnyObject", "borderColor"]
 - !private ["Ps9AnyObject", "borderWidth"]
@@ -166,7 +167,6 @@ depends-member:
 - ["Ps9AnyObject", "init"]
 - !private ["Ps9AnyObject", "inputView"]
 - ["Ps9AnyObject", "integer"]
-- !private ["Ps9AnyObject", "isEmpty"]
 - !private ["Ps9AnyObject", "isHidden"]
 - !private ["Ps9AnyObject", "layer"]
 - !private ["Ps9AnyObject", "lightGray"]
@@ -327,6 +327,7 @@ depends-member:
 - !private ["Ps7CVarArg", "addSubview"]
 - !private ["Ps7CVarArg", "allKeys"]
 - !private ["Ps7CVarArg", "backgroundColor"]
+- !private ["Ps7CVarArg", "bool"]
 - ["Ps7CVarArg", "boolArray"]
 - !private ["Ps7CVarArg", "borderColor"]
 - !private ["Ps7CVarArg", "borderWidth"]
@@ -358,7 +359,6 @@ depends-member:
 - ["Ps7CVarArg", "init"]
 - !private ["Ps7CVarArg", "inputView"]
 - ["Ps7CVarArg", "integer"]
-- !private ["Ps7CVarArg", "isEmpty"]
 - !private ["Ps7CVarArg", "isHidden"]
 - !private ["Ps7CVarArg", "layer"]
 - !private ["Ps7CVarArg", "lightGray"]
@@ -438,7 +438,6 @@ depends-member:
 - !private ["Ps10Comparable", "RawValue"]
 - !private ["Ps10Comparable", "Stride"]
 - ["Ps10Comparable", "init"]
-- !private ["Ps10Comparable", "isEmpty"]
 - !private ["Ps10Comparable", "localized"]
 - !private ["Ps10Comparable", "row"]
 - !private ["Ps10Comparable", "section"]
@@ -480,6 +479,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "addSubview"]
 - !private ["Ps28CustomDebugStringConvertible", "allKeys"]
 - !private ["Ps28CustomDebugStringConvertible", "backgroundColor"]
+- !private ["Ps28CustomDebugStringConvertible", "bool"]
 - ["Ps28CustomDebugStringConvertible", "boolArray"]
 - !private ["Ps28CustomDebugStringConvertible", "borderColor"]
 - !private ["Ps28CustomDebugStringConvertible", "borderWidth"]
@@ -512,7 +512,6 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "init"]
 - !private ["Ps28CustomDebugStringConvertible", "inputView"]
 - ["Ps28CustomDebugStringConvertible", "integer"]
-- !private ["Ps28CustomDebugStringConvertible", "isEmpty"]
 - !private ["Ps28CustomDebugStringConvertible", "isHidden"]
 - !private ["Ps28CustomDebugStringConvertible", "layer"]
 - !private ["Ps28CustomDebugStringConvertible", "lightGray"]
@@ -591,7 +590,6 @@ depends-member:
 - !private ["Ps29CustomPlaygroundQuickLookable", "Stride"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
 - ["Ps29CustomPlaygroundQuickLookable", "init"]
-- !private ["Ps29CustomPlaygroundQuickLookable", "isEmpty"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "localized"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "size"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "width"]
@@ -609,7 +607,6 @@ depends-member:
 - !private ["Ps17CustomReflectable", "count"]
 - !private ["Ps17CustomReflectable", "first"]
 - ["Ps17CustomReflectable", "init"]
-- !private ["Ps17CustomReflectable", "isEmpty"]
 - !private ["Ps17CustomReflectable", "localized"]
 - !private ["Ps17CustomReflectable", "object"]
 - !private ["Ps17CustomReflectable", "removeAllObjects"]
@@ -661,6 +658,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "addSubview"]
 - !private ["Ps23CustomStringConvertible", "allKeys"]
 - !private ["Ps23CustomStringConvertible", "backgroundColor"]
+- !private ["Ps23CustomStringConvertible", "bool"]
 - ["Ps23CustomStringConvertible", "boolArray"]
 - !private ["Ps23CustomStringConvertible", "borderColor"]
 - !private ["Ps23CustomStringConvertible", "borderWidth"]
@@ -693,7 +691,6 @@ depends-member:
 - ["Ps23CustomStringConvertible", "init"]
 - !private ["Ps23CustomStringConvertible", "inputView"]
 - ["Ps23CustomStringConvertible", "integer"]
-- !private ["Ps23CustomStringConvertible", "isEmpty"]
 - !private ["Ps23CustomStringConvertible", "isHidden"]
 - !private ["Ps23CustomStringConvertible", "layer"]
 - !private ["Ps23CustomStringConvertible", "lightGray"]
@@ -811,6 +808,7 @@ depends-member:
 - !private ["Ps9Equatable", "addSubview"]
 - !private ["Ps9Equatable", "allKeys"]
 - !private ["Ps9Equatable", "backgroundColor"]
+- !private ["Ps9Equatable", "bool"]
 - ["Ps9Equatable", "boolArray"]
 - !private ["Ps9Equatable", "borderColor"]
 - !private ["Ps9Equatable", "borderWidth"]
@@ -841,7 +839,6 @@ depends-member:
 - ["Ps9Equatable", "init"]
 - !private ["Ps9Equatable", "inputView"]
 - ["Ps9Equatable", "integer"]
-- !private ["Ps9Equatable", "isEmpty"]
 - !private ["Ps9Equatable", "isHidden"]
 - !private ["Ps9Equatable", "layer"]
 - !private ["Ps9Equatable", "lightGray"]
@@ -941,7 +938,6 @@ depends-member:
 - !private ["Ps30ExpressibleByDictionaryLiteral", "value"]
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "RawValue"]
 - ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
-- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "isEmpty"]
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "localized"]
 - !private ["Ps25ExpressibleByFloatLiteral", "Stride"]
 - !private ["Ps27ExpressibleByIntegerLiteral", "Stride"]
@@ -949,15 +945,12 @@ depends-member:
 - !private ["Ps23ExpressibleByNilLiteral", "RawValue"]
 - !private ["Ps32ExpressibleByStringInterpolation", "RawValue"]
 - ["Ps32ExpressibleByStringInterpolation", "init"]
-- !private ["Ps32ExpressibleByStringInterpolation", "isEmpty"]
 - !private ["Ps32ExpressibleByStringInterpolation", "localized"]
 - !private ["Ps26ExpressibleByStringLiteral", "RawValue"]
 - ["Ps26ExpressibleByStringLiteral", "init"]
-- !private ["Ps26ExpressibleByStringLiteral", "isEmpty"]
 - !private ["Ps26ExpressibleByStringLiteral", "localized"]
 - !private ["Ps33ExpressibleByUnicodeScalarLiteral", "RawValue"]
 - ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
-- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "isEmpty"]
 - !private ["Ps33ExpressibleByUnicodeScalarLiteral", "localized"]
 - !private ["Sf", "deinit"]
 - !private ["Ps13FloatingPoint", "Stride"]
@@ -1000,6 +993,7 @@ depends-member:
 - !private ["Ps8Hashable", "addSubview"]
 - !private ["Ps8Hashable", "allKeys"]
 - !private ["Ps8Hashable", "backgroundColor"]
+- !private ["Ps8Hashable", "bool"]
 - ["Ps8Hashable", "boolArray"]
 - !private ["Ps8Hashable", "borderColor"]
 - !private ["Ps8Hashable", "borderWidth"]
@@ -1030,7 +1024,6 @@ depends-member:
 - ["Ps8Hashable", "init"]
 - !private ["Ps8Hashable", "inputView"]
 - ["Ps8Hashable", "integer"]
-- !private ["Ps8Hashable", "isEmpty"]
 - !private ["Ps8Hashable", "isHidden"]
 - !private ["Ps8Hashable", "layer"]
 - !private ["Ps8Hashable", "lightGray"]
@@ -1144,12 +1137,10 @@ depends-member:
 - !private ["Ps25LosslessStringConvertible", "Stride"]
 - !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
 - ["Ps25LosslessStringConvertible", "init"]
-- !private ["Ps25LosslessStringConvertible", "isEmpty"]
 - !private ["Ps25LosslessStringConvertible", "localized"]
 - !private ["Ps10MirrorPath", "RawValue"]
 - !private ["Ps10MirrorPath", "Stride"]
 - ["Ps10MirrorPath", "init"]
-- !private ["Ps10MirrorPath", "isEmpty"]
 - !private ["Ps10MirrorPath", "localized"]
 - !private ["Ps17MutableCollection", "Iterator"]
 - !private ["Ps17MutableCollection", "_Element"]
@@ -1232,7 +1223,6 @@ depends-member:
 - ["PSo8NSCoding", "indexPathForPreferredFocusedViewInTableView"]
 - ["PSo8NSCoding", "init"]
 - !private ["PSo8NSCoding", "inputView"]
-- !private ["PSo8NSCoding", "isEmpty"]
 - !private ["PSo8NSCoding", "isHidden"]
 - !private ["PSo8NSCoding", "layer"]
 - !private ["PSo8NSCoding", "lightGray"]
@@ -1308,7 +1298,6 @@ depends-member:
 - !private ["PSo9NSCopying", "count"]
 - ["PSo9NSCopying", "deinit"]
 - ["PSo9NSCopying", "init"]
-- !private ["PSo9NSCopying", "isEmpty"]
 - !private ["PSo9NSCopying", "lightGray"]
 - !private ["PSo9NSCopying", "localized"]
 - !private ["PSo9NSCopying", "object"]
@@ -1447,7 +1436,6 @@ depends-member:
 - !private ["PSo16NSMutableCopying", "copy"]
 - !private ["PSo16NSMutableCopying", "count"]
 - ["PSo16NSMutableCopying", "init"]
-- !private ["PSo16NSMutableCopying", "isEmpty"]
 - !private ["PSo16NSMutableCopying", "localized"]
 - !private ["PSo16NSMutableCopying", "object"]
 - !private ["PSo16NSMutableCopying", "removeAllObjects"]
@@ -1507,6 +1495,7 @@ depends-member:
 - !private ["CSo8NSObject", "addSubview"]
 - !private ["CSo8NSObject", "allKeys"]
 - !private ["CSo8NSObject", "backgroundColor"]
+- !private ["CSo8NSObject", "bool"]
 - ["CSo8NSObject", "boolArray"]
 - !private ["CSo8NSObject", "borderColor"]
 - !private ["CSo8NSObject", "borderWidth"]
@@ -1537,7 +1526,6 @@ depends-member:
 - ["CSo8NSObject", "init"]
 - !private ["CSo8NSObject", "inputView"]
 - ["CSo8NSObject", "integer"]
-- !private ["CSo8NSObject", "isEmpty"]
 - !private ["CSo8NSObject", "isHidden"]
 - !private ["CSo8NSObject", "layer"]
 - !private ["CSo8NSObject", "lightGray"]
@@ -1637,6 +1625,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "addSubview"]
 - !private ["PSo16NSObjectProtocol", "allKeys"]
 - !private ["PSo16NSObjectProtocol", "backgroundColor"]
+- !private ["PSo16NSObjectProtocol", "bool"]
 - ["PSo16NSObjectProtocol", "boolArray"]
 - !private ["PSo16NSObjectProtocol", "borderColor"]
 - !private ["PSo16NSObjectProtocol", "borderWidth"]
@@ -1667,7 +1656,6 @@ depends-member:
 - ["PSo16NSObjectProtocol", "init"]
 - !private ["PSo16NSObjectProtocol", "inputView"]
 - ["PSo16NSObjectProtocol", "integer"]
-- !private ["PSo16NSObjectProtocol", "isEmpty"]
 - !private ["PSo16NSObjectProtocol", "isHidden"]
 - !private ["PSo16NSObjectProtocol", "layer"]
 - !private ["PSo16NSObjectProtocol", "lightGray"]
@@ -1744,7 +1732,6 @@ depends-member:
 - !private ["PSo14NSSecureCoding", "copy"]
 - !private ["PSo14NSSecureCoding", "count"]
 - ["PSo14NSSecureCoding", "init"]
-- !private ["PSo14NSSecureCoding", "isEmpty"]
 - !private ["PSo14NSSecureCoding", "lightGray"]
 - !private ["PSo14NSSecureCoding", "localized"]
 - !private ["PSo14NSSecureCoding", "object"]
@@ -1756,7 +1743,6 @@ depends-member:
 - !private ["PSo14NSSecureCoding", "value"]
 - !private ["PSo14NSSecureCoding", "white"]
 - ["CSo8NSString", "init"]
-- !private ["CSo8NSString", "isEmpty"]
 - !private ["CSo8NSString", "localized"]
 - ["VCSo14NSNotification4Name", "deinit"]
 - !private ["VCSo14NSNotification4Name", "init"]
@@ -1920,15 +1906,12 @@ depends-member:
 - !private ["SS", "RawValue"]
 - ["SS", "deinit"]
 - ["SS", "init"]
-- !private ["SS", "isEmpty"]
 - !private ["SS", "localized"]
 - !private ["Ps16TextOutputStream", "RawValue"]
 - ["Ps16TextOutputStream", "init"]
-- !private ["Ps16TextOutputStream", "isEmpty"]
 - !private ["Ps16TextOutputStream", "localized"]
 - !private ["Ps20TextOutputStreamable", "RawValue"]
 - ["Ps20TextOutputStreamable", "init"]
-- !private ["Ps20TextOutputStreamable", "isEmpty"]
 - !private ["Ps20TextOutputStreamable", "localized"]
 - !private ["PSo29UIAccessibilityIdentification", "addGestureRecognizer"]
 - !private ["PSo29UIAccessibilityIdentification", "addSubview"]
@@ -3269,14 +3252,13 @@ depends-member:
 - !private ["P9Alamofire14URLConvertible", "RawValue"]
 - !private ["P9Alamofire14URLConvertible", "deinit"]
 - ["P9Alamofire14URLConvertible", "init"]
-- !private ["P9Alamofire14URLConvertible", "isEmpty"]
 - !private ["P9Alamofire14URLConvertible", "localized"]
 - !private ["Sc", "deinit"]
+- !private ["CSo12UserDefaults", "bool"]
 - ["CSo12UserDefaults", "deinit"]
 - ["CSo12UserDefaults", "integer"]
 - ["CSo12UserDefaults", "standard"]
 - !private ["CSo12UserDefaults", "string"]
-- !private ["CSo12UserDefaults", "value"]
 - !private ["C11DiabetesApp12UtilityClass", "displayAlertMessage"]
 - !private ["Ps14_ArrayProtocol", "Iterator"]
 - !private ["Ps14_ArrayProtocol", "_Element"]
@@ -3310,22 +3292,18 @@ depends-member:
 - !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
 - !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "RawValue"]
 - ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
-- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "isEmpty"]
 - !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "localized"]
 - !private ["Ps33_ExpressibleByBuiltinFloatLiteral", "Stride"]
 - !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "Stride"]
 - ["Ps35_ExpressibleByBuiltinIntegerLiteral", "init"]
 - !private ["Ps34_ExpressibleByBuiltinStringLiteral", "RawValue"]
 - ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
-- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "isEmpty"]
 - !private ["Ps34_ExpressibleByBuiltinStringLiteral", "localized"]
 - !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "RawValue"]
 - ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
-- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "isEmpty"]
 - !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "localized"]
 - !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "RawValue"]
 - ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
-- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "isEmpty"]
 - !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "localized"]
 - !private ["Ps26_ExpressibleByColorLiteral", "cgColor"]
 - !private ["Ps26_ExpressibleByColorLiteral", "clear"]
@@ -3334,7 +3312,6 @@ depends-member:
 - !private ["Ps26_ExpressibleByImageLiteral", "init"]
 - !private ["Ps35_HasCustomAnyHashableRepresentation", "Name"]
 - ["Ps35_HasCustomAnyHashableRepresentation", "init"]
-- !private ["Ps35_HasCustomAnyHashableRepresentation", "isEmpty"]
 - !private ["Ps35_HasCustomAnyHashableRepresentation", "localized"]
 - !private ["Ps35_HasCustomAnyHashableRepresentation", "value"]
 - !private ["Ps9_Hashable", "Alamofire"]
@@ -3373,6 +3350,7 @@ depends-member:
 - !private ["Ps9_Hashable", "addSubview"]
 - !private ["Ps9_Hashable", "allKeys"]
 - !private ["Ps9_Hashable", "backgroundColor"]
+- !private ["Ps9_Hashable", "bool"]
 - ["Ps9_Hashable", "boolArray"]
 - !private ["Ps9_Hashable", "borderColor"]
 - !private ["Ps9_Hashable", "borderWidth"]
@@ -3403,7 +3381,6 @@ depends-member:
 - ["Ps9_Hashable", "init"]
 - !private ["Ps9_Hashable", "inputView"]
 - ["Ps9_Hashable", "integer"]
-- !private ["Ps9_Hashable", "isEmpty"]
 - !private ["Ps9_Hashable", "isHidden"]
 - !private ["Ps9_Hashable", "layer"]
 - !private ["Ps9_Hashable", "lightGray"]
@@ -3490,7 +3467,6 @@ depends-member:
 - !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
 - !private ["Ps21_ObjectiveCBridgeable", "first"]
 - ["Ps21_ObjectiveCBridgeable", "init"]
-- !private ["Ps21_ObjectiveCBridgeable", "isEmpty"]
 - !private ["Ps21_ObjectiveCBridgeable", "localized"]
 - !private ["Ps21_ObjectiveCBridgeable", "row"]
 - !private ["Ps21_ObjectiveCBridgeable", "section"]
@@ -3684,8 +3660,8 @@ depends-nominal:
 - "V11DiabetesApp12userDefaults"
 - !private "V11DiabetesApp8userType"
 depends-dynamic-lookup:
-- !private "object"
 - !private "tag"
+- !private "object"
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/DiabetesApp/DiabetesApp-Bridging-Header.h"

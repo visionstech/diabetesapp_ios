@@ -6,74 +6,75 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp25ReportChartViewController", ""]
 provides-dynamic-lookup:
-- "drawChart"
-- "chartConditionsArray"
-- "hyposLbl"
-- "selectedUserType"
-- "viewDidLoad"
-- "didSelectDataPoint"
-- "resetUI"
-- "glucoseLbl"
-- "chartView"
-- "dataArray"
-- "doctorchartViewNotification"
-- "addNotifications"
-- "getDoctorChartHistoryData"
-- "lineChart"
-- "noOfDaysNotification"
-- "hyperLbl"
+- "didReceiveMemoryWarning"
 - "viewDidAppear"
+- "hyperLbl"
+- "lineChart"
 - "setUI"
+- "noOfDaysNotification"
+- "label"
+- "resetUI"
+- "chartView"
+- "addNotifications"
 - "deviationLbl"
 - "readingsView"
-- "viewDidDisappear"
-- "chartViewNotification"
-- "label"
 - "noOfDays"
-- "getChartHistoryData"
+- "dataArray"
+- "doctorchartViewNotification"
+- "didSelectDataPoint"
 - "hbaLbl"
-- "didReceiveMemoryWarning"
+- "chartConditionsArray"
+- "getDoctorChartHistoryData"
+- "getDoctorSingleChartHistoryData"
+- "selectedUserType"
+- "viewDidLoad"
+- "viewDidDisappear"
+- "glucoseLbl"
+- "drawChart"
+- "chartViewNotification"
+- "hyposLbl"
+- "getChartHistoryData"
 depends-top-level:
-- "Bool"
-- !private "NotificationCenter"
-- !private "!="
-- !private "=="
-- !private "userType"
-- "LineChartDelegate"
-- "UIViewController"
-- "StringLiteralType"
-- "Array"
-- !private "conditionsArray"
-- !private "NSTextAlignment"
-- !private "Alamofire"
-- !private "Colors"
-- !private "BooleanLiteralType"
-- "UserDefaults"
-- !private ">"
-- "NSNotification"
-- !private "..<"
-- "Int"
-- !private "Dictionary"
-- !private "NSDictionary"
-- !private "AnyObject"
-- "LineChart"
-- "userDefaults"
-- "UnicodeScalarType"
-- "ReportChartViewController"
-- "CGFloat"
 - "NSMutableArray"
-- !private "UIFont"
-- "String"
-- !private "print"
-- !private "JSONEncoding"
-- !private "Parameters"
-- "UILabel"
+- "NSNotification"
 - "UIView"
-- "CastingPrecedence"
-- !private "NSLayoutConstraint"
+- "UIViewController"
+- !private "..<"
+- "userDefaults"
+- !private "Colors"
+- "CGFloat"
+- !private "BooleanLiteralType"
+- !private "Dictionary"
+- "ReportChartViewController"
+- "StringLiteralType"
+- "UnicodeScalarType"
 - "NSArray"
-- !private "Notifications"
+- !private "JSONEncoding"
+- !private "AnyObject"
+- !private "NotificationCenter"
+- !private "NSLayoutConstraint"
+- "LineChart"
+- "Bool"
+- "CastingPrecedence"
+- !private "print"
+- !private "Parameters"
+- !private "Alamofire"
 - "AssignmentPrecedence"
+- !private ">"
+- !private "conditionsArray"
+- !private "=="
+- !private "NSTextAlignment"
+- !private "UIFont"
+- !private "!="
+- !private "userType"
+- "Int"
+- "String"
+- !private "NSDictionary"
+- "UserDefaults"
+- "LineChartDelegate"
+- "Array"
+- !private "Notifications"
+- "UILabel"
 depends-member:
 - !private ["VC11DiabetesApp9LineChart9Animation", "enabled"]
 - !private ["Ps9AnyObject", "Alamofire"]
@@ -104,6 +105,7 @@ depends-member:
 - !private ["Ps9AnyObject", "allKeys"]
 - !private ["Ps9AnyObject", "animation"]
 - !private ["Ps9AnyObject", "area"]
+- !private ["Ps9AnyObject", "bool"]
 - ["Ps9AnyObject", "chartConditionsArray"]
 - ["Ps9AnyObject", "chartView"]
 - ["Ps9AnyObject", "chartViewNotification"]
@@ -123,6 +125,7 @@ depends-member:
 - !private ["Ps9AnyObject", "font"]
 - ["Ps9AnyObject", "getChartHistoryData"]
 - ["Ps9AnyObject", "getDoctorChartHistoryData"]
+- ["Ps9AnyObject", "getDoctorSingleChartHistoryData"]
 - ["Ps9AnyObject", "glucoseLbl"]
 - ["Ps9AnyObject", "hbaLbl"]
 - ["Ps9AnyObject", "hyperLbl"]
@@ -261,6 +264,7 @@ depends-member:
 - !private ["Ps7CVarArg", "animation"]
 - !private ["Ps7CVarArg", "append"]
 - !private ["Ps7CVarArg", "area"]
+- !private ["Ps7CVarArg", "bool"]
 - ["Ps7CVarArg", "chartConditionsArray"]
 - ["Ps7CVarArg", "chartView"]
 - ["Ps7CVarArg", "chartViewNotification"]
@@ -281,6 +285,7 @@ depends-member:
 - !private ["Ps7CVarArg", "font"]
 - ["Ps7CVarArg", "getChartHistoryData"]
 - ["Ps7CVarArg", "getDoctorChartHistoryData"]
+- ["Ps7CVarArg", "getDoctorSingleChartHistoryData"]
 - ["Ps7CVarArg", "glucoseLbl"]
 - ["Ps7CVarArg", "hbaLbl"]
 - ["Ps7CVarArg", "hyperLbl"]
@@ -374,6 +379,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "animation"]
 - !private ["Ps28CustomDebugStringConvertible", "append"]
 - !private ["Ps28CustomDebugStringConvertible", "area"]
+- !private ["Ps28CustomDebugStringConvertible", "bool"]
 - ["Ps28CustomDebugStringConvertible", "chartConditionsArray"]
 - ["Ps28CustomDebugStringConvertible", "chartView"]
 - ["Ps28CustomDebugStringConvertible", "chartViewNotification"]
@@ -395,6 +401,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "font"]
 - ["Ps28CustomDebugStringConvertible", "getChartHistoryData"]
 - ["Ps28CustomDebugStringConvertible", "getDoctorChartHistoryData"]
+- ["Ps28CustomDebugStringConvertible", "getDoctorSingleChartHistoryData"]
 - ["Ps28CustomDebugStringConvertible", "glucoseLbl"]
 - ["Ps28CustomDebugStringConvertible", "hbaLbl"]
 - ["Ps28CustomDebugStringConvertible", "hyperLbl"]
@@ -500,6 +507,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "animation"]
 - !private ["Ps23CustomStringConvertible", "append"]
 - !private ["Ps23CustomStringConvertible", "area"]
+- !private ["Ps23CustomStringConvertible", "bool"]
 - ["Ps23CustomStringConvertible", "chartConditionsArray"]
 - ["Ps23CustomStringConvertible", "chartView"]
 - ["Ps23CustomStringConvertible", "chartViewNotification"]
@@ -521,6 +529,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "font"]
 - ["Ps23CustomStringConvertible", "getChartHistoryData"]
 - ["Ps23CustomStringConvertible", "getDoctorChartHistoryData"]
+- ["Ps23CustomStringConvertible", "getDoctorSingleChartHistoryData"]
 - ["Ps23CustomStringConvertible", "glucoseLbl"]
 - ["Ps23CustomStringConvertible", "hbaLbl"]
 - ["Ps23CustomStringConvertible", "hyperLbl"]
@@ -614,6 +623,7 @@ depends-member:
 - !private ["Ps9Equatable", "allKeys"]
 - !private ["Ps9Equatable", "animation"]
 - !private ["Ps9Equatable", "area"]
+- !private ["Ps9Equatable", "bool"]
 - ["Ps9Equatable", "chartConditionsArray"]
 - ["Ps9Equatable", "chartView"]
 - ["Ps9Equatable", "chartViewNotification"]
@@ -633,6 +643,7 @@ depends-member:
 - !private ["Ps9Equatable", "font"]
 - ["Ps9Equatable", "getChartHistoryData"]
 - ["Ps9Equatable", "getDoctorChartHistoryData"]
+- ["Ps9Equatable", "getDoctorSingleChartHistoryData"]
 - ["Ps9Equatable", "glucoseLbl"]
 - ["Ps9Equatable", "hbaLbl"]
 - ["Ps9Equatable", "hyperLbl"]
@@ -736,6 +747,7 @@ depends-member:
 - !private ["Ps8Hashable", "allKeys"]
 - !private ["Ps8Hashable", "animation"]
 - !private ["Ps8Hashable", "area"]
+- !private ["Ps8Hashable", "bool"]
 - ["Ps8Hashable", "chartConditionsArray"]
 - ["Ps8Hashable", "chartView"]
 - ["Ps8Hashable", "chartViewNotification"]
@@ -755,6 +767,7 @@ depends-member:
 - !private ["Ps8Hashable", "font"]
 - ["Ps8Hashable", "getChartHistoryData"]
 - ["Ps8Hashable", "getDoctorChartHistoryData"]
+- ["Ps8Hashable", "getDoctorSingleChartHistoryData"]
 - ["Ps8Hashable", "glucoseLbl"]
 - ["Ps8Hashable", "hbaLbl"]
 - ["Ps8Hashable", "hyperLbl"]
@@ -880,6 +893,7 @@ depends-member:
 - !private ["P11DiabetesApp17LineChartDelegate", "drawChart"]
 - !private ["P11DiabetesApp17LineChartDelegate", "getChartHistoryData"]
 - !private ["P11DiabetesApp17LineChartDelegate", "getDoctorChartHistoryData"]
+- !private ["P11DiabetesApp17LineChartDelegate", "getDoctorSingleChartHistoryData"]
 - !private ["P11DiabetesApp17LineChartDelegate", "glucoseLbl"]
 - !private ["P11DiabetesApp17LineChartDelegate", "hbaLbl"]
 - !private ["P11DiabetesApp17LineChartDelegate", "hyperLbl"]
@@ -969,6 +983,7 @@ depends-member:
 - !private ["PSo8NSCoding", "font"]
 - ["PSo8NSCoding", "getChartHistoryData"]
 - ["PSo8NSCoding", "getDoctorChartHistoryData"]
+- ["PSo8NSCoding", "getDoctorSingleChartHistoryData"]
 - ["PSo8NSCoding", "glucoseLbl"]
 - ["PSo8NSCoding", "hbaLbl"]
 - ["PSo8NSCoding", "hyperLbl"]
@@ -1048,6 +1063,7 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "drawChart"]
 - ["PSo26NSExtensionRequestHandling", "getChartHistoryData"]
 - ["PSo26NSExtensionRequestHandling", "getDoctorChartHistoryData"]
+- ["PSo26NSExtensionRequestHandling", "getDoctorSingleChartHistoryData"]
 - ["PSo26NSExtensionRequestHandling", "glucoseLbl"]
 - ["PSo26NSExtensionRequestHandling", "hbaLbl"]
 - ["PSo26NSExtensionRequestHandling", "hyperLbl"]
@@ -1140,6 +1156,7 @@ depends-member:
 - !private ["CSo8NSObject", "allKeys"]
 - !private ["CSo8NSObject", "animation"]
 - !private ["CSo8NSObject", "area"]
+- !private ["CSo8NSObject", "bool"]
 - ["CSo8NSObject", "chartConditionsArray"]
 - ["CSo8NSObject", "chartView"]
 - ["CSo8NSObject", "chartViewNotification"]
@@ -1159,6 +1176,7 @@ depends-member:
 - !private ["CSo8NSObject", "font"]
 - ["CSo8NSObject", "getChartHistoryData"]
 - ["CSo8NSObject", "getDoctorChartHistoryData"]
+- ["CSo8NSObject", "getDoctorSingleChartHistoryData"]
 - ["CSo8NSObject", "glucoseLbl"]
 - ["CSo8NSObject", "hbaLbl"]
 - ["CSo8NSObject", "hyperLbl"]
@@ -1224,6 +1242,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "allKeys"]
 - !private ["PSo16NSObjectProtocol", "animation"]
 - !private ["PSo16NSObjectProtocol", "area"]
+- !private ["PSo16NSObjectProtocol", "bool"]
 - ["PSo16NSObjectProtocol", "chartConditionsArray"]
 - ["PSo16NSObjectProtocol", "chartView"]
 - ["PSo16NSObjectProtocol", "chartViewNotification"]
@@ -1243,6 +1262,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "font"]
 - ["PSo16NSObjectProtocol", "getChartHistoryData"]
 - ["PSo16NSObjectProtocol", "getDoctorChartHistoryData"]
+- ["PSo16NSObjectProtocol", "getDoctorSingleChartHistoryData"]
 - ["PSo16NSObjectProtocol", "glucoseLbl"]
 - ["PSo16NSObjectProtocol", "hbaLbl"]
 - ["PSo16NSObjectProtocol", "hyperLbl"]
@@ -1385,6 +1405,7 @@ depends-member:
 - ["C11DiabetesApp25ReportChartViewController", "drawChart"]
 - ["C11DiabetesApp25ReportChartViewController", "getChartHistoryData"]
 - ["C11DiabetesApp25ReportChartViewController", "getDoctorChartHistoryData"]
+- ["C11DiabetesApp25ReportChartViewController", "getDoctorSingleChartHistoryData"]
 - ["C11DiabetesApp25ReportChartViewController", "glucoseLbl"]
 - ["C11DiabetesApp25ReportChartViewController", "hbaLbl"]
 - ["C11DiabetesApp25ReportChartViewController", "hyperLbl"]
@@ -1524,6 +1545,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "font"]
 - ["PSo21UIAppearanceContainer", "getChartHistoryData"]
 - ["PSo21UIAppearanceContainer", "getDoctorChartHistoryData"]
+- ["PSo21UIAppearanceContainer", "getDoctorSingleChartHistoryData"]
 - ["PSo21UIAppearanceContainer", "glucoseLbl"]
 - ["PSo21UIAppearanceContainer", "hbaLbl"]
 - ["PSo21UIAppearanceContainer", "hyperLbl"]
@@ -1583,6 +1605,7 @@ depends-member:
 - ["PSo18UIContentContainer", "drawChart"]
 - ["PSo18UIContentContainer", "getChartHistoryData"]
 - ["PSo18UIContentContainer", "getDoctorChartHistoryData"]
+- ["PSo18UIContentContainer", "getDoctorSingleChartHistoryData"]
 - ["PSo18UIContentContainer", "glucoseLbl"]
 - ["PSo18UIContentContainer", "hbaLbl"]
 - ["PSo18UIContentContainer", "hyperLbl"]
@@ -1683,6 +1706,7 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "font"]
 - ["PSo18UIFocusEnvironment", "getChartHistoryData"]
 - ["PSo18UIFocusEnvironment", "getDoctorChartHistoryData"]
+- ["PSo18UIFocusEnvironment", "getDoctorSingleChartHistoryData"]
 - ["PSo18UIFocusEnvironment", "glucoseLbl"]
 - ["PSo18UIFocusEnvironment", "hbaLbl"]
 - ["PSo18UIFocusEnvironment", "hyperLbl"]
@@ -1783,6 +1807,7 @@ depends-member:
 - !private ["CSo11UIResponder", "font"]
 - ["CSo11UIResponder", "getChartHistoryData"]
 - ["CSo11UIResponder", "getDoctorChartHistoryData"]
+- ["CSo11UIResponder", "getDoctorSingleChartHistoryData"]
 - ["CSo11UIResponder", "glucoseLbl"]
 - ["CSo11UIResponder", "hbaLbl"]
 - ["CSo11UIResponder", "hyperLbl"]
@@ -1848,6 +1873,7 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "font"]
 - ["PSo30UIResponderStandardEditActions", "getChartHistoryData"]
 - ["PSo30UIResponderStandardEditActions", "getDoctorChartHistoryData"]
+- ["PSo30UIResponderStandardEditActions", "getDoctorSingleChartHistoryData"]
 - ["PSo30UIResponderStandardEditActions", "glucoseLbl"]
 - ["PSo30UIResponderStandardEditActions", "hbaLbl"]
 - ["PSo30UIResponderStandardEditActions", "hyperLbl"]
@@ -1906,6 +1932,7 @@ depends-member:
 - ["PSo16UIStateRestoring", "drawChart"]
 - ["PSo16UIStateRestoring", "getChartHistoryData"]
 - ["PSo16UIStateRestoring", "getDoctorChartHistoryData"]
+- ["PSo16UIStateRestoring", "getDoctorSingleChartHistoryData"]
 - ["PSo16UIStateRestoring", "glucoseLbl"]
 - ["PSo16UIStateRestoring", "hbaLbl"]
 - ["PSo16UIStateRestoring", "hyperLbl"]
@@ -1963,6 +1990,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "font"]
 - ["PSo18UITraitEnvironment", "getChartHistoryData"]
 - ["PSo18UITraitEnvironment", "getDoctorChartHistoryData"]
+- ["PSo18UITraitEnvironment", "getDoctorSingleChartHistoryData"]
 - ["PSo18UITraitEnvironment", "glucoseLbl"]
 - ["PSo18UITraitEnvironment", "hbaLbl"]
 - ["PSo18UITraitEnvironment", "hyperLbl"]
@@ -2047,6 +2075,7 @@ depends-member:
 - ["CSo16UIViewController", "drawChart"]
 - ["CSo16UIViewController", "getChartHistoryData"]
 - ["CSo16UIViewController", "getDoctorChartHistoryData"]
+- ["CSo16UIViewController", "getDoctorSingleChartHistoryData"]
 - ["CSo16UIViewController", "glucoseLbl"]
 - ["CSo16UIViewController", "hbaLbl"]
 - ["CSo16UIViewController", "hyperLbl"]
@@ -2075,6 +2104,7 @@ depends-member:
 - !private ["P9Alamofire14URLConvertible", "deinit"]
 - ["P9Alamofire14URLConvertible", "init"]
 - !private ["Sc", "deinit"]
+- !private ["CSo12UserDefaults", "bool"]
 - ["CSo12UserDefaults", "deinit"]
 - ["CSo12UserDefaults", "integer"]
 - ["CSo12UserDefaults", "standard"]
@@ -2155,6 +2185,7 @@ depends-member:
 - !private ["Ps9_Hashable", "allKeys"]
 - !private ["Ps9_Hashable", "animation"]
 - !private ["Ps9_Hashable", "area"]
+- !private ["Ps9_Hashable", "bool"]
 - ["Ps9_Hashable", "chartConditionsArray"]
 - ["Ps9_Hashable", "chartView"]
 - ["Ps9_Hashable", "chartViewNotification"]
@@ -2174,6 +2205,7 @@ depends-member:
 - !private ["Ps9_Hashable", "font"]
 - ["Ps9_Hashable", "getChartHistoryData"]
 - ["Ps9_Hashable", "getDoctorChartHistoryData"]
+- ["Ps9_Hashable", "getDoctorSingleChartHistoryData"]
 - ["Ps9_Hashable", "glucoseLbl"]
 - ["Ps9_Hashable", "hbaLbl"]
 - ["Ps9_Hashable", "hyperLbl"]
@@ -2721,4 +2753,4 @@ depends-external:
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController-umbrella.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Modules/module.modulemap"
-interface-hash: "7f2e9ef748efb8576ff5a3fc2d4bcc97"
+interface-hash: "0088050b163aad6eaa9b53368698fecd"

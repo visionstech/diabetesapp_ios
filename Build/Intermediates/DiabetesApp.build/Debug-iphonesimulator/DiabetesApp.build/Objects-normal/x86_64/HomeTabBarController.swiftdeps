@@ -6,13 +6,13 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp20HomeTabBarController", ""]
 provides-dynamic-lookup:
-- "didReceiveMemoryWarning"
 - "viewDidLoad"
+- "didReceiveMemoryWarning"
 depends-top-level:
-- !private "BooleanLiteralType"
-- "HomeTabBarController"
-- "AssignmentPrecedence"
 - "UITabBarController"
+- "AssignmentPrecedence"
+- "HomeTabBarController"
+- !private "BooleanLiteralType"
 depends-member:
 - ["Ps9AnyObject", "didReceiveMemoryWarning"]
 - !private ["Ps9AnyObject", "hidesBackButton"]

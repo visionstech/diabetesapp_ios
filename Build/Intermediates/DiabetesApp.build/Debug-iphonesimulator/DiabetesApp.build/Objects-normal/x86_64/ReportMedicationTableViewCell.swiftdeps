@@ -6,16 +6,16 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp29ReportMedicationTableViewCell", ""]
 provides-dynamic-lookup:
-- "dosageTxtFld"
-- "setSelected"
 - "awakeFromNib"
+- "setSelected"
 - "medNameLbl"
+- "dosageTxtFld"
 depends-top-level:
-- "Bool"
-- "ReportMedicationTableViewCell"
-- "UITextField"
 - "UILabel"
 - "UITableViewCell"
+- "UITextField"
+- "Bool"
+- "ReportMedicationTableViewCell"
 depends-member:
 - ["Ps9AnyObject", "awakeFromNib"]
 - ["Ps9AnyObject", "dosageTxtFld"]

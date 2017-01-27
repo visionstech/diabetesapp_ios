@@ -645,6 +645,7 @@ SWIFT_CLASS("_TtC11DiabetesApp28EditMedicationViewController")
 @property (nonatomic, strong) CarePlanObj * _Nonnull selectedObj;
 @property (nonatomic) BOOL isEditMode;
 @property (nonatomic, strong) UIView * _Nonnull topBackView;
+@property (nonatomic, strong) NSMutableArray * _Nonnull editMedArray;
 - (void)viewDidLoad;
 - (void)viewWillAppear:(BOOL)animated;
 - (void)viewWillDisappear:(BOOL)animated;
@@ -869,6 +870,7 @@ SWIFT_CLASS("_TtC11DiabetesApp24ReportCarePlanController")
 @property (nonatomic) NSInteger selectedIndexPath;
 @property (nonatomic, strong) NSMutableArray * _Nonnull array;
 @property (nonatomic, strong) NSMutableArray * _Nonnull currentEditReadingArray;
+@property (nonatomic, copy) NSString * _Nonnull reportUSer;
 @property (nonatomic, strong) IBOutlet UIView * _Null_unspecified pickerViewContainer;
 @property (nonatomic, weak) IBOutlet UIPickerView * _Null_unspecified pickerView;
 - (void)viewDidLoad;
@@ -936,6 +938,7 @@ SWIFT_CLASS("_TtC11DiabetesApp25ReportChartViewController")
 - (void)resetUI;
 - (void)getChartHistoryDataWithCondition:(NSString * _Nonnull)condition;
 - (void)getDoctorChartHistoryDataWithCondition:(NSString * _Nonnull)condition;
+- (void)getDoctorSingleChartHistoryDataWithCondition:(NSString * _Nonnull)condition;
 - (void)chartViewNotificationWithNotification:(NSNotification * _Nonnull)notification;
 - (void)doctorchartViewNotificationWithNotification:(NSNotification * _Nonnull)notification;
 - (void)noOfDaysNotificationWithNotification:(NSNotification * _Nonnull)notification;
@@ -1074,11 +1077,12 @@ SWIFT_CLASS("_TtC11DiabetesApp20ReportViewController")
 @property (nonatomic, strong) NSMutableArray * _Nonnull newMedicationArray;
 @property (nonatomic) BOOL currentMedEditBool;
 @property (nonatomic, strong) NSDictionary * _Nonnull editCurrentMedDict;
-@property (nonatomic, strong) NSMutableArray * _Nonnull editCurrentMedArray;
+@property (nonatomic, strong) NSArray * _Nonnull editCurrentMedArray;
 @property (nonatomic, strong) NSMutableArray * _Nonnull oldCurrentMedArray;
 @property (nonatomic, strong) NSArray * _Nonnull editCurrentReadArray;
-@property (nonatomic, readonly) NSInteger selectedUserType;
+@property (nonatomic) NSInteger selectedUserType;
 @property (nonatomic, copy) NSString * _Nonnull taskID;
+@property (nonatomic, copy) NSString * _Nonnull reportUser;
 - (void)awakeFromNib;
 - (void)viewDidLoad;
 - (void)viewDidLayoutSubviews;

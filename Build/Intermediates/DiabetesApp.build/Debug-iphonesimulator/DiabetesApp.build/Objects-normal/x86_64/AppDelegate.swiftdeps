@@ -14,87 +14,87 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp11AppDelegate", ""]
 provides-dynamic-lookup:
-- "applicationWillResignActive"
+- "applicationWillTerminate"
+- "session"
 - "notificationServiceDidFinishLoadingDialogFromServer"
+- "applicationDidEnterBackground"
+- "applicationWillResignActive"
+- "applicationDidBecomeActive"
+- "persistentContainer"
 - "notificationServiceDidFailFetchingDialog"
 - "currentUser"
-- "session"
-- "notificationServiceDidSucceedFetchingDialog"
-- "notificationServiceDidStartLoadingDialogFromServer"
 - "application"
 - "application"
 - "application"
 - "application"
-- "applicationWillTerminate"
 - "window"
-- "persistentContainer"
 - "applicationWillEnterForeground"
-- "applicationDidEnterBackground"
-- "applicationDidBecomeActive"
+- "notificationServiceDidStartLoadingDialogFromServer"
 - "saveContext"
+- "notificationServiceDidSucceedFetchingDialog"
 depends-top-level:
-- "TimeInterval"
-- "kQBAnswerTimeInterval"
-- !private "QBLogLevel"
-- "QBChatDialog"
-- "AssignmentPrecedence"
-- "CastingPrecedence"
-- !private "=="
-- !private "UIApplicationState"
-- !private "UIColor"
-- "kQBRTCDisconnectTimeInterval"
+- "kQBAuthSecret"
 - !private "QBMSubscription"
-- "kQBApplicationID"
-- !private "Fonts"
-- !private "DispatchQueue"
-- !private "Dictionary"
-- !private "UIDevice"
-- "UInt"
-- !private "NSFontAttributeName"
-- !private "!"
-- "kQBRingThickness"
-- "QBRTCSession"
-- "NotificationServiceDelegate"
-- "UIApplication"
-- "AnyHashable"
-- !private "QBRequest"
-- "UIApplicationDelegate"
-- "NSPersistentContainer"
-- !private "QBRTCConfig"
-- !private "ChatViewController"
-- !private "UIStoryboard"
-- !private "fatalError"
 - !private "QBRTCClient"
 - !private "QBResponse"
+- "StringLiteralType"
+- !private "ChatViewController"
+- "UIApplicationLaunchOptionsKey"
+- !private "Dictionary"
+- !private "UIStoryboard"
+- "kQBAuthKey"
+- !private "BooleanLiteralType"
+- !private "UINavigationBar"
+- "kQBAccountKey"
 - "AppDelegate"
+- !private "QBSettings"
+- !private "=="
+- "NSPersistentContainer"
+- "UInt"
+- "UIApplicationDelegate"
+- "NotificationServiceDelegate"
+- "UIApplication"
+- !private "ViewIdentifiers"
+- "CGFloat"
+- !private "fatalError"
+- "kQBApplicationID"
+- !private "!"
+- "kQBRingThickness"
+- !private "QBRequest"
 - "Bool"
-- !private "ReportViewController"
+- "AnyHashable"
+- "UIResponder"
+- !private "String"
+- !private "Fonts"
+- !private "ServicesManager"
+- "kQBAnswerTimeInterval"
+- !private "UIApplicationState"
+- !private "Void"
+- "TimeInterval"
 - !private "print"
 - "Error"
-- "UIResponder"
-- !private "UINavigationController"
-- "UIApplicationLaunchOptionsKey"
-- "QBUUser"
-- !private "Void"
-- !private "UserDefaults"
-- "kQBAccountKey"
-- !private "ServicesManager"
-- !private "Int"
-- !private "QBSettings"
-- !private "BooleanLiteralType"
-- !private "String"
-- "CGFloat"
-- "kQBAuthKey"
+- !private "QBLogLevel"
+- !private "ReportViewController"
+- !private "DispatchQueue"
 - !private "NSError"
-- "Data"
-- !private "ViewIdentifiers"
-- !private "NSForegroundColorAttributeName"
-- !private "QBMNotificationChannel"
-- !private "UINavigationBar"
-- "kQBAuthSecret"
-- "kQBDialingTimeInterval"
-- "StringLiteralType"
+- !private "NSFontAttributeName"
+- "kQBRTCDisconnectTimeInterval"
 - "UIWindow"
+- "Data"
+- "QBRTCSession"
+- !private "UIColor"
+- !private "QBMNotificationChannel"
+- !private "UIDevice"
+- !private "NSForegroundColorAttributeName"
+- !private "UINavigationController"
+- "QBChatDialog"
+- !private "QBRTCConfig"
+- !private "Int"
+- "kQBDialingTimeInterval"
+- "CastingPrecedence"
+- "QBUUser"
+- !private "UserDefaults"
+- "AssignmentPrecedence"
 depends-member:
 - !private ["Vs11AnyHashable", "deinit"]
 - !private ["Ps9AnyObject", "DispatchQueue"]
@@ -192,6 +192,7 @@ depends-member:
 - !private ["Ps9AnyObject", "setLogLevel"]
 - !private ["Ps9AnyObject", "setStatsReportTimeInterval"]
 - !private ["Ps9AnyObject", "standard"]
+- !private ["Ps9AnyObject", "synchronize"]
 - !private ["Ps9AnyObject", "taskID"]
 - !private ["Ps9AnyObject", "titleTextAttributes"]
 - !private ["Ps9AnyObject", "userInfo"]
@@ -383,6 +384,7 @@ depends-member:
 - !private ["Ps7CVarArg", "setStatsReportTimeInterval"]
 - !private ["Ps7CVarArg", "standard"]
 - !private ["Ps7CVarArg", "subscript"]
+- !private ["Ps7CVarArg", "synchronize"]
 - !private ["Ps7CVarArg", "taskID"]
 - !private ["Ps7CVarArg", "titleTextAttributes"]
 - !private ["Ps7CVarArg", "userInfo"]
@@ -508,6 +510,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "setStatsReportTimeInterval"]
 - !private ["Ps28CustomDebugStringConvertible", "standard"]
 - !private ["Ps28CustomDebugStringConvertible", "subscript"]
+- !private ["Ps28CustomDebugStringConvertible", "synchronize"]
 - !private ["Ps28CustomDebugStringConvertible", "taskID"]
 - !private ["Ps28CustomDebugStringConvertible", "titleTextAttributes"]
 - !private ["Ps28CustomDebugStringConvertible", "userInfo"]
@@ -642,6 +645,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "setStatsReportTimeInterval"]
 - !private ["Ps23CustomStringConvertible", "standard"]
 - !private ["Ps23CustomStringConvertible", "subscript"]
+- !private ["Ps23CustomStringConvertible", "synchronize"]
 - !private ["Ps23CustomStringConvertible", "taskID"]
 - !private ["Ps23CustomStringConvertible", "titleTextAttributes"]
 - !private ["Ps23CustomStringConvertible", "userInfo"]
@@ -767,6 +771,7 @@ depends-member:
 - !private ["Ps9Equatable", "setLogLevel"]
 - !private ["Ps9Equatable", "setStatsReportTimeInterval"]
 - !private ["Ps9Equatable", "standard"]
+- !private ["Ps9Equatable", "synchronize"]
 - !private ["Ps9Equatable", "taskID"]
 - !private ["Ps9Equatable", "titleTextAttributes"]
 - !private ["Ps9Equatable", "userInfo"]
@@ -904,6 +909,7 @@ depends-member:
 - !private ["Ps8Hashable", "setLogLevel"]
 - !private ["Ps8Hashable", "setStatsReportTimeInterval"]
 - !private ["Ps8Hashable", "standard"]
+- !private ["Ps8Hashable", "synchronize"]
 - !private ["Ps8Hashable", "taskID"]
 - !private ["Ps8Hashable", "titleTextAttributes"]
 - !private ["Ps8Hashable", "userInfo"]
@@ -1107,6 +1113,7 @@ depends-member:
 - !private ["CSo8NSObject", "setLogLevel"]
 - !private ["CSo8NSObject", "setStatsReportTimeInterval"]
 - !private ["CSo8NSObject", "standard"]
+- !private ["CSo8NSObject", "synchronize"]
 - !private ["CSo8NSObject", "taskID"]
 - !private ["CSo8NSObject", "titleTextAttributes"]
 - !private ["CSo8NSObject", "userInfo"]
@@ -1206,6 +1213,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "setLogLevel"]
 - !private ["PSo16NSObjectProtocol", "setStatsReportTimeInterval"]
 - !private ["PSo16NSObjectProtocol", "standard"]
+- !private ["PSo16NSObjectProtocol", "synchronize"]
 - !private ["PSo16NSObjectProtocol", "taskID"]
 - !private ["PSo16NSObjectProtocol", "titleTextAttributes"]
 - !private ["PSo16NSObjectProtocol", "userInfo"]
@@ -1689,6 +1697,7 @@ depends-member:
 - !private ["Vs6UInt32", "deinit"]
 - !private ["Vs6UInt64", "deinit"]
 - !private ["Vs5UInt8", "deinit"]
+- !private ["V10Foundation3URL", "deinit"]
 - ["P9Alamofire14URLConvertible", "init"]
 - !private ["P9Alamofire14URLConvertible", "isEmpty"]
 - !private ["P9Alamofire14URLConvertible", "localized"]
@@ -1698,6 +1707,7 @@ depends-member:
 - ["CSo12UserDefaults", "deinit"]
 - !private ["CSo12UserDefaults", "set"]
 - !private ["CSo12UserDefaults", "standard"]
+- !private ["CSo12UserDefaults", "synchronize"]
 - !private ["V11DiabetesApp15ViewIdentifiers", "ReportViewController"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "appearance"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "rootViewController"]
@@ -1825,6 +1835,7 @@ depends-member:
 - !private ["Ps9_Hashable", "setLogLevel"]
 - !private ["Ps9_Hashable", "setStatsReportTimeInterval"]
 - !private ["Ps9_Hashable", "standard"]
+- !private ["Ps9_Hashable", "synchronize"]
 - !private ["Ps9_Hashable", "taskID"]
 - !private ["Ps9_Hashable", "titleTextAttributes"]
 - !private ["Ps9_Hashable", "userInfo"]
@@ -2015,6 +2026,7 @@ depends-nominal:
 - !private "Vs6UInt32"
 - !private "Vs6UInt64"
 - !private "Vs5UInt8"
+- !private "V10Foundation3URL"
 - "P9Alamofire14URLConvertible"
 - "V10Foundation4UUID"
 - !private "Sc"

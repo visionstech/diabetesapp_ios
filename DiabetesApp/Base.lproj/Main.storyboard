@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -11,10 +12,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Gotham-Bold.otf">
+        <array key="Gotham-Bold.ttf">
             <string>Gotham-Bold</string>
         </array>
-        <array key="Gotham-Medium.ttf">
+        <array key="Gotham-Medium.otf">
             <string>Gotham-Medium</string>
         </array>
         <array key="SF-UI-Display-Medium.otf">
@@ -162,7 +163,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nKd-Sq-B6o" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="urk-QB-QDU">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="urk-QB-QDU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -525,46 +526,21 @@
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6aH-du-txP">
-                                                                            <rect key="frame" x="25" y="4" width="333" height="21"/>
+                                                                            <rect key="frame" x="21" y="21" width="333" height="21"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="21" id="DYU-Zb-Nut"/>
                                                                             </constraints>
                                                                             <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="17"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dosage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aod-5C-9rF">
-                                                                            <rect key="frame" x="25" y="29" width="93" height="21"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="height" constant="21" id="Pnc-Q6-IbE"/>
-                                                                                <constraint firstAttribute="width" constant="93" id="aaf-G9-dKV"/>
-                                                                            </constraints>
-                                                                            <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="17"/>
-                                                                            <color key="textColor" red="0.0" green="0.4039215686" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6m8-Lq-bWM">
-                                                                            <rect key="frame" x="105" y="24" width="234" height="30"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="height" constant="30" id="LRv-h8-rpP"/>
-                                                                            </constraints>
-                                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                                            <fontDescription key="fontDescription" name="Gotham-Medium" family="Gotham" pointSize="17"/>
-                                                                            <textInputTraits key="textInputTraits"/>
-                                                                        </textField>
                                                                     </subviews>
                                                                     <constraints>
-                                                                        <constraint firstItem="6m8-Lq-bWM" firstAttribute="top" secondItem="6aH-du-txP" secondAttribute="bottom" constant="-1" id="Og9-Ic-2CA"/>
-                                                                        <constraint firstAttribute="trailingMargin" secondItem="6m8-Lq-bWM" secondAttribute="trailing" constant="28" id="WbH-sz-Xdm"/>
-                                                                        <constraint firstItem="6aH-du-txP" firstAttribute="leading" secondItem="j6f-kA-Pfr" secondAttribute="leading" constant="25" id="ZYg-a8-qAq"/>
-                                                                        <constraint firstItem="aod-5C-9rF" firstAttribute="leading" secondItem="j6f-kA-Pfr" secondAttribute="leadingMargin" constant="17" id="bJ6-6N-QMi"/>
-                                                                        <constraint firstItem="aod-5C-9rF" firstAttribute="top" secondItem="6aH-du-txP" secondAttribute="bottom" constant="4" id="ffu-RF-2Ql"/>
-                                                                        <constraint firstItem="6m8-Lq-bWM" firstAttribute="leading" secondItem="j6f-kA-Pfr" secondAttribute="leadingMargin" constant="97" id="i8n-Uf-Qiw"/>
-                                                                        <constraint firstItem="6aH-du-txP" firstAttribute="top" secondItem="j6f-kA-Pfr" secondAttribute="top" constant="4" id="kHk-6k-4k4"/>
-                                                                        <constraint firstAttribute="trailing" secondItem="6aH-du-txP" secondAttribute="trailing" constant="17" id="wNx-Rj-tTY"/>
+                                                                        <constraint firstItem="6aH-du-txP" firstAttribute="leading" secondItem="j6f-kA-Pfr" secondAttribute="leading" constant="21" id="ZYg-a8-qAq"/>
+                                                                        <constraint firstItem="6aH-du-txP" firstAttribute="top" secondItem="j6f-kA-Pfr" secondAttribute="top" constant="21" id="kHk-6k-4k4"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="6aH-du-txP" secondAttribute="trailing" constant="21" id="wNx-Rj-tTY"/>
                                                                     </constraints>
                                                                 </tableViewCellContentView>
                                                                 <connections>
-                                                                    <outlet property="dosageTxtFld" destination="6m8-Lq-bWM" id="0Ww-II-MOI"/>
                                                                     <outlet property="medNameLbl" destination="6aH-du-txP" id="Ys8-ux-hMg"/>
                                                                 </connections>
                                                             </tableViewCell>
@@ -2997,13 +2973,24 @@
                     <view key="view" contentMode="scaleToFill" id="u48-pB-Z8Z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="viewBGImage" translatesAutoresizingMaskIntoConstraints="NO" id="5Q4-W1-ydz">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Shd-Cb-rKf" firstAttribute="top" secondItem="5Q4-W1-ydz" secondAttribute="bottom" id="9AH-Bj-hdJ"/>
+                            <constraint firstItem="5Q4-W1-ydz" firstAttribute="leading" secondItem="u48-pB-Z8Z" secondAttribute="leading" id="k2d-de-7SQ"/>
+                            <constraint firstAttribute="trailing" secondItem="5Q4-W1-ydz" secondAttribute="trailing" id="y0t-tS-Q3M"/>
+                            <constraint firstItem="5Q4-W1-ydz" firstAttribute="top" secondItem="sb4-pA-xST" secondAttribute="bottom" id="zSv-g5-ZH0"/>
+                        </constraints>
                     </view>
                     <nil key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hCa-tA-uD1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-26" y="1312"/>
+            <point key="canvasLocation" x="360.80000000000001" y="1345.2773613193403"/>
         </scene>
         <!--Incoming Call View Controller-->
         <scene sceneID="k2I-zn-YUc">
@@ -3117,7 +3104,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q2c-bn-hlO" userLabel="Inbox Nav " sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Inbox" id="P4i-rw-sP2"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RSB-6u-8WO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="RSB-6u-8WO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -3137,7 +3124,7 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <tabBarItem key="tabBarItem" title="Care Plan" id="xcL-nr-Ymr"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="w3a-BM-HPQ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="w3a-BM-HPQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -3161,7 +3148,7 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <tabBarItem key="tabBarItem" title="Reading History" id="Yfm-bX-xNn"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ifd-Cy-F6v">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ifd-Cy-F6v">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -4202,6 +4189,7 @@
         <image name="med.png" width="176" height="360"/>
         <image name="uploadImage" width="91" height="135"/>
         <image name="user.png" width="40" height="41"/>
+        <image name="viewBGImage" width="375" height="667"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="sQW-gi-7a0"/>

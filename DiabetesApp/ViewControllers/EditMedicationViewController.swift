@@ -27,6 +27,8 @@ class EditMedicationViewController: UIViewController, UITableViewDelegate, UITab
     var selectedObj: CarePlanObj = CarePlanObj()
     var isEditMode: Bool = false
     var topBackView:UIView = UIView()
+    var editMedArray = NSMutableArray()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -182,6 +184,37 @@ class EditMedicationViewController: UIViewController, UITableViewDelegate, UITab
             return
         }
         
+        if  UserDefaults.standard.bool(forKey: "MedEditBool") {
+            let arr : NSArray = UserDefaults.standard.array(forKey: "currentEditMedicationArray")! as [Any] as NSArray
+            editMedArray = NSMutableArray(array: arr)
+            let mainDict: NSMutableDictionary = NSMutableDictionary()
+            mainDict.setValue(obj.id, forKey: "id")
+            mainDict.setValue(obj.name, forKey: "name")
+            mainDict.setValue(obj.dosage, forKey: "dosage")
+            mainDict.setValue(obj.condition, forKey: "condition")
+            if editMedArray.count > 0 {
+                for i in 0..<self.editMedArray.count {
+                    let id: String = (editMedArray.object(at:i) as AnyObject).value(forKey: "id") as! String
+                    print(id)
+                    if id == obj.id {
+                        editMedArray.replaceObject(at:i, with: mainDict)
+                        UserDefaults.standard.setValue(editMedArray, forKey: "currentEditMedicationArray")
+                        UserDefaults.standard.synchronize()
+                        return
+                    }
+                }
+                editMedArray.add(mainDict)
+                
+            }
+            else {
+                editMedArray.add(mainDict)
+            }
+            UserDefaults.standard.setValue(editMedArray, forKey: "currentEditMedicationArray")
+            UserDefaults.standard.synchronize()
+            self.navigationController?.popViewController(animated: true)
+
+        }
+        else {
         if isEditMode == true {
             
             editMedication(medicationObj: obj)
@@ -189,6 +222,9 @@ class EditMedicationViewController: UIViewController, UITableViewDelegate, UITab
         else {
             addMedication(medicationObj: obj)
         }
+        
+        }
+        
     }
 
     func BackBtn_Click(){
@@ -278,7 +314,7 @@ class EditMedicationViewController: UIViewController, UITableViewDelegate, UITab
         
         cell.medicineNameTxtFld?.text = String(obj.name)
         cell.conditionTxtFld.text = String(obj.condition)
-        cell.dosageTxtFld.text = String(obj.dosage)
+        cell.dosageTxtFld.text = String(describing: obj.dosage)
         cell.frequencyTxtFld.text = String(obj.frequency)
         
         

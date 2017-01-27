@@ -6,95 +6,100 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp28EditMedicationViewController", ""]
 provides-dynamic-lookup:
-- "didReceiveMemoryWarning"
-- "viewDidLoad"
-- "tblView"
-- "viewWillDisappear"
-- "selectedFreqCellIndex"
-- "setUI"
-- "tableView"
-- "tableView"
-- "tableView"
-- "AddMedicine_Click"
-- "addMedicineBtn"
-- "topBackView"
-- "createCustomTopView"
 - "addMedicineView"
-- "pickerView"
-- "pickerView"
-- "pickerView"
-- "setCorners"
-- "saveBtn"
-- "isEditMode"
-- "addMedication"
-- "BackBtn_Click"
-- "displaySelectedMedicationData"
-- "textFieldShouldBeginEditing"
-- "pickerViewContainer"
-- "addMedicineObj"
-- "editMedication"
-- "numberOfComponents"
-- "selectedObj"
-- "SaveBtn_Click"
+- "viewDidLoad"
 - "array"
-- "textFieldShouldReturn"
-- "viewWillAppear"
+- "editMedArray"
+- "SaveBtn_Click"
 - "ToolBarBtns_Click"
+- "viewWillDisappear"
+- "viewWillAppear"
 - "textField"
+- "didReceiveMemoryWarning"
+- "setUI"
+- "createCustomTopView"
+- "textFieldShouldReturn"
+- "pickerViewContainer"
+- "isEditMode"
+- "saveBtn"
+- "tblView"
+- "addMedication"
+- "numberOfComponents"
+- "tableView"
+- "tableView"
+- "tableView"
+- "BackBtn_Click"
+- "selectedObj"
+- "AddMedicine_Click"
+- "editMedication"
+- "addMedicineObj"
+- "setCorners"
+- "textFieldShouldBeginEditing"
+- "addMedicineBtn"
+- "pickerView"
+- "pickerView"
+- "pickerView"
+- "topBackView"
+- "displaySelectedMedicationData"
+- "selectedFreqCellIndex"
 depends-top-level:
-- !private "UIImageView"
-- "UIPickerViewDataSource"
-- !private "Dictionary"
 - !private "JSONEncoding"
-- "UITableViewDataSource"
-- "UITableViewDelegate"
-- "String"
-- !private "UIColor"
-- !private "CarePlanMedicationTableViewCell"
-- "UIPickerViewDelegate"
-- !private "SVProgressHUD"
-- "UITextFieldDelegate"
-- !private "CGSize"
-- "UIButton"
-- "Int"
-- !private "frequnecyArray"
-- !private "UIImage"
-- !private "UserDefaults"
-- !private "Array"
-- !private "SVProgressHUDMaskType"
-- "CGFloat"
-- "IndexPath"
-- !private "Alamofire"
-- !private "Parameters"
-- !private "baseUrl"
-- !private "NSString"
-- !private "CharacterSet"
-- "UIView"
-- "Bool"
-- "BooleanLiteralType"
-- "UITableViewCell"
-- !private "AnyObject"
-- "UITextField"
-- !private "UITapGestureRecognizer"
-- !private "UITableViewScrollPosition"
-- !private "ApiMethods"
-- "NSRange"
-- !private "StringLiteralType"
 - !private "userDefaults"
-- !private "UtilityClass"
+- !private "frequnecyArray"
 - "NSMutableArray"
-- "CastingPrecedence"
+- !private "AnyObject"
+- !private "CarePlanMedicationTableViewCell"
 - "AssignmentPrecedence"
 - !private "=="
-- "CarePlanObj"
-- "UIPickerView"
-- !private "print"
-- !private "!="
+- !private "..<"
 - "UIViewController"
-- !private "-"
-- "UITableView"
-- !private "CGRect"
+- !private "UIColor"
+- "CastingPrecedence"
+- !private "Parameters"
+- !private "StringLiteralType"
+- !private "SVProgressHUDMaskType"
+- !private "UtilityClass"
+- !private "CharacterSet"
+- "NSRange"
+- "BooleanLiteralType"
+- !private "SVProgressHUD"
+- !private "NSArray"
+- !private "NSMutableDictionary"
+- "UITableViewDataSource"
+- !private "print"
+- "CGFloat"
 - "EditMedicationViewController"
+- "UITableViewDelegate"
+- !private "ApiMethods"
+- "UIPickerViewDelegate"
+- "UITextFieldDelegate"
+- !private "UIImageView"
+- "UIView"
+- "UITableViewCell"
+- "Bool"
+- "UIPickerViewDataSource"
+- !private "Array"
+- "UIButton"
+- "String"
+- !private "-"
+- "CarePlanObj"
+- !private "UITableViewScrollPosition"
+- !private "baseUrl"
+- "UITextField"
+- !private "Alamofire"
+- !private "NSString"
+- "IndexPath"
+- !private "CGSize"
+- !private "Dictionary"
+- "UITableView"
+- !private ">"
+- "Int"
+- !private "CGRect"
+- !private "UIImage"
+- !private "!="
+- "UIPickerView"
+- !private "UITapGestureRecognizer"
+- !private "UserDefaults"
 depends-member:
 - ["Ps9AnyObject", "AddMedicine_Click"]
 - !private ["Ps9AnyObject", "Alamofire"]
@@ -107,6 +112,7 @@ depends-member:
 - !private ["Ps9AnyObject", "IndexPath"]
 - !private ["Ps9AnyObject", "JSONEncoding"]
 - ["Ps9AnyObject", "NSMutableArray"]
+- !private ["Ps9AnyObject", "NSMutableDictionary"]
 - !private ["Ps9AnyObject", "NSString"]
 - !private ["Ps9AnyObject", "RawValue"]
 - !private ["Ps9AnyObject", "SVProgressHUD"]
@@ -133,6 +139,7 @@ depends-member:
 - !private ["Ps9AnyObject", "backgroundColor"]
 - !private ["Ps9AnyObject", "baseUrl"]
 - !private ["Ps9AnyObject", "black"]
+- !private ["Ps9AnyObject", "bool"]
 - !private ["Ps9AnyObject", "cellForRow"]
 - !private ["Ps9AnyObject", "cgColor"]
 - !private ["Ps9AnyObject", "condition"]
@@ -148,6 +155,7 @@ depends-member:
 - ["Ps9AnyObject", "displaySelectedMedicationData"]
 - !private ["Ps9AnyObject", "dosage"]
 - !private ["Ps9AnyObject", "dosageTxtFld"]
+- ["Ps9AnyObject", "editMedArray"]
 - ["Ps9AnyObject", "editMedication"]
 - !private ["Ps9AnyObject", "endEditing"]
 - !private ["Ps9AnyObject", "frequency"]
@@ -177,6 +185,7 @@ depends-member:
 - ["Ps9AnyObject", "numberOfComponentsInPickerView"]
 - ["Ps9AnyObject", "numberOfSections"]
 - ["Ps9AnyObject", "numberOfSectionsInTableView"]
+- !private ["Ps9AnyObject", "object"]
 - ["Ps9AnyObject", "pickerView"]
 - ["Ps9AnyObject", "pickerViewContainer"]
 - !private ["Ps9AnyObject", "popViewController"]
@@ -210,6 +219,7 @@ depends-member:
 - !private ["Ps9AnyObject", "selectionStyle"]
 - ["Ps9AnyObject", "setCorners"]
 - ["Ps9AnyObject", "setUI"]
+- !private ["Ps9AnyObject", "setValue"]
 - !private ["Ps9AnyObject", "shadowColor"]
 - !private ["Ps9AnyObject", "shadowOffset"]
 - !private ["Ps9AnyObject", "shadowOpacity"]
@@ -218,6 +228,7 @@ depends-member:
 - !private ["Ps9AnyObject", "standard"]
 - !private ["Ps9AnyObject", "string"]
 - !private ["Ps9AnyObject", "subscript"]
+- !private ["Ps9AnyObject", "synchronize"]
 - !private ["Ps9AnyObject", "tabBarController"]
 - !private ["Ps9AnyObject", "tableFooterView"]
 - ["Ps9AnyObject", "tableView"]
@@ -235,6 +246,7 @@ depends-member:
 - ["Ps9AnyObject", "topBackView"]
 - !private ["Ps9AnyObject", "trimmingCharacters"]
 - !private ["Ps9AnyObject", "userDefaults"]
+- !private ["Ps9AnyObject", "value"]
 - !private ["Ps9AnyObject", "view"]
 - ["Ps9AnyObject", "viewDidLoad"]
 - ["Ps9AnyObject", "viewForZooming"]
@@ -247,11 +259,18 @@ depends-member:
 - !private ["Sa", "Element"]
 - ["Sa", "deinit"]
 - !private ["Ps23BidirectionalCollection", "Element"]
+- !private ["Ps23BidirectionalCollection", "Iterator"]
+- !private ["Ps23BidirectionalCollection", "_Element"]
 - !private ["Ps23BidirectionalCollection", "init"]
 - !private ["Ps23BidirectionalCollection", "row"]
 - !private ["Ps22BidirectionalIndexable", "Element"]
+- !private ["Ps22BidirectionalIndexable", "Iterator"]
+- !private ["Ps22BidirectionalIndexable", "_Element"]
 - !private ["Ps22BidirectionalIndexable", "init"]
 - !private ["Ps22BidirectionalIndexable", "row"]
+- !private ["Ps17BitwiseOperations", "IntegerLiteralType"]
+- !private ["Ps17BitwiseOperations", "Stride"]
+- !private ["Ps17BitwiseOperations", "_DisabledRangeIndex"]
 - !private ["Sb", "_getBuiltinLogicValue"]
 - ["Sb", "deinit"]
 - !private ["CSo7CALayer", "cornerRadius"]
@@ -308,14 +327,17 @@ depends-member:
 - !private ["Ps7CVarArg", "CharacterSet"]
 - !private ["Ps7CVarArg", "Element"]
 - !private ["Ps7CVarArg", "IndexPath"]
+- !private ["Ps7CVarArg", "IntegerLiteralType"]
 - !private ["Ps7CVarArg", "JSONEncoding"]
 - !private ["Ps7CVarArg", "Key"]
 - ["Ps7CVarArg", "NSMutableArray"]
+- !private ["Ps7CVarArg", "NSMutableDictionary"]
 - !private ["Ps7CVarArg", "NSString"]
 - !private ["Ps7CVarArg", "RawValue"]
 - !private ["Ps7CVarArg", "SVProgressHUD"]
 - !private ["Ps7CVarArg", "SVProgressHUDMaskType"]
 - ["Ps7CVarArg", "SaveBtn_Click"]
+- !private ["Ps7CVarArg", "Stride"]
 - !private ["Ps7CVarArg", "String"]
 - ["Ps7CVarArg", "ToolBarBtns_Click"]
 - !private ["Ps7CVarArg", "UIColor"]
@@ -327,6 +349,7 @@ depends-member:
 - !private ["Ps7CVarArg", "UserDefaults"]
 - !private ["Ps7CVarArg", "UtilityClass"]
 - !private ["Ps7CVarArg", "Value"]
+- !private ["Ps7CVarArg", "_DisabledRangeIndex"]
 - !private ["Ps7CVarArg", "add"]
 - !private ["Ps7CVarArg", "addGestureRecognizer"]
 - ["Ps7CVarArg", "addMedication"]
@@ -338,6 +361,7 @@ depends-member:
 - !private ["Ps7CVarArg", "backgroundColor"]
 - !private ["Ps7CVarArg", "baseUrl"]
 - !private ["Ps7CVarArg", "black"]
+- !private ["Ps7CVarArg", "bool"]
 - !private ["Ps7CVarArg", "cellForRow"]
 - !private ["Ps7CVarArg", "cgColor"]
 - !private ["Ps7CVarArg", "condition"]
@@ -352,6 +376,7 @@ depends-member:
 - ["Ps7CVarArg", "displaySelectedMedicationData"]
 - !private ["Ps7CVarArg", "dosage"]
 - !private ["Ps7CVarArg", "dosageTxtFld"]
+- ["Ps7CVarArg", "editMedArray"]
 - ["Ps7CVarArg", "editMedication"]
 - !private ["Ps7CVarArg", "endEditing"]
 - !private ["Ps7CVarArg", "frequency"]
@@ -381,6 +406,7 @@ depends-member:
 - ["Ps7CVarArg", "numberOfComponentsInPickerView"]
 - ["Ps7CVarArg", "numberOfSections"]
 - ["Ps7CVarArg", "numberOfSectionsInTableView"]
+- !private ["Ps7CVarArg", "object"]
 - ["Ps7CVarArg", "pickerView"]
 - ["Ps7CVarArg", "pickerViewContainer"]
 - !private ["Ps7CVarArg", "popViewController"]
@@ -413,6 +439,7 @@ depends-member:
 - !private ["Ps7CVarArg", "selectionStyle"]
 - ["Ps7CVarArg", "setCorners"]
 - ["Ps7CVarArg", "setUI"]
+- !private ["Ps7CVarArg", "setValue"]
 - !private ["Ps7CVarArg", "shadowColor"]
 - !private ["Ps7CVarArg", "shadowOffset"]
 - !private ["Ps7CVarArg", "shadowOpacity"]
@@ -421,6 +448,7 @@ depends-member:
 - !private ["Ps7CVarArg", "standard"]
 - !private ["Ps7CVarArg", "string"]
 - !private ["Ps7CVarArg", "subscript"]
+- !private ["Ps7CVarArg", "synchronize"]
 - !private ["Ps7CVarArg", "tabBarController"]
 - !private ["Ps7CVarArg", "tableFooterView"]
 - ["Ps7CVarArg", "tableView"]
@@ -462,15 +490,23 @@ depends-member:
 - ["V10Foundation12CharacterSet", "deinit"]
 - !private ["V10Foundation12CharacterSet", "whitespaces"]
 - !private ["Ps10Collection", "Element"]
+- !private ["Ps10Collection", "Iterator"]
 - !private ["Ps10Collection", "Key"]
 - !private ["Ps10Collection", "Value"]
+- !private ["Ps10Collection", "_Element"]
 - !private ["Ps10Collection", "init"]
 - !private ["Ps10Collection", "row"]
+- !private ["Ps10Comparable", "IntegerLiteralType"]
+- !private ["Ps10Comparable", "Stride"]
+- !private ["Ps10Comparable", "_DisabledRangeIndex"]
 - !private ["Ps10Comparable", "init"]
 - !private ["Ps10Comparable", "length"]
 - !private ["Ps10Comparable", "localized"]
 - !private ["Ps10Comparable", "row"]
 - !private ["Ps10Comparable", "trimmingCharacters"]
+- !private ["Vs14CountableRange", "Iterator"]
+- !private ["Vs14CountableRange", "_Element"]
+- ["Vs14CountableRange", "deinit"]
 - ["Ps28CustomDebugStringConvertible", "AddMedicine_Click"]
 - !private ["Ps28CustomDebugStringConvertible", "Alamofire"]
 - !private ["Ps28CustomDebugStringConvertible", "ApiMethods"]
@@ -481,9 +517,11 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "CharacterSet"]
 - !private ["Ps28CustomDebugStringConvertible", "Element"]
 - !private ["Ps28CustomDebugStringConvertible", "IndexPath"]
+- !private ["Ps28CustomDebugStringConvertible", "Iterator"]
 - !private ["Ps28CustomDebugStringConvertible", "JSONEncoding"]
 - !private ["Ps28CustomDebugStringConvertible", "Key"]
 - ["Ps28CustomDebugStringConvertible", "NSMutableArray"]
+- !private ["Ps28CustomDebugStringConvertible", "NSMutableDictionary"]
 - !private ["Ps28CustomDebugStringConvertible", "NSString"]
 - !private ["Ps28CustomDebugStringConvertible", "RawValue"]
 - !private ["Ps28CustomDebugStringConvertible", "SVProgressHUD"]
@@ -500,6 +538,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "UserDefaults"]
 - !private ["Ps28CustomDebugStringConvertible", "UtilityClass"]
 - !private ["Ps28CustomDebugStringConvertible", "Value"]
+- !private ["Ps28CustomDebugStringConvertible", "_Element"]
 - !private ["Ps28CustomDebugStringConvertible", "add"]
 - !private ["Ps28CustomDebugStringConvertible", "addGestureRecognizer"]
 - ["Ps28CustomDebugStringConvertible", "addMedication"]
@@ -511,6 +550,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "backgroundColor"]
 - !private ["Ps28CustomDebugStringConvertible", "baseUrl"]
 - !private ["Ps28CustomDebugStringConvertible", "black"]
+- !private ["Ps28CustomDebugStringConvertible", "bool"]
 - !private ["Ps28CustomDebugStringConvertible", "cellForRow"]
 - !private ["Ps28CustomDebugStringConvertible", "cgColor"]
 - !private ["Ps28CustomDebugStringConvertible", "condition"]
@@ -525,6 +565,7 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "displaySelectedMedicationData"]
 - !private ["Ps28CustomDebugStringConvertible", "dosage"]
 - !private ["Ps28CustomDebugStringConvertible", "dosageTxtFld"]
+- ["Ps28CustomDebugStringConvertible", "editMedArray"]
 - ["Ps28CustomDebugStringConvertible", "editMedication"]
 - !private ["Ps28CustomDebugStringConvertible", "endEditing"]
 - !private ["Ps28CustomDebugStringConvertible", "failure"]
@@ -555,6 +596,7 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "numberOfComponentsInPickerView"]
 - ["Ps28CustomDebugStringConvertible", "numberOfSections"]
 - ["Ps28CustomDebugStringConvertible", "numberOfSectionsInTableView"]
+- !private ["Ps28CustomDebugStringConvertible", "object"]
 - ["Ps28CustomDebugStringConvertible", "pickerView"]
 - ["Ps28CustomDebugStringConvertible", "pickerViewContainer"]
 - !private ["Ps28CustomDebugStringConvertible", "popViewController"]
@@ -590,6 +632,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "selectionStyle"]
 - ["Ps28CustomDebugStringConvertible", "setCorners"]
 - ["Ps28CustomDebugStringConvertible", "setUI"]
+- !private ["Ps28CustomDebugStringConvertible", "setValue"]
 - !private ["Ps28CustomDebugStringConvertible", "shadowColor"]
 - !private ["Ps28CustomDebugStringConvertible", "shadowOffset"]
 - !private ["Ps28CustomDebugStringConvertible", "shadowOpacity"]
@@ -599,6 +642,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "string"]
 - !private ["Ps28CustomDebugStringConvertible", "subscript"]
 - !private ["Ps28CustomDebugStringConvertible", "success"]
+- !private ["Ps28CustomDebugStringConvertible", "synchronize"]
 - !private ["Ps28CustomDebugStringConvertible", "tabBarController"]
 - !private ["Ps28CustomDebugStringConvertible", "tableFooterView"]
 - ["Ps28CustomDebugStringConvertible", "tableView"]
@@ -625,6 +669,9 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "whitespaces"]
 - !private ["Ps28CustomDebugStringConvertible", "zero"]
 - ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps29CustomPlaygroundQuickLookable", "IntegerLiteralType"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "Stride"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_DisabledRangeIndex"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "init"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "length"]
@@ -633,16 +680,23 @@ depends-member:
 - !private ["Ps29CustomPlaygroundQuickLookable", "trimmingCharacters"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "zero"]
 - !private ["Ps17CustomReflectable", "Element"]
+- !private ["Ps17CustomReflectable", "IntegerLiteralType"]
+- !private ["Ps17CustomReflectable", "Iterator"]
 - !private ["Ps17CustomReflectable", "Key"]
+- !private ["Ps17CustomReflectable", "Stride"]
 - !private ["Ps17CustomReflectable", "Value"]
+- !private ["Ps17CustomReflectable", "_DisabledRangeIndex"]
+- !private ["Ps17CustomReflectable", "_Element"]
 - !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
 - !private ["Ps17CustomReflectable", "add"]
 - !private ["Ps17CustomReflectable", "count"]
 - ["Ps17CustomReflectable", "init"]
 - !private ["Ps17CustomReflectable", "length"]
 - !private ["Ps17CustomReflectable", "localized"]
+- !private ["Ps17CustomReflectable", "object"]
 - !private ["Ps17CustomReflectable", "replaceObject"]
 - !private ["Ps17CustomReflectable", "row"]
+- !private ["Ps17CustomReflectable", "setValue"]
 - !private ["Ps17CustomReflectable", "subscript"]
 - !private ["Ps17CustomReflectable", "trimmingCharacters"]
 - !private ["Ps17CustomReflectable", "zero"]
@@ -656,14 +710,18 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "CharacterSet"]
 - !private ["Ps23CustomStringConvertible", "Element"]
 - !private ["Ps23CustomStringConvertible", "IndexPath"]
+- !private ["Ps23CustomStringConvertible", "IntegerLiteralType"]
+- !private ["Ps23CustomStringConvertible", "Iterator"]
 - !private ["Ps23CustomStringConvertible", "JSONEncoding"]
 - !private ["Ps23CustomStringConvertible", "Key"]
 - ["Ps23CustomStringConvertible", "NSMutableArray"]
+- !private ["Ps23CustomStringConvertible", "NSMutableDictionary"]
 - !private ["Ps23CustomStringConvertible", "NSString"]
 - !private ["Ps23CustomStringConvertible", "RawValue"]
 - !private ["Ps23CustomStringConvertible", "SVProgressHUD"]
 - !private ["Ps23CustomStringConvertible", "SVProgressHUDMaskType"]
 - ["Ps23CustomStringConvertible", "SaveBtn_Click"]
+- !private ["Ps23CustomStringConvertible", "Stride"]
 - !private ["Ps23CustomStringConvertible", "String"]
 - ["Ps23CustomStringConvertible", "ToolBarBtns_Click"]
 - !private ["Ps23CustomStringConvertible", "UIColor"]
@@ -675,6 +733,8 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "UserDefaults"]
 - !private ["Ps23CustomStringConvertible", "UtilityClass"]
 - !private ["Ps23CustomStringConvertible", "Value"]
+- !private ["Ps23CustomStringConvertible", "_DisabledRangeIndex"]
+- !private ["Ps23CustomStringConvertible", "_Element"]
 - !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
 - !private ["Ps23CustomStringConvertible", "add"]
 - !private ["Ps23CustomStringConvertible", "addGestureRecognizer"]
@@ -687,6 +747,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "backgroundColor"]
 - !private ["Ps23CustomStringConvertible", "baseUrl"]
 - !private ["Ps23CustomStringConvertible", "black"]
+- !private ["Ps23CustomStringConvertible", "bool"]
 - !private ["Ps23CustomStringConvertible", "cellForRow"]
 - !private ["Ps23CustomStringConvertible", "cgColor"]
 - !private ["Ps23CustomStringConvertible", "condition"]
@@ -701,6 +762,7 @@ depends-member:
 - ["Ps23CustomStringConvertible", "displaySelectedMedicationData"]
 - !private ["Ps23CustomStringConvertible", "dosage"]
 - !private ["Ps23CustomStringConvertible", "dosageTxtFld"]
+- ["Ps23CustomStringConvertible", "editMedArray"]
 - ["Ps23CustomStringConvertible", "editMedication"]
 - !private ["Ps23CustomStringConvertible", "endEditing"]
 - !private ["Ps23CustomStringConvertible", "failure"]
@@ -731,6 +793,7 @@ depends-member:
 - ["Ps23CustomStringConvertible", "numberOfComponentsInPickerView"]
 - ["Ps23CustomStringConvertible", "numberOfSections"]
 - ["Ps23CustomStringConvertible", "numberOfSectionsInTableView"]
+- !private ["Ps23CustomStringConvertible", "object"]
 - ["Ps23CustomStringConvertible", "pickerView"]
 - ["Ps23CustomStringConvertible", "pickerViewContainer"]
 - !private ["Ps23CustomStringConvertible", "popViewController"]
@@ -766,6 +829,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "selectionStyle"]
 - ["Ps23CustomStringConvertible", "setCorners"]
 - ["Ps23CustomStringConvertible", "setUI"]
+- !private ["Ps23CustomStringConvertible", "setValue"]
 - !private ["Ps23CustomStringConvertible", "shadowColor"]
 - !private ["Ps23CustomStringConvertible", "shadowOffset"]
 - !private ["Ps23CustomStringConvertible", "shadowOpacity"]
@@ -775,6 +839,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "string"]
 - !private ["Ps23CustomStringConvertible", "subscript"]
 - !private ["Ps23CustomStringConvertible", "success"]
+- !private ["Ps23CustomStringConvertible", "synchronize"]
 - !private ["Ps23CustomStringConvertible", "tabBarController"]
 - !private ["Ps23CustomStringConvertible", "tableFooterView"]
 - ["Ps23CustomStringConvertible", "tableView"]
@@ -823,7 +888,9 @@ depends-member:
 - ["C11DiabetesApp28EditMedicationViewController", "IndexPath"]
 - ["C11DiabetesApp28EditMedicationViewController", "Int"]
 - !private ["C11DiabetesApp28EditMedicationViewController", "JSONEncoding"]
+- !private ["C11DiabetesApp28EditMedicationViewController", "NSArray"]
 - ["C11DiabetesApp28EditMedicationViewController", "NSMutableArray"]
+- !private ["C11DiabetesApp28EditMedicationViewController", "NSMutableDictionary"]
 - ["C11DiabetesApp28EditMedicationViewController", "NSRange"]
 - !private ["C11DiabetesApp28EditMedicationViewController", "NSString"]
 - !private ["C11DiabetesApp28EditMedicationViewController", "Parameters"]
@@ -855,6 +922,7 @@ depends-member:
 - ["C11DiabetesApp28EditMedicationViewController", "deinit"]
 - ["C11DiabetesApp28EditMedicationViewController", "didReceiveMemoryWarning"]
 - ["C11DiabetesApp28EditMedicationViewController", "displaySelectedMedicationData"]
+- ["C11DiabetesApp28EditMedicationViewController", "editMedArray"]
 - ["C11DiabetesApp28EditMedicationViewController", "editMedication"]
 - !private ["C11DiabetesApp28EditMedicationViewController", "frequnecyArray"]
 - ["C11DiabetesApp28EditMedicationViewController", "indexPathForPreferredFocusedView"]
@@ -918,13 +986,17 @@ depends-member:
 - ["Ps9Equatable", "CarePlanObj"]
 - !private ["Ps9Equatable", "CharacterSet"]
 - !private ["Ps9Equatable", "IndexPath"]
+- !private ["Ps9Equatable", "IntegerLiteralType"]
+- !private ["Ps9Equatable", "Iterator"]
 - !private ["Ps9Equatable", "JSONEncoding"]
 - ["Ps9Equatable", "NSMutableArray"]
+- !private ["Ps9Equatable", "NSMutableDictionary"]
 - !private ["Ps9Equatable", "NSString"]
 - !private ["Ps9Equatable", "RawValue"]
 - !private ["Ps9Equatable", "SVProgressHUD"]
 - !private ["Ps9Equatable", "SVProgressHUDMaskType"]
 - ["Ps9Equatable", "SaveBtn_Click"]
+- !private ["Ps9Equatable", "Stride"]
 - !private ["Ps9Equatable", "String"]
 - ["Ps9Equatable", "ToolBarBtns_Click"]
 - !private ["Ps9Equatable", "UIColor"]
@@ -935,6 +1007,8 @@ depends-member:
 - ["Ps9Equatable", "UIView"]
 - !private ["Ps9Equatable", "UserDefaults"]
 - !private ["Ps9Equatable", "UtilityClass"]
+- !private ["Ps9Equatable", "_DisabledRangeIndex"]
+- !private ["Ps9Equatable", "_Element"]
 - !private ["Ps9Equatable", "_getBuiltinLogicValue"]
 - !private ["Ps9Equatable", "add"]
 - !private ["Ps9Equatable", "addGestureRecognizer"]
@@ -947,6 +1021,7 @@ depends-member:
 - !private ["Ps9Equatable", "backgroundColor"]
 - !private ["Ps9Equatable", "baseUrl"]
 - !private ["Ps9Equatable", "black"]
+- !private ["Ps9Equatable", "bool"]
 - !private ["Ps9Equatable", "bottom"]
 - !private ["Ps9Equatable", "cellForRow"]
 - !private ["Ps9Equatable", "cgColor"]
@@ -963,6 +1038,7 @@ depends-member:
 - ["Ps9Equatable", "displaySelectedMedicationData"]
 - !private ["Ps9Equatable", "dosage"]
 - !private ["Ps9Equatable", "dosageTxtFld"]
+- ["Ps9Equatable", "editMedArray"]
 - ["Ps9Equatable", "editMedication"]
 - !private ["Ps9Equatable", "endEditing"]
 - !private ["Ps9Equatable", "frequency"]
@@ -993,6 +1069,7 @@ depends-member:
 - ["Ps9Equatable", "numberOfComponentsInPickerView"]
 - ["Ps9Equatable", "numberOfSections"]
 - ["Ps9Equatable", "numberOfSectionsInTableView"]
+- !private ["Ps9Equatable", "object"]
 - ["Ps9Equatable", "pickerView"]
 - ["Ps9Equatable", "pickerViewContainer"]
 - !private ["Ps9Equatable", "popViewController"]
@@ -1027,6 +1104,7 @@ depends-member:
 - !private ["Ps9Equatable", "selectionStyle"]
 - ["Ps9Equatable", "setCorners"]
 - ["Ps9Equatable", "setUI"]
+- !private ["Ps9Equatable", "setValue"]
 - !private ["Ps9Equatable", "shadowColor"]
 - !private ["Ps9Equatable", "shadowOffset"]
 - !private ["Ps9Equatable", "shadowOpacity"]
@@ -1035,6 +1113,7 @@ depends-member:
 - !private ["Ps9Equatable", "standard"]
 - !private ["Ps9Equatable", "string"]
 - !private ["Ps9Equatable", "subscript"]
+- !private ["Ps9Equatable", "synchronize"]
 - !private ["Ps9Equatable", "tabBarController"]
 - !private ["Ps9Equatable", "tableFooterView"]
 - ["Ps9Equatable", "tableView"]
@@ -1065,6 +1144,7 @@ depends-member:
 - !private ["Ps25ExpressibleByArrayLiteral", "add"]
 - !private ["Ps25ExpressibleByArrayLiteral", "count"]
 - ["Ps25ExpressibleByArrayLiteral", "init"]
+- !private ["Ps25ExpressibleByArrayLiteral", "object"]
 - !private ["Ps25ExpressibleByArrayLiteral", "replaceObject"]
 - !private ["Ps25ExpressibleByArrayLiteral", "row"]
 - !private ["Ps25ExpressibleByArrayLiteral", "subscript"]
@@ -1072,11 +1152,16 @@ depends-member:
 - !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
 - !private ["Ps30ExpressibleByDictionaryLiteral", "Key"]
 - !private ["Ps30ExpressibleByDictionaryLiteral", "Value"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "init"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "setValue"]
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "length"]
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "localized"]
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "replacingCharacters"]
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "trimmingCharacters"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "IntegerLiteralType"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "Stride"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "_DisabledRangeIndex"]
 - !private ["Ps32ExpressibleByStringInterpolation", "init"]
 - !private ["Ps32ExpressibleByStringInterpolation", "length"]
 - !private ["Ps32ExpressibleByStringInterpolation", "localized"]
@@ -1103,13 +1188,16 @@ depends-member:
 - ["Ps8Hashable", "CarePlanObj"]
 - !private ["Ps8Hashable", "CharacterSet"]
 - !private ["Ps8Hashable", "IndexPath"]
+- !private ["Ps8Hashable", "IntegerLiteralType"]
 - !private ["Ps8Hashable", "JSONEncoding"]
 - ["Ps8Hashable", "NSMutableArray"]
+- !private ["Ps8Hashable", "NSMutableDictionary"]
 - !private ["Ps8Hashable", "NSString"]
 - !private ["Ps8Hashable", "RawValue"]
 - !private ["Ps8Hashable", "SVProgressHUD"]
 - !private ["Ps8Hashable", "SVProgressHUDMaskType"]
 - ["Ps8Hashable", "SaveBtn_Click"]
+- !private ["Ps8Hashable", "Stride"]
 - !private ["Ps8Hashable", "String"]
 - ["Ps8Hashable", "ToolBarBtns_Click"]
 - !private ["Ps8Hashable", "UIColor"]
@@ -1120,6 +1208,7 @@ depends-member:
 - ["Ps8Hashable", "UIView"]
 - !private ["Ps8Hashable", "UserDefaults"]
 - !private ["Ps8Hashable", "UtilityClass"]
+- !private ["Ps8Hashable", "_DisabledRangeIndex"]
 - !private ["Ps8Hashable", "_getBuiltinLogicValue"]
 - !private ["Ps8Hashable", "add"]
 - !private ["Ps8Hashable", "addGestureRecognizer"]
@@ -1132,6 +1221,7 @@ depends-member:
 - !private ["Ps8Hashable", "backgroundColor"]
 - !private ["Ps8Hashable", "baseUrl"]
 - !private ["Ps8Hashable", "black"]
+- !private ["Ps8Hashable", "bool"]
 - !private ["Ps8Hashable", "bottom"]
 - !private ["Ps8Hashable", "cellForRow"]
 - !private ["Ps8Hashable", "cgColor"]
@@ -1148,6 +1238,7 @@ depends-member:
 - ["Ps8Hashable", "displaySelectedMedicationData"]
 - !private ["Ps8Hashable", "dosage"]
 - !private ["Ps8Hashable", "dosageTxtFld"]
+- ["Ps8Hashable", "editMedArray"]
 - ["Ps8Hashable", "editMedication"]
 - !private ["Ps8Hashable", "endEditing"]
 - !private ["Ps8Hashable", "frequency"]
@@ -1178,6 +1269,7 @@ depends-member:
 - ["Ps8Hashable", "numberOfComponentsInPickerView"]
 - ["Ps8Hashable", "numberOfSections"]
 - ["Ps8Hashable", "numberOfSectionsInTableView"]
+- !private ["Ps8Hashable", "object"]
 - ["Ps8Hashable", "pickerView"]
 - ["Ps8Hashable", "pickerViewContainer"]
 - !private ["Ps8Hashable", "popViewController"]
@@ -1212,6 +1304,7 @@ depends-member:
 - !private ["Ps8Hashable", "selectionStyle"]
 - ["Ps8Hashable", "setCorners"]
 - ["Ps8Hashable", "setUI"]
+- !private ["Ps8Hashable", "setValue"]
 - !private ["Ps8Hashable", "shadowColor"]
 - !private ["Ps8Hashable", "shadowOffset"]
 - !private ["Ps8Hashable", "shadowOpacity"]
@@ -1220,6 +1313,7 @@ depends-member:
 - !private ["Ps8Hashable", "standard"]
 - !private ["Ps8Hashable", "string"]
 - !private ["Ps8Hashable", "subscript"]
+- !private ["Ps8Hashable", "synchronize"]
 - !private ["Ps8Hashable", "tabBarController"]
 - !private ["Ps8Hashable", "tableFooterView"]
 - ["Ps8Hashable", "tableView"]
@@ -1250,20 +1344,35 @@ depends-member:
 - !private ["V10Foundation9IndexPath", "init"]
 - !private ["V10Foundation9IndexPath", "row"]
 - !private ["Ps9Indexable", "Element"]
+- !private ["Ps9Indexable", "Iterator"]
 - !private ["Ps9Indexable", "Key"]
 - !private ["Ps9Indexable", "Value"]
+- !private ["Ps9Indexable", "_Element"]
 - !private ["Ps9Indexable", "init"]
 - !private ["Ps9Indexable", "row"]
 - !private ["Ps13IndexableBase", "Element"]
+- !private ["Ps13IndexableBase", "Iterator"]
 - !private ["Ps13IndexableBase", "Key"]
 - !private ["Ps13IndexableBase", "Value"]
+- !private ["Ps13IndexableBase", "_Element"]
 - !private ["Ps13IndexableBase", "init"]
 - !private ["Ps13IndexableBase", "row"]
+- !private ["Vs16IndexingIterator", "Element"]
+- !private ["Si", "IntegerLiteralType"]
+- !private ["Si", "Stride"]
+- !private ["Si", "_DisabledRangeIndex"]
 - ["Si", "deinit"]
 - !private ["Vs5Int16", "deinit"]
 - !private ["Vs5Int32", "deinit"]
 - !private ["Vs5Int64", "deinit"]
 - !private ["Vs4Int8", "deinit"]
+- !private ["Ps7Integer", "IntegerLiteralType"]
+- !private ["Ps7Integer", "Stride"]
+- !private ["Ps7Integer", "_DisabledRangeIndex"]
+- !private ["Ps17IntegerArithmetic", "IntegerLiteralType"]
+- !private ["Ps17IntegerArithmetic", "Stride"]
+- !private ["Ps17IntegerArithmetic", "_DisabledRangeIndex"]
+- !private ["Ps16IteratorProtocol", "Element"]
 - !private ["V9Alamofire12JSONEncoding", "default"]
 - ["V9Alamofire12JSONEncoding", "deinit"]
 - !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
@@ -1271,6 +1380,9 @@ depends-member:
 - !private ["Ps25LosslessStringConvertible", "length"]
 - !private ["Ps25LosslessStringConvertible", "localized"]
 - !private ["Ps25LosslessStringConvertible", "trimmingCharacters"]
+- !private ["Ps10MirrorPath", "IntegerLiteralType"]
+- !private ["Ps10MirrorPath", "Stride"]
+- !private ["Ps10MirrorPath", "_DisabledRangeIndex"]
 - !private ["Ps10MirrorPath", "init"]
 - !private ["Ps10MirrorPath", "length"]
 - !private ["Ps10MirrorPath", "localized"]
@@ -1285,6 +1397,7 @@ depends-member:
 - !private ["CSo7NSArray", "count"]
 - ["CSo7NSArray", "deinit"]
 - ["CSo7NSArray", "init"]
+- !private ["CSo7NSArray", "object"]
 - !private ["CSo7NSArray", "replaceObject"]
 - !private ["CSo7NSArray", "subscript"]
 - ["CSo7NSCoder", "deinit"]
@@ -1299,6 +1412,7 @@ depends-member:
 - !private ["PSo8NSCoding", "IndexPath"]
 - !private ["PSo8NSCoding", "JSONEncoding"]
 - ["PSo8NSCoding", "NSMutableArray"]
+- !private ["PSo8NSCoding", "NSMutableDictionary"]
 - !private ["PSo8NSCoding", "NSString"]
 - !private ["PSo8NSCoding", "SVProgressHUD"]
 - !private ["PSo8NSCoding", "SVProgressHUDMaskType"]
@@ -1335,6 +1449,7 @@ depends-member:
 - !private ["PSo8NSCoding", "dismiss"]
 - ["PSo8NSCoding", "displaySelectedMedicationData"]
 - !private ["PSo8NSCoding", "dosageTxtFld"]
+- ["PSo8NSCoding", "editMedArray"]
 - ["PSo8NSCoding", "editMedication"]
 - !private ["PSo8NSCoding", "endEditing"]
 - !private ["PSo8NSCoding", "frequencyTxtFld"]
@@ -1361,6 +1476,7 @@ depends-member:
 - ["PSo8NSCoding", "numberOfComponentsInPickerView"]
 - ["PSo8NSCoding", "numberOfSections"]
 - ["PSo8NSCoding", "numberOfSectionsInTableView"]
+- !private ["PSo8NSCoding", "object"]
 - ["PSo8NSCoding", "pickerView"]
 - ["PSo8NSCoding", "pickerViewContainer"]
 - !private ["PSo8NSCoding", "popViewController"]
@@ -1393,6 +1509,7 @@ depends-member:
 - !private ["PSo8NSCoding", "selectionStyle"]
 - ["PSo8NSCoding", "setCorners"]
 - ["PSo8NSCoding", "setUI"]
+- !private ["PSo8NSCoding", "setValue"]
 - !private ["PSo8NSCoding", "shadowColor"]
 - !private ["PSo8NSCoding", "shadowOffset"]
 - !private ["PSo8NSCoding", "shadowOpacity"]
@@ -1430,10 +1547,14 @@ depends-member:
 - ["PSo9NSCopying", "init"]
 - !private ["PSo9NSCopying", "length"]
 - !private ["PSo9NSCopying", "localized"]
+- !private ["PSo9NSCopying", "object"]
 - !private ["PSo9NSCopying", "replaceObject"]
 - !private ["PSo9NSCopying", "replacingCharacters"]
+- !private ["PSo9NSCopying", "setValue"]
 - !private ["PSo9NSCopying", "subscript"]
 - !private ["PSo9NSCopying", "trimmingCharacters"]
+- !private ["CSo12NSDictionary", "init"]
+- !private ["CSo12NSDictionary", "setValue"]
 - ["PSo26NSExtensionRequestHandling", "AddMedicine_Click"]
 - !private ["PSo26NSExtensionRequestHandling", "Alamofire"]
 - !private ["PSo26NSExtensionRequestHandling", "ApiMethods"]
@@ -1445,6 +1566,7 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "IndexPath"]
 - !private ["PSo26NSExtensionRequestHandling", "JSONEncoding"]
 - ["PSo26NSExtensionRequestHandling", "NSMutableArray"]
+- !private ["PSo26NSExtensionRequestHandling", "NSMutableDictionary"]
 - !private ["PSo26NSExtensionRequestHandling", "NSString"]
 - !private ["PSo26NSExtensionRequestHandling", "SVProgressHUD"]
 - !private ["PSo26NSExtensionRequestHandling", "SVProgressHUDMaskType"]
@@ -1468,6 +1590,7 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "createCustomTopView"]
 - ["PSo26NSExtensionRequestHandling", "didReceiveMemoryWarning"]
 - ["PSo26NSExtensionRequestHandling", "displaySelectedMedicationData"]
+- ["PSo26NSExtensionRequestHandling", "editMedArray"]
 - ["PSo26NSExtensionRequestHandling", "editMedication"]
 - !private ["PSo26NSExtensionRequestHandling", "frequnecyArray"]
 - ["PSo26NSExtensionRequestHandling", "indexPathForPreferredFocusedView"]
@@ -1528,12 +1651,17 @@ depends-member:
 - !private ["PSo17NSFastEnumeration", "add"]
 - !private ["PSo17NSFastEnumeration", "count"]
 - ["PSo17NSFastEnumeration", "init"]
+- !private ["PSo17NSFastEnumeration", "object"]
 - !private ["PSo17NSFastEnumeration", "replaceObject"]
+- !private ["PSo17NSFastEnumeration", "setValue"]
 - !private ["PSo17NSFastEnumeration", "subscript"]
+- !private ["PSo20NSFetchRequestResult", "init"]
+- !private ["PSo20NSFetchRequestResult", "setValue"]
 - !private ["CSo14NSMutableArray", "add"]
 - !private ["CSo14NSMutableArray", "count"]
 - ["CSo14NSMutableArray", "deinit"]
 - ["CSo14NSMutableArray", "init"]
+- !private ["CSo14NSMutableArray", "object"]
 - !private ["CSo14NSMutableArray", "replaceObject"]
 - !private ["CSo14NSMutableArray", "subscript"]
 - !private ["PSo16NSMutableCopying", "add"]
@@ -1541,10 +1669,15 @@ depends-member:
 - ["PSo16NSMutableCopying", "init"]
 - !private ["PSo16NSMutableCopying", "length"]
 - !private ["PSo16NSMutableCopying", "localized"]
+- !private ["PSo16NSMutableCopying", "object"]
 - !private ["PSo16NSMutableCopying", "replaceObject"]
 - !private ["PSo16NSMutableCopying", "replacingCharacters"]
+- !private ["PSo16NSMutableCopying", "setValue"]
 - !private ["PSo16NSMutableCopying", "subscript"]
 - !private ["PSo16NSMutableCopying", "trimmingCharacters"]
+- ["CSo19NSMutableDictionary", "deinit"]
+- !private ["CSo19NSMutableDictionary", "init"]
+- !private ["CSo19NSMutableDictionary", "setValue"]
 - ["CSo8NSObject", "AddMedicine_Click"]
 - !private ["CSo8NSObject", "Alamofire"]
 - !private ["CSo8NSObject", "AnyObject"]
@@ -1560,7 +1693,9 @@ depends-member:
 - ["CSo8NSObject", "IndexPath"]
 - ["CSo8NSObject", "Int"]
 - !private ["CSo8NSObject", "JSONEncoding"]
+- !private ["CSo8NSObject", "NSArray"]
 - ["CSo8NSObject", "NSMutableArray"]
+- !private ["CSo8NSObject", "NSMutableDictionary"]
 - ["CSo8NSObject", "NSRange"]
 - !private ["CSo8NSObject", "NSString"]
 - !private ["CSo8NSObject", "Parameters"]
@@ -1594,6 +1729,7 @@ depends-member:
 - !private ["CSo8NSObject", "backgroundColor"]
 - !private ["CSo8NSObject", "baseUrl"]
 - !private ["CSo8NSObject", "black"]
+- !private ["CSo8NSObject", "bool"]
 - !private ["CSo8NSObject", "cellForRow"]
 - !private ["CSo8NSObject", "cgColor"]
 - !private ["CSo8NSObject", "condition"]
@@ -1608,6 +1744,7 @@ depends-member:
 - ["CSo8NSObject", "displaySelectedMedicationData"]
 - !private ["CSo8NSObject", "dosage"]
 - !private ["CSo8NSObject", "dosageTxtFld"]
+- ["CSo8NSObject", "editMedArray"]
 - ["CSo8NSObject", "editMedication"]
 - !private ["CSo8NSObject", "endEditing"]
 - !private ["CSo8NSObject", "frequency"]
@@ -1637,6 +1774,7 @@ depends-member:
 - ["CSo8NSObject", "numberOfComponentsInPickerView"]
 - ["CSo8NSObject", "numberOfSections"]
 - ["CSo8NSObject", "numberOfSectionsInTableView"]
+- !private ["CSo8NSObject", "object"]
 - ["CSo8NSObject", "pickerView"]
 - ["CSo8NSObject", "pickerViewContainer"]
 - !private ["CSo8NSObject", "popViewController"]
@@ -1669,6 +1807,7 @@ depends-member:
 - !private ["CSo8NSObject", "selectionStyle"]
 - ["CSo8NSObject", "setCorners"]
 - ["CSo8NSObject", "setUI"]
+- !private ["CSo8NSObject", "setValue"]
 - !private ["CSo8NSObject", "shadowColor"]
 - !private ["CSo8NSObject", "shadowOffset"]
 - !private ["CSo8NSObject", "shadowOpacity"]
@@ -1677,6 +1816,7 @@ depends-member:
 - !private ["CSo8NSObject", "standard"]
 - !private ["CSo8NSObject", "string"]
 - !private ["CSo8NSObject", "subscript"]
+- !private ["CSo8NSObject", "synchronize"]
 - !private ["CSo8NSObject", "tabBarController"]
 - !private ["CSo8NSObject", "tableFooterView"]
 - ["CSo8NSObject", "tableView"]
@@ -1711,6 +1851,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "IndexPath"]
 - !private ["PSo16NSObjectProtocol", "JSONEncoding"]
 - ["PSo16NSObjectProtocol", "NSMutableArray"]
+- !private ["PSo16NSObjectProtocol", "NSMutableDictionary"]
 - !private ["PSo16NSObjectProtocol", "NSString"]
 - !private ["PSo16NSObjectProtocol", "RawValue"]
 - !private ["PSo16NSObjectProtocol", "SVProgressHUD"]
@@ -1737,6 +1878,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "backgroundColor"]
 - !private ["PSo16NSObjectProtocol", "baseUrl"]
 - !private ["PSo16NSObjectProtocol", "black"]
+- !private ["PSo16NSObjectProtocol", "bool"]
 - !private ["PSo16NSObjectProtocol", "cellForRow"]
 - !private ["PSo16NSObjectProtocol", "cgColor"]
 - !private ["PSo16NSObjectProtocol", "condition"]
@@ -1751,6 +1893,7 @@ depends-member:
 - ["PSo16NSObjectProtocol", "displaySelectedMedicationData"]
 - !private ["PSo16NSObjectProtocol", "dosage"]
 - !private ["PSo16NSObjectProtocol", "dosageTxtFld"]
+- ["PSo16NSObjectProtocol", "editMedArray"]
 - ["PSo16NSObjectProtocol", "editMedication"]
 - !private ["PSo16NSObjectProtocol", "endEditing"]
 - !private ["PSo16NSObjectProtocol", "frequency"]
@@ -1780,6 +1923,7 @@ depends-member:
 - ["PSo16NSObjectProtocol", "numberOfComponentsInPickerView"]
 - ["PSo16NSObjectProtocol", "numberOfSections"]
 - ["PSo16NSObjectProtocol", "numberOfSectionsInTableView"]
+- !private ["PSo16NSObjectProtocol", "object"]
 - ["PSo16NSObjectProtocol", "pickerView"]
 - ["PSo16NSObjectProtocol", "pickerViewContainer"]
 - !private ["PSo16NSObjectProtocol", "popViewController"]
@@ -1812,6 +1956,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "selectionStyle"]
 - ["PSo16NSObjectProtocol", "setCorners"]
 - ["PSo16NSObjectProtocol", "setUI"]
+- !private ["PSo16NSObjectProtocol", "setValue"]
 - !private ["PSo16NSObjectProtocol", "shadowColor"]
 - !private ["PSo16NSObjectProtocol", "shadowOffset"]
 - !private ["PSo16NSObjectProtocol", "shadowOpacity"]
@@ -1820,6 +1965,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "standard"]
 - !private ["PSo16NSObjectProtocol", "string"]
 - !private ["PSo16NSObjectProtocol", "subscript"]
+- !private ["PSo16NSObjectProtocol", "synchronize"]
 - !private ["PSo16NSObjectProtocol", "tabBarController"]
 - !private ["PSo16NSObjectProtocol", "tableFooterView"]
 - ["PSo16NSObjectProtocol", "tableView"]
@@ -1851,8 +1997,10 @@ depends-member:
 - ["PSo14NSSecureCoding", "init"]
 - !private ["PSo14NSSecureCoding", "length"]
 - !private ["PSo14NSSecureCoding", "localized"]
+- !private ["PSo14NSSecureCoding", "object"]
 - !private ["PSo14NSSecureCoding", "replaceObject"]
 - !private ["PSo14NSSecureCoding", "replacingCharacters"]
+- !private ["PSo14NSSecureCoding", "setValue"]
 - !private ["PSo14NSSecureCoding", "subscript"]
 - !private ["PSo14NSSecureCoding", "trimmingCharacters"]
 - ["CSo8NSString", "deinit"]
@@ -1864,11 +2012,16 @@ depends-member:
 - ["Sq", "deinit"]
 - !private ["P9Alamofire17ParameterEncoding", "default"]
 - !private ["Ps22RandomAccessCollection", "Element"]
+- !private ["Ps22RandomAccessCollection", "Iterator"]
+- !private ["Ps22RandomAccessCollection", "_Element"]
 - !private ["Ps22RandomAccessCollection", "init"]
 - !private ["Ps22RandomAccessCollection", "row"]
 - !private ["Ps21RandomAccessIndexable", "Element"]
+- !private ["Ps21RandomAccessIndexable", "Iterator"]
+- !private ["Ps21RandomAccessIndexable", "_Element"]
 - !private ["Ps21RandomAccessIndexable", "init"]
 - !private ["Ps21RandomAccessIndexable", "row"]
+- !private ["Vs5Range", "deinit"]
 - !private ["Ps26RangeReplaceableCollection", "Element"]
 - !private ["Ps25RangeReplaceableIndexable", "Element"]
 - !private ["Ps16RawRepresentable", "bottom"]
@@ -1889,15 +2042,28 @@ depends-member:
 - ["OSC21SVProgressHUDMaskType", "deinit"]
 - ["V10ObjectiveC8Selector", "deinit"]
 - !private ["Ps8Sequence", "Element"]
+- !private ["Ps8Sequence", "Iterator"]
 - !private ["Ps8Sequence", "Key"]
 - !private ["Ps8Sequence", "Value"]
+- !private ["Ps8Sequence", "_Element"]
 - !private ["Ps8Sequence", "add"]
 - !private ["Ps8Sequence", "count"]
 - ["Ps8Sequence", "init"]
+- !private ["Ps8Sequence", "object"]
 - !private ["Ps8Sequence", "replaceObject"]
 - !private ["Ps8Sequence", "row"]
+- !private ["Ps8Sequence", "setValue"]
 - !private ["Ps8Sequence", "subscript"]
 - !private ["Ps10SetAlgebra", "whitespaces"]
+- !private ["Ps13SignedInteger", "IntegerLiteralType"]
+- !private ["Ps13SignedInteger", "Stride"]
+- !private ["Ps13SignedInteger", "_DisabledRangeIndex"]
+- !private ["Ps12SignedNumber", "IntegerLiteralType"]
+- !private ["Ps12SignedNumber", "Stride"]
+- !private ["Ps12SignedNumber", "_DisabledRangeIndex"]
+- !private ["Ps10Strideable", "IntegerLiteralType"]
+- !private ["Ps10Strideable", "Stride"]
+- !private ["Ps10Strideable", "_DisabledRangeIndex"]
 - ["SS", "deinit"]
 - !private ["SS", "init"]
 - !private ["SS", "length"]
@@ -1977,6 +2143,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "IndexPath"]
 - !private ["PSo21UIAppearanceContainer", "JSONEncoding"]
 - ["PSo21UIAppearanceContainer", "NSMutableArray"]
+- !private ["PSo21UIAppearanceContainer", "NSMutableDictionary"]
 - !private ["PSo21UIAppearanceContainer", "NSString"]
 - !private ["PSo21UIAppearanceContainer", "SVProgressHUD"]
 - !private ["PSo21UIAppearanceContainer", "SVProgressHUDMaskType"]
@@ -2008,6 +2175,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "dismiss"]
 - ["PSo21UIAppearanceContainer", "displaySelectedMedicationData"]
 - !private ["PSo21UIAppearanceContainer", "dosageTxtFld"]
+- ["PSo21UIAppearanceContainer", "editMedArray"]
 - ["PSo21UIAppearanceContainer", "editMedication"]
 - !private ["PSo21UIAppearanceContainer", "endEditing"]
 - !private ["PSo21UIAppearanceContainer", "frequencyTxtFld"]
@@ -2099,6 +2267,7 @@ depends-member:
 - !private ["PSo18UIContentContainer", "IndexPath"]
 - !private ["PSo18UIContentContainer", "JSONEncoding"]
 - ["PSo18UIContentContainer", "NSMutableArray"]
+- !private ["PSo18UIContentContainer", "NSMutableDictionary"]
 - !private ["PSo18UIContentContainer", "NSString"]
 - !private ["PSo18UIContentContainer", "SVProgressHUD"]
 - !private ["PSo18UIContentContainer", "SVProgressHUDMaskType"]
@@ -2122,6 +2291,7 @@ depends-member:
 - ["PSo18UIContentContainer", "createCustomTopView"]
 - ["PSo18UIContentContainer", "didReceiveMemoryWarning"]
 - ["PSo18UIContentContainer", "displaySelectedMedicationData"]
+- ["PSo18UIContentContainer", "editMedArray"]
 - ["PSo18UIContentContainer", "editMedication"]
 - !private ["PSo18UIContentContainer", "frequnecyArray"]
 - ["PSo18UIContentContainer", "indexPathForPreferredFocusedView"]
@@ -2250,6 +2420,7 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "IndexPath"]
 - !private ["PSo18UIFocusEnvironment", "JSONEncoding"]
 - ["PSo18UIFocusEnvironment", "NSMutableArray"]
+- !private ["PSo18UIFocusEnvironment", "NSMutableDictionary"]
 - !private ["PSo18UIFocusEnvironment", "NSString"]
 - !private ["PSo18UIFocusEnvironment", "SVProgressHUD"]
 - !private ["PSo18UIFocusEnvironment", "SVProgressHUDMaskType"]
@@ -2281,6 +2452,7 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "dismiss"]
 - ["PSo18UIFocusEnvironment", "displaySelectedMedicationData"]
 - !private ["PSo18UIFocusEnvironment", "dosageTxtFld"]
+- ["PSo18UIFocusEnvironment", "editMedArray"]
 - ["PSo18UIFocusEnvironment", "editMedication"]
 - !private ["PSo18UIFocusEnvironment", "endEditing"]
 - !private ["PSo18UIFocusEnvironment", "frequencyTxtFld"]
@@ -2418,6 +2590,7 @@ depends-member:
 - !private ["PSo22UIPickerViewDataSource", "IndexPath"]
 - !private ["PSo22UIPickerViewDataSource", "JSONEncoding"]
 - ["PSo22UIPickerViewDataSource", "NSMutableArray"]
+- !private ["PSo22UIPickerViewDataSource", "NSMutableDictionary"]
 - !private ["PSo22UIPickerViewDataSource", "NSString"]
 - !private ["PSo22UIPickerViewDataSource", "SVProgressHUD"]
 - !private ["PSo22UIPickerViewDataSource", "SVProgressHUDMaskType"]
@@ -2438,6 +2611,7 @@ depends-member:
 - !private ["PSo22UIPickerViewDataSource", "baseUrl"]
 - !private ["PSo22UIPickerViewDataSource", "createCustomTopView"]
 - !private ["PSo22UIPickerViewDataSource", "displaySelectedMedicationData"]
+- !private ["PSo22UIPickerViewDataSource", "editMedArray"]
 - !private ["PSo22UIPickerViewDataSource", "editMedication"]
 - !private ["PSo22UIPickerViewDataSource", "frequnecyArray"]
 - ["PSo22UIPickerViewDataSource", "indexPathForPreferredFocusedView"]
@@ -2499,6 +2673,7 @@ depends-member:
 - !private ["PSo20UIPickerViewDelegate", "IndexPath"]
 - !private ["PSo20UIPickerViewDelegate", "JSONEncoding"]
 - ["PSo20UIPickerViewDelegate", "NSMutableArray"]
+- !private ["PSo20UIPickerViewDelegate", "NSMutableDictionary"]
 - !private ["PSo20UIPickerViewDelegate", "NSString"]
 - !private ["PSo20UIPickerViewDelegate", "SVProgressHUD"]
 - !private ["PSo20UIPickerViewDelegate", "SVProgressHUDMaskType"]
@@ -2519,6 +2694,7 @@ depends-member:
 - !private ["PSo20UIPickerViewDelegate", "baseUrl"]
 - !private ["PSo20UIPickerViewDelegate", "createCustomTopView"]
 - !private ["PSo20UIPickerViewDelegate", "displaySelectedMedicationData"]
+- !private ["PSo20UIPickerViewDelegate", "editMedArray"]
 - !private ["PSo20UIPickerViewDelegate", "editMedication"]
 - !private ["PSo20UIPickerViewDelegate", "frequnecyArray"]
 - ["PSo20UIPickerViewDelegate", "indexPathForPreferredFocusedView"]
@@ -2585,7 +2761,9 @@ depends-member:
 - ["CSo11UIResponder", "IndexPath"]
 - ["CSo11UIResponder", "Int"]
 - !private ["CSo11UIResponder", "JSONEncoding"]
+- !private ["CSo11UIResponder", "NSArray"]
 - ["CSo11UIResponder", "NSMutableArray"]
+- !private ["CSo11UIResponder", "NSMutableDictionary"]
 - ["CSo11UIResponder", "NSRange"]
 - !private ["CSo11UIResponder", "NSString"]
 - !private ["CSo11UIResponder", "Parameters"]
@@ -2624,6 +2802,7 @@ depends-member:
 - !private ["CSo11UIResponder", "dismiss"]
 - ["CSo11UIResponder", "displaySelectedMedicationData"]
 - !private ["CSo11UIResponder", "dosageTxtFld"]
+- ["CSo11UIResponder", "editMedArray"]
 - ["CSo11UIResponder", "editMedication"]
 - !private ["CSo11UIResponder", "endEditing"]
 - !private ["CSo11UIResponder", "frequencyTxtFld"]
@@ -2709,6 +2888,7 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "IndexPath"]
 - !private ["PSo30UIResponderStandardEditActions", "JSONEncoding"]
 - ["PSo30UIResponderStandardEditActions", "NSMutableArray"]
+- !private ["PSo30UIResponderStandardEditActions", "NSMutableDictionary"]
 - !private ["PSo30UIResponderStandardEditActions", "NSString"]
 - !private ["PSo30UIResponderStandardEditActions", "SVProgressHUD"]
 - !private ["PSo30UIResponderStandardEditActions", "SVProgressHUDMaskType"]
@@ -2740,6 +2920,7 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "dismiss"]
 - ["PSo30UIResponderStandardEditActions", "displaySelectedMedicationData"]
 - !private ["PSo30UIResponderStandardEditActions", "dosageTxtFld"]
+- ["PSo30UIResponderStandardEditActions", "editMedArray"]
 - ["PSo30UIResponderStandardEditActions", "editMedication"]
 - !private ["PSo30UIResponderStandardEditActions", "endEditing"]
 - !private ["PSo30UIResponderStandardEditActions", "frequencyTxtFld"]
@@ -2831,6 +3012,7 @@ depends-member:
 - !private ["PSo20UIScrollViewDelegate", "IndexPath"]
 - !private ["PSo20UIScrollViewDelegate", "JSONEncoding"]
 - ["PSo20UIScrollViewDelegate", "NSMutableArray"]
+- !private ["PSo20UIScrollViewDelegate", "NSMutableDictionary"]
 - !private ["PSo20UIScrollViewDelegate", "NSString"]
 - !private ["PSo20UIScrollViewDelegate", "SVProgressHUD"]
 - !private ["PSo20UIScrollViewDelegate", "SVProgressHUDMaskType"]
@@ -2851,6 +3033,7 @@ depends-member:
 - !private ["PSo20UIScrollViewDelegate", "baseUrl"]
 - !private ["PSo20UIScrollViewDelegate", "createCustomTopView"]
 - !private ["PSo20UIScrollViewDelegate", "displaySelectedMedicationData"]
+- !private ["PSo20UIScrollViewDelegate", "editMedArray"]
 - !private ["PSo20UIScrollViewDelegate", "editMedication"]
 - !private ["PSo20UIScrollViewDelegate", "frequnecyArray"]
 - ["PSo20UIScrollViewDelegate", "indexPathForPreferredFocusedView"]
@@ -2913,6 +3096,7 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "IndexPath"]
 - !private ["PSo16UIStateRestoring", "JSONEncoding"]
 - ["PSo16UIStateRestoring", "NSMutableArray"]
+- !private ["PSo16UIStateRestoring", "NSMutableDictionary"]
 - !private ["PSo16UIStateRestoring", "NSString"]
 - !private ["PSo16UIStateRestoring", "SVProgressHUD"]
 - !private ["PSo16UIStateRestoring", "SVProgressHUDMaskType"]
@@ -2936,6 +3120,7 @@ depends-member:
 - ["PSo16UIStateRestoring", "createCustomTopView"]
 - ["PSo16UIStateRestoring", "didReceiveMemoryWarning"]
 - ["PSo16UIStateRestoring", "displaySelectedMedicationData"]
+- ["PSo16UIStateRestoring", "editMedArray"]
 - ["PSo16UIStateRestoring", "editMedication"]
 - !private ["PSo16UIStateRestoring", "frequnecyArray"]
 - ["PSo16UIStateRestoring", "indexPathForPreferredFocusedView"]
@@ -3022,6 +3207,7 @@ depends-member:
 - !private ["PSo21UITableViewDataSource", "IndexPath"]
 - !private ["PSo21UITableViewDataSource", "JSONEncoding"]
 - ["PSo21UITableViewDataSource", "NSMutableArray"]
+- !private ["PSo21UITableViewDataSource", "NSMutableDictionary"]
 - !private ["PSo21UITableViewDataSource", "NSString"]
 - !private ["PSo21UITableViewDataSource", "SVProgressHUD"]
 - !private ["PSo21UITableViewDataSource", "SVProgressHUDMaskType"]
@@ -3042,6 +3228,7 @@ depends-member:
 - !private ["PSo21UITableViewDataSource", "baseUrl"]
 - !private ["PSo21UITableViewDataSource", "createCustomTopView"]
 - !private ["PSo21UITableViewDataSource", "displaySelectedMedicationData"]
+- !private ["PSo21UITableViewDataSource", "editMedArray"]
 - !private ["PSo21UITableViewDataSource", "editMedication"]
 - !private ["PSo21UITableViewDataSource", "frequnecyArray"]
 - ["PSo21UITableViewDataSource", "indexPathForPreferredFocusedView"]
@@ -3103,6 +3290,7 @@ depends-member:
 - !private ["PSo19UITableViewDelegate", "IndexPath"]
 - !private ["PSo19UITableViewDelegate", "JSONEncoding"]
 - ["PSo19UITableViewDelegate", "NSMutableArray"]
+- !private ["PSo19UITableViewDelegate", "NSMutableDictionary"]
 - !private ["PSo19UITableViewDelegate", "NSString"]
 - !private ["PSo19UITableViewDelegate", "SVProgressHUD"]
 - !private ["PSo19UITableViewDelegate", "SVProgressHUDMaskType"]
@@ -3123,6 +3311,7 @@ depends-member:
 - !private ["PSo19UITableViewDelegate", "baseUrl"]
 - !private ["PSo19UITableViewDelegate", "createCustomTopView"]
 - !private ["PSo19UITableViewDelegate", "displaySelectedMedicationData"]
+- !private ["PSo19UITableViewDelegate", "editMedArray"]
 - !private ["PSo19UITableViewDelegate", "editMedication"]
 - !private ["PSo19UITableViewDelegate", "frequnecyArray"]
 - ["PSo19UITableViewDelegate", "indexPathForPreferredFocusedView"]
@@ -3194,6 +3383,7 @@ depends-member:
 - !private ["PSo19UITextFieldDelegate", "IndexPath"]
 - !private ["PSo19UITextFieldDelegate", "JSONEncoding"]
 - ["PSo19UITextFieldDelegate", "NSMutableArray"]
+- !private ["PSo19UITextFieldDelegate", "NSMutableDictionary"]
 - !private ["PSo19UITextFieldDelegate", "NSString"]
 - !private ["PSo19UITextFieldDelegate", "SVProgressHUD"]
 - !private ["PSo19UITextFieldDelegate", "SVProgressHUDMaskType"]
@@ -3214,6 +3404,7 @@ depends-member:
 - !private ["PSo19UITextFieldDelegate", "baseUrl"]
 - !private ["PSo19UITextFieldDelegate", "createCustomTopView"]
 - !private ["PSo19UITextFieldDelegate", "displaySelectedMedicationData"]
+- !private ["PSo19UITextFieldDelegate", "editMedArray"]
 - !private ["PSo19UITextFieldDelegate", "editMedication"]
 - !private ["PSo19UITextFieldDelegate", "frequnecyArray"]
 - ["PSo19UITextFieldDelegate", "indexPathForPreferredFocusedView"]
@@ -3282,6 +3473,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "IndexPath"]
 - !private ["PSo18UITraitEnvironment", "JSONEncoding"]
 - ["PSo18UITraitEnvironment", "NSMutableArray"]
+- !private ["PSo18UITraitEnvironment", "NSMutableDictionary"]
 - !private ["PSo18UITraitEnvironment", "NSString"]
 - !private ["PSo18UITraitEnvironment", "SVProgressHUD"]
 - !private ["PSo18UITraitEnvironment", "SVProgressHUDMaskType"]
@@ -3313,6 +3505,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "dismiss"]
 - ["PSo18UITraitEnvironment", "displaySelectedMedicationData"]
 - !private ["PSo18UITraitEnvironment", "dosageTxtFld"]
+- ["PSo18UITraitEnvironment", "editMedArray"]
 - ["PSo18UITraitEnvironment", "editMedication"]
 - !private ["PSo18UITraitEnvironment", "endEditing"]
 - !private ["PSo18UITraitEnvironment", "frequencyTxtFld"]
@@ -3431,7 +3624,9 @@ depends-member:
 - ["CSo16UIViewController", "IndexPath"]
 - ["CSo16UIViewController", "Int"]
 - !private ["CSo16UIViewController", "JSONEncoding"]
+- !private ["CSo16UIViewController", "NSArray"]
 - ["CSo16UIViewController", "NSMutableArray"]
+- !private ["CSo16UIViewController", "NSMutableDictionary"]
 - ["CSo16UIViewController", "NSRange"]
 - !private ["CSo16UIViewController", "NSString"]
 - !private ["CSo16UIViewController", "Parameters"]
@@ -3463,6 +3658,7 @@ depends-member:
 - ["CSo16UIViewController", "deinit"]
 - ["CSo16UIViewController", "didReceiveMemoryWarning"]
 - ["CSo16UIViewController", "displaySelectedMedicationData"]
+- ["CSo16UIViewController", "editMedArray"]
 - ["CSo16UIViewController", "editMedication"]
 - !private ["CSo16UIViewController", "frequnecyArray"]
 - ["CSo16UIViewController", "indexPathForPreferredFocusedView"]
@@ -3531,9 +3727,13 @@ depends-member:
 - !private ["P9Alamofire14URLConvertible", "localized"]
 - !private ["P9Alamofire14URLConvertible", "trimmingCharacters"]
 - !private ["Sc", "deinit"]
+- !private ["CSo12UserDefaults", "array"]
+- !private ["CSo12UserDefaults", "bool"]
 - ["CSo12UserDefaults", "deinit"]
+- !private ["CSo12UserDefaults", "setValue"]
 - !private ["CSo12UserDefaults", "standard"]
 - !private ["CSo12UserDefaults", "string"]
+- !private ["CSo12UserDefaults", "synchronize"]
 - !private ["C11DiabetesApp12UtilityClass", "displayAlertMessage"]
 - !private ["Ps14_ArrayProtocol", "Element"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "addGestureRecognizer"]
@@ -3569,6 +3769,9 @@ depends-member:
 - !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "length"]
 - !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "localized"]
 - !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "trimmingCharacters"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "IntegerLiteralType"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "Stride"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "_DisabledRangeIndex"]
 - !private ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
 - !private ["Ps34_ExpressibleByBuiltinStringLiteral", "length"]
 - !private ["Ps34_ExpressibleByBuiltinStringLiteral", "localized"]
@@ -3599,13 +3802,16 @@ depends-member:
 - ["Ps9_Hashable", "CarePlanObj"]
 - !private ["Ps9_Hashable", "CharacterSet"]
 - !private ["Ps9_Hashable", "IndexPath"]
+- !private ["Ps9_Hashable", "IntegerLiteralType"]
 - !private ["Ps9_Hashable", "JSONEncoding"]
 - ["Ps9_Hashable", "NSMutableArray"]
+- !private ["Ps9_Hashable", "NSMutableDictionary"]
 - !private ["Ps9_Hashable", "NSString"]
 - !private ["Ps9_Hashable", "RawValue"]
 - !private ["Ps9_Hashable", "SVProgressHUD"]
 - !private ["Ps9_Hashable", "SVProgressHUDMaskType"]
 - ["Ps9_Hashable", "SaveBtn_Click"]
+- !private ["Ps9_Hashable", "Stride"]
 - !private ["Ps9_Hashable", "String"]
 - ["Ps9_Hashable", "ToolBarBtns_Click"]
 - !private ["Ps9_Hashable", "UIColor"]
@@ -3616,6 +3822,7 @@ depends-member:
 - ["Ps9_Hashable", "UIView"]
 - !private ["Ps9_Hashable", "UserDefaults"]
 - !private ["Ps9_Hashable", "UtilityClass"]
+- !private ["Ps9_Hashable", "_DisabledRangeIndex"]
 - !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
 - !private ["Ps9_Hashable", "add"]
 - !private ["Ps9_Hashable", "addGestureRecognizer"]
@@ -3628,6 +3835,7 @@ depends-member:
 - !private ["Ps9_Hashable", "backgroundColor"]
 - !private ["Ps9_Hashable", "baseUrl"]
 - !private ["Ps9_Hashable", "black"]
+- !private ["Ps9_Hashable", "bool"]
 - !private ["Ps9_Hashable", "bottom"]
 - !private ["Ps9_Hashable", "cellForRow"]
 - !private ["Ps9_Hashable", "cgColor"]
@@ -3644,6 +3852,7 @@ depends-member:
 - ["Ps9_Hashable", "displaySelectedMedicationData"]
 - !private ["Ps9_Hashable", "dosage"]
 - !private ["Ps9_Hashable", "dosageTxtFld"]
+- ["Ps9_Hashable", "editMedArray"]
 - ["Ps9_Hashable", "editMedication"]
 - !private ["Ps9_Hashable", "endEditing"]
 - !private ["Ps9_Hashable", "frequency"]
@@ -3674,6 +3883,7 @@ depends-member:
 - ["Ps9_Hashable", "numberOfComponentsInPickerView"]
 - ["Ps9_Hashable", "numberOfSections"]
 - ["Ps9_Hashable", "numberOfSectionsInTableView"]
+- !private ["Ps9_Hashable", "object"]
 - ["Ps9_Hashable", "pickerView"]
 - ["Ps9_Hashable", "pickerViewContainer"]
 - !private ["Ps9_Hashable", "popViewController"]
@@ -3708,6 +3918,7 @@ depends-member:
 - !private ["Ps9_Hashable", "selectionStyle"]
 - ["Ps9_Hashable", "setCorners"]
 - ["Ps9_Hashable", "setUI"]
+- !private ["Ps9_Hashable", "setValue"]
 - !private ["Ps9_Hashable", "shadowColor"]
 - !private ["Ps9_Hashable", "shadowOffset"]
 - !private ["Ps9_Hashable", "shadowOpacity"]
@@ -3716,6 +3927,7 @@ depends-member:
 - !private ["Ps9_Hashable", "standard"]
 - !private ["Ps9_Hashable", "string"]
 - !private ["Ps9_Hashable", "subscript"]
+- !private ["Ps9_Hashable", "synchronize"]
 - !private ["Ps9_Hashable", "tabBarController"]
 - !private ["Ps9_Hashable", "tableFooterView"]
 - ["Ps9_Hashable", "tableView"]
@@ -3741,11 +3953,23 @@ depends-member:
 - ["Ps9_Hashable", "viewWillDisappear"]
 - !private ["Ps9_Hashable", "whitespaces"]
 - ["Ps9_Hashable", ""]
+- !private ["Ps14_Incrementable", "IntegerLiteralType"]
+- !private ["Ps14_Incrementable", "Stride"]
+- !private ["Ps14_Incrementable", "_DisabledRangeIndex"]
+- !private ["Ps8_Integer", "IntegerLiteralType"]
+- !private ["Ps8_Integer", "Stride"]
+- !private ["Ps8_Integer", "_DisabledRangeIndex"]
+- !private ["Ps18_IntegerArithmetic", "IntegerLiteralType"]
+- !private ["Ps18_IntegerArithmetic", "Stride"]
+- !private ["Ps18_IntegerArithmetic", "_DisabledRangeIndex"]
 - !private ["P10Foundation18_MutablePairBoxing", "whitespaces"]
 - ["VSC8_NSRange", "deinit"]
 - !private ["Ps21_ObjectiveCBridgeable", "Element"]
+- !private ["Ps21_ObjectiveCBridgeable", "IntegerLiteralType"]
 - !private ["Ps21_ObjectiveCBridgeable", "Key"]
+- !private ["Ps21_ObjectiveCBridgeable", "Stride"]
 - !private ["Ps21_ObjectiveCBridgeable", "Value"]
+- !private ["Ps21_ObjectiveCBridgeable", "_DisabledRangeIndex"]
 - !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
 - !private ["Ps21_ObjectiveCBridgeable", "init"]
 - !private ["Ps21_ObjectiveCBridgeable", "length"]
@@ -3755,6 +3979,12 @@ depends-member:
 - !private ["Ps21_ObjectiveCBridgeable", "whitespaces"]
 - !private ["Ps21_ObjectiveCBridgeable", "zero"]
 - !private ["Vs26_OptionalNilComparisonType", "deinit"]
+- !private ["Ps14_SignedInteger", "IntegerLiteralType"]
+- !private ["Ps14_SignedInteger", "Stride"]
+- !private ["Ps14_SignedInteger", "_DisabledRangeIndex"]
+- !private ["Ps11_Strideable", "IntegerLiteralType"]
+- !private ["Ps11_Strideable", "Stride"]
+- !private ["Ps11_Strideable", "_DisabledRangeIndex"]
 - !private ["V11DiabetesApp12userDefaults", "selectedPatientID"]
 depends-nominal:
 - "Ps9AnyObject"
@@ -3762,6 +3992,7 @@ depends-nominal:
 - "Sa"
 - !private "Ps23BidirectionalCollection"
 - !private "Ps22BidirectionalIndexable"
+- !private "Ps17BitwiseOperations"
 - "Sb"
 - "CSo7CALayer"
 - "PSo15CALayerDelegate"
@@ -3777,6 +4008,7 @@ depends-nominal:
 - "V10Foundation12CharacterSet"
 - !private "Ps10Collection"
 - !private "Ps10Comparable"
+- "Vs14CountableRange"
 - "Ps28CustomDebugStringConvertible"
 - !private "Ps29CustomPlaygroundQuickLookable"
 - "Ps17CustomReflectable"
@@ -3791,6 +4023,7 @@ depends-nominal:
 - !private "Ps27ExpressibleByBooleanLiteral"
 - !private "Ps30ExpressibleByDictionaryLiteral"
 - !private "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- !private "Ps27ExpressibleByIntegerLiteral"
 - !private "Ps32ExpressibleByStringInterpolation"
 - !private "Ps26ExpressibleByStringLiteral"
 - !private "Ps33ExpressibleByUnicodeScalarLiteral"
@@ -3801,11 +4034,15 @@ depends-nominal:
 - "V10Foundation9IndexPath"
 - !private "Ps9Indexable"
 - !private "Ps13IndexableBase"
+- !private "Vs16IndexingIterator"
 - "Si"
 - !private "Vs5Int16"
 - !private "Vs5Int32"
 - !private "Vs5Int64"
 - !private "Vs4Int8"
+- !private "Ps7Integer"
+- !private "Ps17IntegerArithmetic"
+- !private "Ps16IteratorProtocol"
 - "V9Alamofire12JSONEncoding"
 - !private "Ps25LosslessStringConvertible"
 - !private "Ps10MirrorPath"
@@ -3815,10 +4052,13 @@ depends-nominal:
 - "CSo7NSCoder"
 - "PSo8NSCoding"
 - "PSo9NSCopying"
+- !private "CSo12NSDictionary"
 - "PSo26NSExtensionRequestHandling"
 - "PSo17NSFastEnumeration"
+- !private "PSo20NSFetchRequestResult"
 - "CSo14NSMutableArray"
 - "PSo16NSMutableCopying"
+- "CSo19NSMutableDictionary"
 - "CSo8NSObject"
 - "PSo16NSObjectProtocol"
 - "PSo14NSSecureCoding"
@@ -3827,6 +4067,7 @@ depends-nominal:
 - !private "P9Alamofire17ParameterEncoding"
 - !private "Ps22RandomAccessCollection"
 - !private "Ps21RandomAccessIndexable"
+- !private "Vs5Range"
 - !private "Ps26RangeReplaceableCollection"
 - !private "Ps25RangeReplaceableIndexable"
 - !private "Ps16RawRepresentable"
@@ -3839,6 +4080,9 @@ depends-nominal:
 - "V10ObjectiveC8Selector"
 - "Ps8Sequence"
 - !private "Ps10SetAlgebra"
+- !private "Ps13SignedInteger"
+- !private "Ps12SignedNumber"
+- !private "Ps10Strideable"
 - "SS"
 - !private "Ps16TextOutputStream"
 - !private "Ps20TextOutputStreamable"
@@ -3902,6 +4146,7 @@ depends-nominal:
 - !private "Ps24_DestructorSafeContainer"
 - !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
 - !private "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- !private "Ps35_ExpressibleByBuiltinIntegerLiteral"
 - !private "Ps34_ExpressibleByBuiltinStringLiteral"
 - !private "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
 - !private "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
@@ -3909,12 +4154,18 @@ depends-nominal:
 - !private "Ps26_ExpressibleByImageLiteral"
 - !private "Ps35_HasCustomAnyHashableRepresentation"
 - "Ps9_Hashable"
+- !private "Ps14_Incrementable"
+- !private "Ps8_Integer"
+- !private "Ps18_IntegerArithmetic"
 - !private "P10Foundation18_MutablePairBoxing"
 - "VSC8_NSRange"
 - !private "Ps21_ObjectiveCBridgeable"
 - !private "Vs26_OptionalNilComparisonType"
+- !private "Ps14_SignedInteger"
+- !private "Ps11_Strideable"
 - !private "V11DiabetesApp12userDefaults"
 depends-dynamic-lookup:
+- !private "value"
 - !private "tag"
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
@@ -4228,4 +4479,4 @@ depends-external:
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController-umbrella.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Modules/module.modulemap"
-interface-hash: "9234b42f9bc135d29e5fe1aa3612dfed"
+interface-hash: "3e2d005dd558efae9b4b2dd34b27b3e6"

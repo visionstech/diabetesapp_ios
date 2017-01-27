@@ -9,17 +9,17 @@ provides-dynamic-lookup:
 - "setUI"
 - "frequencyLbl"
 - "headerView"
-- "setSelected"
 - "awakeFromNib"
+- "setSelected"
 depends-top-level:
-- !private "CGSize"
 - "UITableViewCell"
-- "AssignmentPrecedence"
-- !private "UIColor"
 - "UILabel"
-- "UIView"
 - "Bool"
+- "UIView"
 - "CarePlanReadingHeaderTableViewCell"
+- !private "UIColor"
+- "AssignmentPrecedence"
+- !private "CGSize"
 depends-member:
 - !private ["Ps9AnyObject", "CGSize"]
 - !private ["Ps9AnyObject", "UIColor"]

@@ -6,99 +6,101 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp21HistoryViewController", ""]
 provides-dynamic-lookup:
-- "numberOfSections"
-- "sectionsArray"
-- "addNotifications"
-- "tblView"
-- "getReadingHistory"
-- "numberOfComponents"
-- "noOfDays"
-- "setUI"
-- "getHistory"
+- "pickerViewContainer"
 - "cellArray"
-- "viewDidLoad"
+- "resetUI"
+- "tblView"
 - "obj"
-- "viewDidDisappear"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tapHeader"
-- "noHistoryAvailableLbl"
+- "addNotifications"
 - "pickerView"
 - "pickerView"
 - "pickerView"
 - "refreshSelectedSections"
+- "getReadingHistory"
+- "conditionTxtFld"
+- "sectionsArray"
+- "tapHeader"
 - "didReceiveMemoryWarning"
 - "listViewNotification"
-- "conditionTxtFld"
+- "numberOfComponents"
+- "viewDidLoad"
 - "viewDidAppear"
 - "boolArray"
-- "ToolBarButtons_Click"
 - "conditionView"
-- "pickerViewContainer"
+- "numberOfSections"
+- "getHistory"
+- "noHistoryAvailableLbl"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
 - "noOfDaysNotification"
-- "resetUI"
+- "ToolBarButtons_Click"
+- "viewDidDisappear"
+- "setUI"
+- "noOfDays"
 depends-top-level:
-- !private "UIImage"
-- "StringLiteralType"
-- !private "URL"
 - !private "HistoryTableViewCell"
-- !private "Colors"
-- !private "userDefaults"
-- !private "CGRect"
-- !private "NotificationCenter"
-- !private "UtilityClass"
-- !private "+="
-- "UITableViewCell"
-- !private "JSONEncoding"
-- "IndexPath"
-- !private "BooleanLiteralType"
-- !private "NSURL"
-- !private "Fonts"
-- !private "Parameters"
-- !private "Dictionary"
-- "UIPickerView"
-- "UIViewController"
-- !private ">"
-- "Bool"
-- "UITableViewDataSource"
-- "UITableViewDelegate"
-- "NSNotification"
-- !private "conditionsArray"
-- "CGFloat"
-- "Int"
-- "HistoryViewController"
-- !private "UIImageView"
-- !private "UserDefaults"
-- "NSArray"
-- !private "AnyObject"
-- "UIView"
-- "NSDictionary"
-- !private "UIColor"
-- "String"
-- "UITableView"
-- !private "Bundle"
-- !private "ApiMethods"
-- !private "print"
-- "UITapGestureRecognizer"
-- !private "-"
-- !private "Notifications"
-- "NSMutableArray"
-- !private "!="
 - !private "Alamofire"
-- "UILabel"
+- "UITapGestureRecognizer"
+- "UIPickerView"
+- !private "CGRect"
 - "AssignmentPrecedence"
 - "UITextField"
-- !private "=="
-- "UnicodeScalarType"
-- "CastingPrecedence"
-- "UIPickerViewDelegate"
 - !private "NSCopying"
+- "NSArray"
+- !private "+="
+- "CastingPrecedence"
+- "UIView"
+- !private "UtilityClass"
+- "NSDictionary"
+- !private "Fonts"
+- !private "=="
+- !private "AnyObject"
+- "UITableViewDataSource"
+- "UIPickerViewDelegate"
+- "StringLiteralType"
+- "String"
+- "NSMutableArray"
 - "UIPickerViewDataSource"
+- !private "UIUserInterfaceLayoutDirection"
+- !private "conditionsArray"
+- !private "UIImageView"
+- !private "UIColor"
+- !private "Notifications"
+- !private "NSURL"
+- "UITableView"
+- !private "JSONEncoding"
 - !private "NSMutableDictionary"
+- "NSNotification"
+- !private "BooleanLiteralType"
+- !private "!="
+- "UITableViewDelegate"
+- "UIViewController"
+- !private "NotificationCenter"
+- !private "Dictionary"
+- "CGFloat"
+- !private "URL"
+- !private "Parameters"
+- !private "print"
+- !private "UIApplication"
+- "HistoryViewController"
+- !private "UIImage"
+- !private ">"
+- !private "Bundle"
+- "UnicodeScalarType"
+- !private "userDefaults"
+- !private "Colors"
+- "IndexPath"
+- "UILabel"
+- "Int"
+- "UITableViewCell"
+- "Bool"
+- !private "UserDefaults"
+- !private "-"
+- !private "ApiMethods"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "Stride"]
 - !private ["Ps9AnyObject", "Alamofire"]
@@ -121,11 +123,13 @@ depends-member:
 - !private ["Ps9AnyObject", "Notifications"]
 - !private ["Ps9AnyObject", "String"]
 - ["Ps9AnyObject", "ToolBarButtons_Click"]
+- !private ["Ps9AnyObject", "UIApplication"]
 - !private ["Ps9AnyObject", "UIColor"]
 - !private ["Ps9AnyObject", "UIImage"]
 - !private ["Ps9AnyObject", "UIImageView"]
 - !private ["Ps9AnyObject", "UILabel"]
 - !private ["Ps9AnyObject", "UITapGestureRecognizer"]
+- !private ["Ps9AnyObject", "UIUserInterfaceLayoutDirection"]
 - !private ["Ps9AnyObject", "UIView"]
 - !private ["Ps9AnyObject", "UserDefaults"]
 - !private ["Ps9AnyObject", "UtilityClass"]
@@ -210,9 +214,11 @@ depends-member:
 - ["Ps9AnyObject", "sectionIndexTitlesForTableView"]
 - ["Ps9AnyObject", "sectionsArray"]
 - !private ["Ps9AnyObject", "selectedRow"]
+- !private ["Ps9AnyObject", "selectionStyle"]
 - !private ["Ps9AnyObject", "setObject"]
 - ["Ps9AnyObject", "setUI"]
 - !private ["Ps9AnyObject", "setValue"]
+- !private ["Ps9AnyObject", "shared"]
 - !private ["Ps9AnyObject", "standard"]
 - !private ["Ps9AnyObject", "string"]
 - !private ["Ps9AnyObject", "subscript"]
@@ -224,6 +230,7 @@ depends-member:
 - !private ["Ps9AnyObject", "textColor"]
 - !private ["Ps9AnyObject", "title"]
 - !private ["Ps9AnyObject", "userDefaults"]
+- !private ["Ps9AnyObject", "userInterfaceLayoutDirection"]
 - !private ["Ps9AnyObject", "value"]
 - !private ["Ps9AnyObject", "view"]
 - ["Ps9AnyObject", "viewDidAppear"]
@@ -276,6 +283,7 @@ depends-member:
 - !private ["PSo15CALayerDelegate", "readingLbl"]
 - !private ["PSo15CALayerDelegate", "reloadData"]
 - !private ["PSo15CALayerDelegate", "selectedRow"]
+- !private ["PSo15CALayerDelegate", "selectionStyle"]
 - !private ["PSo15CALayerDelegate", "tag"]
 - !private ["PSo15CALayerDelegate", "text"]
 - !private ["PSo15CALayerDelegate", "textColor"]
@@ -311,11 +319,13 @@ depends-member:
 - !private ["Ps7CVarArg", "Stride"]
 - !private ["Ps7CVarArg", "String"]
 - ["Ps7CVarArg", "ToolBarButtons_Click"]
+- !private ["Ps7CVarArg", "UIApplication"]
 - !private ["Ps7CVarArg", "UIColor"]
 - !private ["Ps7CVarArg", "UIImage"]
 - !private ["Ps7CVarArg", "UIImageView"]
 - !private ["Ps7CVarArg", "UILabel"]
 - !private ["Ps7CVarArg", "UITapGestureRecognizer"]
+- !private ["Ps7CVarArg", "UIUserInterfaceLayoutDirection"]
 - !private ["Ps7CVarArg", "UIView"]
 - !private ["Ps7CVarArg", "UserDefaults"]
 - !private ["Ps7CVarArg", "UtilityClass"]
@@ -401,9 +411,11 @@ depends-member:
 - ["Ps7CVarArg", "sectionIndexTitlesForTableView"]
 - ["Ps7CVarArg", "sectionsArray"]
 - !private ["Ps7CVarArg", "selectedRow"]
+- !private ["Ps7CVarArg", "selectionStyle"]
 - !private ["Ps7CVarArg", "setObject"]
 - ["Ps7CVarArg", "setUI"]
 - !private ["Ps7CVarArg", "setValue"]
+- !private ["Ps7CVarArg", "shared"]
 - !private ["Ps7CVarArg", "standard"]
 - !private ["Ps7CVarArg", "string"]
 - !private ["Ps7CVarArg", "subscript"]
@@ -415,6 +427,7 @@ depends-member:
 - !private ["Ps7CVarArg", "textColor"]
 - !private ["Ps7CVarArg", "title"]
 - !private ["Ps7CVarArg", "userDefaults"]
+- !private ["Ps7CVarArg", "userInterfaceLayoutDirection"]
 - !private ["Ps7CVarArg", "value"]
 - !private ["Ps7CVarArg", "view"]
 - ["Ps7CVarArg", "viewDidAppear"]
@@ -461,11 +474,13 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "Stride"]
 - !private ["Ps28CustomDebugStringConvertible", "String"]
 - ["Ps28CustomDebugStringConvertible", "ToolBarButtons_Click"]
+- !private ["Ps28CustomDebugStringConvertible", "UIApplication"]
 - !private ["Ps28CustomDebugStringConvertible", "UIColor"]
 - !private ["Ps28CustomDebugStringConvertible", "UIImage"]
 - !private ["Ps28CustomDebugStringConvertible", "UIImageView"]
 - !private ["Ps28CustomDebugStringConvertible", "UILabel"]
 - !private ["Ps28CustomDebugStringConvertible", "UITapGestureRecognizer"]
+- !private ["Ps28CustomDebugStringConvertible", "UIUserInterfaceLayoutDirection"]
 - !private ["Ps28CustomDebugStringConvertible", "UIView"]
 - !private ["Ps28CustomDebugStringConvertible", "UserDefaults"]
 - !private ["Ps28CustomDebugStringConvertible", "UtilityClass"]
@@ -556,9 +571,11 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "sectionIndexTitlesForTableView"]
 - ["Ps28CustomDebugStringConvertible", "sectionsArray"]
 - !private ["Ps28CustomDebugStringConvertible", "selectedRow"]
+- !private ["Ps28CustomDebugStringConvertible", "selectionStyle"]
 - !private ["Ps28CustomDebugStringConvertible", "setObject"]
 - ["Ps28CustomDebugStringConvertible", "setUI"]
 - !private ["Ps28CustomDebugStringConvertible", "setValue"]
+- !private ["Ps28CustomDebugStringConvertible", "shared"]
 - !private ["Ps28CustomDebugStringConvertible", "size"]
 - !private ["Ps28CustomDebugStringConvertible", "standard"]
 - !private ["Ps28CustomDebugStringConvertible", "string"]
@@ -572,6 +589,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "textColor"]
 - !private ["Ps28CustomDebugStringConvertible", "title"]
 - !private ["Ps28CustomDebugStringConvertible", "userDefaults"]
+- !private ["Ps28CustomDebugStringConvertible", "userInterfaceLayoutDirection"]
 - !private ["Ps28CustomDebugStringConvertible", "value"]
 - !private ["Ps28CustomDebugStringConvertible", "view"]
 - ["Ps28CustomDebugStringConvertible", "viewDidAppear"]
@@ -637,11 +655,13 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "Stride"]
 - !private ["Ps23CustomStringConvertible", "String"]
 - ["Ps23CustomStringConvertible", "ToolBarButtons_Click"]
+- !private ["Ps23CustomStringConvertible", "UIApplication"]
 - !private ["Ps23CustomStringConvertible", "UIColor"]
 - !private ["Ps23CustomStringConvertible", "UIImage"]
 - !private ["Ps23CustomStringConvertible", "UIImageView"]
 - !private ["Ps23CustomStringConvertible", "UILabel"]
 - !private ["Ps23CustomStringConvertible", "UITapGestureRecognizer"]
+- !private ["Ps23CustomStringConvertible", "UIUserInterfaceLayoutDirection"]
 - !private ["Ps23CustomStringConvertible", "UIView"]
 - !private ["Ps23CustomStringConvertible", "UserDefaults"]
 - !private ["Ps23CustomStringConvertible", "UtilityClass"]
@@ -733,9 +753,11 @@ depends-member:
 - ["Ps23CustomStringConvertible", "sectionIndexTitlesForTableView"]
 - ["Ps23CustomStringConvertible", "sectionsArray"]
 - !private ["Ps23CustomStringConvertible", "selectedRow"]
+- !private ["Ps23CustomStringConvertible", "selectionStyle"]
 - !private ["Ps23CustomStringConvertible", "setObject"]
 - ["Ps23CustomStringConvertible", "setUI"]
 - !private ["Ps23CustomStringConvertible", "setValue"]
+- !private ["Ps23CustomStringConvertible", "shared"]
 - !private ["Ps23CustomStringConvertible", "standard"]
 - !private ["Ps23CustomStringConvertible", "string"]
 - !private ["Ps23CustomStringConvertible", "subscript"]
@@ -748,6 +770,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "textColor"]
 - !private ["Ps23CustomStringConvertible", "title"]
 - !private ["Ps23CustomStringConvertible", "userDefaults"]
+- !private ["Ps23CustomStringConvertible", "userInterfaceLayoutDirection"]
 - !private ["Ps23CustomStringConvertible", "value"]
 - !private ["Ps23CustomStringConvertible", "view"]
 - ["Ps23CustomStringConvertible", "viewDidAppear"]
@@ -787,11 +810,13 @@ depends-member:
 - !private ["Ps9Equatable", "Stride"]
 - !private ["Ps9Equatable", "String"]
 - ["Ps9Equatable", "ToolBarButtons_Click"]
+- !private ["Ps9Equatable", "UIApplication"]
 - !private ["Ps9Equatable", "UIColor"]
 - !private ["Ps9Equatable", "UIImage"]
 - !private ["Ps9Equatable", "UIImageView"]
 - !private ["Ps9Equatable", "UILabel"]
 - !private ["Ps9Equatable", "UITapGestureRecognizer"]
+- !private ["Ps9Equatable", "UIUserInterfaceLayoutDirection"]
 - !private ["Ps9Equatable", "UIView"]
 - !private ["Ps9Equatable", "UserDefaults"]
 - !private ["Ps9Equatable", "UtilityClass"]
@@ -841,6 +866,7 @@ depends-member:
 - ["Ps9Equatable", "noHistoryAvailableLbl"]
 - ["Ps9Equatable", "noOfDays"]
 - ["Ps9Equatable", "noOfDaysNotification"]
+- !private ["Ps9Equatable", "none"]
 - ["Ps9Equatable", "numberOfComponents"]
 - ["Ps9Equatable", "numberOfComponentsInPickerView"]
 - ["Ps9Equatable", "numberOfSections"]
@@ -860,6 +886,7 @@ depends-member:
 - !private ["Ps9Equatable", "removeObserver"]
 - !private ["Ps9Equatable", "replaceObject"]
 - ["Ps9Equatable", "resetUI"]
+- !private ["Ps9Equatable", "rightToLeft"]
 - !private ["Ps9Equatable", "row"]
 - ["Ps9Equatable", "scrollViewDidEndDecelerating"]
 - ["Ps9Equatable", "scrollViewDidEndDragging"]
@@ -878,9 +905,11 @@ depends-member:
 - ["Ps9Equatable", "sectionIndexTitlesForTableView"]
 - ["Ps9Equatable", "sectionsArray"]
 - !private ["Ps9Equatable", "selectedRow"]
+- !private ["Ps9Equatable", "selectionStyle"]
 - !private ["Ps9Equatable", "setObject"]
 - ["Ps9Equatable", "setUI"]
 - !private ["Ps9Equatable", "setValue"]
+- !private ["Ps9Equatable", "shared"]
 - !private ["Ps9Equatable", "size"]
 - !private ["Ps9Equatable", "standard"]
 - !private ["Ps9Equatable", "string"]
@@ -893,6 +922,7 @@ depends-member:
 - !private ["Ps9Equatable", "textColor"]
 - !private ["Ps9Equatable", "title"]
 - !private ["Ps9Equatable", "userDefaults"]
+- !private ["Ps9Equatable", "userInterfaceLayoutDirection"]
 - !private ["Ps9Equatable", "value"]
 - !private ["Ps9Equatable", "view"]
 - ["Ps9Equatable", "viewDidAppear"]
@@ -968,11 +998,13 @@ depends-member:
 - !private ["Ps8Hashable", "Stride"]
 - !private ["Ps8Hashable", "String"]
 - ["Ps8Hashable", "ToolBarButtons_Click"]
+- !private ["Ps8Hashable", "UIApplication"]
 - !private ["Ps8Hashable", "UIColor"]
 - !private ["Ps8Hashable", "UIImage"]
 - !private ["Ps8Hashable", "UIImageView"]
 - !private ["Ps8Hashable", "UILabel"]
 - !private ["Ps8Hashable", "UITapGestureRecognizer"]
+- !private ["Ps8Hashable", "UIUserInterfaceLayoutDirection"]
 - !private ["Ps8Hashable", "UIView"]
 - !private ["Ps8Hashable", "UserDefaults"]
 - !private ["Ps8Hashable", "UtilityClass"]
@@ -1022,6 +1054,7 @@ depends-member:
 - ["Ps8Hashable", "noHistoryAvailableLbl"]
 - ["Ps8Hashable", "noOfDays"]
 - ["Ps8Hashable", "noOfDaysNotification"]
+- !private ["Ps8Hashable", "none"]
 - ["Ps8Hashable", "numberOfComponents"]
 - ["Ps8Hashable", "numberOfComponentsInPickerView"]
 - ["Ps8Hashable", "numberOfSections"]
@@ -1041,6 +1074,7 @@ depends-member:
 - !private ["Ps8Hashable", "removeObserver"]
 - !private ["Ps8Hashable", "replaceObject"]
 - ["Ps8Hashable", "resetUI"]
+- !private ["Ps8Hashable", "rightToLeft"]
 - !private ["Ps8Hashable", "row"]
 - ["Ps8Hashable", "scrollViewDidEndDecelerating"]
 - ["Ps8Hashable", "scrollViewDidEndDragging"]
@@ -1059,9 +1093,11 @@ depends-member:
 - ["Ps8Hashable", "sectionIndexTitlesForTableView"]
 - ["Ps8Hashable", "sectionsArray"]
 - !private ["Ps8Hashable", "selectedRow"]
+- !private ["Ps8Hashable", "selectionStyle"]
 - !private ["Ps8Hashable", "setObject"]
 - ["Ps8Hashable", "setUI"]
 - !private ["Ps8Hashable", "setValue"]
+- !private ["Ps8Hashable", "shared"]
 - !private ["Ps8Hashable", "standard"]
 - !private ["Ps8Hashable", "string"]
 - !private ["Ps8Hashable", "subscript"]
@@ -1073,6 +1109,7 @@ depends-member:
 - !private ["Ps8Hashable", "textColor"]
 - !private ["Ps8Hashable", "title"]
 - !private ["Ps8Hashable", "userDefaults"]
+- !private ["Ps8Hashable", "userInterfaceLayoutDirection"]
 - !private ["Ps8Hashable", "value"]
 - !private ["Ps8Hashable", "view"]
 - ["Ps8Hashable", "viewDidAppear"]
@@ -1086,6 +1123,7 @@ depends-member:
 - !private ["C11DiabetesApp20HistoryTableViewCell", "dateLbl"]
 - ["C11DiabetesApp20HistoryTableViewCell", "deinit"]
 - !private ["C11DiabetesApp20HistoryTableViewCell", "readingLbl"]
+- !private ["C11DiabetesApp20HistoryTableViewCell", "selectionStyle"]
 - !private ["C11DiabetesApp21HistoryViewController", "Alamofire"]
 - !private ["C11DiabetesApp21HistoryViewController", "AnyObject"]
 - !private ["C11DiabetesApp21HistoryViewController", "ApiMethods"]
@@ -1111,6 +1149,7 @@ depends-member:
 - !private ["C11DiabetesApp21HistoryViewController", "Parameters"]
 - ["C11DiabetesApp21HistoryViewController", "String"]
 - ["C11DiabetesApp21HistoryViewController", "ToolBarButtons_Click"]
+- !private ["C11DiabetesApp21HistoryViewController", "UIApplication"]
 - !private ["C11DiabetesApp21HistoryViewController", "UIColor"]
 - !private ["C11DiabetesApp21HistoryViewController", "UIImage"]
 - !private ["C11DiabetesApp21HistoryViewController", "UIImageView"]
@@ -1120,6 +1159,7 @@ depends-member:
 - ["C11DiabetesApp21HistoryViewController", "UITableViewCell"]
 - ["C11DiabetesApp21HistoryViewController", "UITapGestureRecognizer"]
 - ["C11DiabetesApp21HistoryViewController", "UITextField"]
+- !private ["C11DiabetesApp21HistoryViewController", "UIUserInterfaceLayoutDirection"]
 - ["C11DiabetesApp21HistoryViewController", "UIView"]
 - !private ["C11DiabetesApp21HistoryViewController", "URL"]
 - !private ["C11DiabetesApp21HistoryViewController", "UserDefaults"]
@@ -1259,11 +1299,13 @@ depends-member:
 - !private ["PSo8NSCoding", "Notifications"]
 - !private ["PSo8NSCoding", "String"]
 - ["PSo8NSCoding", "ToolBarButtons_Click"]
+- !private ["PSo8NSCoding", "UIApplication"]
 - !private ["PSo8NSCoding", "UIColor"]
 - !private ["PSo8NSCoding", "UIImage"]
 - !private ["PSo8NSCoding", "UIImageView"]
 - !private ["PSo8NSCoding", "UILabel"]
 - !private ["PSo8NSCoding", "UITapGestureRecognizer"]
+- !private ["PSo8NSCoding", "UIUserInterfaceLayoutDirection"]
 - !private ["PSo8NSCoding", "UIView"]
 - !private ["PSo8NSCoding", "UserDefaults"]
 - !private ["PSo8NSCoding", "UtilityClass"]
@@ -1340,6 +1382,7 @@ depends-member:
 - ["PSo8NSCoding", "sectionIndexTitlesForTableView"]
 - ["PSo8NSCoding", "sectionsArray"]
 - !private ["PSo8NSCoding", "selectedRow"]
+- !private ["PSo8NSCoding", "selectionStyle"]
 - !private ["PSo8NSCoding", "setObject"]
 - ["PSo8NSCoding", "setUI"]
 - !private ["PSo8NSCoding", "setValue"]
@@ -1407,11 +1450,13 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "Notifications"]
 - !private ["PSo26NSExtensionRequestHandling", "String"]
 - ["PSo26NSExtensionRequestHandling", "ToolBarButtons_Click"]
+- !private ["PSo26NSExtensionRequestHandling", "UIApplication"]
 - !private ["PSo26NSExtensionRequestHandling", "UIColor"]
 - !private ["PSo26NSExtensionRequestHandling", "UIImage"]
 - !private ["PSo26NSExtensionRequestHandling", "UIImageView"]
 - !private ["PSo26NSExtensionRequestHandling", "UILabel"]
 - !private ["PSo26NSExtensionRequestHandling", "UITapGestureRecognizer"]
+- !private ["PSo26NSExtensionRequestHandling", "UIUserInterfaceLayoutDirection"]
 - !private ["PSo26NSExtensionRequestHandling", "UIView"]
 - !private ["PSo26NSExtensionRequestHandling", "UserDefaults"]
 - !private ["PSo26NSExtensionRequestHandling", "UtilityClass"]
@@ -1551,6 +1596,7 @@ depends-member:
 - !private ["CSo8NSObject", "Parameters"]
 - ["CSo8NSObject", "String"]
 - ["CSo8NSObject", "ToolBarButtons_Click"]
+- !private ["CSo8NSObject", "UIApplication"]
 - !private ["CSo8NSObject", "UIColor"]
 - !private ["CSo8NSObject", "UIImage"]
 - !private ["CSo8NSObject", "UIImageView"]
@@ -1560,6 +1606,7 @@ depends-member:
 - ["CSo8NSObject", "UITableViewCell"]
 - ["CSo8NSObject", "UITapGestureRecognizer"]
 - ["CSo8NSObject", "UITextField"]
+- !private ["CSo8NSObject", "UIUserInterfaceLayoutDirection"]
 - ["CSo8NSObject", "UIView"]
 - !private ["CSo8NSObject", "URL"]
 - !private ["CSo8NSObject", "UserDefaults"]
@@ -1643,9 +1690,11 @@ depends-member:
 - ["CSo8NSObject", "sectionIndexTitlesForTableView"]
 - ["CSo8NSObject", "sectionsArray"]
 - !private ["CSo8NSObject", "selectedRow"]
+- !private ["CSo8NSObject", "selectionStyle"]
 - !private ["CSo8NSObject", "setObject"]
 - ["CSo8NSObject", "setUI"]
 - !private ["CSo8NSObject", "setValue"]
+- !private ["CSo8NSObject", "shared"]
 - !private ["CSo8NSObject", "standard"]
 - !private ["CSo8NSObject", "string"]
 - !private ["CSo8NSObject", "subscript"]
@@ -1657,6 +1706,7 @@ depends-member:
 - !private ["CSo8NSObject", "textColor"]
 - !private ["CSo8NSObject", "title"]
 - !private ["CSo8NSObject", "userDefaults"]
+- !private ["CSo8NSObject", "userInterfaceLayoutDirection"]
 - !private ["CSo8NSObject", "value"]
 - !private ["CSo8NSObject", "view"]
 - ["CSo8NSObject", "viewDidAppear"]
@@ -1684,11 +1734,13 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "Notifications"]
 - !private ["PSo16NSObjectProtocol", "String"]
 - ["PSo16NSObjectProtocol", "ToolBarButtons_Click"]
+- !private ["PSo16NSObjectProtocol", "UIApplication"]
 - !private ["PSo16NSObjectProtocol", "UIColor"]
 - !private ["PSo16NSObjectProtocol", "UIImage"]
 - !private ["PSo16NSObjectProtocol", "UIImageView"]
 - !private ["PSo16NSObjectProtocol", "UILabel"]
 - !private ["PSo16NSObjectProtocol", "UITapGestureRecognizer"]
+- !private ["PSo16NSObjectProtocol", "UIUserInterfaceLayoutDirection"]
 - !private ["PSo16NSObjectProtocol", "UIView"]
 - !private ["PSo16NSObjectProtocol", "UserDefaults"]
 - !private ["PSo16NSObjectProtocol", "UtilityClass"]
@@ -1771,9 +1823,11 @@ depends-member:
 - ["PSo16NSObjectProtocol", "sectionIndexTitlesForTableView"]
 - ["PSo16NSObjectProtocol", "sectionsArray"]
 - !private ["PSo16NSObjectProtocol", "selectedRow"]
+- !private ["PSo16NSObjectProtocol", "selectionStyle"]
 - !private ["PSo16NSObjectProtocol", "setObject"]
 - ["PSo16NSObjectProtocol", "setUI"]
 - !private ["PSo16NSObjectProtocol", "setValue"]
+- !private ["PSo16NSObjectProtocol", "shared"]
 - !private ["PSo16NSObjectProtocol", "standard"]
 - !private ["PSo16NSObjectProtocol", "string"]
 - !private ["PSo16NSObjectProtocol", "subscript"]
@@ -1785,6 +1839,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "textColor"]
 - !private ["PSo16NSObjectProtocol", "title"]
 - !private ["PSo16NSObjectProtocol", "userDefaults"]
+- !private ["PSo16NSObjectProtocol", "userInterfaceLayoutDirection"]
 - !private ["PSo16NSObjectProtocol", "value"]
 - !private ["PSo16NSObjectProtocol", "view"]
 - ["PSo16NSObjectProtocol", "viewDidAppear"]
@@ -1844,8 +1899,11 @@ depends-member:
 - !private ["Ps25RangeReplaceableIndexable", "Iterator"]
 - !private ["Ps25RangeReplaceableIndexable", "_Element"]
 - !private ["Ps25RangeReplaceableIndexable", "first"]
+- !private ["Ps16RawRepresentable", "RawValue"]
 - !private ["Ps16RawRepresentable", "init"]
+- !private ["Ps16RawRepresentable", "none"]
 - !private ["Ps16RawRepresentable", "post"]
+- !private ["Ps16RawRepresentable", "rightToLeft"]
 - !private ["P10Foundation20ReferenceConvertible", "row"]
 - !private ["P10Foundation20ReferenceConvertible", "section"]
 - !private ["C9Alamofire7Request", "responseJSON"]
@@ -1906,6 +1964,7 @@ depends-member:
 - !private ["PSo29UIAccessibilityIdentification", "readingLbl"]
 - !private ["PSo29UIAccessibilityIdentification", "reloadData"]
 - !private ["PSo29UIAccessibilityIdentification", "selectedRow"]
+- !private ["PSo29UIAccessibilityIdentification", "selectionStyle"]
 - !private ["PSo29UIAccessibilityIdentification", "tag"]
 - !private ["PSo29UIAccessibilityIdentification", "text"]
 - !private ["PSo29UIAccessibilityIdentification", "textColor"]
@@ -1927,6 +1986,7 @@ depends-member:
 - !private ["PSo12UIAppearance", "readingLbl"]
 - !private ["PSo12UIAppearance", "reloadData"]
 - !private ["PSo12UIAppearance", "selectedRow"]
+- !private ["PSo12UIAppearance", "selectionStyle"]
 - !private ["PSo12UIAppearance", "tag"]
 - !private ["PSo12UIAppearance", "text"]
 - !private ["PSo12UIAppearance", "textColor"]
@@ -1947,11 +2007,13 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "Notifications"]
 - !private ["PSo21UIAppearanceContainer", "String"]
 - ["PSo21UIAppearanceContainer", "ToolBarButtons_Click"]
+- !private ["PSo21UIAppearanceContainer", "UIApplication"]
 - !private ["PSo21UIAppearanceContainer", "UIColor"]
 - !private ["PSo21UIAppearanceContainer", "UIImage"]
 - !private ["PSo21UIAppearanceContainer", "UIImageView"]
 - !private ["PSo21UIAppearanceContainer", "UILabel"]
 - !private ["PSo21UIAppearanceContainer", "UITapGestureRecognizer"]
+- !private ["PSo21UIAppearanceContainer", "UIUserInterfaceLayoutDirection"]
 - !private ["PSo21UIAppearanceContainer", "UIView"]
 - !private ["PSo21UIAppearanceContainer", "UserDefaults"]
 - !private ["PSo21UIAppearanceContainer", "UtilityClass"]
@@ -2013,6 +2075,7 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "sectionIndexTitlesForTableView"]
 - ["PSo21UIAppearanceContainer", "sectionsArray"]
 - !private ["PSo21UIAppearanceContainer", "selectedRow"]
+- !private ["PSo21UIAppearanceContainer", "selectionStyle"]
 - ["PSo21UIAppearanceContainer", "setUI"]
 - ["PSo21UIAppearanceContainer", "tableView"]
 - !private ["PSo21UIAppearanceContainer", "tag"]
@@ -2029,6 +2092,9 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "viewForZooming"]
 - ["PSo21UIAppearanceContainer", "viewForZoomingInScrollView"]
 - ["PSo21UIAppearanceContainer", ""]
+- ["CSo13UIApplication", "deinit"]
+- !private ["CSo13UIApplication", "shared"]
+- !private ["CSo13UIApplication", "userInterfaceLayoutDirection"]
 - !private ["CSo7UIColor", "cgColor"]
 - !private ["CSo7UIColor", "clear"]
 - ["CSo7UIColor", "deinit"]
@@ -2051,11 +2117,13 @@ depends-member:
 - !private ["PSo18UIContentContainer", "Notifications"]
 - !private ["PSo18UIContentContainer", "String"]
 - ["PSo18UIContentContainer", "ToolBarButtons_Click"]
+- !private ["PSo18UIContentContainer", "UIApplication"]
 - !private ["PSo18UIContentContainer", "UIColor"]
 - !private ["PSo18UIContentContainer", "UIImage"]
 - !private ["PSo18UIContentContainer", "UIImageView"]
 - !private ["PSo18UIContentContainer", "UILabel"]
 - !private ["PSo18UIContentContainer", "UITapGestureRecognizer"]
+- !private ["PSo18UIContentContainer", "UIUserInterfaceLayoutDirection"]
 - !private ["PSo18UIContentContainer", "UIView"]
 - !private ["PSo18UIContentContainer", "UserDefaults"]
 - !private ["PSo18UIContentContainer", "UtilityClass"]
@@ -2139,6 +2207,7 @@ depends-member:
 - !private ["PSo17UICoordinateSpace", "readingLbl"]
 - !private ["PSo17UICoordinateSpace", "reloadData"]
 - !private ["PSo17UICoordinateSpace", "selectedRow"]
+- !private ["PSo17UICoordinateSpace", "selectionStyle"]
 - !private ["PSo17UICoordinateSpace", "tag"]
 - !private ["PSo17UICoordinateSpace", "text"]
 - !private ["PSo17UICoordinateSpace", "textColor"]
@@ -2159,6 +2228,7 @@ depends-member:
 - !private ["PSo13UIDynamicItem", "readingLbl"]
 - !private ["PSo13UIDynamicItem", "reloadData"]
 - !private ["PSo13UIDynamicItem", "selectedRow"]
+- !private ["PSo13UIDynamicItem", "selectionStyle"]
 - !private ["PSo13UIDynamicItem", "tag"]
 - !private ["PSo13UIDynamicItem", "text"]
 - !private ["PSo13UIDynamicItem", "textColor"]
@@ -2179,11 +2249,13 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "Notifications"]
 - !private ["PSo18UIFocusEnvironment", "String"]
 - ["PSo18UIFocusEnvironment", "ToolBarButtons_Click"]
+- !private ["PSo18UIFocusEnvironment", "UIApplication"]
 - !private ["PSo18UIFocusEnvironment", "UIColor"]
 - !private ["PSo18UIFocusEnvironment", "UIImage"]
 - !private ["PSo18UIFocusEnvironment", "UIImageView"]
 - !private ["PSo18UIFocusEnvironment", "UILabel"]
 - !private ["PSo18UIFocusEnvironment", "UITapGestureRecognizer"]
+- !private ["PSo18UIFocusEnvironment", "UIUserInterfaceLayoutDirection"]
 - !private ["PSo18UIFocusEnvironment", "UIView"]
 - !private ["PSo18UIFocusEnvironment", "UserDefaults"]
 - !private ["PSo18UIFocusEnvironment", "UtilityClass"]
@@ -2245,6 +2317,7 @@ depends-member:
 - ["PSo18UIFocusEnvironment", "sectionIndexTitlesForTableView"]
 - ["PSo18UIFocusEnvironment", "sectionsArray"]
 - !private ["PSo18UIFocusEnvironment", "selectedRow"]
+- !private ["PSo18UIFocusEnvironment", "selectionStyle"]
 - ["PSo18UIFocusEnvironment", "setUI"]
 - ["PSo18UIFocusEnvironment", "tableView"]
 - !private ["PSo18UIFocusEnvironment", "tag"]
@@ -2278,6 +2351,7 @@ depends-member:
 - !private ["PSo11UIFocusItem", "readingLbl"]
 - !private ["PSo11UIFocusItem", "reloadData"]
 - !private ["PSo11UIFocusItem", "selectedRow"]
+- !private ["PSo11UIFocusItem", "selectionStyle"]
 - !private ["PSo11UIFocusItem", "tag"]
 - !private ["PSo11UIFocusItem", "text"]
 - !private ["PSo11UIFocusItem", "textColor"]
@@ -2287,6 +2361,7 @@ depends-member:
 - !private ["PSo27UIGestureRecognizerDelegate", "conditionLbl"]
 - !private ["PSo27UIGestureRecognizerDelegate", "dateLbl"]
 - !private ["PSo27UIGestureRecognizerDelegate", "readingLbl"]
+- !private ["PSo27UIGestureRecognizerDelegate", "selectionStyle"]
 - !private ["CSo7UIImage", "init"]
 - ["CSo11UIImageView", "deinit"]
 - !private ["CSo11UIImageView", "image"]
@@ -2316,11 +2391,13 @@ depends-member:
 - !private ["PSo22UIPickerViewDataSource", "NotificationCenter"]
 - !private ["PSo22UIPickerViewDataSource", "Notifications"]
 - !private ["PSo22UIPickerViewDataSource", "String"]
+- !private ["PSo22UIPickerViewDataSource", "UIApplication"]
 - !private ["PSo22UIPickerViewDataSource", "UIColor"]
 - !private ["PSo22UIPickerViewDataSource", "UIImage"]
 - !private ["PSo22UIPickerViewDataSource", "UIImageView"]
 - !private ["PSo22UIPickerViewDataSource", "UILabel"]
 - !private ["PSo22UIPickerViewDataSource", "UITapGestureRecognizer"]
+- !private ["PSo22UIPickerViewDataSource", "UIUserInterfaceLayoutDirection"]
 - !private ["PSo22UIPickerViewDataSource", "UIView"]
 - !private ["PSo22UIPickerViewDataSource", "UserDefaults"]
 - !private ["PSo22UIPickerViewDataSource", "UtilityClass"]
@@ -2389,11 +2466,13 @@ depends-member:
 - !private ["PSo20UIPickerViewDelegate", "NotificationCenter"]
 - !private ["PSo20UIPickerViewDelegate", "Notifications"]
 - !private ["PSo20UIPickerViewDelegate", "String"]
+- !private ["PSo20UIPickerViewDelegate", "UIApplication"]
 - !private ["PSo20UIPickerViewDelegate", "UIColor"]
 - !private ["PSo20UIPickerViewDelegate", "UIImage"]
 - !private ["PSo20UIPickerViewDelegate", "UIImageView"]
 - !private ["PSo20UIPickerViewDelegate", "UILabel"]
 - !private ["PSo20UIPickerViewDelegate", "UITapGestureRecognizer"]
+- !private ["PSo20UIPickerViewDelegate", "UIUserInterfaceLayoutDirection"]
 - !private ["PSo20UIPickerViewDelegate", "UIView"]
 - !private ["PSo20UIPickerViewDelegate", "UserDefaults"]
 - !private ["PSo20UIPickerViewDelegate", "UtilityClass"]
@@ -2471,6 +2550,7 @@ depends-member:
 - !private ["CSo11UIResponder", "Parameters"]
 - ["CSo11UIResponder", "String"]
 - ["CSo11UIResponder", "ToolBarButtons_Click"]
+- !private ["CSo11UIResponder", "UIApplication"]
 - !private ["CSo11UIResponder", "UIColor"]
 - !private ["CSo11UIResponder", "UIImage"]
 - !private ["CSo11UIResponder", "UIImageView"]
@@ -2480,6 +2560,7 @@ depends-member:
 - ["CSo11UIResponder", "UITableViewCell"]
 - ["CSo11UIResponder", "UITapGestureRecognizer"]
 - ["CSo11UIResponder", "UITextField"]
+- !private ["CSo11UIResponder", "UIUserInterfaceLayoutDirection"]
 - ["CSo11UIResponder", "UIView"]
 - !private ["CSo11UIResponder", "URL"]
 - !private ["CSo11UIResponder", "UserDefaults"]
@@ -2542,7 +2623,9 @@ depends-member:
 - ["CSo11UIResponder", "sectionIndexTitlesForTableView"]
 - ["CSo11UIResponder", "sectionsArray"]
 - !private ["CSo11UIResponder", "selectedRow"]
+- !private ["CSo11UIResponder", "selectionStyle"]
 - ["CSo11UIResponder", "setUI"]
+- !private ["CSo11UIResponder", "shared"]
 - ["CSo11UIResponder", "tableView"]
 - !private ["CSo11UIResponder", "tag"]
 - ["CSo11UIResponder", "tapHeader"]
@@ -2551,6 +2634,7 @@ depends-member:
 - !private ["CSo11UIResponder", "textColor"]
 - !private ["CSo11UIResponder", "title"]
 - !private ["CSo11UIResponder", "userDefaults"]
+- !private ["CSo11UIResponder", "userInterfaceLayoutDirection"]
 - !private ["CSo11UIResponder", "view"]
 - ["CSo11UIResponder", "viewDidAppear"]
 - ["CSo11UIResponder", "viewDidDisappear"]
@@ -2574,11 +2658,13 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "Notifications"]
 - !private ["PSo30UIResponderStandardEditActions", "String"]
 - ["PSo30UIResponderStandardEditActions", "ToolBarButtons_Click"]
+- !private ["PSo30UIResponderStandardEditActions", "UIApplication"]
 - !private ["PSo30UIResponderStandardEditActions", "UIColor"]
 - !private ["PSo30UIResponderStandardEditActions", "UIImage"]
 - !private ["PSo30UIResponderStandardEditActions", "UIImageView"]
 - !private ["PSo30UIResponderStandardEditActions", "UILabel"]
 - !private ["PSo30UIResponderStandardEditActions", "UITapGestureRecognizer"]
+- !private ["PSo30UIResponderStandardEditActions", "UIUserInterfaceLayoutDirection"]
 - !private ["PSo30UIResponderStandardEditActions", "UIView"]
 - !private ["PSo30UIResponderStandardEditActions", "UserDefaults"]
 - !private ["PSo30UIResponderStandardEditActions", "UtilityClass"]
@@ -2640,7 +2726,9 @@ depends-member:
 - ["PSo30UIResponderStandardEditActions", "sectionIndexTitlesForTableView"]
 - ["PSo30UIResponderStandardEditActions", "sectionsArray"]
 - !private ["PSo30UIResponderStandardEditActions", "selectedRow"]
+- !private ["PSo30UIResponderStandardEditActions", "selectionStyle"]
 - ["PSo30UIResponderStandardEditActions", "setUI"]
+- !private ["PSo30UIResponderStandardEditActions", "shared"]
 - ["PSo30UIResponderStandardEditActions", "tableView"]
 - !private ["PSo30UIResponderStandardEditActions", "tag"]
 - ["PSo30UIResponderStandardEditActions", "tapHeader"]
@@ -2649,6 +2737,7 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "textColor"]
 - !private ["PSo30UIResponderStandardEditActions", "title"]
 - !private ["PSo30UIResponderStandardEditActions", "userDefaults"]
+- !private ["PSo30UIResponderStandardEditActions", "userInterfaceLayoutDirection"]
 - !private ["PSo30UIResponderStandardEditActions", "view"]
 - ["PSo30UIResponderStandardEditActions", "viewDidAppear"]
 - ["PSo30UIResponderStandardEditActions", "viewDidDisappear"]
@@ -2676,11 +2765,13 @@ depends-member:
 - !private ["PSo20UIScrollViewDelegate", "NotificationCenter"]
 - !private ["PSo20UIScrollViewDelegate", "Notifications"]
 - !private ["PSo20UIScrollViewDelegate", "String"]
+- !private ["PSo20UIScrollViewDelegate", "UIApplication"]
 - !private ["PSo20UIScrollViewDelegate", "UIColor"]
 - !private ["PSo20UIScrollViewDelegate", "UIImage"]
 - !private ["PSo20UIScrollViewDelegate", "UIImageView"]
 - !private ["PSo20UIScrollViewDelegate", "UILabel"]
 - !private ["PSo20UIScrollViewDelegate", "UITapGestureRecognizer"]
+- !private ["PSo20UIScrollViewDelegate", "UIUserInterfaceLayoutDirection"]
 - !private ["PSo20UIScrollViewDelegate", "UIView"]
 - !private ["PSo20UIScrollViewDelegate", "UserDefaults"]
 - !private ["PSo20UIScrollViewDelegate", "UtilityClass"]
@@ -2750,11 +2841,13 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "Notifications"]
 - !private ["PSo16UIStateRestoring", "String"]
 - ["PSo16UIStateRestoring", "ToolBarButtons_Click"]
+- !private ["PSo16UIStateRestoring", "UIApplication"]
 - !private ["PSo16UIStateRestoring", "UIColor"]
 - !private ["PSo16UIStateRestoring", "UIImage"]
 - !private ["PSo16UIStateRestoring", "UIImageView"]
 - !private ["PSo16UIStateRestoring", "UILabel"]
 - !private ["PSo16UIStateRestoring", "UITapGestureRecognizer"]
+- !private ["PSo16UIStateRestoring", "UIUserInterfaceLayoutDirection"]
 - !private ["PSo16UIStateRestoring", "UIView"]
 - !private ["PSo16UIStateRestoring", "UserDefaults"]
 - !private ["PSo16UIStateRestoring", "UtilityClass"]
@@ -2822,6 +2915,9 @@ depends-member:
 - !private ["CSo15UITableViewCell", "dateLbl"]
 - ["CSo15UITableViewCell", "deinit"]
 - !private ["CSo15UITableViewCell", "readingLbl"]
+- !private ["CSo15UITableViewCell", "selectionStyle"]
+- ["OSC29UITableViewCellSelectionStyle", "deinit"]
+- !private ["OSC29UITableViewCellSelectionStyle", "none"]
 - !private ["PSo21UITableViewDataSource", "Alamofire"]
 - !private ["PSo21UITableViewDataSource", "ApiMethods"]
 - !private ["PSo21UITableViewDataSource", "Bundle"]
@@ -2838,11 +2934,13 @@ depends-member:
 - !private ["PSo21UITableViewDataSource", "NotificationCenter"]
 - !private ["PSo21UITableViewDataSource", "Notifications"]
 - !private ["PSo21UITableViewDataSource", "String"]
+- !private ["PSo21UITableViewDataSource", "UIApplication"]
 - !private ["PSo21UITableViewDataSource", "UIColor"]
 - !private ["PSo21UITableViewDataSource", "UIImage"]
 - !private ["PSo21UITableViewDataSource", "UIImageView"]
 - !private ["PSo21UITableViewDataSource", "UILabel"]
 - !private ["PSo21UITableViewDataSource", "UITapGestureRecognizer"]
+- !private ["PSo21UITableViewDataSource", "UIUserInterfaceLayoutDirection"]
 - !private ["PSo21UITableViewDataSource", "UIView"]
 - !private ["PSo21UITableViewDataSource", "UserDefaults"]
 - !private ["PSo21UITableViewDataSource", "UtilityClass"]
@@ -2911,11 +3009,13 @@ depends-member:
 - !private ["PSo19UITableViewDelegate", "NotificationCenter"]
 - !private ["PSo19UITableViewDelegate", "Notifications"]
 - !private ["PSo19UITableViewDelegate", "String"]
+- !private ["PSo19UITableViewDelegate", "UIApplication"]
 - !private ["PSo19UITableViewDelegate", "UIColor"]
 - !private ["PSo19UITableViewDelegate", "UIImage"]
 - !private ["PSo19UITableViewDelegate", "UIImageView"]
 - !private ["PSo19UITableViewDelegate", "UILabel"]
 - !private ["PSo19UITableViewDelegate", "UITapGestureRecognizer"]
+- !private ["PSo19UITableViewDelegate", "UIUserInterfaceLayoutDirection"]
 - !private ["PSo19UITableViewDelegate", "UIView"]
 - !private ["PSo19UITableViewDelegate", "UserDefaults"]
 - !private ["PSo19UITableViewDelegate", "UtilityClass"]
@@ -2994,11 +3094,13 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "Notifications"]
 - !private ["PSo18UITraitEnvironment", "String"]
 - ["PSo18UITraitEnvironment", "ToolBarButtons_Click"]
+- !private ["PSo18UITraitEnvironment", "UIApplication"]
 - !private ["PSo18UITraitEnvironment", "UIColor"]
 - !private ["PSo18UITraitEnvironment", "UIImage"]
 - !private ["PSo18UITraitEnvironment", "UIImageView"]
 - !private ["PSo18UITraitEnvironment", "UILabel"]
 - !private ["PSo18UITraitEnvironment", "UITapGestureRecognizer"]
+- !private ["PSo18UITraitEnvironment", "UIUserInterfaceLayoutDirection"]
 - !private ["PSo18UITraitEnvironment", "UIView"]
 - !private ["PSo18UITraitEnvironment", "UserDefaults"]
 - !private ["PSo18UITraitEnvironment", "UtilityClass"]
@@ -3060,6 +3162,7 @@ depends-member:
 - ["PSo18UITraitEnvironment", "sectionIndexTitlesForTableView"]
 - ["PSo18UITraitEnvironment", "sectionsArray"]
 - !private ["PSo18UITraitEnvironment", "selectedRow"]
+- !private ["PSo18UITraitEnvironment", "selectionStyle"]
 - ["PSo18UITraitEnvironment", "setUI"]
 - ["PSo18UITraitEnvironment", "tableView"]
 - !private ["PSo18UITraitEnvironment", "tag"]
@@ -3076,6 +3179,9 @@ depends-member:
 - ["PSo18UITraitEnvironment", "viewForZooming"]
 - ["PSo18UITraitEnvironment", "viewForZoomingInScrollView"]
 - ["PSo18UITraitEnvironment", ""]
+- !private ["OSC30UIUserInterfaceLayoutDirection", "RawValue"]
+- ["OSC30UIUserInterfaceLayoutDirection", "deinit"]
+- !private ["OSC30UIUserInterfaceLayoutDirection", "rightToLeft"]
 - !private ["CSo6UIView", "addGestureRecognizer"]
 - !private ["CSo6UIView", "addSubview"]
 - !private ["CSo6UIView", "backgroundColor"]
@@ -3094,6 +3200,7 @@ depends-member:
 - !private ["CSo6UIView", "readingLbl"]
 - !private ["CSo6UIView", "reloadData"]
 - !private ["CSo6UIView", "selectedRow"]
+- !private ["CSo6UIView", "selectionStyle"]
 - !private ["CSo6UIView", "tag"]
 - !private ["CSo6UIView", "text"]
 - !private ["CSo6UIView", "textColor"]
@@ -3122,6 +3229,7 @@ depends-member:
 - !private ["CSo16UIViewController", "Parameters"]
 - ["CSo16UIViewController", "String"]
 - ["CSo16UIViewController", "ToolBarButtons_Click"]
+- !private ["CSo16UIViewController", "UIApplication"]
 - !private ["CSo16UIViewController", "UIColor"]
 - !private ["CSo16UIViewController", "UIImage"]
 - !private ["CSo16UIViewController", "UIImageView"]
@@ -3131,6 +3239,7 @@ depends-member:
 - ["CSo16UIViewController", "UITableViewCell"]
 - ["CSo16UIViewController", "UITapGestureRecognizer"]
 - ["CSo16UIViewController", "UITextField"]
+- !private ["CSo16UIViewController", "UIUserInterfaceLayoutDirection"]
 - ["CSo16UIViewController", "UIView"]
 - !private ["CSo16UIViewController", "URL"]
 - !private ["CSo16UIViewController", "UserDefaults"]
@@ -3228,6 +3337,7 @@ depends-member:
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "readingLbl"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "reloadData"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "selectedRow"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "selectionStyle"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "tag"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "text"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "textColor"]
@@ -3279,11 +3389,13 @@ depends-member:
 - !private ["Ps9_Hashable", "Stride"]
 - !private ["Ps9_Hashable", "String"]
 - ["Ps9_Hashable", "ToolBarButtons_Click"]
+- !private ["Ps9_Hashable", "UIApplication"]
 - !private ["Ps9_Hashable", "UIColor"]
 - !private ["Ps9_Hashable", "UIImage"]
 - !private ["Ps9_Hashable", "UIImageView"]
 - !private ["Ps9_Hashable", "UILabel"]
 - !private ["Ps9_Hashable", "UITapGestureRecognizer"]
+- !private ["Ps9_Hashable", "UIUserInterfaceLayoutDirection"]
 - !private ["Ps9_Hashable", "UIView"]
 - !private ["Ps9_Hashable", "UserDefaults"]
 - !private ["Ps9_Hashable", "UtilityClass"]
@@ -3333,6 +3445,7 @@ depends-member:
 - ["Ps9_Hashable", "noHistoryAvailableLbl"]
 - ["Ps9_Hashable", "noOfDays"]
 - ["Ps9_Hashable", "noOfDaysNotification"]
+- !private ["Ps9_Hashable", "none"]
 - ["Ps9_Hashable", "numberOfComponents"]
 - ["Ps9_Hashable", "numberOfComponentsInPickerView"]
 - ["Ps9_Hashable", "numberOfSections"]
@@ -3352,6 +3465,7 @@ depends-member:
 - !private ["Ps9_Hashable", "removeObserver"]
 - !private ["Ps9_Hashable", "replaceObject"]
 - ["Ps9_Hashable", "resetUI"]
+- !private ["Ps9_Hashable", "rightToLeft"]
 - !private ["Ps9_Hashable", "row"]
 - ["Ps9_Hashable", "scrollViewDidEndDecelerating"]
 - ["Ps9_Hashable", "scrollViewDidEndDragging"]
@@ -3370,9 +3484,11 @@ depends-member:
 - ["Ps9_Hashable", "sectionIndexTitlesForTableView"]
 - ["Ps9_Hashable", "sectionsArray"]
 - !private ["Ps9_Hashable", "selectedRow"]
+- !private ["Ps9_Hashable", "selectionStyle"]
 - !private ["Ps9_Hashable", "setObject"]
 - ["Ps9_Hashable", "setUI"]
 - !private ["Ps9_Hashable", "setValue"]
+- !private ["Ps9_Hashable", "shared"]
 - !private ["Ps9_Hashable", "standard"]
 - !private ["Ps9_Hashable", "string"]
 - !private ["Ps9_Hashable", "subscript"]
@@ -3384,6 +3500,7 @@ depends-member:
 - !private ["Ps9_Hashable", "textColor"]
 - !private ["Ps9_Hashable", "title"]
 - !private ["Ps9_Hashable", "userDefaults"]
+- !private ["Ps9_Hashable", "userInterfaceLayoutDirection"]
 - !private ["Ps9_Hashable", "value"]
 - !private ["Ps9_Hashable", "view"]
 - ["Ps9_Hashable", "viewDidAppear"]
@@ -3526,6 +3643,7 @@ depends-nominal:
 - "CSo17UIAlertController"
 - !private "PSo12UIAppearance"
 - "PSo21UIAppearanceContainer"
+- "CSo13UIApplication"
 - "CSo7UIColor"
 - "PSo18UIContentContainer"
 - !private "PSo30UIContentSizeCategoryAdjusting"
@@ -3551,6 +3669,7 @@ depends-nominal:
 - "PSo16UIStateRestoring"
 - "CSo11UITableView"
 - "CSo15UITableViewCell"
+- "OSC29UITableViewCellSelectionStyle"
 - "PSo21UITableViewDataSource"
 - "PSo19UITableViewDelegate"
 - "CSo22UITapGestureRecognizer"
@@ -3558,6 +3677,7 @@ depends-nominal:
 - !private "PSo11UITextInput"
 - !private "PSo17UITextInputTraits"
 - "PSo18UITraitEnvironment"
+- "OSC30UIUserInterfaceLayoutDirection"
 - "CSo6UIView"
 - "CSo16UIViewController"
 - !private "Su"
@@ -3596,8 +3716,8 @@ depends-nominal:
 - !private "Ps20_SwiftNewtypeWrapper"
 - !private "V11DiabetesApp12userDefaults"
 depends-dynamic-lookup:
-- !private "tag"
 - !private "object"
+- !private "tag"
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/DiabetesApp/DiabetesApp-Bridging-Header.h"
@@ -3729,13 +3849,13 @@ depends-external:
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Alamofire/Alamofire.framework/Headers/Alamofire-Swift.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Alamofire/Alamofire.framework/Headers/Alamofire-umbrella.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Alamofire/Alamofire.framework/Modules/module.modulemap"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreData.swiftmodule"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework/Headers/SVRadialGradientLayer.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework/Headers/SVProgressHUD.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework/Headers/SVProgressAnimatedView.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework/Headers/SVIndefiniteAnimatedView.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework/Headers/SVProgressHUD-umbrella.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework/Modules/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreData.swiftmodule"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/Bolts.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFTaskCompletionSource.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFTask.h"

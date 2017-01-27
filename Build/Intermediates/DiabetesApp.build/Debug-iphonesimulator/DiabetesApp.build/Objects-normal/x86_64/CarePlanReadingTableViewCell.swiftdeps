@@ -8,20 +8,20 @@ provides-member:
 provides-dynamic-lookup:
 - "mainView"
 - "goalLbl"
-- "awakeFromNib"
-- "numberLbl"
-- "setSelected"
-- "conditionLbl"
 - "setUI"
+- "setSelected"
+- "numberLbl"
+- "awakeFromNib"
+- "conditionLbl"
 depends-top-level:
-- "UIView"
-- "AssignmentPrecedence"
-- "UILabel"
-- "UITableViewCell"
-- "Bool"
-- !private "UIColor"
-- "CarePlanReadingTableViewCell"
 - !private "CGSize"
+- "CarePlanReadingTableViewCell"
+- "UITableViewCell"
+- "UILabel"
+- "UIView"
+- "Bool"
+- "AssignmentPrecedence"
+- !private "UIColor"
 depends-member:
 - !private ["Ps9AnyObject", "CGSize"]
 - !private ["Ps9AnyObject", "UIColor"]
