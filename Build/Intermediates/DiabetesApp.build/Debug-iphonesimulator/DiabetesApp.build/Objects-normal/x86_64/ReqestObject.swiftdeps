@@ -6,18 +6,19 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp12ReqestObject", ""]
 provides-dynamic-lookup:
-- "taskid"
 - "date"
 - "status"
-- "full_name"
-- "time"
-- "educatorName"
-- "doctorName"
+- "patientid"
 - "patientName"
+- "educatorName"
+- "taskid"
+- "time"
+- "doctorName"
+- "full_name"
 depends-top-level:
-- "NSObject"
 - "String"
 - "ReqestObject"
+- "NSObject"
 depends-member:
 - ["Ps9AnyObject", "String"]
 - ["Ps9AnyObject", "date"]
@@ -26,6 +27,7 @@ depends-member:
 - ["Ps9AnyObject", "full_name"]
 - !private ["Ps9AnyObject", "init"]
 - ["Ps9AnyObject", "patientName"]
+- ["Ps9AnyObject", "patientid"]
 - ["Ps9AnyObject", "status"]
 - ["Ps9AnyObject", "taskid"]
 - ["Ps9AnyObject", "time"]
@@ -37,6 +39,7 @@ depends-member:
 - ["Ps7CVarArg", "full_name"]
 - ["Ps7CVarArg", "init"]
 - ["Ps7CVarArg", "patientName"]
+- ["Ps7CVarArg", "patientid"]
 - ["Ps7CVarArg", "status"]
 - ["Ps7CVarArg", "taskid"]
 - ["Ps7CVarArg", "time"]
@@ -49,6 +52,7 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "full_name"]
 - ["Ps28CustomDebugStringConvertible", "init"]
 - ["Ps28CustomDebugStringConvertible", "patientName"]
+- ["Ps28CustomDebugStringConvertible", "patientid"]
 - ["Ps28CustomDebugStringConvertible", "status"]
 - ["Ps28CustomDebugStringConvertible", "taskid"]
 - ["Ps28CustomDebugStringConvertible", "time"]
@@ -62,6 +66,7 @@ depends-member:
 - ["Ps23CustomStringConvertible", "full_name"]
 - ["Ps23CustomStringConvertible", "init"]
 - ["Ps23CustomStringConvertible", "patientName"]
+- ["Ps23CustomStringConvertible", "patientid"]
 - ["Ps23CustomStringConvertible", "status"]
 - ["Ps23CustomStringConvertible", "taskid"]
 - ["Ps23CustomStringConvertible", "time"]
@@ -73,6 +78,7 @@ depends-member:
 - ["Ps9Equatable", "full_name"]
 - ["Ps9Equatable", "init"]
 - ["Ps9Equatable", "patientName"]
+- ["Ps9Equatable", "patientid"]
 - ["Ps9Equatable", "status"]
 - ["Ps9Equatable", "taskid"]
 - ["Ps9Equatable", "time"]
@@ -88,6 +94,7 @@ depends-member:
 - ["Ps8Hashable", "full_name"]
 - ["Ps8Hashable", "init"]
 - ["Ps8Hashable", "patientName"]
+- ["Ps8Hashable", "patientid"]
 - ["Ps8Hashable", "status"]
 - ["Ps8Hashable", "taskid"]
 - ["Ps8Hashable", "time"]
@@ -102,6 +109,7 @@ depends-member:
 - ["CSo8NSObject", "full_name"]
 - ["CSo8NSObject", "init"]
 - ["CSo8NSObject", "patientName"]
+- ["CSo8NSObject", "patientid"]
 - ["CSo8NSObject", "status"]
 - ["CSo8NSObject", "taskid"]
 - ["CSo8NSObject", "time"]
@@ -113,6 +121,7 @@ depends-member:
 - ["PSo16NSObjectProtocol", "full_name"]
 - !private ["PSo16NSObjectProtocol", "init"]
 - ["PSo16NSObjectProtocol", "patientName"]
+- ["PSo16NSObjectProtocol", "patientid"]
 - ["PSo16NSObjectProtocol", "status"]
 - ["PSo16NSObjectProtocol", "taskid"]
 - ["PSo16NSObjectProtocol", "time"]
@@ -125,6 +134,7 @@ depends-member:
 - ["C11DiabetesApp12ReqestObject", "full_name"]
 - ["C11DiabetesApp12ReqestObject", "init"]
 - ["C11DiabetesApp12ReqestObject", "patientName"]
+- ["C11DiabetesApp12ReqestObject", "patientid"]
 - ["C11DiabetesApp12ReqestObject", "status"]
 - ["C11DiabetesApp12ReqestObject", "taskid"]
 - ["C11DiabetesApp12ReqestObject", "time"]
@@ -144,6 +154,7 @@ depends-member:
 - ["Ps9_Hashable", "full_name"]
 - ["Ps9_Hashable", "init"]
 - ["Ps9_Hashable", "patientName"]
+- ["Ps9_Hashable", "patientid"]
 - ["Ps9_Hashable", "status"]
 - ["Ps9_Hashable", "taskid"]
 - ["Ps9_Hashable", "time"]
@@ -491,4 +502,4 @@ depends-external:
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController-umbrella.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Modules/module.modulemap"
-interface-hash: "52a0971065f0dfae6ffac2b07da0c4d4"
+interface-hash: "54f71c85559a6af03da524ac2be229b4"

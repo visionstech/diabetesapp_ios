@@ -72,7 +72,7 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
     var editCurrentReadArray = NSArray()
     var selectedUserType: Int = Int(UserDefaults.standard.integer(forKey: userDefaults.loggedInUserType))
     
-    var taskID = String()
+   
     var reportUser = String()
     
     
@@ -83,7 +83,7 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
     // MARK: - View Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(taskID)
+       
         UserDefaults.standard.setValue(NSArray(), forKey: "currentEditMedicationArray")
         UserDefaults.standard.synchronize()
        
@@ -258,6 +258,7 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
     
     
     @IBAction func currentReadEditAction(_ sender: UIButton) {
+        let defaults = UserDefaults.standard
         if currentReadEdit.titleLabel!.text == "Edit" {
             UserDefaults.standard.set(true, forKey: "CurrentReadEditBool")
             
@@ -266,13 +267,16 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
         }
         else {
             UserDefaults.standard.set(false, forKey: "CurrentReadEditBool")
-            let defaults = UserDefaults.standard
+          
             editCurrentReadArray = defaults.array(forKey: "currentEditReadingArray")! as [Any] as NSArray
             print("readArray\(editCurrentReadArray)")
             
             currentReadEdit.setTitle("Edit", for: .normal)
            
         }
+        editCurrentReadArray = defaults.array(forKey: "currentEditReadingArray")! as [Any] as NSArray
+        print("readArray\(editCurrentReadArray)")
+
      UserDefaults.standard.synchronize()
      NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notifications.readingView), object: nil)
 //     add(asChildViewController:reportCarePlanController )
@@ -331,6 +335,8 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
     //MARK: - Approve & Decline Button Methods
     
     @IBAction func declineBtn_Click(_ sender: Any) {
+        
+        
         SVProgressHUD.show(withStatus: "SA_STR_LOADING".localized, maskType: SVProgressHUDMaskType.clear)
         // let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
         let parameters: Parameters = [
@@ -631,7 +637,7 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
             if indexPath.section == 0 {
                 if let obj: CarePlanObj = medicationArray[indexPath.row] as? CarePlanObj {
                     cell.medNameLbl.text = obj.name.capitalized
-                    let dosageStr  = obj.dosage
+                   // let dosageStr  = obj.dosage
 //                    cell.dosageTxtFld.text = dosageStr
 //                    cell.dosageTxtFld.tag = indexPath.row
                     
@@ -640,7 +646,7 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
             else {
                 if let obj: CarePlanObj = newMedicationArray[indexPath.row] as? CarePlanObj {
                     cell.medNameLbl.text = obj.name.capitalized
-                    let dosageStr : String = obj.dosage
+                  //  let dosageStr : String = obj.dosage
 //                    cell.dosageTxtFld.tag = indexPath.row
 //                    cell.dosageTxtFld.text = dosageStr
                     
@@ -779,10 +785,11 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
     func getEducatorReportAPI()  {
      SVProgressHUD.show(withStatus: "SA_STR_LOADING".localized, maskType: SVProgressHUDMaskType.clear)
      let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+     let educatorID: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserID)!
      print(patientsID)
         let parameters: Parameters = [
-            "patientid": "58563eb4d9c776ad70491b7b" ,
-            "educatorid":"58563eb4d9c776ad70491b97",
+            "patientid": patientsID ,
+            "educatorid":educatorID,
             "numDaysBack": getSelectedNoOfDays(),
             "condition": "All conditions"
         ]
@@ -936,12 +943,13 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
     func doctorReportAPI() {
         SVProgressHUD.show(withStatus: "SA_STR_LOADING".localized, maskType: SVProgressHUDMaskType.clear)
         let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+        let taskID: String = UserDefaults.standard.string(forKey: userDefaults.taskID)!
         print(getSelectedNoOfDays())
         let parameters: Parameters = [
             "taskid": taskID,
-            "patientid": "58563eb4d9c776ad70491b7b",
-            "numDaysBack": "30",
-            "condition": "Post Lunch"
+            "patientid": patientsID,
+            "numDaysBack": "1",
+            "condition": "All conditions"
         ]
         print(parameters)
         
@@ -988,6 +996,10 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
 //                    let jsonNewArr : NSMutableArray = NSMutableArray(array:JSON.object(forKey: "updatedMedication") as! NSArray)
                     let readingArr : NSMutableArray = NSMutableArray(array:JSON.object(forKey: "readingsTime") as! NSArray)
                     let updateReadingArr : NSMutableArray = NSMutableArray(array:JSON.object(forKey: "updatedReading") as! NSArray)
+                    
+                    if updateReadingArr.count == 0 {
+                        self.sections = 1
+                    }
                     let objectArray : NSDictionary = NSDictionary(dictionary: JSON.object(forKey: "glucoseReadings") as! NSDictionary)
                     let glucoseReadingArr: NSArray = NSMutableArray(array: objectArray.object(forKey: "objectArray") as! NSArray)
 
@@ -1028,7 +1040,7 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
         let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
         print(getSelectedNoOfDays())
         let parameters: Parameters = [
-            "patientid": "58563eb4d9c776ad70491b7b",
+            "patientid": patientsID,
             "numDaysBack": "1",
             "condition": "All conditions"
         ]
@@ -1168,7 +1180,8 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
         }
         else  if updateReadingCount == 0 {
            
-            newReadingContainerHeight.constant = 0.0 ;
+            newReadingContainerHeight.constant = 0.0
+            newRedEditConstraint.constant = 0.0
         }
 
         else  {

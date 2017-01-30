@@ -95,9 +95,12 @@ class RequestViewController: UIViewController,UITableViewDelegate,UITableViewDat
         let reqObj =  requestListArray.object(at: indexPath.row) as! ReqestObject
         
         let viewController: ReportViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.ReportViewController) as! ReportViewController
-        viewController.taskID = reqObj.taskid
-        UserDefaults.standard.set(false, forKey:"groupChat")
-        UserDefaults.standard.set(reqObj.taskid, forKey: "taskID")
+       
+        
+       
+        UserDefaults.standard.set(false, forKey:userDefaults.groupChat)
+        UserDefaults.standard.set(reqObj.taskid, forKey:userDefaults.taskID)
+        UserDefaults.standard.set(reqObj.patientid, forKey: userDefaults.selectedPatientID)
         UserDefaults.standard.synchronize()
 
         self.tabBarController?.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
@@ -106,17 +109,19 @@ class RequestViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         
     }
+    
     func getRequestTask() {
 //         SVProgressHUD.show(withStatus: "SA_STR_LOADING".localized, maskType: SVProgressHUDMaskType.clear)
-        if  UserDefaults.standard.string(forKey: userDefaults.selectedPatientID) != nil {
+      
            
             
             let userID: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserID)!
             let parameters: Parameters = [
                 "usertype": userTypeString,
-                "userid": userID,
+                "userid": userID
                
             ]
+            
             
             print(parameters)
             
@@ -150,6 +155,7 @@ class RequestViewController: UIViewController,UITableViewDelegate,UITableViewDat
                             requestObj.taskid = dict.value(forKey: "taskid") as! String
                             requestObj.time =   dict.value(forKey: "time") as! String
                             requestObj.status =   dict.value(forKey: "status") as! String
+                            requestObj.patientid = (dict.value(forKey: "patientid") as? String)!
                             self.requestListArray.add(requestObj)
                          }
                         }
@@ -166,7 +172,7 @@ class RequestViewController: UIViewController,UITableViewDelegate,UITableViewDat
                     
                 }
             }
-        }
+       
     }
     
     /*

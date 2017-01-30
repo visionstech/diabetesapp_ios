@@ -208,7 +208,7 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
             } else {
                 // Creating group chat.
                 
-                ServicesManager.instance().chatService.createGroupChatDialog(withName: name! , photo: nil, occupants: users!) { [weak self] (response, chatDialog) -> Void in
+                ServicesManager.instance().chatService.createGroupChatDialog(withName: name! , photo: patientID, occupants: users!) { [weak self] (response, chatDialog) -> Void in
                     
                     guard response.error == nil else {
                         
@@ -219,18 +219,10 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
                     guard chatDialog != nil else {
                         return
                     }
-                    chatDialog!.data = ["PatientID" : patientID ]
+                      completion(response, chatDialog)
                     
-                    QBRequest.update(chatDialog!, successBlock: { (response, updatedDialog) in
-                        
-                        guard updatedDialog != nil else {
-                            return
-                        }
-                        print(updatedDialog!)
-                        completion(response, updatedDialog)
-                    }, errorBlock: { (error) in
-                        
-                    })
+                    
+                    
                     
                 }
             }
@@ -240,6 +232,9 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
             
         }
     }
+    
+
+
     
     
     //MARK:- TableView Delegate Methods
@@ -604,6 +599,7 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
             
         }
     }
+    
     
     
     

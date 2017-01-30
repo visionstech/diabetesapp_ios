@@ -795,6 +795,8 @@ static NSString* const kQMChatServiceDomain = @"com.q-municate.chatservice";
     QBChatDialog *chatDialog = [[QBChatDialog alloc] initWithDialogID:nil type:QBChatDialogTypeGroup];
     chatDialog.name = name;
     chatDialog.photo = photo;
+    chatDialog.data = [[NSDictionary alloc]initWithObjectsAndKeys:photo,@"PatientID", nil];//["PatientID" : photo]
+   
     chatDialog.occupantIDs = occupantIDs.allObjects;
     
     __weak __typeof(self)weakSelf = self;

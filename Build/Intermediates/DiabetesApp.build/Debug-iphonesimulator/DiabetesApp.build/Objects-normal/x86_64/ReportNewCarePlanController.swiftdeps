@@ -6,64 +6,68 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp27ReportNewCarePlanController", ""]
 provides-dynamic-lookup:
+- "viewDidLoad"
+- "tblView"
+- "numberOfSections"
+- "readingNotification"
+- "lblNoReadingAvailable"
 - "viewWillAppear"
 - "addNotifications"
-- "numberOfSections"
-- "tblView"
+- "getDoctorReadingData"
 - "resetUI"
 - "tableView"
 - "tableView"
 - "tableView"
 - "tableView"
 - "tableView"
-- "getDoctorReadingData"
-- "readingNotification"
-- "viewDidDisappear"
 - "didReceiveMemoryWarning"
+- "viewDidDisappear"
 - "array"
-- "viewDidLoad"
 depends-top-level:
-- !private "NSDictionary"
-- !private "Parameters"
-- "UITableViewDataSource"
-- "UITableView"
-- !private "Dictionary"
-- "UITableViewDelegate"
-- !private "NotificationCenter"
-- "IndexPath"
-- !private "NSMutableDictionary"
-- !private "userDefaults"
 - !private "print"
-- "CGFloat"
-- !private "CarePlanReadingHeaderTableViewCell"
-- !private "+"
-- !private "=="
-- "UIViewController"
-- "Bool"
-- "AssignmentPrecedence"
-- "ReportNewCarePlanController"
-- "CastingPrecedence"
-- !private "NSArray"
-- !private "Notifications"
-- !private "Alamofire"
-- !private "CarePlanReadingObj"
-- !private "JSONEncoding"
-- !private "NSCopying"
 - !private "UnicodeScalarType"
-- !private "selectedUserType"
-- !private "frequnecyArray"
-- !private "!="
-- "Int"
-- !private "userType"
+- "UIViewController"
 - !private "ReportCarePlanReadingViewCell"
+- !private "NSMutableDictionary"
+- !private "NotificationCenter"
+- !private "+"
+- "IndexPath"
+- !private "BooleanLiteralType"
+- "ReportNewCarePlanController"
+- !private "Dictionary"
+- "UITableViewCell"
+- !private "userDefaults"
+- !private "StringLiteralType"
+- !private "CarePlanReadingHeaderTableViewCell"
+- "UITableViewDataSource"
+- !private "!"
+- !private "JSONEncoding"
+- "UITableViewDelegate"
+- !private "Notifications"
+- !private "=="
+- "AssignmentPrecedence"
+- !private "NSDictionary"
+- !private "UserDefaults"
+- !private "NSArray"
+- "CastingPrecedence"
+- !private "frequnecyArray"
+- "NSNotification"
+- !private "NSCopying"
+- "UITableView"
+- "Bool"
+- "Int"
+- !private "selectedUserType"
 - !private ">"
+- "UILabel"
+- !private "CarePlanReadingObj"
+- !private "Alamofire"
 - "NSMutableArray"
 - !private "String"
-- "NSNotification"
-- !private "UserDefaults"
+- !private "!="
+- "CGFloat"
+- !private "userType"
+- !private "Parameters"
 - "UIView"
-- "UITableViewCell"
-- !private "BooleanLiteralType"
 depends-member:
 - !private ["Ps9AnyObject", "Alamofire"]
 - !private ["Ps9AnyObject", "CarePlanReadingObj"]
@@ -100,6 +104,7 @@ depends-member:
 - ["Ps9AnyObject", "init"]
 - !private ["Ps9AnyObject", "isHidden"]
 - !private ["Ps9AnyObject", "isUserInteractionEnabled"]
+- ["Ps9AnyObject", "lblNoReadingAvailable"]
 - !private ["Ps9AnyObject", "numberLbl"]
 - ["Ps9AnyObject", "numberOfSections"]
 - ["Ps9AnyObject", "numberOfSectionsInTableView"]
@@ -201,6 +206,7 @@ depends-member:
 - ["Ps7CVarArg", "init"]
 - !private ["Ps7CVarArg", "isHidden"]
 - !private ["Ps7CVarArg", "isUserInteractionEnabled"]
+- ["Ps7CVarArg", "lblNoReadingAvailable"]
 - !private ["Ps7CVarArg", "numberLbl"]
 - ["Ps7CVarArg", "numberOfSections"]
 - ["Ps7CVarArg", "numberOfSectionsInTableView"]
@@ -301,6 +307,7 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "init"]
 - !private ["Ps28CustomDebugStringConvertible", "isHidden"]
 - !private ["Ps28CustomDebugStringConvertible", "isUserInteractionEnabled"]
+- ["Ps28CustomDebugStringConvertible", "lblNoReadingAvailable"]
 - !private ["Ps28CustomDebugStringConvertible", "numberLbl"]
 - ["Ps28CustomDebugStringConvertible", "numberOfSections"]
 - ["Ps28CustomDebugStringConvertible", "numberOfSectionsInTableView"]
@@ -409,6 +416,7 @@ depends-member:
 - ["Ps23CustomStringConvertible", "init"]
 - !private ["Ps23CustomStringConvertible", "isHidden"]
 - !private ["Ps23CustomStringConvertible", "isUserInteractionEnabled"]
+- ["Ps23CustomStringConvertible", "lblNoReadingAvailable"]
 - !private ["Ps23CustomStringConvertible", "numberLbl"]
 - ["Ps23CustomStringConvertible", "numberOfSections"]
 - ["Ps23CustomStringConvertible", "numberOfSectionsInTableView"]
@@ -503,6 +511,7 @@ depends-member:
 - ["Ps9Equatable", "init"]
 - !private ["Ps9Equatable", "isHidden"]
 - !private ["Ps9Equatable", "isUserInteractionEnabled"]
+- ["Ps9Equatable", "lblNoReadingAvailable"]
 - !private ["Ps9Equatable", "none"]
 - !private ["Ps9Equatable", "numberLbl"]
 - ["Ps9Equatable", "numberOfSections"]
@@ -615,6 +624,7 @@ depends-member:
 - ["Ps8Hashable", "init"]
 - !private ["Ps8Hashable", "isHidden"]
 - !private ["Ps8Hashable", "isUserInteractionEnabled"]
+- ["Ps8Hashable", "lblNoReadingAvailable"]
 - !private ["Ps8Hashable", "none"]
 - !private ["Ps8Hashable", "numberLbl"]
 - ["Ps8Hashable", "numberOfSections"]
@@ -730,6 +740,7 @@ depends-member:
 - ["PSo8NSCoding", "init"]
 - !private ["PSo8NSCoding", "isHidden"]
 - !private ["PSo8NSCoding", "isUserInteractionEnabled"]
+- ["PSo8NSCoding", "lblNoReadingAvailable"]
 - !private ["PSo8NSCoding", "numberLbl"]
 - ["PSo8NSCoding", "numberOfSections"]
 - ["PSo8NSCoding", "numberOfSectionsInTableView"]
@@ -809,6 +820,7 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "indexPathForPreferredFocusedView"]
 - ["PSo26NSExtensionRequestHandling", "indexPathForPreferredFocusedViewInTableView"]
 - !private ["PSo26NSExtensionRequestHandling", "init"]
+- ["PSo26NSExtensionRequestHandling", "lblNoReadingAvailable"]
 - ["PSo26NSExtensionRequestHandling", "numberOfSections"]
 - ["PSo26NSExtensionRequestHandling", "numberOfSectionsInTableView"]
 - !private ["PSo26NSExtensionRequestHandling", "print"]
@@ -901,6 +913,7 @@ depends-member:
 - !private ["CSo8NSObject", "Parameters"]
 - !private ["CSo8NSObject", "ReportCarePlanReadingViewCell"]
 - !private ["CSo8NSObject", "String"]
+- ["CSo8NSObject", "UILabel"]
 - ["CSo8NSObject", "UITableView"]
 - ["CSo8NSObject", "UITableViewCell"]
 - ["CSo8NSObject", "UIView"]
@@ -927,6 +940,7 @@ depends-member:
 - ["CSo8NSObject", "init"]
 - !private ["CSo8NSObject", "isHidden"]
 - !private ["CSo8NSObject", "isUserInteractionEnabled"]
+- ["CSo8NSObject", "lblNoReadingAvailable"]
 - !private ["CSo8NSObject", "numberLbl"]
 - ["CSo8NSObject", "numberOfSections"]
 - ["CSo8NSObject", "numberOfSectionsInTableView"]
@@ -1006,6 +1020,7 @@ depends-member:
 - ["PSo16NSObjectProtocol", "init"]
 - !private ["PSo16NSObjectProtocol", "isHidden"]
 - !private ["PSo16NSObjectProtocol", "isUserInteractionEnabled"]
+- ["PSo16NSObjectProtocol", "lblNoReadingAvailable"]
 - !private ["PSo16NSObjectProtocol", "numberLbl"]
 - ["PSo16NSObjectProtocol", "numberOfSections"]
 - ["PSo16NSObjectProtocol", "numberOfSectionsInTableView"]
@@ -1109,6 +1124,7 @@ depends-member:
 - !private ["C11DiabetesApp27ReportNewCarePlanController", "Parameters"]
 - !private ["C11DiabetesApp27ReportNewCarePlanController", "ReportCarePlanReadingViewCell"]
 - !private ["C11DiabetesApp27ReportNewCarePlanController", "String"]
+- ["C11DiabetesApp27ReportNewCarePlanController", "UILabel"]
 - ["C11DiabetesApp27ReportNewCarePlanController", "UITableView"]
 - ["C11DiabetesApp27ReportNewCarePlanController", "UITableViewCell"]
 - ["C11DiabetesApp27ReportNewCarePlanController", "UIView"]
@@ -1122,6 +1138,7 @@ depends-member:
 - ["C11DiabetesApp27ReportNewCarePlanController", "indexPathForPreferredFocusedView"]
 - ["C11DiabetesApp27ReportNewCarePlanController", "indexPathForPreferredFocusedViewInTableView"]
 - ["C11DiabetesApp27ReportNewCarePlanController", "init"]
+- ["C11DiabetesApp27ReportNewCarePlanController", "lblNoReadingAvailable"]
 - ["C11DiabetesApp27ReportNewCarePlanController", "numberOfSections"]
 - ["C11DiabetesApp27ReportNewCarePlanController", "numberOfSectionsInTableView"]
 - !private ["C11DiabetesApp27ReportNewCarePlanController", "print"]
@@ -1225,6 +1242,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "init"]
 - !private ["PSo21UIAppearanceContainer", "isHidden"]
 - !private ["PSo21UIAppearanceContainer", "isUserInteractionEnabled"]
+- ["PSo21UIAppearanceContainer", "lblNoReadingAvailable"]
 - !private ["PSo21UIAppearanceContainer", "numberLbl"]
 - ["PSo21UIAppearanceContainer", "numberOfSections"]
 - ["PSo21UIAppearanceContainer", "numberOfSectionsInTableView"]
@@ -1278,6 +1296,7 @@ depends-member:
 - ["PSo18UIContentContainer", "indexPathForPreferredFocusedView"]
 - ["PSo18UIContentContainer", "indexPathForPreferredFocusedViewInTableView"]
 - !private ["PSo18UIContentContainer", "init"]
+- ["PSo18UIContentContainer", "lblNoReadingAvailable"]
 - ["PSo18UIContentContainer", "numberOfSections"]
 - ["PSo18UIContentContainer", "numberOfSectionsInTableView"]
 - !private ["PSo18UIContentContainer", "print"]
@@ -1308,6 +1327,7 @@ depends-member:
 - ["PSo18UIContentContainer", "viewForZoomingInScrollView"]
 - ["PSo18UIContentContainer", "viewWillAppear"]
 - ["PSo18UIContentContainer", ""]
+- !private ["PSo30UIContentSizeCategoryAdjusting", "isHidden"]
 - !private ["PSo30UIContentSizeCategoryAdjusting", "isUserInteractionEnabled"]
 - !private ["PSo30UIContentSizeCategoryAdjusting", "text"]
 - !private ["CSo9UIControl", "isUserInteractionEnabled"]
@@ -1358,6 +1378,7 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "init"]
 - !private ["PSo18UIFocusEnvironment", "isHidden"]
 - !private ["PSo18UIFocusEnvironment", "isUserInteractionEnabled"]
+- ["PSo18UIFocusEnvironment", "lblNoReadingAvailable"]
 - !private ["PSo18UIFocusEnvironment", "numberLbl"]
 - ["PSo18UIFocusEnvironment", "numberOfSections"]
 - ["PSo18UIFocusEnvironment", "numberOfSectionsInTableView"]
@@ -1412,6 +1433,7 @@ depends-member:
 - !private ["PSo27UIGestureRecognizerDelegate", "tag"]
 - !private ["PSo10UIKeyInput", "isUserInteractionEnabled"]
 - !private ["PSo10UIKeyInput", "text"]
+- !private ["CSo7UILabel", "isHidden"]
 - !private ["CSo7UILabel", "text"]
 - !private ["CSo11UIResponder", "Alamofire"]
 - ["CSo11UIResponder", "Bool"]
@@ -1432,6 +1454,7 @@ depends-member:
 - !private ["CSo11UIResponder", "Parameters"]
 - !private ["CSo11UIResponder", "ReportCarePlanReadingViewCell"]
 - !private ["CSo11UIResponder", "String"]
+- ["CSo11UIResponder", "UILabel"]
 - ["CSo11UIResponder", "UITableView"]
 - ["CSo11UIResponder", "UITableViewCell"]
 - ["CSo11UIResponder", "UIView"]
@@ -1450,6 +1473,7 @@ depends-member:
 - ["CSo11UIResponder", "init"]
 - !private ["CSo11UIResponder", "isHidden"]
 - !private ["CSo11UIResponder", "isUserInteractionEnabled"]
+- ["CSo11UIResponder", "lblNoReadingAvailable"]
 - !private ["CSo11UIResponder", "numberLbl"]
 - ["CSo11UIResponder", "numberOfSections"]
 - ["CSo11UIResponder", "numberOfSectionsInTableView"]
@@ -1508,6 +1532,7 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "init"]
 - !private ["PSo30UIResponderStandardEditActions", "isHidden"]
 - !private ["PSo30UIResponderStandardEditActions", "isUserInteractionEnabled"]
+- ["PSo30UIResponderStandardEditActions", "lblNoReadingAvailable"]
 - !private ["PSo30UIResponderStandardEditActions", "numberLbl"]
 - ["PSo30UIResponderStandardEditActions", "numberOfSections"]
 - ["PSo30UIResponderStandardEditActions", "numberOfSectionsInTableView"]
@@ -1562,6 +1587,7 @@ depends-member:
 - !private ["PSo20UIScrollViewDelegate", "getDoctorReadingData"]
 - ["PSo20UIScrollViewDelegate", "indexPathForPreferredFocusedView"]
 - ["PSo20UIScrollViewDelegate", "indexPathForPreferredFocusedViewInTableView"]
+- !private ["PSo20UIScrollViewDelegate", "lblNoReadingAvailable"]
 - ["PSo20UIScrollViewDelegate", "numberOfSections"]
 - ["PSo20UIScrollViewDelegate", "numberOfSectionsInTableView"]
 - !private ["PSo20UIScrollViewDelegate", "print"]
@@ -1607,6 +1633,7 @@ depends-member:
 - ["PSo16UIStateRestoring", "indexPathForPreferredFocusedView"]
 - ["PSo16UIStateRestoring", "indexPathForPreferredFocusedViewInTableView"]
 - !private ["PSo16UIStateRestoring", "init"]
+- ["PSo16UIStateRestoring", "lblNoReadingAvailable"]
 - ["PSo16UIStateRestoring", "numberOfSections"]
 - ["PSo16UIStateRestoring", "numberOfSectionsInTableView"]
 - !private ["PSo16UIStateRestoring", "print"]
@@ -1666,6 +1693,7 @@ depends-member:
 - !private ["PSo21UITableViewDataSource", "getDoctorReadingData"]
 - ["PSo21UITableViewDataSource", "indexPathForPreferredFocusedView"]
 - ["PSo21UITableViewDataSource", "indexPathForPreferredFocusedViewInTableView"]
+- !private ["PSo21UITableViewDataSource", "lblNoReadingAvailable"]
 - ["PSo21UITableViewDataSource", "numberOfSections"]
 - ["PSo21UITableViewDataSource", "numberOfSectionsInTableView"]
 - !private ["PSo21UITableViewDataSource", "print"]
@@ -1709,6 +1737,7 @@ depends-member:
 - !private ["PSo19UITableViewDelegate", "getDoctorReadingData"]
 - ["PSo19UITableViewDelegate", "indexPathForPreferredFocusedView"]
 - ["PSo19UITableViewDelegate", "indexPathForPreferredFocusedViewInTableView"]
+- !private ["PSo19UITableViewDelegate", "lblNoReadingAvailable"]
 - ["PSo19UITableViewDelegate", "numberOfSections"]
 - ["PSo19UITableViewDelegate", "numberOfSectionsInTableView"]
 - !private ["PSo19UITableViewDelegate", "print"]
@@ -1766,6 +1795,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "init"]
 - !private ["PSo18UITraitEnvironment", "isHidden"]
 - !private ["PSo18UITraitEnvironment", "isUserInteractionEnabled"]
+- ["PSo18UITraitEnvironment", "lblNoReadingAvailable"]
 - !private ["PSo18UITraitEnvironment", "numberLbl"]
 - ["PSo18UITraitEnvironment", "numberOfSections"]
 - ["PSo18UITraitEnvironment", "numberOfSectionsInTableView"]
@@ -1831,6 +1861,7 @@ depends-member:
 - !private ["CSo16UIViewController", "Parameters"]
 - !private ["CSo16UIViewController", "ReportCarePlanReadingViewCell"]
 - !private ["CSo16UIViewController", "String"]
+- ["CSo16UIViewController", "UILabel"]
 - ["CSo16UIViewController", "UITableView"]
 - ["CSo16UIViewController", "UITableViewCell"]
 - ["CSo16UIViewController", "UIView"]
@@ -1844,6 +1875,7 @@ depends-member:
 - ["CSo16UIViewController", "indexPathForPreferredFocusedView"]
 - ["CSo16UIViewController", "indexPathForPreferredFocusedViewInTableView"]
 - ["CSo16UIViewController", "init"]
+- ["CSo16UIViewController", "lblNoReadingAvailable"]
 - ["CSo16UIViewController", "numberOfSections"]
 - ["CSo16UIViewController", "numberOfSectionsInTableView"]
 - !private ["CSo16UIViewController", "print"]
@@ -1945,6 +1977,7 @@ depends-member:
 - ["Ps9_Hashable", "init"]
 - !private ["Ps9_Hashable", "isHidden"]
 - !private ["Ps9_Hashable", "isUserInteractionEnabled"]
+- ["Ps9_Hashable", "lblNoReadingAvailable"]
 - !private ["Ps9_Hashable", "none"]
 - !private ["Ps9_Hashable", "numberLbl"]
 - ["Ps9_Hashable", "numberOfSections"]
@@ -2005,6 +2038,7 @@ depends-member:
 - !private ["Vs26_OptionalNilComparisonType", "deinit"]
 - !private ["Ps20_SwiftNewtypeWrapper", "init"]
 - !private ["V11DiabetesApp12userDefaults", "selectedPatientID"]
+- !private ["V11DiabetesApp12userDefaults", "taskID"]
 - !private ["V11DiabetesApp8userType", "doctor"]
 depends-nominal:
 - "Ps9AnyObject"
@@ -2452,4 +2486,4 @@ depends-external:
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController-umbrella.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Modules/module.modulemap"
-interface-hash: "aaf54b5bdb742368e383ac06c254d31a"
+interface-hash: "aea67007eba156ca4b0666e7324ce796"

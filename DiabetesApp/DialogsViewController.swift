@@ -480,14 +480,10 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
             return
         }
         
-        if let dict: [String:Any] = (dialog.data){
-            print(dict["PatientID"]!)
-             UserDefaults.standard.setValue(String(describing: dict["PatientID"]!), forKey: userDefaults.selectedPatientID)
+       
+        UserDefaults.standard.setValue(String(describing: dialog.photo!), forKey: userDefaults.selectedPatientID)
            
-        }
-        else {
-         UserDefaults.standard.setValue("583d82f2d0e391263667c8d8", forKey: userDefaults.selectedPatientID)
-        }
+        
         
         self.performSegue(withIdentifier: "SA_STR_SEGUE_GO_TO_CHAT".localized , sender: dialog)
         

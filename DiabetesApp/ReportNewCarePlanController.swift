@@ -13,13 +13,17 @@ class ReportNewCarePlanController: UIViewController , UITableViewDelegate, UITab
     
     @IBOutlet weak var tblView: UITableView!
     
+    @IBOutlet weak var lblNoReadingAvailable: UILabel!
     var array = NSMutableArray()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if selectedUserType == userType.doctor {
-        
-        }
+             if !UserDefaults.standard.bool(forKey: "groupChat") {
+                 getDoctorReadingData()
+            }
+           
+         }
           else {
             
         }
@@ -28,7 +32,7 @@ class ReportNewCarePlanController: UIViewController , UITableViewDelegate, UITab
     }
     override func viewWillAppear(_ animated: Bool) {
         addNotifications()
-        getDoctorReadingData()
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -67,10 +71,11 @@ class ReportNewCarePlanController: UIViewController , UITableViewDelegate, UITab
         if  UserDefaults.standard.string(forKey: userDefaults.selectedPatientID) != nil {
             
             
-          //  let patientsID: String? = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+            let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+            let taskID: String = UserDefaults.standard.string(forKey: userDefaults.taskID)!
             let parameters: Parameters = [
-                "taskid": "5878ce306e4778515545c6dc",
-                "patientid": "58563eb4d9c776ad70491b7b",
+                "taskid": taskID,
+                "patientid": patientsID,
                 "numDaysBack": "1",
                 "condition": "All conditions"
             ]
@@ -88,6 +93,12 @@ class ReportNewCarePlanController: UIViewController , UITableViewDelegate, UITab
                     if let JSON: NSDictionary = response.result.value! as? NSDictionary {
                         print(JSON)
                         let arr  = NSMutableArray(array: JSON.object(forKey: "updatedReading")as! NSArray)
+                        if arr.count == 0 {
+                            self.lblNoReadingAvailable.isHidden = true
+                        }
+                        else {
+                             self.lblNoReadingAvailable.isHidden = true
+                        }
                         self.array.removeAllObjects()
                         for time in frequnecyArray {
                             let mainDict: NSMutableDictionary = NSMutableDictionary()

@@ -6,16 +6,16 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp20HistoryTableViewCell", ""]
 provides-dynamic-lookup:
+- "setSelected"
+- "readingLbl"
+- "conditionLbl"
 - "awakeFromNib"
 - "dateLbl"
-- "setSelected"
-- "conditionLbl"
-- "readingLbl"
 depends-top-level:
-- "UITableViewCell"
 - "UILabel"
 - "HistoryTableViewCell"
 - "Bool"
+- "UITableViewCell"
 depends-member:
 - ["Ps9AnyObject", "awakeFromNib"]
 - ["Ps9AnyObject", "conditionLbl"]

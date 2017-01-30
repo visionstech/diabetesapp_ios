@@ -6,52 +6,51 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp21RequestViewController", ""]
 provides-dynamic-lookup:
-- "requestListArray"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "userTypeString"
 - "selectedUserType"
+- "requestListArray"
 - "setNavBarUI"
-- "viewDidLoad"
+- "getRequestTask"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
 - "viewDidAppear"
 - "didReceiveMemoryWarning"
-- "getRequestTask"
+- "viewDidLoad"
+- "userTypeString"
 depends-top-level:
-- !private "ApiMethods"
-- "AssignmentPrecedence"
-- !private "Parameters"
-- !private "NSDictionary"
-- "userDefaults"
-- "UITableViewDelegate"
-- "UITableViewDataSource"
-- "UIViewController"
-- !private "UIBarButtonItem"
-- !private "JSONEncoding"
-- !private "BooleanLiteralType"
 - !private "print"
-- "UITableViewCell"
-- !private "ReqestObject"
-- "IndexPath"
-- !private "ReportViewController"
-- !private "NSArray"
+- "UIViewController"
 - !private "Alamofire"
+- !private "NSDictionary"
+- "IndexPath"
+- !private "NSArray"
+- !private "=="
+- "AssignmentPrecedence"
+- !private "JSONEncoding"
+- !private "RequestTableViewCell"
+- "UserDefaults"
+- "CastingPrecedence"
+- "UITableViewCell"
+- !private "ApiMethods"
+- !private "ViewIdentifiers"
+- "Int"
 - !private "baseUrl"
+- "NSMutableArray"
+- "userDefaults"
 - "UITableView"
 - !private "userType"
-- !private "RequestTableViewCell"
-- !private "Dictionary"
-- "Int"
-- "String"
+- "UITableViewDataSource"
+- !private "UIBarButtonItem"
+- "UITableViewDelegate"
 - "RequestViewController"
-- !private "ViewIdentifiers"
-- "CastingPrecedence"
-- "UserDefaults"
+- "String"
+- !private "ReportViewController"
+- !private "ReqestObject"
+- !private "Dictionary"
 - "Bool"
-- !private "!="
-- !private "=="
-- "NSMutableArray"
+- !private "Parameters"
+- !private "BooleanLiteralType"
 depends-member:
 - !private ["Ps9AnyObject", "Alamofire"]
 - !private ["Ps9AnyObject", "ApiMethods"]
@@ -97,6 +96,7 @@ depends-member:
 - !private ["Ps9AnyObject", "object"]
 - !private ["Ps9AnyObject", "parent"]
 - !private ["Ps9AnyObject", "patientName"]
+- !private ["Ps9AnyObject", "patientid"]
 - !private ["Ps9AnyObject", "print"]
 - !private ["Ps9AnyObject", "pushViewController"]
 - !private ["Ps9AnyObject", "reloadData"]
@@ -130,7 +130,6 @@ depends-member:
 - !private ["Ps9AnyObject", "synchronize"]
 - !private ["Ps9AnyObject", "tabBarController"]
 - ["Ps9AnyObject", "tableView"]
-- !private ["Ps9AnyObject", "taskID"]
 - !private ["Ps9AnyObject", "taskid"]
 - !private ["Ps9AnyObject", "text"]
 - !private ["Ps9AnyObject", "time"]
@@ -205,6 +204,7 @@ depends-member:
 - !private ["Ps7CVarArg", "object"]
 - !private ["Ps7CVarArg", "parent"]
 - !private ["Ps7CVarArg", "patientName"]
+- !private ["Ps7CVarArg", "patientid"]
 - !private ["Ps7CVarArg", "print"]
 - !private ["Ps7CVarArg", "pushViewController"]
 - !private ["Ps7CVarArg", "reloadData"]
@@ -237,7 +237,6 @@ depends-member:
 - !private ["Ps7CVarArg", "synchronize"]
 - !private ["Ps7CVarArg", "tabBarController"]
 - ["Ps7CVarArg", "tableView"]
-- !private ["Ps7CVarArg", "taskID"]
 - !private ["Ps7CVarArg", "taskid"]
 - !private ["Ps7CVarArg", "text"]
 - !private ["Ps7CVarArg", "time"]
@@ -304,6 +303,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "object"]
 - !private ["Ps28CustomDebugStringConvertible", "parent"]
 - !private ["Ps28CustomDebugStringConvertible", "patientName"]
+- !private ["Ps28CustomDebugStringConvertible", "patientid"]
 - !private ["Ps28CustomDebugStringConvertible", "print"]
 - !private ["Ps28CustomDebugStringConvertible", "pushViewController"]
 - !private ["Ps28CustomDebugStringConvertible", "reloadData"]
@@ -340,7 +340,6 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "synchronize"]
 - !private ["Ps28CustomDebugStringConvertible", "tabBarController"]
 - ["Ps28CustomDebugStringConvertible", "tableView"]
-- !private ["Ps28CustomDebugStringConvertible", "taskID"]
 - !private ["Ps28CustomDebugStringConvertible", "taskid"]
 - !private ["Ps28CustomDebugStringConvertible", "text"]
 - !private ["Ps28CustomDebugStringConvertible", "time"]
@@ -417,6 +416,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "object"]
 - !private ["Ps23CustomStringConvertible", "parent"]
 - !private ["Ps23CustomStringConvertible", "patientName"]
+- !private ["Ps23CustomStringConvertible", "patientid"]
 - !private ["Ps23CustomStringConvertible", "print"]
 - !private ["Ps23CustomStringConvertible", "pushViewController"]
 - !private ["Ps23CustomStringConvertible", "reloadData"]
@@ -453,7 +453,6 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "synchronize"]
 - !private ["Ps23CustomStringConvertible", "tabBarController"]
 - ["Ps23CustomStringConvertible", "tableView"]
-- !private ["Ps23CustomStringConvertible", "taskID"]
 - !private ["Ps23CustomStringConvertible", "taskid"]
 - !private ["Ps23CustomStringConvertible", "text"]
 - !private ["Ps23CustomStringConvertible", "time"]
@@ -521,6 +520,7 @@ depends-member:
 - !private ["Ps9Equatable", "object"]
 - !private ["Ps9Equatable", "parent"]
 - !private ["Ps9Equatable", "patientName"]
+- !private ["Ps9Equatable", "patientid"]
 - !private ["Ps9Equatable", "plain"]
 - !private ["Ps9Equatable", "post"]
 - !private ["Ps9Equatable", "print"]
@@ -556,7 +556,6 @@ depends-member:
 - !private ["Ps9Equatable", "synchronize"]
 - !private ["Ps9Equatable", "tabBarController"]
 - ["Ps9Equatable", "tableView"]
-- !private ["Ps9Equatable", "taskID"]
 - !private ["Ps9Equatable", "taskid"]
 - !private ["Ps9Equatable", "text"]
 - !private ["Ps9Equatable", "time"]
@@ -640,6 +639,7 @@ depends-member:
 - !private ["Ps8Hashable", "object"]
 - !private ["Ps8Hashable", "parent"]
 - !private ["Ps8Hashable", "patientName"]
+- !private ["Ps8Hashable", "patientid"]
 - !private ["Ps8Hashable", "plain"]
 - !private ["Ps8Hashable", "post"]
 - !private ["Ps8Hashable", "print"]
@@ -675,7 +675,6 @@ depends-member:
 - !private ["Ps8Hashable", "synchronize"]
 - !private ["Ps8Hashable", "tabBarController"]
 - ["Ps8Hashable", "tableView"]
-- !private ["Ps8Hashable", "taskID"]
 - !private ["Ps8Hashable", "taskid"]
 - !private ["Ps8Hashable", "text"]
 - !private ["Ps8Hashable", "time"]
@@ -789,7 +788,6 @@ depends-member:
 - !private ["PSo8NSCoding", "subscript"]
 - !private ["PSo8NSCoding", "tabBarController"]
 - ["PSo8NSCoding", "tableView"]
-- !private ["PSo8NSCoding", "taskID"]
 - !private ["PSo8NSCoding", "text"]
 - !private ["PSo8NSCoding", "title"]
 - ["PSo8NSCoding", "userDefaults"]
@@ -856,7 +854,6 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "storyboard"]
 - !private ["PSo26NSExtensionRequestHandling", "tabBarController"]
 - ["PSo26NSExtensionRequestHandling", "tableView"]
-- !private ["PSo26NSExtensionRequestHandling", "taskID"]
 - !private ["PSo26NSExtensionRequestHandling", "title"]
 - ["PSo26NSExtensionRequestHandling", "userDefaults"]
 - !private ["PSo26NSExtensionRequestHandling", "userType"]
@@ -944,6 +941,7 @@ depends-member:
 - !private ["CSo8NSObject", "object"]
 - !private ["CSo8NSObject", "parent"]
 - !private ["CSo8NSObject", "patientName"]
+- !private ["CSo8NSObject", "patientid"]
 - !private ["CSo8NSObject", "print"]
 - !private ["CSo8NSObject", "pushViewController"]
 - !private ["CSo8NSObject", "reloadData"]
@@ -976,7 +974,6 @@ depends-member:
 - !private ["CSo8NSObject", "synchronize"]
 - !private ["CSo8NSObject", "tabBarController"]
 - ["CSo8NSObject", "tableView"]
-- !private ["CSo8NSObject", "taskID"]
 - !private ["CSo8NSObject", "taskid"]
 - !private ["CSo8NSObject", "text"]
 - !private ["CSo8NSObject", "time"]
@@ -1032,6 +1029,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "object"]
 - !private ["PSo16NSObjectProtocol", "parent"]
 - !private ["PSo16NSObjectProtocol", "patientName"]
+- !private ["PSo16NSObjectProtocol", "patientid"]
 - !private ["PSo16NSObjectProtocol", "print"]
 - !private ["PSo16NSObjectProtocol", "pushViewController"]
 - !private ["PSo16NSObjectProtocol", "reloadData"]
@@ -1064,7 +1062,6 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "synchronize"]
 - !private ["PSo16NSObjectProtocol", "tabBarController"]
 - ["PSo16NSObjectProtocol", "tableView"]
-- !private ["PSo16NSObjectProtocol", "taskID"]
 - !private ["PSo16NSObjectProtocol", "taskid"]
 - !private ["PSo16NSObjectProtocol", "text"]
 - !private ["PSo16NSObjectProtocol", "time"]
@@ -1100,13 +1097,13 @@ depends-member:
 - !private ["P10Foundation20ReferenceConvertible", "row"]
 - ["C11DiabetesApp20ReportViewController", "deinit"]
 - !private ["C11DiabetesApp20ReportViewController", "hidesBottomBarWhenPushed"]
-- !private ["C11DiabetesApp20ReportViewController", "taskID"]
 - !private ["C11DiabetesApp12ReqestObject", "date"]
 - ["C11DiabetesApp12ReqestObject", "deinit"]
 - !private ["C11DiabetesApp12ReqestObject", "doctorName"]
 - !private ["C11DiabetesApp12ReqestObject", "educatorName"]
 - !private ["C11DiabetesApp12ReqestObject", "init"]
 - !private ["C11DiabetesApp12ReqestObject", "patientName"]
+- !private ["C11DiabetesApp12ReqestObject", "patientid"]
 - !private ["C11DiabetesApp12ReqestObject", "status"]
 - !private ["C11DiabetesApp12ReqestObject", "taskid"]
 - !private ["C11DiabetesApp12ReqestObject", "time"]
@@ -1279,7 +1276,6 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "storyboard"]
 - !private ["PSo21UIAppearanceContainer", "tabBarController"]
 - ["PSo21UIAppearanceContainer", "tableView"]
-- !private ["PSo21UIAppearanceContainer", "taskID"]
 - !private ["PSo21UIAppearanceContainer", "text"]
 - !private ["PSo21UIAppearanceContainer", "title"]
 - ["PSo21UIAppearanceContainer", "userDefaults"]
@@ -1339,7 +1335,6 @@ depends-member:
 - !private ["PSo18UIContentContainer", "storyboard"]
 - !private ["PSo18UIContentContainer", "tabBarController"]
 - ["PSo18UIContentContainer", "tableView"]
-- !private ["PSo18UIContentContainer", "taskID"]
 - !private ["PSo18UIContentContainer", "title"]
 - ["PSo18UIContentContainer", "userDefaults"]
 - !private ["PSo18UIContentContainer", "userType"]
@@ -1423,7 +1418,6 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "storyboard"]
 - !private ["PSo18UIFocusEnvironment", "tabBarController"]
 - ["PSo18UIFocusEnvironment", "tableView"]
-- !private ["PSo18UIFocusEnvironment", "taskID"]
 - !private ["PSo18UIFocusEnvironment", "text"]
 - !private ["PSo18UIFocusEnvironment", "title"]
 - ["PSo18UIFocusEnvironment", "userDefaults"]
@@ -1522,7 +1516,6 @@ depends-member:
 - !private ["CSo11UIResponder", "storyboard"]
 - !private ["CSo11UIResponder", "tabBarController"]
 - ["CSo11UIResponder", "tableView"]
-- !private ["CSo11UIResponder", "taskID"]
 - !private ["CSo11UIResponder", "text"]
 - !private ["CSo11UIResponder", "title"]
 - ["CSo11UIResponder", "userDefaults"]
@@ -1585,7 +1578,6 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "storyboard"]
 - !private ["PSo30UIResponderStandardEditActions", "tabBarController"]
 - ["PSo30UIResponderStandardEditActions", "tableView"]
-- !private ["PSo30UIResponderStandardEditActions", "taskID"]
 - !private ["PSo30UIResponderStandardEditActions", "text"]
 - !private ["PSo30UIResponderStandardEditActions", "title"]
 - ["PSo30UIResponderStandardEditActions", "userDefaults"]
@@ -1638,7 +1630,6 @@ depends-member:
 - !private ["PSo20UIScrollViewDelegate", "storyboard"]
 - !private ["PSo20UIScrollViewDelegate", "tabBarController"]
 - ["PSo20UIScrollViewDelegate", "tableView"]
-- !private ["PSo20UIScrollViewDelegate", "taskID"]
 - !private ["PSo20UIScrollViewDelegate", "title"]
 - ["PSo20UIScrollViewDelegate", "userDefaults"]
 - !private ["PSo20UIScrollViewDelegate", "userType"]
@@ -1690,7 +1681,6 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "storyboard"]
 - !private ["PSo16UIStateRestoring", "tabBarController"]
 - ["PSo16UIStateRestoring", "tableView"]
-- !private ["PSo16UIStateRestoring", "taskID"]
 - !private ["PSo16UIStateRestoring", "title"]
 - ["PSo16UIStateRestoring", "userDefaults"]
 - !private ["PSo16UIStateRestoring", "userType"]
@@ -1762,7 +1752,6 @@ depends-member:
 - !private ["PSo21UITableViewDataSource", "storyboard"]
 - !private ["PSo21UITableViewDataSource", "tabBarController"]
 - ["PSo21UITableViewDataSource", "tableView"]
-- !private ["PSo21UITableViewDataSource", "taskID"]
 - !private ["PSo21UITableViewDataSource", "title"]
 - ["PSo21UITableViewDataSource", "userDefaults"]
 - !private ["PSo21UITableViewDataSource", "userType"]
@@ -1810,7 +1799,6 @@ depends-member:
 - !private ["PSo19UITableViewDelegate", "storyboard"]
 - !private ["PSo19UITableViewDelegate", "tabBarController"]
 - ["PSo19UITableViewDelegate", "tableView"]
-- !private ["PSo19UITableViewDelegate", "taskID"]
 - !private ["PSo19UITableViewDelegate", "title"]
 - ["PSo19UITableViewDelegate", "userDefaults"]
 - !private ["PSo19UITableViewDelegate", "userType"]
@@ -1819,7 +1807,6 @@ depends-member:
 - ["PSo19UITableViewDelegate", "viewForZoomingInScrollView"]
 - ["PSo19UITableViewDelegate", ""]
 - !private ["PSo19UITextFieldDelegate", "hidesBottomBarWhenPushed"]
-- !private ["PSo19UITextFieldDelegate", "taskID"]
 - !private ["PSo18UITraitEnvironment", "Alamofire"]
 - !private ["PSo18UITraitEnvironment", "ApiMethods"]
 - ["PSo18UITraitEnvironment", "Int"]
@@ -1873,7 +1860,6 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "storyboard"]
 - !private ["PSo18UITraitEnvironment", "tabBarController"]
 - ["PSo18UITraitEnvironment", "tableView"]
-- !private ["PSo18UITraitEnvironment", "taskID"]
 - !private ["PSo18UITraitEnvironment", "text"]
 - !private ["PSo18UITraitEnvironment", "title"]
 - ["PSo18UITraitEnvironment", "userDefaults"]
@@ -1948,7 +1934,6 @@ depends-member:
 - !private ["CSo16UIViewController", "storyboard"]
 - !private ["CSo16UIViewController", "tabBarController"]
 - ["CSo16UIViewController", "tableView"]
-- !private ["CSo16UIViewController", "taskID"]
 - !private ["CSo16UIViewController", "title"]
 - ["CSo16UIViewController", "userDefaults"]
 - !private ["CSo16UIViewController", "userType"]
@@ -2043,6 +2028,7 @@ depends-member:
 - !private ["Ps9_Hashable", "object"]
 - !private ["Ps9_Hashable", "parent"]
 - !private ["Ps9_Hashable", "patientName"]
+- !private ["Ps9_Hashable", "patientid"]
 - !private ["Ps9_Hashable", "plain"]
 - !private ["Ps9_Hashable", "post"]
 - !private ["Ps9_Hashable", "print"]
@@ -2078,7 +2064,6 @@ depends-member:
 - !private ["Ps9_Hashable", "synchronize"]
 - !private ["Ps9_Hashable", "tabBarController"]
 - ["Ps9_Hashable", "tableView"]
-- !private ["Ps9_Hashable", "taskID"]
 - !private ["Ps9_Hashable", "taskid"]
 - !private ["Ps9_Hashable", "text"]
 - !private ["Ps9_Hashable", "time"]
@@ -2101,12 +2086,13 @@ depends-member:
 - ["Ps21_ObjectiveCBridgeable", "init"]
 - !private ["Ps21_ObjectiveCBridgeable", "localized"]
 - !private ["Ps21_ObjectiveCBridgeable", "row"]
-- !private ["Vs26_OptionalNilComparisonType", "deinit"]
 - ["Ps14_SignedInteger", "init"]
 - ["Ps11_Strideable", "init"]
+- !private ["V11DiabetesApp12userDefaults", "groupChat"]
 - !private ["V11DiabetesApp12userDefaults", "loggedInUserID"]
 - ["V11DiabetesApp12userDefaults", "loggedInUserType"]
 - !private ["V11DiabetesApp12userDefaults", "selectedPatientID"]
+- !private ["V11DiabetesApp12userDefaults", "taskID"]
 - !private ["V11DiabetesApp8userType", "doctor"]
 - !private ["V11DiabetesApp8userType", "educator"]
 depends-nominal:
@@ -2250,7 +2236,6 @@ depends-nominal:
 - "Ps8_Integer"
 - "Ps18_IntegerArithmetic"
 - "Ps21_ObjectiveCBridgeable"
-- !private "Vs26_OptionalNilComparisonType"
 - "Ps14_SignedInteger"
 - "Ps11_Strideable"
 - "V11DiabetesApp12userDefaults"

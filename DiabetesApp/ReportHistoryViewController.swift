@@ -49,9 +49,11 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
             }
         }
         else {
+            
             if selectedUserType == userType.doctor {
                 getDoctorSingleReadingHistory(condition: conditionsArray[0] as! String)
             }
+                
             else{
                 getReportReadingHistory(condition: conditionsArray[0] as! String)
             }
@@ -151,7 +153,13 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
         //getHistory()
         if selectedUserType == userType.doctor {
             
-            getDoctorReportReadingHistory(condition: conditionTxtFld.text!)
+             if UserDefaults.standard.bool(forKey: "groupChat") {
+                getDoctorSingleReadingHistory(condition: conditionTxtFld.text!)
+                 
+             }else{
+                 getDoctorReportReadingHistory(condition: conditionTxtFld.text!)
+            }
+           
         }
         else {
             getReportReadingHistory(condition: conditionTxtFld.text!)
@@ -187,10 +195,11 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
             sectionsArray.removeAllObjects()
             boolArray.removeAllObjects()
             
-            // let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+            let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+            let taskID: String = UserDefaults.standard.string(forKey: userDefaults.taskID)!
             let parameters: Parameters = [
-                "taskid": "5878ce306e4778515545c6dc",
-                "patientid": "58563eb4d9c776ad70491b7b",
+                "taskid": taskID,
+                "patientid": patientsID,
                 "numDaysBack": noOfDays,
                 "condition": condition
             ]
@@ -266,9 +275,9 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
             sectionsArray.removeAllObjects()
             boolArray.removeAllObjects()
             
-            // let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+            let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
             let parameters: Parameters = [
-                "patientid": "58563eb4d9c776ad70491b7b",
+                "patientid": patientsID,
                 "numDaysBack": "1",
                 "condition": "All conditions"
             ]
@@ -341,11 +350,13 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
         if  UserDefaults.standard.string(forKey: userDefaults.selectedPatientID) != nil {
             sectionsArray.removeAllObjects()
             boolArray.removeAllObjects()
-            
+            let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+            let educatorID: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserID)!
+
            // let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
             let parameters: Parameters = [
-                "patientid": "58563eb4d9c776ad70491b7b",
-                "educatorid":"58563eb4d9c776ad70491b97",
+                "patientid": patientsID,
+                "educatorid":educatorID,
                 "numDaysBack": noOfDays,
                 "condition":  condition
             ]

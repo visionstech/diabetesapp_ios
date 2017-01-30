@@ -180,12 +180,14 @@ class ReportCarePlanController: UIViewController , UITableViewDelegate, UITableV
     // MARK: - Api Methods
     func getReadingsData() {
         if  UserDefaults.standard.string(forKey: userDefaults.selectedPatientID) != nil {
-            
+            let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+            let educatorID: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserID)!
+
             
           //  let patientsID: String? = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
             let parameters: Parameters = [
-                "patientid": "58563eb4d9c776ad70491b7b",
-                "educatorid":"58563eb4d9c776ad70491b97",
+                "patientid": patientsID,
+                "educatorid":educatorID,
                 "numDaysBack": "1",
                 "condition": "All conditions"
             ]
@@ -255,9 +257,9 @@ class ReportCarePlanController: UIViewController , UITableViewDelegate, UITableV
         if  UserDefaults.standard.string(forKey: userDefaults.selectedPatientID) != nil {
             
             
-            //  let patientsID: String? = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+            let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
             let parameters: Parameters = [
-                "patientid": "58563eb4d9c776ad70491b7b",
+                "patientid": patientsID,
                 "numDaysBack": "1",
                 "condition": "All conditions"
             ]
@@ -328,10 +330,11 @@ class ReportCarePlanController: UIViewController , UITableViewDelegate, UITableV
         if  UserDefaults.standard.string(forKey: userDefaults.selectedPatientID) != nil {
             
             
-            //  let patientsID: String? = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+              let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+             let taskID: String = UserDefaults.standard.string(forKey: userDefaults.taskID)!
             let parameters: Parameters = [
-                "taskid": "5878ce306e4778515545c6dc",
-                "patientid": "58563eb4d9c776ad70491b7b",
+                "taskid": taskID,
+                "patientid": patientsID,
                 "numDaysBack": "1",
                 "condition": "All conditions"
             ]
@@ -418,24 +421,74 @@ class ReportCarePlanController: UIViewController , UITableViewDelegate, UITableV
         cell.selectionStyle = .none
         cell.tag = indexPath.row
        
-        if selectedUserType == userType.doctor {
-          
-            cell.goalLbl.isUserInteractionEnabled = false
-            cell.conditionLbl.isUserInteractionEnabled = false
-           
-            
-        }
-        else {
-            if UserDefaults.standard.bool(forKey: "CurrentReadEditBool") {
-                cell.goalLbl.isUserInteractionEnabled = true
-                cell.conditionLbl.isUserInteractionEnabled = true
+        
+        if !UserDefaults.standard.bool(forKey: "groupChat") {
+            if selectedUserType == userType.doctor {
+                cell.goalLbl.isUserInteractionEnabled = false
+                cell.conditionLbl.isUserInteractionEnabled = false
+
             }
             else {
-            cell.goalLbl.isUserInteractionEnabled = false
-            cell.conditionLbl.isUserInteractionEnabled = false
+                if UserDefaults.standard.bool(forKey: "CurrentReadEditBool") {
+                    cell.goalLbl.isUserInteractionEnabled = true
+                    cell.conditionLbl.isUserInteractionEnabled = true
+                }
+                else {
+                    cell.goalLbl.isUserInteractionEnabled = false
+                    cell.conditionLbl.isUserInteractionEnabled = false
+                }
+
+                
             }
         }
-       
+        else {
+            if selectedUserType == userType.doctor {
+                
+                if UserDefaults.standard.bool(forKey: "CurrentReadEditBool") {
+                        cell.goalLbl.isUserInteractionEnabled = true
+                        cell.conditionLbl.isUserInteractionEnabled = true
+                    }
+                else {
+                    cell.goalLbl.isUserInteractionEnabled = false
+                    cell.conditionLbl.isUserInteractionEnabled = false
+                }
+
+//                cell.goalLbl.isUserInteractionEnabled = true
+//                cell.conditionLbl.isUserInteractionEnabled = true
+
+            }
+            else {
+                if UserDefaults.standard.bool(forKey: "CurrentReadEditBool") {
+                    cell.goalLbl.isUserInteractionEnabled = true
+                    cell.conditionLbl.isUserInteractionEnabled = true
+                }
+                else {
+                    cell.goalLbl.isUserInteractionEnabled = false
+                    cell.conditionLbl.isUserInteractionEnabled = false
+                }
+
+
+            }
+
+        }
+//        if selectedUserType == userType.doctor {
+//          
+//            cell.goalLbl.isUserInteractionEnabled = true
+//            cell.conditionLbl.isUserInteractionEnabled = true
+//           
+//
+//        }
+//        else {
+//            if UserDefaults.standard.bool(forKey: "CurrentReadEditBool") {
+//                cell.goalLbl.isUserInteractionEnabled = true
+//                cell.conditionLbl.isUserInteractionEnabled = true
+//            }
+//            else {
+//            cell.goalLbl.isUserInteractionEnabled = false
+//            cell.conditionLbl.isUserInteractionEnabled = false
+//            }
+//        }
+//       
         cell.goalLbl.delegate = self
         cell.conditionLbl.delegate = self
         if let obj: CarePlanReadingObj = itemsArray[indexPath.row] as? CarePlanReadingObj {

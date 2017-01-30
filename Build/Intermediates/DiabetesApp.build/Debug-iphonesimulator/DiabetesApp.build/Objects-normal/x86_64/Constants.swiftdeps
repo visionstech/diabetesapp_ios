@@ -49,35 +49,35 @@ provides-member:
 - ["V11DiabetesApp5Fonts", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "baseUrl"
-- "Constants"
-- "ApiMethods"
-- "UInt"
-- "Colors"
-- "CGFloat"
-- "VideoAudioCall"
+- "Fonts"
 - "HistoryDays"
+- "Notifications"
+- "frequnecyArray"
+- "NSArray"
+- "kChatPresenceTimeInterval"
+- "userDefaults"
+- "Colors"
+- "kDialogsPageLimit"
+- "ViewIdentifiers"
+- "CellIdentifiers"
+- "kMessageContainerWidthPadding"
+- "UIFont"
+- "userType"
+- "Array"
+- "String"
+- "VideoAudioCall"
+- "UIColor"
+- "ChatInfo"
+- "GeneralLabels"
+- "Constants"
+- "CGFloat"
+- "ApiMethods"
 - "/"
+- "UInt"
+- "baseUrl"
 - "conditionsArray"
 - "TimeInterval"
-- "UIFont"
-- "ViewIdentifiers"
-- "frequnecyArray"
-- "ChatInfo"
-- "kChatPresenceTimeInterval"
 - "StringLiteralType"
-- "userType"
-- "NSArray"
-- "Fonts"
-- "kDialogsPageLimit"
-- "GeneralLabels"
-- "kMessageContainerWidthPadding"
-- "String"
-- "CellIdentifiers"
-- "Notifications"
-- "userDefaults"
-- "UIColor"
-- "Array"
 depends-member:
 - ["Ps9AnyObject", "Element"]
 - ["Ps9AnyObject", "init"]
@@ -262,6 +262,7 @@ depends-member:
 - ["Ps9_Hashable", "localized"]
 - ["Ps21_ObjectiveCBridgeable", "init"]
 - ["Ps21_ObjectiveCBridgeable", "localized"]
+- ["V11DiabetesApp12userDefaults", "groupChat"]
 - ["V11DiabetesApp12userDefaults", "init"]
 - ["V11DiabetesApp12userDefaults", "isLoggedIn"]
 - ["V11DiabetesApp12userDefaults", "loggedInUserEmail"]
@@ -270,6 +271,7 @@ depends-member:
 - ["V11DiabetesApp12userDefaults", "loggedInUserType"]
 - ["V11DiabetesApp12userDefaults", "loggedInUsername"]
 - ["V11DiabetesApp12userDefaults", "selectedPatientID"]
+- ["V11DiabetesApp12userDefaults", "taskID"]
 - ["V11DiabetesApp8userType", "doctor"]
 - ["V11DiabetesApp8userType", "educator"]
 - ["V11DiabetesApp8userType", "init"]
@@ -646,4 +648,4 @@ depends-external:
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController-umbrella.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Modules/module.modulemap"
-interface-hash: "588e0042a00a5280bd82333fab00c3b5"
+interface-hash: "83edb7c0b4fec6847dd17ce29fa27283"

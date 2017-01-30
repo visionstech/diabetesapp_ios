@@ -67,10 +67,12 @@ class ReportChartViewController: UIViewController , LineChartDelegate {
     func getChartHistoryData(condition: String) {
         if  UserDefaults.standard.string(forKey: userDefaults.selectedPatientID) != nil {
             dataArray.removeAllObjects()
+            
             let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+            let educatorID: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserID)!
             let parameters: Parameters = [
-                "patientid": "58563eb4d9c776ad70491b7b",
-                "educatorid":"58563eb4d9c776ad70491b97",
+                "patientid": patientsID,
+                "educatorid":educatorID,
                 "numDaysBack": noOfDays,
                 "condition": "All conditions"
             ]
@@ -135,9 +137,10 @@ class ReportChartViewController: UIViewController , LineChartDelegate {
         if  UserDefaults.standard.string(forKey: userDefaults.selectedPatientID) != nil {
             dataArray.removeAllObjects()
             let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+            let taskID: String = UserDefaults.standard.string(forKey: userDefaults.taskID)!
             let parameters: Parameters = [
-                "taskid": "5878ce306e4778515545c6dc",
-                "patientid": "58563eb4d9c776ad70491b7b",
+                "taskid":taskID ,
+                "patientid": patientsID,
                 "numDaysBack": noOfDays,
                 "condition": "All conditions"
             ]
@@ -199,7 +202,7 @@ class ReportChartViewController: UIViewController , LineChartDelegate {
             dataArray.removeAllObjects()
             let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
             let parameters: Parameters = [
-                "patientid": "58563eb4d9c776ad70491b7b",
+                "patientid": patientsID,
                 "numDaysBack": "1",
                 "condition": "All conditions"
             ]
@@ -276,7 +279,11 @@ class ReportChartViewController: UIViewController , LineChartDelegate {
         noOfDays = String(describing: notification.value(forKey: "object")!)
         print("noOfDays \(noOfDays)")
           if selectedUserType == userType.doctor {
+            if UserDefaults.standard.bool(forKey: "groupChat") {
+                getDoctorSingleChartHistoryData(condition:conditionsArray[0] as! String )
+            }else {
              getDoctorChartHistoryData(condition: conditionsArray[0] as! String)
+            }
           }else {
               getChartHistoryData(condition: conditionsArray[0] as! String)
         }

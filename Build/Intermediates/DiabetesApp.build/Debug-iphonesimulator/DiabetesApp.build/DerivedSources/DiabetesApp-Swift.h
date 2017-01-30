@@ -1012,6 +1012,7 @@ SWIFT_CLASS("_TtC11DiabetesApp29ReportMedicationTableViewCell")
 SWIFT_CLASS("_TtC11DiabetesApp27ReportNewCarePlanController")
 @interface ReportNewCarePlanController : UIViewController <UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, weak) IBOutlet UITableView * _Null_unspecified tblView;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified lblNoReadingAvailable;
 @property (nonatomic, strong) NSMutableArray * _Nonnull array;
 - (void)viewDidLoad;
 - (void)viewWillAppear:(BOOL)animated;
@@ -1081,7 +1082,6 @@ SWIFT_CLASS("_TtC11DiabetesApp20ReportViewController")
 @property (nonatomic, strong) NSMutableArray * _Nonnull oldCurrentMedArray;
 @property (nonatomic, strong) NSArray * _Nonnull editCurrentReadArray;
 @property (nonatomic) NSInteger selectedUserType;
-@property (nonatomic, copy) NSString * _Nonnull taskID;
 @property (nonatomic, copy) NSString * _Nonnull reportUser;
 - (void)awakeFromNib;
 - (void)viewDidLoad;
@@ -1133,10 +1133,11 @@ SWIFT_CLASS("_TtC11DiabetesApp12ReqestObject")
 @property (nonatomic, copy) NSString * _Nonnull doctorName;
 @property (nonatomic, copy) NSString * _Nonnull patientName;
 @property (nonatomic, copy) NSString * _Nonnull full_name;
-@property (nonatomic, copy) NSString * _Nonnull taskid;
 @property (nonatomic, copy) NSString * _Nonnull time;
 @property (nonatomic, copy) NSString * _Nonnull date;
 @property (nonatomic, copy) NSString * _Nonnull status;
+@property (nonatomic, copy) NSString * _Nonnull taskid;
+@property (nonatomic, copy) NSString * _Nonnull patientid;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 

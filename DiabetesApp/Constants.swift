@@ -102,6 +102,12 @@ struct userDefaults{
     static let loggedInUsername     = "loggedInUsername"
     static let loggedInUserType     = "loggedInUserType"
     static let selectedPatientID    = "selectedPatientID"
+    static let groupChat            = "groupChat"
+    static let taskID              = "taskID"
+    
+    
+   
+    
 }
 
 // MARK: - Api Methods
