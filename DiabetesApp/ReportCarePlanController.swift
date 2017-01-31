@@ -29,8 +29,6 @@ class ReportCarePlanController: UIViewController , UITableViewDelegate, UITableV
     override func viewWillAppear(_ animated: Bool) {
             addNotifications()
         
-        
-        
         if !UserDefaults.standard.bool(forKey: "groupChat") {
             if selectedUserType == userType.doctor {
                 getDoctorReadingsData()
@@ -539,6 +537,8 @@ class ReportCarePlanController: UIViewController , UITableViewDelegate, UITableV
   
     
     @IBAction func ToolBarButtons_Click(_ sender: Any) {
+         self.view.endEditing(true)
+        if (sender as AnyObject).tag == 0 {
         print(selectedIndexPath , selectedIndex)
         let mainDict: NSMutableDictionary = array[selectedIndexPath] as! NSMutableDictionary
         let itemsArray: NSMutableArray = mainDict.object(forKey: "data") as! NSMutableArray
@@ -556,6 +556,7 @@ class ReportCarePlanController: UIViewController , UITableViewDelegate, UITableV
         UserDefaults.standard.synchronize()
 
         print(currentEditReadingArray)
+        }
         
         
     }

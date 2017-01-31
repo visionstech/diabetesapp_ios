@@ -733,6 +733,7 @@ SWIFT_CLASS("_TtC11DiabetesApp21HistoryViewController")
 @property (nonatomic, weak) IBOutlet UIView * _Null_unspecified conditionView;
 @property (nonatomic, weak) IBOutlet UITextField * _Null_unspecified conditionTxtFld;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified noHistoryAvailableLbl;
+@property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified arrowImg;
 @property (nonatomic, strong) IBOutlet UIView * _Null_unspecified pickerViewContainer;
 @property (nonatomic, weak) IBOutlet UIPickerView * _Null_unspecified pickerView;
 @property (nonatomic, strong) NSMutableArray * _Nonnull sectionsArray;
@@ -960,7 +961,9 @@ SWIFT_CLASS("_TtC11DiabetesApp27ReportHistoryViewController")
 @property (nonatomic, weak) IBOutlet UIView * _Null_unspecified conditionView;
 @property (nonatomic, weak) IBOutlet UITextField * _Null_unspecified conditionTxtFld;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified noHistoryAvailableLbl;
+@property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified arrowImg;
 @property (nonatomic, strong) IBOutlet UIView * _Null_unspecified pickerViewContainer;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified lblCondition;
 @property (nonatomic, weak) IBOutlet UIPickerView * _Null_unspecified pickerView;
 @property (nonatomic, strong) NSMutableArray * _Nonnull sectionsArray;
 @property (nonatomic, strong) NSMutableArray * _Nonnull boolArray;

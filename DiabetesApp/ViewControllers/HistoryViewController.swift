@@ -17,6 +17,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var conditionTxtFld: UITextField!
     @IBOutlet weak var noHistoryAvailableLbl: UILabel!
     
+    @IBOutlet weak var arrowImg: UIImageView!
     @IBOutlet var pickerViewContainer: UIView!
     @IBOutlet weak var pickerView: UIPickerView!
     
@@ -39,6 +40,16 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         //getHistory()
         conditionTxtFld.text = conditionsArray[0] as! String
         getReadingHistory(condition: conditionsArray[0] as! String)
+        
+        if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
+            conditionTxtFld.textAlignment = .left
+            arrowImg.image = UIImage(named:"readinghistoryBack")
+        }
+        else {
+            conditionTxtFld.textAlignment = .right
+              arrowImg.image = UIImage(named:"history_condition")
+        }
+
     }
     override func viewDidAppear(_ animated: Bool) {
            self.addNotifications()
@@ -369,7 +380,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
             if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
                 
                  arrowImgView = UIImageView(frame: CGRect(x:17 , y: 14, width: 17, height: 17))
-                headerView.addSubview(arrowImgView)
+                 headerView.addSubview(arrowImgView)
             }
             else {
                 
@@ -391,7 +402,12 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
                 
             }
             else {
-                arrowImgView.image = UIImage(named: "expandArrow")
+                if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
+                    arrowImgView.image = UIImage(named: "expandArrowBack")
+                }
+                else {
+                    arrowImgView.image = UIImage(named: "expandArrow")
+                }
             }
         }
         else {

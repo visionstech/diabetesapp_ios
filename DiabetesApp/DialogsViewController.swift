@@ -480,9 +480,12 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
             return
         }
         
+         if dialog.photo != nil
+        {
        
         UserDefaults.standard.setValue(String(describing: dialog.photo!), forKey: userDefaults.selectedPatientID)
-           
+        }
+        
         
         
         self.performSegue(withIdentifier: "SA_STR_SEGUE_GO_TO_CHAT".localized , sender: dialog)

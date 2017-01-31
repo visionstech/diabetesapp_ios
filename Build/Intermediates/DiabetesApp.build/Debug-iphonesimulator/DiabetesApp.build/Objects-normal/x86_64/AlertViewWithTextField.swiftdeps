@@ -7,29 +7,29 @@ provides-member:
 - ["C11DiabetesApp22AlertViewWithTextField", ""]
 provides-dynamic-lookup:
 - "alertViewControllerTextField"
-- "alertView"
 - "alert"
+- "alertView"
 depends-top-level:
-- "TernaryPrecedence"
+- !private "BooleanLiteralType"
 - "NSObject"
-- "UIAlertView"
-- !private "UIAlertAction"
+- "UITextField"
+- "UIAlertViewDelegate"
+- "TernaryPrecedence"
+- !private "UIAlertController"
+- "Int"
+- "Void"
 - "AssignmentPrecedence"
 - !private "=="
-- "UITextField"
-- "CastingPrecedence"
-- "AnyObject"
-- "UIViewController"
 - !private "UIAlertViewStyle"
+- "CastingPrecedence"
+- !private "UIAlertAction"
+- "AnyObject"
+- "AlertViewWithTextField"
 - !private "StringLiteralType"
 - "String"
+- "UIViewController"
 - "Unmanaged"
-- "UIAlertViewDelegate"
-- "Void"
-- "AlertViewWithTextField"
-- "Int"
-- !private "UIAlertController"
-- !private "BooleanLiteralType"
+- "UIAlertView"
 depends-member:
 - ["C11DiabetesApp22AlertViewWithTextField", "AnyObject"]
 - ["C11DiabetesApp22AlertViewWithTextField", "Int"]
@@ -603,8 +603,8 @@ depends-nominal:
 - !private "Ps21_ObjectiveCBridgeable"
 - !private "Vs26_OptionalNilComparisonType"
 depends-dynamic-lookup:
-- !private "addAction"
 - !private "addTextField"
+- !private "addAction"
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/DiabetesApp/DiabetesApp-Bridging-Header.h"

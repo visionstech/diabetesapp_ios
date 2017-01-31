@@ -16,8 +16,10 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
     @IBOutlet weak var conditionTxtFld: UITextField!
     @IBOutlet weak var noHistoryAvailableLbl: UILabel!
     
+    @IBOutlet weak var arrowImg: UIImageView!
    
     @IBOutlet var pickerViewContainer: UIView!
+    @IBOutlet weak var lblCondition: UILabel!
     @IBOutlet weak var pickerView: UIPickerView!
     
     // MARK:- Var
@@ -32,7 +34,7 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        lblCondition.text = "CONDITION".localized
         // Do any additional setup after loading the view.
         
         self.title = "Report".localized
@@ -81,7 +83,15 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
         conditionView.layer.borderWidth = 1
         
         conditionTxtFld.inputView = pickerViewContainer
-        
+        if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
+            conditionTxtFld.textAlignment = .left
+            arrowImg.image = UIImage(named:"readinghistoryBack")
+        }
+        else {
+            conditionTxtFld.textAlignment = .right
+            arrowImg.image = UIImage(named:"history_condition")
+        }
+
         
     }
     
@@ -177,7 +187,13 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
             // Api Method
             if selectedUserType == userType.doctor {
                 
-                getDoctorReportReadingHistory(condition: conditionTxtFld.text!)
+                 if UserDefaults.standard.bool(forKey: "groupChat") {
+                    
+                    getDoctorSingleReadingHistory(condition: conditionTxtFld.text!)
+                 }else{
+                     getDoctorReportReadingHistory(condition: conditionTxtFld.text!)
+                }
+               
             }
             else {
                 getReportReadingHistory(condition: conditionTxtFld.text! )
@@ -201,7 +217,7 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
                 "taskid": taskID,
                 "patientid": patientsID,
                 "numDaysBack": noOfDays,
-                "condition": condition
+                "condition":   condition
             ]
             
             print(parameters)
@@ -526,9 +542,22 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
             
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapHeader(gestureReconizer:)))
             headerView.addGestureRecognizer(tapGesture)
+            var arrowImgView = UIImageView()
             
-            let arrowImgView: UIImageView = UIImageView(frame: CGRect(x:headerView.frame.size.width-27 , y: 14, width: 17, height: 17))
-            headerView.addSubview(arrowImgView)
+            if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
+                
+                arrowImgView = UIImageView(frame: CGRect(x:17 , y: 14, width: 17, height: 17))
+                headerView.addSubview(arrowImgView)
+            }
+            else {
+                
+                arrowImgView = UIImageView(frame: CGRect(x:headerView.frame.size.width-27 , y: 14, width: 17, height: 17))
+                headerView.addSubview(arrowImgView)
+            }
+            
+//
+//            let arrowImgView: UIImageView = UIImageView(frame: CGRect(x:headerView.frame.size.width-27 , y: 14, width: 17, height: 17))
+//            headerView.addSubview(arrowImgView)
             
             let bool : Bool = boolArray[section] as! Bool
             if bool == true {
@@ -540,7 +569,15 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
                 
             }
             else {
-                arrowImgView.image = UIImage(named: "expandArrow")
+                
+                if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
+                    arrowImgView.image = UIImage(named: "expandArrowBack")
+                }
+                else {
+                   arrowImgView.image = UIImage(named: "expandArrow")
+                }
+
+                
             }
         }
         else {

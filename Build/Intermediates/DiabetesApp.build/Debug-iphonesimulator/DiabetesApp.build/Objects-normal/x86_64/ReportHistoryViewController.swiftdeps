@@ -6,99 +6,103 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp27ReportHistoryViewController", ""]
 provides-dynamic-lookup:
-- "didReceiveMemoryWarning"
-- "setUI"
-- "numberOfSections"
-- "conditionTxtFld"
-- "getReportReadingHistory"
-- "noOfDaysNotification"
-- "sectionsArray"
-- "noOfDays"
-- "refreshSelectedSections"
-- "boolArray"
-- "addNotifications"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "pickerViewContainer"
-- "numberOfComponents"
-- "noHistoryAvailableLbl"
-- "tblView"
-- "viewDidAppear"
-- "tapHeader"
-- "getDoctorSingleReadingHistory"
-- "listViewNotification"
-- "pickerView"
-- "pickerView"
-- "pickerView"
 - "viewDidDisappear"
+- "arrowImg"
+- "numberOfComponents"
+- "noOfDays"
+- "tapHeader"
 - "obj"
-- "getDoctorReportReadingHistory"
-- "resetUI"
+- "noOfDaysNotification"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
 - "cellArray"
-- "viewDidLoad"
+- "getDoctorSingleReadingHistory"
 - "conditionView"
+- "tblView"
+- "lblCondition"
+- "viewDidLoad"
+- "viewDidAppear"
+- "refreshSelectedSections"
 - "selectedUserType"
+- "didReceiveMemoryWarning"
+- "addNotifications"
+- "pickerView"
+- "pickerView"
+- "pickerView"
 - "ToolBarButtons_Click"
+- "numberOfSections"
+- "getDoctorReportReadingHistory"
+- "setUI"
+- "listViewNotification"
+- "pickerViewContainer"
+- "noHistoryAvailableLbl"
+- "sectionsArray"
+- "getReportReadingHistory"
+- "resetUI"
+- "conditionTxtFld"
+- "boolArray"
 depends-top-level:
-- !private "conditionsArray"
-- !private "-"
-- "UIViewController"
-- !private "CGRect"
-- "NSMutableArray"
 - "AssignmentPrecedence"
 - !private "=="
-- "userDefaults"
-- !private "userType"
 - "CastingPrecedence"
-- !private "NSCopying"
-- !private "Notifications"
-- !private "AnyObject"
-- "String"
-- !private "HistoryTableViewCell"
-- !private "Colors"
-- "StringLiteralType"
-- !private "UIColor"
-- "ReportHistoryViewController"
-- "UILabel"
-- !private "NSMutableDictionary"
-- !private "+="
-- !private "!"
-- !private "UtilityClass"
-- "NSDictionary"
 - !private "JSONEncoding"
-- !private "UIImage"
-- !private "NotificationCenter"
-- !private "BooleanLiteralType"
-- "UITextField"
-- "UIPickerView"
-- !private "Parameters"
-- "Bool"
 - "IndexPath"
-- "UIPickerViewDataSource"
 - !private ">"
-- "CGFloat"
-- "UIPickerViewDelegate"
-- !private "!="
-- "UITableView"
-- "NSArray"
-- !private "Fonts"
-- "UITableViewDataSource"
-- "UITableViewDelegate"
-- "UITapGestureRecognizer"
-- "UserDefaults"
-- "UnicodeScalarType"
-- !private "UIImageView"
-- "UITableViewCell"
-- "Int"
-- !private "print"
-- "UIView"
-- !private "Alamofire"
-- !private "Dictionary"
+- !private "Colors"
 - "NSNotification"
+- "UIViewController"
+- "UITextField"
+- !private "userType"
+- !private "NSMutableDictionary"
+- !private "conditionsArray"
+- !private "CGRect"
+- "UIPickerViewDelegate"
+- "UILabel"
+- "UITableViewDelegate"
+- "UITableViewDataSource"
+- !private "NotificationCenter"
+- !private "UIImage"
+- "NSMutableArray"
+- "UIPickerViewDataSource"
+- !private "UIColor"
+- !private "NSCopying"
+- !private "Parameters"
+- !private "HistoryTableViewCell"
+- !private "!"
+- !private "UIUserInterfaceLayoutDirection"
+- !private "AnyObject"
+- !private "Alamofire"
+- !private "Notifications"
+- "UnicodeScalarType"
+- !private "Fonts"
+- "UITapGestureRecognizer"
+- "Int"
+- "UIPickerView"
+- "UserDefaults"
+- !private "print"
+- "NSDictionary"
+- "UITableView"
+- "UITableViewCell"
+- !private "+="
+- "UIImageView"
+- !private "BooleanLiteralType"
+- !private "UIApplication"
+- "userDefaults"
+- !private "!="
+- "CGFloat"
+- "UIView"
+- !private "Dictionary"
+- "Bool"
+- "ReportHistoryViewController"
+- "String"
+- !private "-"
+- !private "UtilityClass"
+- "StringLiteralType"
+- "NSArray"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "Stride"]
 - !private ["Ps9AnyObject", "Alamofire"]
@@ -119,11 +123,13 @@ depends-member:
 - !private ["Ps9AnyObject", "Notifications"]
 - !private ["Ps9AnyObject", "String"]
 - ["Ps9AnyObject", "ToolBarButtons_Click"]
+- !private ["Ps9AnyObject", "UIApplication"]
 - !private ["Ps9AnyObject", "UIColor"]
 - !private ["Ps9AnyObject", "UIImage"]
 - !private ["Ps9AnyObject", "UIImageView"]
 - !private ["Ps9AnyObject", "UILabel"]
 - !private ["Ps9AnyObject", "UITapGestureRecognizer"]
+- !private ["Ps9AnyObject", "UIUserInterfaceLayoutDirection"]
 - !private ["Ps9AnyObject", "UIView"]
 - ["Ps9AnyObject", "UserDefaults"]
 - !private ["Ps9AnyObject", "UtilityClass"]
@@ -134,6 +140,7 @@ depends-member:
 - !private ["Ps9AnyObject", "addObserver"]
 - !private ["Ps9AnyObject", "addSubview"]
 - !private ["Ps9AnyObject", "allKeys"]
+- ["Ps9AnyObject", "arrowImg"]
 - !private ["Ps9AnyObject", "backgroundColor"]
 - !private ["Ps9AnyObject", "bool"]
 - ["Ps9AnyObject", "boolArray"]
@@ -169,6 +176,7 @@ depends-member:
 - ["Ps9AnyObject", "integer"]
 - !private ["Ps9AnyObject", "isHidden"]
 - !private ["Ps9AnyObject", "layer"]
+- ["Ps9AnyObject", "lblCondition"]
 - !private ["Ps9AnyObject", "lightGray"]
 - ["Ps9AnyObject", "listViewNotification"]
 - !private ["Ps9AnyObject", "localized"]
@@ -214,6 +222,7 @@ depends-member:
 - !private ["Ps9AnyObject", "setObject"]
 - ["Ps9AnyObject", "setUI"]
 - !private ["Ps9AnyObject", "setValue"]
+- !private ["Ps9AnyObject", "shared"]
 - ["Ps9AnyObject", "standard"]
 - !private ["Ps9AnyObject", "string"]
 - !private ["Ps9AnyObject", "subscript"]
@@ -222,9 +231,11 @@ depends-member:
 - ["Ps9AnyObject", "tapHeader"]
 - ["Ps9AnyObject", "tblView"]
 - !private ["Ps9AnyObject", "text"]
+- !private ["Ps9AnyObject", "textAlignment"]
 - !private ["Ps9AnyObject", "textColor"]
 - !private ["Ps9AnyObject", "title"]
 - ["Ps9AnyObject", "userDefaults"]
+- !private ["Ps9AnyObject", "userInterfaceLayoutDirection"]
 - !private ["Ps9AnyObject", "userType"]
 - !private ["Ps9AnyObject", "value"]
 - !private ["Ps9AnyObject", "view"]
@@ -278,6 +289,7 @@ depends-member:
 - !private ["PSo15CALayerDelegate", "selectionStyle"]
 - !private ["PSo15CALayerDelegate", "tag"]
 - !private ["PSo15CALayerDelegate", "text"]
+- !private ["PSo15CALayerDelegate", "textAlignment"]
 - !private ["PSo15CALayerDelegate", "textColor"]
 - !private ["PSo13CAMediaTiming", "borderColor"]
 - !private ["PSo13CAMediaTiming", "borderWidth"]
@@ -309,11 +321,13 @@ depends-member:
 - !private ["Ps7CVarArg", "Stride"]
 - !private ["Ps7CVarArg", "String"]
 - ["Ps7CVarArg", "ToolBarButtons_Click"]
+- !private ["Ps7CVarArg", "UIApplication"]
 - !private ["Ps7CVarArg", "UIColor"]
 - !private ["Ps7CVarArg", "UIImage"]
 - !private ["Ps7CVarArg", "UIImageView"]
 - !private ["Ps7CVarArg", "UILabel"]
 - !private ["Ps7CVarArg", "UITapGestureRecognizer"]
+- !private ["Ps7CVarArg", "UIUserInterfaceLayoutDirection"]
 - !private ["Ps7CVarArg", "UIView"]
 - ["Ps7CVarArg", "UserDefaults"]
 - !private ["Ps7CVarArg", "UtilityClass"]
@@ -326,6 +340,7 @@ depends-member:
 - !private ["Ps7CVarArg", "addObserver"]
 - !private ["Ps7CVarArg", "addSubview"]
 - !private ["Ps7CVarArg", "allKeys"]
+- ["Ps7CVarArg", "arrowImg"]
 - !private ["Ps7CVarArg", "backgroundColor"]
 - !private ["Ps7CVarArg", "bool"]
 - ["Ps7CVarArg", "boolArray"]
@@ -361,6 +376,7 @@ depends-member:
 - ["Ps7CVarArg", "integer"]
 - !private ["Ps7CVarArg", "isHidden"]
 - !private ["Ps7CVarArg", "layer"]
+- ["Ps7CVarArg", "lblCondition"]
 - !private ["Ps7CVarArg", "lightGray"]
 - ["Ps7CVarArg", "listViewNotification"]
 - !private ["Ps7CVarArg", "localized"]
@@ -405,6 +421,7 @@ depends-member:
 - !private ["Ps7CVarArg", "setObject"]
 - ["Ps7CVarArg", "setUI"]
 - !private ["Ps7CVarArg", "setValue"]
+- !private ["Ps7CVarArg", "shared"]
 - ["Ps7CVarArg", "standard"]
 - !private ["Ps7CVarArg", "string"]
 - !private ["Ps7CVarArg", "subscript"]
@@ -413,9 +430,11 @@ depends-member:
 - ["Ps7CVarArg", "tapHeader"]
 - ["Ps7CVarArg", "tblView"]
 - !private ["Ps7CVarArg", "text"]
+- !private ["Ps7CVarArg", "textAlignment"]
 - !private ["Ps7CVarArg", "textColor"]
 - !private ["Ps7CVarArg", "title"]
 - ["Ps7CVarArg", "userDefaults"]
+- !private ["Ps7CVarArg", "userInterfaceLayoutDirection"]
 - !private ["Ps7CVarArg", "userType"]
 - !private ["Ps7CVarArg", "value"]
 - !private ["Ps7CVarArg", "view"]
@@ -461,11 +480,13 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "Stride"]
 - !private ["Ps28CustomDebugStringConvertible", "String"]
 - ["Ps28CustomDebugStringConvertible", "ToolBarButtons_Click"]
+- !private ["Ps28CustomDebugStringConvertible", "UIApplication"]
 - !private ["Ps28CustomDebugStringConvertible", "UIColor"]
 - !private ["Ps28CustomDebugStringConvertible", "UIImage"]
 - !private ["Ps28CustomDebugStringConvertible", "UIImageView"]
 - !private ["Ps28CustomDebugStringConvertible", "UILabel"]
 - !private ["Ps28CustomDebugStringConvertible", "UITapGestureRecognizer"]
+- !private ["Ps28CustomDebugStringConvertible", "UIUserInterfaceLayoutDirection"]
 - !private ["Ps28CustomDebugStringConvertible", "UIView"]
 - ["Ps28CustomDebugStringConvertible", "UserDefaults"]
 - !private ["Ps28CustomDebugStringConvertible", "UtilityClass"]
@@ -478,6 +499,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "addObserver"]
 - !private ["Ps28CustomDebugStringConvertible", "addSubview"]
 - !private ["Ps28CustomDebugStringConvertible", "allKeys"]
+- ["Ps28CustomDebugStringConvertible", "arrowImg"]
 - !private ["Ps28CustomDebugStringConvertible", "backgroundColor"]
 - !private ["Ps28CustomDebugStringConvertible", "bool"]
 - ["Ps28CustomDebugStringConvertible", "boolArray"]
@@ -514,6 +536,7 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "integer"]
 - !private ["Ps28CustomDebugStringConvertible", "isHidden"]
 - !private ["Ps28CustomDebugStringConvertible", "layer"]
+- ["Ps28CustomDebugStringConvertible", "lblCondition"]
 - !private ["Ps28CustomDebugStringConvertible", "lightGray"]
 - ["Ps28CustomDebugStringConvertible", "listViewNotification"]
 - !private ["Ps28CustomDebugStringConvertible", "localized"]
@@ -562,6 +585,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "setObject"]
 - ["Ps28CustomDebugStringConvertible", "setUI"]
 - !private ["Ps28CustomDebugStringConvertible", "setValue"]
+- !private ["Ps28CustomDebugStringConvertible", "shared"]
 - !private ["Ps28CustomDebugStringConvertible", "size"]
 - ["Ps28CustomDebugStringConvertible", "standard"]
 - !private ["Ps28CustomDebugStringConvertible", "string"]
@@ -572,9 +596,11 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "tapHeader"]
 - ["Ps28CustomDebugStringConvertible", "tblView"]
 - !private ["Ps28CustomDebugStringConvertible", "text"]
+- !private ["Ps28CustomDebugStringConvertible", "textAlignment"]
 - !private ["Ps28CustomDebugStringConvertible", "textColor"]
 - !private ["Ps28CustomDebugStringConvertible", "title"]
 - ["Ps28CustomDebugStringConvertible", "userDefaults"]
+- !private ["Ps28CustomDebugStringConvertible", "userInterfaceLayoutDirection"]
 - !private ["Ps28CustomDebugStringConvertible", "userType"]
 - !private ["Ps28CustomDebugStringConvertible", "value"]
 - !private ["Ps28CustomDebugStringConvertible", "view"]
@@ -639,11 +665,13 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "Stride"]
 - !private ["Ps23CustomStringConvertible", "String"]
 - ["Ps23CustomStringConvertible", "ToolBarButtons_Click"]
+- !private ["Ps23CustomStringConvertible", "UIApplication"]
 - !private ["Ps23CustomStringConvertible", "UIColor"]
 - !private ["Ps23CustomStringConvertible", "UIImage"]
 - !private ["Ps23CustomStringConvertible", "UIImageView"]
 - !private ["Ps23CustomStringConvertible", "UILabel"]
 - !private ["Ps23CustomStringConvertible", "UITapGestureRecognizer"]
+- !private ["Ps23CustomStringConvertible", "UIUserInterfaceLayoutDirection"]
 - !private ["Ps23CustomStringConvertible", "UIView"]
 - ["Ps23CustomStringConvertible", "UserDefaults"]
 - !private ["Ps23CustomStringConvertible", "UtilityClass"]
@@ -657,6 +685,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "addObserver"]
 - !private ["Ps23CustomStringConvertible", "addSubview"]
 - !private ["Ps23CustomStringConvertible", "allKeys"]
+- ["Ps23CustomStringConvertible", "arrowImg"]
 - !private ["Ps23CustomStringConvertible", "backgroundColor"]
 - !private ["Ps23CustomStringConvertible", "bool"]
 - ["Ps23CustomStringConvertible", "boolArray"]
@@ -693,6 +722,7 @@ depends-member:
 - ["Ps23CustomStringConvertible", "integer"]
 - !private ["Ps23CustomStringConvertible", "isHidden"]
 - !private ["Ps23CustomStringConvertible", "layer"]
+- ["Ps23CustomStringConvertible", "lblCondition"]
 - !private ["Ps23CustomStringConvertible", "lightGray"]
 - ["Ps23CustomStringConvertible", "listViewNotification"]
 - !private ["Ps23CustomStringConvertible", "localized"]
@@ -741,6 +771,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "setObject"]
 - ["Ps23CustomStringConvertible", "setUI"]
 - !private ["Ps23CustomStringConvertible", "setValue"]
+- !private ["Ps23CustomStringConvertible", "shared"]
 - ["Ps23CustomStringConvertible", "standard"]
 - !private ["Ps23CustomStringConvertible", "string"]
 - !private ["Ps23CustomStringConvertible", "subscript"]
@@ -750,9 +781,11 @@ depends-member:
 - ["Ps23CustomStringConvertible", "tapHeader"]
 - ["Ps23CustomStringConvertible", "tblView"]
 - !private ["Ps23CustomStringConvertible", "text"]
+- !private ["Ps23CustomStringConvertible", "textAlignment"]
 - !private ["Ps23CustomStringConvertible", "textColor"]
 - !private ["Ps23CustomStringConvertible", "title"]
 - ["Ps23CustomStringConvertible", "userDefaults"]
+- !private ["Ps23CustomStringConvertible", "userInterfaceLayoutDirection"]
 - !private ["Ps23CustomStringConvertible", "userType"]
 - !private ["Ps23CustomStringConvertible", "value"]
 - !private ["Ps23CustomStringConvertible", "view"]
@@ -791,11 +824,13 @@ depends-member:
 - !private ["Ps9Equatable", "Stride"]
 - !private ["Ps9Equatable", "String"]
 - ["Ps9Equatable", "ToolBarButtons_Click"]
+- !private ["Ps9Equatable", "UIApplication"]
 - !private ["Ps9Equatable", "UIColor"]
 - !private ["Ps9Equatable", "UIImage"]
 - !private ["Ps9Equatable", "UIImageView"]
 - !private ["Ps9Equatable", "UILabel"]
 - !private ["Ps9Equatable", "UITapGestureRecognizer"]
+- !private ["Ps9Equatable", "UIUserInterfaceLayoutDirection"]
 - !private ["Ps9Equatable", "UIView"]
 - ["Ps9Equatable", "UserDefaults"]
 - !private ["Ps9Equatable", "UtilityClass"]
@@ -807,6 +842,7 @@ depends-member:
 - !private ["Ps9Equatable", "addObserver"]
 - !private ["Ps9Equatable", "addSubview"]
 - !private ["Ps9Equatable", "allKeys"]
+- ["Ps9Equatable", "arrowImg"]
 - !private ["Ps9Equatable", "backgroundColor"]
 - !private ["Ps9Equatable", "bool"]
 - ["Ps9Equatable", "boolArray"]
@@ -841,6 +877,8 @@ depends-member:
 - ["Ps9Equatable", "integer"]
 - !private ["Ps9Equatable", "isHidden"]
 - !private ["Ps9Equatable", "layer"]
+- ["Ps9Equatable", "lblCondition"]
+- !private ["Ps9Equatable", "left"]
 - !private ["Ps9Equatable", "lightGray"]
 - ["Ps9Equatable", "listViewNotification"]
 - !private ["Ps9Equatable", "localized"]
@@ -866,6 +904,8 @@ depends-member:
 - !private ["Ps9Equatable", "removeObserver"]
 - !private ["Ps9Equatable", "replaceObject"]
 - ["Ps9Equatable", "resetUI"]
+- !private ["Ps9Equatable", "right"]
+- !private ["Ps9Equatable", "rightToLeft"]
 - !private ["Ps9Equatable", "row"]
 - ["Ps9Equatable", "scrollViewDidEndDecelerating"]
 - ["Ps9Equatable", "scrollViewDidEndDragging"]
@@ -889,6 +929,7 @@ depends-member:
 - !private ["Ps9Equatable", "setObject"]
 - ["Ps9Equatable", "setUI"]
 - !private ["Ps9Equatable", "setValue"]
+- !private ["Ps9Equatable", "shared"]
 - !private ["Ps9Equatable", "size"]
 - ["Ps9Equatable", "standard"]
 - !private ["Ps9Equatable", "string"]
@@ -898,9 +939,11 @@ depends-member:
 - ["Ps9Equatable", "tapHeader"]
 - ["Ps9Equatable", "tblView"]
 - !private ["Ps9Equatable", "text"]
+- !private ["Ps9Equatable", "textAlignment"]
 - !private ["Ps9Equatable", "textColor"]
 - !private ["Ps9Equatable", "title"]
 - ["Ps9Equatable", "userDefaults"]
+- !private ["Ps9Equatable", "userInterfaceLayoutDirection"]
 - !private ["Ps9Equatable", "userType"]
 - !private ["Ps9Equatable", "value"]
 - !private ["Ps9Equatable", "view"]
@@ -976,11 +1019,13 @@ depends-member:
 - !private ["Ps8Hashable", "Stride"]
 - !private ["Ps8Hashable", "String"]
 - ["Ps8Hashable", "ToolBarButtons_Click"]
+- !private ["Ps8Hashable", "UIApplication"]
 - !private ["Ps8Hashable", "UIColor"]
 - !private ["Ps8Hashable", "UIImage"]
 - !private ["Ps8Hashable", "UIImageView"]
 - !private ["Ps8Hashable", "UILabel"]
 - !private ["Ps8Hashable", "UITapGestureRecognizer"]
+- !private ["Ps8Hashable", "UIUserInterfaceLayoutDirection"]
 - !private ["Ps8Hashable", "UIView"]
 - ["Ps8Hashable", "UserDefaults"]
 - !private ["Ps8Hashable", "UtilityClass"]
@@ -992,6 +1037,7 @@ depends-member:
 - !private ["Ps8Hashable", "addObserver"]
 - !private ["Ps8Hashable", "addSubview"]
 - !private ["Ps8Hashable", "allKeys"]
+- ["Ps8Hashable", "arrowImg"]
 - !private ["Ps8Hashable", "backgroundColor"]
 - !private ["Ps8Hashable", "bool"]
 - ["Ps8Hashable", "boolArray"]
@@ -1026,6 +1072,8 @@ depends-member:
 - ["Ps8Hashable", "integer"]
 - !private ["Ps8Hashable", "isHidden"]
 - !private ["Ps8Hashable", "layer"]
+- ["Ps8Hashable", "lblCondition"]
+- !private ["Ps8Hashable", "left"]
 - !private ["Ps8Hashable", "lightGray"]
 - ["Ps8Hashable", "listViewNotification"]
 - !private ["Ps8Hashable", "localized"]
@@ -1051,6 +1099,8 @@ depends-member:
 - !private ["Ps8Hashable", "removeObserver"]
 - !private ["Ps8Hashable", "replaceObject"]
 - ["Ps8Hashable", "resetUI"]
+- !private ["Ps8Hashable", "right"]
+- !private ["Ps8Hashable", "rightToLeft"]
 - !private ["Ps8Hashable", "row"]
 - ["Ps8Hashable", "scrollViewDidEndDecelerating"]
 - ["Ps8Hashable", "scrollViewDidEndDragging"]
@@ -1074,6 +1124,7 @@ depends-member:
 - !private ["Ps8Hashable", "setObject"]
 - ["Ps8Hashable", "setUI"]
 - !private ["Ps8Hashable", "setValue"]
+- !private ["Ps8Hashable", "shared"]
 - ["Ps8Hashable", "standard"]
 - !private ["Ps8Hashable", "string"]
 - !private ["Ps8Hashable", "subscript"]
@@ -1082,9 +1133,11 @@ depends-member:
 - ["Ps8Hashable", "tapHeader"]
 - ["Ps8Hashable", "tblView"]
 - !private ["Ps8Hashable", "text"]
+- !private ["Ps8Hashable", "textAlignment"]
 - !private ["Ps8Hashable", "textColor"]
 - !private ["Ps8Hashable", "title"]
 - ["Ps8Hashable", "userDefaults"]
+- !private ["Ps8Hashable", "userInterfaceLayoutDirection"]
 - !private ["Ps8Hashable", "userType"]
 - !private ["Ps8Hashable", "value"]
 - !private ["Ps8Hashable", "view"]
@@ -1181,11 +1234,13 @@ depends-member:
 - !private ["PSo8NSCoding", "Notifications"]
 - !private ["PSo8NSCoding", "String"]
 - ["PSo8NSCoding", "ToolBarButtons_Click"]
+- !private ["PSo8NSCoding", "UIApplication"]
 - !private ["PSo8NSCoding", "UIColor"]
 - !private ["PSo8NSCoding", "UIImage"]
 - !private ["PSo8NSCoding", "UIImageView"]
 - !private ["PSo8NSCoding", "UILabel"]
 - !private ["PSo8NSCoding", "UITapGestureRecognizer"]
+- !private ["PSo8NSCoding", "UIUserInterfaceLayoutDirection"]
 - !private ["PSo8NSCoding", "UIView"]
 - ["PSo8NSCoding", "UserDefaults"]
 - !private ["PSo8NSCoding", "UtilityClass"]
@@ -1195,6 +1250,7 @@ depends-member:
 - !private ["PSo8NSCoding", "addObjects"]
 - !private ["PSo8NSCoding", "addSubview"]
 - !private ["PSo8NSCoding", "allKeys"]
+- ["PSo8NSCoding", "arrowImg"]
 - !private ["PSo8NSCoding", "backgroundColor"]
 - ["PSo8NSCoding", "boolArray"]
 - !private ["PSo8NSCoding", "borderColor"]
@@ -1225,6 +1281,7 @@ depends-member:
 - !private ["PSo8NSCoding", "inputView"]
 - !private ["PSo8NSCoding", "isHidden"]
 - !private ["PSo8NSCoding", "layer"]
+- ["PSo8NSCoding", "lblCondition"]
 - !private ["PSo8NSCoding", "lightGray"]
 - ["PSo8NSCoding", "listViewNotification"]
 - !private ["PSo8NSCoding", "localized"]
@@ -1274,6 +1331,7 @@ depends-member:
 - ["PSo8NSCoding", "tapHeader"]
 - ["PSo8NSCoding", "tblView"]
 - !private ["PSo8NSCoding", "text"]
+- !private ["PSo8NSCoding", "textAlignment"]
 - !private ["PSo8NSCoding", "textColor"]
 - !private ["PSo8NSCoding", "title"]
 - ["PSo8NSCoding", "userDefaults"]
@@ -1331,15 +1389,18 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "Notifications"]
 - !private ["PSo26NSExtensionRequestHandling", "String"]
 - ["PSo26NSExtensionRequestHandling", "ToolBarButtons_Click"]
+- !private ["PSo26NSExtensionRequestHandling", "UIApplication"]
 - !private ["PSo26NSExtensionRequestHandling", "UIColor"]
 - !private ["PSo26NSExtensionRequestHandling", "UIImage"]
 - !private ["PSo26NSExtensionRequestHandling", "UIImageView"]
 - !private ["PSo26NSExtensionRequestHandling", "UILabel"]
 - !private ["PSo26NSExtensionRequestHandling", "UITapGestureRecognizer"]
+- !private ["PSo26NSExtensionRequestHandling", "UIUserInterfaceLayoutDirection"]
 - !private ["PSo26NSExtensionRequestHandling", "UIView"]
 - ["PSo26NSExtensionRequestHandling", "UserDefaults"]
 - !private ["PSo26NSExtensionRequestHandling", "UtilityClass"]
 - ["PSo26NSExtensionRequestHandling", "addNotifications"]
+- ["PSo26NSExtensionRequestHandling", "arrowImg"]
 - ["PSo26NSExtensionRequestHandling", "boolArray"]
 - ["PSo26NSExtensionRequestHandling", "cellArray"]
 - ["PSo26NSExtensionRequestHandling", "conditionTxtFld"]
@@ -1352,6 +1413,7 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "indexPathForPreferredFocusedView"]
 - ["PSo26NSExtensionRequestHandling", "indexPathForPreferredFocusedViewInTableView"]
 - !private ["PSo26NSExtensionRequestHandling", "init"]
+- ["PSo26NSExtensionRequestHandling", "lblCondition"]
 - ["PSo26NSExtensionRequestHandling", "listViewNotification"]
 - ["PSo26NSExtensionRequestHandling", "noHistoryAvailableLbl"]
 - ["PSo26NSExtensionRequestHandling", "noOfDays"]
@@ -1475,15 +1537,17 @@ depends-member:
 - !private ["CSo8NSObject", "Parameters"]
 - ["CSo8NSObject", "String"]
 - ["CSo8NSObject", "ToolBarButtons_Click"]
+- !private ["CSo8NSObject", "UIApplication"]
 - !private ["CSo8NSObject", "UIColor"]
 - !private ["CSo8NSObject", "UIImage"]
-- !private ["CSo8NSObject", "UIImageView"]
+- ["CSo8NSObject", "UIImageView"]
 - ["CSo8NSObject", "UILabel"]
 - ["CSo8NSObject", "UIPickerView"]
 - ["CSo8NSObject", "UITableView"]
 - ["CSo8NSObject", "UITableViewCell"]
 - ["CSo8NSObject", "UITapGestureRecognizer"]
 - ["CSo8NSObject", "UITextField"]
+- !private ["CSo8NSObject", "UIUserInterfaceLayoutDirection"]
 - ["CSo8NSObject", "UIView"]
 - ["CSo8NSObject", "UserDefaults"]
 - !private ["CSo8NSObject", "UtilityClass"]
@@ -1494,6 +1558,7 @@ depends-member:
 - !private ["CSo8NSObject", "addObserver"]
 - !private ["CSo8NSObject", "addSubview"]
 - !private ["CSo8NSObject", "allKeys"]
+- ["CSo8NSObject", "arrowImg"]
 - !private ["CSo8NSObject", "backgroundColor"]
 - !private ["CSo8NSObject", "bool"]
 - ["CSo8NSObject", "boolArray"]
@@ -1528,6 +1593,7 @@ depends-member:
 - ["CSo8NSObject", "integer"]
 - !private ["CSo8NSObject", "isHidden"]
 - !private ["CSo8NSObject", "layer"]
+- ["CSo8NSObject", "lblCondition"]
 - !private ["CSo8NSObject", "lightGray"]
 - ["CSo8NSObject", "listViewNotification"]
 - !private ["CSo8NSObject", "localized"]
@@ -1572,6 +1638,7 @@ depends-member:
 - !private ["CSo8NSObject", "setObject"]
 - ["CSo8NSObject", "setUI"]
 - !private ["CSo8NSObject", "setValue"]
+- !private ["CSo8NSObject", "shared"]
 - ["CSo8NSObject", "standard"]
 - !private ["CSo8NSObject", "string"]
 - !private ["CSo8NSObject", "subscript"]
@@ -1580,9 +1647,11 @@ depends-member:
 - ["CSo8NSObject", "tapHeader"]
 - ["CSo8NSObject", "tblView"]
 - !private ["CSo8NSObject", "text"]
+- !private ["CSo8NSObject", "textAlignment"]
 - !private ["CSo8NSObject", "textColor"]
 - !private ["CSo8NSObject", "title"]
 - ["CSo8NSObject", "userDefaults"]
+- !private ["CSo8NSObject", "userInterfaceLayoutDirection"]
 - !private ["CSo8NSObject", "userType"]
 - !private ["CSo8NSObject", "value"]
 - !private ["CSo8NSObject", "view"]
@@ -1609,11 +1678,13 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "Notifications"]
 - !private ["PSo16NSObjectProtocol", "String"]
 - ["PSo16NSObjectProtocol", "ToolBarButtons_Click"]
+- !private ["PSo16NSObjectProtocol", "UIApplication"]
 - !private ["PSo16NSObjectProtocol", "UIColor"]
 - !private ["PSo16NSObjectProtocol", "UIImage"]
 - !private ["PSo16NSObjectProtocol", "UIImageView"]
 - !private ["PSo16NSObjectProtocol", "UILabel"]
 - !private ["PSo16NSObjectProtocol", "UITapGestureRecognizer"]
+- !private ["PSo16NSObjectProtocol", "UIUserInterfaceLayoutDirection"]
 - !private ["PSo16NSObjectProtocol", "UIView"]
 - ["PSo16NSObjectProtocol", "UserDefaults"]
 - !private ["PSo16NSObjectProtocol", "UtilityClass"]
@@ -1624,6 +1695,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "addObserver"]
 - !private ["PSo16NSObjectProtocol", "addSubview"]
 - !private ["PSo16NSObjectProtocol", "allKeys"]
+- ["PSo16NSObjectProtocol", "arrowImg"]
 - !private ["PSo16NSObjectProtocol", "backgroundColor"]
 - !private ["PSo16NSObjectProtocol", "bool"]
 - ["PSo16NSObjectProtocol", "boolArray"]
@@ -1658,6 +1730,7 @@ depends-member:
 - ["PSo16NSObjectProtocol", "integer"]
 - !private ["PSo16NSObjectProtocol", "isHidden"]
 - !private ["PSo16NSObjectProtocol", "layer"]
+- ["PSo16NSObjectProtocol", "lblCondition"]
 - !private ["PSo16NSObjectProtocol", "lightGray"]
 - ["PSo16NSObjectProtocol", "listViewNotification"]
 - !private ["PSo16NSObjectProtocol", "localized"]
@@ -1702,6 +1775,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "setObject"]
 - ["PSo16NSObjectProtocol", "setUI"]
 - !private ["PSo16NSObjectProtocol", "setValue"]
+- !private ["PSo16NSObjectProtocol", "shared"]
 - ["PSo16NSObjectProtocol", "standard"]
 - !private ["PSo16NSObjectProtocol", "string"]
 - !private ["PSo16NSObjectProtocol", "subscript"]
@@ -1710,9 +1784,11 @@ depends-member:
 - ["PSo16NSObjectProtocol", "tapHeader"]
 - ["PSo16NSObjectProtocol", "tblView"]
 - !private ["PSo16NSObjectProtocol", "text"]
+- !private ["PSo16NSObjectProtocol", "textAlignment"]
 - !private ["PSo16NSObjectProtocol", "textColor"]
 - !private ["PSo16NSObjectProtocol", "title"]
 - ["PSo16NSObjectProtocol", "userDefaults"]
+- !private ["PSo16NSObjectProtocol", "userInterfaceLayoutDirection"]
 - !private ["PSo16NSObjectProtocol", "userType"]
 - !private ["PSo16NSObjectProtocol", "value"]
 - !private ["PSo16NSObjectProtocol", "view"]
@@ -1744,6 +1820,9 @@ depends-member:
 - !private ["PSo14NSSecureCoding", "white"]
 - ["CSo8NSString", "init"]
 - !private ["CSo8NSString", "localized"]
+- ["OSC15NSTextAlignment", "deinit"]
+- !private ["OSC15NSTextAlignment", "left"]
+- !private ["OSC15NSTextAlignment", "right"]
 - ["VCSo14NSNotification4Name", "deinit"]
 - !private ["VCSo14NSNotification4Name", "init"]
 - !private ["CSo18NotificationCenter", "addObserver"]
@@ -1772,9 +1851,13 @@ depends-member:
 - !private ["Ps25RangeReplaceableIndexable", "Iterator"]
 - !private ["Ps25RangeReplaceableIndexable", "_Element"]
 - !private ["Ps25RangeReplaceableIndexable", "first"]
+- !private ["Ps16RawRepresentable", "RawValue"]
 - !private ["Ps16RawRepresentable", "init"]
+- !private ["Ps16RawRepresentable", "left"]
 - !private ["Ps16RawRepresentable", "none"]
 - !private ["Ps16RawRepresentable", "post"]
+- !private ["Ps16RawRepresentable", "right"]
+- !private ["Ps16RawRepresentable", "rightToLeft"]
 - !private ["P10Foundation20ReferenceConvertible", "row"]
 - !private ["P10Foundation20ReferenceConvertible", "section"]
 - !private ["C11DiabetesApp27ReportHistoryViewController", "Alamofire"]
@@ -1799,19 +1882,22 @@ depends-member:
 - !private ["C11DiabetesApp27ReportHistoryViewController", "Parameters"]
 - ["C11DiabetesApp27ReportHistoryViewController", "String"]
 - ["C11DiabetesApp27ReportHistoryViewController", "ToolBarButtons_Click"]
+- !private ["C11DiabetesApp27ReportHistoryViewController", "UIApplication"]
 - !private ["C11DiabetesApp27ReportHistoryViewController", "UIColor"]
 - !private ["C11DiabetesApp27ReportHistoryViewController", "UIImage"]
-- !private ["C11DiabetesApp27ReportHistoryViewController", "UIImageView"]
+- ["C11DiabetesApp27ReportHistoryViewController", "UIImageView"]
 - ["C11DiabetesApp27ReportHistoryViewController", "UILabel"]
 - ["C11DiabetesApp27ReportHistoryViewController", "UIPickerView"]
 - ["C11DiabetesApp27ReportHistoryViewController", "UITableView"]
 - ["C11DiabetesApp27ReportHistoryViewController", "UITableViewCell"]
 - ["C11DiabetesApp27ReportHistoryViewController", "UITapGestureRecognizer"]
 - ["C11DiabetesApp27ReportHistoryViewController", "UITextField"]
+- !private ["C11DiabetesApp27ReportHistoryViewController", "UIUserInterfaceLayoutDirection"]
 - ["C11DiabetesApp27ReportHistoryViewController", "UIView"]
 - ["C11DiabetesApp27ReportHistoryViewController", "UserDefaults"]
 - !private ["C11DiabetesApp27ReportHistoryViewController", "UtilityClass"]
 - ["C11DiabetesApp27ReportHistoryViewController", "addNotifications"]
+- ["C11DiabetesApp27ReportHistoryViewController", "arrowImg"]
 - ["C11DiabetesApp27ReportHistoryViewController", "boolArray"]
 - ["C11DiabetesApp27ReportHistoryViewController", "cellArray"]
 - ["C11DiabetesApp27ReportHistoryViewController", "conditionTxtFld"]
@@ -1825,6 +1911,7 @@ depends-member:
 - ["C11DiabetesApp27ReportHistoryViewController", "indexPathForPreferredFocusedView"]
 - ["C11DiabetesApp27ReportHistoryViewController", "indexPathForPreferredFocusedViewInTableView"]
 - ["C11DiabetesApp27ReportHistoryViewController", "init"]
+- ["C11DiabetesApp27ReportHistoryViewController", "lblCondition"]
 - ["C11DiabetesApp27ReportHistoryViewController", "listViewNotification"]
 - ["C11DiabetesApp27ReportHistoryViewController", "noHistoryAvailableLbl"]
 - ["C11DiabetesApp27ReportHistoryViewController", "noOfDays"]
@@ -1933,6 +2020,7 @@ depends-member:
 - !private ["PSo29UIAccessibilityIdentification", "selectionStyle"]
 - !private ["PSo29UIAccessibilityIdentification", "tag"]
 - !private ["PSo29UIAccessibilityIdentification", "text"]
+- !private ["PSo29UIAccessibilityIdentification", "textAlignment"]
 - !private ["PSo29UIAccessibilityIdentification", "textColor"]
 - ["CSo17UIAlertController", "deinit"]
 - !private ["PSo12UIAppearance", "addGestureRecognizer"]
@@ -1955,6 +2043,7 @@ depends-member:
 - !private ["PSo12UIAppearance", "selectionStyle"]
 - !private ["PSo12UIAppearance", "tag"]
 - !private ["PSo12UIAppearance", "text"]
+- !private ["PSo12UIAppearance", "textAlignment"]
 - !private ["PSo12UIAppearance", "textColor"]
 - !private ["PSo21UIAppearanceContainer", "Alamofire"]
 - !private ["PSo21UIAppearanceContainer", "CGRect"]
@@ -1971,17 +2060,20 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "Notifications"]
 - !private ["PSo21UIAppearanceContainer", "String"]
 - ["PSo21UIAppearanceContainer", "ToolBarButtons_Click"]
+- !private ["PSo21UIAppearanceContainer", "UIApplication"]
 - !private ["PSo21UIAppearanceContainer", "UIColor"]
 - !private ["PSo21UIAppearanceContainer", "UIImage"]
 - !private ["PSo21UIAppearanceContainer", "UIImageView"]
 - !private ["PSo21UIAppearanceContainer", "UILabel"]
 - !private ["PSo21UIAppearanceContainer", "UITapGestureRecognizer"]
+- !private ["PSo21UIAppearanceContainer", "UIUserInterfaceLayoutDirection"]
 - !private ["PSo21UIAppearanceContainer", "UIView"]
 - ["PSo21UIAppearanceContainer", "UserDefaults"]
 - !private ["PSo21UIAppearanceContainer", "UtilityClass"]
 - !private ["PSo21UIAppearanceContainer", "addGestureRecognizer"]
 - ["PSo21UIAppearanceContainer", "addNotifications"]
 - !private ["PSo21UIAppearanceContainer", "addSubview"]
+- ["PSo21UIAppearanceContainer", "arrowImg"]
 - !private ["PSo21UIAppearanceContainer", "backgroundColor"]
 - ["PSo21UIAppearanceContainer", "boolArray"]
 - ["PSo21UIAppearanceContainer", "cellArray"]
@@ -2005,6 +2097,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "inputView"]
 - !private ["PSo21UIAppearanceContainer", "isHidden"]
 - !private ["PSo21UIAppearanceContainer", "layer"]
+- ["PSo21UIAppearanceContainer", "lblCondition"]
 - ["PSo21UIAppearanceContainer", "listViewNotification"]
 - ["PSo21UIAppearanceContainer", "noHistoryAvailableLbl"]
 - ["PSo21UIAppearanceContainer", "noOfDays"]
@@ -2046,6 +2139,7 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "tapHeader"]
 - ["PSo21UIAppearanceContainer", "tblView"]
 - !private ["PSo21UIAppearanceContainer", "text"]
+- !private ["PSo21UIAppearanceContainer", "textAlignment"]
 - !private ["PSo21UIAppearanceContainer", "textColor"]
 - !private ["PSo21UIAppearanceContainer", "title"]
 - ["PSo21UIAppearanceContainer", "userDefaults"]
@@ -2057,6 +2151,9 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "viewForZooming"]
 - ["PSo21UIAppearanceContainer", "viewForZoomingInScrollView"]
 - ["PSo21UIAppearanceContainer", ""]
+- ["CSo13UIApplication", "deinit"]
+- !private ["CSo13UIApplication", "shared"]
+- !private ["CSo13UIApplication", "userInterfaceLayoutDirection"]
 - !private ["CSo7UIColor", "cgColor"]
 - !private ["CSo7UIColor", "clear"]
 - ["CSo7UIColor", "deinit"]
@@ -2077,15 +2174,18 @@ depends-member:
 - !private ["PSo18UIContentContainer", "Notifications"]
 - !private ["PSo18UIContentContainer", "String"]
 - ["PSo18UIContentContainer", "ToolBarButtons_Click"]
+- !private ["PSo18UIContentContainer", "UIApplication"]
 - !private ["PSo18UIContentContainer", "UIColor"]
 - !private ["PSo18UIContentContainer", "UIImage"]
 - !private ["PSo18UIContentContainer", "UIImageView"]
 - !private ["PSo18UIContentContainer", "UILabel"]
 - !private ["PSo18UIContentContainer", "UITapGestureRecognizer"]
+- !private ["PSo18UIContentContainer", "UIUserInterfaceLayoutDirection"]
 - !private ["PSo18UIContentContainer", "UIView"]
 - ["PSo18UIContentContainer", "UserDefaults"]
 - !private ["PSo18UIContentContainer", "UtilityClass"]
 - ["PSo18UIContentContainer", "addNotifications"]
+- ["PSo18UIContentContainer", "arrowImg"]
 - ["PSo18UIContentContainer", "boolArray"]
 - ["PSo18UIContentContainer", "cellArray"]
 - ["PSo18UIContentContainer", "conditionTxtFld"]
@@ -2098,6 +2198,7 @@ depends-member:
 - ["PSo18UIContentContainer", "indexPathForPreferredFocusedView"]
 - ["PSo18UIContentContainer", "indexPathForPreferredFocusedViewInTableView"]
 - !private ["PSo18UIContentContainer", "init"]
+- ["PSo18UIContentContainer", "lblCondition"]
 - ["PSo18UIContentContainer", "listViewNotification"]
 - ["PSo18UIContentContainer", "noHistoryAvailableLbl"]
 - ["PSo18UIContentContainer", "noOfDays"]
@@ -2148,9 +2249,11 @@ depends-member:
 - !private ["PSo30UIContentSizeCategoryAdjusting", "inputView"]
 - !private ["PSo30UIContentSizeCategoryAdjusting", "isHidden"]
 - !private ["PSo30UIContentSizeCategoryAdjusting", "text"]
+- !private ["PSo30UIContentSizeCategoryAdjusting", "textAlignment"]
 - !private ["PSo30UIContentSizeCategoryAdjusting", "textColor"]
 - !private ["CSo9UIControl", "inputView"]
 - !private ["CSo9UIControl", "text"]
+- !private ["CSo9UIControl", "textAlignment"]
 - !private ["PSo17UICoordinateSpace", "addGestureRecognizer"]
 - !private ["PSo17UICoordinateSpace", "addSubview"]
 - !private ["PSo17UICoordinateSpace", "backgroundColor"]
@@ -2171,6 +2274,7 @@ depends-member:
 - !private ["PSo17UICoordinateSpace", "selectionStyle"]
 - !private ["PSo17UICoordinateSpace", "tag"]
 - !private ["PSo17UICoordinateSpace", "text"]
+- !private ["PSo17UICoordinateSpace", "textAlignment"]
 - !private ["PSo17UICoordinateSpace", "textColor"]
 - !private ["PSo13UIDynamicItem", "addGestureRecognizer"]
 - !private ["PSo13UIDynamicItem", "addSubview"]
@@ -2192,6 +2296,7 @@ depends-member:
 - !private ["PSo13UIDynamicItem", "selectionStyle"]
 - !private ["PSo13UIDynamicItem", "tag"]
 - !private ["PSo13UIDynamicItem", "text"]
+- !private ["PSo13UIDynamicItem", "textAlignment"]
 - !private ["PSo13UIDynamicItem", "textColor"]
 - !private ["PSo18UIFocusEnvironment", "Alamofire"]
 - !private ["PSo18UIFocusEnvironment", "CGRect"]
@@ -2208,17 +2313,20 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "Notifications"]
 - !private ["PSo18UIFocusEnvironment", "String"]
 - ["PSo18UIFocusEnvironment", "ToolBarButtons_Click"]
+- !private ["PSo18UIFocusEnvironment", "UIApplication"]
 - !private ["PSo18UIFocusEnvironment", "UIColor"]
 - !private ["PSo18UIFocusEnvironment", "UIImage"]
 - !private ["PSo18UIFocusEnvironment", "UIImageView"]
 - !private ["PSo18UIFocusEnvironment", "UILabel"]
 - !private ["PSo18UIFocusEnvironment", "UITapGestureRecognizer"]
+- !private ["PSo18UIFocusEnvironment", "UIUserInterfaceLayoutDirection"]
 - !private ["PSo18UIFocusEnvironment", "UIView"]
 - ["PSo18UIFocusEnvironment", "UserDefaults"]
 - !private ["PSo18UIFocusEnvironment", "UtilityClass"]
 - !private ["PSo18UIFocusEnvironment", "addGestureRecognizer"]
 - ["PSo18UIFocusEnvironment", "addNotifications"]
 - !private ["PSo18UIFocusEnvironment", "addSubview"]
+- ["PSo18UIFocusEnvironment", "arrowImg"]
 - !private ["PSo18UIFocusEnvironment", "backgroundColor"]
 - ["PSo18UIFocusEnvironment", "boolArray"]
 - ["PSo18UIFocusEnvironment", "cellArray"]
@@ -2242,6 +2350,7 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "inputView"]
 - !private ["PSo18UIFocusEnvironment", "isHidden"]
 - !private ["PSo18UIFocusEnvironment", "layer"]
+- ["PSo18UIFocusEnvironment", "lblCondition"]
 - ["PSo18UIFocusEnvironment", "listViewNotification"]
 - ["PSo18UIFocusEnvironment", "noHistoryAvailableLbl"]
 - ["PSo18UIFocusEnvironment", "noOfDays"]
@@ -2283,6 +2392,7 @@ depends-member:
 - ["PSo18UIFocusEnvironment", "tapHeader"]
 - ["PSo18UIFocusEnvironment", "tblView"]
 - !private ["PSo18UIFocusEnvironment", "text"]
+- !private ["PSo18UIFocusEnvironment", "textAlignment"]
 - !private ["PSo18UIFocusEnvironment", "textColor"]
 - !private ["PSo18UIFocusEnvironment", "title"]
 - ["PSo18UIFocusEnvironment", "userDefaults"]
@@ -2314,6 +2424,7 @@ depends-member:
 - !private ["PSo11UIFocusItem", "selectionStyle"]
 - !private ["PSo11UIFocusItem", "tag"]
 - !private ["PSo11UIFocusItem", "text"]
+- !private ["PSo11UIFocusItem", "textAlignment"]
 - !private ["PSo11UIFocusItem", "textColor"]
 - ["CSo6UIFont", "deinit"]
 - !private ["CSo19UIGestureRecognizer", "init"]
@@ -2328,6 +2439,7 @@ depends-member:
 - !private ["CSo11UIImageView", "init"]
 - !private ["PSo10UIKeyInput", "inputView"]
 - !private ["PSo10UIKeyInput", "text"]
+- !private ["PSo10UIKeyInput", "textAlignment"]
 - ["CSo7UILabel", "deinit"]
 - !private ["CSo7UILabel", "font"]
 - !private ["CSo7UILabel", "init"]
@@ -2349,15 +2461,18 @@ depends-member:
 - !private ["PSo22UIPickerViewDataSource", "NotificationCenter"]
 - !private ["PSo22UIPickerViewDataSource", "Notifications"]
 - !private ["PSo22UIPickerViewDataSource", "String"]
+- !private ["PSo22UIPickerViewDataSource", "UIApplication"]
 - !private ["PSo22UIPickerViewDataSource", "UIColor"]
 - !private ["PSo22UIPickerViewDataSource", "UIImage"]
 - !private ["PSo22UIPickerViewDataSource", "UIImageView"]
 - !private ["PSo22UIPickerViewDataSource", "UILabel"]
 - !private ["PSo22UIPickerViewDataSource", "UITapGestureRecognizer"]
+- !private ["PSo22UIPickerViewDataSource", "UIUserInterfaceLayoutDirection"]
 - !private ["PSo22UIPickerViewDataSource", "UIView"]
 - ["PSo22UIPickerViewDataSource", "UserDefaults"]
 - !private ["PSo22UIPickerViewDataSource", "UtilityClass"]
 - !private ["PSo22UIPickerViewDataSource", "addNotifications"]
+- !private ["PSo22UIPickerViewDataSource", "arrowImg"]
 - !private ["PSo22UIPickerViewDataSource", "boolArray"]
 - !private ["PSo22UIPickerViewDataSource", "cellArray"]
 - !private ["PSo22UIPickerViewDataSource", "conditionTxtFld"]
@@ -2368,6 +2483,7 @@ depends-member:
 - !private ["PSo22UIPickerViewDataSource", "getReportReadingHistory"]
 - ["PSo22UIPickerViewDataSource", "indexPathForPreferredFocusedView"]
 - ["PSo22UIPickerViewDataSource", "indexPathForPreferredFocusedViewInTableView"]
+- !private ["PSo22UIPickerViewDataSource", "lblCondition"]
 - !private ["PSo22UIPickerViewDataSource", "listViewNotification"]
 - !private ["PSo22UIPickerViewDataSource", "noHistoryAvailableLbl"]
 - !private ["PSo22UIPickerViewDataSource", "noOfDays"]
@@ -2424,15 +2540,18 @@ depends-member:
 - !private ["PSo20UIPickerViewDelegate", "NotificationCenter"]
 - !private ["PSo20UIPickerViewDelegate", "Notifications"]
 - !private ["PSo20UIPickerViewDelegate", "String"]
+- !private ["PSo20UIPickerViewDelegate", "UIApplication"]
 - !private ["PSo20UIPickerViewDelegate", "UIColor"]
 - !private ["PSo20UIPickerViewDelegate", "UIImage"]
 - !private ["PSo20UIPickerViewDelegate", "UIImageView"]
 - !private ["PSo20UIPickerViewDelegate", "UILabel"]
 - !private ["PSo20UIPickerViewDelegate", "UITapGestureRecognizer"]
+- !private ["PSo20UIPickerViewDelegate", "UIUserInterfaceLayoutDirection"]
 - !private ["PSo20UIPickerViewDelegate", "UIView"]
 - ["PSo20UIPickerViewDelegate", "UserDefaults"]
 - !private ["PSo20UIPickerViewDelegate", "UtilityClass"]
 - !private ["PSo20UIPickerViewDelegate", "addNotifications"]
+- !private ["PSo20UIPickerViewDelegate", "arrowImg"]
 - !private ["PSo20UIPickerViewDelegate", "boolArray"]
 - !private ["PSo20UIPickerViewDelegate", "cellArray"]
 - !private ["PSo20UIPickerViewDelegate", "conditionTxtFld"]
@@ -2443,6 +2562,7 @@ depends-member:
 - !private ["PSo20UIPickerViewDelegate", "getReportReadingHistory"]
 - ["PSo20UIPickerViewDelegate", "indexPathForPreferredFocusedView"]
 - ["PSo20UIPickerViewDelegate", "indexPathForPreferredFocusedViewInTableView"]
+- !private ["PSo20UIPickerViewDelegate", "lblCondition"]
 - !private ["PSo20UIPickerViewDelegate", "listViewNotification"]
 - !private ["PSo20UIPickerViewDelegate", "noHistoryAvailableLbl"]
 - !private ["PSo20UIPickerViewDelegate", "noOfDays"]
@@ -2507,21 +2627,24 @@ depends-member:
 - !private ["CSo11UIResponder", "Parameters"]
 - ["CSo11UIResponder", "String"]
 - ["CSo11UIResponder", "ToolBarButtons_Click"]
+- !private ["CSo11UIResponder", "UIApplication"]
 - !private ["CSo11UIResponder", "UIColor"]
 - !private ["CSo11UIResponder", "UIImage"]
-- !private ["CSo11UIResponder", "UIImageView"]
+- ["CSo11UIResponder", "UIImageView"]
 - ["CSo11UIResponder", "UILabel"]
 - ["CSo11UIResponder", "UIPickerView"]
 - ["CSo11UIResponder", "UITableView"]
 - ["CSo11UIResponder", "UITableViewCell"]
 - ["CSo11UIResponder", "UITapGestureRecognizer"]
 - ["CSo11UIResponder", "UITextField"]
+- !private ["CSo11UIResponder", "UIUserInterfaceLayoutDirection"]
 - ["CSo11UIResponder", "UIView"]
 - ["CSo11UIResponder", "UserDefaults"]
 - !private ["CSo11UIResponder", "UtilityClass"]
 - !private ["CSo11UIResponder", "addGestureRecognizer"]
 - ["CSo11UIResponder", "addNotifications"]
 - !private ["CSo11UIResponder", "addSubview"]
+- ["CSo11UIResponder", "arrowImg"]
 - !private ["CSo11UIResponder", "backgroundColor"]
 - ["CSo11UIResponder", "boolArray"]
 - ["CSo11UIResponder", "cellArray"]
@@ -2545,6 +2668,7 @@ depends-member:
 - !private ["CSo11UIResponder", "inputView"]
 - !private ["CSo11UIResponder", "isHidden"]
 - !private ["CSo11UIResponder", "layer"]
+- ["CSo11UIResponder", "lblCondition"]
 - ["CSo11UIResponder", "listViewNotification"]
 - ["CSo11UIResponder", "noHistoryAvailableLbl"]
 - ["CSo11UIResponder", "noOfDays"]
@@ -2581,14 +2705,17 @@ depends-member:
 - ["CSo11UIResponder", "selectedUserType"]
 - !private ["CSo11UIResponder", "selectionStyle"]
 - ["CSo11UIResponder", "setUI"]
+- !private ["CSo11UIResponder", "shared"]
 - ["CSo11UIResponder", "tableView"]
 - !private ["CSo11UIResponder", "tag"]
 - ["CSo11UIResponder", "tapHeader"]
 - ["CSo11UIResponder", "tblView"]
 - !private ["CSo11UIResponder", "text"]
+- !private ["CSo11UIResponder", "textAlignment"]
 - !private ["CSo11UIResponder", "textColor"]
 - !private ["CSo11UIResponder", "title"]
 - ["CSo11UIResponder", "userDefaults"]
+- !private ["CSo11UIResponder", "userInterfaceLayoutDirection"]
 - !private ["CSo11UIResponder", "userType"]
 - !private ["CSo11UIResponder", "view"]
 - ["CSo11UIResponder", "viewDidAppear"]
@@ -2611,17 +2738,20 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "Notifications"]
 - !private ["PSo30UIResponderStandardEditActions", "String"]
 - ["PSo30UIResponderStandardEditActions", "ToolBarButtons_Click"]
+- !private ["PSo30UIResponderStandardEditActions", "UIApplication"]
 - !private ["PSo30UIResponderStandardEditActions", "UIColor"]
 - !private ["PSo30UIResponderStandardEditActions", "UIImage"]
 - !private ["PSo30UIResponderStandardEditActions", "UIImageView"]
 - !private ["PSo30UIResponderStandardEditActions", "UILabel"]
 - !private ["PSo30UIResponderStandardEditActions", "UITapGestureRecognizer"]
+- !private ["PSo30UIResponderStandardEditActions", "UIUserInterfaceLayoutDirection"]
 - !private ["PSo30UIResponderStandardEditActions", "UIView"]
 - ["PSo30UIResponderStandardEditActions", "UserDefaults"]
 - !private ["PSo30UIResponderStandardEditActions", "UtilityClass"]
 - !private ["PSo30UIResponderStandardEditActions", "addGestureRecognizer"]
 - ["PSo30UIResponderStandardEditActions", "addNotifications"]
 - !private ["PSo30UIResponderStandardEditActions", "addSubview"]
+- ["PSo30UIResponderStandardEditActions", "arrowImg"]
 - !private ["PSo30UIResponderStandardEditActions", "backgroundColor"]
 - ["PSo30UIResponderStandardEditActions", "boolArray"]
 - ["PSo30UIResponderStandardEditActions", "cellArray"]
@@ -2645,6 +2775,7 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "inputView"]
 - !private ["PSo30UIResponderStandardEditActions", "isHidden"]
 - !private ["PSo30UIResponderStandardEditActions", "layer"]
+- ["PSo30UIResponderStandardEditActions", "lblCondition"]
 - ["PSo30UIResponderStandardEditActions", "listViewNotification"]
 - ["PSo30UIResponderStandardEditActions", "noHistoryAvailableLbl"]
 - ["PSo30UIResponderStandardEditActions", "noOfDays"]
@@ -2681,14 +2812,17 @@ depends-member:
 - ["PSo30UIResponderStandardEditActions", "selectedUserType"]
 - !private ["PSo30UIResponderStandardEditActions", "selectionStyle"]
 - ["PSo30UIResponderStandardEditActions", "setUI"]
+- !private ["PSo30UIResponderStandardEditActions", "shared"]
 - ["PSo30UIResponderStandardEditActions", "tableView"]
 - !private ["PSo30UIResponderStandardEditActions", "tag"]
 - ["PSo30UIResponderStandardEditActions", "tapHeader"]
 - ["PSo30UIResponderStandardEditActions", "tblView"]
 - !private ["PSo30UIResponderStandardEditActions", "text"]
+- !private ["PSo30UIResponderStandardEditActions", "textAlignment"]
 - !private ["PSo30UIResponderStandardEditActions", "textColor"]
 - !private ["PSo30UIResponderStandardEditActions", "title"]
 - ["PSo30UIResponderStandardEditActions", "userDefaults"]
+- !private ["PSo30UIResponderStandardEditActions", "userInterfaceLayoutDirection"]
 - !private ["PSo30UIResponderStandardEditActions", "userType"]
 - !private ["PSo30UIResponderStandardEditActions", "view"]
 - ["PSo30UIResponderStandardEditActions", "viewDidAppear"]
@@ -2715,15 +2849,18 @@ depends-member:
 - !private ["PSo20UIScrollViewDelegate", "NotificationCenter"]
 - !private ["PSo20UIScrollViewDelegate", "Notifications"]
 - !private ["PSo20UIScrollViewDelegate", "String"]
+- !private ["PSo20UIScrollViewDelegate", "UIApplication"]
 - !private ["PSo20UIScrollViewDelegate", "UIColor"]
 - !private ["PSo20UIScrollViewDelegate", "UIImage"]
 - !private ["PSo20UIScrollViewDelegate", "UIImageView"]
 - !private ["PSo20UIScrollViewDelegate", "UILabel"]
 - !private ["PSo20UIScrollViewDelegate", "UITapGestureRecognizer"]
+- !private ["PSo20UIScrollViewDelegate", "UIUserInterfaceLayoutDirection"]
 - !private ["PSo20UIScrollViewDelegate", "UIView"]
 - ["PSo20UIScrollViewDelegate", "UserDefaults"]
 - !private ["PSo20UIScrollViewDelegate", "UtilityClass"]
 - !private ["PSo20UIScrollViewDelegate", "addNotifications"]
+- !private ["PSo20UIScrollViewDelegate", "arrowImg"]
 - !private ["PSo20UIScrollViewDelegate", "boolArray"]
 - !private ["PSo20UIScrollViewDelegate", "cellArray"]
 - !private ["PSo20UIScrollViewDelegate", "conditionTxtFld"]
@@ -2734,6 +2871,7 @@ depends-member:
 - !private ["PSo20UIScrollViewDelegate", "getReportReadingHistory"]
 - ["PSo20UIScrollViewDelegate", "indexPathForPreferredFocusedView"]
 - ["PSo20UIScrollViewDelegate", "indexPathForPreferredFocusedViewInTableView"]
+- !private ["PSo20UIScrollViewDelegate", "lblCondition"]
 - !private ["PSo20UIScrollViewDelegate", "listViewNotification"]
 - !private ["PSo20UIScrollViewDelegate", "noHistoryAvailableLbl"]
 - !private ["PSo20UIScrollViewDelegate", "noOfDays"]
@@ -2791,15 +2929,18 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "Notifications"]
 - !private ["PSo16UIStateRestoring", "String"]
 - ["PSo16UIStateRestoring", "ToolBarButtons_Click"]
+- !private ["PSo16UIStateRestoring", "UIApplication"]
 - !private ["PSo16UIStateRestoring", "UIColor"]
 - !private ["PSo16UIStateRestoring", "UIImage"]
 - !private ["PSo16UIStateRestoring", "UIImageView"]
 - !private ["PSo16UIStateRestoring", "UILabel"]
 - !private ["PSo16UIStateRestoring", "UITapGestureRecognizer"]
+- !private ["PSo16UIStateRestoring", "UIUserInterfaceLayoutDirection"]
 - !private ["PSo16UIStateRestoring", "UIView"]
 - ["PSo16UIStateRestoring", "UserDefaults"]
 - !private ["PSo16UIStateRestoring", "UtilityClass"]
 - ["PSo16UIStateRestoring", "addNotifications"]
+- ["PSo16UIStateRestoring", "arrowImg"]
 - ["PSo16UIStateRestoring", "boolArray"]
 - ["PSo16UIStateRestoring", "cellArray"]
 - ["PSo16UIStateRestoring", "conditionTxtFld"]
@@ -2812,6 +2953,7 @@ depends-member:
 - ["PSo16UIStateRestoring", "indexPathForPreferredFocusedView"]
 - ["PSo16UIStateRestoring", "indexPathForPreferredFocusedViewInTableView"]
 - !private ["PSo16UIStateRestoring", "init"]
+- ["PSo16UIStateRestoring", "lblCondition"]
 - ["PSo16UIStateRestoring", "listViewNotification"]
 - ["PSo16UIStateRestoring", "noHistoryAvailableLbl"]
 - ["PSo16UIStateRestoring", "noOfDays"]
@@ -2883,15 +3025,18 @@ depends-member:
 - !private ["PSo21UITableViewDataSource", "NotificationCenter"]
 - !private ["PSo21UITableViewDataSource", "Notifications"]
 - !private ["PSo21UITableViewDataSource", "String"]
+- !private ["PSo21UITableViewDataSource", "UIApplication"]
 - !private ["PSo21UITableViewDataSource", "UIColor"]
 - !private ["PSo21UITableViewDataSource", "UIImage"]
 - !private ["PSo21UITableViewDataSource", "UIImageView"]
 - !private ["PSo21UITableViewDataSource", "UILabel"]
 - !private ["PSo21UITableViewDataSource", "UITapGestureRecognizer"]
+- !private ["PSo21UITableViewDataSource", "UIUserInterfaceLayoutDirection"]
 - !private ["PSo21UITableViewDataSource", "UIView"]
 - ["PSo21UITableViewDataSource", "UserDefaults"]
 - !private ["PSo21UITableViewDataSource", "UtilityClass"]
 - !private ["PSo21UITableViewDataSource", "addNotifications"]
+- !private ["PSo21UITableViewDataSource", "arrowImg"]
 - !private ["PSo21UITableViewDataSource", "boolArray"]
 - !private ["PSo21UITableViewDataSource", "cellArray"]
 - !private ["PSo21UITableViewDataSource", "conditionTxtFld"]
@@ -2902,6 +3047,7 @@ depends-member:
 - !private ["PSo21UITableViewDataSource", "getReportReadingHistory"]
 - ["PSo21UITableViewDataSource", "indexPathForPreferredFocusedView"]
 - ["PSo21UITableViewDataSource", "indexPathForPreferredFocusedViewInTableView"]
+- !private ["PSo21UITableViewDataSource", "lblCondition"]
 - !private ["PSo21UITableViewDataSource", "listViewNotification"]
 - !private ["PSo21UITableViewDataSource", "noHistoryAvailableLbl"]
 - !private ["PSo21UITableViewDataSource", "noOfDays"]
@@ -2958,15 +3104,18 @@ depends-member:
 - !private ["PSo19UITableViewDelegate", "NotificationCenter"]
 - !private ["PSo19UITableViewDelegate", "Notifications"]
 - !private ["PSo19UITableViewDelegate", "String"]
+- !private ["PSo19UITableViewDelegate", "UIApplication"]
 - !private ["PSo19UITableViewDelegate", "UIColor"]
 - !private ["PSo19UITableViewDelegate", "UIImage"]
 - !private ["PSo19UITableViewDelegate", "UIImageView"]
 - !private ["PSo19UITableViewDelegate", "UILabel"]
 - !private ["PSo19UITableViewDelegate", "UITapGestureRecognizer"]
+- !private ["PSo19UITableViewDelegate", "UIUserInterfaceLayoutDirection"]
 - !private ["PSo19UITableViewDelegate", "UIView"]
 - ["PSo19UITableViewDelegate", "UserDefaults"]
 - !private ["PSo19UITableViewDelegate", "UtilityClass"]
 - !private ["PSo19UITableViewDelegate", "addNotifications"]
+- !private ["PSo19UITableViewDelegate", "arrowImg"]
 - !private ["PSo19UITableViewDelegate", "boolArray"]
 - !private ["PSo19UITableViewDelegate", "cellArray"]
 - !private ["PSo19UITableViewDelegate", "conditionTxtFld"]
@@ -2977,6 +3126,7 @@ depends-member:
 - !private ["PSo19UITableViewDelegate", "getReportReadingHistory"]
 - ["PSo19UITableViewDelegate", "indexPathForPreferredFocusedView"]
 - ["PSo19UITableViewDelegate", "indexPathForPreferredFocusedViewInTableView"]
+- !private ["PSo19UITableViewDelegate", "lblCondition"]
 - !private ["PSo19UITableViewDelegate", "listViewNotification"]
 - !private ["PSo19UITableViewDelegate", "noHistoryAvailableLbl"]
 - !private ["PSo19UITableViewDelegate", "noOfDays"]
@@ -3024,10 +3174,13 @@ depends-member:
 - !private ["CSo22UITapGestureRecognizer", "view"]
 - !private ["CSo11UITextField", "inputView"]
 - !private ["CSo11UITextField", "text"]
+- !private ["CSo11UITextField", "textAlignment"]
 - !private ["PSo11UITextInput", "inputView"]
 - !private ["PSo11UITextInput", "text"]
+- !private ["PSo11UITextInput", "textAlignment"]
 - !private ["PSo17UITextInputTraits", "inputView"]
 - !private ["PSo17UITextInputTraits", "text"]
+- !private ["PSo17UITextInputTraits", "textAlignment"]
 - !private ["PSo18UITraitEnvironment", "Alamofire"]
 - !private ["PSo18UITraitEnvironment", "CGRect"]
 - !private ["PSo18UITraitEnvironment", "Colors"]
@@ -3043,17 +3196,20 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "Notifications"]
 - !private ["PSo18UITraitEnvironment", "String"]
 - ["PSo18UITraitEnvironment", "ToolBarButtons_Click"]
+- !private ["PSo18UITraitEnvironment", "UIApplication"]
 - !private ["PSo18UITraitEnvironment", "UIColor"]
 - !private ["PSo18UITraitEnvironment", "UIImage"]
 - !private ["PSo18UITraitEnvironment", "UIImageView"]
 - !private ["PSo18UITraitEnvironment", "UILabel"]
 - !private ["PSo18UITraitEnvironment", "UITapGestureRecognizer"]
+- !private ["PSo18UITraitEnvironment", "UIUserInterfaceLayoutDirection"]
 - !private ["PSo18UITraitEnvironment", "UIView"]
 - ["PSo18UITraitEnvironment", "UserDefaults"]
 - !private ["PSo18UITraitEnvironment", "UtilityClass"]
 - !private ["PSo18UITraitEnvironment", "addGestureRecognizer"]
 - ["PSo18UITraitEnvironment", "addNotifications"]
 - !private ["PSo18UITraitEnvironment", "addSubview"]
+- ["PSo18UITraitEnvironment", "arrowImg"]
 - !private ["PSo18UITraitEnvironment", "backgroundColor"]
 - ["PSo18UITraitEnvironment", "boolArray"]
 - ["PSo18UITraitEnvironment", "cellArray"]
@@ -3077,6 +3233,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "inputView"]
 - !private ["PSo18UITraitEnvironment", "isHidden"]
 - !private ["PSo18UITraitEnvironment", "layer"]
+- ["PSo18UITraitEnvironment", "lblCondition"]
 - ["PSo18UITraitEnvironment", "listViewNotification"]
 - ["PSo18UITraitEnvironment", "noHistoryAvailableLbl"]
 - ["PSo18UITraitEnvironment", "noOfDays"]
@@ -3118,6 +3275,7 @@ depends-member:
 - ["PSo18UITraitEnvironment", "tapHeader"]
 - ["PSo18UITraitEnvironment", "tblView"]
 - !private ["PSo18UITraitEnvironment", "text"]
+- !private ["PSo18UITraitEnvironment", "textAlignment"]
 - !private ["PSo18UITraitEnvironment", "textColor"]
 - !private ["PSo18UITraitEnvironment", "title"]
 - ["PSo18UITraitEnvironment", "userDefaults"]
@@ -3129,6 +3287,9 @@ depends-member:
 - ["PSo18UITraitEnvironment", "viewForZooming"]
 - ["PSo18UITraitEnvironment", "viewForZoomingInScrollView"]
 - ["PSo18UITraitEnvironment", ""]
+- !private ["OSC30UIUserInterfaceLayoutDirection", "RawValue"]
+- ["OSC30UIUserInterfaceLayoutDirection", "deinit"]
+- !private ["OSC30UIUserInterfaceLayoutDirection", "rightToLeft"]
 - !private ["CSo6UIView", "addGestureRecognizer"]
 - !private ["CSo6UIView", "addSubview"]
 - !private ["CSo6UIView", "backgroundColor"]
@@ -3150,6 +3311,7 @@ depends-member:
 - !private ["CSo6UIView", "selectionStyle"]
 - !private ["CSo6UIView", "tag"]
 - !private ["CSo6UIView", "text"]
+- !private ["CSo6UIView", "textAlignment"]
 - !private ["CSo6UIView", "textColor"]
 - !private ["CSo16UIViewController", "Alamofire"]
 - !private ["CSo16UIViewController", "AnyObject"]
@@ -3173,19 +3335,22 @@ depends-member:
 - !private ["CSo16UIViewController", "Parameters"]
 - ["CSo16UIViewController", "String"]
 - ["CSo16UIViewController", "ToolBarButtons_Click"]
+- !private ["CSo16UIViewController", "UIApplication"]
 - !private ["CSo16UIViewController", "UIColor"]
 - !private ["CSo16UIViewController", "UIImage"]
-- !private ["CSo16UIViewController", "UIImageView"]
+- ["CSo16UIViewController", "UIImageView"]
 - ["CSo16UIViewController", "UILabel"]
 - ["CSo16UIViewController", "UIPickerView"]
 - ["CSo16UIViewController", "UITableView"]
 - ["CSo16UIViewController", "UITableViewCell"]
 - ["CSo16UIViewController", "UITapGestureRecognizer"]
 - ["CSo16UIViewController", "UITextField"]
+- !private ["CSo16UIViewController", "UIUserInterfaceLayoutDirection"]
 - ["CSo16UIViewController", "UIView"]
 - ["CSo16UIViewController", "UserDefaults"]
 - !private ["CSo16UIViewController", "UtilityClass"]
 - ["CSo16UIViewController", "addNotifications"]
+- ["CSo16UIViewController", "arrowImg"]
 - ["CSo16UIViewController", "boolArray"]
 - ["CSo16UIViewController", "cellArray"]
 - ["CSo16UIViewController", "conditionTxtFld"]
@@ -3199,6 +3364,7 @@ depends-member:
 - ["CSo16UIViewController", "indexPathForPreferredFocusedView"]
 - ["CSo16UIViewController", "indexPathForPreferredFocusedViewInTableView"]
 - ["CSo16UIViewController", "init"]
+- ["CSo16UIViewController", "lblCondition"]
 - ["CSo16UIViewController", "listViewNotification"]
 - ["CSo16UIViewController", "noHistoryAvailableLbl"]
 - ["CSo16UIViewController", "noOfDays"]
@@ -3285,6 +3451,7 @@ depends-member:
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "selectionStyle"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "tag"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "text"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "textAlignment"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "textColor"]
 - !private ["Ps24_DestructorSafeContainer", "Iterator"]
 - !private ["Ps24_DestructorSafeContainer", "_Element"]
@@ -3333,11 +3500,13 @@ depends-member:
 - !private ["Ps9_Hashable", "Stride"]
 - !private ["Ps9_Hashable", "String"]
 - ["Ps9_Hashable", "ToolBarButtons_Click"]
+- !private ["Ps9_Hashable", "UIApplication"]
 - !private ["Ps9_Hashable", "UIColor"]
 - !private ["Ps9_Hashable", "UIImage"]
 - !private ["Ps9_Hashable", "UIImageView"]
 - !private ["Ps9_Hashable", "UILabel"]
 - !private ["Ps9_Hashable", "UITapGestureRecognizer"]
+- !private ["Ps9_Hashable", "UIUserInterfaceLayoutDirection"]
 - !private ["Ps9_Hashable", "UIView"]
 - ["Ps9_Hashable", "UserDefaults"]
 - !private ["Ps9_Hashable", "UtilityClass"]
@@ -3349,6 +3518,7 @@ depends-member:
 - !private ["Ps9_Hashable", "addObserver"]
 - !private ["Ps9_Hashable", "addSubview"]
 - !private ["Ps9_Hashable", "allKeys"]
+- ["Ps9_Hashable", "arrowImg"]
 - !private ["Ps9_Hashable", "backgroundColor"]
 - !private ["Ps9_Hashable", "bool"]
 - ["Ps9_Hashable", "boolArray"]
@@ -3383,6 +3553,8 @@ depends-member:
 - ["Ps9_Hashable", "integer"]
 - !private ["Ps9_Hashable", "isHidden"]
 - !private ["Ps9_Hashable", "layer"]
+- ["Ps9_Hashable", "lblCondition"]
+- !private ["Ps9_Hashable", "left"]
 - !private ["Ps9_Hashable", "lightGray"]
 - ["Ps9_Hashable", "listViewNotification"]
 - !private ["Ps9_Hashable", "localized"]
@@ -3408,6 +3580,8 @@ depends-member:
 - !private ["Ps9_Hashable", "removeObserver"]
 - !private ["Ps9_Hashable", "replaceObject"]
 - ["Ps9_Hashable", "resetUI"]
+- !private ["Ps9_Hashable", "right"]
+- !private ["Ps9_Hashable", "rightToLeft"]
 - !private ["Ps9_Hashable", "row"]
 - ["Ps9_Hashable", "scrollViewDidEndDecelerating"]
 - ["Ps9_Hashable", "scrollViewDidEndDragging"]
@@ -3431,6 +3605,7 @@ depends-member:
 - !private ["Ps9_Hashable", "setObject"]
 - ["Ps9_Hashable", "setUI"]
 - !private ["Ps9_Hashable", "setValue"]
+- !private ["Ps9_Hashable", "shared"]
 - ["Ps9_Hashable", "standard"]
 - !private ["Ps9_Hashable", "string"]
 - !private ["Ps9_Hashable", "subscript"]
@@ -3439,9 +3614,11 @@ depends-member:
 - ["Ps9_Hashable", "tapHeader"]
 - ["Ps9_Hashable", "tblView"]
 - !private ["Ps9_Hashable", "text"]
+- !private ["Ps9_Hashable", "textAlignment"]
 - !private ["Ps9_Hashable", "textColor"]
 - !private ["Ps9_Hashable", "title"]
 - ["Ps9_Hashable", "userDefaults"]
+- !private ["Ps9_Hashable", "userInterfaceLayoutDirection"]
 - !private ["Ps9_Hashable", "userType"]
 - !private ["Ps9_Hashable", "value"]
 - !private ["Ps9_Hashable", "view"]
@@ -3564,6 +3741,7 @@ depends-nominal:
 - "PSo16NSObjectProtocol"
 - "PSo14NSSecureCoding"
 - "CSo8NSString"
+- "OSC15NSTextAlignment"
 - "VCSo14NSNotification4Name"
 - "CSo18NotificationCenter"
 - !private "V11DiabetesApp13Notifications"
@@ -3591,6 +3769,7 @@ depends-nominal:
 - "CSo17UIAlertController"
 - !private "PSo12UIAppearance"
 - "PSo21UIAppearanceContainer"
+- "CSo13UIApplication"
 - "CSo7UIColor"
 - "PSo18UIContentContainer"
 - !private "PSo30UIContentSizeCategoryAdjusting"
@@ -3624,6 +3803,7 @@ depends-nominal:
 - !private "PSo11UITextInput"
 - !private "PSo17UITextInputTraits"
 - "PSo18UITraitEnvironment"
+- "OSC30UIUserInterfaceLayoutDirection"
 - "CSo6UIView"
 - "CSo16UIViewController"
 - !private "Su"
@@ -3976,4 +4156,4 @@ depends-external:
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController-umbrella.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Modules/module.modulemap"
-interface-hash: "6c50453c84b2f60eca5e1d328d3ff599"
+interface-hash: "5b70625311347a5486f9f34df44b818a"

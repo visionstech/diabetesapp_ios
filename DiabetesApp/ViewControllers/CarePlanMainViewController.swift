@@ -31,7 +31,7 @@ class CarePlanMainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addBtn = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(AddBtn_Click))
+        addBtn = UIBarButtonItem(title: "Add".localized, style: .plain, target: self, action: #selector(AddBtn_Click))
              
     }
     
@@ -55,11 +55,11 @@ class CarePlanMainViewController: UIViewController {
         //self.tabBarController?.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         self.tabBarController?.navigationItem.title = "\("CARE_PLAN".localized)"
         self.title = "\("CARE_PLAN".localized)"
-        self.navigationItem.leftBarButtonItem = nil
-        
-        self.tabBarController?.navigationItem.leftBarButtonItem = nil
-        self.tabBarController?.navigationItem.rightBarButtonItems = nil
-       
+//        self.navigationItem.leftBarButtonItem = nil
+//        
+//        self.tabBarController?.navigationItem.leftBarButtonItem = nil
+//        self.tabBarController?.navigationItem.rightBarButtonItems = nil
+//       
         self.navigationItem.hidesBackButton = true
         self.tabBarController?.navigationItem.hidesBackButton = true
         
@@ -89,18 +89,37 @@ class CarePlanMainViewController: UIViewController {
     // MARK: - Custom Top View
     func createCustomTopView() {
         
-        topBackView = UIView(frame: CGRect(x: 0, y: 0, width: 74, height: 40))
-        topBackView.backgroundColor = UIColor(patternImage: UIImage(named: "topBackBtn")!)
-        let userImgView: UIImageView = UIImageView(frame: CGRect(x: 35, y: 3, width: 34, height: 34))
-        userImgView.image = UIImage(named: "user.png")
-        topBackView.addSubview(userImgView)
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(BackBtn_Click))
-        topBackView.addGestureRecognizer(tapGesture)
-        topBackView.isUserInteractionEnabled = true
-        
-        self.tabBarController?.navigationController?.navigationBar.addSubview(topBackView)
-        self.navigationController?.navigationBar.addSubview(topBackView)
+        if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
+            topBackView = UIView(frame: CGRect(x: self.view.frame.size.width - 80, y: 0, width: 75, height: 40))
+            topBackView.backgroundColor = UIColor(patternImage: UIImage(named: "topbackArbic")!)
+            let userImgView: UIImageView = UIImageView(frame: CGRect(x: 5 , y: 3, width: 34, height: 34))
+            userImgView.image = UIImage(named: "user.png")
+            topBackView.addSubview(userImgView)
+            
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(BackBtn_Click))
+            topBackView.addGestureRecognizer(tapGesture)
+            topBackView.isUserInteractionEnabled = true
+            
+            self.tabBarController?.navigationController?.navigationBar.addSubview(topBackView)
+            self.navigationController?.navigationBar.addSubview(topBackView)
+            
+            
+        }
+        else {
+            
+            topBackView = UIView(frame: CGRect(x: 0, y: 0, width: 74, height: 40))
+            topBackView.backgroundColor = UIColor(patternImage: UIImage(named: "topBackBtn")!)
+            let userImgView: UIImageView = UIImageView(frame: CGRect(x: 35, y: 3, width: 34, height: 34))
+            userImgView.image = UIImage(named: "user.png")
+            topBackView.addSubview(userImgView)
+            
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(BackBtn_Click))
+            topBackView.addGestureRecognizer(tapGesture)
+            topBackView.isUserInteractionEnabled = true
+            
+            self.tabBarController?.navigationController?.navigationBar.addSubview(topBackView)
+            self.navigationController?.navigationBar.addSubview(topBackView)
+        }
     }
     
     // MARK: - IBAction Methods

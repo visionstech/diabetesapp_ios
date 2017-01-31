@@ -176,14 +176,14 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
             
             if selectedUserType != userType.patient {
                 
-                if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
-                    self.tabBarController?.navigationItem.leftBarButtonItems = [optionsBtnBar,callBtnBar]
-                    self.navigationItem.leftBarButtonItems = [optionsBtnBar,callBtnBar]
-                }
-                else {
+//                if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
+//                    self.tabBarController?.navigationItem.leftBarButtonItems = [optionsBtnBar,callBtnBar]
+//                    self.navigationItem.leftBarButtonItems = [optionsBtnBar,callBtnBar]
+//                }
+//                else {
                     self.tabBarController?.navigationItem.rightBarButtonItems = [optionsBtnBar,callBtnBar]
                      self.navigationItem.rightBarButtonItems = [optionsBtnBar,callBtnBar]
-                }
+//                }
 
                
 //                self.tabBarController?.navigationItem.rightBarButtonItems = [optionsBtnBar,callBtnBar]
@@ -193,14 +193,14 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         
         else if self.dialog.type == .group && selectedUserType != userType.patient {
             
-            if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
-               
-                self.navigationItem.leftBarButtonItems = [optionsBtnBar,ReportBarButton]
-            }
-            else {
-                
+//            if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
+            
+//                self.navigationItem.leftBarButtonItems = [optionsBtnBar,ReportBarButton]
+//            }
+//            else {
+            
                 self.navigationItem.rightBarButtonItems = [optionsBtnBar,ReportBarButton]
-            }
+//            }
 
 //            self.navigationItem.rightBarButtonItems = [optionsBtnBar]
         }
@@ -230,7 +230,13 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
+            
+        }
+        else {
+            
+        }
+
         // Saving current dialog ID.
         ServicesManager.instance().currentDialogID = self.dialog.id!
         
@@ -288,32 +294,64 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
     // MARK: - Custom Top View
     func createCustomTopView() {
         
-        topBackView = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 40))
-        topBackView.backgroundColor = UIColor(patternImage: UIImage(named: "topBackBtn")!)
-        
-        
-        
-        topUserImageView =  UIView(frame: CGRect(x: 50 , y: 0, width: 35, height: 35))
-        let userImgView: UIImageView = UIImageView(frame: CGRect(x: 0, y: 3, width: 34, height: 34))
-        userImgView.image = UIImage(named: "user.png")
+        if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
+            
+            topBackView = UIView(frame: CGRect(x: self.view.frame.size.width - 80, y: 0, width: 75, height: 40))
+            topBackView.backgroundColor = UIColor(patternImage: UIImage(named: "topbackArbic")!)
+            
+            topUserImageView =  UIView(frame: CGRect(x: self.view.frame.size.width - 75 , y: 0, width: 35, height: 35))
+            let userImgView: UIImageView = UIImageView(frame: CGRect(x: 0, y: 3, width: 34, height: 34))
+            userImgView.image = UIImage(named: "user.png")
+            
+            topUserImageView.addSubview(userImgView)
+            
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(BackBtn_Click))
+            topBackView.addGestureRecognizer(tapGesture)
+            topBackView.isUserInteractionEnabled = true
+            
+            let tapGestureImage = UITapGestureRecognizer(target: self, action: #selector(UserImageClick))
+            topUserImageView.addGestureRecognizer(tapGestureImage)
+            topUserImageView.isUserInteractionEnabled = true
+            
+            
+            
+            self.navigationController?.navigationBar.addSubview(topBackView)
+            self.tabBarController?.navigationController?.navigationBar.addSubview(topBackView)
+            
+            self.navigationController?.navigationBar.addSubview(topUserImageView)
+            self.tabBarController?.navigationController?.navigationBar.addSubview(topUserImageView)
+        }
+        else {
+            topBackView = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 40))
+            topBackView.backgroundColor = UIColor(patternImage: UIImage(named: "topBackBtn")!)
+            
+            
+            
+            topUserImageView =  UIView(frame: CGRect(x: 50 , y: 0, width: 35, height: 35))
+            let userImgView: UIImageView = UIImageView(frame: CGRect(x: 0, y: 3, width: 34, height: 34))
+            userImgView.image = UIImage(named: "user.png")
+            
+            topUserImageView.addSubview(userImgView)
+            
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(BackBtn_Click))
+            topBackView.addGestureRecognizer(tapGesture)
+            topBackView.isUserInteractionEnabled = true
+            
+            let tapGestureImage = UITapGestureRecognizer(target: self, action: #selector(UserImageClick))
+            topUserImageView.addGestureRecognizer(tapGestureImage)
+            topUserImageView.isUserInteractionEnabled = true
+            
+            
+            
+            self.navigationController?.navigationBar.addSubview(topBackView)
+            self.tabBarController?.navigationController?.navigationBar.addSubview(topBackView)
+            
+            self.navigationController?.navigationBar.addSubview(topUserImageView)
+            self.tabBarController?.navigationController?.navigationBar.addSubview(topUserImageView)
+           
+            }
 
-         topUserImageView.addSubview(userImgView)
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(BackBtn_Click))
-        topBackView.addGestureRecognizer(tapGesture)
-        topBackView.isUserInteractionEnabled = true
-        
-        let tapGestureImage = UITapGestureRecognizer(target: self, action: #selector(UserImageClick))
-        topUserImageView.addGestureRecognizer(tapGestureImage)
-        topUserImageView.isUserInteractionEnabled = true
-        
-        
-        
-        self.navigationController?.navigationBar.addSubview(topBackView)
-        self.tabBarController?.navigationController?.navigationBar.addSubview(topBackView)
-        
-        self.navigationController?.navigationBar.addSubview(topUserImageView)
-        self.tabBarController?.navigationController?.navigationBar.addSubview(topUserImageView)
+
     }
     
     func BackBtn_Click(){
@@ -441,6 +479,7 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         })
         
         let readingHistoryBtn: UIAlertAction = UIAlertAction(title: ChatInfo.readingHistory, style: .default, handler: { (UIAlertAction)in
+            
             
             let historyViewController: HistoryMainViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.historyMainViewController) as! HistoryMainViewController
             self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)

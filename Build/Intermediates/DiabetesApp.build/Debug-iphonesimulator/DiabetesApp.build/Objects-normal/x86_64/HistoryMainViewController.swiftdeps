@@ -6,52 +6,56 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp25HistoryMainViewController", ""]
 provides-dynamic-lookup:
-- "createCustomTopView"
-- "chartBtn"
-- "SegmentControl_ValueChange"
-- "viewDidLoad"
-- "setNavBarUI"
-- "getSelectedNoOfDays"
-- "ViewModeButtons_Click"
-- "segmentControl"
-- "awakeFromNib"
-- "didReceiveMemoryWarning"
-- "viewWillDisappear"
-- "listViewContainer"
 - "viewWillAppear"
+- "ViewModeButtons_Click"
 - "chartViewContainer"
-- "BackBtn_Click"
-- "listBtn"
 - "topBackView"
+- "chartBtn"
+- "getSelectedNoOfDays"
+- "listBtn"
+- "BackBtn_Click"
+- "viewWillDisappear"
+- "SegmentControl_ValueChange"
+- "listViewContainer"
+- "viewDidLoad"
+- "awakeFromNib"
+- "segmentControl"
+- "didReceiveMemoryWarning"
+- "setNavBarUI"
+- "createCustomTopView"
 depends-top-level:
-- "UIViewController"
+- !private "UIImage"
+- "UISegmentedControl"
+- !private "NSForegroundColorAttributeName"
+- !private "-"
+- !private "UIColor"
+- "UIButton"
 - !private "NotificationCenter"
+- !private "~="
+- !private "=="
+- "AssignmentPrecedence"
+- !private "UIApplication"
+- "Bool"
+- "UIView"
+- !private "NSNotification"
+- !private "UIImageView"
+- "UIViewController"
+- !private "Dictionary"
+- "NSString"
+- !private "Fonts"
+- "HistoryMainViewController"
+- !private "StringLiteralType"
 - !private "CGRect"
 - !private "UITapGestureRecognizer"
-- !private "~="
-- "AssignmentPrecedence"
-- !private "NSFontAttributeName"
-- !private "=="
-- !private "Colors"
-- !private "Fonts"
-- "UISegmentedControl"
-- !private "UIImage"
-- !private "NSNotification"
-- !private "StringLiteralType"
-- !private "UnicodeScalarType"
-- !private "HistoryDays"
-- "Bool"
-- "UIButton"
-- !private "UIColor"
-- "NSString"
-- !private "UIImageView"
-- "HistoryMainViewController"
-- !private "Dictionary"
-- "UIView"
+- !private "UIUserInterfaceLayoutDirection"
 - !private "Notifications"
-- !private "NSForegroundColorAttributeName"
+- !private "NSFontAttributeName"
+- !private "Colors"
+- !private "HistoryDays"
+- !private "UnicodeScalarType"
 - !private "BooleanLiteralType"
 depends-member:
+- !private ["Ps16AbsoluteValuable", "Stride"]
 - ["Ps9AnyObject", "BackBtn_Click"]
 - !private ["Ps9AnyObject", "CGRect"]
 - !private ["Ps9AnyObject", "Colors"]
@@ -65,10 +69,12 @@ depends-member:
 - !private ["Ps9AnyObject", "Notifications"]
 - !private ["Ps9AnyObject", "RawValue"]
 - ["Ps9AnyObject", "SegmentControl_ValueChange"]
+- !private ["Ps9AnyObject", "UIApplication"]
 - !private ["Ps9AnyObject", "UIColor"]
 - !private ["Ps9AnyObject", "UIImage"]
 - !private ["Ps9AnyObject", "UIImageView"]
 - !private ["Ps9AnyObject", "UITapGestureRecognizer"]
+- !private ["Ps9AnyObject", "UIUserInterfaceLayoutDirection"]
 - ["Ps9AnyObject", "UIView"]
 - ["Ps9AnyObject", "ViewModeButtons_Click"]
 - !private ["Ps9AnyObject", "addGestureRecognizer"]
@@ -80,6 +86,7 @@ depends-member:
 - ["Ps9AnyObject", "createCustomTopView"]
 - !private ["Ps9AnyObject", "default"]
 - ["Ps9AnyObject", "didReceiveMemoryWarning"]
+- !private ["Ps9AnyObject", "frame"]
 - ["Ps9AnyObject", "getSelectedNoOfDays"]
 - !private ["Ps9AnyObject", "gray"]
 - !private ["Ps9AnyObject", "hidesBackButton"]
@@ -104,19 +111,25 @@ depends-member:
 - ["Ps9AnyObject", "setNavBarUI"]
 - !private ["Ps9AnyObject", "setTitleColor"]
 - !private ["Ps9AnyObject", "setTitleTextAttributes"]
+- !private ["Ps9AnyObject", "shared"]
 - !private ["Ps9AnyObject", "tabBarController"]
 - !private ["Ps9AnyObject", "title"]
 - ["Ps9AnyObject", "topBackView"]
+- !private ["Ps9AnyObject", "userInterfaceLayoutDirection"]
+- !private ["Ps9AnyObject", "view"]
 - ["Ps9AnyObject", "viewDidLoad"]
 - ["Ps9AnyObject", "viewWillAppear"]
 - ["Ps9AnyObject", "viewWillDisappear"]
 - !private ["Ps9AnyObject", "white"]
 - ["Ps9AnyObject", ""]
+- !private ["Ps19BinaryFloatingPoint", "Stride"]
+- !private ["Ps17BitwiseOperations", "Stride"]
 - !private ["Sb", "_getBuiltinLogicValue"]
 - ["Sb", "deinit"]
 - !private ["PSo15CALayerDelegate", "addGestureRecognizer"]
 - !private ["PSo15CALayerDelegate", "addSubview"]
 - !private ["PSo15CALayerDelegate", "backgroundColor"]
+- !private ["PSo15CALayerDelegate", "frame"]
 - !private ["PSo15CALayerDelegate", "image"]
 - ["PSo15CALayerDelegate", "init"]
 - !private ["PSo15CALayerDelegate", "isHidden"]
@@ -125,8 +138,12 @@ depends-member:
 - !private ["PSo15CALayerDelegate", "selectedSegmentIndex"]
 - !private ["PSo15CALayerDelegate", "setTitleColor"]
 - !private ["PSo15CALayerDelegate", "setTitleTextAttributes"]
+- !private ["V12CoreGraphics7CGFloat", "Stride"]
+- ["V12CoreGraphics7CGFloat", "deinit"]
 - ["VSC6CGRect", "deinit"]
 - !private ["VSC6CGRect", "init"]
+- !private ["VSC6CGRect", "size"]
+- !private ["VSC6CGSize", "width"]
 - ["Ps7CVarArg", "BackBtn_Click"]
 - !private ["Ps7CVarArg", "CGRect"]
 - !private ["Ps7CVarArg", "Colors"]
@@ -141,10 +158,13 @@ depends-member:
 - !private ["Ps7CVarArg", "Notifications"]
 - !private ["Ps7CVarArg", "RawValue"]
 - ["Ps7CVarArg", "SegmentControl_ValueChange"]
+- !private ["Ps7CVarArg", "Stride"]
+- !private ["Ps7CVarArg", "UIApplication"]
 - !private ["Ps7CVarArg", "UIColor"]
 - !private ["Ps7CVarArg", "UIImage"]
 - !private ["Ps7CVarArg", "UIImageView"]
 - !private ["Ps7CVarArg", "UITapGestureRecognizer"]
+- !private ["Ps7CVarArg", "UIUserInterfaceLayoutDirection"]
 - ["Ps7CVarArg", "UIView"]
 - !private ["Ps7CVarArg", "Value"]
 - ["Ps7CVarArg", "ViewModeButtons_Click"]
@@ -157,6 +177,7 @@ depends-member:
 - ["Ps7CVarArg", "createCustomTopView"]
 - !private ["Ps7CVarArg", "default"]
 - ["Ps7CVarArg", "didReceiveMemoryWarning"]
+- !private ["Ps7CVarArg", "frame"]
 - ["Ps7CVarArg", "getSelectedNoOfDays"]
 - !private ["Ps7CVarArg", "gray"]
 - !private ["Ps7CVarArg", "hidesBackButton"]
@@ -181,9 +202,12 @@ depends-member:
 - ["Ps7CVarArg", "setNavBarUI"]
 - !private ["Ps7CVarArg", "setTitleColor"]
 - !private ["Ps7CVarArg", "setTitleTextAttributes"]
+- !private ["Ps7CVarArg", "shared"]
 - !private ["Ps7CVarArg", "tabBarController"]
 - !private ["Ps7CVarArg", "title"]
 - ["Ps7CVarArg", "topBackView"]
+- !private ["Ps7CVarArg", "userInterfaceLayoutDirection"]
+- !private ["Ps7CVarArg", "view"]
 - ["Ps7CVarArg", "viewDidLoad"]
 - ["Ps7CVarArg", "viewWillAppear"]
 - ["Ps7CVarArg", "viewWillDisappear"]
@@ -194,6 +218,7 @@ depends-member:
 - !private ["Ps10Collection", "Value"]
 - !private ["V11DiabetesApp6Colors", "historyHeaderColor"]
 - !private ["V11DiabetesApp6Colors", "outgoingMsgColor"]
+- !private ["Ps10Comparable", "Stride"]
 - !private ["Ps10Comparable", "init"]
 - !private ["Ps10Comparable", "localized"]
 - ["Ps28CustomDebugStringConvertible", "BackBtn_Click"]
@@ -210,10 +235,13 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "Notifications"]
 - !private ["Ps28CustomDebugStringConvertible", "RawValue"]
 - ["Ps28CustomDebugStringConvertible", "SegmentControl_ValueChange"]
+- !private ["Ps28CustomDebugStringConvertible", "Stride"]
+- !private ["Ps28CustomDebugStringConvertible", "UIApplication"]
 - !private ["Ps28CustomDebugStringConvertible", "UIColor"]
 - !private ["Ps28CustomDebugStringConvertible", "UIImage"]
 - !private ["Ps28CustomDebugStringConvertible", "UIImageView"]
 - !private ["Ps28CustomDebugStringConvertible", "UITapGestureRecognizer"]
+- !private ["Ps28CustomDebugStringConvertible", "UIUserInterfaceLayoutDirection"]
 - ["Ps28CustomDebugStringConvertible", "UIView"]
 - !private ["Ps28CustomDebugStringConvertible", "Value"]
 - ["Ps28CustomDebugStringConvertible", "ViewModeButtons_Click"]
@@ -226,6 +254,7 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "createCustomTopView"]
 - !private ["Ps28CustomDebugStringConvertible", "default"]
 - ["Ps28CustomDebugStringConvertible", "didReceiveMemoryWarning"]
+- !private ["Ps28CustomDebugStringConvertible", "frame"]
 - ["Ps28CustomDebugStringConvertible", "getSelectedNoOfDays"]
 - !private ["Ps28CustomDebugStringConvertible", "gray"]
 - !private ["Ps28CustomDebugStringConvertible", "hidesBackButton"]
@@ -250,22 +279,33 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "setNavBarUI"]
 - !private ["Ps28CustomDebugStringConvertible", "setTitleColor"]
 - !private ["Ps28CustomDebugStringConvertible", "setTitleTextAttributes"]
+- !private ["Ps28CustomDebugStringConvertible", "shared"]
+- !private ["Ps28CustomDebugStringConvertible", "size"]
 - !private ["Ps28CustomDebugStringConvertible", "tabBarController"]
 - !private ["Ps28CustomDebugStringConvertible", "title"]
 - ["Ps28CustomDebugStringConvertible", "topBackView"]
+- !private ["Ps28CustomDebugStringConvertible", "userInterfaceLayoutDirection"]
+- !private ["Ps28CustomDebugStringConvertible", "view"]
 - ["Ps28CustomDebugStringConvertible", "viewDidLoad"]
 - ["Ps28CustomDebugStringConvertible", "viewWillAppear"]
 - ["Ps28CustomDebugStringConvertible", "viewWillDisappear"]
 - !private ["Ps28CustomDebugStringConvertible", "white"]
+- !private ["Ps28CustomDebugStringConvertible", "width"]
 - ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps29CustomPlaygroundQuickLookable", "Stride"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "init"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "localized"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "size"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "width"]
 - !private ["Ps17CustomReflectable", "Key"]
+- !private ["Ps17CustomReflectable", "Stride"]
 - !private ["Ps17CustomReflectable", "Value"]
 - !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
 - !private ["Ps17CustomReflectable", "init"]
 - !private ["Ps17CustomReflectable", "localized"]
+- !private ["Ps17CustomReflectable", "size"]
+- !private ["Ps17CustomReflectable", "width"]
 - ["Ps23CustomStringConvertible", "BackBtn_Click"]
 - !private ["Ps23CustomStringConvertible", "CGRect"]
 - !private ["Ps23CustomStringConvertible", "Colors"]
@@ -280,10 +320,13 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "Notifications"]
 - !private ["Ps23CustomStringConvertible", "RawValue"]
 - ["Ps23CustomStringConvertible", "SegmentControl_ValueChange"]
+- !private ["Ps23CustomStringConvertible", "Stride"]
+- !private ["Ps23CustomStringConvertible", "UIApplication"]
 - !private ["Ps23CustomStringConvertible", "UIColor"]
 - !private ["Ps23CustomStringConvertible", "UIImage"]
 - !private ["Ps23CustomStringConvertible", "UIImageView"]
 - !private ["Ps23CustomStringConvertible", "UITapGestureRecognizer"]
+- !private ["Ps23CustomStringConvertible", "UIUserInterfaceLayoutDirection"]
 - ["Ps23CustomStringConvertible", "UIView"]
 - !private ["Ps23CustomStringConvertible", "Value"]
 - ["Ps23CustomStringConvertible", "ViewModeButtons_Click"]
@@ -297,6 +340,7 @@ depends-member:
 - ["Ps23CustomStringConvertible", "createCustomTopView"]
 - !private ["Ps23CustomStringConvertible", "default"]
 - ["Ps23CustomStringConvertible", "didReceiveMemoryWarning"]
+- !private ["Ps23CustomStringConvertible", "frame"]
 - ["Ps23CustomStringConvertible", "getSelectedNoOfDays"]
 - !private ["Ps23CustomStringConvertible", "gray"]
 - !private ["Ps23CustomStringConvertible", "hidesBackButton"]
@@ -321,9 +365,12 @@ depends-member:
 - ["Ps23CustomStringConvertible", "setNavBarUI"]
 - !private ["Ps23CustomStringConvertible", "setTitleColor"]
 - !private ["Ps23CustomStringConvertible", "setTitleTextAttributes"]
+- !private ["Ps23CustomStringConvertible", "shared"]
 - !private ["Ps23CustomStringConvertible", "tabBarController"]
 - !private ["Ps23CustomStringConvertible", "title"]
 - ["Ps23CustomStringConvertible", "topBackView"]
+- !private ["Ps23CustomStringConvertible", "userInterfaceLayoutDirection"]
+- !private ["Ps23CustomStringConvertible", "view"]
 - ["Ps23CustomStringConvertible", "viewDidLoad"]
 - ["Ps23CustomStringConvertible", "viewWillAppear"]
 - ["Ps23CustomStringConvertible", "viewWillDisappear"]
@@ -332,6 +379,7 @@ depends-member:
 - !private ["Vs10Dictionary", "Key"]
 - !private ["Vs10Dictionary", "Value"]
 - ["Vs10Dictionary", "deinit"]
+- !private ["Sd", "Stride"]
 - !private ["Sd", "deinit"]
 - ["Ps9Equatable", "BackBtn_Click"]
 - !private ["Ps9Equatable", "CGRect"]
@@ -346,10 +394,13 @@ depends-member:
 - !private ["Ps9Equatable", "Notifications"]
 - !private ["Ps9Equatable", "RawValue"]
 - ["Ps9Equatable", "SegmentControl_ValueChange"]
+- !private ["Ps9Equatable", "Stride"]
+- !private ["Ps9Equatable", "UIApplication"]
 - !private ["Ps9Equatable", "UIColor"]
 - !private ["Ps9Equatable", "UIImage"]
 - !private ["Ps9Equatable", "UIImageView"]
 - !private ["Ps9Equatable", "UITapGestureRecognizer"]
+- !private ["Ps9Equatable", "UIUserInterfaceLayoutDirection"]
 - ["Ps9Equatable", "UIView"]
 - ["Ps9Equatable", "ViewModeButtons_Click"]
 - !private ["Ps9Equatable", "_getBuiltinLogicValue"]
@@ -362,6 +413,7 @@ depends-member:
 - ["Ps9Equatable", "createCustomTopView"]
 - !private ["Ps9Equatable", "default"]
 - ["Ps9Equatable", "didReceiveMemoryWarning"]
+- !private ["Ps9Equatable", "frame"]
 - ["Ps9Equatable", "getSelectedNoOfDays"]
 - !private ["Ps9Equatable", "gray"]
 - !private ["Ps9Equatable", "hidesBackButton"]
@@ -382,19 +434,25 @@ depends-member:
 - !private ["Ps9Equatable", "removeFromSuperview"]
 - !private ["Ps9Equatable", "rightBarButtonItem"]
 - !private ["Ps9Equatable", "rightBarButtonItems"]
+- !private ["Ps9Equatable", "rightToLeft"]
 - ["Ps9Equatable", "segmentControl"]
 - !private ["Ps9Equatable", "selected"]
 - !private ["Ps9Equatable", "selectedSegmentIndex"]
 - ["Ps9Equatable", "setNavBarUI"]
 - !private ["Ps9Equatable", "setTitleColor"]
 - !private ["Ps9Equatable", "setTitleTextAttributes"]
+- !private ["Ps9Equatable", "shared"]
+- !private ["Ps9Equatable", "size"]
 - !private ["Ps9Equatable", "tabBarController"]
 - !private ["Ps9Equatable", "title"]
 - ["Ps9Equatable", "topBackView"]
+- !private ["Ps9Equatable", "userInterfaceLayoutDirection"]
+- !private ["Ps9Equatable", "view"]
 - ["Ps9Equatable", "viewDidLoad"]
 - ["Ps9Equatable", "viewWillAppear"]
 - ["Ps9Equatable", "viewWillDisappear"]
 - !private ["Ps9Equatable", "white"]
+- !private ["Ps9Equatable", "width"]
 - ["Ps9Equatable", ""]
 - !private ["Ps25ExpressibleByArrayLiteral", "normal"]
 - !private ["Ps25ExpressibleByArrayLiteral", "selected"]
@@ -403,6 +461,8 @@ depends-member:
 - !private ["Ps30ExpressibleByDictionaryLiteral", "Value"]
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "localized"]
+- !private ["Ps25ExpressibleByFloatLiteral", "Stride"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "Stride"]
 - !private ["Ps32ExpressibleByStringInterpolation", "init"]
 - !private ["Ps32ExpressibleByStringInterpolation", "localized"]
 - !private ["Ps26ExpressibleByStringLiteral", "init"]
@@ -410,6 +470,7 @@ depends-member:
 - !private ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
 - !private ["Ps33ExpressibleByUnicodeScalarLiteral", "localized"]
 - !private ["Sf", "deinit"]
+- !private ["Ps13FloatingPoint", "Stride"]
 - !private ["V11DiabetesApp5Fonts", "noOfDaysFont"]
 - ["Ps8Hashable", "BackBtn_Click"]
 - !private ["Ps8Hashable", "CGRect"]
@@ -424,10 +485,13 @@ depends-member:
 - !private ["Ps8Hashable", "Notifications"]
 - !private ["Ps8Hashable", "RawValue"]
 - ["Ps8Hashable", "SegmentControl_ValueChange"]
+- !private ["Ps8Hashable", "Stride"]
+- !private ["Ps8Hashable", "UIApplication"]
 - !private ["Ps8Hashable", "UIColor"]
 - !private ["Ps8Hashable", "UIImage"]
 - !private ["Ps8Hashable", "UIImageView"]
 - !private ["Ps8Hashable", "UITapGestureRecognizer"]
+- !private ["Ps8Hashable", "UIUserInterfaceLayoutDirection"]
 - ["Ps8Hashable", "UIView"]
 - ["Ps8Hashable", "ViewModeButtons_Click"]
 - !private ["Ps8Hashable", "_getBuiltinLogicValue"]
@@ -440,6 +504,7 @@ depends-member:
 - ["Ps8Hashable", "createCustomTopView"]
 - !private ["Ps8Hashable", "default"]
 - ["Ps8Hashable", "didReceiveMemoryWarning"]
+- !private ["Ps8Hashable", "frame"]
 - ["Ps8Hashable", "getSelectedNoOfDays"]
 - !private ["Ps8Hashable", "gray"]
 - !private ["Ps8Hashable", "hidesBackButton"]
@@ -459,14 +524,18 @@ depends-member:
 - !private ["Ps8Hashable", "removeFromSuperview"]
 - !private ["Ps8Hashable", "rightBarButtonItem"]
 - !private ["Ps8Hashable", "rightBarButtonItems"]
+- !private ["Ps8Hashable", "rightToLeft"]
 - ["Ps8Hashable", "segmentControl"]
 - !private ["Ps8Hashable", "selectedSegmentIndex"]
 - ["Ps8Hashable", "setNavBarUI"]
 - !private ["Ps8Hashable", "setTitleColor"]
 - !private ["Ps8Hashable", "setTitleTextAttributes"]
+- !private ["Ps8Hashable", "shared"]
 - !private ["Ps8Hashable", "tabBarController"]
 - !private ["Ps8Hashable", "title"]
 - ["Ps8Hashable", "topBackView"]
+- !private ["Ps8Hashable", "userInterfaceLayoutDirection"]
+- !private ["Ps8Hashable", "view"]
 - ["Ps8Hashable", "viewDidLoad"]
 - ["Ps8Hashable", "viewWillAppear"]
 - ["Ps8Hashable", "viewWillDisappear"]
@@ -489,12 +558,14 @@ depends-member:
 - !private ["C11DiabetesApp25HistoryMainViewController", "NotificationCenter"]
 - !private ["C11DiabetesApp25HistoryMainViewController", "Notifications"]
 - ["C11DiabetesApp25HistoryMainViewController", "SegmentControl_ValueChange"]
+- !private ["C11DiabetesApp25HistoryMainViewController", "UIApplication"]
 - ["C11DiabetesApp25HistoryMainViewController", "UIButton"]
 - !private ["C11DiabetesApp25HistoryMainViewController", "UIColor"]
 - !private ["C11DiabetesApp25HistoryMainViewController", "UIImage"]
 - !private ["C11DiabetesApp25HistoryMainViewController", "UIImageView"]
 - ["C11DiabetesApp25HistoryMainViewController", "UISegmentedControl"]
 - !private ["C11DiabetesApp25HistoryMainViewController", "UITapGestureRecognizer"]
+- !private ["C11DiabetesApp25HistoryMainViewController", "UIUserInterfaceLayoutDirection"]
 - ["C11DiabetesApp25HistoryMainViewController", "UIView"]
 - ["C11DiabetesApp25HistoryMainViewController", "ViewModeButtons_Click"]
 - ["C11DiabetesApp25HistoryMainViewController", "awakeFromNib"]
@@ -514,6 +585,7 @@ depends-member:
 - !private ["C11DiabetesApp25HistoryMainViewController", "tabBarController"]
 - !private ["C11DiabetesApp25HistoryMainViewController", "title"]
 - ["C11DiabetesApp25HistoryMainViewController", "topBackView"]
+- !private ["C11DiabetesApp25HistoryMainViewController", "view"]
 - ["C11DiabetesApp25HistoryMainViewController", "viewDidLoad"]
 - ["C11DiabetesApp25HistoryMainViewController", "viewWillAppear"]
 - ["C11DiabetesApp25HistoryMainViewController", "viewWillDisappear"]
@@ -522,14 +594,19 @@ depends-member:
 - !private ["Ps9Indexable", "Value"]
 - !private ["Ps13IndexableBase", "Key"]
 - !private ["Ps13IndexableBase", "Value"]
+- !private ["Si", "Stride"]
 - ["Si", "deinit"]
 - !private ["Vs5Int16", "deinit"]
 - !private ["Vs5Int32", "deinit"]
 - !private ["Vs5Int64", "deinit"]
 - !private ["Vs4Int8", "deinit"]
+- !private ["Ps7Integer", "Stride"]
+- !private ["Ps17IntegerArithmetic", "Stride"]
+- !private ["Ps25LosslessStringConvertible", "Stride"]
 - !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
 - !private ["Ps25LosslessStringConvertible", "init"]
 - !private ["Ps25LosslessStringConvertible", "localized"]
+- !private ["Ps10MirrorPath", "Stride"]
 - !private ["Ps10MirrorPath", "init"]
 - !private ["Ps10MirrorPath", "localized"]
 - ["CSo7NSCoder", "deinit"]
@@ -546,10 +623,12 @@ depends-member:
 - !private ["PSo8NSCoding", "Notifications"]
 - !private ["PSo8NSCoding", "RawValue"]
 - ["PSo8NSCoding", "SegmentControl_ValueChange"]
+- !private ["PSo8NSCoding", "UIApplication"]
 - !private ["PSo8NSCoding", "UIColor"]
 - !private ["PSo8NSCoding", "UIImage"]
 - !private ["PSo8NSCoding", "UIImageView"]
 - !private ["PSo8NSCoding", "UITapGestureRecognizer"]
+- !private ["PSo8NSCoding", "UIUserInterfaceLayoutDirection"]
 - ["PSo8NSCoding", "UIView"]
 - ["PSo8NSCoding", "ViewModeButtons_Click"]
 - !private ["PSo8NSCoding", "addGestureRecognizer"]
@@ -560,6 +639,7 @@ depends-member:
 - ["PSo8NSCoding", "chartViewContainer"]
 - ["PSo8NSCoding", "createCustomTopView"]
 - ["PSo8NSCoding", "didReceiveMemoryWarning"]
+- !private ["PSo8NSCoding", "frame"]
 - ["PSo8NSCoding", "getSelectedNoOfDays"]
 - !private ["PSo8NSCoding", "gray"]
 - !private ["PSo8NSCoding", "hidesBackButton"]
@@ -586,6 +666,7 @@ depends-member:
 - !private ["PSo8NSCoding", "tabBarController"]
 - !private ["PSo8NSCoding", "title"]
 - ["PSo8NSCoding", "topBackView"]
+- !private ["PSo8NSCoding", "view"]
 - ["PSo8NSCoding", "viewDidLoad"]
 - ["PSo8NSCoding", "viewWillAppear"]
 - ["PSo8NSCoding", "viewWillDisappear"]
@@ -608,10 +689,12 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "NotificationCenter"]
 - !private ["PSo26NSExtensionRequestHandling", "Notifications"]
 - ["PSo26NSExtensionRequestHandling", "SegmentControl_ValueChange"]
+- !private ["PSo26NSExtensionRequestHandling", "UIApplication"]
 - !private ["PSo26NSExtensionRequestHandling", "UIColor"]
 - !private ["PSo26NSExtensionRequestHandling", "UIImage"]
 - !private ["PSo26NSExtensionRequestHandling", "UIImageView"]
 - !private ["PSo26NSExtensionRequestHandling", "UITapGestureRecognizer"]
+- !private ["PSo26NSExtensionRequestHandling", "UIUserInterfaceLayoutDirection"]
 - ["PSo26NSExtensionRequestHandling", "UIView"]
 - ["PSo26NSExtensionRequestHandling", "ViewModeButtons_Click"]
 - ["PSo26NSExtensionRequestHandling", "awakeFromNib"]
@@ -632,6 +715,7 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "tabBarController"]
 - !private ["PSo26NSExtensionRequestHandling", "title"]
 - ["PSo26NSExtensionRequestHandling", "topBackView"]
+- !private ["PSo26NSExtensionRequestHandling", "view"]
 - ["PSo26NSExtensionRequestHandling", "viewDidLoad"]
 - ["PSo26NSExtensionRequestHandling", "viewWillAppear"]
 - ["PSo26NSExtensionRequestHandling", "viewWillDisappear"]
@@ -654,12 +738,14 @@ depends-member:
 - !private ["CSo8NSObject", "Notifications"]
 - !private ["CSo8NSObject", "RawValue"]
 - ["CSo8NSObject", "SegmentControl_ValueChange"]
+- !private ["CSo8NSObject", "UIApplication"]
 - ["CSo8NSObject", "UIButton"]
 - !private ["CSo8NSObject", "UIColor"]
 - !private ["CSo8NSObject", "UIImage"]
 - !private ["CSo8NSObject", "UIImageView"]
 - ["CSo8NSObject", "UISegmentedControl"]
 - !private ["CSo8NSObject", "UITapGestureRecognizer"]
+- !private ["CSo8NSObject", "UIUserInterfaceLayoutDirection"]
 - ["CSo8NSObject", "UIView"]
 - ["CSo8NSObject", "ViewModeButtons_Click"]
 - !private ["CSo8NSObject", "addGestureRecognizer"]
@@ -672,6 +758,7 @@ depends-member:
 - !private ["CSo8NSObject", "default"]
 - !private ["CSo8NSObject", "deinit"]
 - ["CSo8NSObject", "didReceiveMemoryWarning"]
+- !private ["CSo8NSObject", "frame"]
 - ["CSo8NSObject", "getSelectedNoOfDays"]
 - !private ["CSo8NSObject", "gray"]
 - !private ["CSo8NSObject", "hidesBackButton"]
@@ -696,9 +783,12 @@ depends-member:
 - ["CSo8NSObject", "setNavBarUI"]
 - !private ["CSo8NSObject", "setTitleColor"]
 - !private ["CSo8NSObject", "setTitleTextAttributes"]
+- !private ["CSo8NSObject", "shared"]
 - !private ["CSo8NSObject", "tabBarController"]
 - !private ["CSo8NSObject", "title"]
 - ["CSo8NSObject", "topBackView"]
+- !private ["CSo8NSObject", "userInterfaceLayoutDirection"]
+- !private ["CSo8NSObject", "view"]
 - ["CSo8NSObject", "viewDidLoad"]
 - ["CSo8NSObject", "viewWillAppear"]
 - ["CSo8NSObject", "viewWillDisappear"]
@@ -716,10 +806,12 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "Notifications"]
 - !private ["PSo16NSObjectProtocol", "RawValue"]
 - ["PSo16NSObjectProtocol", "SegmentControl_ValueChange"]
+- !private ["PSo16NSObjectProtocol", "UIApplication"]
 - !private ["PSo16NSObjectProtocol", "UIColor"]
 - !private ["PSo16NSObjectProtocol", "UIImage"]
 - !private ["PSo16NSObjectProtocol", "UIImageView"]
 - !private ["PSo16NSObjectProtocol", "UITapGestureRecognizer"]
+- !private ["PSo16NSObjectProtocol", "UIUserInterfaceLayoutDirection"]
 - ["PSo16NSObjectProtocol", "UIView"]
 - ["PSo16NSObjectProtocol", "ViewModeButtons_Click"]
 - !private ["PSo16NSObjectProtocol", "addGestureRecognizer"]
@@ -731,6 +823,7 @@ depends-member:
 - ["PSo16NSObjectProtocol", "createCustomTopView"]
 - !private ["PSo16NSObjectProtocol", "default"]
 - ["PSo16NSObjectProtocol", "didReceiveMemoryWarning"]
+- !private ["PSo16NSObjectProtocol", "frame"]
 - ["PSo16NSObjectProtocol", "getSelectedNoOfDays"]
 - !private ["PSo16NSObjectProtocol", "gray"]
 - !private ["PSo16NSObjectProtocol", "hidesBackButton"]
@@ -755,9 +848,12 @@ depends-member:
 - ["PSo16NSObjectProtocol", "setNavBarUI"]
 - !private ["PSo16NSObjectProtocol", "setTitleColor"]
 - !private ["PSo16NSObjectProtocol", "setTitleTextAttributes"]
+- !private ["PSo16NSObjectProtocol", "shared"]
 - !private ["PSo16NSObjectProtocol", "tabBarController"]
 - !private ["PSo16NSObjectProtocol", "title"]
 - ["PSo16NSObjectProtocol", "topBackView"]
+- !private ["PSo16NSObjectProtocol", "userInterfaceLayoutDirection"]
+- !private ["PSo16NSObjectProtocol", "view"]
 - ["PSo16NSObjectProtocol", "viewDidLoad"]
 - ["PSo16NSObjectProtocol", "viewWillAppear"]
 - ["PSo16NSObjectProtocol", "viewWillDisappear"]
@@ -782,15 +878,20 @@ depends-member:
 - !private ["Ps9OptionSet", "normal"]
 - !private ["Ps9OptionSet", "selected"]
 - ["Sq", "deinit"]
+- !private ["Ps16RawRepresentable", "RawValue"]
 - !private ["Ps16RawRepresentable", "init"]
 - !private ["Ps16RawRepresentable", "normal"]
+- !private ["Ps16RawRepresentable", "rightToLeft"]
 - !private ["Ps16RawRepresentable", "selected"]
 - ["V10ObjectiveC8Selector", "deinit"]
 - !private ["Ps8Sequence", "Key"]
 - !private ["Ps8Sequence", "Value"]
 - !private ["Ps10SetAlgebra", "normal"]
 - !private ["Ps10SetAlgebra", "selected"]
+- !private ["Ps13SignedInteger", "Stride"]
+- !private ["Ps12SignedNumber", "Stride"]
 - !private ["Vs12StaticString", "init"]
+- !private ["Ps10Strideable", "Stride"]
 - ["SS", "deinit"]
 - !private ["SS", "init"]
 - !private ["SS", "localized"]
@@ -801,6 +902,7 @@ depends-member:
 - !private ["PSo29UIAccessibilityIdentification", "addGestureRecognizer"]
 - !private ["PSo29UIAccessibilityIdentification", "addSubview"]
 - !private ["PSo29UIAccessibilityIdentification", "backgroundColor"]
+- !private ["PSo29UIAccessibilityIdentification", "frame"]
 - !private ["PSo29UIAccessibilityIdentification", "image"]
 - ["PSo29UIAccessibilityIdentification", "init"]
 - !private ["PSo29UIAccessibilityIdentification", "isHidden"]
@@ -812,6 +914,7 @@ depends-member:
 - !private ["PSo12UIAppearance", "addGestureRecognizer"]
 - !private ["PSo12UIAppearance", "addSubview"]
 - !private ["PSo12UIAppearance", "backgroundColor"]
+- !private ["PSo12UIAppearance", "frame"]
 - !private ["PSo12UIAppearance", "image"]
 - ["PSo12UIAppearance", "init"]
 - !private ["PSo12UIAppearance", "isHidden"]
@@ -831,10 +934,12 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "NotificationCenter"]
 - !private ["PSo21UIAppearanceContainer", "Notifications"]
 - ["PSo21UIAppearanceContainer", "SegmentControl_ValueChange"]
+- !private ["PSo21UIAppearanceContainer", "UIApplication"]
 - !private ["PSo21UIAppearanceContainer", "UIColor"]
 - !private ["PSo21UIAppearanceContainer", "UIImage"]
 - !private ["PSo21UIAppearanceContainer", "UIImageView"]
 - !private ["PSo21UIAppearanceContainer", "UITapGestureRecognizer"]
+- !private ["PSo21UIAppearanceContainer", "UIUserInterfaceLayoutDirection"]
 - ["PSo21UIAppearanceContainer", "UIView"]
 - ["PSo21UIAppearanceContainer", "ViewModeButtons_Click"]
 - !private ["PSo21UIAppearanceContainer", "addGestureRecognizer"]
@@ -845,6 +950,7 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "chartViewContainer"]
 - ["PSo21UIAppearanceContainer", "createCustomTopView"]
 - ["PSo21UIAppearanceContainer", "didReceiveMemoryWarning"]
+- !private ["PSo21UIAppearanceContainer", "frame"]
 - ["PSo21UIAppearanceContainer", "getSelectedNoOfDays"]
 - !private ["PSo21UIAppearanceContainer", "image"]
 - ["PSo21UIAppearanceContainer", "init"]
@@ -865,10 +971,14 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "tabBarController"]
 - !private ["PSo21UIAppearanceContainer", "title"]
 - ["PSo21UIAppearanceContainer", "topBackView"]
+- !private ["PSo21UIAppearanceContainer", "view"]
 - ["PSo21UIAppearanceContainer", "viewDidLoad"]
 - ["PSo21UIAppearanceContainer", "viewWillAppear"]
 - ["PSo21UIAppearanceContainer", "viewWillDisappear"]
 - ["PSo21UIAppearanceContainer", ""]
+- ["CSo13UIApplication", "deinit"]
+- !private ["CSo13UIApplication", "shared"]
+- !private ["CSo13UIApplication", "userInterfaceLayoutDirection"]
 - !private ["PSo16UIBarPositioning", "addSubview"]
 - !private ["CSo8UIButton", "backgroundColor"]
 - ["CSo8UIButton", "deinit"]
@@ -889,10 +999,12 @@ depends-member:
 - !private ["PSo18UIContentContainer", "NotificationCenter"]
 - !private ["PSo18UIContentContainer", "Notifications"]
 - ["PSo18UIContentContainer", "SegmentControl_ValueChange"]
+- !private ["PSo18UIContentContainer", "UIApplication"]
 - !private ["PSo18UIContentContainer", "UIColor"]
 - !private ["PSo18UIContentContainer", "UIImage"]
 - !private ["PSo18UIContentContainer", "UIImageView"]
 - !private ["PSo18UIContentContainer", "UITapGestureRecognizer"]
+- !private ["PSo18UIContentContainer", "UIUserInterfaceLayoutDirection"]
 - ["PSo18UIContentContainer", "UIView"]
 - ["PSo18UIContentContainer", "ViewModeButtons_Click"]
 - ["PSo18UIContentContainer", "awakeFromNib"]
@@ -913,6 +1025,7 @@ depends-member:
 - !private ["PSo18UIContentContainer", "tabBarController"]
 - !private ["PSo18UIContentContainer", "title"]
 - ["PSo18UIContentContainer", "topBackView"]
+- !private ["PSo18UIContentContainer", "view"]
 - ["PSo18UIContentContainer", "viewDidLoad"]
 - ["PSo18UIContentContainer", "viewWillAppear"]
 - ["PSo18UIContentContainer", "viewWillDisappear"]
@@ -927,6 +1040,7 @@ depends-member:
 - !private ["PSo17UICoordinateSpace", "addGestureRecognizer"]
 - !private ["PSo17UICoordinateSpace", "addSubview"]
 - !private ["PSo17UICoordinateSpace", "backgroundColor"]
+- !private ["PSo17UICoordinateSpace", "frame"]
 - !private ["PSo17UICoordinateSpace", "image"]
 - ["PSo17UICoordinateSpace", "init"]
 - !private ["PSo17UICoordinateSpace", "isHidden"]
@@ -938,6 +1052,7 @@ depends-member:
 - !private ["PSo13UIDynamicItem", "addGestureRecognizer"]
 - !private ["PSo13UIDynamicItem", "addSubview"]
 - !private ["PSo13UIDynamicItem", "backgroundColor"]
+- !private ["PSo13UIDynamicItem", "frame"]
 - !private ["PSo13UIDynamicItem", "image"]
 - ["PSo13UIDynamicItem", "init"]
 - !private ["PSo13UIDynamicItem", "isHidden"]
@@ -957,10 +1072,12 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "NotificationCenter"]
 - !private ["PSo18UIFocusEnvironment", "Notifications"]
 - ["PSo18UIFocusEnvironment", "SegmentControl_ValueChange"]
+- !private ["PSo18UIFocusEnvironment", "UIApplication"]
 - !private ["PSo18UIFocusEnvironment", "UIColor"]
 - !private ["PSo18UIFocusEnvironment", "UIImage"]
 - !private ["PSo18UIFocusEnvironment", "UIImageView"]
 - !private ["PSo18UIFocusEnvironment", "UITapGestureRecognizer"]
+- !private ["PSo18UIFocusEnvironment", "UIUserInterfaceLayoutDirection"]
 - ["PSo18UIFocusEnvironment", "UIView"]
 - ["PSo18UIFocusEnvironment", "ViewModeButtons_Click"]
 - !private ["PSo18UIFocusEnvironment", "addGestureRecognizer"]
@@ -971,6 +1088,7 @@ depends-member:
 - ["PSo18UIFocusEnvironment", "chartViewContainer"]
 - ["PSo18UIFocusEnvironment", "createCustomTopView"]
 - ["PSo18UIFocusEnvironment", "didReceiveMemoryWarning"]
+- !private ["PSo18UIFocusEnvironment", "frame"]
 - ["PSo18UIFocusEnvironment", "getSelectedNoOfDays"]
 - !private ["PSo18UIFocusEnvironment", "image"]
 - ["PSo18UIFocusEnvironment", "init"]
@@ -991,6 +1109,7 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "tabBarController"]
 - !private ["PSo18UIFocusEnvironment", "title"]
 - ["PSo18UIFocusEnvironment", "topBackView"]
+- !private ["PSo18UIFocusEnvironment", "view"]
 - ["PSo18UIFocusEnvironment", "viewDidLoad"]
 - ["PSo18UIFocusEnvironment", "viewWillAppear"]
 - ["PSo18UIFocusEnvironment", "viewWillDisappear"]
@@ -998,6 +1117,7 @@ depends-member:
 - !private ["PSo11UIFocusItem", "addGestureRecognizer"]
 - !private ["PSo11UIFocusItem", "addSubview"]
 - !private ["PSo11UIFocusItem", "backgroundColor"]
+- !private ["PSo11UIFocusItem", "frame"]
 - !private ["PSo11UIFocusItem", "image"]
 - ["PSo11UIFocusItem", "init"]
 - !private ["PSo11UIFocusItem", "isHidden"]
@@ -1037,12 +1157,14 @@ depends-member:
 - !private ["CSo11UIResponder", "NotificationCenter"]
 - !private ["CSo11UIResponder", "Notifications"]
 - ["CSo11UIResponder", "SegmentControl_ValueChange"]
+- !private ["CSo11UIResponder", "UIApplication"]
 - ["CSo11UIResponder", "UIButton"]
 - !private ["CSo11UIResponder", "UIColor"]
 - !private ["CSo11UIResponder", "UIImage"]
 - !private ["CSo11UIResponder", "UIImageView"]
 - ["CSo11UIResponder", "UISegmentedControl"]
 - !private ["CSo11UIResponder", "UITapGestureRecognizer"]
+- !private ["CSo11UIResponder", "UIUserInterfaceLayoutDirection"]
 - ["CSo11UIResponder", "UIView"]
 - ["CSo11UIResponder", "ViewModeButtons_Click"]
 - !private ["CSo11UIResponder", "addGestureRecognizer"]
@@ -1053,6 +1175,7 @@ depends-member:
 - ["CSo11UIResponder", "chartViewContainer"]
 - ["CSo11UIResponder", "createCustomTopView"]
 - ["CSo11UIResponder", "didReceiveMemoryWarning"]
+- !private ["CSo11UIResponder", "frame"]
 - ["CSo11UIResponder", "getSelectedNoOfDays"]
 - !private ["CSo11UIResponder", "image"]
 - ["CSo11UIResponder", "init"]
@@ -1070,9 +1193,12 @@ depends-member:
 - ["CSo11UIResponder", "setNavBarUI"]
 - !private ["CSo11UIResponder", "setTitleColor"]
 - !private ["CSo11UIResponder", "setTitleTextAttributes"]
+- !private ["CSo11UIResponder", "shared"]
 - !private ["CSo11UIResponder", "tabBarController"]
 - !private ["CSo11UIResponder", "title"]
 - ["CSo11UIResponder", "topBackView"]
+- !private ["CSo11UIResponder", "userInterfaceLayoutDirection"]
+- !private ["CSo11UIResponder", "view"]
 - ["CSo11UIResponder", "viewDidLoad"]
 - ["CSo11UIResponder", "viewWillAppear"]
 - ["CSo11UIResponder", "viewWillDisappear"]
@@ -1087,10 +1213,12 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "NotificationCenter"]
 - !private ["PSo30UIResponderStandardEditActions", "Notifications"]
 - ["PSo30UIResponderStandardEditActions", "SegmentControl_ValueChange"]
+- !private ["PSo30UIResponderStandardEditActions", "UIApplication"]
 - !private ["PSo30UIResponderStandardEditActions", "UIColor"]
 - !private ["PSo30UIResponderStandardEditActions", "UIImage"]
 - !private ["PSo30UIResponderStandardEditActions", "UIImageView"]
 - !private ["PSo30UIResponderStandardEditActions", "UITapGestureRecognizer"]
+- !private ["PSo30UIResponderStandardEditActions", "UIUserInterfaceLayoutDirection"]
 - ["PSo30UIResponderStandardEditActions", "UIView"]
 - ["PSo30UIResponderStandardEditActions", "ViewModeButtons_Click"]
 - !private ["PSo30UIResponderStandardEditActions", "addGestureRecognizer"]
@@ -1101,6 +1229,7 @@ depends-member:
 - ["PSo30UIResponderStandardEditActions", "chartViewContainer"]
 - ["PSo30UIResponderStandardEditActions", "createCustomTopView"]
 - ["PSo30UIResponderStandardEditActions", "didReceiveMemoryWarning"]
+- !private ["PSo30UIResponderStandardEditActions", "frame"]
 - ["PSo30UIResponderStandardEditActions", "getSelectedNoOfDays"]
 - !private ["PSo30UIResponderStandardEditActions", "image"]
 - ["PSo30UIResponderStandardEditActions", "init"]
@@ -1118,9 +1247,12 @@ depends-member:
 - ["PSo30UIResponderStandardEditActions", "setNavBarUI"]
 - !private ["PSo30UIResponderStandardEditActions", "setTitleColor"]
 - !private ["PSo30UIResponderStandardEditActions", "setTitleTextAttributes"]
+- !private ["PSo30UIResponderStandardEditActions", "shared"]
 - !private ["PSo30UIResponderStandardEditActions", "tabBarController"]
 - !private ["PSo30UIResponderStandardEditActions", "title"]
 - ["PSo30UIResponderStandardEditActions", "topBackView"]
+- !private ["PSo30UIResponderStandardEditActions", "userInterfaceLayoutDirection"]
+- !private ["PSo30UIResponderStandardEditActions", "view"]
 - ["PSo30UIResponderStandardEditActions", "viewDidLoad"]
 - ["PSo30UIResponderStandardEditActions", "viewWillAppear"]
 - ["PSo30UIResponderStandardEditActions", "viewWillDisappear"]
@@ -1138,10 +1270,12 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "NotificationCenter"]
 - !private ["PSo16UIStateRestoring", "Notifications"]
 - ["PSo16UIStateRestoring", "SegmentControl_ValueChange"]
+- !private ["PSo16UIStateRestoring", "UIApplication"]
 - !private ["PSo16UIStateRestoring", "UIColor"]
 - !private ["PSo16UIStateRestoring", "UIImage"]
 - !private ["PSo16UIStateRestoring", "UIImageView"]
 - !private ["PSo16UIStateRestoring", "UITapGestureRecognizer"]
+- !private ["PSo16UIStateRestoring", "UIUserInterfaceLayoutDirection"]
 - ["PSo16UIStateRestoring", "UIView"]
 - ["PSo16UIStateRestoring", "ViewModeButtons_Click"]
 - ["PSo16UIStateRestoring", "awakeFromNib"]
@@ -1162,6 +1296,7 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "tabBarController"]
 - !private ["PSo16UIStateRestoring", "title"]
 - ["PSo16UIStateRestoring", "topBackView"]
+- !private ["PSo16UIStateRestoring", "view"]
 - ["PSo16UIStateRestoring", "viewDidLoad"]
 - ["PSo16UIStateRestoring", "viewWillAppear"]
 - ["PSo16UIStateRestoring", "viewWillDisappear"]
@@ -1186,10 +1321,12 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "NotificationCenter"]
 - !private ["PSo18UITraitEnvironment", "Notifications"]
 - ["PSo18UITraitEnvironment", "SegmentControl_ValueChange"]
+- !private ["PSo18UITraitEnvironment", "UIApplication"]
 - !private ["PSo18UITraitEnvironment", "UIColor"]
 - !private ["PSo18UITraitEnvironment", "UIImage"]
 - !private ["PSo18UITraitEnvironment", "UIImageView"]
 - !private ["PSo18UITraitEnvironment", "UITapGestureRecognizer"]
+- !private ["PSo18UITraitEnvironment", "UIUserInterfaceLayoutDirection"]
 - ["PSo18UITraitEnvironment", "UIView"]
 - ["PSo18UITraitEnvironment", "ViewModeButtons_Click"]
 - !private ["PSo18UITraitEnvironment", "addGestureRecognizer"]
@@ -1200,6 +1337,7 @@ depends-member:
 - ["PSo18UITraitEnvironment", "chartViewContainer"]
 - ["PSo18UITraitEnvironment", "createCustomTopView"]
 - ["PSo18UITraitEnvironment", "didReceiveMemoryWarning"]
+- !private ["PSo18UITraitEnvironment", "frame"]
 - ["PSo18UITraitEnvironment", "getSelectedNoOfDays"]
 - !private ["PSo18UITraitEnvironment", "image"]
 - ["PSo18UITraitEnvironment", "init"]
@@ -1220,14 +1358,19 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "tabBarController"]
 - !private ["PSo18UITraitEnvironment", "title"]
 - ["PSo18UITraitEnvironment", "topBackView"]
+- !private ["PSo18UITraitEnvironment", "view"]
 - ["PSo18UITraitEnvironment", "viewDidLoad"]
 - ["PSo18UITraitEnvironment", "viewWillAppear"]
 - ["PSo18UITraitEnvironment", "viewWillDisappear"]
 - ["PSo18UITraitEnvironment", ""]
+- !private ["OSC30UIUserInterfaceLayoutDirection", "RawValue"]
+- ["OSC30UIUserInterfaceLayoutDirection", "deinit"]
+- !private ["OSC30UIUserInterfaceLayoutDirection", "rightToLeft"]
 - !private ["CSo6UIView", "addGestureRecognizer"]
 - !private ["CSo6UIView", "addSubview"]
 - !private ["CSo6UIView", "backgroundColor"]
 - ["CSo6UIView", "deinit"]
+- !private ["CSo6UIView", "frame"]
 - !private ["CSo6UIView", "image"]
 - ["CSo6UIView", "init"]
 - !private ["CSo6UIView", "isHidden"]
@@ -1249,12 +1392,14 @@ depends-member:
 - !private ["CSo16UIViewController", "NotificationCenter"]
 - !private ["CSo16UIViewController", "Notifications"]
 - ["CSo16UIViewController", "SegmentControl_ValueChange"]
+- !private ["CSo16UIViewController", "UIApplication"]
 - ["CSo16UIViewController", "UIButton"]
 - !private ["CSo16UIViewController", "UIColor"]
 - !private ["CSo16UIViewController", "UIImage"]
 - !private ["CSo16UIViewController", "UIImageView"]
 - ["CSo16UIViewController", "UISegmentedControl"]
 - !private ["CSo16UIViewController", "UITapGestureRecognizer"]
+- !private ["CSo16UIViewController", "UIUserInterfaceLayoutDirection"]
 - ["CSo16UIViewController", "UIView"]
 - ["CSo16UIViewController", "ViewModeButtons_Click"]
 - ["CSo16UIViewController", "awakeFromNib"]
@@ -1276,6 +1421,7 @@ depends-member:
 - !private ["CSo16UIViewController", "tabBarController"]
 - !private ["CSo16UIViewController", "title"]
 - ["CSo16UIViewController", "topBackView"]
+- !private ["CSo16UIViewController", "view"]
 - ["CSo16UIViewController", "viewDidLoad"]
 - ["CSo16UIViewController", "viewWillAppear"]
 - ["CSo16UIViewController", "viewWillDisappear"]
@@ -1288,9 +1434,12 @@ depends-member:
 - !private ["P9Alamofire14URLConvertible", "init"]
 - !private ["P9Alamofire14URLConvertible", "localized"]
 - !private ["Sc", "deinit"]
+- !private ["Ps15_CVarArgAligned", "Stride"]
+- !private ["Ps22_CVarArgPassedAsDouble", "Stride"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "addGestureRecognizer"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "addSubview"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "backgroundColor"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "frame"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "image"]
 - ["Ps37_DefaultCustomPlaygroundQuickLookable", "init"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "isHidden"]
@@ -1302,6 +1451,8 @@ depends-member:
 - !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
 - !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
 - !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "localized"]
+- !private ["Ps33_ExpressibleByBuiltinFloatLiteral", "Stride"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "Stride"]
 - !private ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
 - !private ["Ps34_ExpressibleByBuiltinStringLiteral", "localized"]
 - !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
@@ -1329,10 +1480,13 @@ depends-member:
 - !private ["Ps9_Hashable", "Notifications"]
 - !private ["Ps9_Hashable", "RawValue"]
 - ["Ps9_Hashable", "SegmentControl_ValueChange"]
+- !private ["Ps9_Hashable", "Stride"]
+- !private ["Ps9_Hashable", "UIApplication"]
 - !private ["Ps9_Hashable", "UIColor"]
 - !private ["Ps9_Hashable", "UIImage"]
 - !private ["Ps9_Hashable", "UIImageView"]
 - !private ["Ps9_Hashable", "UITapGestureRecognizer"]
+- !private ["Ps9_Hashable", "UIUserInterfaceLayoutDirection"]
 - ["Ps9_Hashable", "UIView"]
 - ["Ps9_Hashable", "ViewModeButtons_Click"]
 - !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
@@ -1345,6 +1499,7 @@ depends-member:
 - ["Ps9_Hashable", "createCustomTopView"]
 - !private ["Ps9_Hashable", "default"]
 - ["Ps9_Hashable", "didReceiveMemoryWarning"]
+- !private ["Ps9_Hashable", "frame"]
 - ["Ps9_Hashable", "getSelectedNoOfDays"]
 - !private ["Ps9_Hashable", "gray"]
 - !private ["Ps9_Hashable", "hidesBackButton"]
@@ -1364,30 +1519,47 @@ depends-member:
 - !private ["Ps9_Hashable", "removeFromSuperview"]
 - !private ["Ps9_Hashable", "rightBarButtonItem"]
 - !private ["Ps9_Hashable", "rightBarButtonItems"]
+- !private ["Ps9_Hashable", "rightToLeft"]
 - ["Ps9_Hashable", "segmentControl"]
 - !private ["Ps9_Hashable", "selectedSegmentIndex"]
 - ["Ps9_Hashable", "setNavBarUI"]
 - !private ["Ps9_Hashable", "setTitleColor"]
 - !private ["Ps9_Hashable", "setTitleTextAttributes"]
+- !private ["Ps9_Hashable", "shared"]
 - !private ["Ps9_Hashable", "tabBarController"]
 - !private ["Ps9_Hashable", "title"]
 - ["Ps9_Hashable", "topBackView"]
+- !private ["Ps9_Hashable", "userInterfaceLayoutDirection"]
+- !private ["Ps9_Hashable", "view"]
 - ["Ps9_Hashable", "viewDidLoad"]
 - ["Ps9_Hashable", "viewWillAppear"]
 - ["Ps9_Hashable", "viewWillDisappear"]
 - !private ["Ps9_Hashable", "white"]
 - ["Ps9_Hashable", ""]
+- !private ["Ps14_Incrementable", "Stride"]
+- !private ["Ps8_Integer", "Stride"]
+- !private ["Ps18_IntegerArithmetic", "Stride"]
 - !private ["Ps21_ObjectiveCBridgeable", "Key"]
+- !private ["Ps21_ObjectiveCBridgeable", "Stride"]
 - !private ["Ps21_ObjectiveCBridgeable", "Value"]
 - !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
 - !private ["Ps21_ObjectiveCBridgeable", "init"]
 - !private ["Ps21_ObjectiveCBridgeable", "localized"]
+- !private ["Ps21_ObjectiveCBridgeable", "size"]
+- !private ["Ps21_ObjectiveCBridgeable", "width"]
+- !private ["Ps14_SignedInteger", "Stride"]
+- !private ["Ps11_Strideable", "Stride"]
 - !private ["Ps20_SwiftNewtypeWrapper", "init"]
 depends-nominal:
+- !private "Ps16AbsoluteValuable"
 - "Ps9AnyObject"
+- !private "Ps19BinaryFloatingPoint"
+- !private "Ps17BitwiseOperations"
 - "Sb"
 - "PSo15CALayerDelegate"
+- "V12CoreGraphics7CGFloat"
 - "VSC6CGRect"
+- !private "VSC6CGSize"
 - "Ps7CVarArg"
 - !private "Vs9Character"
 - !private "Ps10Collection"
@@ -1404,10 +1576,13 @@ depends-nominal:
 - !private "Ps27ExpressibleByBooleanLiteral"
 - !private "Ps30ExpressibleByDictionaryLiteral"
 - !private "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- !private "Ps25ExpressibleByFloatLiteral"
+- !private "Ps27ExpressibleByIntegerLiteral"
 - !private "Ps32ExpressibleByStringInterpolation"
 - !private "Ps26ExpressibleByStringLiteral"
 - !private "Ps33ExpressibleByUnicodeScalarLiteral"
 - !private "Sf"
+- !private "Ps13FloatingPoint"
 - !private "V11DiabetesApp5Fonts"
 - "Ps8Hashable"
 - !private "V11DiabetesApp11HistoryDays"
@@ -1420,6 +1595,8 @@ depends-nominal:
 - !private "Vs5Int32"
 - !private "Vs5Int64"
 - !private "Vs4Int8"
+- !private "Ps7Integer"
+- !private "Ps17IntegerArithmetic"
 - !private "Ps25LosslessStringConvertible"
 - !private "Ps10MirrorPath"
 - "CSo7NSCoder"
@@ -1441,13 +1618,17 @@ depends-nominal:
 - "V10ObjectiveC8Selector"
 - !private "Ps8Sequence"
 - !private "Ps10SetAlgebra"
+- !private "Ps13SignedInteger"
+- !private "Ps12SignedNumber"
 - !private "Vs12StaticString"
+- !private "Ps10Strideable"
 - "SS"
 - !private "Ps16TextOutputStream"
 - !private "Ps20TextOutputStreamable"
 - "PSo29UIAccessibilityIdentification"
 - "PSo12UIAppearance"
 - "PSo21UIAppearanceContainer"
+- "CSo13UIApplication"
 - !private "PSo16UIBarPositioning"
 - "CSo8UIButton"
 - "CSo7UIColor"
@@ -1473,6 +1654,7 @@ depends-nominal:
 - !private "PSo16UITabBarDelegate"
 - "CSo22UITapGestureRecognizer"
 - "PSo18UITraitEnvironment"
+- "OSC30UIUserInterfaceLayoutDirection"
 - "CSo6UIView"
 - "CSo16UIViewController"
 - !private "Su"
@@ -1482,9 +1664,13 @@ depends-nominal:
 - !private "Vs5UInt8"
 - !private "P9Alamofire14URLConvertible"
 - !private "Sc"
+- !private "Ps15_CVarArgAligned"
+- !private "Ps22_CVarArgPassedAsDouble"
 - "Ps37_DefaultCustomPlaygroundQuickLookable"
 - !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
 - !private "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- !private "Ps33_ExpressibleByBuiltinFloatLiteral"
+- !private "Ps35_ExpressibleByBuiltinIntegerLiteral"
 - !private "Ps34_ExpressibleByBuiltinStringLiteral"
 - !private "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
 - !private "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
@@ -1492,7 +1678,12 @@ depends-nominal:
 - !private "Ps26_ExpressibleByImageLiteral"
 - !private "Ps35_HasCustomAnyHashableRepresentation"
 - "Ps9_Hashable"
+- !private "Ps14_Incrementable"
+- !private "Ps8_Integer"
+- !private "Ps18_IntegerArithmetic"
 - !private "Ps21_ObjectiveCBridgeable"
+- !private "Ps14_SignedInteger"
+- !private "Ps11_Strideable"
 - !private "Ps20_SwiftNewtypeWrapper"
 depends-dynamic-lookup:
 depends-external:

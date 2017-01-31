@@ -61,9 +61,9 @@ class CarePlanReadingViewController: UIViewController, UITableViewDelegate, UITa
         if  UserDefaults.standard.string(forKey: userDefaults.selectedPatientID) != nil {
             
         
-        let patientsID: String? = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+        let patientsID: String! = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
         let parameters: Parameters = [
-            "userid": patientsID as Any
+            "userid": patientsID 
             //"userid": "58563eb4d9c776ad70491b7b"
             
         ]

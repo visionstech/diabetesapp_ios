@@ -6,24 +6,24 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp19DialogTableViewCell", ""]
 provides-dynamic-lookup:
-- "dialogID"
 - "unreadMessageCounterHolder"
-- "setSelected"
 - "awakeFromNib"
-- "dialogLastMessage"
-- "unreadMessageCounterLabel"
-- "dialogTypeImage"
 - "dialogName"
+- "unreadMessageCounterLabel"
 - "setHighlighted"
+- "dialogID"
+- "dialogLastMessage"
+- "setSelected"
+- "dialogTypeImage"
 depends-top-level:
-- "Bool"
-- "AssignmentPrecedence"
-- "DialogTableViewCell"
-- "UIImageView"
-- "UIView"
-- "UILabel"
 - "UITableViewCell"
+- "UIImageView"
+- "UILabel"
+- "Bool"
+- "UIView"
+- "AssignmentPrecedence"
 - "StringLiteralType"
+- "DialogTableViewCell"
 depends-member:
 - ["Ps9AnyObject", "awakeFromNib"]
 - !private ["Ps9AnyObject", "backgroundColor"]

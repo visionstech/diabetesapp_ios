@@ -337,12 +337,14 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
     @IBAction func declineBtn_Click(_ sender: Any) {
         
         
-        SVProgressHUD.show(withStatus: "SA_STR_LOADING".localized, maskType: SVProgressHUDMaskType.clear)
-        // let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
-        let parameters: Parameters = [
-            "": "" ]
         
-        Alamofire.request("", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+        SVProgressHUD.show(withStatus: "SA_STR_LOADING".localized, maskType: SVProgressHUDMaskType.clear)
+        
+        let taskID: String = UserDefaults.standard.string(forKey: userDefaults.taskID)!
+        let parameters: Parameters = [
+            "taskid": taskID ]
+        
+        Alamofire.request("\(baseUrl)\(ApiMethods.doctordecline)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
             
             print("Validation Successful ")
             
@@ -369,11 +371,14 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
     @IBAction func approveBtn_Click(_ sender: Any) {
         
         SVProgressHUD.show(withStatus: "SA_STR_LOADING".localized, maskType: SVProgressHUDMaskType.clear)
-        // let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
-        let parameters: Parameters = [
-            "": "" ]
         
-        Alamofire.request("", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+         let taskID: String = UserDefaults.standard.string(forKey: userDefaults.taskID)!
+        let parameters: Parameters = [
+            "taskid": taskID,
+            "editMedArray": editCurrentMedArray,
+            "editReadArray":editCurrentReadArray]
+        
+        Alamofire.request("\(baseUrl)\(ApiMethods.doctorapprove)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
             
             print("Validation Successful ")
             
@@ -711,6 +716,24 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
     // MARK: - Custom Top View
     func createCustomTopView() {
         
+        if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
+            topBackView = UIView(frame: CGRect(x: self.view.frame.size.width - 80, y: 0, width: 75, height: 40))
+            topBackView.backgroundColor = UIColor(patternImage: UIImage(named: "topbackArbic")!)
+            let userImgView: UIImageView = UIImageView(frame: CGRect(x: 5 , y: 3, width: 34, height: 34))
+            userImgView.image = UIImage(named: "user.png")
+            topBackView.addSubview(userImgView)
+            
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(BackBtn_Click))
+            topBackView.addGestureRecognizer(tapGesture)
+            topBackView.isUserInteractionEnabled = true
+            
+            self.tabBarController?.navigationController?.navigationBar.addSubview(topBackView)
+            self.navigationController?.navigationBar.addSubview(topBackView)
+
+
+        }
+        else {
+        
         topBackView = UIView(frame: CGRect(x: 0, y: 0, width: 74, height: 40))
         topBackView.backgroundColor = UIColor(patternImage: UIImage(named: "topBackBtn")!)
         let userImgView: UIImageView = UIImageView(frame: CGRect(x: 35, y: 3, width: 34, height: 34))
@@ -723,6 +746,7 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
         
         self.tabBarController?.navigationController?.navigationBar.addSubview(topBackView)
         self.navigationController?.navigationBar.addSubview(topBackView)
+        }
     }
     
     // MARK: - Custom Methods

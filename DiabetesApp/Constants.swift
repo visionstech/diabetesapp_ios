@@ -133,7 +133,9 @@ struct ApiMethods{
     static let getglucoseDaysCondition = "getglucoseDaysCondition"
     static let getglucoseDaysConditionChart = "getglucoseDaysConditionChart"
     static let editEducatorReport = "savetask"
-    static let getTasks = "getTasks"  
+    static let getTasks = "getTasks"
+    static let doctorapprove = "doctorapprove"
+    static let doctordecline = "doctordecline"
 }
 
 // MARK: - GeneralLabels

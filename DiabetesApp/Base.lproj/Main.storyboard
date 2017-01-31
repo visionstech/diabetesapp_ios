@@ -12,7 +12,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Gotham-Bold.otf">
+        <array key="Gotham-Bold.ttf">
             <string>Gotham-Bold</string>
         </array>
         <array key="Gotham-Medium.ttf">
@@ -223,7 +223,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Naseem Sheikh" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vqR-o1-OrI">
-                                                    <rect key="frame" x="156" y="6.5" width="101" height="21.5"/>
+                                                    <rect key="frame" x="156" y="7" width="101" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -2037,6 +2037,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <connections>
+                        <outlet property="arrowImg" destination="GQo-XK-THE" id="tfX-Kf-UIx"/>
                         <outlet property="conditionTxtFld" destination="sZw-ZN-5iD" id="LN6-bg-hDk"/>
                         <outlet property="conditionView" destination="dKs-Jc-q59" id="PX3-PN-Igx"/>
                         <outlet property="noHistoryAvailableLbl" destination="aOa-6U-yBE" id="5bj-th-seB"/>
@@ -3893,7 +3894,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Utq-SP-CUP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2807" y="3505"/>
+            <point key="canvasLocation" x="-3359" y="3508"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="r5J-CL-i8u">
@@ -4101,8 +4102,10 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <connections>
+                        <outlet property="arrowImg" destination="wId-Qj-jxI" id="Kt2-wd-bRV"/>
                         <outlet property="conditionTxtFld" destination="hga-Vf-8HQ" id="HBD-g0-FOC"/>
                         <outlet property="conditionView" destination="Pl1-Gw-Jnt" id="zag-iJ-Ijo"/>
+                        <outlet property="lblCondition" destination="Khu-PQ-ZZF" id="peu-nd-9bT"/>
                         <outlet property="noHistoryAvailableLbl" destination="aeP-2x-Fg3" id="Hbw-3B-dbg"/>
                         <outlet property="pickerView" destination="nmV-bb-TGh" id="g8L-lT-bam"/>
                         <outlet property="pickerViewContainer" destination="tSC-s4-Bb2" id="HKo-Uu-n66"/>
@@ -4156,7 +4159,7 @@
                     </constraints>
                 </view>
             </objects>
-            <point key="canvasLocation" x="-2439" y="3283"/>
+            <point key="canvasLocation" x="-2439.1999999999998" y="3282.4587706146931"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="bKf-j8-t2c">

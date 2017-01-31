@@ -6,49 +6,51 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp26CarePlanMainViewController", ""]
 provides-dynamic-lookup:
-- "topBackView"
+- "readingContainer"
+- "viewDidLoad"
+- "awakeFromNib"
+- "didReceiveMemoryWarning"
+- "readingBtn"
+- "createCustomTopView"
+- "selectedUserType"
+- "ViewModeButtons_Click"
+- "BackBtn_Click"
+- "AddBtn_Click"
 - "addBtn"
-- "medicationBtn"
 - "viewWillDisappear"
 - "medicationContainer"
-- "viewWillAppear"
-- "didReceiveMemoryWarning"
-- "createCustomTopView"
-- "awakeFromNib"
-- "ViewModeButtons_Click"
-- "AddBtn_Click"
-- "viewDidLoad"
-- "BackBtn_Click"
-- "readingBtn"
-- "selectedUserType"
+- "topBackView"
 - "setNavBarUI"
-- "readingContainer"
+- "medicationBtn"
+- "viewWillAppear"
 depends-top-level:
-- "Bool"
-- "UIBarButtonItem"
+- "UserDefaults"
 - !private "userType"
+- !private "UIImage"
+- "UIButton"
+- !private "UIColor"
+- "Int"
+- !private "NotificationCenter"
+- "userDefaults"
 - "AssignmentPrecedence"
 - !private "=="
-- !private "UITapGestureRecognizer"
-- !private "UIUserInterfaceLayoutDirection"
-- !private "Notifications"
-- "UIButton"
+- "Bool"
+- !private "UIImageView"
+- !private "UIApplication"
+- !private "-"
 - !private "NSNotification"
-- "userDefaults"
+- "UIView"
+- !private "Colors"
+- !private "UITapGestureRecognizer"
+- "CarePlanMainViewController"
+- !private "Notifications"
 - "UIViewController"
 - !private "CGRect"
-- !private "Colors"
-- !private "UIImageView"
-- "Int"
-- !private "UIApplication"
-- "UIView"
-- "UserDefaults"
-- "CarePlanMainViewController"
-- !private "UIImage"
-- !private "NotificationCenter"
-- !private "UIColor"
+- "UIBarButtonItem"
+- !private "UIUserInterfaceLayoutDirection"
 - !private "BooleanLiteralType"
 depends-member:
+- !private ["Ps16AbsoluteValuable", "Stride"]
 - ["Ps9AnyObject", "AddBtn_Click"]
 - ["Ps9AnyObject", "BackBtn_Click"]
 - !private ["Ps9AnyObject", "CGRect"]
@@ -77,6 +79,7 @@ depends-member:
 - ["Ps9AnyObject", "createCustomTopView"]
 - !private ["Ps9AnyObject", "default"]
 - ["Ps9AnyObject", "didReceiveMemoryWarning"]
+- !private ["Ps9AnyObject", "frame"]
 - !private ["Ps9AnyObject", "gray"]
 - !private ["Ps9AnyObject", "hidesBackButton"]
 - !private ["Ps9AnyObject", "image"]
@@ -97,7 +100,6 @@ depends-member:
 - ["Ps9AnyObject", "readingContainer"]
 - !private ["Ps9AnyObject", "removeFromSuperview"]
 - !private ["Ps9AnyObject", "rightBarButtonItem"]
-- !private ["Ps9AnyObject", "rightBarButtonItems"]
 - ["Ps9AnyObject", "selectedUserType"]
 - ["Ps9AnyObject", "setNavBarUI"]
 - !private ["Ps9AnyObject", "setTitleColor"]
@@ -109,25 +111,33 @@ depends-member:
 - ["Ps9AnyObject", "userDefaults"]
 - !private ["Ps9AnyObject", "userInterfaceLayoutDirection"]
 - !private ["Ps9AnyObject", "userType"]
+- !private ["Ps9AnyObject", "view"]
 - ["Ps9AnyObject", "viewDidLoad"]
 - ["Ps9AnyObject", "viewWillAppear"]
 - ["Ps9AnyObject", "viewWillDisappear"]
 - !private ["Ps9AnyObject", "white"]
 - ["Ps9AnyObject", ""]
+- !private ["Ps19BinaryFloatingPoint", "Stride"]
+- !private ["Ps17BitwiseOperations", "Stride"]
 - ["Ps17BitwiseOperations", "init"]
 - !private ["Sb", "_getBuiltinLogicValue"]
 - ["Sb", "deinit"]
 - !private ["PSo15CALayerDelegate", "addGestureRecognizer"]
 - !private ["PSo15CALayerDelegate", "addSubview"]
 - !private ["PSo15CALayerDelegate", "backgroundColor"]
+- !private ["PSo15CALayerDelegate", "frame"]
 - !private ["PSo15CALayerDelegate", "image"]
 - ["PSo15CALayerDelegate", "init"]
 - !private ["PSo15CALayerDelegate", "isHidden"]
 - !private ["PSo15CALayerDelegate", "isUserInteractionEnabled"]
 - !private ["PSo15CALayerDelegate", "removeFromSuperview"]
 - !private ["PSo15CALayerDelegate", "setTitleColor"]
+- !private ["V12CoreGraphics7CGFloat", "Stride"]
+- ["V12CoreGraphics7CGFloat", "deinit"]
 - ["VSC6CGRect", "deinit"]
 - !private ["VSC6CGRect", "init"]
+- !private ["VSC6CGRect", "size"]
+- !private ["VSC6CGSize", "width"]
 - ["Ps7CVarArg", "AddBtn_Click"]
 - ["Ps7CVarArg", "BackBtn_Click"]
 - !private ["Ps7CVarArg", "CGRect"]
@@ -138,6 +148,7 @@ depends-member:
 - !private ["Ps7CVarArg", "NotificationCenter"]
 - !private ["Ps7CVarArg", "Notifications"]
 - !private ["Ps7CVarArg", "RawValue"]
+- !private ["Ps7CVarArg", "Stride"]
 - !private ["Ps7CVarArg", "UIApplication"]
 - ["Ps7CVarArg", "UIBarButtonItem"]
 - !private ["Ps7CVarArg", "UIColor"]
@@ -156,6 +167,7 @@ depends-member:
 - ["Ps7CVarArg", "createCustomTopView"]
 - !private ["Ps7CVarArg", "default"]
 - ["Ps7CVarArg", "didReceiveMemoryWarning"]
+- !private ["Ps7CVarArg", "frame"]
 - !private ["Ps7CVarArg", "gray"]
 - !private ["Ps7CVarArg", "hidesBackButton"]
 - !private ["Ps7CVarArg", "image"]
@@ -176,7 +188,6 @@ depends-member:
 - ["Ps7CVarArg", "readingContainer"]
 - !private ["Ps7CVarArg", "removeFromSuperview"]
 - !private ["Ps7CVarArg", "rightBarButtonItem"]
-- !private ["Ps7CVarArg", "rightBarButtonItems"]
 - ["Ps7CVarArg", "selectedUserType"]
 - ["Ps7CVarArg", "setNavBarUI"]
 - !private ["Ps7CVarArg", "setTitleColor"]
@@ -188,6 +199,7 @@ depends-member:
 - ["Ps7CVarArg", "userDefaults"]
 - !private ["Ps7CVarArg", "userInterfaceLayoutDirection"]
 - !private ["Ps7CVarArg", "userType"]
+- !private ["Ps7CVarArg", "view"]
 - ["Ps7CVarArg", "viewDidLoad"]
 - ["Ps7CVarArg", "viewWillAppear"]
 - ["Ps7CVarArg", "viewWillDisappear"]
@@ -232,11 +244,13 @@ depends-member:
 - ["C11DiabetesApp26CarePlanMainViewController", "topBackView"]
 - ["C11DiabetesApp26CarePlanMainViewController", "userDefaults"]
 - !private ["C11DiabetesApp26CarePlanMainViewController", "userType"]
+- !private ["C11DiabetesApp26CarePlanMainViewController", "view"]
 - ["C11DiabetesApp26CarePlanMainViewController", "viewDidLoad"]
 - ["C11DiabetesApp26CarePlanMainViewController", "viewWillAppear"]
 - ["C11DiabetesApp26CarePlanMainViewController", "viewWillDisappear"]
 - !private ["Vs9Character", "deinit"]
 - !private ["V11DiabetesApp6Colors", "historyHeaderColor"]
+- !private ["Ps10Comparable", "Stride"]
 - ["Ps10Comparable", "init"]
 - !private ["Ps10Comparable", "localized"]
 - ["Ps28CustomDebugStringConvertible", "AddBtn_Click"]
@@ -249,6 +263,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "NotificationCenter"]
 - !private ["Ps28CustomDebugStringConvertible", "Notifications"]
 - !private ["Ps28CustomDebugStringConvertible", "RawValue"]
+- !private ["Ps28CustomDebugStringConvertible", "Stride"]
 - !private ["Ps28CustomDebugStringConvertible", "UIApplication"]
 - ["Ps28CustomDebugStringConvertible", "UIBarButtonItem"]
 - !private ["Ps28CustomDebugStringConvertible", "UIColor"]
@@ -267,6 +282,7 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "createCustomTopView"]
 - !private ["Ps28CustomDebugStringConvertible", "default"]
 - ["Ps28CustomDebugStringConvertible", "didReceiveMemoryWarning"]
+- !private ["Ps28CustomDebugStringConvertible", "frame"]
 - !private ["Ps28CustomDebugStringConvertible", "gray"]
 - !private ["Ps28CustomDebugStringConvertible", "hidesBackButton"]
 - !private ["Ps28CustomDebugStringConvertible", "image"]
@@ -287,11 +303,11 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "readingContainer"]
 - !private ["Ps28CustomDebugStringConvertible", "removeFromSuperview"]
 - !private ["Ps28CustomDebugStringConvertible", "rightBarButtonItem"]
-- !private ["Ps28CustomDebugStringConvertible", "rightBarButtonItems"]
 - ["Ps28CustomDebugStringConvertible", "selectedUserType"]
 - ["Ps28CustomDebugStringConvertible", "setNavBarUI"]
 - !private ["Ps28CustomDebugStringConvertible", "setTitleColor"]
 - !private ["Ps28CustomDebugStringConvertible", "shared"]
+- !private ["Ps28CustomDebugStringConvertible", "size"]
 - ["Ps28CustomDebugStringConvertible", "standard"]
 - !private ["Ps28CustomDebugStringConvertible", "tabBarController"]
 - !private ["Ps28CustomDebugStringConvertible", "title"]
@@ -299,17 +315,25 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "userDefaults"]
 - !private ["Ps28CustomDebugStringConvertible", "userInterfaceLayoutDirection"]
 - !private ["Ps28CustomDebugStringConvertible", "userType"]
+- !private ["Ps28CustomDebugStringConvertible", "view"]
 - ["Ps28CustomDebugStringConvertible", "viewDidLoad"]
 - ["Ps28CustomDebugStringConvertible", "viewWillAppear"]
 - ["Ps28CustomDebugStringConvertible", "viewWillDisappear"]
 - !private ["Ps28CustomDebugStringConvertible", "white"]
+- !private ["Ps28CustomDebugStringConvertible", "width"]
 - ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps29CustomPlaygroundQuickLookable", "Stride"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
 - ["Ps29CustomPlaygroundQuickLookable", "init"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "localized"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "size"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "width"]
+- !private ["Ps17CustomReflectable", "Stride"]
 - !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
 - ["Ps17CustomReflectable", "init"]
 - !private ["Ps17CustomReflectable", "localized"]
+- !private ["Ps17CustomReflectable", "size"]
+- !private ["Ps17CustomReflectable", "width"]
 - ["Ps23CustomStringConvertible", "AddBtn_Click"]
 - ["Ps23CustomStringConvertible", "BackBtn_Click"]
 - !private ["Ps23CustomStringConvertible", "CGRect"]
@@ -320,6 +344,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "NotificationCenter"]
 - !private ["Ps23CustomStringConvertible", "Notifications"]
 - !private ["Ps23CustomStringConvertible", "RawValue"]
+- !private ["Ps23CustomStringConvertible", "Stride"]
 - !private ["Ps23CustomStringConvertible", "UIApplication"]
 - ["Ps23CustomStringConvertible", "UIBarButtonItem"]
 - !private ["Ps23CustomStringConvertible", "UIColor"]
@@ -339,6 +364,7 @@ depends-member:
 - ["Ps23CustomStringConvertible", "createCustomTopView"]
 - !private ["Ps23CustomStringConvertible", "default"]
 - ["Ps23CustomStringConvertible", "didReceiveMemoryWarning"]
+- !private ["Ps23CustomStringConvertible", "frame"]
 - !private ["Ps23CustomStringConvertible", "gray"]
 - !private ["Ps23CustomStringConvertible", "hidesBackButton"]
 - !private ["Ps23CustomStringConvertible", "image"]
@@ -359,7 +385,6 @@ depends-member:
 - ["Ps23CustomStringConvertible", "readingContainer"]
 - !private ["Ps23CustomStringConvertible", "removeFromSuperview"]
 - !private ["Ps23CustomStringConvertible", "rightBarButtonItem"]
-- !private ["Ps23CustomStringConvertible", "rightBarButtonItems"]
 - ["Ps23CustomStringConvertible", "selectedUserType"]
 - ["Ps23CustomStringConvertible", "setNavBarUI"]
 - !private ["Ps23CustomStringConvertible", "setTitleColor"]
@@ -371,11 +396,13 @@ depends-member:
 - ["Ps23CustomStringConvertible", "userDefaults"]
 - !private ["Ps23CustomStringConvertible", "userInterfaceLayoutDirection"]
 - !private ["Ps23CustomStringConvertible", "userType"]
+- !private ["Ps23CustomStringConvertible", "view"]
 - ["Ps23CustomStringConvertible", "viewDidLoad"]
 - ["Ps23CustomStringConvertible", "viewWillAppear"]
 - ["Ps23CustomStringConvertible", "viewWillDisappear"]
 - !private ["Ps23CustomStringConvertible", "white"]
 - ["Ps23CustomStringConvertible", ""]
+- !private ["Sd", "Stride"]
 - !private ["Sd", "deinit"]
 - ["Ps9Equatable", "AddBtn_Click"]
 - ["Ps9Equatable", "BackBtn_Click"]
@@ -387,6 +414,7 @@ depends-member:
 - !private ["Ps9Equatable", "NotificationCenter"]
 - !private ["Ps9Equatable", "Notifications"]
 - !private ["Ps9Equatable", "RawValue"]
+- !private ["Ps9Equatable", "Stride"]
 - !private ["Ps9Equatable", "UIApplication"]
 - ["Ps9Equatable", "UIBarButtonItem"]
 - !private ["Ps9Equatable", "UIColor"]
@@ -406,6 +434,7 @@ depends-member:
 - ["Ps9Equatable", "createCustomTopView"]
 - !private ["Ps9Equatable", "default"]
 - ["Ps9Equatable", "didReceiveMemoryWarning"]
+- !private ["Ps9Equatable", "frame"]
 - !private ["Ps9Equatable", "gray"]
 - !private ["Ps9Equatable", "hidesBackButton"]
 - !private ["Ps9Equatable", "image"]
@@ -428,12 +457,12 @@ depends-member:
 - ["Ps9Equatable", "readingContainer"]
 - !private ["Ps9Equatable", "removeFromSuperview"]
 - !private ["Ps9Equatable", "rightBarButtonItem"]
-- !private ["Ps9Equatable", "rightBarButtonItems"]
 - !private ["Ps9Equatable", "rightToLeft"]
 - ["Ps9Equatable", "selectedUserType"]
 - ["Ps9Equatable", "setNavBarUI"]
 - !private ["Ps9Equatable", "setTitleColor"]
 - !private ["Ps9Equatable", "shared"]
+- !private ["Ps9Equatable", "size"]
 - ["Ps9Equatable", "standard"]
 - !private ["Ps9Equatable", "tabBarController"]
 - !private ["Ps9Equatable", "title"]
@@ -441,15 +470,19 @@ depends-member:
 - ["Ps9Equatable", "userDefaults"]
 - !private ["Ps9Equatable", "userInterfaceLayoutDirection"]
 - !private ["Ps9Equatable", "userType"]
+- !private ["Ps9Equatable", "view"]
 - ["Ps9Equatable", "viewDidLoad"]
 - ["Ps9Equatable", "viewWillAppear"]
 - ["Ps9Equatable", "viewWillDisappear"]
 - !private ["Ps9Equatable", "white"]
+- !private ["Ps9Equatable", "width"]
 - ["Ps9Equatable", ""]
 - !private ["Ps25ExpressibleByArrayLiteral", "normal"]
 - !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "localized"]
+- !private ["Ps25ExpressibleByFloatLiteral", "Stride"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "Stride"]
 - ["Ps27ExpressibleByIntegerLiteral", "init"]
 - !private ["Ps32ExpressibleByStringInterpolation", "init"]
 - !private ["Ps32ExpressibleByStringInterpolation", "localized"]
@@ -458,6 +491,7 @@ depends-member:
 - !private ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
 - !private ["Ps33ExpressibleByUnicodeScalarLiteral", "localized"]
 - !private ["Sf", "deinit"]
+- !private ["Ps13FloatingPoint", "Stride"]
 - ["Ps8Hashable", "AddBtn_Click"]
 - ["Ps8Hashable", "BackBtn_Click"]
 - !private ["Ps8Hashable", "CGRect"]
@@ -468,6 +502,7 @@ depends-member:
 - !private ["Ps8Hashable", "NotificationCenter"]
 - !private ["Ps8Hashable", "Notifications"]
 - !private ["Ps8Hashable", "RawValue"]
+- !private ["Ps8Hashable", "Stride"]
 - !private ["Ps8Hashable", "UIApplication"]
 - ["Ps8Hashable", "UIBarButtonItem"]
 - !private ["Ps8Hashable", "UIColor"]
@@ -487,6 +522,7 @@ depends-member:
 - ["Ps8Hashable", "createCustomTopView"]
 - !private ["Ps8Hashable", "default"]
 - ["Ps8Hashable", "didReceiveMemoryWarning"]
+- !private ["Ps8Hashable", "frame"]
 - !private ["Ps8Hashable", "gray"]
 - !private ["Ps8Hashable", "hidesBackButton"]
 - !private ["Ps8Hashable", "image"]
@@ -508,7 +544,6 @@ depends-member:
 - ["Ps8Hashable", "readingContainer"]
 - !private ["Ps8Hashable", "removeFromSuperview"]
 - !private ["Ps8Hashable", "rightBarButtonItem"]
-- !private ["Ps8Hashable", "rightBarButtonItems"]
 - !private ["Ps8Hashable", "rightToLeft"]
 - ["Ps8Hashable", "selectedUserType"]
 - ["Ps8Hashable", "setNavBarUI"]
@@ -521,23 +556,29 @@ depends-member:
 - ["Ps8Hashable", "userDefaults"]
 - !private ["Ps8Hashable", "userInterfaceLayoutDirection"]
 - !private ["Ps8Hashable", "userType"]
+- !private ["Ps8Hashable", "view"]
 - ["Ps8Hashable", "viewDidLoad"]
 - ["Ps8Hashable", "viewWillAppear"]
 - ["Ps8Hashable", "viewWillDisappear"]
 - !private ["Ps8Hashable", "white"]
 - ["Ps8Hashable", ""]
 - ["SQ", "deinit"]
+- !private ["Si", "Stride"]
 - ["Si", "deinit"]
 - ["Si", "init"]
 - !private ["Vs5Int16", "deinit"]
 - !private ["Vs5Int32", "deinit"]
 - !private ["Vs5Int64", "deinit"]
 - !private ["Vs4Int8", "deinit"]
+- !private ["Ps7Integer", "Stride"]
 - ["Ps7Integer", "init"]
+- !private ["Ps17IntegerArithmetic", "Stride"]
 - ["Ps17IntegerArithmetic", "init"]
+- !private ["Ps25LosslessStringConvertible", "Stride"]
 - !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
 - !private ["Ps25LosslessStringConvertible", "init"]
 - !private ["Ps25LosslessStringConvertible", "localized"]
+- !private ["Ps10MirrorPath", "Stride"]
 - ["Ps10MirrorPath", "init"]
 - !private ["Ps10MirrorPath", "localized"]
 - ["CSo7NSCoder", "deinit"]
@@ -568,6 +609,7 @@ depends-member:
 - !private ["PSo8NSCoding", "backgroundColor"]
 - ["PSo8NSCoding", "createCustomTopView"]
 - ["PSo8NSCoding", "didReceiveMemoryWarning"]
+- !private ["PSo8NSCoding", "frame"]
 - !private ["PSo8NSCoding", "gray"]
 - !private ["PSo8NSCoding", "hidesBackButton"]
 - !private ["PSo8NSCoding", "image"]
@@ -586,7 +628,6 @@ depends-member:
 - ["PSo8NSCoding", "readingContainer"]
 - !private ["PSo8NSCoding", "removeFromSuperview"]
 - !private ["PSo8NSCoding", "rightBarButtonItem"]
-- !private ["PSo8NSCoding", "rightBarButtonItems"]
 - ["PSo8NSCoding", "selectedUserType"]
 - ["PSo8NSCoding", "setNavBarUI"]
 - !private ["PSo8NSCoding", "setTitleColor"]
@@ -595,6 +636,7 @@ depends-member:
 - ["PSo8NSCoding", "topBackView"]
 - ["PSo8NSCoding", "userDefaults"]
 - !private ["PSo8NSCoding", "userType"]
+- !private ["PSo8NSCoding", "view"]
 - ["PSo8NSCoding", "viewDidLoad"]
 - ["PSo8NSCoding", "viewWillAppear"]
 - ["PSo8NSCoding", "viewWillDisappear"]
@@ -644,6 +686,7 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "topBackView"]
 - ["PSo26NSExtensionRequestHandling", "userDefaults"]
 - !private ["PSo26NSExtensionRequestHandling", "userType"]
+- !private ["PSo26NSExtensionRequestHandling", "view"]
 - ["PSo26NSExtensionRequestHandling", "viewDidLoad"]
 - ["PSo26NSExtensionRequestHandling", "viewWillAppear"]
 - ["PSo26NSExtensionRequestHandling", "viewWillDisappear"]
@@ -682,6 +725,7 @@ depends-member:
 - !private ["CSo8NSObject", "default"]
 - !private ["CSo8NSObject", "deinit"]
 - ["CSo8NSObject", "didReceiveMemoryWarning"]
+- !private ["CSo8NSObject", "frame"]
 - !private ["CSo8NSObject", "gray"]
 - !private ["CSo8NSObject", "hidesBackButton"]
 - !private ["CSo8NSObject", "image"]
@@ -702,7 +746,6 @@ depends-member:
 - ["CSo8NSObject", "readingContainer"]
 - !private ["CSo8NSObject", "removeFromSuperview"]
 - !private ["CSo8NSObject", "rightBarButtonItem"]
-- !private ["CSo8NSObject", "rightBarButtonItems"]
 - ["CSo8NSObject", "selectedUserType"]
 - ["CSo8NSObject", "setNavBarUI"]
 - !private ["CSo8NSObject", "setTitleColor"]
@@ -714,6 +757,7 @@ depends-member:
 - ["CSo8NSObject", "userDefaults"]
 - !private ["CSo8NSObject", "userInterfaceLayoutDirection"]
 - !private ["CSo8NSObject", "userType"]
+- !private ["CSo8NSObject", "view"]
 - ["CSo8NSObject", "viewDidLoad"]
 - ["CSo8NSObject", "viewWillAppear"]
 - ["CSo8NSObject", "viewWillDisappear"]
@@ -746,6 +790,7 @@ depends-member:
 - ["PSo16NSObjectProtocol", "createCustomTopView"]
 - !private ["PSo16NSObjectProtocol", "default"]
 - ["PSo16NSObjectProtocol", "didReceiveMemoryWarning"]
+- !private ["PSo16NSObjectProtocol", "frame"]
 - !private ["PSo16NSObjectProtocol", "gray"]
 - !private ["PSo16NSObjectProtocol", "hidesBackButton"]
 - !private ["PSo16NSObjectProtocol", "image"]
@@ -766,7 +811,6 @@ depends-member:
 - ["PSo16NSObjectProtocol", "readingContainer"]
 - !private ["PSo16NSObjectProtocol", "removeFromSuperview"]
 - !private ["PSo16NSObjectProtocol", "rightBarButtonItem"]
-- !private ["PSo16NSObjectProtocol", "rightBarButtonItems"]
 - ["PSo16NSObjectProtocol", "selectedUserType"]
 - ["PSo16NSObjectProtocol", "setNavBarUI"]
 - !private ["PSo16NSObjectProtocol", "setTitleColor"]
@@ -778,6 +822,7 @@ depends-member:
 - ["PSo16NSObjectProtocol", "userDefaults"]
 - !private ["PSo16NSObjectProtocol", "userInterfaceLayoutDirection"]
 - !private ["PSo16NSObjectProtocol", "userType"]
+- !private ["PSo16NSObjectProtocol", "view"]
 - ["PSo16NSObjectProtocol", "viewDidLoad"]
 - ["PSo16NSObjectProtocol", "viewWillAppear"]
 - ["PSo16NSObjectProtocol", "viewWillDisappear"]
@@ -807,8 +852,11 @@ depends-member:
 - !private ["Ps16RawRepresentable", "rightToLeft"]
 - ["V10ObjectiveC8Selector", "deinit"]
 - !private ["Ps10SetAlgebra", "normal"]
+- !private ["Ps13SignedInteger", "Stride"]
 - ["Ps13SignedInteger", "init"]
+- !private ["Ps12SignedNumber", "Stride"]
 - ["Ps12SignedNumber", "init"]
+- !private ["Ps10Strideable", "Stride"]
 - ["Ps10Strideable", "init"]
 - ["SS", "deinit"]
 - !private ["SS", "init"]
@@ -820,6 +868,7 @@ depends-member:
 - !private ["PSo29UIAccessibilityIdentification", "addGestureRecognizer"]
 - !private ["PSo29UIAccessibilityIdentification", "addSubview"]
 - !private ["PSo29UIAccessibilityIdentification", "backgroundColor"]
+- !private ["PSo29UIAccessibilityIdentification", "frame"]
 - !private ["PSo29UIAccessibilityIdentification", "image"]
 - ["PSo29UIAccessibilityIdentification", "init"]
 - !private ["PSo29UIAccessibilityIdentification", "isHidden"]
@@ -829,6 +878,7 @@ depends-member:
 - !private ["PSo12UIAppearance", "addGestureRecognizer"]
 - !private ["PSo12UIAppearance", "addSubview"]
 - !private ["PSo12UIAppearance", "backgroundColor"]
+- !private ["PSo12UIAppearance", "frame"]
 - !private ["PSo12UIAppearance", "image"]
 - ["PSo12UIAppearance", "init"]
 - !private ["PSo12UIAppearance", "isHidden"]
@@ -860,6 +910,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "backgroundColor"]
 - ["PSo21UIAppearanceContainer", "createCustomTopView"]
 - ["PSo21UIAppearanceContainer", "didReceiveMemoryWarning"]
+- !private ["PSo21UIAppearanceContainer", "frame"]
 - !private ["PSo21UIAppearanceContainer", "image"]
 - ["PSo21UIAppearanceContainer", "init"]
 - !private ["PSo21UIAppearanceContainer", "isHidden"]
@@ -881,6 +932,7 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "topBackView"]
 - ["PSo21UIAppearanceContainer", "userDefaults"]
 - !private ["PSo21UIAppearanceContainer", "userType"]
+- !private ["PSo21UIAppearanceContainer", "view"]
 - ["PSo21UIAppearanceContainer", "viewDidLoad"]
 - ["PSo21UIAppearanceContainer", "viewWillAppear"]
 - ["PSo21UIAppearanceContainer", "viewWillDisappear"]
@@ -940,6 +992,7 @@ depends-member:
 - ["PSo18UIContentContainer", "topBackView"]
 - ["PSo18UIContentContainer", "userDefaults"]
 - !private ["PSo18UIContentContainer", "userType"]
+- !private ["PSo18UIContentContainer", "view"]
 - ["PSo18UIContentContainer", "viewDidLoad"]
 - ["PSo18UIContentContainer", "viewWillAppear"]
 - ["PSo18UIContentContainer", "viewWillDisappear"]
@@ -951,6 +1004,7 @@ depends-member:
 - !private ["PSo17UICoordinateSpace", "addGestureRecognizer"]
 - !private ["PSo17UICoordinateSpace", "addSubview"]
 - !private ["PSo17UICoordinateSpace", "backgroundColor"]
+- !private ["PSo17UICoordinateSpace", "frame"]
 - !private ["PSo17UICoordinateSpace", "image"]
 - ["PSo17UICoordinateSpace", "init"]
 - !private ["PSo17UICoordinateSpace", "isHidden"]
@@ -960,6 +1014,7 @@ depends-member:
 - !private ["PSo13UIDynamicItem", "addGestureRecognizer"]
 - !private ["PSo13UIDynamicItem", "addSubview"]
 - !private ["PSo13UIDynamicItem", "backgroundColor"]
+- !private ["PSo13UIDynamicItem", "frame"]
 - !private ["PSo13UIDynamicItem", "image"]
 - ["PSo13UIDynamicItem", "init"]
 - !private ["PSo13UIDynamicItem", "isHidden"]
@@ -991,6 +1046,7 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "backgroundColor"]
 - ["PSo18UIFocusEnvironment", "createCustomTopView"]
 - ["PSo18UIFocusEnvironment", "didReceiveMemoryWarning"]
+- !private ["PSo18UIFocusEnvironment", "frame"]
 - !private ["PSo18UIFocusEnvironment", "image"]
 - ["PSo18UIFocusEnvironment", "init"]
 - !private ["PSo18UIFocusEnvironment", "isHidden"]
@@ -1012,6 +1068,7 @@ depends-member:
 - ["PSo18UIFocusEnvironment", "topBackView"]
 - ["PSo18UIFocusEnvironment", "userDefaults"]
 - !private ["PSo18UIFocusEnvironment", "userType"]
+- !private ["PSo18UIFocusEnvironment", "view"]
 - ["PSo18UIFocusEnvironment", "viewDidLoad"]
 - ["PSo18UIFocusEnvironment", "viewWillAppear"]
 - ["PSo18UIFocusEnvironment", "viewWillDisappear"]
@@ -1019,6 +1076,7 @@ depends-member:
 - !private ["PSo11UIFocusItem", "addGestureRecognizer"]
 - !private ["PSo11UIFocusItem", "addSubview"]
 - !private ["PSo11UIFocusItem", "backgroundColor"]
+- !private ["PSo11UIFocusItem", "frame"]
 - !private ["PSo11UIFocusItem", "image"]
 - ["PSo11UIFocusItem", "init"]
 - !private ["PSo11UIFocusItem", "isHidden"]
@@ -1040,7 +1098,6 @@ depends-member:
 - !private ["CSo16UINavigationItem", "hidesBackButton"]
 - !private ["CSo16UINavigationItem", "leftBarButtonItem"]
 - !private ["CSo16UINavigationItem", "rightBarButtonItem"]
-- !private ["CSo16UINavigationItem", "rightBarButtonItems"]
 - !private ["CSo16UINavigationItem", "title"]
 - ["CSo11UIResponder", "AddBtn_Click"]
 - ["CSo11UIResponder", "BackBtn_Click"]
@@ -1069,6 +1126,7 @@ depends-member:
 - !private ["CSo11UIResponder", "backgroundColor"]
 - ["CSo11UIResponder", "createCustomTopView"]
 - ["CSo11UIResponder", "didReceiveMemoryWarning"]
+- !private ["CSo11UIResponder", "frame"]
 - !private ["CSo11UIResponder", "image"]
 - ["CSo11UIResponder", "init"]
 - !private ["CSo11UIResponder", "isHidden"]
@@ -1092,6 +1150,7 @@ depends-member:
 - ["CSo11UIResponder", "userDefaults"]
 - !private ["CSo11UIResponder", "userInterfaceLayoutDirection"]
 - !private ["CSo11UIResponder", "userType"]
+- !private ["CSo11UIResponder", "view"]
 - ["CSo11UIResponder", "viewDidLoad"]
 - ["CSo11UIResponder", "viewWillAppear"]
 - ["CSo11UIResponder", "viewWillDisappear"]
@@ -1120,6 +1179,7 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "backgroundColor"]
 - ["PSo30UIResponderStandardEditActions", "createCustomTopView"]
 - ["PSo30UIResponderStandardEditActions", "didReceiveMemoryWarning"]
+- !private ["PSo30UIResponderStandardEditActions", "frame"]
 - !private ["PSo30UIResponderStandardEditActions", "image"]
 - ["PSo30UIResponderStandardEditActions", "init"]
 - !private ["PSo30UIResponderStandardEditActions", "isHidden"]
@@ -1143,6 +1203,7 @@ depends-member:
 - ["PSo30UIResponderStandardEditActions", "userDefaults"]
 - !private ["PSo30UIResponderStandardEditActions", "userInterfaceLayoutDirection"]
 - !private ["PSo30UIResponderStandardEditActions", "userType"]
+- !private ["PSo30UIResponderStandardEditActions", "view"]
 - ["PSo30UIResponderStandardEditActions", "viewDidLoad"]
 - ["PSo30UIResponderStandardEditActions", "viewWillAppear"]
 - ["PSo30UIResponderStandardEditActions", "viewWillDisappear"]
@@ -1185,6 +1246,7 @@ depends-member:
 - ["PSo16UIStateRestoring", "topBackView"]
 - ["PSo16UIStateRestoring", "userDefaults"]
 - !private ["PSo16UIStateRestoring", "userType"]
+- !private ["PSo16UIStateRestoring", "view"]
 - ["PSo16UIStateRestoring", "viewDidLoad"]
 - ["PSo16UIStateRestoring", "viewWillAppear"]
 - ["PSo16UIStateRestoring", "viewWillDisappear"]
@@ -1221,6 +1283,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "backgroundColor"]
 - ["PSo18UITraitEnvironment", "createCustomTopView"]
 - ["PSo18UITraitEnvironment", "didReceiveMemoryWarning"]
+- !private ["PSo18UITraitEnvironment", "frame"]
 - !private ["PSo18UITraitEnvironment", "image"]
 - ["PSo18UITraitEnvironment", "init"]
 - !private ["PSo18UITraitEnvironment", "isHidden"]
@@ -1242,6 +1305,7 @@ depends-member:
 - ["PSo18UITraitEnvironment", "topBackView"]
 - ["PSo18UITraitEnvironment", "userDefaults"]
 - !private ["PSo18UITraitEnvironment", "userType"]
+- !private ["PSo18UITraitEnvironment", "view"]
 - ["PSo18UITraitEnvironment", "viewDidLoad"]
 - ["PSo18UITraitEnvironment", "viewWillAppear"]
 - ["PSo18UITraitEnvironment", "viewWillDisappear"]
@@ -1253,6 +1317,7 @@ depends-member:
 - !private ["CSo6UIView", "addSubview"]
 - !private ["CSo6UIView", "backgroundColor"]
 - ["CSo6UIView", "deinit"]
+- !private ["CSo6UIView", "frame"]
 - !private ["CSo6UIView", "image"]
 - ["CSo6UIView", "init"]
 - !private ["CSo6UIView", "isHidden"]
@@ -1300,6 +1365,7 @@ depends-member:
 - ["CSo16UIViewController", "topBackView"]
 - ["CSo16UIViewController", "userDefaults"]
 - !private ["CSo16UIViewController", "userType"]
+- !private ["CSo16UIViewController", "view"]
 - ["CSo16UIViewController", "viewDidLoad"]
 - ["CSo16UIViewController", "viewWillAppear"]
 - ["CSo16UIViewController", "viewWillDisappear"]
@@ -1315,9 +1381,12 @@ depends-member:
 - ["CSo12UserDefaults", "deinit"]
 - ["CSo12UserDefaults", "integer"]
 - ["CSo12UserDefaults", "standard"]
+- !private ["Ps15_CVarArgAligned", "Stride"]
+- !private ["Ps22_CVarArgPassedAsDouble", "Stride"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "addGestureRecognizer"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "addSubview"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "backgroundColor"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "frame"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "image"]
 - ["Ps37_DefaultCustomPlaygroundQuickLookable", "init"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "isHidden"]
@@ -1327,6 +1396,8 @@ depends-member:
 - !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
 - !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
 - !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "localized"]
+- !private ["Ps33_ExpressibleByBuiltinFloatLiteral", "Stride"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "Stride"]
 - ["Ps35_ExpressibleByBuiltinIntegerLiteral", "init"]
 - !private ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
 - !private ["Ps34_ExpressibleByBuiltinStringLiteral", "localized"]
@@ -1352,6 +1423,7 @@ depends-member:
 - !private ["Ps9_Hashable", "NotificationCenter"]
 - !private ["Ps9_Hashable", "Notifications"]
 - !private ["Ps9_Hashable", "RawValue"]
+- !private ["Ps9_Hashable", "Stride"]
 - !private ["Ps9_Hashable", "UIApplication"]
 - ["Ps9_Hashable", "UIBarButtonItem"]
 - !private ["Ps9_Hashable", "UIColor"]
@@ -1371,6 +1443,7 @@ depends-member:
 - ["Ps9_Hashable", "createCustomTopView"]
 - !private ["Ps9_Hashable", "default"]
 - ["Ps9_Hashable", "didReceiveMemoryWarning"]
+- !private ["Ps9_Hashable", "frame"]
 - !private ["Ps9_Hashable", "gray"]
 - !private ["Ps9_Hashable", "hidesBackButton"]
 - !private ["Ps9_Hashable", "image"]
@@ -1392,7 +1465,6 @@ depends-member:
 - ["Ps9_Hashable", "readingContainer"]
 - !private ["Ps9_Hashable", "removeFromSuperview"]
 - !private ["Ps9_Hashable", "rightBarButtonItem"]
-- !private ["Ps9_Hashable", "rightBarButtonItems"]
 - !private ["Ps9_Hashable", "rightToLeft"]
 - ["Ps9_Hashable", "selectedUserType"]
 - ["Ps9_Hashable", "setNavBarUI"]
@@ -1405,28 +1477,41 @@ depends-member:
 - ["Ps9_Hashable", "userDefaults"]
 - !private ["Ps9_Hashable", "userInterfaceLayoutDirection"]
 - !private ["Ps9_Hashable", "userType"]
+- !private ["Ps9_Hashable", "view"]
 - ["Ps9_Hashable", "viewDidLoad"]
 - ["Ps9_Hashable", "viewWillAppear"]
 - ["Ps9_Hashable", "viewWillDisappear"]
 - !private ["Ps9_Hashable", "white"]
 - ["Ps9_Hashable", ""]
+- !private ["Ps14_Incrementable", "Stride"]
 - ["Ps14_Incrementable", "init"]
+- !private ["Ps8_Integer", "Stride"]
 - ["Ps8_Integer", "init"]
+- !private ["Ps18_IntegerArithmetic", "Stride"]
 - ["Ps18_IntegerArithmetic", "init"]
+- !private ["Ps21_ObjectiveCBridgeable", "Stride"]
 - !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
 - ["Ps21_ObjectiveCBridgeable", "init"]
 - !private ["Ps21_ObjectiveCBridgeable", "localized"]
+- !private ["Ps21_ObjectiveCBridgeable", "size"]
+- !private ["Ps21_ObjectiveCBridgeable", "width"]
+- !private ["Ps14_SignedInteger", "Stride"]
 - ["Ps14_SignedInteger", "init"]
+- !private ["Ps11_Strideable", "Stride"]
 - ["Ps11_Strideable", "init"]
 - !private ["Ps20_SwiftNewtypeWrapper", "init"]
 - ["V11DiabetesApp12userDefaults", "loggedInUserType"]
 - !private ["V11DiabetesApp8userType", "doctor"]
 depends-nominal:
+- !private "Ps16AbsoluteValuable"
 - "Ps9AnyObject"
+- !private "Ps19BinaryFloatingPoint"
 - "Ps17BitwiseOperations"
 - "Sb"
 - "PSo15CALayerDelegate"
+- "V12CoreGraphics7CGFloat"
 - "VSC6CGRect"
+- !private "VSC6CGSize"
 - "Ps7CVarArg"
 - "C11DiabetesApp26CarePlanMainViewController"
 - !private "Vs9Character"
@@ -1441,11 +1526,13 @@ depends-nominal:
 - !private "Ps25ExpressibleByArrayLiteral"
 - !private "Ps27ExpressibleByBooleanLiteral"
 - !private "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- !private "Ps25ExpressibleByFloatLiteral"
 - "Ps27ExpressibleByIntegerLiteral"
 - !private "Ps32ExpressibleByStringInterpolation"
 - !private "Ps26ExpressibleByStringLiteral"
 - !private "Ps33ExpressibleByUnicodeScalarLiteral"
 - !private "Sf"
+- !private "Ps13FloatingPoint"
 - "Ps8Hashable"
 - "SQ"
 - "Si"
@@ -1522,9 +1609,12 @@ depends-nominal:
 - !private "P9Alamofire14URLConvertible"
 - !private "Sc"
 - "CSo12UserDefaults"
+- !private "Ps15_CVarArgAligned"
+- !private "Ps22_CVarArgPassedAsDouble"
 - "Ps37_DefaultCustomPlaygroundQuickLookable"
 - !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
 - !private "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- !private "Ps33_ExpressibleByBuiltinFloatLiteral"
 - "Ps35_ExpressibleByBuiltinIntegerLiteral"
 - !private "Ps34_ExpressibleByBuiltinStringLiteral"
 - !private "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
