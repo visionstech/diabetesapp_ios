@@ -10,6 +10,12 @@ target 'DiabetesApp' do
      pod 'Alamofire', '~> 4.0'
      pod 'QMServices'
      pod 'QMChatViewController'
+     pod 'SDWebImage/WebP’
+     pod 'AlamofireImage', '~> 3.1'
+     pod 'SwiftCharts', '~> 0.2'
+     pod 'MZAppearance'
+     pod 'JGMethodSwizzler'
+     pod 'Google/Analytics'
   # Pods for DiabetesApp
 
 
