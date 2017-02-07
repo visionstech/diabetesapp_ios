@@ -10,6 +10,8 @@ import UIKit
 import QMServices
 import SVProgressHUD
 import Quickblox
+import Alamofire
+import SDWebImage
 
 class DialogTableViewCellModel: NSObject {
     
@@ -19,6 +21,8 @@ class DialogTableViewCellModel: NSObject {
     var unreadMessagesCounterHiden = true
     var dialogIcon : UIImage?
    
+    
+    
     init(dialog: QBChatDialog) {
         super.init()
 		switch (dialog.type){
@@ -36,7 +40,9 @@ class DialogTableViewCellModel: NSObject {
 			// Getting recipient from users service.
 			if let recipient = ServicesManager.instance().usersService.usersMemoryStorage.user(withID: UInt(dialog.recipientID)) {
 				self.textLabelText = recipient.login ?? recipient.email!
+               
 			}
+            
 		}
         
         if self.textLabelText.isEmpty {
@@ -71,24 +77,79 @@ class DialogTableViewCellModel: NSObject {
         
         // Dialog icon
         
-        if dialog.type == .private {
-            self.dialogIcon = UIImage(named: "user")
-        }
-        else {
-            self.dialogIcon = UIImage(named: "group")
-        }
+//        let customParams: NSMutableDictionary = NSMutableDictionary()
+//        customParams["chat_id"] = dialog.id
+//        
+//        QBRequest.objects(withClassName: "Patient", extendedRequest: customParams, successBlock: { (responce: QBResponse?,record, page) in
+//            
+//                let data = record! as Array<QBCOCustomObject>
+//            
+//                let recipientTypes = data[0].fields?.value(forKey: "recipientTypes") as! [String]
+//                let recipientIDs = data[0].fields?.value(forKey: "recipientIDs") as! [String]
+//                var selectedPatientID : String = ""
+//            
+//                let typeUser : Int = Int(UserDefaults.standard.integer(forKey: userDefaults.loggedInUserType))
+//            
+//            
+//                var databaseToCheck = ""
+//            
+//                if(typeUser == userType.doctor){
+//                    databaseToCheck = "Patient"
+//                }
+//                else if(typeUser == userType.patient && recipientTypes.contains("doctor"))
+//                {
+//                    databaseToCheck = "Doctor"
+//                    selectedPatientID = recipientIDs[recipientTypes.index(of: "doctor")!]
+//                }
+//                else if(typeUser == userType.patient && recipientTypes.contains("educator"))
+//                {
+//                    databaseToCheck = "Educator"
+//                    selectedPatientID = recipientIDs[recipientTypes.index(of: "educator")!]
+//                }
+//                else if(typeUser == userType.patient && recipientTypes.contains("patient"))
+//                {
+//                    databaseToCheck = "Patient"
+//                }
+//                else if(typeUser == userType.patient && recipientTypes.contains("doctor"))
+//                {
+//                    databaseToCheck = "Doctor"
+//                   selectedPatientID = recipientIDs[recipientTypes.index(of: "doctor")!]
+//                }
+//            
+//                getImage(userid: selectedPatientID, type: databaseToCheck) { (result) -> Void in
+//                    if(result){
+//                    
+//                    }
+//                    else
+//                    {
+//                            //Add Alert code here
+//                        _ = AlertView(title: "Error", message: "No display image found", cancelButtonTitle: "OK", otherButtonTitle: ["Cancel"], didClick: { (buttonIndex) in
+//                        })
+//                    }
+//                
+//                }
+//            
+//                
+//        });
+//        if dialog.type == .private {
+//            self.dialogIcon = UIImage(named: "user")
+//        }
+//        else {
+//            self.dialogIcon = UIImage(named: "group")
+//        }
     }
 }
 
 class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCoreDelegate, QMChatConnectionDelegate, QMAuthServiceDelegate, QBRTCClientDelegate, IncomingCallViewControllerDelegate  {
 
-
+    var myTimer  =  Timer()
     private var didEnterBackgroundDate: NSDate?
     private var observer: NSObjectProtocol?
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let selectedUserType: Int = Int(UserDefaults.standard.integer(forKey: userDefaults.loggedInUserType))
     //var session : QBRTCSession? = nil
+    
     
     // MARK: - ViewController overrides
     override func awakeFromNib() {
@@ -98,23 +159,30 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
        // self.navigationItem.title = ServicesManager.instance().currentUser()?.login!
        
         setNavBarUI()
-       // print( appDelegate.currentUser)
+        
         ServicesManager.instance().chatService.addDelegate(self)
         ServicesManager.instance().authService.add(self)
         
         self.observer = NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationDidBecomeActive, object: nil, queue: OperationQueue.main) { (notification) -> Void in
             
             if !QBChat.instance().isConnected {
-                //SVProgressHUD.show(withStatus: "SA_STR_CONNECTING_TO_CHAT".localized, maskType: SVProgressHUDMaskType.clear)
+                print("here")
+                QBChat.instance().forceReconnect()
+                
+                SVProgressHUD.show(withStatus: "SA_STR_CONNECTING_TO_CHAT".localized, maskType: SVProgressHUDMaskType.clear)
+              self.myTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.runTimedCode), userInfo: nil, repeats: true)
+                
             }
-            else {
-               // SVProgressHUD.dismiss()
+            else{
+                
             }
         }
         
-      //  NotificationCenter.default.addObserver(self, selector: #selector(DialogsViewController.didEnterBackgroundNotification), name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
+               
+        NotificationCenter.default.addObserver(self, selector: #selector(DialogsViewController.didEnterBackgroundNotification), name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
         
         if (QBChat.instance().isConnected) {
+          
             self.getDialogs()
         }
         
@@ -123,7 +191,26 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
         tableView.tableFooterView = UIView()
     }
     
-   
+    
+    func runTimedCode()  {
+      
+        
+        if UIApplication.shared.isNetworkActivityIndicatorVisible {
+           
+           
+        }
+        else {
+            SVProgressHUD.dismiss()
+            myTimer .invalidate()
+        }
+    }
+    
+
+    override func viewDidAppear(_ animated: Bool) {
+        //--------Google Analytics Start-----
+        GoogleAnalyticManagerApi.sharedInstance.startScreenSessionWithName(screenName: kDialogsScreenName)
+        //--------Google Analytics Finish-----
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -156,53 +243,8 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
     }
     
     
-    
-    // MARK: - Custom Methods
     func setNavBarUI(){
         
-        if selectedUserType != userType.patient {
-            
-            let chatButton = UIBarButtonItem(image: UIImage(named:"NewMessage" ), style: .plain, target: self, action: #selector(DialogsViewController.GroupAction(_:)))
-            chatButton.tag = 1
-            let groupChatButton = UIBarButtonItem(image: UIImage(named:"groupIcon" ), style: .plain, target: self, action: #selector(DialogsViewController.GroupAction(_:)))
-            groupChatButton.tag = 0
-            
-            if selectedUserType == userType.doctor {
-                self.tabBarController?.navigationItem.rightBarButtonItems  = [chatButton]
-            }
-            else {
-                self.tabBarController?.navigationItem.rightBarButtonItems = [groupChatButton,chatButton]
-            }
-        }
-
-        let logoutButton = UIBarButtonItem(title: "SA_STR_LOGOUT".localized, style: UIBarButtonItemStyle.plain, target: self, action: #selector(DialogsViewController.logoutAction))
-        if self.tabBarController != nil {
-            self.tabBarController?.navigationItem.title = "MESSAGES".localized
-            self.tabBarController?.navigationItem.leftBarButtonItem = logoutButton
-            
-            
-        }
-        
-//        
-//        
-//        self.title = "\("MESSAGES".localized)"
-//        self.tabBarController?.title = "\("MESSAGES".localized)"
-//        self.tabBarController?.navigationItem.title = "\("MESSAGES".localized)"
-//        self.navigationItem.leftBarButtonItem = logoutButton
-//      
-//        self.tabBarController?.navigationItem.leftBarButtonItem = logoutButton
-//       // self.tabBarController?.navigationItem.rightBarButtonItem = nil
-//        self.navigationItem.hidesBackButton = true
-//        self.tabBarController?.navigationItem.hidesBackButton = true
-        
-       
-        
-        
-    }
-    
-    
-//    func setNavBarUI(){
-//        
 //        let logoutButton = UIBarButtonItem(title: "SA_STR_LOGOUT".localized, style: UIBarButtonItemStyle.plain, target: self, action: #selector(DialogsViewController.logoutAction))
 //        
 //        self.title = "MESSAGES".localized
@@ -215,30 +257,48 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
 //            self.tabBarController?.navigationItem.rightBarButtonItems = nil
 //            
 //        }
-//        
-//        if selectedUserType != userType.patient {
-//            
-//            let chatButton = UIBarButtonItem(image: UIImage(named:"NewMessage" ), style: .plain, target: self, action: #selector(DialogsViewController.GroupAction(_:)))
-//            chatButton.tag = 1
+        
+        if selectedUserType != userType.patient {
+            
+            let chatButton = UIBarButtonItem(image: UIImage(named:"NewMessage" ), style: .plain, target: self, action: #selector(DialogsViewController.GroupAction(_:)))
+            chatButton.tag = 1
 //            let groupChatButton = UIBarButtonItem(image: UIImage(named:"groupIcon" ), style: .plain, target: self, action: #selector(DialogsViewController.GroupAction(_:)))
-//            groupChatButton.tag = 0
-//            
-//            if selectedUserType == userType.doctor {
-//                 self.navigationItem.rightBarButtonItems = [chatButton]
-//            }
-//            else {
+
+             let groupChatButton = UIBarButtonItem(image: UIImage(named:"NewMessage" ), style: .plain, target: self, action: #selector(DialogsViewController.GroupAction(_:)))
+            groupChatButton.tag = 0
+            
+            if selectedUserType == userType.doctor {
+                  self.tabBarController?.navigationItem.rightBarButtonItems = [chatButton]
+            }
+            else {
+                  self.tabBarController?.navigationItem.rightBarButtonItems = [groupChatButton]
 //                 self.navigationItem.rightBarButtonItems = [groupChatButton,chatButton]
-//            }
-//        }
-//        
-//        
-//    }
+            }
+        }
+        
+        self.tabBarController?.title = "Inbox".localized
+        self.tabBarController?.navigationItem.title = "Inbox".localized
+        self.parent?.navigationController?.navigationItem.hidesBackButton = true
+        
+        let logoutButton = UIBarButtonItem(title: "SA_STR_LOGOUT".localized, style: UIBarButtonItemStyle.plain, target: self, action: #selector(DialogsViewController.logoutAction))
+        if self.tabBarController != nil {
+//            self.tabBarController?.navigationItem.title = "Inbox".localized
+            self.tabBarController?.title = "Inbox".localized
+            self.tabBarController?.navigationItem.title = "Inbox".localized
+
+            self.tabBarController?.navigationItem.leftBarButtonItem = logoutButton
+            
+        }
+        
+        
+    }
     
     //MARK: - QBRTCClientDelegate Delegate
     func didReceiveNewSession(_ session: QBRTCSession!, userInfo: [AnyHashable : Any]! = [:]) {
         
         if (appDelegate.session != nil) {
             session.rejectCall(["reject":"busy"])
+            GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "Incoming Call", action:"Reject - busy" , label:"Incoming Call \(session.initiatorID)")
             return
         }
         
@@ -277,14 +337,16 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
     func incomingCallViewControllerReject(_ vc: IncomingCallViewController!, didReject session: QBRTCSession!) {
         self.appDelegate.session = session
         session.rejectCall(nil)
+         GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "Incoming Call", action:"Reject" , label:"Incoming Call \(session.initiatorID)")
         //self.dismiss(animated: true, completion: nil)
         self.navigationController?.popViewController(animated: true)
     }
     
     func incomingCallViewControllerAccept(_ vc: IncomingCallViewController!, didAccept session: QBRTCSession!) {
         
-        print("initiatorID \(session!.initiatorID!) app \(appDelegate.session?.initiatorID!)")
         self.appDelegate.session = session
+        
+        GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "Incoming Call", action:"Accept" , label:"Incoming Call \(session.initiatorID)")
         
         QBRequest.user(withID:session.initiatorID as UInt , successBlock: { (response, user) in
             
@@ -315,11 +377,11 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
     
     @IBAction func GroupAction(_ sender: UIBarButtonItem) {
         
-       let viewController: ContactListViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.contactViewController) as! ContactListViewController
+        let viewController: ContactListViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.contactViewController) as! ContactListViewController
         viewController.isGroupMode = (sender.tag == 0 ? true : false)
-       self.tabBarController?.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
+        self.tabBarController?.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         viewController.hidesBottomBarWhenPushed = true
-       self.navigationController?.pushViewController(viewController, animated: true)
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     @IBAction func logoutAction() {
@@ -347,18 +409,27 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
                 ServicesManager.instance().authService.remove(strongSelf)
                 UserDefaults.standard.set(false, forKey: userDefaults.isLoggedIn)
                 ServicesManager.instance().lastActivityDate = nil;
+                
                 // Update UserDefaults
                 UserDefaults.standard.set(false, forKey: userDefaults.isLoggedIn)
+                
                 UserDefaults.standard.setValue("" , forKey: userDefaults.loggedInUserID)
                 UserDefaults.standard.setValue("", forKey: userDefaults.loggedInUsername)
                 UserDefaults.standard.setValue("", forKey: userDefaults.loggedInUserEmail)
                 UserDefaults.standard.setValue("", forKey: userDefaults.loggedInUserPassword)
                 UserDefaults.standard.setValue("", forKey: userDefaults.selectedPatientID)
+                UserDefaults.standard.setValue("", forKey: userDefaults.selectedPatientHCNumber)
+                UserDefaults.standard.set("", forKey: userDefaults.recipientTypesArray)
+                UserDefaults.standard.set("", forKey: userDefaults.recipientIDArray)
+                UserDefaults.standard.setValue("", forKey: userDefaults.loggedInUserFullname)
                 UserDefaults.standard.setValue("", forKey: userDefaults.loggedInUserType)
+               
                 UserDefaults.standard.synchronize()
+                 GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "Logout", action:"Logout Button Clicked" , label:"Successfull logout")
+                
                 SVProgressHUD.dismiss()
                 if self?.tabBarController != nil {
-                self?.tabBarController?.navigationController?.popToRootViewController(animated: true)
+                    self?.tabBarController?.navigationController?.popToRootViewController(animated: true)
                 }
                 else{
                      let _ = strongSelf.navigationController?.popToRootViewController(animated: true)
@@ -376,9 +447,8 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
         if let lastActivityDate = ServicesManager.instance().lastActivityDate {
 			
 			ServicesManager.instance().chatService.fetchDialogsUpdated(from: lastActivityDate as Date, andPageLimit: kDialogsPageLimit, iterationBlock: { (response, dialogObjects, dialogsUsersIDs, stop) -> Void in
-                print(dialogObjects)
-				
-				}, completionBlock: { (response) -> Void in
+                
+            }, completionBlock: { (response) -> Void in
 					
                     if (response.isSuccess) {
                         
@@ -391,10 +461,11 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
            // SVProgressHUD.show(withStatus: "SA_STR_LOADING_DIALOGS".localized, maskType: SVProgressHUDMaskType.clear)
 			
 			ServicesManager.instance().chatService.allDialogs(withPageLimit: kDialogsPageLimit, extendedRequest: nil, iterationBlock: { (response: QBResponse?, dialogObjects: [QBChatDialog]?, dialogsUsersIDS: Set<NSNumber>?, stop: UnsafeMutablePointer<ObjCBool>) -> Void in
-				
-				}, completion: { (response: QBResponse?) -> Void in
+            }, completion: { (response: QBResponse?) -> Void in
 					
 					guard response != nil && response!.isSuccess else {
+                        
+                        
 						SVProgressHUD.showError(withStatus: "SA_STR_FAILED_LOAD_DIALOGS".localized)
 						return
 					}
@@ -419,10 +490,11 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
         
         return 1
     }
+   
+  
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		if let dialogs = self.dialogs() {
-            
 			return dialogs.count
 		}
         return 0
@@ -435,6 +507,8 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        
+        print("Done second")
         let cell = tableView.dequeueReusableCell(withIdentifier: "dialogcell", for: indexPath) as! DialogTableViewCell
         
         if ((self.dialogs()?.count)! < indexPath.row) {
@@ -449,30 +523,194 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
         cell.contentView.isExclusiveTouch = true
         cell.backgroundColor = UIColor.white
         cell.accessoryType = .disclosureIndicator
-      
+        
         cell.tag = indexPath.row
         cell.dialogID = chatDialog.id!
         
         let cellModel = DialogTableViewCellModel(dialog: chatDialog)
         
+        let customParams: NSMutableDictionary = NSMutableDictionary()
+        customParams["chat_id"] = chatDialog.id
+        
+        //SVProgressHUD.show(withStatus: "Loading chat".localized, maskType: SVProgressHUDMaskType.clear)
+        
+        let typeUser : Int = Int(UserDefaults.standard.integer(forKey: userDefaults.loggedInUserType))
+        
+        QBRequest.objects(withClassName: "Patient", extendedRequest: customParams, successBlock: { (responce: QBResponse?,record, page) in
+            
+            let data = record! as Array<QBCOCustomObject>
+            
+            if(data.count > 0)
+            {
+                if data[0].fields?.value(forKey: "recipientTypes") != nil && data[0].fields?.value      (forKey: "recipientIDs") != nil
+                {
+                
+                    let recipientTypes = data[0].fields?.value(forKey: "recipientTypes") as! [String]
+                    let recipientIDs = data[0].fields?.value(forKey: "recipientIDs") as! [String]
+            
+                    //var databaseToCheck = ""
+                    var selectedPatientID : String = ""
+            
+                    if(typeUser == userType.doctor){
+                       // databaseToCheck = "Patient"
+                        selectedPatientID = (recipientIDs[(recipientTypes.index(of: "patient"))!])
+                    }
+                    else if(typeUser == userType.patient && (recipientTypes.contains("doctor")))
+                    {
+                        //databaseToCheck = "Doctor"
+                        selectedPatientID = (recipientIDs[(recipientTypes.index(of: "doctor"))!])
+                    }
+                    else if(typeUser == userType.patient && (recipientTypes.contains("educator")))
+                    {
+                        //databaseToCheck = "Educator"
+                        selectedPatientID = (recipientIDs[(recipientTypes.index(of: "educator"))!])
+                    }
+                    else if(typeUser == userType.educator && (recipientTypes.contains("patient")))
+                    {
+                        //databaseToCheck = "Patient"
+                        selectedPatientID = (recipientIDs[(recipientTypes.index(of: "patient"))!])
+                    }
+                    else if(typeUser == userType.educator && (recipientTypes.contains("doctor")))
+                    {
+                       // databaseToCheck = "Doctor"
+                        selectedPatientID = (recipientIDs[(recipientTypes.index(of: "doctor"))!])
+                    }
+            
+                    let imagePath = "http://54.212.229.198:3000/upload/" + selectedPatientID + "image.jpg"
+                    let manager:SDWebImageManager = SDWebImageManager.shared()
+            
+                    //cell.dialogTypeImage.image =   UIImage(named:"user.png")!
+                    manager.downloadImage(with: NSURL(string: imagePath) as URL!,
+                                  options: SDWebImageOptions.highPriority,
+                                  progress: nil,
+                                  completed: {[weak self] (image, error, cached, finished, url) in
+                                    if (error == nil && (image != nil) && finished) {
+                                        
+                                        //cell.
+                                        
+                                        cell.dialogTypeImage.layer.cornerRadius =
+                                            cell.dialogTypeImage.frame.size.width/2
+                                        
+                                        cell.dialogTypeImage.clipsToBounds = true
+                                        
+                                        cell.dialogTypeImage.image = image
+                                        
+                                    }
+                            })
+                }
+
+            
+                var recipientNames : [String] = []
+            
+                if data[0].fields?.value(forKey: "recipientNames") != nil{
+                    recipientNames = data[0].fields?.value(forKey: "recipientNames") as! [String]
+                
+                    if(typeUser == userType.patient)
+                    {
+                        if(recipientNames.count >= 2)
+                        {
+                            cell.dialogName?.text = recipientNames[1]
+                            SVProgressHUD.dismiss()
+                        }
+                        else{
+                            cell.dialogName?.text = cellModel.textLabelText
+                            SVProgressHUD.dismiss()
+                        }
+                    }
+                    else{
+                        cell.dialogName?.text = cellModel.textLabelText
+                        SVProgressHUD.dismiss()
+                    }
+                
+                }
+            }
+        });
+        
+        
+        if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
+            
+           // self.navigationItem.leftBarButtonItems = [optionsBtnBar,ReportBarButton]
+            cell.dialogLastMessage?.textAlignment = .right
+            cell.dialogName?.textAlignment = .right
+        }
+        else {
+            
+           // self.navigationItem.rightBarButtonItems = [optionsBtnBar,ReportBarButton]
+             cell.dialogLastMessage?.textAlignment = .left
+             cell.dialogName?.textAlignment = .left
+            
+        }
+
         cell.dialogLastMessage?.text = chatDialog.lastMessageText
-        cell.dialogName?.text = cellModel.textLabelText
-      //cell.dialogTypeImage.image = cellModel.dialogIcon
         cell.unreadMessageCounterLabel.text = cellModel.unreadMessagesCounterLabelText
         cell.unreadMessageCounterHolder.isHidden = cellModel.unreadMessagesCounterHiden
+      
         
         return cell
     }
     
+    
+    func getImage(userid: String, type: String, cellModel: DialogTableViewCell, withCompletionHandler:@escaping (_ result:Bool) -> Void)  {
+       
+        Alamofire.request("http://54.212.229.198:3000/showImage?id="+userid+"&type="+type, method: .get, encoding: JSONEncoding.default).responseJSON { (response) in
+            switch response.result {
+            case .success:
+                print("Validation Successful")
+                print(response.result.value)
+                if let JSON: NSDictionary = response.result.value as! NSDictionary?
+                {
+                    if JSON["profileimage"] != nil {
+                        // now val is not nil and the Optional has been unwrapped, so use it
+                        
+                        let imageName: String = JSON.value(forKey:"profileimage") as! String
+                        
+                        let imagePath = "http://54.212.229.198:3000/upload/" + imageName
+                        let manager:SDWebImageManager = SDWebImageManager.shared()
+                        
+                        
+                        
+                        manager.downloadImage(with: NSURL(string: imagePath) as URL!,
+                                              options: SDWebImageOptions.highPriority,
+                                              progress: nil,
+                                              completed: {[weak self] (image, error, cached, finished, url) in
+                                                if (error == nil && (image != nil) && finished) {
+                                                  
+                                                   
+                                                    cellModel.dialogTypeImage.layer.cornerRadius = cellModel.dialogTypeImage.frame.size.width/2
+                                                    
+                                                    cellModel.dialogTypeImage.clipsToBounds = true
+                                                    
+                                                    cellModel.dialogTypeImage.image = image
+                                                    
+                                                    
+//                                                    guard let chatDialog = self.dialogs()?[indexPath.row] else {
+//                                                        return cell
+//                                                    }
+                                                    
+                                                }
+                        })
+                        print(imagePath)
+                        withCompletionHandler(true)
+                    }
+                }
+                
+                break
+            case .failure:
+                withCompletionHandler(false)
+                break
+                
+            }
+            
+        }
+    }
+
     // MARK: - UITableViewDelegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+       
         tableView.deselectRow(at: indexPath, animated: true)
         
-        
-        
-        if (ServicesManager.instance().isProcessingLogOut!) {
+               if (ServicesManager.instance().isProcessingLogOut!) {
             return
         }
         
@@ -480,16 +718,49 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
             return
         }
         
-         if dialog.photo != nil
+        if dialog.photo != nil
         {
-       
-        UserDefaults.standard.setValue(String(describing: dialog.photo!), forKey: userDefaults.selectedPatientID)
+            
+            UserDefaults.standard.setValue(String(describing: dialog.photo!), forKey: userDefaults.selectedPatientID)
         }
         
+        let customParams: NSMutableDictionary = NSMutableDictionary()
+        customParams["chat_id"] = dialog.id
         
         
-        self.performSegue(withIdentifier: "SA_STR_SEGUE_GO_TO_CHAT".localized , sender: dialog)
-        
+        QBRequest.objects(withClassName: "Patient", extendedRequest: customParams, successBlock: { (responce: QBResponse?,record, page) in
+            
+            let data = record! as Array<QBCOCustomObject>
+            
+           
+            if(data.count > 0)
+            {
+                UserDefaults.standard.set(data[0].fields?.value(forKey: "recipientTypes"), forKey: userDefaults.recipientTypesArray)
+                UserDefaults.standard.set(data[0].fields?.value(forKey: "recipientIDs"), forKey: userDefaults.recipientIDArray)
+            
+                UserDefaults.standard.setValue(data[0].fields?.value(forKey: "patient_id"), forKey: userDefaults.selectedPatientID)
+            
+                UserDefaults.standard.setValue(data[0].fields?.value(forKey: "HCNumber"), forKey: userDefaults.selectedPatientHCNumber)
+            
+                let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+//            print(patientsID)
+            
+                //Google Analytic
+                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "QMChat", action:"Select Dialog For chat" , label:"Successfully redirect with chat")
+                
+                self.performSegue(withIdentifier: "SA_STR_SEGUE_GO_TO_CHAT".localized , sender: dialog)
+            }
+            else{
+                self.present(UtilityClass.displayAlertMessage(message: "Something is wrong with this chat", title: "SA_STR_ERROR".localized), animated: true, completion: nil)
+                //Google Analytic
+                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "QMChat", action:"Select Dialog For chat" , label:"Something is wrong with this chat")
+                
+                SVProgressHUD.dismiss()
+            }
+        }) { (responce: QBResponse?) in
+            print(responce as Any)
+
+        }
     }
 
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -522,11 +793,14 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
                 ServicesManager.instance().chatService.deleteDialog(withID: dialog.id!, completion: { (response) -> Void in
                     
                     guard response.isSuccess else {
+                        
+                        GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "Delete Chat", action:"Fail - Delete Chat" , label:response.error?.error as! String)
+                        
                         SVProgressHUD.showError(withStatus: "SA_STR_ERROR_DELETING".localized)
                         print(response.error?.error)
                         return
                     }
-                    
+                    GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "Delete Chat", action:"Success - Delete Chat" , label:"Successful Delete Chat")
                     SVProgressHUD.showSuccess(withStatus: "SA_STR_DELETED".localized)
                 })
             }
@@ -600,10 +874,15 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
     // MARK: QMChatConnectionDelegate
     func chatServiceChatDidFail(withStreamError error: Error) {
         SVProgressHUD.showError(withStatus: error.localizedDescription)
+        //Google Analytic
+        GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "QMChat", action:"Chat Fail" , label:error as! String)
+        
     }
     
     func chatServiceChatDidAccidentallyDisconnect(_ chatService: QMChatService) {
         SVProgressHUD.showError(withStatus: "SA_STR_DISCONNECTED".localized)
+        //Google Analytic
+        GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "QMChat", action:"Accidentally Disconnect" , label: "SA_STR_DISCONNECTED")
     }
     
     func chatServiceChatDidConnect(_ chatService: QMChatService) {
@@ -615,7 +894,10 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
     
     func chatService(_ chatService: QMChatService,chatDidNotConnectWithError error: Error){
         SVProgressHUD.showError(withStatus: error.localizedDescription)
+        //Google Analytic
+        GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "QMChat", action:"Not Connect With Error" , label:error as! String)
     }
+    
 	
 	
     func chatServiceChatDidReconnect(_ chatService: QMChatService) {

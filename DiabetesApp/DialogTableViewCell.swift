@@ -12,12 +12,22 @@ class DialogTableViewCell: UITableViewCell {
     
 //    @IBOutlet private weak var colorMarker: CornerView!
     
-    @IBOutlet weak var dialogLastMessage: UILabel!
-    @IBOutlet weak var dialogName: UILabel!
     @IBOutlet weak var dialogTypeImage: UIImageView!
-    @IBOutlet weak var unreadMessageCounterLabel: UILabel!
     
+    @IBOutlet weak var dialogName: UILabel!
+    
+    @IBOutlet weak var dialogLastMessage: UILabel!
+   
+    @IBOutlet weak var doctorNameDialog: UILabel!
     @IBOutlet weak var unreadMessageCounterHolder: UIView!
+    
+    @IBOutlet weak var unreadMessageCounterLabel: UILabel!
+//    @IBOutlet weak var dialogLastMessage: UILabel!
+//    @IBOutlet weak var dialogName: UILabel!
+//    @IBOutlet weak var dialogTypeImage: UIImageView!
+//    @IBOutlet weak var unreadMessageCounterLabel: UILabel!
+//    
+//    @IBOutlet weak var unreadMessageCounterHolder: UIView!
     
     var dialogID = ""
     

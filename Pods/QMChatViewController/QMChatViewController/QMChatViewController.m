@@ -83,7 +83,7 @@ UIAlertViewDelegate,QMPlaceHolderTextViewPasteDelegate, QMChatDataSourceDelegate
 
 - (void)configureMessagesViewController {
     
-   
+    
     self.toolbarHeightConstraint.constant = self.inputToolbar.preferredDefaultHeight;
     
     self.collectionView.dataSource = self;
@@ -273,7 +273,7 @@ UIAlertViewDelegate,QMPlaceHolderTextViewPasteDelegate, QMChatDataSourceDelegate
         
     }];
     _bgImage.image = [UIImage imageNamed:@"viewBGImage"];
-  
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -916,14 +916,14 @@ UIAlertViewDelegate,QMPlaceHolderTextViewPasteDelegate, QMChatDataSourceDelegate
 }
 
 - (void)setBottomCollectionViewInsetsValue:(CGFloat)bottom {
-
+    
     [self setCollectionViewInsetsTopValue:self.collectionView.contentInset.bottom
                               bottomValue:bottom];
     
 }
 
 - (void)setTopCollectionViewInsetsValue:(CGFloat)top {
-
+    
     [self setCollectionViewInsetsTopValue:top
                               bottomValue:self.collectionView.contentInset.top];
 }
@@ -1164,7 +1164,7 @@ UIAlertViewDelegate,QMPlaceHolderTextViewPasteDelegate, QMChatDataSourceDelegate
     visibleRect.size = self.collectionView.frame.size;
     return visibleRect;
 }
-    
+
 - (CGRect)scrollTopRect {
     
     return CGRectMake(0.0,
@@ -1213,7 +1213,7 @@ UIAlertViewDelegate,QMPlaceHolderTextViewPasteDelegate, QMChatDataSourceDelegate
     CGFloat toolbarMinY = CGRectGetMinY(hostViewRect) - CGRectGetHeight(self.inputToolbar.frame);
     
     switch (gesture.state) {
-        
+            
         case UIGestureRecognizerStateChanged: {
             
             if ([self.inputToolbar.contentView.textView isFirstResponder]) {

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import SDWebImage
 
 class HistoryMainViewController: UIViewController {
     
@@ -17,6 +19,11 @@ class HistoryMainViewController: UIViewController {
     @IBOutlet weak var chartViewContainer: UIView!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     
+    @IBOutlet weak var readingTypeSegmentControls: UISegmentedControl!
+    
+    let recipientTypes = UserDefaults.standard.stringArray(forKey: userDefaults.recipientTypesArray)
+    let recipientIDs = UserDefaults.standard.stringArray(forKey: userDefaults.recipientIDArray)
+    
     var topBackView:UIView = UIView()
     
     override func awakeFromNib() {
@@ -26,18 +33,45 @@ class HistoryMainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
-        segmentControl.setTitleTextAttributes([NSFontAttributeName: Fonts.noOfDaysFont, NSForegroundColorAttributeName:Colors.outgoingMsgColor], for: .normal)
+        segmentControl.setTitleTextAttributes([NSFontAttributeName: Fonts.noOfDaysFont, NSForegroundColorAttributeName:Colors.PrimaryColor], for: .normal)
         segmentControl.setTitleTextAttributes([NSFontAttributeName: Fonts.noOfDaysFont, NSForegroundColorAttributeName:UIColor.white], for: .selected)
+        segmentControl.setTitle("TODAY".localized, forSegmentAt: 0)
+        segmentControl.setTitle("SEVEN_DAYS".localized, forSegmentAt: 1)
+        segmentControl.setTitle("FOURTEEN_DAYS".localized, forSegmentAt: 2)
+        segmentControl.setTitle("THIRTY_DAYS".localized, forSegmentAt: 3)
+        segmentControl.layer.cornerRadius = kButtonRadius
+        segmentControl.layer.borderColor = Colors.PrimaryColor.cgColor
+        segmentControl.layer.borderWidth = 1
+        segmentControl.layer.masksToBounds = true
+        
+        
+        readingTypeSegmentControls.setTitle("List View".localized, forSegmentAt: 0)
+        readingTypeSegmentControls.setTitle("Chart View".localized, forSegmentAt: 1)
+        
+        readingTypeSegmentControls.setTitleTextAttributes([NSFontAttributeName: Fonts.HistoryHeaderFont, NSForegroundColorAttributeName:Colors.PrimaryColor], for: .normal)
+        readingTypeSegmentControls.setTitleTextAttributes([NSFontAttributeName: Fonts.HistoryHeaderFont, NSForegroundColorAttributeName:UIColor.white], for: .selected)
+        readingTypeSegmentControls.layer.cornerRadius = kButtonRadius
+        readingTypeSegmentControls.layer.borderColor = Colors.PrimaryColor.cgColor
+        readingTypeSegmentControls.layer.borderWidth = 1
+        readingTypeSegmentControls.layer.masksToBounds = true
+        
+        //listBtn.layer.cornerRadius = 13.61
+        // listBtn.setTitle("List View".localized, for: .normal)
+        // chartBtn.setTitle("Chart View".localized, for: .normal)
+        // chartBtn.layer.cornerRadius = 13.61
+        
         
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         
         setNavBarUI()
+        segmentControl.selectedSegmentIndex = 0
+        readingTypeSegmentControls.selectedSegmentIndex = 0
     }
-
+    
     
     override func viewWillDisappear(_ animated: Bool) {
         topBackView.removeFromSuperview()
@@ -51,12 +85,48 @@ class HistoryMainViewController: UIViewController {
     // MARK: - Custom Top View
     func createCustomTopView() {
         
+        
+        var selectedPatientID : String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+        let typeUser : Int = Int(UserDefaults.standard.integer(forKey: userDefaults.loggedInUserType))
+        
+        var databaseToCheck = ""
+        
+        if(typeUser != userType.patient)
+        {
+            if(typeUser == userType.doctor){
+                databaseToCheck = "Patient"
+            }
+            else if(typeUser == userType.educator && (recipientTypes?.contains("patient"))!)
+            {
+                databaseToCheck = "Patient"
+            }
+            else if(typeUser == userType.educator && (recipientTypes?.contains("doctor"))!)
+            {
+                databaseToCheck = "Doctor"
+                selectedPatientID = (recipientIDs?[(recipientTypes?.index(of: "doctor"))!])!
+                
+            }
+            
+            getImage(userid: selectedPatientID, type: databaseToCheck) { (result) -> Void in
+                if(result){
+                }
+                else
+                {
+                    //Add Alert code here
+                    _ = AlertView(title: "Error", message: "No display image found for user",    cancelButtonTitle: "OK", otherButtonTitle: ["Cancel"], didClick: { (buttonIndex) in
+                    })
+                }
+                
+            }
+        }
+        
+        
         if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
             topBackView = UIView(frame: CGRect(x: self.view.frame.size.width - 80, y: 0, width: 75, height: 40))
             topBackView.backgroundColor = UIColor(patternImage: UIImage(named: "topbackArbic")!)
-            let userImgView: UIImageView = UIImageView(frame: CGRect(x: 5 , y: 3, width: 34, height: 34))
-            userImgView.image = UIImage(named: "user.png")
-            topBackView.addSubview(userImgView)
+          //  let userImgView: UIImageView = UIImageView(frame: CGRect(x: 5 , y: 3, width: 34, height: 34))
+           // userImgView.image = UIImage(named: "user.png")
+            //topBackView.addSubview(userImgView)
             
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(BackBtn_Click))
             topBackView.addGestureRecognizer(tapGesture)
@@ -71,9 +141,9 @@ class HistoryMainViewController: UIViewController {
             
             topBackView = UIView(frame: CGRect(x: 0, y: 0, width: 74, height: 40))
             topBackView.backgroundColor = UIColor(patternImage: UIImage(named: "topBackBtn")!)
-            let userImgView: UIImageView = UIImageView(frame: CGRect(x: 35, y: 3, width: 34, height: 34))
-            userImgView.image = UIImage(named: "user.png")
-            topBackView.addSubview(userImgView)
+          //  let userImgView: UIImageView = UIImageView(frame: CGRect(x: 35, y: 3, width: 34, height: 34))
+           // userImgView.image = UIImage(named: "user.png")
+            //topBackView.addSubview(userImgView)
             
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(BackBtn_Click))
             topBackView.addGestureRecognizer(tapGesture)
@@ -83,6 +153,68 @@ class HistoryMainViewController: UIViewController {
             self.navigationController?.navigationBar.addSubview(topBackView)
         }
     }
+    func getImage(userid: String, type: String, withCompletionHandler:@escaping (_ result:Bool) -> Void)  {
+        
+        Alamofire.request("http://54.212.229.198:3000/showImage?id="+userid+"&type="+type, method: .get, encoding: JSONEncoding.default).responseJSON { (response) in
+            switch response.result {
+            case .success:
+                print("Validation Successful")
+                
+                let finalresult = response.result.value as! NSDictionary
+                if let JSON: NSDictionary = response.result.value as! NSDictionary?
+                {
+                    
+                    
+                    let imageName: String = JSON.value(forKey:"profileimage") as! String
+                    
+                    let imagePath = "http://54.212.229.198:3000/upload/" + imageName
+                    let manager:SDWebImageManager = SDWebImageManager.shared()
+                    
+                    manager.downloadImage(with: NSURL(string: imagePath) as URL!,
+                                          options: SDWebImageOptions.highPriority,
+                                          progress: nil,
+                                          completed: {[weak self] (image, error, cached, finished, url) in
+                                            if (error == nil && (image != nil) && finished) {
+                                              
+                                                
+                                                if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
+                                                    let userImgView: UIImageView = UIImageView(frame: CGRect(x: 5 , y: 3, width: 34, height: 34))
+                                                   
+                                                    userImgView.layer.cornerRadius = userImgView.frame.size.width / 2;
+                                                    userImgView.clipsToBounds = true;
+                                                    
+                                                    userImgView.image = image
+                                                    self?.topBackView.addSubview(userImgView)
+                                                    
+                                                    
+                                                }
+                                                else {
+                                                    
+                                                    let userImgView: UIImageView = UIImageView(frame: CGRect(x: 35, y: 3, width: 34, height: 34))
+                                                    userImgView.layer.cornerRadius = userImgView.frame.size.width / 2;
+                                                    userImgView.clipsToBounds = true;
+                                                    
+                                                    userImgView.image = image
+                                                    self?.topBackView.addSubview(userImgView)
+                                                    
+                                                }
+                                              
+                                            }
+                    })
+                    print(imagePath)
+                    withCompletionHandler(true)
+                }
+                
+                break
+            case .failure:
+                withCompletionHandler(false)
+                break
+                
+            }
+            
+        }
+    }
+    
     
     // MARK: - Custom Methods
     func setNavBarUI(){
@@ -106,7 +238,7 @@ class HistoryMainViewController: UIViewController {
         
         switch segmentControl.selectedSegmentIndex {
         case HistoryDays.days_today:
-            return "1"
+            return "0"
         case HistoryDays.days_7:
             return "7"
         case HistoryDays.days_14:
@@ -119,25 +251,27 @@ class HistoryMainViewController: UIViewController {
         
     }
     
-     //MARK: - SegmentControl Methods
+    //MARK: - SegmentControl Methods
     @IBAction func SegmentControl_ValueChange(_ sender: Any) {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notifications.noOfDays), object: getSelectedNoOfDays())
     }
     
-    // MARK: - IBAction Methods
-    @IBAction func ViewModeButtons_Click(_ sender: UIButton) {
+    @IBAction func ViewModeButtons_Click(_ sender: UISegmentedControl) {
         
-        if sender.backgroundColor == Colors.historyHeaderColor {
+        if sender.backgroundColor == Colors.DHTabBarGreen {
             return
         }
         else {
             
-            if sender == listBtn {
-                listBtn.setTitleColor(UIColor.white, for: .normal)
-                chartBtn.setTitleColor(UIColor.gray, for: .normal)
+            if sender.selectedSegmentIndex == 0 {
+                //Google Analytic
+                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "Histroy View", action:"list View Clicked" , label:"list View Clicked")
                 
-                listBtn.backgroundColor = Colors.historyHeaderColor
-                chartBtn.backgroundColor = UIColor.white
+                // sender.selectedSegmentIndex.setTitleColor(UIColor.white, for: .normal)
+                //chartBtn.setTitleColor(Colors.PrimaryColor, for: .normal)
+                
+                //listBtn.backgroundColor = Colors.DHTabBarGreen
+                //chartBtn.backgroundColor = UIColor.white
                 
                 listViewContainer.isHidden = false
                 chartViewContainer.isHidden = true
@@ -146,12 +280,13 @@ class HistoryMainViewController: UIViewController {
                 
             }
             else {
+                //Google Analytic
+                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "Histroy View", action:"chart View Clicked" , label:"chart View Clicked")
+                // chartBtn.setTitleColor(UIColor.white, for: .normal)
+                // listBtn.setTitleColor(Colors.PrimaryColor, for: .normal)
                 
-                chartBtn.setTitleColor(UIColor.white, for: .normal)
-                listBtn.setTitleColor(UIColor.gray, for: .normal)
-                
-                chartBtn.backgroundColor = Colors.historyHeaderColor
-                listBtn.backgroundColor = UIColor.white
+                // chartBtn.backgroundColor = Colors.DHTabBarGreen
+                // listBtn.backgroundColor = UIColor.white
                 
                 listViewContainer.isHidden = true
                 chartViewContainer.isHidden = false
@@ -165,16 +300,16 @@ class HistoryMainViewController: UIViewController {
     func BackBtn_Click(){
         self.navigationController?.popViewController(animated: true)
     }
-
+    
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

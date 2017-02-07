@@ -21,10 +21,10 @@
     
     QMChatCellLayoutModel defaultLayoutModel = [super layoutModel];
     defaultLayoutModel.avatarSize = CGSizeMake(0, 0);
-    defaultLayoutModel.containerInsets = UIEdgeInsetsMake(4, 4, 4, 15),
+    defaultLayoutModel.containerInsets = UIEdgeInsetsMake(4, 20, 4, 15),
     defaultLayoutModel.topLabelHeight = 0;
     defaultLayoutModel.bottomLabelHeight = 14;
-    
+
     return defaultLayoutModel;
 }
 
@@ -37,6 +37,10 @@
 - (void)setAttachmentImage:(UIImage *)attachmentImage {
     
     self.progressLabel.hidden = YES;
+    self.constAttachmentImgViewTraling.constant = 10;
+    self.constAttachmentImgViewLeading.constant = 5;
+    [self.attachmentImageView updateConstraintsIfNeeded];
+    
     self.attachmentImageView.image = attachmentImage;
 }
 

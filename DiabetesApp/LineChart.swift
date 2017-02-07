@@ -216,14 +216,13 @@ open class LineChart: UIView {
         
         // draw lines
         for (lineIndex, _) in dataStore.enumerated() {
-            
+   
             drawLine(lineIndex)
             
             // draw dots
             if dots.visible { drawDataDots(lineIndex) }
-            
             // draw area under line chart
-            if area { drawAreaBeneathLineChart(lineIndex) }
+            if area {  drawAreaBeneathLineChart(lineIndex) }
             
         }
         
@@ -408,12 +407,14 @@ open class LineChart: UIView {
         var data = self.dataStore[lineIndex]
         let path = UIBezierPath()
         
+        
         var xValue = self.x.scale(0) + x.axis.inset
         var yValue = self.bounds.height - self.y.scale(data[0]) - y.axis.inset
         path.move(to: CGPoint(x: xValue, y: yValue))
         for index in 1..<data.count {
-            xValue = self.x.scale(CGFloat(index)) + x.axis.inset
-            yValue = self.bounds.height - self.y.scale(data[index]) - y.axis.inset
+                xValue = self.x.scale(CGFloat(index)) + x.axis.inset
+                yValue = self.bounds.height - self.y.scale(data[index]) - y.axis.inset
+
             path.addLine(to: CGPoint(x: xValue, y: yValue))
         }
         

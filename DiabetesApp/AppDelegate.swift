@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import Quickblox
+import UserNotifications 
 
 let kQBApplicationID:UInt = 47247
 let kQBAuthKey = "wbtMCF5p5c3yC-S"
@@ -21,7 +22,10 @@ let kQBAnswerTimeInterval :TimeInterval = 60.0
 let kQBRTCDisconnectTimeInterval :TimeInterval = 30.0
 let kQBDialingTimeInterval :TimeInterval = 5.0
 
+var dictMedicationList : NSMutableArray = NSMutableArray()
+var dictMedicationName:[String] = []
 
+let kTrackingId = "UA-42963155-2"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,NotificationServiceDelegate {
@@ -37,6 +41,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate,NotificationServiceDelegat
         // set Navigation bar Fonts
         UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: Fonts.GothamBoldFont, NSForegroundColorAttributeName:UIColor.white]
        // UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: Fonts.NavBarBtnFont, NSForegroundColorAttributeName:UIColor.white], for: UIControlState.normal)
+        //UINavigationBar.appearance().barTintColor = Colors.PrimaryColor
+       // UINavigationBar.appearance().tintColor = Colors.PrimaryColor
+        //--------Google Analytics Start-----
+        
+        GoogleAnalyticManagerApi.sharedInstance.googleBoolean = true
+        GAI.sharedInstance().trackUncaughtExceptions = true
+        //   [[GAI sharedInstance] setDryRun:YES];
+        GAI.sharedInstance().dispatchInterval = 20
+        GAI.sharedInstance().logger.logLevel = GAILogLevel(rawValue: 4)!
+        weak var tracker = GAI.sharedInstance().tracker(withTrackingId: kTrackingId)
+        GAI.sharedInstance().defaultTracker = tracker
+        //--------Google Analytics Finish-----
         
         
         QBSettings.setApplicationID(kQBApplicationID)
@@ -52,6 +68,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate,NotificationServiceDelegat
         
         // Enables detailed XMPP logging in console output.
         QBSettings.enableXMPPLogging()
+        
+        if #available(iOS 10, *) {
+            UNUserNotificationCenter.current().requestAuthorization(options:[.badge, .alert, .sound]){ (granted, error) in }
+            application.registerForRemoteNotifications()
+        }
+            // iOS 9 support
+        else if #available(iOS 9, *) {
+            UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: nil))
+            UIApplication.shared.registerForRemoteNotifications()
+        }
+            // iOS 8 support
+        else if #available(iOS 8, *) {
+            UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: nil))
+            UIApplication.shared.registerForRemoteNotifications()
+        }
+            // iOS 7 support
+        else {  
+            application.registerForRemoteNotifications(matching: [.badge, .sound, .alert])
+        }
         
         // app was launched from push notification, handling it
 //        let remoteNotification: NSDictionary! = launchOptions?[UIApplicationLaunchOptionsKey.remoteNotification] as? NSDictionary
@@ -73,15 +108,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate,NotificationServiceDelegat
         return true
     }
     
+
+    
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         
         let deviceIdentifier: String = UIDevice.current.identifierForVendor!.uuidString
         let subscription: QBMSubscription! = QBMSubscription()
         
+        let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
+        
+        // Print it to console
+        print("APNs device token: \(deviceTokenString)")
+        
+       // Persist it in your backend in case it's new
+        
+          //  UserDefaults.standard.setValue(deviceTokenString, forKey: userDefaults.deviceToken)
+           // UserDefaults.standard.synchronize()
+        
+        let token = UserDefaults.standard.value(forKey: userDefaults.deviceToken)
+
+        print("APNs device token user defaults: \(token)")
         subscription.notificationChannel = QBMNotificationChannel.APNS
         subscription.deviceUDID = deviceIdentifier
         subscription.deviceToken = deviceToken
-        UserDefaults.standard .set(deviceToken, forKey: "DeviceToken")
+        
+         UserDefaults.standard.set(deviceToken, forKey: "DeviceToken")
         QBRequest.createSubscription(subscription, successBlock: { (response: QBResponse!, objects: [QBMSubscription]?) -> Void in
             //
         }) { (response: QBResponse!) -> Void in
@@ -99,21 +150,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate,NotificationServiceDelegat
         guard application.applicationState == UIApplicationState.inactive else {
             return
         }
+        
         if let messageFrom : String = userInfo["type"] as? String {
             if messageFrom == "Report" {
                 
                 let navigatonController: UINavigationController! = self.window?.rootViewController as! UINavigationController
                 let viewController: ReportViewController = UIStoryboard(name:"Main", bundle: nil).instantiateViewController(withIdentifier: ViewIdentifiers.ReportViewController) as! ReportViewController
-                   // viewController.taskID = (userInfo["taskid"] as! String)
-                    UserDefaults.standard.set(false, forKey:userDefaults.groupChat)
-                    UserDefaults.standard.set((userInfo["taskid"] as! String), forKey:userDefaults.taskID)
-                    UserDefaults.standard.set((userInfo["patientid"] as! String), forKey:userDefaults.taskID)
-                    UserDefaults.standard.synchronize()
-
-                    application.applicationIconBadgeNumber = Int(userInfo["badgeCounter"] as! String)!
-                    navigatonController.pushViewController(viewController, animated: true)
+               // viewController.taskID = (userInfo["taskid"] as! String)
+                UserDefaults.standard.set(false, forKey:userDefaults.groupChat)
+                UserDefaults.standard.set((userInfo["taskid"] as! String), forKey:userDefaults.taskID)
+                UserDefaults.standard.set((userInfo["patientid"] as! String), forKey:userDefaults.taskID)
+                UserDefaults.standard.synchronize()
+                application.applicationIconBadgeNumber = Int(userInfo["badgeCounter"] as! String)!
+                navigatonController.pushViewController(viewController, animated: true)
             }
         }
+        
         
         guard let dialogID = userInfo["SA_STR_PUSH_NOTIFICATION_DIALOG_ID".localized] as? String else {
             return

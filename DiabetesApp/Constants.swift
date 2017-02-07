@@ -14,14 +14,16 @@ let kDialogsPageLimit:UInt = 100
 let kMessageContainerWidthPadding:CGFloat = 40.0
 
 // Base Url
-let baseUrl: String = "http://54.212.229.198:3000/"
-// Base Local Server Url
-//let baseUrl: String = "http://192.168.25.43:3000/"
+
+let baseUrl: String = "http://54.244.176.114:3000/"
+//let baseUrl: String = "http://54.212.229.198:3000/"
 
 
+let conditionsArray : NSArray = ["All conditions".localized,"Fasting".localized, "After Breakfast".localized, "Before Lunch".localized, "After Lunch".localized, "Before Dinner".localized, "After Dinner".localized, "Bedtime".localized]
 
-let conditionsArray : NSArray = ["All conditions".localized,"Fasting".localized, "Snacks".localized, "Exercise".localized,"Pre Breakfast".localized, "Post Breakfast".localized, "Pre Lunch".localized, "Post Lunch".localized, "Pre Dinner".localized, "Post Dinner".localized, "Bedtime".localized]
-let frequnecyArray : NSArray = ["1 time a day".localized, "2 times a day".localized, "3 times a day".localized, "4 times a day".localized, "5 times a day".localized]
+let conditionsArrayEng : NSArray = ["All conditions","Fasting", "After Breakfast", "Before Lunch", "After Lunch", "Before Dinner", "After Dinner", "Bedtime"]
+let frequnecyArray : NSArray = ["Once a week".localized, "Twice a week".localized, "Thrice a week".localized, "Once daily".localized, "Twice daily".localized]
+let frequencyArrayEng : NSArray = ["Once a week", "Twice a week", "Thrice a week", "Once daily", "Twice daily"]
 
 
 /*  ServicesManager
@@ -69,7 +71,7 @@ struct ViewIdentifiers{
     
     static let dialogsViewController        = "DialogsViewController"
     static let tabBarViewController         = "TabBarView"
-    static let doctorTabBarViewController    = "DoctorTabBarView"
+    static let doctorTabBarViewController   = "DoctorTabBarView"
     static let carePlanViewController       = "CarePlanView"
     static let historyViewController        = "HistoryView"
     static let messagesViewController       = "MessagesView"
@@ -78,6 +80,7 @@ struct ViewIdentifiers{
     static let historyMainViewController    = "HistoryMainView"
     static let ReportViewController         = "ReportView"
     static let editMedicationViewController = "EditMedicationView"
+    static let patientInfoViewController    = "PatientInfoView"
     static let requestViewController        = "RequestListView"
     
 }
@@ -95,47 +98,58 @@ struct CellIdentifiers{
 // MARK: - UserDefaults
 struct userDefaults{
     
-    static let isLoggedIn           = "isLoggedIn"
-    static let loggedInUserID       = "loggedInUserID"
-    static let loggedInUserEmail    = "loggedInUserEmail"
-    static let loggedInUserPassword = "loggedInUserPassword"
-    static let loggedInUsername     = "loggedInUsername"
-    static let loggedInUserType     = "loggedInUserType"
-    static let selectedPatientID    = "selectedPatientID"
-    static let groupChat            = "groupChat"
-    static let taskID              = "taskID"
-    
-    
-   
-    
+    static let isLoggedIn               = "isLoggedIn"
+    static let loggedInUserID           = "loggedInUserID"
+    static let loggedInUserEmail        = "loggedInUserEmail"
+    static let loggedInUserPassword     = "loggedInUserPassword"
+    static let loggedInUsername         = "loggedInUsername"
+    static let loggedInUserFullname     = "loggedInUserFullname"
+    static let loggedInUserType         = "loggedInUserType"
+    static let selectedPatientID        = "selectedPatientID"
+    static let selectedPatientHCNumber  = "selectedPatientHCNumber"
+    static let recipientTypesArray      = "recipientTypesArray"
+    static let recipientIDArray         = "recipientIDArray"
+    static let deviceToken              = "deviceToken"
+    static let groupChat                = "groupChat"
+    static let taskID                   = "taskID"
 }
 
 // MARK: - Api Methods
 struct ApiMethods{
     
+
     static let login       = "login"
-//    static let login       = "getdataios"
     static let getPatients = "getpatients"
-    static let updatePatient = "updatepatient"
+    static let updatePatient = "updateuser"
     static let getPatDoctors  = "getPatDoctors"
     static let getPatEducators = "getPatEducators"
+    static let getEduDoctors  = "getEduDoctors"
+    static let getEduPatients = "getEduPatients"
     static let getDocPatients   = "getDocPatients"
     static let getDocEducators = "getDocEducators"
-    static let getEduDoctors =    "getEduDoctors"
-    static let getEduPatients =  "getEduPatients"
-    
     static let getglucose     = "getglucose"
     static let getglucoseDays = "getglucoseDays"
-    static let getcareplan     = "getcareplan"
+    static let getcareplan     = "getcareplanUpdated"
     static let getcareplanReadings = "getcareplanReadings"
+    static let getcareplanConstantReadings = "getcareplanConstantReadings"
     static let addcareplan     = "addcareplan"
     static let updatecareplan = "updatecareplan"
+    static let updatecareplanReadings = "updatecareplanReadings"
+    static let deletecareplan = "deletecareplan"
     static let getglucoseDaysCondition = "getglucoseDaysCondition"
     static let getglucoseDaysConditionChart = "getglucoseDaysConditionChart"
-    static let editEducatorReport = "savetask"
+    static let saveGlucose = "saveglucose"
+    static let getUserProfile = "getUserProfile"
+    static let getdocName = "getDocName"
     static let getTasks = "getTasks"
-    static let doctorapprove = "doctorapprove"
-    static let doctordecline = "doctordecline"
+    static let getMedicationArray = "medicationArray"
+    static let doctorApprove = "doctorApprove"
+    static let doctorDecline = "doctorDecline"
+    static let getDoctorRequestReport = "getdoctorreport"
+    static let getDoctorGroupReport = "getdoctorsingle"
+    static let saveEducatorReport = "savetask"
+    static let getEducatorGroupReport = "geteducatorreport"
+    static let getChartConditionData = "getChartConditionData"
 }
 
 // MARK: - GeneralLabels
@@ -162,9 +176,9 @@ struct Notifications {
     static let listHistoryView  = "ListViewNotification"
     static let medicationView   = "MedicationViewNotification"
     static let readingView      = "ReadingViewNotification"
-    static let newReadingView   = "NewReadingView"
     static let addMedication    = "AddMedicationNotification"
     static let noOfDays         = "NoOfDaysNotification"
+    static let addNewMedication    = "AddNewMedicationNotification"
     
     static let ReportListHistoryView = "ReportListHistoryView"
     static let ReportChartHistoryView = "ReportChartHistoryView"
@@ -172,15 +186,44 @@ struct Notifications {
     static let DoctorReportListHistoryView = "DoctorReportListHistoryView"
     static let DoctorReportChartHistoryView = "DoctorReportChartHistoryView"
     
+    static let closeAddNewMedication    = "CloseAddNewMedicationNotification"
+    static let selectMedicationNotification    = "SelectMedicationNotification"
+    
+    static let newReadingView   = "NewReadingView"
 }
 
 // MARK: - Colors
 struct Colors{
     static let userTypeSelectedColor: UIColor = UIColor(red: 0/255.0, green: 122/255.0, blue: 255/255.0, alpha: 1)
-    static let incomingMSgColor: UIColor = UIColor(red: 247.0/255.0, green: 247.0/255.0, blue: 247.0/255.0, alpha: 1)
-    static let outgoingMsgColor: UIColor = UIColor(red: 0/255.0, green: 103.0/255.0, blue: 108.0/255.0, alpha: 1)
-    static let historyHeaderColor: UIColor = UIColor(red: 62.0/255.0, green: 187.0/255.0, blue: 169.0/255.0, alpha: 1)
+    static let incomingMSgColor: UIColor = UIColor(red: 230.0/255.0, green: 243.0/255.0, blue: 247.0/255.0, alpha: 1)
+    static let outgoingMsgColor: UIColor = UIColor(red: 214.0/255.0, green: 225.0/255.0, blue: 244.0/255.0, alpha: 1)
+    // static let outgoingMsgColor: UIColor = UIColor(red: 126.0/255.0, green: 213.0/255.0, blue: 217.0/255.0, alpha: 1)
+    static let historyHeaderColor: UIColor = UIColor(red: 0.0/255.0, green: 156.0/255.0, blue: 190.0/255.0, alpha: 1.0)
+    
     static let chatHeaderColor: UIColor = UIColor(red: 241.0/255.0, green: 241.0/255.0, blue: 241.0/255.0, alpha: 1)
+    
+    static let glucoseReadingColor: UIColor = UIColor(red: 0.0/255.0, green: 103.0/255.0, blue: 108.0/255.0, alpha: 1)
+    
+    static let DHBackgroundBlue     = UIColor(red: 0.0/255.0, green: 90.0/255.0, blue: 143.0/255.0, alpha: 1.0)
+    static let DHBackgroundGreen    = UIColor(red: 0.0/255.0, green: 159.0/255.0, blue: 139.0/255.0, alpha: 1.0)
+    static let DHLoginButtonGreen   = UIColor(red: 63.0/255.0, green: 230.0/255.0, blue: 215.0/255.0, alpha: 1.0)
+    static let DHTabBarGreen        = UIColor(red: 0.0/255.0, green: 156.0/255.0, blue: 190.0/255.0, alpha: 1.0)
+    static let DHIntakeGreen        = UIColor(red: 62.0/255.0, green: 187.0/255.0, blue: 169.0/255.0, alpha: 1.0)
+    
+    static let DHLightGray = UIColor(red: 241.0/255.0, green: 241.0/255.0, blue: 241.0/255.0, alpha: 1.0)
+    static let DHDarkGray = UIColor(red: 127.0/255.0, green: 127.0/255.0, blue: 127.0/255.0, alpha: 1.0)
+    static let DHPinkRed = UIColor(red: 236.0/255.0, green: 96.0/255.0, blue: 119.0/255.0, alpha: 1.0)
+    
+    static let DHTabBarItemUnselected = UIColor(red: 0.0/255.0, green: 60.0/255.0, blue: 79.0/255.0, alpha: 1.0)
+    static let DHTabBarWhiteTint = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 0.7)
+    static let ChatTextColor = UIColor(red: 60.0/255.0, green: 60.0/255.0, blue: 59.0/255.0, alpha: 1.0)
+    
+    static let PrimaryColor = UIColor(red: 0.0/255.0, green: 60.0/255.0, blue: 79.0/255.0, alpha: 1.0)
+    static let PrimaryColorAlpha = UIColor(red: 0.0/255.0, green: 60.0/255.0, blue: 79.0/255.0, alpha: 0.7)
+    
+    static let chartHyperHypoColor = UIColor(red: 227.0/255.0, green: 5.0/255.0, blue: 28.0/255.0, alpha: 1.0)
+    static let chartNormalColor = UIColor(red: 162.0/255.0, green: 197.0/255.0, blue: 22.0/255.0, alpha: 1.0)
+    
     
 }
 
@@ -194,8 +237,23 @@ struct Fonts {
     static let HistoryHeaderFont: UIFont = UIFont(name: "SFUIText-Bold", size: 16)!
     static let noOfDaysFont: UIFont = UIFont(name: "SFUIText-Regular", size: 14)!
     static let chartFont: UIFont = UIFont(name: "SFUIText-Regular", size: 8)!
+    
 }
 
-
-
+let kButtonRadius : CGFloat = 10.2047
+let kLoginScreenName: String = "Login Screen"
+let kGIntakeScreenName: String = "G Intake"
+let kContactListScreenName: String = "Contact List"
+let kPatientInfoScreenName: String = "Patient Info"
+let kDialogsScreenName: String = "Dialogs"
+let kChatScreenName: String = "Chat"
+let kAddMedicationScreenName: String = "Add Medication"
+let kMedicationScreenName: String = "Medication"
+let kCarePlanReadingScreenName: String = "Care Plan Reading"
+let kChartViewScreenName: String = "Chart View"
+let kHistoryViewScreenName: String = "History View"
+let kReportNewCarePlanScreenName: String = "Report New Care Plan"
+let kReportCarePlanScreenName: String = "Report Care Plan"
+let kReportChartViewScreenName: String = "Report Chart View"
+let kReportHistoryViewScreenName: String = "Report History View"
 

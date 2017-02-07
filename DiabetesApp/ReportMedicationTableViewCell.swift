@@ -2,16 +2,17 @@
 //  ReportMedicationTableViewCell.swift
 //  DiabetesApp
 //
-//  Created by IOS3 on 16/01/17.
+//  Created by User on 1/20/17.
 //  Copyright © 2017 Visions. All rights reserved.
 //
 
 import UIKit
 
+
 class ReportMedicationTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var medNameLbl: UILabel!
     @IBOutlet weak var dosageTxtFld: UITextField!
+    @IBOutlet weak var medNameLbl: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

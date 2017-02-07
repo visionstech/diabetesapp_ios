@@ -19,5 +19,10 @@
 #import "QBAVCallPermissions.h"
 #import "QBCore.h"
 
+#import "MZFormSheetPresentationController.h"
+#import "MZFormSheetPresentationViewControllerSegue.h"
+
+#import <Google/Analytics.h>
+
 
 #endif /* Bridging_Header_h */

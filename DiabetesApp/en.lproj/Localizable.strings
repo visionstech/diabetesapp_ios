@@ -1,10 +1,10 @@
-/* 
-  Localizable.strings
-  DiabetesApp
-
-  Created by IOS2 on 1/11/17.
-  Copyright © 2017 Visions. All rights reserved.
-*/
+/*
+ Localizable.strings
+ DiabetesApp
+ 
+ Created by IOS2 on 1/11/17.
+ Copyright © 2017 Visions. All rights reserved.
+ */
 "SA_STR_OK" = "Ok";
 "SA_STR_CANCEL" = "Cancel";
 "SA_STR_LOADING" = "Loading";
@@ -80,6 +80,8 @@
 "SA_STR_GROUP" = "group";
 "SA_STR_PUBLIC_GROUP" = "public group";
 
+"SA_STR_DELETE_MEDICATION" = "Delete medications";
+
 // Action sheet
 "SA_STR_ADDITIONAL_ACTIONS" = "Additional actions";
 
@@ -105,7 +107,7 @@
 
 //AlertView :-
 "Error" = "Error";
-"Username and password requried" = "Username and password requried";
+"Username and password required" = "Username and password required";
 "Ok" = "Ok";
 
 "Doctor" = "Doctor";
@@ -117,15 +119,15 @@
 "Done" = "Done";
 "You need to select one patient and one doctor" =  "You need to select one patient and one doctor";
 
+"Logging you in..." = "Logging you in...";
 "Health Card Number" = "Health Card Number";
 "Camera" = "Camera";
 "Photo Library" = "Photo Library";
 "Cancel" = "Cancel";
-"Message" = "Message";
+//"Message" = "Message";
 "Send" =  "Send";
 "Select Option" = "Select Option";
-"LIST VIEW"  =  "LIST VIEW";
-"CHART VIEW" = "CHART VIEW";
+
 "No Reading History Available" =  "No Reading History Available";
 "Average Glucose" = "Average Glucose";
 "Standard Deviation" = "Standard Deviation";
@@ -138,16 +140,19 @@
 "ENTER_PASSWORD" = "Password";
 "LOGIN"          = "Login";
 "FORGOT_PASSWORD" = "Forgot Password?";
+"Login Error" = "Login error";
 
 //MARK: - PATIENT STRINGS
-"ADD_GLUCOSE_LEVEL" = "Add glucose level";
+"ADD_GLUCOSE_LEVEL" = "Add Glucose Level";
 "ENTER_YOUR_GLUCOSE" = "Enter your Glucose Level reading";
 "EG" = "e.g.";
-"CHOOSE_CONDITION" = "Choose your condition";
-"POST" = "Post";
-"PRE" = "Pre";
+"CHOOSE_TIMING" = "Choose your timing";
+"POST" = "After 2 hours";
+"PRE" = "Before";
 "DONE" = "Done";
-
+"Please select condition" = "Please select Before/After 2 hours";
+"Please input valid number" = "Please input a valid number";
+"Data missing" = "Data missing";
 
 //MARK: - DOCTOR STRINGS
 //menu in chat window
@@ -157,17 +162,22 @@
 
 
 //MARK: - chat list
-"MESSAGES" = "Messages";
+//"MESSAGES" = "Messages";
+"Patients"     = "Patients";
+"Doctors"      = "Doctors";
 
 //MARK: - care plan medication
-"MEDICATION" = "Medication";
-"READINGS" = "Readings";
+"Medications" = "Medication";
+"Readings" = "Monitoring";
 "MED_DOSAGE" = "Dosage";
 "MED_FREQUENCY" = "Frequency";
 "MED_CONDITION" = "Condition";
+"SA_STR_LOADING_MEDICATION" = "Loading medications";
+"No Medications Available" = "No Medications Available";
 
 //MARK: - care plan readings
 "TAKE_THE_FOLLOWING_READINGS" = "Take the following readings";
+"Required readings" = "Required Readings";
 
 //MARK: - reading history
 "TODAY" = "Today";
@@ -175,8 +185,7 @@
 "FOURTEEN_DAYS" = "14 Days";
 "THIRTY_DAYS" = "30 Days";
 "CONDITION" = "Condition";
-
-// new file
+"Comment" = "Comment";
 
 "Please wait" = "Please wait";
 "Patients"     = "Patients";
@@ -201,13 +210,15 @@
 "Enter Medicine Name" = "Enter Medicine Name";
 "Hyper" =  "Hyper";
 "Edit" = "Edit";
-"Goal" = "Goal";
+"Goal" = "Normal Range";
+"Dinner" = "Dinner";
+"Breakfast" = "Breakfast";
+"Lunch" = "Lunch";
 "Humilin R" = "Humilin R";
 "status" = "status";
 "Last message" = "Last message";
-"Inbox" = "Inbox";
-"Post Breakfast" = "Post Breakfast";
-"Post Lunch" = "Post Lunch";
+"After Breakfast" = "After Breakfast";
+"After Lunch" = "After Lunch";
 "Incoming Audio Call" = "Incoming Audio Call";
 "Name" = "Name";
 "Hypos" = "Hypos";
@@ -215,10 +226,10 @@
 "Login Error" = "Login Error";
 "Snacks" = "Snacks";
 "Exercise" = "Exercise";
-"Pre Breakfast" = "Pre Breakfast";
-"Pre Lunch" = "Pre Lunch";
-"Pre Dinner" = "Pre Dinner";
-"Post Dinner" = "Post Dinner";
+"Before Breakfast" = "Before Breakfast";
+"Before Lunch" = "Before Lunch";
+"Before Dinner" = "Before Dinner";
+"After Dinner" = "After Dinner";
 "Bedtime"  = "Bedtime";
 "1 time a day" = "1 time a day";
 "2 times a day" = "2 times a day";
@@ -242,3 +253,66 @@
 "Condition Required." = "Condition Required.";
 "Error in adding medication. Please try again." = "Error in adding medication. Please try again.";
 "HbA1c" = "HbA1c";
+
+
+"List View" = "List View";
+"Chart View" = "Chart View";
+"No Reading History Available" = "No Reading History Available";
+
+// g-intake
+"Out of Range" = "Out of Range";
+"Normal Range" = "Normal Range";
+"Reading for:" = "Reading for:";
+"Normal Range: 70 to 130" = "Normal Range: 70 to 130";
+"Normal Range: Under 180" = "Normal Range: Under 180";
+"Normal Range: 130 to 180" = "Normal Range: 130 to 180";
+"Normal Range: 80 to 130" = "Normal Range: 80 to 130";
+"CONFIRM" = "CONFIRM";
+"CANCEL" = "CANCEL";
+"Confirmation"= "Confirmation";
+"Change Date & Time" = "Change Date & Time";
+
+
+//care plan
+"Add another medicine" = "Add another medicine";
+"Please enter the missing fields" = "Please enter the missing fields";
+"Medication must have one condition and dosage" = "Medication must have one condition and dosage";
+"Medication Updated" = "Medication Updated";
+"Medication Added" = "Medication Added";
+"edit" = "edit";
+"Save" = "Save";
+"ADD_MEDICATION_LABEL" = "Add Medication";
+
+
+//patient info
+"Name" = "Name";
+"HC#" = "HC#";
+"Sex" = "Sex";
+"Age" = "Age";
+"BMI" = "BMI";
+"Diabetec" = "Diabetic";
+"Duration" = "Duration";
+"Cholestrol" = "Cholestrol";
+"Other diseases" = "Other diseases";
+"Bio Data" = "Bio Data";
+"Disease Details" = "Disease Details";
+
+"G-Intake"= "G-Intake";
+"Inbox"= "Inbox";
+"Report"= "Report";
+
+//date
+"st" = "st";
+"nd" = "nd";
+"rd" = "rd";
+"th" = "th";
+
+"Once a week" = "Once a week";
+"Twice a week" = "Twice a week";
+"Thrice a week" = " Thrice a week";
+"Once daily" = "Once daily";
+"Twice daily" = "Twice daily";
+"Take the following readings" = "Take the following readings";
+"Change date and time" = "Change Date & Time";
+"Create a new account" = "Create new account";
+"Forgot password?" = "Forgot password";

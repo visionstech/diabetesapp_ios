@@ -8,27 +8,104 @@
 
 import UIKit
 import Alamofire
-
-class CarePlanReadingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+import SVProgressHUD
+class CarePlanReadingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
     @IBOutlet weak var tblView: UITableView!
     
+    @IBOutlet weak var pickerDoneButton: UIBarButtonItem!
+    @IBOutlet weak var pickerCancelButton: UIBarButtonItem!
+    @IBOutlet var pickerViewContainer: UIView!
+   
+    var objCarePlanFrequencyObj = CarePlanFrequencyObj()
     var array = NSMutableArray()
+    var arrayConstant = NSMutableArray()
+    var currentLocale : String = ""
+    var formInterval: GTInterval!
+    var isEdit: Bool = false
+    
+    @IBOutlet weak var frequencyTblView: UITableView!
+    @IBOutlet weak var noreadingsLabel: UILabel!
+   // @IBOutlet weak var timingHeaderLabel: UILabel!
+   // @IBOutlet weak var goalHeaderLabel: UILabel!
+    @IBOutlet weak var takereadingsLabel: UILabel!
+    
+    @IBOutlet var pickerViewInner: UIView!
+    @IBOutlet weak var pickerTimingView: UIPickerView!
+    @IBOutlet weak var pickerFreqView: UIPickerView!
+    
+     @IBOutlet weak var btnOkPicker: UIButton!
+     @IBOutlet weak var btnCancelPicker: UIButton!
+    
+    @IBOutlet weak var btnCancelFreqPicker: UIButton!
+    @IBOutlet weak var btnOkFreqPicker: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        currentLocale = NSLocale.current.languageCode!
+      //  timingHeaderLabel.text = "Timing".localized
+      //  goalHeaderLabel.text = "Goal".localized
+        takereadingsLabel.text = "Take the following readings".localized
+        
+        noreadingsLabel.isHidden = true
+        tblView.backgroundColor = UIColor.clear
+
+      //  frequencyTblView.backgroundColor = UIColor.clear
+
+
 
         // Do any additional setup after loading the view.
-       
+        
+        //TableView Round corner and Border set
+        tblView.layer.cornerRadius = kButtonRadius
+        tblView.layer.masksToBounds = true
+        tblView.layer.borderColor = Colors.PrimaryColor.cgColor
+        tblView.layer.borderWidth = 1.0
+        
+        tblView.tableFooterView =  UIView(frame: .zero)
+        
+//        frequencyTblView.layer.cornerRadius = kButtonRadius
+//        frequencyTblView.layer.masksToBounds = true
+//        frequencyTblView.layer.borderColor = Colors.PrimaryColor.cgColor
+//        frequencyTblView.layer.borderWidth = 1.0
+//        
+//        frequencyTblView.tableFooterView =  UIView(frame: .zero)
+        
+        self.automaticallyAdjustsScrollViewInsets = true
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         addNotifications()
         getReadingsData()
+       
+        pickerViewInner.layer.cornerRadius = 10
+        pickerViewInner.layer.borderColor = Colors.PrimaryColor.cgColor
+        pickerViewInner.layer.borderWidth = 1
+        
+        pickerViewContainer.layer.borderColor = Colors.PrimaryColor.cgColor
+        pickerViewContainer.layer.borderWidth = 1
+        
+        
+        let blurEffect = UIBlurEffect(style: .dark)
+        
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = pickerViewContainer.bounds
+        
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        pickerViewContainer.insertSubview(blurEffectView, belowSubview: pickerViewInner)
+       
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        //--------Google Analytics Start-----
+        GoogleAnalyticManagerApi.sharedInstance.startScreenSessionWithName(screenName: kCarePlanReadingScreenName)
+        //--------Google Analytics Finish-----
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -37,14 +114,37 @@ class CarePlanReadingViewController: UIViewController, UITableViewDelegate, UITa
     
     //MARK: - Custom Methods
     func resetUI() {
-        if self.array.count > 0 {
+        
+        print("Array count")
+        print(self.array.count)
+
+        tblView.isHidden = false
+       // frequencyTblView.isHidden = false
+      /*  if self.array.count > 0{
             tblView.isHidden = false
+            frequencyTblView.isHidden = true
+        }
+        else{
+           // tblView.isHidden = true
+            frequencyTblView.isHidden = true
+        }
+        
+        if self.arrayConstant.count > 0{
+            tblView.isHidden = false
+            frequencyTblView.isHidden = true
+        }
+        else{
+            //tblView.isHidden = true
+            frequencyTblView.isHidden = true
+        }
+        
+       /* if self.array.count > 0 {
+            frequencyTblView.isHidden = false
         }
         else {
-            
-            tblView.isHidden = true
-        }
-    }
+            frequencyTblView.isHidden = true
+        }*/
+   */ }
     
     func addNotifications(){
         
@@ -56,123 +156,556 @@ class CarePlanReadingViewController: UIViewController, UITableViewDelegate, UITa
         
     }
     
-    // MARK: - Api Methods
-    func getReadingsData() {
-        if  UserDefaults.standard.string(forKey: userDefaults.selectedPatientID) != nil {
-            
+    //MARK:- PickerView Delegate Methods
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if(pickerView == self.pickerTimingView)
+        {
+            return conditionsArray.count
+        }
+        else
+        {
+            return frequnecyArray.count
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if(pickerView == self.pickerTimingView)
+        {
+            return conditionsArray[row] as? String
+        }
+        else
+        {
+            return frequnecyArray[row] as? String
+        }
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        if(pickerView == self.pickerTimingView)
+        {
+            return 1
+        }
+        else
+        {
+            return 1
+        }
+    }
+    
+
+    @IBAction func ToolBarButtons_Click(_ sender: Any) {
         
-        let patientsID: String! = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+        self.view.endEditing(true)
+       /* if (sender as AnyObject).tag == 0 {
+            print(selectedIndexPath , selectedIndex)
+            let mainDict: NSMutableDictionary = array[selectedIndexPath] as! NSMutableDictionary
+            let itemsArray: NSMutableArray = mainDict.object(forKey: "data") as! NSMutableArray
+            let obj: CarePlanReadingObj = itemsArray[selectedIndex] as! CarePlanReadingObj
+            obj.time = conditionsArrayEng[pickerView.selectedRow(inComponent: 0)] as! String
+            itemsArray.replaceObject(at:selectedIndex, with: obj)
+            let mSectioDict = (array[selectedIndexPath] as AnyObject) as! NSDictionary
+            let sectionsDict = NSMutableDictionary(dictionary:mSectioDict)
+            array.replaceObject(at:selectedIndexPath, with: sectionsDict)
+            self.view.endEditing(true)
+            tblView.reloadData()
+            let placesData = NSKeyedArchiver.archivedData(withRootObject: currentEditReadingArray)
+        }
+*/
+    }
+    // MARK: - UIButton Event Methods
+   
+    @IBAction func EditReading_Clicked(_ sender: Any) {
+        self.view.endEditing(true)
+        let btn = sender as! UIButton
+      
+        let cell = self.parentCellFor(view: btn) as! CarePlanReadingTableViewCell
+        self.objCarePlanFrequencyObj = (array[btn.tag] as? CarePlanFrequencyObj)!
+        
+        if(!self.objCarePlanFrequencyObj.isEdit)
+        {
+            self.objCarePlanFrequencyObj.isEdit = true
+            cell.btnEdit.setImage(UIImage(named: "save_icon"), for: .normal)
+            cell.btnEdit.setImage(UIImage(named: "save_icon"), for: .highlighted)
+            self.tblView .reloadData()
+        }
+        else
+        {
+            
+            let inverseSet = NSCharacterSet(charactersIn:"0123456789-<").inverted
+            
+            let components = self.objCarePlanFrequencyObj.goal.components(separatedBy: inverseSet)
+            
+            // Rejoin these components
+            let filtered = components.joined(separator: "") // use join("", components) if you are using Swift 1.2
+            if(self.objCarePlanFrequencyObj.goal.length < 1 )
+            {
+                self.present(UtilityClass.displayAlertMessage(message: "Please enter valid range value for Goal".localized, title: "SA_STR_ERROR".localized), animated: true, completion: nil)
+                //Google Analytic
+                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "Care Plan", action:"Edit Medication" , label:"Please enter valid range value for Goal")
+                SVProgressHUD.dismiss()
+            }
+            else if( self.objCarePlanFrequencyObj.goal != filtered )
+            {
+                self.present(UtilityClass.displayAlertMessage(message: "Please enter valid range value for Goal".localized, title: "SA_STR_ERROR".localized), animated: true, completion: nil)
+                //Google Analytic
+                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "Care Plan", action:"Edit Medication" , label:"Please enter valid range value for Goal")
+                SVProgressHUD.dismiss()
+            }
+                
+            else
+            {
+                self.updatecareplanData()
+                self.objCarePlanFrequencyObj.isEdit = false
+                cell.btnEdit.setImage(UIImage(named: "edit_icon"), for: .normal)
+                cell.btnEdit.setImage(UIImage(named: "edit_icon"), for: .highlighted)
+                self.tblView .reloadData()
+            }
+            
+            
+        }
+    }
+    
+    @IBAction func cancelFreqBtn_Clicked(_ sender: Any) {
+         hideOverlay(overlayView: pickerViewContainer)
+    }
+    @IBAction func okFreqBtn_Clicked(_ sender: Any) {
+        let btn = sender as! UIButton
+        
+        let indexPath = IndexPath(row: btn.tag, section: 0)
+        self.objCarePlanFrequencyObj = (array[btn.tag] as? CarePlanFrequencyObj)!
+        
+        let cell = self.tblView.cellForRow(at: indexPath) as! CarePlanReadingTableViewCell
+        self.objCarePlanFrequencyObj.frequency = (frequnecyArray[pickerFreqView.selectedRow(inComponent: 0)] as? String)!
+        
+        let valFreq = self.objCarePlanFrequencyObj.frequency.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).lowercased()
+        if valFreq == "once a week"{
+            cell.frequencyLbl.text = "1/week"
+        }
+        else if valFreq == "twice a week"{
+            cell.frequencyLbl.text = "2/week"
+        }
+        else if valFreq == "thrice a week"{
+            cell.frequencyLbl.text = "3/week"
+        }
+        else if valFreq == "once daily"{
+            cell.frequencyLbl.text = "Daily"
+        }
+        else if valFreq == "twice daily"{
+            cell.frequencyLbl.text = "2/Daily"
+        }
+        hideOverlay(overlayView: pickerViewContainer)
+        
+    }
+    @IBAction func cancelBtn_Clicked(_ sender: Any) {
+          hideOverlay(overlayView: pickerViewContainer)
+    }
+    
+    @IBAction func okBtn_Clicked(_ sender: Any) {
+        let btn = sender as! UIButton
+        
+        let indexPath = IndexPath(row: btn.tag, section: 0)
+         self.objCarePlanFrequencyObj = (array[btn.tag] as? CarePlanFrequencyObj)!
+        
+        let cell = self.tblView.cellForRow(at: indexPath) as! CarePlanReadingTableViewCell
+        self.objCarePlanFrequencyObj.time = (conditionsArray[pickerTimingView.selectedRow(inComponent: 0)] as? String)!
+    
+        cell.conditionLbl.text = conditionsArray[pickerTimingView.selectedRow(inComponent: 0)] as? String
+        
+        hideOverlay(overlayView: pickerViewContainer)
+    }
+    @IBAction func btnFreq_Clicked(_ sender: Any) {
+        let btn = sender as! UIButton
+        self.view.endEditing(true)
+        self.pickerTimingView.isHidden = true
+        self.pickerFreqView.isHidden = false
+        self.btnCancelFreqPicker.isHidden = false
+        self.btnOkFreqPicker.isHidden = false
+        self.btnCancelPicker.isHidden = true
+        self.btnOkPicker.isHidden = true
+        self.pickerFreqView.tag = btn.tag
+        self.btnOkFreqPicker.tag = btn.tag
+        self.btnCancelFreqPicker.tag = btn.tag
+        let carePlanFrequencyObj = (array[btn.tag] as? CarePlanFrequencyObj)!
+        let index = frequnecyArray.index(of: carePlanFrequencyObj.frequency)
+        pickerFreqView.selectRow(index, inComponent: 0, animated: true)
+        
+        showOverlay(overlayView: pickerViewContainer)
+        
+    }
+    @IBAction func btnTiming_Clicked(_ sender: Any) {
+        let btn = sender as! UIButton
+        self.view.endEditing(true)
+        self.pickerTimingView.isHidden = false
+        self.pickerFreqView.isHidden = true
+        self.btnCancelFreqPicker.isHidden = true
+        self.btnOkFreqPicker.isHidden = true
+        self.btnCancelPicker.isHidden = false
+        self.btnOkPicker.isHidden = false
+        self.pickerTimingView.tag = btn.tag
+        self.btnOkPicker.tag = btn.tag
+        self.btnCancelPicker.tag = btn.tag
+
+        let carePlanFrequencyObj = (array[btn.tag] as? CarePlanFrequencyObj)!
+        let index = conditionsArrayEng.index(of: carePlanFrequencyObj.time)
+        pickerTimingView.selectRow(index, inComponent: 0, animated: true)
+        
+        showOverlay(overlayView: pickerViewContainer)
+        
+    }
+    //MARK: - Private Overlay Function
+    private func showOverlay(overlayView: UIView) {
+        overlayView.alpha = 0.0
+        overlayView.isHidden = false
+        
+        UIView.animate(withDuration: 0.15) {
+            overlayView.alpha = 1.0
+        }
+    }
+    
+    private func hideOverlay(overlayView: UIView) {
+        UIView.animate(withDuration: 0.15, animations: {
+            overlayView.alpha = 0.0
+        }) { _ in
+            overlayView.isHidden = true
+        }
+    }
+    // MARK: - Editable TableView TextField
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+            return true
+    }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(GIntakeViewController.dismissKeyboard(_:))))
+        textField.becomeFirstResponder()
+    }
+    private func textFieldDidEndEditing(textField: UITextField, inRowAtIndexPath indexPath: NSIndexPath) {
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField .resignFirstResponder()
+        return true
+    }
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        let cell = self.parentCellFor(view: textField) as! CarePlanReadingTableViewCell
+        
+        if !cell.isViewEmpty {
+           cell.goalLbl.text = textField.text
+            self.objCarePlanFrequencyObj.goal = textField.text!
+            let objCarePlanObj = (array[textField.tag] as? CarePlanFrequencyObj)!
+            objCarePlanObj.goal = textField.text!
+        }
+    }
+    //MARK: - Helpers
+    func dismissKeyboard(_ sender: UIGestureRecognizer) {
+        self.view.endEditing(true)
+        view.removeGestureRecognizer(sender)
+    }
+    // MARK: - Api Methods
+    func updatecareplanData()
+    {
+        let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
         let parameters: Parameters = [
-            "userid": patientsID 
-            //"userid": "58563eb4d9c776ad70491b7b"
+            "readingid": self.objCarePlanFrequencyObj.id,
+            "userid": patientsID,
+            "readingFreq" : self.objCarePlanFrequencyObj.frequency,
+            "readingTime" : self.objCarePlanFrequencyObj.time,
+            "readingGoal" : self.objCarePlanFrequencyObj.goal
             
         ]
-       
-        
-        Alamofire.request("\(baseUrl)\(ApiMethods.getcareplanReadings)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
-            
-            print(response)
+        self.formInterval = GTInterval.intervalWithNowAsStartDate()
+        SVProgressHUD.show(withStatus: "SA_STR_LOADING".localized, maskType: SVProgressHUDMaskType.clear)
+        Alamofire.request("\(baseUrl)\(ApiMethods.updatecareplanReadings)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+            self.formInterval.end()
             
             switch response.result {
             case .success:
-                print("Validation Successful")
-                if let JSON: NSArray = response.result.value as? NSArray {
-                    print(JSON)
-                    self.array.removeAllObjects()
-                    for time in frequnecyArray {
+                SVProgressHUD.showSuccess(withStatus: "Updated Successfully".localized, maskType: SVProgressHUDMaskType.clear)
+                //Google Analytic
+                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.updatecareplanReadings) Calling", action:"Success -Update care Plan" , label:"Care Plan Data Updated Successfully", value : self.formInterval.intervalAsSeconds())
+                
+                SVProgressHUD.dismiss()
+                self.tblView.reloadData()
+                
+                break
+            case .failure(let error):
+                print("failure")
+                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.updatecareplanReadings) Calling", action:"Fail - Web API Calling" , label:String(describing: error), value : self.formInterval.intervalAsSeconds())
+                SVProgressHUD.dismiss()
+                break
+                
+            }
+        }
+        
+    }
+    func getReadingsData() {
+        if  UserDefaults.standard.string(forKey: userDefaults.selectedPatientID) != nil {
+            
+           // array = NSMutableArray()
+            let patientsID: String! = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+            
+            let parameters: Parameters = [
+                "userid": patientsID
+            ]//"\(baseUrl)\(ApiMethods.getcareplanReadings)
+            self.formInterval = GTInterval.intervalWithNowAsStartDate()
+            Alamofire.request("\(baseUrl)\(ApiMethods.getcareplanReadings)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+                
+                print(response)
+                self.formInterval.end()
+                switch response.result {
+                case .success:
+                    print("Validation Successful")
+                    //Google Analytic
+                    GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.getcareplanReadings) Calling", action:"Success - Get care plan Readings Data" , label:"Get care plan Readings Data Listed Successfully", value : self.formInterval.intervalAsSeconds())
+                    
+                    if let JSON: NSArray = response.result.value as? NSArray {
+                        self.array.removeAllObjects()
+                        for data in JSON {
+                            let dict: NSDictionary = data as! NSDictionary
+                            let obj1 = CarePlanFrequencyObj()
+                            obj1.id = dict.value(forKey: "_id") as! String
+                            let goalStr: String = dict.value(forKey: "goal") as! String
+                            obj1.goal = goalStr.replacingOccurrences(of: "Between ", with: "")
+                            obj1.time = dict.value(forKey: "time") as! String
+                            obj1.frequency = dict.value(forKey: "frequency") as! String
+                            obj1.isEdit = false
+                            self.array.add(obj1)
+                        }
+                        print(self.array)
+                    }
+                    self.tblView.reloadData()
+                    break
+                    
+                case .failure(let error):
+                    print("failure")
+                    //Google Analytic
+                    GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.getcareplanReadings) Calling", action:"Fail - Web API Calling" , label:String(describing: error), value : self.formInterval.intervalAsSeconds())
+                    self.tblView.reloadData()
+                    // self.frequencyTblView.reloadData()
+                    // self.resetUI()
+                    
+                    break
+                    
+                }
+        }
+    }
+}
+
+    
+    func getReadingsDataConstant() {
+        if  UserDefaults.standard.string(forKey: userDefaults.selectedPatientID) != nil {
+            
+            
+            let patientsID: String! = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+            //array = NSMutableArray()
+            let parameters: Parameters = [
+                "userid": patientsID
+            ]
+            self.formInterval = GTInterval.intervalWithNowAsStartDate()
+            Alamofire.request("\(baseUrl)\(ApiMethods.getcareplanConstantReadings)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+                
+                print(response)
+                self.formInterval.end()
+                switch response.result {
+                case .success:
+                    print("Validation Successful")
+                    //Google Analytic
+                    GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.getcareplanReadings) Calling", action:"Success - Get care plan  Constant Readings Data" , label:"Get care plan Readings Data Listed Successfully", value : self.formInterval.intervalAsSeconds())
+                    
+                    if let JSON: NSArray = response.result.value as? NSArray {
+                        //                        print(JSON)
+                        self.arrayConstant.removeAllObjects()
+                        //  for time in frequencyArrayEng {
                         let mainDict: NSMutableDictionary = NSMutableDictionary()
-                        mainDict.setValue(String(describing: time), forKey: "frequency")
+                        // mainDict.setValue(String(describing: time), forKey: "frequency")
                         let itemsArray: NSMutableArray = NSMutableArray()
                         for data in JSON {
                             let dict: NSDictionary = data as! NSDictionary
                             let obj = CarePlanReadingObj()
                             obj.id = dict.value(forKey: "_id") as! String
-                           // Between
+                            // Between
+                            
                             let goalStr: String = dict.value(forKey: "goal") as! String
                             obj.goal = goalStr.replacingOccurrences(of: "Between ", with: "")
                             //obj.goal = dict.value(forKey: "goal") as! String
                             obj.time = dict.value(forKey: "time") as! String
-                            obj.frequency = dict.value(forKey: "frequency") as! String
-                            if String(describing: time) == obj.time {
-                                itemsArray.add(obj)
-                            }
+                           // obj.frequency = dict.value(forKey: "frequency") as! String
+                            // if String(describing: time) == obj.frequency {
+                            itemsArray.add(obj)
+                            // }
                         }
                         
                         if itemsArray.count > 0{
-                            mainDict.setObject(itemsArray, forKey: "data" as NSCopying)
-                            self.array.add(mainDict)
+                            
+                            mainDict.setObject(itemsArray, forKey: "constant" as NSCopying)
+                            self.arrayConstant.add(mainDict)
+                            print(self.array.count)
                         }
                         
+                        //  }
+                        
+                        print(self.array)
                     }
+                   // self.tblView.reloadData()
+                    self.getReadingsData()
+                    //self.frequencyTblView.reloadData()
+                    self.resetUI()
                     
-                   print(self.array)
+                    break
+                    
+                case .failure(let error):
+                    print("failure")
+                    //Google Analytic
+                    GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.getcareplanReadings) Calling", action:"Fail - Web API Calling" , label:String(describing: error), value : self.formInterval.intervalAsSeconds())
+                    self.tblView.reloadData()
+                    //self.frequencyTblView.reloadData()
+                    self.resetUI()
+                    
+                    break
+                    
                 }
-                self.tblView.reloadData()
-                self.resetUI()
-                
-                break
-                
-            case .failure:
-                print("failure")
-                self.tblView.reloadData()
-                self.resetUI()
-                
-                break
-                
             }
-         }
         }
     }
-    
+
+    // MARK: - Get Subview and Superview
+    func parentCellFor(view: UIView) -> UITableViewCell {
+        if (view.superview == nil){
+            return view as! UITableViewCell
+        }
+        
+        if   view is UITableViewCell {
+            return (view as! UITableViewCell)
+        }
+        return self.parentCellFor(view: view.superview!)
+    }
     
     //MARK: - TableView Delegate Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let mainDict: NSMutableDictionary = array[section] as! NSMutableDictionary
-        let itemsArray: NSMutableArray = mainDict.object(forKey: "data") as! NSMutableArray
-        
-        return itemsArray.count
+        return array.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return array.count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let mainDict: NSMutableDictionary = array[indexPath.section] as! NSMutableDictionary
-        let itemsArray: NSMutableArray = mainDict.object(forKey: "data") as! NSMutableArray
-        
         let cell : CarePlanReadingTableViewCell = tableView.dequeueReusableCell(withIdentifier: "readingsCell")! as! CarePlanReadingTableViewCell
         cell.selectionStyle = .none
         cell.tag = indexPath.row
-        if let obj: CarePlanReadingObj = itemsArray[indexPath.row] as? CarePlanReadingObj {
+        cell.btnEdit.tag = indexPath.row
+        cell.btnFreq.tag = indexPath.row
+        cell.btnTiming.tag = indexPath.row
+        cell.txtGoal.tag = indexPath.row
+        let selectedUserType: Int = Int(UserDefaults.standard.integer(forKey: userDefaults.loggedInUserType))
+       
+        
+        if let obj: CarePlanFrequencyObj = array[indexPath.row] as? CarePlanFrequencyObj {
             cell.goalLbl.text = obj.goal
-            cell.conditionLbl.text = obj.frequency
-            cell.numberLbl.text = "\(indexPath.row+1)."
+            cell.txtGoal.text = obj.goal
+            cell.conditionLbl.text = obj.time
+            
+            let valFreq = obj.frequency.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).lowercased()
+            if valFreq == "once a week"{
+                cell.frequencyLbl.text = "1/week"
+            }
+            else if valFreq == "twice a week"{
+                cell.frequencyLbl.text = "2/week"
+            }
+            else if valFreq == "thrice a week"{
+                cell.frequencyLbl.text = "3/week"
+            }
+            else if valFreq == "once daily"{
+                cell.frequencyLbl.text = "Daily"
+            }
+            else if valFreq == "twice daily"{
+                cell.frequencyLbl.text = "2/Daily"
+            }
+            
+            cell.txtGoal.delegate = self
+            cell.btnFreq.addTarget(self, action: #selector(btnFreq_Clicked(_:)), for: .touchUpInside)
+            cell.btnTiming.addTarget(self, action: #selector(btnTiming_Clicked(_:)), for: .touchUpInside)
+            if(obj.isEdit)
+            {
+                cell.btnTiming.isHidden = false
+                cell.btnFreq.isHidden = false
+                cell.txtGoal.isHidden = false
+            }
+            else
+            {
+                cell.btnTiming.isHidden = true
+                cell.btnFreq.isHidden = true
+                cell.txtGoal.isHidden = true
+            }
+            
+            if(selectedUserType == userType.patient)
+            {
+                cell.btnEdit.isHidden = true
+                cell.btnTiming.isHidden = true
+                cell.btnFreq.isHidden = true
+                cell.txtGoal.isHidden = true
+            }
+            else{
+                cell.btnEdit.isHidden = false
+            }
         }
-        
-        return cell
-        
+        return cell;
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
         let cell : CarePlanReadingHeaderTableViewCell = tableView.dequeueReusableCell(withIdentifier: "headerCell")! as! CarePlanReadingHeaderTableViewCell
-        let mainDict: NSMutableDictionary = array[section] as! NSMutableDictionary
-        cell.frequencyLbl.text = String(mainDict.value(forKey: "frequency") as! String)
         return cell
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 70
+        return 50
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 90
+        return 45
     }
     
     
+    override func viewDidLayoutSubviews() {
+        defer {
+        }
+        do {
+            tblView.separatorInset = UIEdgeInsets.zero
+            
+            tblView.layoutMargins = UIEdgeInsets.zero
+            
+//            frequencyTblView.separatorInset = UIEdgeInsets.zero
+//            
+//            frequencyTblView.layoutMargins = UIEdgeInsets.zero
+
+            
+        }     catch let exception {
+            print("Exception Occure in LeadDetailViewController viewDidLayoutSubviews: \(exception)")
+        } 
+    }
     
     
+     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        defer {
+        }
+        do {
+            cell.separatorInset = UIEdgeInsets.zero
+        
+            cell.layoutMargins = UIEdgeInsets.zero
+            
+            var frame = self.tblView.frame
+            frame.size.height = self.tblView.contentSize.height
+            self.tblView.frame = frame
+            
+//            var frame1 = self.frequencyTblView.frame
+//            frame1.size.height = self.frequencyTblView.contentSize.height
+//            self.frequencyTblView.frame = frame1
+
+            
+        }     catch let exception {
+            print("Exception Occure in LeadDetailViewController willDisplayCell: \(exception)")
+        } 
+    }
 
     /*
     // MARK: - Navigation

@@ -14,6 +14,11 @@ class CarePlanReadingHeaderTableViewCell: UITableViewCell {
     @IBOutlet weak var frequencyLbl: UILabel!
     @IBOutlet weak var headerView: UIView!
     
+    @IBOutlet weak var timingHeaderLabel: UILabel!
+    
+    @IBOutlet weak var goalHeaderLabel: UILabel!
+     @IBOutlet weak var btnEdit: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -29,14 +34,17 @@ class CarePlanReadingHeaderTableViewCell: UITableViewCell {
     func setUI(view: UIView)
     {
         // Corner radius
-        view.layer.cornerRadius = 8
-        view.layer.cornerRadius = 8
+//        view.layer.cornerRadius = 8
+//        view.layer.cornerRadius = 8
+//        
+//        // Shadow on view
+//        view.layer.shadowColor = UIColor.black.cgColor
+//        view.layer.shadowOpacity = 0.5
+//        view.layer.shadowOffset = CGSize.zero
+//        view.layer.shadowRadius = 3
         
-        // Shadow on view
-        view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowOpacity = 0.5
-        view.layer.shadowOffset = CGSize.zero
-        view.layer.shadowRadius = 3
+       timingHeaderLabel.text = "Condition".localized
+       goalHeaderLabel.text = "Goal".localized
         
     }
 

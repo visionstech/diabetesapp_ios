@@ -15,4 +15,5 @@ class ContactObj: NSObject {
     var full_name = String()
     var username = String()
     var isSelected = String()
+    var HCNumber = String()
 }

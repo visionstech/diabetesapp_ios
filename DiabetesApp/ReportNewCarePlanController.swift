@@ -2,37 +2,44 @@
 //  ReportNewCarePlanController.swift
 //  DiabetesApp
 //
-//  Created by IOS2 on 1/18/17.
+//  Created by User on 1/20/17.
 //  Copyright © 2017 Visions. All rights reserved.
 //
 
 import UIKit
 import Alamofire
+import SVProgressHUD
 
-class ReportNewCarePlanController: UIViewController , UITableViewDelegate, UITableViewDataSource {
-    
+class ReportNewCarePlanController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
     @IBOutlet weak var tblView: UITableView!
     
-    @IBOutlet weak var lblNoReadingAvailable: UILabel!
     var array = NSMutableArray()
+     var formInterval: GTInterval!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if selectedUserType == userType.doctor {
-             if !UserDefaults.standard.bool(forKey: "groupChat") {
-                 getDoctorReadingData()
+            if !UserDefaults.standard.bool(forKey: "groupChat") {
+                getDoctorReadingData()
             }
-           
-         }
-          else {
+            
+        }
+        else {
             
         }
         // Do any additional setup after loading the view.
         
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         addNotifications()
-        
+     //   getDoctorReadingData()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        //--------Google Analytics Start-----
+        GoogleAnalyticManagerApi.sharedInstance.startScreenSessionWithName(screenName: kReportNewCarePlanScreenName)
+        //--------Google Analytics Finish-----
     }
     
     override func didReceiveMemoryWarning() {
@@ -70,54 +77,52 @@ class ReportNewCarePlanController: UIViewController , UITableViewDelegate, UITab
     func getDoctorReadingData(){
         if  UserDefaults.standard.string(forKey: userDefaults.selectedPatientID) != nil {
             
-            
             let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
             let taskID: String = UserDefaults.standard.string(forKey: userDefaults.taskID)!
+            
+            //  let patientsID: String? = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
             let parameters: Parameters = [
                 "taskid": taskID,
                 "patientid": patientsID,
-                "numDaysBack": "1",
+                "numDaysBack": "0",
                 "condition": "All conditions"
             ]
             
             print(parameters)
+            self.formInterval = GTInterval.intervalWithNowAsStartDate()
             
-            Alamofire.request("http://54.212.229.198:3000/getdoctorreport", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
-                
+            Alamofire.request("http://54.244.176.114:3000/getdoctorreport", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+                self.formInterval.end()
                 print(response)
                 
                 switch response.result {
                 case .success:
                     print("Validation Successful")
+                    //Google Analytic
+                    GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "getdoctorreport Calling", action:"Success - get Doctor Reading Data" , label:" get Doctor Reading Data Successfully", value : self.formInterval.intervalAsSeconds())
                     
                     if let JSON: NSDictionary = response.result.value! as? NSDictionary {
                         print(JSON)
                         let arr  = NSMutableArray(array: JSON.object(forKey: "updatedReading")as! NSArray)
-                        if arr.count == 0 {
-                            self.lblNoReadingAvailable.isHidden = true
-                        }
-                        else {
-                             self.lblNoReadingAvailable.isHidden = true
-                        }
                         self.array.removeAllObjects()
-                        for time in frequnecyArray {
+                        //for time in frequnecyArray {
                             let mainDict: NSMutableDictionary = NSMutableDictionary()
                             mainDict.setValue(String(describing: time), forKey: "frequency")
                             let itemsArray: NSMutableArray = NSMutableArray()
                             for data in arr {
                                 let dict: NSDictionary = data as! NSDictionary
                                 let obj = CarePlanReadingObj()
-                                obj.id = dict.value(forKey: "_id") as! String
+                                obj.id = dict.value(forKey: "id") as! String
                                 // Between
                                 let goalStr: String = dict.value(forKey: "goal") as! String
                                 obj.goal = goalStr.replacingOccurrences(of: "Between ", with: "")
                                 //obj.goal = dict.value(forKey: "goal") as! String
-                                obj.time = dict.value(forKey: "time") as! String
+                                //obj.time = dict.value(forKey: "frequency") as! String
                                 obj.frequency = dict.value(forKey: "frequency") as! String
                                 print(String(describing: time))
-                                if String(describing: time) == obj.time {
+                                //if String(describing: time) == obj.time {
                                     itemsArray.add(obj)
-                                }
+                               // }
                             }
                             
                             if itemsArray.count > 0{
@@ -127,7 +132,7 @@ class ReportNewCarePlanController: UIViewController , UITableViewDelegate, UITab
                                 // }
                             }
                             
-                        }
+                       // }
                         
                         print(self.array)
                     }
@@ -139,8 +144,11 @@ class ReportNewCarePlanController: UIViewController , UITableViewDelegate, UITab
                     
                     break
                     
-                case .failure:
+                case .failure(let error):
                     print("failure")
+                    //Google Analytic
+                    GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "getdoctorreport Calling", action:"Fail - Web API Calling" , label:String(describing: error), value : self.formInterval.intervalAsSeconds())
+                    
                     self.tblView.reloadData()
                     self.resetUI()
                     
@@ -186,11 +194,11 @@ class ReportNewCarePlanController: UIViewController , UITableViewDelegate, UITab
         }
         else {
             
-                cell.goalLbl.isUserInteractionEnabled = false
-                cell.conditionLbl.isUserInteractionEnabled = false
+            cell.goalLbl.isUserInteractionEnabled = false
+            cell.conditionLbl.isUserInteractionEnabled = false
             
         }
-
+        
         if let obj: CarePlanReadingObj = itemsArray[indexPath.row] as? CarePlanReadingObj {
             cell.goalLbl.text = obj.goal
             cell.conditionLbl.text = obj.frequency

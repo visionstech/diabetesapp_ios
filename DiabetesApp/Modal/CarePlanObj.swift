@@ -11,9 +11,13 @@ import UIKit
 class CarePlanObj: NSObject {
     
     var id         = String()
-    var dosage     = String()
-    var frequency  = String()
-    var condition  = String()
+    var dosage     = [Int]()
+    var condition  = [String]()
     var name       = String()
-
+    var nameAr      = String()
+    var isNew       = Bool()
+    var carePlanImageURL  = UIImage()
+    var isEdit       = Bool()
+    var strImageURL      = String()
+    var type = String()
 }

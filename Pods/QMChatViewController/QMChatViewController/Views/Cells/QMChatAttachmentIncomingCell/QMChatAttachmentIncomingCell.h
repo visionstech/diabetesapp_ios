@@ -18,5 +18,6 @@
  *  Attachment image view.
  */
 @property (nonatomic, weak) IBOutlet UIImageView *attachmentImageView;
-
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constAttachmentImgViewTraling;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constAttachmentImgViewLeading;
 @end

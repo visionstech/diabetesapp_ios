@@ -1,4 +1,4 @@
-//
+    //
 //  ChatViewController.swift
 //  sample-chat-swift
 //
@@ -11,6 +11,8 @@ import SafariServices
 import QMChatViewController
 import QMServices
 import SVProgressHUD
+import Alamofire
+import SDWebImage
 
 var messageTimeDateFormatter: DateFormatter {
     struct Static {
@@ -47,9 +49,11 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
     var groupMembersArray = NSMutableArray()
     
     var topBackView:UIView = UIView()
+    var tempImageView:UIImage? = nil
     var topUserImageView : UIView = UIView()
     
-    
+    let recipientTypes = UserDefaults.standard.stringArray(forKey: userDefaults.recipientTypesArray)
+    let recipientIDs = UserDefaults.standard.stringArray(forKey: userDefaults.recipientIDArray)
     
     
     
@@ -64,11 +68,9 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+       // assignbackground()
+        //self.view.backgroundImage = UIImage(named: "viewBGImage")!
         for occupantsID in self.dialog.occupantIDs! {
-            print("occupantsID \(occupantsID) userID \(self.dialog.userID)")
-            
             if Int(occupantsID) != Int(appDelegate.currentUser!.id) {
                 occupantID = Int(occupantsID)
                 
@@ -81,13 +83,12 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
                         dict.setValue(user!.fullName, forKey: "login")
                         self.groupMembersArray.add(dict)
                         
-                        
                     }
                     
                 }, errorBlock: { (error) in
                     
                 })
-                
+                break
             }
         }
         
@@ -100,11 +101,15 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         
         if let currentUser = ServicesManager.instance().currentUser() {
             self.senderID = currentUser.id
-            self.senderDisplayName = currentUser.login
+           // self.senderDisplayName = currentUser.login
+            self.senderDisplayName = UserDefaults.standard.string(forKey: userDefaults.loggedInUserFullname)
             
             self.heightForSectionHeader = 40.0
             
             self.updateTitle()
+            
+            
+            self.collectionView?.backgroundColor = UIColor.white
             self.inputToolbar?.contentView?.backgroundColor = UIColor.white
             self.inputToolbar?.contentView?.textView?.placeHolder = "SA_STR_MESSAGE_PLACEHOLDER".localized
             
@@ -149,13 +154,25 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         let screenSize: CGRect = UIScreen.main.bounds
         let headerLbl: UILabel = UILabel(frame:  CGRect(x: 0, y: 64, width: screenSize.width, height: 30.0))
         headerLbl.backgroundColor = Colors.chatHeaderColor
-        headerLbl.text = "Health Card Number".localized + "= HC12345678"
-        headerLbl.font = Fonts.healthCardFont
-        headerLbl.textColor = UIColor.gray
-        headerLbl.textAlignment = .center
-        self.view.addSubview(headerLbl)
+        
+        
+        
+        let loggedInUserType : Int = Int(UserDefaults.standard.integer(forKey: userDefaults.loggedInUserType))
+        
+        
+        if((loggedInUserType == userType.doctor || loggedInUserType == userType.educator) && (recipientTypes?.contains("patient"))!)
+        {
+            let patientHC: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientHCNumber)!
+            headerLbl.text = "Health Card Number: ".localized + patientHC
+            headerLbl.font = Fonts.healthCardFont
+            headerLbl.textColor = UIColor.black
+            headerLbl.textAlignment = .center
+            self.view.addSubview(headerLbl)
+        }
         
     }
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -166,43 +183,44 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         self.navigationItem.hidesBackButton = true
         self.tabBarController?.navigationItem.hidesBackButton = true
         
+        
         let optionsBtnBar: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "options"), style: UIBarButtonItemStyle.plain , target: self, action: #selector(optionsClick))
         
-        let ReportBarButton: UIBarButtonItem = UIBarButtonItem(title: "Report", style: UIBarButtonItemStyle.plain, target: self, action: #selector(reportClick))
-        
+        let ReportBarButton: UIBarButtonItem = UIBarButtonItem(title: "Report".localized, style: UIBarButtonItemStyle.plain, target: self, action: #selector(reportClick))
+//        self.navigationItem.rightBarButtonItems = nil
+       
         if self.dialog.type == .private {
             
             let callBtnBar: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "Call"), style: UIBarButtonItemStyle.plain , target: self, action: #selector(videoAudioClick))
             
             if selectedUserType != userType.patient {
                 
-//                if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
-//                    self.tabBarController?.navigationItem.leftBarButtonItems = [optionsBtnBar,callBtnBar]
-//                    self.navigationItem.leftBarButtonItems = [optionsBtnBar,callBtnBar]
-//                }
-//                else {
+               // if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
+                 //   self.tabBarController?.navigationItem.leftBarButtonItems = [optionsBtnBar,callBtnBar]
+                   // self.navigationItem.leftBarButtonItems = [optionsBtnBar,callBtnBar]
+                //}
+                //else {
                     self.tabBarController?.navigationItem.rightBarButtonItems = [optionsBtnBar,callBtnBar]
-                     self.navigationItem.rightBarButtonItems = [optionsBtnBar,callBtnBar]
-//                }
-
-               
-//                self.tabBarController?.navigationItem.rightBarButtonItems = [optionsBtnBar,callBtnBar]
+                    self.navigationItem.rightBarButtonItems = [optionsBtnBar,callBtnBar]
+                //}
+                
+                
+                //                self.tabBarController?.navigationItem.rightBarButtonItems = [optionsBtnBar,callBtnBar]
                 
             }
         }
-        
-        else if self.dialog.type == .group && selectedUserType != userType.patient {
+        else if (self.dialog.type == .group && selectedUserType != userType.patient) || (recipientTypes?.contains("patient"))!
+        {
             
-//            if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
-            
-//                self.navigationItem.leftBarButtonItems = [optionsBtnBar,ReportBarButton]
-//            }
-//            else {
-            
+           // if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
+                
+            //    self.navigationItem.leftBarButtonItems = [optionsBtnBar,ReportBarButton]
+           // }
+           // else {
+                
                 self.navigationItem.rightBarButtonItems = [optionsBtnBar,ReportBarButton]
-//            }
-
-//            self.navigationItem.rightBarButtonItems = [optionsBtnBar]
+           // }
+            
         }
         
         //let backBtn: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "back"), style: .plain, target: self, action:  #selector(BackBtn_Click))
@@ -212,8 +230,51 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         
         createCustomTopView()
         
-        self.title = self.dialog.name
-        self.tabBarController?.navigationItem.title = self.dialog.name
+        let typeUser : Int = Int(UserDefaults.standard.integer(forKey: userDefaults.loggedInUserType))
+        
+        if(typeUser == userType.patient && (recipientTypes?.contains("doctor"))!)
+        {
+            var doctorID : String = ""
+            doctorID = (recipientIDs?[(recipientTypes?.index(of: "doctor"))!])!
+            
+            let parameters: Parameters = [
+                "userid": doctorID,
+                ]
+            
+            Alamofire.request("\(baseUrl)\(ApiMethods.getdocName)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+                switch response.result {
+                case .success:
+                    print("Validation successful")
+                    
+                    if let JSON: NSDictionary = response.result.value as! NSDictionary? {
+                        
+                        //                        print("JSON: \(JSON)")
+                        let result: String = JSON.value(forKey:"result") as! String
+                        let content: String = JSON.value(forKey: "content") as! String!
+                        
+                        if(result == "Success"){
+                            self.title = content
+                            self.tabBarController?.navigationItem.title = content
+
+                        }
+                        else{
+                            self.title = self.dialog.name
+                            self.tabBarController?.navigationItem.title = self.dialog.name
+                        }
+                    }
+                    break
+                case .failure:
+                    break
+                }
+            }
+            
+        }
+        else{
+            self.title = self.dialog.name
+            self.tabBarController?.navigationItem.title = self.dialog.name
+        }
+
+      
         
         ServicesManager.instance().chatService.addDelegate(self)
         ServicesManager.instance().chatService.chatAttachmentService.delegate = self
@@ -230,15 +291,20 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        // Saving current dialog ID.
+        ServicesManager.instance().currentDialogID = self.dialog.id!
+        
         if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
             
         }
         else {
             
         }
-
-        // Saving current dialog ID.
-        ServicesManager.instance().currentDialogID = self.dialog.id!
+        
+        //--------Google Analytics Start-----
+        GoogleAnalyticManagerApi.sharedInstance.startScreenSessionWithName(screenName: kChatScreenName)
+        //--------Google Analytics Finish-----
         
     }
     
@@ -294,24 +360,67 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
     // MARK: - Custom Top View
     func createCustomTopView() {
         
+        var selectedPatientID : String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+        let typeUser : Int = Int(UserDefaults.standard.integer(forKey: userDefaults.loggedInUserType))
+        
+        
+        var databaseToCheck = ""
+        
+        if(typeUser == userType.doctor){
+            databaseToCheck = "Patient"
+        }
+        else if(typeUser == userType.patient && (recipientTypes?.contains("doctor"))!)
+        {
+            databaseToCheck = "Doctor"
+            selectedPatientID = (recipientIDs?[(recipientTypes?.index(of: "doctor"))!])!
+        }
+        else if(typeUser == userType.patient && (recipientTypes?.contains("educator"))!)
+        {
+            databaseToCheck = "Educator"
+            selectedPatientID = (recipientIDs?[(recipientTypes?.index(of: "educator"))!])!
+        }
+        else if(typeUser == userType.educator && (recipientTypes?.contains("patient"))!)
+        {
+            databaseToCheck = "Patient"
+        }
+        else if(typeUser == userType.educator && (recipientTypes?.contains("doctor"))!)
+        {
+            databaseToCheck = "Doctor"
+            selectedPatientID = (recipientIDs?[(recipientTypes?.index(of: "doctor"))!])!
+        }
+        
+        getImage(userid: selectedPatientID, type: databaseToCheck) { (result) -> Void in
+            if(result){
+
+            }
+            else
+            {
+                //Add Alert code here
+                _ = AlertView(title: "Error", message: "No display image found", cancelButtonTitle: "OK", otherButtonTitle: ["Cancel"], didClick: { (buttonIndex) in
+                })
+            }
+            
+        }
+        
+        
         if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
             
             topBackView = UIView(frame: CGRect(x: self.view.frame.size.width - 80, y: 0, width: 75, height: 40))
             topBackView.backgroundColor = UIColor(patternImage: UIImage(named: "topbackArbic")!)
             
             topUserImageView =  UIView(frame: CGRect(x: self.view.frame.size.width - 75 , y: 0, width: 35, height: 35))
-            let userImgView: UIImageView = UIImageView(frame: CGRect(x: 0, y: 3, width: 34, height: 34))
-            userImgView.image = UIImage(named: "user.png")
+           // let userImgView: UIImageView = UIImageView(frame: CGRect(x: 0, y: 3, width: 34, height: 34))
+            //userImgView.image = UIImage(named: "user.png")
             
-            topUserImageView.addSubview(userImgView)
+            //topUserImageView.addSubview(userImgView)
             
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(BackBtn_Click))
             topBackView.addGestureRecognizer(tapGesture)
             topBackView.isUserInteractionEnabled = true
             
-            let tapGestureImage = UITapGestureRecognizer(target: self, action: #selector(UserImageClick))
-            topUserImageView.addGestureRecognizer(tapGestureImage)
-            topUserImageView.isUserInteractionEnabled = true
+        //    let tapGestureImage = UITapGestureRecognizer(target: self, action: #selector(UserImageClick))
+        //    topUserImageView.addGestureRecognizer(tapGestureImage)
+        //    topUserImageView.isUserInteractionEnabled = true
             
             
             
@@ -328,18 +437,18 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
             
             
             topUserImageView =  UIView(frame: CGRect(x: 50 , y: 0, width: 35, height: 35))
-            let userImgView: UIImageView = UIImageView(frame: CGRect(x: 0, y: 3, width: 34, height: 34))
-            userImgView.image = UIImage(named: "user.png")
+           // let userImgView: UIImageView = UIImageView(frame: CGRect(x: 0, y: 3, width: 34, height: 34))
+            //userImgView.image = UIImage(named: "user.png")
             
-            topUserImageView.addSubview(userImgView)
+            //topUserImageView.addSubview(userImgView)
             
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(BackBtn_Click))
             topBackView.addGestureRecognizer(tapGesture)
             topBackView.isUserInteractionEnabled = true
             
-            let tapGestureImage = UITapGestureRecognizer(target: self, action: #selector(UserImageClick))
-            topUserImageView.addGestureRecognizer(tapGestureImage)
-            topUserImageView.isUserInteractionEnabled = true
+           // let tapGestureImage = UITapGestureRecognizer(target: self, action: #selector(UserImageClick))
+           // topUserImageView.addGestureRecognizer(tapGestureImage)
+           // topUserImageView.isUserInteractionEnabled = true
             
             
             
@@ -348,20 +457,110 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
             
             self.navigationController?.navigationBar.addSubview(topUserImageView)
             self.tabBarController?.navigationController?.navigationBar.addSubview(topUserImageView)
-           
-            }
-
-
+            
+        }
+        
+        
     }
     
     func BackBtn_Click(){
         self.navigationController?.popViewController(animated: true)
     }
-    func UserImageClick()  {
+
+    func imageTapped(_ sender: UITapGestureRecognizer) {
         
+        let imageView = sender.view as! UIImageView
+        let newImageView = UIImageView(image: imageView.image)
+        newImageView.frame = self.view.frame
+        newImageView.backgroundColor = .black
+        newImageView.contentMode = .scaleAspectFit
+        newImageView.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
+        newImageView.addGestureRecognizer(tap)
+        self.view.addSubview(newImageView)
+    }
+    
+    func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
+        sender.view?.removeFromSuperview()
+    }
+    
+
+    func getImage(userid: String, type: String, withCompletionHandler:@escaping (_ result:Bool) -> Void)  {
+        
+        Alamofire.request("http://54.212.229.198:3000/showImage?id="+userid+"&type="+type, method: .get, encoding: JSONEncoding.default).responseJSON { (response) in
+            switch response.result {
+            case .success:
+                print("Validation Successful")
+                
+
+                if let JSON: NSDictionary = response.result.value as! NSDictionary?
+                {
+                    if let val = JSON["profileimage"] {
+                        // now val is not nil and the Optional has been unwrapped, so use it
+                    
+                     let imageName: String = JSON.value(forKey:"profileimage") as! String
+                       // print("JSON")
+                    //print(JSON)
+                    
+                    
+                    let imagePath = "http://54.212.229.198:3000/upload/" + imageName
+                    let manager:SDWebImageManager = SDWebImageManager.shared()
+                    
+                    manager.downloadImage(with: NSURL(string: imagePath) as URL!,
+                                          options: SDWebImageOptions.highPriority,
+                                          progress: nil,
+                                          completed: {[weak self] (image, error, cached, finished, url) in
+                                            if (error == nil && (image != nil) && finished) {
+                                                // do something with image
+//                                                self?.imgLookView.image=image
+//                                                self?.topBackView = UIView(frame: CGRect(x: 0, y: 0, width: 74, height: 40))
+//                                                self?.topBackView.backgroundColor = UIColor(patternImage: UIImage(named: "topBackBtn")!)
+                                                
+                                                if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
+                                                    
+                                                   
+                                                    let userImgView: UIImageView = UIImageView(frame: CGRect(x: 0, y: 3, width: 34, height: 34))
+                                                    userImgView.layer.cornerRadius = userImgView.frame.size.width / 2;
+                                                    userImgView.clipsToBounds = true;
+                                                    userImgView.image = image
+                                                    self?.topUserImageView.addSubview(userImgView)
+                                                    
+                                                    let tapGestureImage = UITapGestureRecognizer(target: self, action: #selector(self?.imageTapped))
+                                                    userImgView.addGestureRecognizer(tapGestureImage)
+                                                    userImgView.isUserInteractionEnabled = true
+                                                }
+                                                else {
+                                                   
+                                                    let userImgView: UIImageView = UIImageView(frame: CGRect(x: 0, y: 3, width: 34, height: 34))
+                                                    userImgView.layer.cornerRadius = userImgView.frame.size.width / 2;
+                                                    userImgView.clipsToBounds = true;
+                                                    userImgView.image = image
+                                                    self?.topUserImageView.addSubview(userImgView)
+                                                    
+                                                    let tapGestureImage = UITapGestureRecognizer(target: self, action: #selector(self?.imageTapped))
+                                                    userImgView.addGestureRecognizer(tapGestureImage)
+                                                    userImgView.isUserInteractionEnabled = true
+                                                    
+                                                }
+                                
+                                            }
+                    })
+                    print(imagePath)
+                    withCompletionHandler(true)
+                    }
+                }
+                
+            break
+            case .failure:
+                withCompletionHandler(false)
+                break
+                
+            }
+            
+        }
     }
 
-    
+        
     // MARK: Update
     func updateTitle() {
         
@@ -385,8 +584,7 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
     func loadMessages() {
         // Retrieving messages for chat dialog ID.
         guard let currentDialogID = self.dialog.id else {
-            print ("Current chat dialog is nil")
-            return
+                return
         }
         
         ServicesManager.instance().chatService.messages(withChatDialogID: currentDialogID, completion: {
@@ -466,20 +664,24 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         self.navigationItem.hidesBackButton = true
        UserDefaults.standard.set(true, forKey:userDefaults.groupChat)
-       UserDefaults.standard.synchronize()
-        
+        UserDefaults.standard.synchronize()
         self.navigationController?.pushViewController(reportViewController, animated: true)
- 
+        
     }
+    
     func optionsClick() {
         
         let actionSheet = UIAlertController(title: "", message: "Select Option".localized, preferredStyle: .actionSheet)
         let patientInfoBtn: UIAlertAction = UIAlertAction(title: ChatInfo.patientInfo, style: .default, handler: { (UIAlertAction)in
             
+            let patientInfoViewController: PatientInfoViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.patientInfoViewController) as! PatientInfoViewController
+            self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
+            self.navigationItem.hidesBackButton = true
+            self.navigationController?.pushViewController(patientInfoViewController, animated: true)
+            
         })
         
         let readingHistoryBtn: UIAlertAction = UIAlertAction(title: ChatInfo.readingHistory, style: .default, handler: { (UIAlertAction)in
-            
             
             let historyViewController: HistoryMainViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.historyMainViewController) as! HistoryMainViewController
             self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
@@ -489,13 +691,18 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         })
         
         let carePlanBtn: UIAlertAction = UIAlertAction(title: ChatInfo.carePlan, style: .default, handler: { (UIAlertAction)in
-            UserDefaults.standard.set(false, forKey:"MedEditBool")
-            UserDefaults.standard.synchronize()
+            
             let carePlanViewController: CarePlanMainViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.carePlanViewController) as! CarePlanMainViewController
             self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
             self.navigationItem.hidesBackButton = true
             self.navigationController?.pushViewController(carePlanViewController, animated: true)
         })
+        
+//        let patientInfoButton: UIAlertAction = UIAlertAction(title: ChatInfo.patientInfo, style: .default, handler: { (UIAlertAction)in
+//            
+//           
+//        })
+//
         
         let cancelBtn: UIAlertAction = UIAlertAction(title: GeneralLabels.cancel.localized, style: .cancel, handler: { (UIAlertAction)in
         })
@@ -732,6 +939,7 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         message.customParameters = ["User" : self.senderDisplayName! , "UserType" : self.selectedUserType]
         
         self.sendMessage(message: message)
+        
     }
     
     override func didPressSend(_ button: UIButton!, withTextAttachments textAttachments: [Any]!, senderId: UInt, senderDisplayName: String!, date: Date!) {
@@ -892,9 +1100,13 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
                     
                     readLogins.append(unwrappedUser.fullName!)
                 }
-                
-                statusString += message.isMediaMessage() ? "SA_STR_SEEN_STATUS".localized : "SA_STR_READ_STATUS".localized;
-                statusString += ": " + readLogins.joined(separator: ", ")
+                //Hide status String For Media message
+                if(!message.isMediaMessage())
+                {
+                    statusString += "SA_STR_READ_STATUS".localized;
+                    statusString += ": " + readLogins.joined(separator: ", ")
+                }
+        
             }
         }
         
@@ -934,9 +1146,12 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
                 if readLogins.count > 0 && deliveredLogins.count > 0 {
                     statusString += "\n"
                 }
-                
-                if deliveredLogins.count > 0 {
-                    statusString += "SA_STR_DELIVERED_STATUS".localized + ": " + deliveredLogins.joined(separator: ", ")
+                 //Hide delivered String For Media message
+                if(!message.isMediaMessage())
+                {
+                    if deliveredLogins.count > 0 {
+                        statusString += "SA_STR_DELIVERED_STATUS".localized + ": " + deliveredLogins.joined(separator: ", ")
+                    }
                 }
             }
         }
@@ -997,15 +1212,18 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
     
     // MARK: Strings builder
     
+    // This function is for the text in the bubble in the chat window
     override func attributedString(forItem messageItem: QBChatMessage!) -> NSAttributedString? {
         
         guard messageItem.text != nil else {
             return nil
         }
         
-        var textColor = messageItem.senderID == self.senderID ? UIColor.white : UIColor.gray
+       // var textColor = messageItem.senderID == self.senderID ? UIColor.white : UIColor.gray
+        var textColor = Colors.ChatTextColor
+        
         if messageItem.isNotificatonMessage() || messageItem.isDateDividerMessage {
-            textColor = UIColor.gray
+            textColor = UIColor.black
         }
         
         var attributes = Dictionary<String, AnyObject>()
@@ -1019,13 +1237,12 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
     
     
     /**
-     Creates top label attributed string from QBChatMessage
+     Creates top label(sender name) attributed string from QBChatMessage
      
      - parameter messageItem: QBCHatMessage instance
      
      - returns: login string, example: @SwiftTestDevUser1
      */
-    
     override func topLabelAttributedString(forItem messageItem: QBChatMessage!) -> NSAttributedString? {
         
         guard messageItem.senderID != self.senderID else {
@@ -1035,16 +1252,16 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         guard self.dialog.type != QBChatDialogType.private else {
             return nil
         }
-        
+         
         let paragrpahStyle: NSMutableParagraphStyle = NSMutableParagraphStyle()
         paragrpahStyle.lineBreakMode = NSLineBreakMode.byTruncatingTail
         var attributes = Dictionary<String, AnyObject>()
-        
+        attributes[NSForegroundColorAttributeName] = UIColor(red: 11.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 1.0)
         attributes[NSFontAttributeName] = Fonts.healthCardFont
         attributes[NSParagraphStyleAttributeName] = paragrpahStyle
         
         var topLabelAttributedString : NSAttributedString?
-        
+  
         if messageItem.customParameters["User"] != nil {
             var strUserName = messageItem.customParameters .value(forKey: "User") as! String
             
@@ -1054,26 +1271,22 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
             
             if messageItem.customParameters["UserType"] != nil {
                 
-            if (messageItem.customParameters["UserType"] as! NSString).doubleValue == 1 {
-                // Doctor
-                attributes[NSForegroundColorAttributeName] =  UIColor.orange
+                if (messageItem.customParameters["UserType"] as! NSString).doubleValue == 1 {
+                    // Doctor
+                    attributes[NSForegroundColorAttributeName] =  UIColor(red: 16.0/255.0, green: 44.0/255.0, blue: 129.0/255.0, alpha: 1.0)
+                }
+                else if (messageItem.customParameters["UserType"] as! NSString).doubleValue  == 2 {
+                    attributes[NSForegroundColorAttributeName] = UIColor(red: 232.0/255.0, green: 65.0/255.0, blue: 54.0/255.0, alpha: 1.0)
+                }
+                else {
+                    attributes[NSForegroundColorAttributeName] = UIColor(red: 228.0/255.0, green: 159.0/255.0, blue: 1.0/255.0, alpha: 1.0)
+                }
             }
-            else if (messageItem.customParameters["UserType"] as! NSString).doubleValue  == 2 {
-                 attributes[NSForegroundColorAttributeName] = UIColor.red
-            }
-            else {
-                attributes[NSForegroundColorAttributeName] = UIColor(red: 11.0/255.0, green: 96.0/255.0, blue: 255.0/255.0, alpha: 1.0)
-              }
-            }
-            
             topLabelAttributedString = NSAttributedString(string:strUserName , attributes: attributes)
-           
+            
         } else {
-          
+            
         }
-       
-        
-       // }
         
         return topLabelAttributedString
     }
@@ -1087,8 +1300,9 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
      */
     override func bottomLabelAttributedString(forItem messageItem: QBChatMessage!) -> NSAttributedString! {
         
-        let textColor = messageItem.senderID == self.senderID ? UIColor.white : UIColor.black
+        //let textColor = messageItem.senderID == self.senderID ? UIColor.white : UIColor.black
         
+        let textColor = Colors.ChatTextColor
         let paragrpahStyle: NSMutableParagraphStyle = NSMutableParagraphStyle()
         paragrpahStyle.lineBreakMode = NSLineBreakMode.byWordWrapping
         
@@ -1151,7 +1365,8 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
             
             size = TTTAttributedLabel.sizeThatFitsAttributedString(attributedString, withConstraints: CGSize(width: maxWidth, height: CGFloat.greatestFiniteMagnitude), limitedToNumberOfLines: 0)
         }
-        
+        print("Returning from there")
+        print(size)
         return size
     }
     
@@ -1180,8 +1395,9 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
                 size = topLabelSize
             }
         }
-        
-        return size.width
+        print("Returning from here");
+        print(size.width)
+        return size.width+10
     }
     
     override func collectionView(_ collectionView: QMChatCollectionView!, layoutModelAt indexPath: IndexPath!) -> QMChatCellLayoutModel {
@@ -1192,7 +1408,7 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         layoutModel.topLabelHeight = 0.0
         layoutModel.spaceBetweenTextViewAndBottomLabel = 5
         layoutModel.maxWidthMarginSpace = 20.0
-        
+     
         guard let item = self.chatDataSource.message(for: indexPath) else {
             return layoutModel
         }
@@ -1239,10 +1455,14 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
             
             if attachmentCell is QMChatAttachmentIncomingCell {
                  chatCell.containerView?.bgColor = Colors.incomingMSgColor
-                //chatCell.containerView?.bgColor = UIColor(red: 226.0/255.0, green: 226.0/255.0, blue: 226.0/255.0, alpha: 1.0)
+                    chatCell.containerView?.cornerRadius = 10
+                                //chatCell.containerView?.bgColor = UIColor(red: 226.0/255.0, green: 226.0/255.0, blue: 226.0/255.0, alpha: 1.0)
             }
             else if attachmentCell is QMChatAttachmentOutgoingCell {
                 chatCell.containerView?.bgColor = Colors.outgoingMsgColor
+                 chatCell.containerView?.cornerRadius = 10
+               
+                
                 //chatCell.containerView?.bgColor = UIColor(red: 10.0/255.0, green: 95.0/255.0, blue: 255.0/255.0, alpha: 1.0)
             }
             
@@ -1287,15 +1507,22 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
                         print("Image is nil")
                     }
                     
+//                    let tapGestureRecognizer =  UITapGestureRecognizer(target: self, action: #selector(self?.imageTapped))
+//                    cell.medImageView.isUserInteractionEnabled = true
+//                    cell.medImageView.addGestureRecognizer(tapGestureRecognizer)
+                  //  image.
+                    
+                    
+                    
                     attachmentCell.setAttachmentImage(image)
+                    
                     cell.updateConstraints()
                     })
             }
-            
         }
         else if cell is QMChatIncomingCell || cell is QMChatAttachmentIncomingCell {
             chatCell.containerView?.bgColor = Colors.incomingMSgColor
-            
+            chatCell.containerView?.cornerRadius = 10
            // chatCell.containerView?.bgColor = UIColor(red: 226.0/255.0, green: 226.0/255.0, blue: 226.0/255.0, alpha: 1.0)
         }
         else if cell is QMChatOutgoingCell {
@@ -1305,21 +1532,26 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
             switch status {
             case .sent:
                  chatCell.containerView?.bgColor = Colors.outgoingMsgColor
+                chatCell.containerView?.cornerRadius = 10
                 //chatCell.containerView?.bgColor = UIColor(red: 10.0/255.0, green: 95.0/255.0, blue: 255.0/255.0, alpha: 1.0)
             case .sending:
                 chatCell.containerView?.bgColor = UIColor(red: 166.3/255.0, green: 171.5/255.0, blue: 171.8/255.0, alpha: 1.0)
+                chatCell.containerView?.cornerRadius = 10
             case .notSent:
                 chatCell.containerView?.bgColor = UIColor(red: 254.6/255.0, green: 30.3/255.0, blue: 12.5/255.0, alpha: 1.0)
+                chatCell.containerView?.cornerRadius = 10
             }
             
         }
         else if cell is QMChatAttachmentOutgoingCell {
             chatCell.containerView?.bgColor = Colors.outgoingMsgColor
+            chatCell.containerView?.cornerRadius = 10
            // chatCell.containerView?.bgColor = UIColor(red: 10.0/255.0, green: 95.0/255.0, blue: 255.0/255.0, alpha: 1.0)
         }
         else if cell is QMChatNotificationCell {
             cell.isUserInteractionEnabled = false
             chatCell.containerView?.bgColor = self.collectionView?.backgroundColor
+            //chatCell.containerView?.cornerRadius = 36
         }
     }
     
@@ -1379,8 +1611,7 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
             // Getting earlier messages for chat dialog identifier.
             
             guard let dialogID = self.dialog.id else {
-                print("DialogID is nil")
-                return super.collectionView(collectionView, cellForItemAt: indexPath)
+                    return super.collectionView(collectionView, cellForItemAt: indexPath)
             }
             
             ServicesManager.instance().chatService.loadEarlierMessages(withChatDialogID: dialogID).continue({ [weak self] (task) -> Any? in
@@ -1430,12 +1661,54 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         } else {
             self.detailedCells.insert(currentMessage.id!)
         }
+//
+       
         
         self.collectionView?.collectionViewLayout.removeSizeFromCache(forItemID: currentMessage.id)
         self.collectionView?.performBatchUpdates(nil, completion: nil)
         
+        if (currentMessage.attachments?.count)! > 0
+        {
+            
+            let attach = (currentMessage.attachments?.first!)! as QBChatAttachment
+            if(attach.type == "image")
+            {
+                if let attachmentCell = cell as? QMChatAttachmentCell {
+                    if attachmentCell is QMChatAttachmentIncomingCell {
+                        if let attachmentCell = cell as? QMChatAttachmentIncomingCell {
+                            
+                            let newImageView = UIImageView(image: attachmentCell.attachmentImageView.image)
+                            newImageView.frame = self.view.frame
+                            newImageView.backgroundColor = .black
+                            newImageView.contentMode = .scaleAspectFit
+                            newImageView.isUserInteractionEnabled = true
+                            let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
+                            newImageView.addGestureRecognizer(tap)
+                            self.view.addSubview(newImageView)
+                        }
+                    }
+                    else if attachmentCell is QMChatAttachmentOutgoingCell {
+                        if let attachmentCell = cell as? QMChatAttachmentOutgoingCell {
+                            
+                            let newImageView = UIImageView(image: attachmentCell.attachmentImageView.image)
+                            newImageView.frame = self.view.frame
+                            newImageView.backgroundColor = .black
+                            newImageView.contentMode = .scaleAspectFit
+                            newImageView.isUserInteractionEnabled = true
+                            let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
+                            newImageView.addGestureRecognizer(tap)
+                            self.view.addSubview(newImageView)
+                        }
+                    }
+                }
+            }
+            // throw an error, return from your function, whatever
+            
+        }
+        
+        
     }
-    
+   
     func chatCell(_ cell: QMChatCell!, didTapAtPosition position: CGPoint) {}
     
     func chatCell(_ cell: QMChatCell!, didPerformAction action: Selector!, withSender sender: Any!) {}
@@ -1555,7 +1828,8 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         
         if self.dialog.type != QBChatDialogType.private && self.dialog.id == chatDialog.id {
             self.dialog = chatDialog
-            self.title = self.dialog.name
+            
+        self.title = self.dialog.name
         }
     }
     

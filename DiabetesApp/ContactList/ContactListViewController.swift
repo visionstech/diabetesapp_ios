@@ -9,6 +9,9 @@
 import UIKit
 import Alamofire
 import SVProgressHUD
+import Alamofire
+import SDWebImage
+
 
 class ContactListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -18,6 +21,7 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
     var doctorList = NSMutableArray()
     var educatorsList = NSMutableArray()
     var isGroupMode : Bool = false
+    var formInterval: GTInterval!
     
     let selectedUserType: Int = Int(UserDefaults.standard.integer(forKey: userDefaults.loggedInUserType))
     
@@ -27,20 +31,26 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
         if selectedUserType == userType.doctor {
             
             getDoctorPatients()
-            getDoctorEducators()
+            //            getDoctorEducators()
         }
         else if selectedUserType == userType.educator {
-            getEducatorsDoctors()
-            getEducatorsPatients()
-            
+            getEducatorDoctors()
+            getEducatorPatients()
         }
         
-        self.tabBarController?.navigationItem.title = "Contacts".localized
+        //self.navigationItem.title = "Contacts".localized
         // Do any additional setup after loading the view.
+        self.tabBarController?.navigationItem.title = "Contacts".localized
         if isGroupMode == false || selectedUserType != userType.educator{
             self.navigationItem.rightBarButtonItems = nil
         }
         //getContactsList()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        //--------Google Analytics Start-----
+        GoogleAnalyticManagerApi.sharedInstance.startScreenSessionWithName(screenName: kContactListScreenName)
+        //--------Google Analytics Finish-----
     }
     
     override func didReceiveMemoryWarning() {
@@ -97,20 +107,43 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
     // MARK: - Create Group for Doctor
     func createGroupForDoctor(selectedPatient:ContactObj) {
         
+        var recipientIDArray : [String] = []
+        var recipientNameArray : [String] = []
+        
+        var patienthcNumber: String = ""
+        
         var usersArray = Array<String>()
         if selectedPatient.chatid != "" {
             usersArray.append(selectedPatient.chatid)
+            recipientIDArray.append(selectedPatient.patient_id)
+            recipientNameArray.append(selectedPatient.full_name)
         }
+        
+        
+        if(selectedPatient.HCNumber.isEmpty == false){
+            patienthcNumber = selectedPatient.HCNumber
+        }
+        
+        //In group chat; the doctor names goes second to maintain consistency. Because when a group is created; it'll be difficult to check who created the group when we are getting the doctor's name during patient chat
+        let loggedInUserName: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserFullname)!
+        recipientNameArray.append(loggedInUserName)
+        
         
         for obj in educatorsList {
+            
             let educatrObj: ContactObj = obj as! ContactObj
+            
             if educatrObj.chatid != "" {
                 usersArray.append(educatrObj.chatid)
+                recipientNameArray.append(educatrObj.full_name)
             }
         }
+        let loggedInUserID: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserID)!
         
-        self.createChat(name: selectedPatient.full_name.trimmingCharacters(in: CharacterSet.whitespaces), usersArray: usersArray, isGroup: true, patientID: selectedPatient.patient_id, completion: { (response, chatDialog) in
-            
+        recipientIDArray.append(loggedInUserID)
+        
+        
+        self.createChat(name: selectedPatient.full_name.trimmingCharacters(in: CharacterSet.whitespaces), usersArray: usersArray, isGroup: true, patientID: selectedPatient.patient_id, HCNumber: patienthcNumber, recipientIDArray: recipientIDArray, recipientNames: recipientNameArray, completion: { (response, chatDialog) in
             
             UserDefaults.standard.setValue(selectedPatient.patient_id, forKey: userDefaults.selectedPatientID)
             self.naviagteToChatScreen(dialog: chatDialog!)
@@ -123,10 +156,10 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
         //583fd43ab44e8fdb20145c06
         //http://192.168.25.43:3000/getpatients?doctorId=581fa527068eb45d1c916a38
         let userID: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserID)!
+        self.formInterval = GTInterval.intervalWithNowAsStartDate()
         Alamofire.request("\(baseUrl)\(ApiMethods.getPatients)?doctorId=\(userID)").responseJSON { (response) in
             if let JSON: NSArray = response.result.value as? NSArray {
-                
-                
+                self.formInterval.end()
                 for data in JSON {
                     let dict: NSDictionary = data as! NSDictionary
                     let contactObj = ContactObj()
@@ -137,7 +170,7 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
                     contactObj.isSelected = "0"
                     self.patientList.add(contactObj)
                 }
-                
+                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.getPatients) Calling", action:"Success - Web API Calling" , label:"get Patients List", value : self.formInterval.intervalAsSeconds())
                 self.tableView.reloadData()
             }
         }
@@ -154,37 +187,58 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
         var selectesUsers = Array<String>()
         var patientName: String = ""
         var patientid : String = ""
-        
+        var patienthcNumber : String = ""
+        var doctorid : String = ""
+        var recipientIDArray : [String] = []
+        var recipientNameArray : [String] = []
         // get selected Patient
+        
+        
         for obj in patientList {
             
             if (obj as AnyObject).isSelected == "1" {
+                
+                
                 selectesUsers.append((obj as AnyObject).chatid as String)
                 patientName = (obj as AnyObject).full_name.trimmingCharacters(in: CharacterSet.whitespaces)
                 patientid = (obj as AnyObject).patient_id
+                patienthcNumber = (obj as AnyObject).HCNumber
+                recipientIDArray.append((obj as AnyObject).patient_id as String)
+                recipientNameArray.append((obj as AnyObject).full_name as String)
+                // recipientIDArray.add(patientid)
                 break
             }
         }
+        
         
         // get selected Doctor
         for docObj in doctorList {
             
             if (docObj as AnyObject).isSelected == "1" {
+                
+                doctorid = (docObj as AnyObject).patient_id
                 selectesUsers.append((docObj as AnyObject).chatid as String)
+                recipientIDArray.append((docObj as AnyObject).patient_id as String)
+                recipientNameArray.append((docObj as AnyObject).full_name as String)
                 break
             }
         }
         
         // No user selected
         if selectesUsers.count < 2 {
+            GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "Error", action:"Create Group For Doctor" , label:"You need to select one patient and one doctor")
             
             _ = AlertView(title: "SA_STR_ERROR".localized, message: "You need to select one patient and one doctor".localized, cancelButtonTitle: "SA_STR_OK".localized, otherButtonTitle: [""], didClick: { (buttonIndex) in
             })
             return
         }
         
-        self.createChat(name: patientName, usersArray: selectesUsers, isGroup: true, patientID: patientid, completion: { (response, chatDialog) in
-            
+        //The last index will be the name of the logged in user
+        let loggedInUserName: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserFullname)!
+        recipientNameArray.append(loggedInUserName)
+        
+        self.createChat(name: patientName, usersArray: selectesUsers, isGroup: true, patientID: patientid, HCNumber: patienthcNumber, recipientIDArray: recipientIDArray, recipientNames: recipientNameArray, completion: { (response, chatDialog) in
+            //            print("Now creating")
             UserDefaults.standard.setValue(patientid, forKey: userDefaults.selectedPatientID)
             self.naviagteToChatScreen(dialog: chatDialog!)
         })
@@ -192,7 +246,14 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     //MARK: - Quickblox Methods
-    func createChat(name: String?, usersArray: [String], isGroup: Bool,patientID : String, completion: @escaping ((_ response: QBResponse? , _ createdDialog: QBChatDialog?) -> Void) ){
+    func createChat(name: String?, usersArray: [String], isGroup: Bool,patientID : String, HCNumber: String, recipientIDArray: [String], recipientNames: [String], completion: @escaping ((_ response: QBResponse? , _ createdDialog: QBChatDialog?) -> Void) ){
+        
+        
+        
+        GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "Chat", action:"Create Chat" , label:"Create Chat \(name)")
+        
+        print("name array:")
+        print(recipientNames)
         
         QBRequest.users(withLogins: usersArray , page: QBGeneralResponsePage.init(currentPage: 1, perPage: 10), successBlock: { (response, page, users) in
             
@@ -200,15 +261,75 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
             
             if isGroup == false {
                 // Creating private chat.
+                var tempArray : [String] = []
+                
                 ServicesManager.instance().chatService.createPrivateChatDialog(withOpponent: (users?.first!)!, completion: { (response, chatDialog) in
+                    let object = QBCOCustomObject()
+                    object.className = "Patient"
+                    object.fields?.setObject(patientID, forKey: "patient_id" as NSCopying)
+                    object.fields?.setObject(chatDialog?.id as Any, forKey: "chat_id" as NSCopying)
+                    object.fields?.setObject(HCNumber, forKey: "HCNumber" as NSCopying)
                     
+                    print("Doctor count")
+                    print(self.doctorList.count)
+                    if(self.doctorList.count>0)
+                    {
+                        
+                        tempArray = ["doctor"]
+                        object.fields?.setObject(tempArray, forKey: "recipientTypes" as NSCopying)
+                        object.fields?.setObject(recipientIDArray, forKey: "recipientIDs" as NSCopying)
+                    }
+                    else if(self.educatorsList.count>0)
+                    {
+                        tempArray = ["educator"]
+                        object.fields?.setObject(tempArray, forKey: "recipientTypes" as NSCopying)
+                        object.fields?.setObject(recipientIDArray, forKey: "recipientIDs" as NSCopying)
+                    }
+                    else if(self.patientList.count>0)
+                    {
+                        tempArray = ["patient"]
+                        object.fields?.setObject(tempArray, forKey: "recipientTypes" as NSCopying)
+                        object.fields?.setObject(recipientIDArray, forKey: "recipientIDs" as NSCopying)
+                    }
+                    
+                    object.fields?.setObject(recipientNames, forKey: "recipientNames" as NSCopying)
+                    
+                    QBRequest.createObject(object, successBlock: nil, errorBlock: nil)
+                    let updateDialog = chatDialog?.copy() as! QBChatDialog
+                    updateDialog.data = ["PatientID" : patientID, "HCNumber":HCNumber]
+                    
+                    UserDefaults.standard.setValue(HCNumber, forKey: userDefaults.selectedPatientHCNumber)
+                    
+                    
+                    UserDefaults.standard.set(tempArray, forKey: userDefaults.recipientTypesArray)
+                    UserDefaults.standard.set(recipientIDArray, forKey: userDefaults.recipientIDArray)
+                    
+                    
+                    
+                    
+                    
+                    QBRequest.update(chatDialog!, successBlock: { (response, updatedDialog) in
+                        
+                        guard updatedDialog != nil else {
+                            return
+                        }
+                        completion(response, updatedDialog)
+                    }, errorBlock: { (error) in
+                        print("Error")
+                    })
                     completion(response, chatDialog)
                 })
                 
             } else {
                 // Creating group chat.
                 
+                
+                
+                //  ServicesManager.instance().chatService.createGroupChatDialog(withName: name! , photo: nil, occupants: users!) { [weak self] (response, chatDialog) -> Void in
                 ServicesManager.instance().chatService.createGroupChatDialog(withName: name! , photo: patientID, occupants: users!) { [weak self] (response, chatDialog) -> Void in
+                    
+                    // storing custom parameters in quickblox
+                    
                     
                     guard response.error == nil else {
                         
@@ -216,25 +337,72 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
                         return
                     }
                     
+                    
+                    
                     guard chatDialog != nil else {
                         return
                     }
-                      completion(response, chatDialog)
+                    var tempArray: [String] = []
+                    
+                    let object = QBCOCustomObject()
+                    object.className = "Patient"
+                    object.fields?.setObject(patientID, forKey: "patient_id" as NSCopying)
+                    object.fields?.setObject(chatDialog?.id as Any, forKey: "chat_id" as NSCopying)
+                    object.fields?.setObject(HCNumber, forKey: "HCNumber" as NSCopying)
+                    
+                    if((self?.doctorList.count)! > 0 && (self?.educatorsList.count)! > 0)
+                    {
+                        tempArray = ["doctor", "educator"]
+                        
+                        object.fields?.setObject(tempArray, forKey: "recipientTypes" as NSCopying)
+                        object.fields?.setObject(recipientIDArray, forKey: "recipientIDs" as NSCopying)
+                    }
+                    else if((self?.doctorList.count)! > 0 && (self?.patientList.count)! > 0)
+                    {
+                        tempArray = ["patient", "doctor"]
+                        
+                        object.fields?.setObject(tempArray, forKey: "recipientTypes" as NSCopying)
+                        object.fields?.setObject(recipientIDArray, forKey: "recipientIDs" as NSCopying)
+                    }
+                    else if((self?.educatorsList.count)! > 0 && (self?.patientList.count)! > 0)
+                    {
+                        tempArray = ["patient", "doctor"]
+                        
+                        object.fields?.setObject(tempArray, forKey: "recipientTypes" as NSCopying)
+                        object.fields?.setObject(recipientIDArray, forKey: "recipientIDs" as NSCopying)
+                    }
                     
                     
+                    object.fields?.setObject(recipientNames, forKey: "recipientNames" as NSCopying)
+                    UserDefaults.standard.set(tempArray, forKey: userDefaults.recipientTypesArray)
+                    UserDefaults.standard.set(recipientIDArray, forKey: userDefaults.recipientIDArray)
                     
+                    
+                    QBRequest.createObject(object, successBlock: nil, errorBlock: nil)
+                    let updateDialog = chatDialog?.copy() as! QBChatDialog
+                    updateDialog.data = ["PatientID" : patientID, "HCNumber":HCNumber]
+                    
+                    
+                    UserDefaults.standard.setValue(HCNumber, forKey: userDefaults.selectedPatientHCNumber)
+                    
+                    QBRequest.update(chatDialog!, successBlock: { (response, updatedDialog) in
+                        
+                        guard updatedDialog != nil else {
+                            return
+                        }
+                        completion(response, updatedDialog)
+                    }, errorBlock: { (error) in
+                        print("Error")
+                    })
                     
                 }
             }
             
             
         }) { (error) in
-            
+            print("Error1")
         }
     }
-    
-
-
     
     
     //MARK:- TableView Delegate Methods
@@ -248,7 +416,7 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+        // print("Done 3")
         if selectedUserType == userType.educator {
             
             if section == 0 {
@@ -266,7 +434,7 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var obj = ContactObj()
-        
+        // print("Done 2")
         if selectedUserType == userType.educator {
             
             if indexPath.section == 0 {
@@ -285,6 +453,31 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "patientCell", for: indexPath)
         if let userNameLbl: UILabel = cell.contentView.viewWithTag(1) as? UILabel {
             userNameLbl.text = obj.full_name
+            
+            let selectedPatientID : String = obj.patient_id
+            let imagePath = "http://54.212.229.198:3000/upload/" + selectedPatientID + "image.jpg"
+            let manager:SDWebImageManager = SDWebImageManager.shared()
+            
+            //cell.dialogTypeImage.image =   UIImage(named:"user.png")!
+            manager.downloadImage(with: NSURL(string: imagePath) as URL!,
+                                  options: SDWebImageOptions.highPriority,
+                                  progress: nil,
+                                  completed: {[weak self] (image, error, cached, finished, url) in
+                                    if (error == nil && (image != nil) && finished) {
+                                        print("Got the image")
+                                        if let userNameImg: UIImageView = cell.contentView.viewWithTag(2) as? UIImageView {
+                                            //let userNameImg: UIImageView = (cell.contentView.viewWithTag(2) as? UIImageView)!
+                                            print("Setting up")
+                                            userNameImg.layer.cornerRadius =
+                                                userNameImg.frame.size.width/2
+                                            
+                                            userNameImg.clipsToBounds = true
+                                            
+                                            userNameImg.image = image
+                                        }
+                                        
+                                    }
+            })
         }
         if isGroupMode == true {
             if obj.isSelected == "1" {
@@ -302,21 +495,31 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
         return 50
     }
     
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        //print("Done 1")
         var obj: ContactObj = ContactObj()
+        var patienthcNumber: String = ""
+        
+        var recipientIDArray : [String] = []
+        var recipientNameArray : [String] = []
+        
         if selectedUserType == userType.educator {
             
             if indexPath.section == 0 {
                 obj = patientList[indexPath.row] as! ContactObj
+                recipientNameArray.append(obj.full_name)
             }
             else {
+                
                 obj = doctorList[indexPath.row] as! ContactObj
+                recipientNameArray.append(obj.full_name)
             }
         }
         else {
+            
             obj = patientList[indexPath.row] as! ContactObj
+            recipientNameArray.append(obj.full_name)
         }
         
         // group chat
@@ -324,7 +527,6 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
             
             if selectedUserType == userType.educator {
                 self.resetSelectedUsers(indexPath: indexPath)
-                //tableView.reloadRows(at: [indexPath], with: .none)
                 tableView .reloadData()
             }
             
@@ -333,23 +535,48 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
         else {
             
             // doctor
-            if selectedUserType == userType.doctor {
-                createGroupForDoctor(selectedPatient: obj)
-            }
+            
+            if selectedUserType == userType.doctor
+            {
+                getPatientEducators(patientID: obj.patient_id) { (result) -> Void in
+                    if(result){
+                        self.createGroupForDoctor(selectedPatient: obj)
+                    }
+                    else
+                    {
+                        GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "Error", action:"Create Group For Doctor" , label:"there are no educators associated to this patient.")
+                        
+                        //Add Alert code here
+                        _ = AlertView(title: "Error", message: "there are no educators associated to this patient.", cancelButtonTitle: "OK", otherButtonTitle: [""], didClick: { (buttonIndex) in
+                        })
+                    }
+                    
+                }
                 
+            }
                 //  educator
             else {
-                
                 var usersArray = Array<String>()
                 if obj.chatid != "" {
                     usersArray.append(obj.chatid)
+                    
+                    recipientIDArray.append(obj.patient_id)
+                    if(obj.HCNumber.isEmpty == false){
+                        patienthcNumber = obj.HCNumber
+                    }
+                    
                 }
                 
-                self.createChat(name: obj.full_name, usersArray: usersArray, isGroup: false, patientID: obj.patient_id, completion: { (response, chatDialog) in
+                //The last index will be the name of the logged in user
+                let loggedInUserName: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserFullname)!
+                recipientNameArray.append(loggedInUserName)
+                
+                self.createChat(name:  obj.full_name, usersArray: usersArray, isGroup: false, patientID: obj.patient_id, HCNumber: patienthcNumber, recipientIDArray: recipientIDArray, recipientNames: recipientNameArray, completion: { (response, chatDialog) in
                     
                     UserDefaults.standard.setValue(obj.patient_id, forKey: userDefaults.selectedPatientID)
                     self.naviagteToChatScreen(dialog: chatDialog!)
                 })
+                
             }
             
         }
@@ -373,7 +600,7 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
         
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
+        //print("Done 4")
         if selectedUserType == userType.educator {
             if section == 0 {
                 return "Patients".localized
@@ -405,8 +632,9 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
         let parameters: Parameters = [
             "id": patientsID
         ]
-        
+        self.formInterval = GTInterval.intervalWithNowAsStartDate()
         Alamofire.request("\(baseUrl)\(ApiMethods.getPatDoctors)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+            self.formInterval.end()
             switch response.result {
             case .success:
                 print("Validation Successful")
@@ -422,25 +650,29 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
                         self.doctorList.add(contactObj)
                     }
                     self.tableView.reloadData()
+                    GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.getPatDoctors) Calling", action:"Success - Web API Calling" , label:"get Patient Doctors List", value : self.formInterval.intervalAsSeconds())
                     
                 }
                 
                 break
-            case .failure:
+            case .failure(let error):
+                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.getPatDoctors) Calling", action:"Fail - Web API Calling" , label:String(describing: error), value : self.formInterval.intervalAsSeconds())
                 break
+                
                 
             }
             
         }
     }
     
-    func getPatientEducators()  {
-        let educatorID: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserID)!
-        let parameters: Parameters = [
-            "id": educatorID
-        ]
+    func getPatientEducators(patientID: String, withCompletionHandler:@escaping (_ result:Bool) -> Void)  {
         
+        let parameters: Parameters = [
+            "id": patientID
+        ]
+        self.formInterval = GTInterval.intervalWithNowAsStartDate()
         Alamofire.request("\(baseUrl)\(ApiMethods.getPatEducators)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+            self.formInterval.end()
             switch response.result {
             case .success:
                 print("Validation Successful")
@@ -456,11 +688,17 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
                         contactObj.isSelected = "0"
                         self.educatorsList.add(contactObj)
                     }
-                    self.tableView.reloadData()
+                    print("Printing list in educators")
+                    print(self.educatorsList)
+                    GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.getPatEducators) Calling", action:"Success - Web API Calling" , label:"get Patient Educators List", value : self.formInterval.intervalAsSeconds())
+                    //                    self.tableView.reloadData()
+                    withCompletionHandler(true)
+                    
                 }
-                
                 break
-            case .failure:
+            case .failure(let error):
+                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.getPatEducators) Calling", action:"Fail - Web API Calling" , label:String(describing: error), value : self.formInterval.intervalAsSeconds())
+                withCompletionHandler(false)
                 break
                 
             }
@@ -473,27 +711,32 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
         let parameters: Parameters = [
             "id": doctorID
         ]
-        
+        self.formInterval = GTInterval.intervalWithNowAsStartDate()
         Alamofire.request("\(baseUrl)\(ApiMethods.getDocPatients)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+            self.formInterval.end()
             switch response.result {
             case .success:
-                print("Validation Successful")
+                print("Validation Successful in doctor patients")
                 if let JSON: NSArray = response.result.value as? NSArray {
                     for data in JSON {
                         let dict: NSDictionary = data as! NSDictionary
                         let contactObj = ContactObj()
                         contactObj.patient_id = dict.value(forKey: "_id") as! String
+                        print("ID of patient")
+                        print(contactObj.patient_id)
                         contactObj.chatid = dict.value(forKey: "chatid") as! String
                         contactObj.full_name = dict.value(forKey: "fullname") as! String
                         contactObj.username = dict.value(forKey: "username") as! String
+                        contactObj.HCNumber = dict.value(forKey: "HCNumber") as! String
                         contactObj.isSelected = "0"
                         self.patientList.add(contactObj)
                     }
                     self.tableView.reloadData()
-                    
+                    GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.getDocPatients) Calling", action:"Success - Web API Calling" , label:"get Doctor Patients List", value : self.formInterval.intervalAsSeconds())
                 }
                 break
-            case .failure:
+            case .failure(let error):
+                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.getDocPatients) Calling", action:"Fail - Web API Calling" , label:String(describing: error), value : self.formInterval.intervalAsSeconds())
                 break
                 
             }
@@ -506,8 +749,9 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
         let parameters: Parameters = [
             "id": doctorID
         ]
-        
+        self.formInterval = GTInterval.intervalWithNowAsStartDate()
         Alamofire.request("\(baseUrl)\(ApiMethods.getDocEducators)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+            self.formInterval.end()
             switch response.result {
             case .success:
                 print("Validation Successful")
@@ -522,11 +766,14 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
                         contactObj.isSelected = "0"
                         self.educatorsList.add(contactObj)
                     }
+                    GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.getDocEducators) Calling", action:"Success - Web API Calling" , label:"get Doctor Educators List", value : self.formInterval.intervalAsSeconds())
+                    
                     self.tableView.reloadData()
                 }
                 
                 break
-            case .failure:
+            case .failure(let error):
+                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.getDocEducators) Calling", action:"Fail - Web API Calling" , label:String(describing: error), value : self.formInterval.intervalAsSeconds())
                 break
                 
             }
@@ -534,13 +781,56 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
-    func getEducatorsDoctors()  {
-        let doctorID: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserID)!
+    func getEducatorPatients(){
+        let educatorID: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserID)!
         let parameters: Parameters = [
-            "id": doctorID
+            "id": educatorID
         ]
+        self.formInterval = GTInterval.intervalWithNowAsStartDate()
+        Alamofire.request("\(baseUrl)\(ApiMethods.getEduPatients)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+            self.formInterval.end()
+            switch response.result {
+            case .success:
+                print("Validation Successful")
+                if let JSON: NSArray = response.result.value as? NSArray {
+                    for data in JSON {
+                        let dict: NSDictionary = data as! NSDictionary
+                        let contactObj = ContactObj()
+                        contactObj.patient_id = dict.value(forKey: "_id") as! String
+                        contactObj.chatid = dict.value(forKey: "chatid") as! String
+                        contactObj.full_name = dict.value(forKey: "fullname") as! String
+                        contactObj.username = dict.value(forKey: "username") as! String
+                        contactObj.HCNumber = dict.value(forKey: "HCNumber") as! String
+                        contactObj.isSelected = "0"
+                        self.patientList.add(contactObj)
+                        GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.getEduPatients) Calling", action:"Success - Web API Calling" , label:"get Educator Patients List", value : self.formInterval.intervalAsSeconds())
+                    }
+                    self.tableView.reloadData()
+                }
+                
+                break
+            case .failure(let error):
+                
+                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.getEduPatients) Calling", action:"Fail - Web API Calling" , label:String(describing: error), value : self.formInterval.intervalAsSeconds())
+                break
+            }
+            
+        }
+    }
+    
+    
+    func getEducatorDoctors(){
+        
+        let educatorID: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserID)!
+        let parameters: Parameters = [
+            "id": educatorID
+        ]
+        print("Educator ID")
+        print(educatorID)
+        self.formInterval = GTInterval.intervalWithNowAsStartDate()
         
         Alamofire.request("\(baseUrl)\(ApiMethods.getEduDoctors)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+            self.formInterval.end()
             switch response.result {
             case .success:
                 print("Validation Successful")
@@ -554,54 +844,27 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
                         contactObj.username = dict.value(forKey: "username") as! String
                         contactObj.isSelected = "0"
                         self.doctorList.add(contactObj)
+                        print("Dict")
+                        print(dict)
+                        GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.getEduDoctors) Calling", action:"Success - Web API Calling" , label:"get Educator Doctors List", value : self.formInterval.intervalAsSeconds())
+                        
+                        
                     }
                     self.tableView.reloadData()
                 }
                 
                 break
-            case .failure:
+            case .failure(let error):
+                let resultText = NSString(data: response.result.error! as! Data, encoding: String.Encoding.utf8.rawValue)
+                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.getEduDoctors) Calling", action:"Fail - Web API Calling" , label:String(describing: error), value : self.formInterval.intervalAsSeconds())
                 break
                 
             }
             
         }
-    }
-    
-    func getEducatorsPatients()  {
-        let patientID: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserID)!
-        let parameters: Parameters = [
-            "id": patientID
-        ]
         
-        Alamofire.request("\(baseUrl)\(ApiMethods.getEduPatients)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
-            switch response.result {
-            case .success:
-                print("Validation Successful")
-                if let JSON: NSArray = response.result.value as? NSArray {
-                    for data in JSON {
-                        let dict: NSDictionary = data as! NSDictionary
-                        let contactObj = ContactObj()
-                        contactObj.patient_id = dict.value(forKey: "_id") as! String
-                        contactObj.chatid = dict.value(forKey: "chatid") as! String
-                        contactObj.full_name = dict.value(forKey: "fullname") as! String
-                        contactObj.username = dict.value(forKey: "username") as! String
-                        contactObj.isSelected = "0"
-                        self.patientList.add(contactObj)
-                    }
-                    self.tableView.reloadData()
-                }
-                
-                break
-            case .failure:
-                break
-                
-            }
-            
-        }
+        
     }
-    
-    
-    
     
     
     /*

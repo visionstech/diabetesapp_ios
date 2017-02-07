@@ -10,16 +10,58 @@ import UIKit
 
 class CarePlanMedicationTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var medicineNameTxtFld: UITextField!
+    
+    @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var medImageView: UIImageView!
     @IBOutlet weak var medNameLbl: UILabel!
-    @IBOutlet weak var dosageTxtFld: UITextField!
+    
+    @IBOutlet weak var medicineNameTxtFld: AutocompleteSearchTextField!
+    
+    @IBOutlet weak var vwDetail: UIView!
+    @IBOutlet weak var imgCarBg: UIImageView!
+    @IBOutlet weak var conditionNameLbl: UILabel!
     @IBOutlet weak var conditionTxtFld: UITextField!
-    @IBOutlet weak var frequencyTxtFld: UITextField!
-    @IBOutlet weak var mainView: UIView!
+   
+    @IBOutlet weak var btnConditionDelete: UIButton!
+    @IBOutlet weak var dosageTxtFld: UITextField!
+    @IBOutlet weak var addMedicationView: UIView!
     @IBOutlet weak var editBtn: UIButton!
     @IBOutlet weak var deleteBtn: UIButton!
+    @IBOutlet weak var btnAdd: UIButton!
     
+    @IBOutlet weak var medImgView: UIView!
+    @IBOutlet weak var medImgBtn: UIButton!
+    @IBOutlet weak var medImg: UIImageView!
+    
+    @IBOutlet weak var medImglbl: UILabel!
+    @IBOutlet weak var saveBtn: UIButton!
+    
+    
+    
+//    @IBOutlet weak var medNameLbl: UILabel!
+//    @IBOutlet weak var medImageView: UIImageView!
+//    @IBOutlet weak var mainView: UIView!
+//
+//    @IBOutlet weak var vwDetail: UIView!
+//    
+//    @IBOutlet weak var btnConditionDelete: UIButton!
+//    @IBOutlet weak var medImglbl: UILabel!
+//    @IBOutlet weak var medImg: UIImageView!
+//    @IBOutlet weak var medImgBtn: UIButton!
+//    @IBOutlet weak var medImgView: UIView!
+//    @IBOutlet weak var btnAdd: UIButton!
+//    @IBOutlet weak var saveBtn: UIButton!
+//    @IBOutlet weak var deleteBtn: UIButton!
+//    @IBOutlet weak var editBtn: UIButton!
+//    @IBOutlet weak var dosageTxtFld: UITextField!
+//    @IBOutlet weak var conditionTxtFld: UITextField!
+//    @IBOutlet weak var conditionNameLbl: UILabel!
+//    @IBOutlet weak var imgCarBg: UIImageView!
+//    @IBOutlet weak var addMedicationView: UIView!
+//    @IBOutlet weak var addmedicationView: UIView!
+//    @IBOutlet weak var medicineNameTxtFld: AutocompleteSearchTextField!
+    
+   // @IBOutlet weak var medicineNameTxtFld: AutocompleteSearchTextField!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -27,21 +69,46 @@ class CarePlanMedicationTableViewCell: UITableViewCell {
         mainView.layer.cornerRadius = 8
         
         // Left margins
-        setleftpadding(textfield: conditionTxtFld)
         setleftpadding(textfield: dosageTxtFld)
-        setleftpadding(textfield: frequencyTxtFld)
         if medicineNameTxtFld != nil {
             setleftpadding(textfield: medicineNameTxtFld)
         }
         
+        
+        if editBtn != nil{
+            editBtn.setTitle("Edit".localized,for: .normal)
+            //saveBtn.setTitle("Save".localized,for: .normal)
+            editBtn.setTitle("Edit".localized,for: .highlighted)
+        }
+        
+        if saveBtn != nil{
+            saveBtn.setTitle("Save".localized,for: .normal)
+            //  editBtn.setTitle("Edit".localized,for: .highlighted)
+            saveBtn.setTitle("Save".localized,for: .highlighted)
+        }
+        //editBtn.setTitle("Edit".localized,for: .normal)
+       // saveBtn.setTitle("Save".localized,for: .normal)
+      //  editBtn.setTitle("Edit".localized,for: .highlighted)
+      //  saveBtn.setTitle("Save".localized,for: .highlighted)
+
         // Shadow on view
         mainView.layer.shadowColor = UIColor.black.cgColor
         mainView.layer.shadowOpacity = 0.5
         mainView.layer.shadowOffset = CGSize.zero
         mainView.layer.shadowRadius = 3
-
+        
+        medicineNameTxtFld.startVisible = true
+        // Set data source
+        medicineNameTxtFld.filterStrings(dictMedicationName)
+        
+        //medicineNameTxtFld.backgroundColor = Colors.DHTabBarGreen
+        medicineNameTxtFld.attributedPlaceholder = NSAttributedString(string: "Enter Medicine Name",
+                                                                      attributes: [NSForegroundColorAttributeName: UIColor.gray])
+        
+        
     }
 
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

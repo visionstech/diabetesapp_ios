@@ -102,6 +102,7 @@
 "SA_STR_PUSH_NOTIFICATION_DIALOG_ID" = "dialog_id";
 "SA_STR_PUSH_NOTIFICATION_MESSAGE" = "رسالة";
 
+"SA_STR_DELETE_MEDICATION" = "حذف الأدوية";
 
 //AlertView :-
 "Error" = "Error";
@@ -117,7 +118,7 @@
 "Done" = "تم";
 "You need to select one patient and one doctor" =  "أن تحتاج أن تختار مريض واحد و طبيب واحد";
 
-"Health Card Number" = "رقم البطاقة الصحية";
+"Health Card Number: " = "رقم البطاقة الصحية :";
 "Camera" = "الة تصوير";
 "Photo Library" = "مكتبة الصور";
 "Cancel" = "الغاء";
@@ -138,24 +139,30 @@
 "ENTER_PASSWORD" = "كلمة السر";
 "LOGIN"         = "دخول";
 "FORGOT_PASSWORD" = "نسيت كلمة السر؟";
+"Login Error" = "خطأ تسجيل دخول";
 
 "ADD_GLUCOSE_LEVEL" = "أضف مستوى السكر";
 "ENTER_YOUR_GLUCOSE" = "أضف مستوى قراءة السك";
 "EG" = "مثلا";
-"CHOOSE_CONDITION" = "اختر وقت القراءة";
+"CHOOSE_TIMING" = "اختر وقت القراءة";
 "POST" = "بعد ساعتين";
 "PRE" = "قبل";
 "DONE" = "تم";
+"Please select condition" =  "الرجاء تحديد قبل أو بعد ساعتين";
+"Please input valid number" = "الرجاء ادخال رقم صحيح";
+"Data missing" = "بيانات مفقودة";
 
 
 // DOCTOR STRINGS
 //menu in chat window
-"PATIENT_INFO"  = "معلومات المريض";
+"PATIENT_INFO" = "معلومات المريض";
 "READING_HISTORY" = "القراءات";
 "CARE_PLAN" = "خطة العلاج";
 
 //chat list
 "MESSAGES" = "الرسائل";
+"Patients"     = "مرضي";
+"Doctors"      = "أطباء";
 
 // care plan medication
 "MEDICATION" = "الأدوية";
@@ -163,7 +170,7 @@
 "MED_DOSAGE" = "الجرعة";
 "MED_FREQUENCY" = "الموعد";
 "MED_CONDITION" = "الحالة";
-
+"No Medications Available" =  "لا يوجد دواء";
 //care plan readings
 "TAKE_THE_FOLLOWING_READINGS" = "خذ القراءات الآتية";
 
@@ -174,8 +181,7 @@
 "FOURTEEN_DAYS" = "١٤ يوم";
 "THIRTY_DAYS" = "٣٠ يوم";
 "CONDITION" = "الحالة";
-
-// New File
+"Comment" = "Comment";
 
 "Please wait" = "الرجاء الانتظار";
 "Patients"     = "مرضي";
@@ -202,8 +208,8 @@
 "status" = "الحالة";
 "Last message" = "آخر رسالة";
 "Inbox" = "الصندوق الوارد";
-"Post Breakfast" = "بعد الفطور";
-"Post Lunch" = "بعد الغداء";
+"After Breakfast" = "بعد الفطور";
+"After Lunch" = "بعد الغداء";
 "Incoming Audio Call" = "مكالمة هاتفية";
 "Name" = "اسم";
 "Hypos" = "Hypos";
@@ -211,10 +217,13 @@
 "Login Error" = "خطأ تسجيل دخول";
 "Snacks" = "وجبة خفيفة";
 "Exercise" = "تمربن";
-"Pre Breakfast" = "قبل الفطور";
-"Pre Lunch" = "قبل الغداء";
-"Pre Dinner" = "قبل العشاء";
-"Post Dinner" = "بعد العشاء";
+"Before Breakfast" = "قبل الفطور";
+"Before Lunch" = "قبل الغداء";
+"Before Dinner" = "قبل العشاء";
+"After Dinner" = "بعد العشاء";
+"Dinner" = "العشاء";
+"Breakfast" = "الفطور";
+"Lunch" = "الغداء";
 "Pre" = "قبل";
 "Post" =  "بعد ساعتين";
 "Bedtime"  = "وقت النوم";
@@ -234,8 +243,72 @@
 "List View" = "عرض القوائم";
 "Chart View" = "عرض الرسم البياني";
 //"Patient Info" = "معلونات المريض";
-"7 Days" = "٧ أيام";
-"14 Days" = "١٤ يوم";
+"7 Days" = "7 أيام";
+"14 Days" = "14 يوم";
 "Today" = "اليوم";
 "Medications" = "الأدوية";
 "Readings" = "القراءات";
+
+// g-intake
+"Out of Range" = "خارج النطاق";
+"Normal Range" = "النطاق العادي";
+"Reading for:" = "Reading for:";
+"Normal Range: 70 to 130" = "النطاق العادي: ٧٠ الي ١٣٠";
+"Normal Range: Under 180" = "النطاق العادي: تحت ١٨٠";
+"Normal Range: 130 to 180" = "النطاق العادي: ١٣٠ الي ١٨٠";
+"Normal Range: 80 to 130" = "النطاق العادي: ٨٠ الي ١٣٠";
+"CONFIRM" = "تأكيد";
+"CANCEL" = "الغاء";
+
+//care plan
+"Add another medicine" = "أضف دواء آخر";
+"Please enter the missing fields" = "الرجاد ملأ الخانات المفقودة";
+"Medication must have one condition and dosage" = "الدواء يجب أن يكون به حالة واحدة و جرعة واحدة";
+"Medication Updated" = "م تحديث الدواء";
+"Medication Added" = "تمت اضافة الدواء";
+"edit" = "تعديل";
+"Save" = "احفظ";
+"ADD_MEDICATION_LABEL" = "أضف دواء";
+
+
+//patient info
+"Name" = "الاسم";
+"HC#" = "رقم البطاقة الصحبة";
+"Sex" = "الجنس";
+"Age" = "العمر";
+"BMI" = "مؤشر كتلة الجسم";
+"Diabetec" = "مريض بالسكر";
+"Duration" = "المدة";
+"Cholestrol" = "كوليسترول";
+"Other diseases" = "أمرلض آخري";
+"Bio Data" = "بيانات السيرة الذاتية";
+"Disease Details" = "تفاصيل المرض";
+
+
+"G-Intake"= "قراءة السكر";
+"Inbox"= "الصندوق الوارد";
+"Report"= "تقرير";
+
+"Confirmation"= "تأكيد";
+
+"st" = " ";
+"nd" = " ";
+"rd" = " ";
+"th" = " ";
+
+"Once a week" = "Once a week";
+"Twice a week" = "Twice a week";
+"Thrice a week" = " Thrice a week";
+"Once daily" = "Once daily";
+"Twice daily" = "Twice daily";
+
+"Change date and time" = "غير التاريخ و الوقت";
+"Take the following readings" = "خذ القراءات الآتية";
+"Once a week" = "مرة في الأسبوع";
+"Twice a week" = "مرتين في الأسبوع";
+"Thrice a week" = "ثلاث مرات في الأسبوع";
+"Once daily" = "مرة يوميا";
+"Twice daily" = "مرتين يوميا";
+"Create a new account" = "انشأ حساب جديد";
+"Forgot password?" = "نسيت كلمة السر";
+

@@ -29,18 +29,17 @@ class EditMedicationViewController: UIViewController, UITableViewDelegate, UITab
     var topBackView:UIView = UIView()
     var editMedArray = NSMutableArray()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
-       // setUI()
+        // setUI()
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         setUI()
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         topBackView.removeFromSuperview()
     }
@@ -52,6 +51,19 @@ class EditMedicationViewController: UIViewController, UITableViewDelegate, UITab
     
     // MARK: - Custom Top View
     func createCustomTopView() {
+        
+       /* topBackView = UIView(frame: CGRect(x: 0, y: 0, width: 74, height: 40))
+        topBackView.backgroundColor = UIColor(patternImage: UIImage(named: "topBackBtn")!)
+        let userImgView: UIImageView = UIImageView(frame: CGRect(x: 35, y: 3, width: 34, height: 34))
+        userImgView.image = UIImage(named: "user.png")
+        topBackView.addSubview(userImgView)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(BackBtn_Click))
+        topBackView.addGestureRecognizer(tapGesture)
+        topBackView.isUserInteractionEnabled = true
+        
+        self.tabBarController?.navigationController?.navigationBar.addSubview(topBackView)
+        self.navigationController?.navigationBar.addSubview(topBackView)*/
         
         if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
             topBackView = UIView(frame: CGRect(x: self.view.frame.size.width - 80, y: 0, width: 75, height: 40))
@@ -88,7 +100,7 @@ class EditMedicationViewController: UIViewController, UITableViewDelegate, UITab
     
     // MARK: - Custom Methods
     func setUI(){
-       
+        
         self.tabBarController?.navigationItem.title = "\("CARE_PLAN".localized)"
         self.title = "\("CARE_PLAN".localized)"
         
@@ -147,8 +159,8 @@ class EditMedicationViewController: UIViewController, UITableViewDelegate, UITab
         let obj = CarePlanObj()
         obj.id = ""
         obj.name = ""
-        obj.dosage = ""
-        obj.frequency = ""
+        //        obj.dosage = ""
+        //        obj.frequency = ""
         array.add(obj)
         
         tblView.insertRows(at: [IndexPath(row: array.count-1, section: 0) as IndexPath], with: .none)
@@ -159,17 +171,17 @@ class EditMedicationViewController: UIViewController, UITableViewDelegate, UITab
     @IBAction func ToolBarBtns_Click(_ sender: Any) {
         self.view.endEditing(true)
         if (sender as AnyObject).tag == 0 {
-        
-          let obj: CarePlanObj = array[selectedFreqCellIndex] as! CarePlanObj
+            
+            let obj: CarePlanObj = array[selectedFreqCellIndex] as! CarePlanObj
             
             if let cell: CarePlanMedicationTableViewCell = tblView.cellForRow(at: IndexPath(row: selectedFreqCellIndex, section: 0)) as? CarePlanMedicationTableViewCell {
                 
-                cell.frequencyTxtFld.text = (frequnecyArray[pickerView.selectedRow(inComponent: 0)] as? String)?.localized
-                obj.frequency = ((frequnecyArray[pickerView.selectedRow(inComponent: 0)] as? String)?.localized)!
+                //  cell.frequencyTxtFld.text = (frequnecyArray[pickerView.selectedRow(inComponent: 0)] as? String)!
+                //                obj.frequency = (frequnecyArray[pickerView.selectedRow(inComponent: 0)] as? String)!
                 array.replaceObject(at: selectedFreqCellIndex, with: obj)
                 
             }
-         
+            
             
         }
     }
@@ -185,21 +197,6 @@ class EditMedicationViewController: UIViewController, UITableViewDelegate, UITab
         
         if obj.name.trimmingCharacters(in: CharacterSet.whitespaces).length == 0 {
             self.present(UtilityClass.displayAlertMessage(message: "Medicine Name Required.", title: ""), animated: true, completion: nil)
-            return
-        }
-        
-        else if obj.dosage.trimmingCharacters(in: CharacterSet.whitespaces).length == 0 {
-            self.present(UtilityClass.displayAlertMessage(message: "Dosage Required.", title: ""), animated: true, completion: nil)
-            return
-        }
-        
-        else if obj.frequency.trimmingCharacters(in: CharacterSet.whitespaces).length == 0 {
-            self.present(UtilityClass.displayAlertMessage(message: "Frequency Required.", title: ""), animated: true, completion: nil)
-            return
-        }
-        
-        else if obj.condition.trimmingCharacters(in: CharacterSet.whitespaces).length == 0 {
-            self.present(UtilityClass.displayAlertMessage(message: "Condition Required.", title: ""), animated: true, completion: nil)
             return
         }
         
@@ -231,9 +228,24 @@ class EditMedicationViewController: UIViewController, UITableViewDelegate, UITab
             UserDefaults.standard.setValue(editMedArray, forKey: "currentEditMedicationArray")
             UserDefaults.standard.synchronize()
             self.navigationController?.popViewController(animated: true)
-
+            
         }
-        else {
+        
+        //        else if obj.dosage.trimmingCharacters(in: CharacterSet.whitespaces).length == 0 {
+        //            self.present(UtilityClass.displayAlertMessage(message: "Dosage Required.", title: ""), animated: true, completion: nil)
+        //            return
+        //        }
+        //
+        //        else if obj.frequency.trimmingCharacters(in: CharacterSet.whitespaces).length == 0 {
+        //            self.present(UtilityClass.displayAlertMessage(message: "Frequency Required.", title: ""), animated: true, completion: nil)
+        //            return
+        //        }
+        //
+        //        else if obj.condition.trimmingCharacters(in: CharacterSet.whitespaces).length == 0 {
+        //            self.present(UtilityClass.displayAlertMessage(message: "Condition Required.", title: ""), animated: true, completion: nil)
+        //            return
+        //        }
+        
         if isEditMode == true {
             
             editMedication(medicationObj: obj)
@@ -241,11 +253,8 @@ class EditMedicationViewController: UIViewController, UITableViewDelegate, UITab
         else {
             addMedication(medicationObj: obj)
         }
-        
-        }
-        
     }
-
+    
     func BackBtn_Click(){
         //self.tabBarController?.navigationController?.popViewController(animated: true)
         self.navigationController?.popViewController(animated: true)
@@ -257,12 +266,14 @@ class EditMedicationViewController: UIViewController, UITableViewDelegate, UITab
         let parameters: Parameters = [
             "userid"       : patientsID ,
             "medname"      : medicationObj.name ,
-            "meddosage"    : medicationObj.dosage ,
-            "medfreq"      : medicationObj.frequency ,
-            "medcondition" : medicationObj.condition
+            //            "meddosage"    : medicationObj.dosage ,
+            //            "medfreq"      : medicationObj.frequency ,
+            //            "medcondition" : medicationObj.condition
         ]
         
         SVProgressHUD.show(withStatus: "Adding Medication...", maskType: SVProgressHUDMaskType.clear)
+        
+
         Alamofire.request("\(baseUrl)\(ApiMethods.addcareplan)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
             SVProgressHUD.dismiss()
             print(response)
@@ -270,7 +281,7 @@ class EditMedicationViewController: UIViewController, UITableViewDelegate, UITab
             case .success:
                 print("Validation Successful")
                 self.present(UtilityClass.displayAlertMessage(message: response.result as! String , title: ""), animated: true, completion: nil)
-               
+                
                 break
             case .failure:
                 print("failure")
@@ -287,9 +298,9 @@ class EditMedicationViewController: UIViewController, UITableViewDelegate, UITab
             "userid"       : patientsID ,
             "medid"        : medicationObj.id ,
             "medname"      : medicationObj.name ,
-            "meddosage"    : medicationObj.dosage ,
-            "medfreq"      : medicationObj.frequency ,
-            "medcondition" : medicationObj.condition
+            //            "meddosage"    : medicationObj.dosage ,
+            //            "medfreq"      : medicationObj.frequency ,
+            //            "medcondition" : medicationObj.condition
         ]
         print("parameters \(parameters)")
         
@@ -324,17 +335,17 @@ class EditMedicationViewController: UIViewController, UITableViewDelegate, UITab
         
         let cell : CarePlanMedicationTableViewCell = tableView.dequeueReusableCell(withIdentifier: "medicationCell") as! CarePlanMedicationTableViewCell
         cell.selectionStyle = .none
-        cell.frequencyTxtFld.inputView = pickerViewContainer
+        //  cell.frequencyTxtFld.inputView = pickerViewContainer
         
         cell.conditionTxtFld.tag = indexPath.row
         cell.medicineNameTxtFld?.tag = indexPath.row
         cell.dosageTxtFld.tag = indexPath.row
-        cell.frequencyTxtFld.tag = indexPath.row
+        // cell.frequencyTxtFld.tag = indexPath.row
         
         cell.medicineNameTxtFld?.text = String(obj.name)
-        cell.conditionTxtFld.text = String(obj.condition)
-        cell.dosageTxtFld.text = String(describing: obj.dosage)
-        cell.frequencyTxtFld.text = String(obj.frequency)
+        //        cell.conditionTxtFld.text = String(obj.condition)
+        //        cell.dosageTxtFld.text = String(obj.dosage)
+        //        cell.frequencyTxtFld.text = String(obj.frequency)
         
         
         return cell
@@ -361,27 +372,27 @@ class EditMedicationViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-
-          let obj: CarePlanObj = array[textField.tag] as! CarePlanObj
         
-          let str: NSString = NSString(string: textField.text!)
-          let resultString: String = str.replacingCharacters(in: range, with:string)
+        let obj: CarePlanObj = array[textField.tag] as! CarePlanObj
+        
+        let str: NSString = NSString(string: textField.text!)
+        let resultString: String = str.replacingCharacters(in: range, with:string)
         
         if let cell: CarePlanMedicationTableViewCell = tblView.cellForRow(at: IndexPath(row: textField.tag, section: 0)) as? CarePlanMedicationTableViewCell {
             
             if textField == cell.medicineNameTxtFld {
                 obj.name = resultString
             }
-            else if textField == cell.dosageTxtFld {
-                obj.dosage = resultString
-            }
-            else if textField == cell.conditionTxtFld {
-                obj.condition = resultString
-            }
+            //            else if textField == cell.dosageTxtFld {
+            //                obj.dosage = resultString
+            //            }
+            //            else if textField == cell.conditionTxtFld {
+            //                obj.condition = resultString
+            //            }
             
             array.replaceObject(at: textField.tag, with: obj)
         }
-    
+        
         
         return true
     }
@@ -401,13 +412,13 @@ class EditMedicationViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
 
 }

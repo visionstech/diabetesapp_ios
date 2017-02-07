@@ -13,8 +13,12 @@ class CarePlanReadingTableViewCell: UITableViewCell {
     @IBOutlet weak var numberLbl: UILabel!
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var conditionLbl: UILabel!
-   // @IBOutlet weak var frequencyLbl: UILabel!
+    @IBOutlet weak var frequencyLbl: UILabel!
     @IBOutlet weak var goalLbl: UILabel!
+    @IBOutlet weak var txtGoal: UITextField!
+    @IBOutlet weak var btnFreq: UIButton!
+    @IBOutlet weak var btnTiming: UIButton!
+     @IBOutlet weak var btnEdit: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,14 +38,14 @@ class CarePlanReadingTableViewCell: UITableViewCell {
     func setUI(view: UIView)
     {
         // Corner radius
-        view.layer.cornerRadius = 8
-        view.layer.cornerRadius = 8
-        
-        // Shadow on view
-        view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowOpacity = 0.5
-        view.layer.shadowOffset = CGSize.zero
-        view.layer.shadowRadius = 3
+//        view.layer.cornerRadius = 8
+//        view.layer.cornerRadius = 8
+//        
+//        // Shadow on view
+//        view.layer.shadowColor = UIColor.black.cgColor
+//        view.layer.shadowOpacity = 0.5
+//        view.layer.shadowOffset = CGSize.zero
+//        view.layer.shadowRadius = 3
         
     }
 

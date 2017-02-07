@@ -11,23 +11,79 @@ import Alamofire
 import Quickblox
 import SVProgressHUD
 
-class LoginViewController: UIViewController, QBCoreDelegate {
+struct Account: KeychainGenericPasswordType {
     
-    //MARK: - Outlets
+    let accountName: String
+    let token: String
+    var data = [String: AnyObject]()
+    let taskDate: String
+    
+    var dataToStore: [String: AnyObject] {
+        
+        return ["token": token as AnyObject,"taskDate": taskDate as AnyObject]
+    }
+    
+    var accessToken: String? {
+        
+        return data["token"] as? String
+    }
+    
+    var tDate: String? {
+        
+        return data["taskDate"] as? String
+    }
+    
+    init(name: String, accessToken: String = "", tDate: String = "") {
+        
+        accountName = name
+        token = accessToken
+        taskDate = tDate
+        
+    }
+}
+
+class LoginViewController: UIViewController, QBCoreDelegate, UITextFieldDelegate {
+    
+    @IBOutlet weak var usernameTextFieldView: UIView!
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var passwordTextFieldView: UIView!
     @IBOutlet weak var usernameTxtFld: UITextField!
-    @IBOutlet weak var passwordTxtFld: UITextField!
-    @IBOutlet weak var doctorBtn: UIButton!
-    @IBOutlet weak var patientBtn: UIButton!
     
+    
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var createAccountButton: UIButton!
+    @IBOutlet weak var forgotPasswordButton: UIButton!
+    @IBOutlet weak var passwordTxtFld: UITextField!
+
     //MARK: - var
     @IBOutlet weak var segmentUserType: UISegmentedControl!
     var selectedUserType: Int = 1
-    
+    var formInterval: GTInterval!
+    //let token : String = ""
     
     //MARK: - View Load Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        usernameTxtFld.delegate = self
+        passwordTxtFld.delegate = self
+        
+      //  let token = UserDefaults.standard.value(forKey: userDefaults.deviceToken) as! String!
+       // print("Token in view did load")
+        
+        configureAppearance()
         checkLoginStatus()
+        getMedicationArray()
+        //saveToken()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        //--------Google Analytics Start-----
+        GoogleAnalyticManagerApi.sharedInstance.startScreenSessionWithName(screenName: kLoginScreenName)
+        //--------Google Analytics Finish-----
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,7 +91,7 @@ class LoginViewController: UIViewController, QBCoreDelegate {
         
         usernameTxtFld.text = ""
         passwordTxtFld.text = ""
-        segmentUserType.selectedSegmentIndex = 0
+//        segmentUserType.selectedSegmentIndex = 0
         selectedUserType = 1
     }
     
@@ -45,18 +101,72 @@ class LoginViewController: UIViewController, QBCoreDelegate {
     }
     
     //MARK: - Custom Methods
+    
+    private func configureAppearance() {
+        navigationController?.isNavigationBarHidden = true
+        showActivityIndicator(false)
+        
+        //Set title
+        titleLabel.text = "Diabetes App"
+        
+        //Add gradient background
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = view.bounds
+        
+        let color1 = Colors.DHBackgroundGreen.cgColor
+        let color2 = Colors.DHBackgroundBlue.cgColor
+        
+        gradientLayer.colors = [color1, color2]
+        
+        view.layer.insertSublayer(gradientLayer, at: 0)
+        
+        //Text Field
+        usernameTxtFld.layer.cornerRadius = 10
+        passwordTxtFld.layer.cornerRadius = 10
+        
+        usernameTxtFld.attributedPlaceholder = NSAttributedString(string: "ENTER_USERNAME".localized, attributes: [NSForegroundColorAttributeName : UIColor.black.withAlphaComponent(0.5)])
+        passwordTxtFld.attributedPlaceholder = NSAttributedString(string: "ENTER_PASSWORD".localized, attributes: [NSForegroundColorAttributeName : UIColor.black.withAlphaComponent(0.5)])
+        
+        //Login Button
+        loginButton.layer.cornerRadius = loginButton.bounds.size.height / 2
+        loginButton.layer.borderWidth = 2.0
+        loginButton.layer.borderColor = Colors.DHLoginButtonGreen.cgColor
+        loginButton.setTitle("LOGIN".localized, for: .normal)
+        
+        forgotPasswordButton.setTitle("Forgot Password?".localized, for: .normal)
+        createAccountButton.setTitle("Create a new account".localized, for: .normal)
+    }
+    
+    private func showActivityIndicator(_ show: Bool) {
+        if show {
+            activityIndicator.mySetActive(true)
+            loginButton.setTitle("", for: .normal)
+        }
+        else {
+            activityIndicator.mySetActive(false)
+            loginButton.setTitle("LOGIN".localized, for: .normal)
+        }
+    }
+
+    
+    
     func checkLoginStatus() {
         
         // If Already logged in
         if UserDefaults.standard.bool(forKey: userDefaults.isLoggedIn) == true {
             let login: String = UserDefaults.standard.value(forKey: userDefaults.loggedInUserEmail) as! String!
             
-            SVProgressHUD.show(withStatus: "Please wait".localized)
+            //SVProgressHUD.show(withStatus: "Logging you in...".localized)
             if !QBChat.instance().isConnected {
                 
                 let selectedUser = QBUUser()
                 selectedUser.email = UserDefaults.standard.value(forKey: userDefaults.loggedInUserEmail) as! String!
                 selectedUser.password = UserDefaults.standard.value(forKey: userDefaults.loggedInUserPassword) as! String!
+                
+                GoogleAnalyticManagerApi.sharedInstance.setuserId(userId: selectedUser.email!)
+                GoogleAnalyticManagerApi.sharedInstance.setclientId(clientId: selectedUser.email!)
+                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "Default Login", action:"Login" , label:"Login From Default credential")
+                SVProgressHUD.show(withStatus: "Logging you in...".localized)
                 
                 QBRequest.user(withLogin: login, successBlock: { (response, user) in
                     
@@ -66,12 +176,14 @@ class LoginViewController: UIViewController, QBCoreDelegate {
                         SVProgressHUD.dismiss()
                         let appDelegate = UIApplication.shared.delegate as! AppDelegate
                         appDelegate.currentUser = user! as QBUUser
-                        
+                       
                         guard success else {
                             SVProgressHUD.showError(withStatus: errorMessage)
                             return
                         }
                         self.navigateToNextScreen()
+                        
+                        
                     })
                     
                 }, errorBlock: { (error) in
@@ -89,7 +201,9 @@ class LoginViewController: UIViewController, QBCoreDelegate {
                     let appDelegate = UIApplication.shared.delegate as! AppDelegate
                     appDelegate.currentUser = user! as QBUUser
                     self.navigateToNextScreen()
-                    
+                    GoogleAnalyticManagerApi.sharedInstance.setuserId(userId: UserDefaults.standard.value(forKey: userDefaults.loggedInUserEmail) as! String!)
+                    GoogleAnalyticManagerApi.sharedInstance.setclientId(clientId: UserDefaults.standard.value(forKey: userDefaults.loggedInUserEmail) as! String!)
+                    GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "Default Login", action:"Login" , label:"Login From Default credential")
                 }, errorBlock: { (error) in
                     
                     print("eeror \(error)")
@@ -105,20 +219,21 @@ class LoginViewController: UIViewController, QBCoreDelegate {
         registerForRemoteNotification()
         
         
-      ////  let viewController: DialogsViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.dialogsViewController) as! DialogsViewController
+        ////  let viewController: DialogsViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.dialogsViewController) as! DialogsViewController
         
         
-    self.navigationController?.navigationBar.barTintColor = UIColor(patternImage: UIImage(named: "navigationImage.png")!)
-       self.navigationController?.setNavigationBarHidden(false, animated: false)
+       // self.navigationController?.navigationBar.barTintColor = UIColor(patternImage: UIImage(named: "navigationImage.png")!)
+        self.navigationController?.navigationBar.barTintColor = Colors.PrimaryColor
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
         if UserDefaults.standard.value(forKey: userDefaults.loggedInUserType) as! NSNumber! == 1 || UserDefaults.standard.value(forKey: userDefaults.loggedInUserType) as! NSNumber! == 3 {
             self.navigationItem.hidesBackButton = false
             self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
-           // self.navigationController?.pushViewController(viewController, animated: true)
+            // self.navigationController?.pushViewController(viewController, animated: true)
             
             
             let tabBarController: DoctorTabBarViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.doctorTabBarViewController) as! DoctorTabBarViewController
             self.navigationController?.pushViewController(tabBarController, animated: true)
-
+            
         }
             
         else {
@@ -128,24 +243,23 @@ class LoginViewController: UIViewController, QBCoreDelegate {
             self.navigationController?.pushViewController(tabBarController, animated: true)
         }
         
-    }
-    
+    }    
     //MARK: - IBAction Methods
     @IBAction func SelectUserTypBtns_Click(_ sender: Any) {
-        if (sender as AnyObject).tag == selectedUserType {
-            return
-        }
-        
-        if (sender as AnyObject).tag == userType.doctor {
-            doctorBtn.backgroundColor = Colors.userTypeSelectedColor
-            patientBtn.backgroundColor = UIColor.lightGray
-        }
-            
-        else {
-            doctorBtn.backgroundColor = UIColor.lightGray
-            patientBtn.backgroundColor = Colors.userTypeSelectedColor
-        }
-        selectedUserType = (sender as AnyObject).tag
+//        if (sender as AnyObject).tag == selectedUserType {
+//            return
+//        }
+//        
+////        if (sender as AnyObject).tag == userType.doctor {
+////            doctorBtn.backgroundColor = Colors.userTypeSelectedColor
+////            patientBtn.backgroundColor = UIColor.lightGray
+////        }
+////            
+////        else {
+////            doctorBtn.backgroundColor = UIColor.lightGray
+////            patientBtn.backgroundColor = Colors.userTypeSelectedColor
+////        }
+//        selectedUserType = (sender as AnyObject).tag
         
     }
     
@@ -156,36 +270,44 @@ class LoginViewController: UIViewController, QBCoreDelegate {
         let username = usernameTxtFld.text!.trimmingCharacters(in: CharacterSet.whitespaces)
         let password = passwordTxtFld.text!.trimmingCharacters(in: CharacterSet.whitespaces)
         
+        GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "UI Action", action:"Login Button Clicked" , label:"Login with \(username)")
+        
         
         if username.isEmpty || password.isEmpty {
-            self.present(UtilityClass.displayAlertMessage(message: "Username and password requried".localized, title: "SA_STR_ERROR".localized), animated: true, completion: nil)
+//            self.present(UtilityClass.displayAlertMessage(message: "Username and password required.", title: "Error"), animated: true, completion: nil)
+            self.present(UtilityClass.displayAlertMessage(message: "Username and password required".localized, title: "SA_STR_ERROR".localized), animated: true, completion: nil)
             
         }
         else {
-            if segmentUserType.selectedSegmentIndex == 0 {
-                selectedUserType =  userType.doctor
-            }
-            else if segmentUserType.selectedSegmentIndex == 1 {
-                
-                selectedUserType =  userType.patient
-            }
-            else if segmentUserType.selectedSegmentIndex == 2 {
-                selectedUserType = userType.educator
-            }
+//            if segmentUserType.selectedSegmentIndex == 0 {
+//                selectedUserType =  userType.doctor
+//            }
+//            else if segmentUserType.selectedSegmentIndex == 1 {
+//                
+//                selectedUserType =  userType.patient
+//            }
+//            else if segmentUserType.selectedSegmentIndex == 2 {
+//                selectedUserType = userType.educator
+//            }
             SVProgressHUD.show(withStatus: "SA_STR_LOGGING_IN_AS".localized, maskType: SVProgressHUDMaskType.clear)
             
-            print("\(baseUrl)\(ApiMethods.login)?username=\(username)&password=\(password)&typeid=\(selectedUserType)")
-            
+            //let token = UserDefaults.standard.value(forKey: userDefaults.deviceToken) as! String
+            //print("Token in login click")
+            //print(token)
             let parameters: Parameters = [
                 "username": username,
                 "password": password,
-                "typeid" : selectedUserType,
-                "devicetoken" : "kshfjb656312616"
+//                "typeid" : selectedUserType
+             //   "devicetoken" : token,
+               // "deviceType" : "iOS"
             ]
             
+            self.formInterval = GTInterval.intervalWithNowAsStartDate()
             Alamofire.request("\(baseUrl)\(ApiMethods.login)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
                 print(response.result)
                 
+                self.formInterval.end()
+                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.login) Calling", action:"Login" , label:"Login With Button Click", value : self.formInterval.intervalAsSeconds())
                 
                 switch response.result {
                 case .success:
@@ -193,55 +315,103 @@ class LoginViewController: UIViewController, QBCoreDelegate {
                     
                     if let JSON: NSDictionary = response.result.value as! NSDictionary? {
                         
-                        print("JSON: \(JSON)")
-                        let chatID: String = JSON.value(forKey:"chatid") as! String
-                        let email: String = JSON.value(forKey: "email") as! String!
-                        let id: String = JSON.value(forKey: "_id") as! String!
-                        // Quickblox SIgn Up
-                        if chatID.length == 0 {
-                            
-                            let newUser = QBUUser()
-                            newUser.email = email
-                            newUser.password = email
-                            newUser.login = email
-                            newUser.fullName = JSON.value(forKey: "fullname") as! String!
-                            newUser.website = "www.visions.com"
-                            newUser.tags = NSMutableArray(object: "visionsApp")
-                            
-                            QBRequest.signUp(newUser, successBlock: { (response, user) in
+                        if let val = JSON["result"] {
+                            self.present(UtilityClass.displayAlertMessage(message: "Please check your credentials", title: "SA_STR_ERROR".localized), animated: true, completion: nil)
+                            SVProgressHUD.dismiss()
+                        }
+                        else{
                                 
-                                let dictParam: Parameters = [
-                                    "userid": JSON.value(forKey: "_id") as! String!,
-                                    "chatid": username,
-                                    "typeid" : self.selectedUserType
-                                ]
-                                Alamofire.request("\(baseUrl)\(ApiMethods.updatePatient)", method: .post, parameters: dictParam, encoding: JSONEncoding.default).response { response in
-                                    // QuickBlox Login
-                                    self.loginToQuickBlox(login: email, username: username, userID: id)
-                                    
+                            
+//                        print("JSON: \(JSON)")
+                            let chatID: String = JSON.value(forKey:"chatid") as! String
+                            let email: String = JSON.value(forKey: "email") as! String!
+                            let id: String = JSON.value(forKey: "_id") as! String!
+                            let type: String = JSON.value(forKey:"type") as! String!
+                            let fullname: String = JSON.value(forKey:"fullname") as! String!
+                            let token: String = JSON.value(forKey:"token") as! String!
+                        
+                            if type == "Doctor" {
+                                self.selectedUserType =  userType.doctor
+                            }
+                            else if type == "Patient" {
+                                self.selectedUserType =  userType.patient
+                            }
+                            else if type == "Educator" {
+                                self.selectedUserType = userType.educator
+                            }
+                            
+                            var account = Account(name: id)
+                            var tDate = ""
+                            do {
+                                try account.fetchFromKeychain()
+                                
+                                if let taskDate = account.tDate {
+                                    tDate = taskDate
                                 }
+                            } catch {
+                                tDate = ""
+                                print(error)
+                            }
+                            
+                            let newAccount = Account(name: id, accessToken: token, tDate : tDate)
+                            
+                            // save / update
+                            do {
+                                try newAccount.saveInKeychain()
+                                print("> saved the account in the Keychain")
+                            } catch {
+                                print(error)
+                            }
+                            
+                            // Quickblox SIgn Up
+                            if chatID.length == 0 {
+                            
+                                let newUser = QBUUser()
+                                newUser.email = email
+                                newUser.password = email
+                                newUser.login = email
+                                newUser.fullName = JSON.value(forKey: "fullname") as! String!
+                                newUser.website = "www.visions.com"
+                                newUser.tags = NSMutableArray(object: "visionsApp")
+                                
+                                GoogleAnalyticManagerApi.sharedInstance.setuserId(userId: email)
+                                GoogleAnalyticManagerApi.sharedInstance.setclientId(clientId: email)
+                                
+                                QBRequest.signUp(newUser, successBlock: { (response, user) in
+                                
+                                    let dictParam: Parameters = [
+                                        "userid": JSON.value(forKey: "_id") as! String!,
+                                        "chatid": email,
+                                        "typeid" : self.selectedUserType
+                                    ]
+                                    Alamofire.request("\(baseUrl)\(ApiMethods.updatePatient)", method: .post, parameters: dictParam, encoding: JSONEncoding.default).response { response in
+                                    // QuickBlox Login
+                                        self.loginToQuickBlox(login: email, username: username, userID: id, fullname:fullname)
+                                    
+                                    }
                                 //
                                 //                                            Alamofire.request("\(baseUrl)\(ApiMethods.updatePatient)?userid=\(email)&chatid=\(username)&typeid=\(self.selectedUserType)").responseJSON(completionHandler: { (response) in
                                 //
                                 //                                                                                          })
                                 
-                            }, errorBlock: { (error) in
-                                print(error)
-                                 self.present(UtilityClass.displayAlertMessage(message: "Login Error".localized, title: "SA_STR_ERROR".localized), animated: true, completion: nil)
-                                SVProgressHUD.dismiss()
-                            })
-                        }
+                                }, errorBlock: { (error) in
+                                    print(error)
+                                    self.present(UtilityClass.displayAlertMessage(message: "Login error related to quickblox".localized, title: "SA_STR_ERROR".localized), animated: true, completion: nil)
+                                    SVProgressHUD.dismiss()
+                                })
+                            }
                             
                             // Quickblox Login
-                        else {
-                            self.loginToQuickBlox(login: email, username: username, userID: id)
+                            else {
+                                print("In here going to login now")
+                                self.loginToQuickBlox(login: email, username: username, userID: id, fullname: fullname)
+                            }
                         }
-                        
-                        
+                    
                     }
                     
                 case .failure(let error):
-                    self.present(UtilityClass.displayAlertMessage(message: "Login Error".localized, title: "SA_STR_ERROR".localized), animated: true, completion: nil)
+                    GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.login) Calling", action:"Login - Fail" , label:String(describing: error), value : self.formInterval.intervalAsSeconds())
                     SVProgressHUD.dismiss()
                 }
             }
@@ -306,7 +476,7 @@ class LoginViewController: UIViewController, QBCoreDelegate {
         
     }
     
-    func loginToQuickBlox(login: String, username: String, userID: String) {
+    func loginToQuickBlox(login: String, username: String, userID: String, fullname: String) {
         
         let selectedUser = QBUUser()
         selectedUser.email = login
@@ -336,10 +506,13 @@ class LoginViewController: UIViewController, QBCoreDelegate {
                 UserDefaults.standard.setValue(username, forKey: userDefaults.loggedInUsername)
                 UserDefaults.standard.setValue(login, forKey: userDefaults.loggedInUserEmail)
                 UserDefaults.standard.setValue(login, forKey: userDefaults.loggedInUserPassword)
+                UserDefaults.standard.setValue(fullname, forKey: userDefaults.loggedInUserFullname)
                 UserDefaults.standard.setValue(self.selectedUserType, forKey: userDefaults.loggedInUserType)
                 if self.selectedUserType == userType.patient {
                      UserDefaults.standard.setValue(userID, forKey: userDefaults.selectedPatientID)
                 }
+               
+                 let selectedUserType: Int = Int(UserDefaults.standard.integer(forKey: userDefaults.loggedInUserType))
                
                   UserDefaults.standard.synchronize()
                 
@@ -350,10 +523,64 @@ class LoginViewController: UIViewController, QBCoreDelegate {
             })
             
         }, errorBlock: { (error) in
-             self.present(UtilityClass.displayAlertMessage(message: "Login Error".localized, title: "SA_STR_ERROR".localized), animated: true, completion: nil)
+            
+            self.present(UtilityClass.displayAlertMessage(message: "Login Error".localized, title: "SA_STR_ERROR".localized), animated: true, completion: nil)
             print("error \(error.data?.description)")
+           GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "QuickBlox Calling", action:"Fail - login To QuickBlox" , label:String(describing: error.data?.description), value : self.formInterval.intervalAsSeconds())
             SVProgressHUD.showError(withStatus: error.data?.description)
         })
+    }
+    
+    func getTaskDate() {
+        
+        let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserID)!
+        var account = Account(name: patientsID)
+        var tDate = ""
+        var tokenVal = ""
+        do {
+            
+            try account.fetchFromKeychain()
+            
+            if let token = account.accessToken {
+                tokenVal = token
+            }
+            
+            if let taskDate = account.tDate {
+                tDate = taskDate
+     // n
+            
+            }
+            
+        } catch {
+            tDate = ""
+            print(error)
+        }
+        
+        Alamofire.request("http://54.212.229.198:3000/getTasks?maxdate="+tDate, method: .get, encoding: JSONEncoding.default).responseJSON { (response) in
+            switch response.result {
+            case .success:
+                if let JSON: NSDictionary = response.result.value as! NSDictionary? {
+                    print (JSON)
+                    let maxDate: String = JSON.value(forKey:"maxDate") as! String
+                    let newAccount = Account(name: patientsID, accessToken: tokenVal, tDate : maxDate)
+                    
+                    // save / update
+                    do {
+                        try newAccount.saveInKeychain()
+                        print("> saved the account in the Keychain")
+                        
+                    } catch {
+                        
+                        print(error)
+                    }
+                }
+                break
+            case .failure:
+                print("failure")
+                SVProgressHUD.dismiss()
+                break
+            }
+        }
     }
     
     
@@ -375,6 +602,39 @@ class LoginViewController: UIViewController, QBCoreDelegate {
      // Pass the selected object to the new view controller.
      }
      */
+    
+    func getMedicationArray() {
+        
+        Alamofire.request("http://54.244.176.114:3000/medicationArray", method: .get, encoding: JSONEncoding.default).responseJSON { (response) in
+            switch response.result {
+            case .success:
+                if let JSON: NSDictionary = response.result.value as! NSDictionary? {
+                    print (JSON)
+                    if let medicationList: NSArray = JSON.value(forKey:"medicationArray") as? NSArray {
+                        //                    self.array = NSMutableArray()
+                        dictMedicationName.removeAll()
+                        dictMedicationList = NSMutableArray()
+                        for data in medicationList {
+                            let dict: NSDictionary = data as! NSDictionary
+                            let obj = medicationObj()
+                            obj.medicineName = dict.value(forKey: "medicineName") as! String
+                            obj.medicineImage = dict.value(forKey: "medicineImage") as! String
+                            obj.type = dict.value(forKey: "type") as! String
+                            dictMedicationList.add(obj)
+                            dictMedicationName.append(dict.value(forKey: "medicineName") as! String)
+                        }
+                    }
+                    //                    dictMedicationImage = JSON.value(forKey:"medicationImageArray") as! [String]
+                    //                    dictMedicationList = JSON.value(forKey:"medicationNameArray") as! [String]
+                }
+                break
+            case .failure:
+                print("failure")
+                SVProgressHUD.dismiss()
+                break
+            }
+        }
+    }
     
     func registerForRemoteNotification() {
         // Register for push in iOS 8
