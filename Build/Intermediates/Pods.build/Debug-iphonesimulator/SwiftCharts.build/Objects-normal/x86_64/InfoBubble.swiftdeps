@@ -8,23 +8,23 @@ provides-member:
 provides-dynamic-lookup:
 - "draw"
 depends-top-level:
-- !private "-"
-- !private "max"
-- !private "StringLiteralType"
-- "UIColor"
-- "UIView"
-- !private "UIGraphicsGetCurrentContext"
-- !private "/"
-- "NSCoder"
-- "CGRect"
-- "InfoBubble"
 - !private "CGMutablePath"
+- "UIColor"
+- "CGRect"
+- "UIView"
+- !private "/"
+- !private "UIGraphicsGetCurrentContext"
+- !private "StringLiteralType"
 - !private "CGPoint"
-- "CGFloat"
-- "AssignmentPrecedence"
-- !private "+"
 - !private "fatalError"
+- !private "-"
+- !private "+"
+- "InfoBubble"
 - !private "min"
+- !private "max"
+- "AssignmentPrecedence"
+- "CGFloat"
+- "NSCoder"
 depends-member:
 - !private ["Ps9AnyObject", "CGMutablePath"]
 - !private ["Ps9AnyObject", "CGPoint"]
@@ -603,8 +603,8 @@ depends-nominal:
 depends-dynamic-lookup:
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree/Pods/Target Support Files/SwiftCharts/SwiftCharts-umbrella.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree/Build/Intermediates/Pods.build/Debug-iphonesimulator/SwiftCharts.build/unextended-module.modulemap"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Target Support Files/SwiftCharts/SwiftCharts-umbrella.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Intermediates/Pods.build/Debug-iphonesimulator/SwiftCharts.build/unextended-module.modulemap"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
