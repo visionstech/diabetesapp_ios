@@ -106,6 +106,7 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
     
     //var taskID = String()
     var reportUser = String()
+    var totalBadgeCounter =  Int()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -498,7 +499,14 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
                         else {
                             self.present(UtilityClass.displayAlertMessage(message:status, title: "Message"), animated: true, completion: nil)
                         }
-
+                        
+                        if let badgeCounter = (UserDefaults.standard.value(forKey: userDefaults.totalBadgeCounter) as! String?){
+                            let NewCounter = Int(badgeCounter )
+                            let StringCounter = String(NewCounter! - 1 )
+                            
+                            UserDefaults.standard.set((StringCounter as! String), forKey:userDefaults.totalBadgeCounter)
+                            
+                        }
                     }
                     break
                     
@@ -549,7 +557,15 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
                     else {
                         self.present(UtilityClass.displayAlertMessage(message:status, title: "Message"), animated: true, completion: nil)
                     }
-
+                    
+                     if let badgeCounter = (UserDefaults.standard.value(forKey: userDefaults.totalBadgeCounter) as! String?){
+                        let NewCounter = Int(badgeCounter )
+                        let StringCounter = String(NewCounter! - 1 )
+                        
+                        UserDefaults.standard.set((StringCounter as! String), forKey:userDefaults.totalBadgeCounter)
+                        
+                    }
+                    
                 }
                 
                 break
@@ -1300,6 +1316,15 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
             //                    selectedPatientID = recipientIDs[recipientTypes.index(of: "doctor")!]
             //                }
 
+            if let badgeCounter = UserDefaults.standard.value(forKey: userDefaults.totalBadgeCounter) as! Int?{
+                
+                 totalBadgeCounter = badgeCounter 
+                
+            }
+                
+            else{
+               totalBadgeCounter = 0
+            }
             
             let parameters: Parameters = [
                 "patientid": patientsID,
@@ -1312,7 +1337,8 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
                 "comment" : educatorCommentTxtViw.text,
                 "action":actionSegment,
                 "hcNumber": "",
-                "hba":""
+                "hba":"",
+                "badgeCounter": totalBadgeCounter
             ]
             
             print("Parameters \(parameters)")

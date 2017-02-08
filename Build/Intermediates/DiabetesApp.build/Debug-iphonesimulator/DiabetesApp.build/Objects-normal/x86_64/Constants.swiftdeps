@@ -3,6 +3,7 @@ provides-top-level:
 - "kChatPresenceTimeInterval"
 - "kDialogsPageLimit"
 - "kMessageContainerWidthPadding"
+- "requestTabBarItem"
 - "baseUrl"
 - "conditionsArray"
 - "conditionsArrayEng"
@@ -67,53 +68,55 @@ provides-member:
 - ["V11DiabetesApp5Fonts", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "/"
-- "VideoAudioCall"
-- "kReportChartViewScreenName"
-- "Notifications"
-- "ApiMethods"
-- "kReportCarePlanScreenName"
-- "HistoryDays"
-- "kPatientInfoScreenName"
-- "kChartViewScreenName"
-- "frequencyArrayEng"
-- "UIColor"
-- "kAddMedicationScreenName"
-- "kContactListScreenName"
-- "kDialogsPageLimit"
-- "baseUrl"
-- "CGFloat"
-- "NSArray"
-- "UInt"
-- "kHistoryViewScreenName"
-- "kLoginScreenName"
-- "kChatPresenceTimeInterval"
-- "TimeInterval"
-- "kDialogsScreenName"
 - "kGIntakeScreenName"
-- "kMessageContainerWidthPadding"
-- "kButtonRadius"
-- "kReportNewCarePlanScreenName"
-- "ChatInfo"
-- "kCarePlanReadingScreenName"
-- "kMedicationScreenName"
-- "conditionsArray"
-- "conditionsArrayEng"
-- "GeneralLabels"
-- "Fonts"
-- "String"
-- "userDefaults"
-- "Constants"
 - "kChatScreenName"
-- "ViewIdentifiers"
-- "kReportHistoryViewScreenName"
-- "Colors"
-- "StringLiteralType"
+- "Notifications"
+- "NSArray"
+- "kMedicationScreenName"
+- "kReportChartViewScreenName"
+- "UITabBarItem"
+- "GeneralLabels"
+- "kChartViewScreenName"
+- "kChatPresenceTimeInterval"
 - "Array"
-- "UIFont"
+- "Fonts"
+- "kReportCarePlanScreenName"
+- "ViewIdentifiers"
 - "frequnecyArray"
+- "/"
+- "kReportHistoryViewScreenName"
+- "baseUrl"
+- "ChatInfo"
+- "kLoginScreenName"
+- "requestTabBarItem"
+- "ApiMethods"
+- "kDialogsScreenName"
+- "kDialogsPageLimit"
+- "UInt"
 - "userType"
+- "kContactListScreenName"
+- "String"
+- "TimeInterval"
+- "UIColor"
+- "VideoAudioCall"
+- "HistoryDays"
+- "frequencyArrayEng"
+- "kHistoryViewScreenName"
+- "conditionsArray"
+- "CGFloat"
+- "kMessageContainerWidthPadding"
 - "CellIdentifiers"
+- "Constants"
+- "StringLiteralType"
+- "kButtonRadius"
+- "userDefaults"
+- "UIFont"
+- "kCarePlanReadingScreenName"
+- "conditionsArrayEng"
+- "kPatientInfoScreenName"
+- "kReportNewCarePlanScreenName"
+- "kAddMedicationScreenName"
+- "Colors"
 depends-member:
 - ["Ps9AnyObject", "Element"]
 - ["Ps9AnyObject", "init"]
@@ -135,6 +138,7 @@ depends-member:
 - ["V11DiabetesApp10ApiMethods", "getPatDoctors"]
 - ["V11DiabetesApp10ApiMethods", "getPatEducators"]
 - ["V11DiabetesApp10ApiMethods", "getPatients"]
+- ["V11DiabetesApp10ApiMethods", "getRequestCount"]
 - ["V11DiabetesApp10ApiMethods", "getTasks"]
 - ["V11DiabetesApp10ApiMethods", "getUserProfile"]
 - ["V11DiabetesApp10ApiMethods", "getcareplan"]
@@ -291,10 +295,15 @@ depends-member:
 - ["Ps16TextOutputStream", "localized"]
 - ["Ps20TextOutputStreamable", "init"]
 - ["Ps20TextOutputStreamable", "localized"]
+- ["PSo29UIAccessibilityIdentification", "init"]
+- ["PSo12UIAppearance", "init"]
+- ["CSo9UIBarItem", "init"]
 - ["CSo7UIColor", "deinit"]
 - ["CSo7UIColor", "init"]
 - ["CSo6UIFont", "deinit"]
 - ["CSo6UIFont", "init"]
+- ["CSo12UITabBarItem", "deinit"]
+- ["CSo12UITabBarItem", "init"]
 - ["Su", "deinit"]
 - ["P9Alamofire14URLConvertible", "init"]
 - ["P9Alamofire14URLConvertible", "localized"]
@@ -346,6 +355,7 @@ depends-member:
 - ["V11DiabetesApp12userDefaults", "selectedPatientHCNumber"]
 - ["V11DiabetesApp12userDefaults", "selectedPatientID"]
 - ["V11DiabetesApp12userDefaults", "taskID"]
+- ["V11DiabetesApp12userDefaults", "totalBadgeCounter"]
 - ["V11DiabetesApp8userType", "doctor"]
 - ["V11DiabetesApp8userType", "educator"]
 - ["V11DiabetesApp8userType", "init"]
@@ -393,8 +403,12 @@ depends-nominal:
 - "SS"
 - "Ps16TextOutputStream"
 - "Ps20TextOutputStreamable"
+- "PSo29UIAccessibilityIdentification"
+- "PSo12UIAppearance"
+- "CSo9UIBarItem"
 - "CSo7UIColor"
 - "CSo6UIFont"
+- "CSo12UITabBarItem"
 - "Su"
 - "P9Alamofire14URLConvertible"
 - "V11DiabetesApp14VideoAudioCall"
@@ -760,4 +774,4 @@ depends-external:
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController-umbrella.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Modules/module.modulemap"
-interface-hash: "3bd4ab1bff8d59f4e33a58a77250bc0d"
+interface-hash: "0f39f5c92e2cdabfd3aa5a605325983b"

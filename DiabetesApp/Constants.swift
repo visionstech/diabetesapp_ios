@@ -13,6 +13,9 @@ let kChatPresenceTimeInterval:TimeInterval = 45
 let kDialogsPageLimit:UInt = 100
 let kMessageContainerWidthPadding:CGFloat = 40.0
 
+var requestTabBarItem = UITabBarItem()
+
+
 // Base Url
 
 let baseUrl: String = "http://54.244.176.114:3000/"
@@ -112,6 +115,7 @@ struct userDefaults{
     static let deviceToken              = "deviceToken"
     static let groupChat                = "groupChat"
     static let taskID                   = "taskID"
+    static let totalBadgeCounter        = "totalBadgeCounter"
 }
 
 // MARK: - Api Methods
@@ -150,6 +154,7 @@ struct ApiMethods{
     static let saveEducatorReport = "savetask"
     static let getEducatorGroupReport = "geteducatorreport"
     static let getChartConditionData = "getChartConditionData"
+    static let getRequestCount =       "getRequestCount"
 }
 
 // MARK: - GeneralLabels

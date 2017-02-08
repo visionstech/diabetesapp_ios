@@ -6,18 +6,18 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp13RequestObject", ""]
 provides-dynamic-lookup:
-- "date"
-- "patientName"
-- "status"
-- "time"
 - "doctorName"
-- "patientid"
 - "taskid"
-- "full_name"
+- "patientid"
+- "patientName"
 - "educatorName"
+- "time"
+- "date"
+- "full_name"
+- "status"
 depends-top-level:
-- "RequestObject"
 - "NSObject"
+- "RequestObject"
 - "String"
 depends-member:
 - ["Ps9AnyObject", "String"]

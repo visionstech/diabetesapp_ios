@@ -11,16 +11,16 @@ provides-member:
 provides-dynamic-lookup:
 - "daySuffix"
 depends-top-level:
-- "Bool"
-- "String"
-- !private "StringLiteralType"
-- !private "Calendar"
-- "CastingPrecedence"
-- "NSDate"
-- !private "~="
-- !private "Date"
 - "<"
+- !private "~="
+- "Bool"
+- "CastingPrecedence"
+- "String"
+- !private "Date"
+- "NSDate"
 - ">"
+- !private "Calendar"
+- !private "StringLiteralType"
 depends-member:
 - ["Ps9AnyObject", "<"]
 - ["Ps9AnyObject", ">"]

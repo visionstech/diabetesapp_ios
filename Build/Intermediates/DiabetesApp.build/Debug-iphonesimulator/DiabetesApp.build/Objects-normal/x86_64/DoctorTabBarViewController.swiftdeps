@@ -6,23 +6,23 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp26DoctorTabBarViewController", ""]
 provides-dynamic-lookup:
-- "currentLocale"
 - "viewDidLoad"
+- "currentLocale"
 - "didReceiveMemoryWarning"
 depends-top-level:
-- !private "UIFont"
+- !private "UIFontWeightBold"
 - !private "Dictionary"
+- "StringLiteralType"
+- !private "NSLocale"
 - "String"
+- !private "NSForegroundColorAttributeName"
+- !private "UIFont"
 - "AssignmentPrecedence"
 - !private "=="
-- !private "NSLocale"
-- !private "Colors"
-- "StringLiteralType"
-- !private "NSFontAttributeName"
-- !private "NSForegroundColorAttributeName"
 - "UITabBarController"
+- !private "Colors"
+- !private "NSFontAttributeName"
 - "DoctorTabBarViewController"
-- !private "UIFontWeightBold"
 depends-member:
 - !private ["Ps9AnyObject", "Colors"]
 - !private ["Ps9AnyObject", "NSFontAttributeName"]

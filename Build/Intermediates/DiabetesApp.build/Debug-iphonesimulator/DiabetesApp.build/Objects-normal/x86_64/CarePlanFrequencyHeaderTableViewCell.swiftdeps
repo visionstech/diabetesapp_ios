@@ -6,16 +6,16 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp36CarePlanFrequencyHeaderTableViewCell", ""]
 provides-dynamic-lookup:
-- "setSelected"
-- "headerView"
 - "awakeFromNib"
+- "headerView"
+- "setSelected"
 - "reqReadings"
 depends-top-level:
-- "CarePlanFrequencyHeaderTableViewCell"
 - "UITableViewCell"
 - !private "StringLiteralType"
-- "Bool"
+- "CarePlanFrequencyHeaderTableViewCell"
 - "AssignmentPrecedence"
+- "Bool"
 - "UILabel"
 - "UIView"
 depends-member:

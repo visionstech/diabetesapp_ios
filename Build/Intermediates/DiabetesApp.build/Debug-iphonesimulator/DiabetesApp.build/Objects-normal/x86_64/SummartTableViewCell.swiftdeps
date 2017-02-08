@@ -6,19 +6,19 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp20SummartTableViewCell", ""]
 provides-dynamic-lookup:
-- "vwCelllBg"
-- "setSelected"
 - "nameTxtLbl"
+- "setSelected"
+- "vwCelllBg"
 - "ansTxtLbl"
 - "awakeFromNib"
 depends-top-level:
 - "SummartTableViewCell"
-- "AssignmentPrecedence"
 - !private "UIColor"
-- "Bool"
 - "UITableViewCell"
-- "UILabel"
+- "AssignmentPrecedence"
+- "Bool"
 - "UIView"
+- "UILabel"
 depends-member:
 - !private ["Ps9AnyObject", "UIColor"]
 - ["Ps9AnyObject", "ansTxtLbl"]

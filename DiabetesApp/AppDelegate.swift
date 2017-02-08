@@ -160,9 +160,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate,NotificationServiceDelegat
                 UserDefaults.standard.set(false, forKey:userDefaults.groupChat)
                 UserDefaults.standard.set((userInfo["taskid"] as! String), forKey:userDefaults.taskID)
                 UserDefaults.standard.set((userInfo["patientid"] as! String), forKey:userDefaults.taskID)
+                UserDefaults.standard.set((userInfo["badgeCounter"] as! String), forKey:userDefaults.totalBadgeCounter)
+                
                 UserDefaults.standard.synchronize()
                 application.applicationIconBadgeNumber = Int(userInfo["badgeCounter"] as! String)!
                 navigatonController.pushViewController(viewController, animated: true)
+                
             }
         }
         
@@ -191,7 +194,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,NotificationServiceDelegat
     }
     func applicationDidEnterBackground(_ application: UIApplication) {
         
-        application.applicationIconBadgeNumber = 0
+        let conter : String = UserDefaults.standard.value(forKey: userDefaults.totalBadgeCounter) as! String
+        
+        
+        application.applicationIconBadgeNumber = Int(conter)!
         // Logging out from chat.
         ServicesManager.instance().chatService.disconnect(completionBlock: nil)
     }

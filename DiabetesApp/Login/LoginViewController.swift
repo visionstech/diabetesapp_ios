@@ -67,7 +67,7 @@ class LoginViewController: UIViewController, QBCoreDelegate, UITextFieldDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+       
         usernameTxtFld.delegate = self
         passwordTxtFld.delegate = self
         
@@ -218,11 +218,8 @@ class LoginViewController: UIViewController, QBCoreDelegate, UITextFieldDelegate
         SVProgressHUD.dismiss()
         registerForRemoteNotification()
         
-        
-        ////  let viewController: DialogsViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.dialogsViewController) as! DialogsViewController
-        
-        
-       // self.navigationController?.navigationBar.barTintColor = UIColor(patternImage: UIImage(named: "navigationImage.png")!)
+         ServicesManager.instance().lastActivityDate = nil
+       
         self.navigationController?.navigationBar.barTintColor = Colors.PrimaryColor
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         if UserDefaults.standard.value(forKey: userDefaults.loggedInUserType) as! NSNumber! == 1 || UserDefaults.standard.value(forKey: userDefaults.loggedInUserType) as! NSNumber! == 3 {
@@ -230,8 +227,10 @@ class LoginViewController: UIViewController, QBCoreDelegate, UITextFieldDelegate
             self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
             // self.navigationController?.pushViewController(viewController, animated: true)
             
+           
             
             let tabBarController: DoctorTabBarViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.doctorTabBarViewController) as! DoctorTabBarViewController
+            requestTabBarItem  =  (tabBarController.tabBar.items?[1])!
             self.navigationController?.pushViewController(tabBarController, animated: true)
             
         }

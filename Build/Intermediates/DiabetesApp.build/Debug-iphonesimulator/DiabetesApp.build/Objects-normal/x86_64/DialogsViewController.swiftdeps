@@ -9,153 +9,160 @@ provides-member:
 - ["C11DiabetesApp24DialogTableViewCellModel", ""]
 - ["C11DiabetesApp21DialogsViewController", ""]
 provides-dynamic-lookup:
-- "chatServiceChatDidAccidentallyDisconnect"
-- "chatServiceChatDidReconnect"
-- "dialogs"
-- "selectedUserType"
-- "myTimer"
-- "numberOfSections"
-- "reloadTableViewIfNeeded"
-- "dialogIcon"
-- "chatService"
-- "chatService"
-- "chatService"
-- "chatService"
-- "chatService"
-- "chatService"
-- "chatService"
-- "chatService"
-- "sessionDidClose"
-- "GroupAction"
-- "unreadMessagesCounterHiden"
-- "getDialogs"
-- "getImage"
-- "incomingCallViewControllerReject"
 - "viewDidAppear"
-- "viewWillAppear"
-- "createLogoutButton"
-- "unreadMessagesCounterLabelText"
-- "setNavBarUI"
-- "runTimedCode"
-- "textLabelText"
-- "didReceiveNewSession"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "chatServiceChatDidConnect"
-- "incomingCallViewControllerAccept"
-- "appDelegate"
-- "didEnterBackgroundNotification"
-- "prepare"
-- "detailTextLabelText"
-- "awakeFromNib"
-- "chatServiceChatDidFail"
+- "selectedUserType"
 - "logoutAction"
+- "runTimedCode"
 - "viewWillDisappear"
+- "chatServiceChatDidReconnect"
+- "numberOfSections"
+- "getRequestBadgeCounter"
+- "GroupAction"
+- "appDelegate"
+- "sessionDidClose"
+- "getImage"
+- "awakeFromNib"
+- "createLogoutButton"
+- "myTimer"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "prepare"
+- "incomingCallViewControllerAccept"
+- "chatServiceChatDidFail"
+- "textLabelText"
+- "chatService"
+- "chatService"
+- "chatService"
+- "chatService"
+- "chatService"
+- "chatService"
+- "chatService"
+- "chatService"
+- "chatServiceChatDidAccidentallyDisconnect"
+- "unreadMessagesCounterLabelText"
+- "didEnterBackgroundNotification"
+- "setNavBarUI"
+- "requestTimer"
+- "detailTextLabelText"
+- "unreadMessagesCounterHiden"
+- "chatServiceChatDidConnect"
+- "dialogs"
+- "reloadTableViewIfNeeded"
+- "didReceiveNewSession"
+- "dialogIcon"
+- "viewWillAppear"
+- "getDialogs"
+- "incomingCallViewControllerReject"
 depends-top-level:
-- "UIImage"
-- "DialogTableViewCellModel"
-- !private "NSNotification"
-- "AssignmentPrecedence"
-- !private "=="
-- "CastingPrecedence"
-- "UITableViewController"
-- "TernaryPrecedence"
-- "AppDelegate"
 - "QMChatServiceDelegate"
-- !private "ViewIdentifiers"
-- "QMChatConnectionDelegate"
-- !private "UInt"
-- !private "<"
-- !private "UIView"
-- "QMAuthServiceDelegate"
-- "QBChatMessage"
-- "String"
-- "UITableViewCellEditingStyle"
-- !private "ObjCBool"
-- !private "SDWebImageManager"
-- "NSDate"
-- !private "GoogleAnalyticManagerApi"
-- !private "!="
-- !private "NotificationCenter"
-- "UITableView"
-- !private "UtilityClass"
-- !private "NSURL"
-- !private "JSONEncoding"
-- !private "UnsafeMutablePointer"
-- "Void"
-- "QBCoreDelegate"
-- !private "UIColor"
-- !private "SVProgressHUD"
-- !private "ContactListViewController"
-- "UIApplication"
-- "CGFloat"
-- !private "&&"
-- !private "NSNumber"
 - !private "Set"
-- !private "QBUUser"
-- "DialogsViewController"
-- "Bool"
-- !private ">="
-- "Dictionary"
-- !private "??"
-- !private "NSMutableArray"
-- !private "ChatViewController"
-- !private "SDWebImageOptions"
-- !private "Array"
-- "UITableViewCell"
-- !private "UIUserInterfaceLayoutDirection"
-- "NSObject"
-- !private "SVProgressHUDMaskType"
-- !private "NSMutableDictionary"
 - !private "print"
-- "UIBarButtonItem"
+- !private "URL"
+- !private "SVProgressHUD"
+- "QMAuthServiceDelegate"
+- !private "UIUserInterfaceLayoutDirection"
+- "QMChatConnectionDelegate"
+- !private "UIBarButtonItemStyle"
+- !private "!"
+- "NSDate"
+- "QBRTCClientDelegate"
+- "DialogsViewController"
+- !private "QBRTCClient"
 - !private ">"
+- !private "QBRequest"
+- "QBRTCSession"
+- "QBChatMessage"
+- !private "equestTabBarItem"
+- "UITableViewCell"
 - !private "/"
 - "UserDefaults"
-- !private "QBCOCustomObject"
-- !private "QBChatDialogType"
-- "QMChatService"
-- !private "!"
-- !private "kDialogsPageLimit"
-- !private "ServicesManager"
+- !private "SVProgressHUDMaskType"
+- "UITableView"
+- !private "requestTabBarItem"
+- "String"
+- !private "NSMutableArray"
+- "Int"
 - "UIStoryboardSegue"
-- !private "Date"
-- !private "userType"
-- !private "URL"
-- "QBRTCSession"
-- "DialogTableViewCell"
-- "QBRTCClientDelegate"
-- !private "QBRTCClient"
-- !private "OperationQueue"
-- "UnicodeScalarType"
+- !private "ContactListViewController"
+- !private "<"
+- "userDefaults"
+- !private "SDWebImageOptions"
+- "UIApplication"
+- !private "Parameters"
+- !private "UIView"
 - !private "+"
-- !private "NSDictionary"
-- !private "QBRequest"
-- "Timer"
-- "NSObjectProtocol"
+- "CGFloat"
+- !private "NSNumber"
+- "IncomingCallViewController"
 - "IndexPath"
+- !private "UInt"
+- "IncomingCallViewControllerDelegate"
+- "DialogTableViewCell"
 - !private "kDialogsScreenName"
-- !private "QBRTCSoundRouter"
-- "BooleanLiteralType"
+- !private "Dictionary"
+- !private "NotificationCenter"
+- !private "CallViewController"
+- !private ">="
 - !private "AlertView"
 - !private "Alamofire"
-- !private "CallViewController"
-- "IncomingCallViewControllerDelegate"
-- "AnyHashable"
-- "userDefaults"
-- !private "QBResponse"
-- "QBChatDialog"
-- "IncomingCallViewController"
+- "AppDelegate"
+- !private "QBRTCSoundRouter"
+- "UIImage"
+- !private "Array"
+- !private "Date"
+- !private "UIColor"
 - "Error"
-- !private "QBChat"
+- !private "NSNotification"
+- !private "??"
+- !private "NSMutableDictionary"
+- "DialogTableViewCellModel"
+- !private "QBChatDialogType"
+- !private "ApiMethods"
+- "BooleanLiteralType"
+- "UITableViewCellEditingStyle"
+- "Timer"
 - "StringLiteralType"
-- "Int"
-- !private "UIBarButtonItemStyle"
+- "UITableViewController"
+- !private "baseUrl"
+- "UnicodeScalarType"
+- !private "QBUUser"
+- !private "ObjCBool"
+- "Void"
+- "NSObject"
+- "NSObjectProtocol"
+- !private "ViewIdentifiers"
+- !private "NSDictionary"
+- !private "OperationQueue"
+- !private "UtilityClass"
+- !private "ServicesManager"
+- "UIBarButtonItem"
+- !private "kDialogsPageLimit"
+- "QBCoreDelegate"
+- !private "QBCOCustomObject"
+- "QBChatDialog"
+- "Bool"
+- !private "&&"
+- !private "NSURL"
+- !private "ChatViewController"
+- "CastingPrecedence"
+- "AssignmentPrecedence"
+- !private "=="
+- !private "!="
+- !private "userType"
+- !private "QBChat"
+- "AnyHashable"
+- !private "GoogleAnalyticManagerApi"
+- !private "UnsafeMutablePointer"
+- "QMChatService"
+- !private "QBResponse"
+- !private "SDWebImageManager"
+- !private "JSONEncoding"
+- "TernaryPrecedence"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "init"]
 - ["C11DiabetesApp9AlertView", "deinit"]
@@ -163,6 +170,7 @@ depends-member:
 - !private ["Vs11AnyHashable", "deinit"]
 - !private ["Ps9AnyObject", "Alamofire"]
 - !private ["Ps9AnyObject", "AlertView"]
+- !private ["Ps9AnyObject", "ApiMethods"]
 - !private ["Ps9AnyObject", "DialogTableViewCellModel"]
 - !private ["Ps9AnyObject", "DialogsViewController"]
 - !private ["Ps9AnyObject", "GoogleAnalyticManagerApi"]
@@ -212,6 +220,8 @@ depends-member:
 - ["Ps9AnyObject", "awakeFromNib"]
 - !private ["Ps9AnyObject", "backBarButtonItem"]
 - !private ["Ps9AnyObject", "backgroundColor"]
+- !private ["Ps9AnyObject", "badgeValue"]
+- !private ["Ps9AnyObject", "baseUrl"]
 - ["Ps9AnyObject", "chatService"]
 - ["Ps9AnyObject", "chatServiceChatDidAccidentallyDisconnect"]
 - ["Ps9AnyObject", "chatServiceChatDidConnect"]
@@ -250,6 +260,7 @@ depends-member:
 - !private ["Ps9AnyObject", "displayAlertMessage"]
 - !private ["Ps9AnyObject", "downloadImage"]
 - !private ["Ps9AnyObject", "email"]
+- !private ["Ps9AnyObject", "equestTabBarItem"]
 - !private ["Ps9AnyObject", "error"]
 - !private ["Ps9AnyObject", "fetchDialogsUpdated"]
 - !private ["Ps9AnyObject", "fields"]
@@ -257,6 +268,7 @@ depends-member:
 - !private ["Ps9AnyObject", "frame"]
 - ["Ps9AnyObject", "getDialogs"]
 - ["Ps9AnyObject", "getImage"]
+- ["Ps9AnyObject", "getRequestBadgeCounter"]
 - !private ["Ps9AnyObject", "hidesBackButton"]
 - !private ["Ps9AnyObject", "hidesBottomBarWhenPushed"]
 - !private ["Ps9AnyObject", "id"]
@@ -271,6 +283,7 @@ depends-member:
 - !private ["Ps9AnyObject", "instantiateViewController"]
 - ["Ps9AnyObject", "integer"]
 - !private ["Ps9AnyObject", "invalidate"]
+- !private ["Ps9AnyObject", "isAuthorized"]
 - !private ["Ps9AnyObject", "isConnected"]
 - !private ["Ps9AnyObject", "isEmpty"]
 - !private ["Ps9AnyObject", "isExclusiveTouch"]
@@ -315,6 +328,8 @@ depends-member:
 - !private ["Ps9AnyObject", "remove"]
 - !private ["Ps9AnyObject", "removeDelegate"]
 - !private ["Ps9AnyObject", "removeObserver"]
+- !private ["Ps9AnyObject", "requestTabBarItem"]
+- ["Ps9AnyObject", "requestTimer"]
 - !private ["Ps9AnyObject", "responseJSON"]
 - !private ["Ps9AnyObject", "rightBarButtonItems"]
 - ["Ps9AnyObject", "runTimedCode"]
@@ -365,6 +380,7 @@ depends-member:
 - ["Ps9AnyObject", "viewWillDisappear"]
 - !private ["Ps9AnyObject", "white"]
 - ["Ps9AnyObject", ""]
+- !private ["V11DiabetesApp10ApiMethods", "getRequestCount"]
 - !private ["C11DiabetesApp11AppDelegate", "currentUser"]
 - ["C11DiabetesApp11AppDelegate", "deinit"]
 - !private ["C11DiabetesApp11AppDelegate", "session"]
@@ -459,6 +475,7 @@ depends-member:
 - !private ["VSC6CMTime", "init"]
 - !private ["Ps7CVarArg", "Alamofire"]
 - !private ["Ps7CVarArg", "AlertView"]
+- !private ["Ps7CVarArg", "ApiMethods"]
 - !private ["Ps7CVarArg", "DialogTableViewCellModel"]
 - !private ["Ps7CVarArg", "DialogsViewController"]
 - !private ["Ps7CVarArg", "Element"]
@@ -519,6 +536,8 @@ depends-member:
 - ["Ps7CVarArg", "awakeFromNib"]
 - !private ["Ps7CVarArg", "backBarButtonItem"]
 - !private ["Ps7CVarArg", "backgroundColor"]
+- !private ["Ps7CVarArg", "badgeValue"]
+- !private ["Ps7CVarArg", "baseUrl"]
 - ["Ps7CVarArg", "chatService"]
 - ["Ps7CVarArg", "chatServiceChatDidAccidentallyDisconnect"]
 - ["Ps7CVarArg", "chatServiceChatDidConnect"]
@@ -559,6 +578,7 @@ depends-member:
 - !private ["Ps7CVarArg", "displayAlertMessage"]
 - !private ["Ps7CVarArg", "downloadImage"]
 - !private ["Ps7CVarArg", "email"]
+- !private ["Ps7CVarArg", "equestTabBarItem"]
 - !private ["Ps7CVarArg", "error"]
 - !private ["Ps7CVarArg", "fetchDialogsUpdated"]
 - !private ["Ps7CVarArg", "fields"]
@@ -567,6 +587,7 @@ depends-member:
 - !private ["Ps7CVarArg", "frame"]
 - ["Ps7CVarArg", "getDialogs"]
 - ["Ps7CVarArg", "getImage"]
+- ["Ps7CVarArg", "getRequestBadgeCounter"]
 - !private ["Ps7CVarArg", "hidesBackButton"]
 - !private ["Ps7CVarArg", "hidesBottomBarWhenPushed"]
 - !private ["Ps7CVarArg", "id"]
@@ -582,6 +603,7 @@ depends-member:
 - !private ["Ps7CVarArg", "instantiateViewController"]
 - ["Ps7CVarArg", "integer"]
 - !private ["Ps7CVarArg", "invalidate"]
+- !private ["Ps7CVarArg", "isAuthorized"]
 - !private ["Ps7CVarArg", "isConnected"]
 - !private ["Ps7CVarArg", "isEmpty"]
 - !private ["Ps7CVarArg", "isExclusiveTouch"]
@@ -626,6 +648,8 @@ depends-member:
 - !private ["Ps7CVarArg", "remove"]
 - !private ["Ps7CVarArg", "removeDelegate"]
 - !private ["Ps7CVarArg", "removeObserver"]
+- !private ["Ps7CVarArg", "requestTabBarItem"]
+- ["Ps7CVarArg", "requestTimer"]
 - !private ["Ps7CVarArg", "rightBarButtonItems"]
 - ["Ps7CVarArg", "runTimedCode"]
 - !private ["Ps7CVarArg", "scheduledTimer"]
@@ -713,6 +737,7 @@ depends-member:
 - !private ["C11DiabetesApp25ContactListViewController", "isGroupMode"]
 - !private ["Ps28CustomDebugStringConvertible", "Alamofire"]
 - !private ["Ps28CustomDebugStringConvertible", "AlertView"]
+- !private ["Ps28CustomDebugStringConvertible", "ApiMethods"]
 - !private ["Ps28CustomDebugStringConvertible", "DialogTableViewCellModel"]
 - !private ["Ps28CustomDebugStringConvertible", "DialogsViewController"]
 - !private ["Ps28CustomDebugStringConvertible", "Element"]
@@ -771,6 +796,8 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "awakeFromNib"]
 - !private ["Ps28CustomDebugStringConvertible", "backBarButtonItem"]
 - !private ["Ps28CustomDebugStringConvertible", "backgroundColor"]
+- !private ["Ps28CustomDebugStringConvertible", "badgeValue"]
+- !private ["Ps28CustomDebugStringConvertible", "baseUrl"]
 - ["Ps28CustomDebugStringConvertible", "chatService"]
 - ["Ps28CustomDebugStringConvertible", "chatServiceChatDidAccidentallyDisconnect"]
 - ["Ps28CustomDebugStringConvertible", "chatServiceChatDidConnect"]
@@ -811,6 +838,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "displayAlertMessage"]
 - !private ["Ps28CustomDebugStringConvertible", "downloadImage"]
 - !private ["Ps28CustomDebugStringConvertible", "email"]
+- !private ["Ps28CustomDebugStringConvertible", "equestTabBarItem"]
 - !private ["Ps28CustomDebugStringConvertible", "error"]
 - !private ["Ps28CustomDebugStringConvertible", "failure"]
 - !private ["Ps28CustomDebugStringConvertible", "fetchDialogsUpdated"]
@@ -820,6 +848,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "frame"]
 - ["Ps28CustomDebugStringConvertible", "getDialogs"]
 - ["Ps28CustomDebugStringConvertible", "getImage"]
+- ["Ps28CustomDebugStringConvertible", "getRequestBadgeCounter"]
 - !private ["Ps28CustomDebugStringConvertible", "hidesBackButton"]
 - !private ["Ps28CustomDebugStringConvertible", "hidesBottomBarWhenPushed"]
 - !private ["Ps28CustomDebugStringConvertible", "id"]
@@ -835,6 +864,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "instantiateViewController"]
 - ["Ps28CustomDebugStringConvertible", "integer"]
 - !private ["Ps28CustomDebugStringConvertible", "invalidate"]
+- !private ["Ps28CustomDebugStringConvertible", "isAuthorized"]
 - !private ["Ps28CustomDebugStringConvertible", "isConnected"]
 - !private ["Ps28CustomDebugStringConvertible", "isEmpty"]
 - !private ["Ps28CustomDebugStringConvertible", "isExclusiveTouch"]
@@ -879,6 +909,8 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "remove"]
 - !private ["Ps28CustomDebugStringConvertible", "removeDelegate"]
 - !private ["Ps28CustomDebugStringConvertible", "removeObserver"]
+- !private ["Ps28CustomDebugStringConvertible", "requestTabBarItem"]
+- ["Ps28CustomDebugStringConvertible", "requestTimer"]
 - !private ["Ps28CustomDebugStringConvertible", "responseJSON"]
 - !private ["Ps28CustomDebugStringConvertible", "result"]
 - !private ["Ps28CustomDebugStringConvertible", "rightBarButtonItems"]
@@ -970,6 +1002,7 @@ depends-member:
 - !private ["Ps17CustomReflectable", "width"]
 - !private ["Ps23CustomStringConvertible", "Alamofire"]
 - !private ["Ps23CustomStringConvertible", "AlertView"]
+- !private ["Ps23CustomStringConvertible", "ApiMethods"]
 - !private ["Ps23CustomStringConvertible", "DialogTableViewCellModel"]
 - !private ["Ps23CustomStringConvertible", "DialogsViewController"]
 - !private ["Ps23CustomStringConvertible", "Element"]
@@ -1031,6 +1064,8 @@ depends-member:
 - ["Ps23CustomStringConvertible", "awakeFromNib"]
 - !private ["Ps23CustomStringConvertible", "backBarButtonItem"]
 - !private ["Ps23CustomStringConvertible", "backgroundColor"]
+- !private ["Ps23CustomStringConvertible", "badgeValue"]
+- !private ["Ps23CustomStringConvertible", "baseUrl"]
 - ["Ps23CustomStringConvertible", "chatService"]
 - ["Ps23CustomStringConvertible", "chatServiceChatDidAccidentallyDisconnect"]
 - ["Ps23CustomStringConvertible", "chatServiceChatDidConnect"]
@@ -1071,6 +1106,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "displayAlertMessage"]
 - !private ["Ps23CustomStringConvertible", "downloadImage"]
 - !private ["Ps23CustomStringConvertible", "email"]
+- !private ["Ps23CustomStringConvertible", "equestTabBarItem"]
 - !private ["Ps23CustomStringConvertible", "error"]
 - !private ["Ps23CustomStringConvertible", "failure"]
 - !private ["Ps23CustomStringConvertible", "fetchDialogsUpdated"]
@@ -1080,6 +1116,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "frame"]
 - ["Ps23CustomStringConvertible", "getDialogs"]
 - ["Ps23CustomStringConvertible", "getImage"]
+- ["Ps23CustomStringConvertible", "getRequestBadgeCounter"]
 - !private ["Ps23CustomStringConvertible", "hidesBackButton"]
 - !private ["Ps23CustomStringConvertible", "hidesBottomBarWhenPushed"]
 - !private ["Ps23CustomStringConvertible", "id"]
@@ -1095,6 +1132,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "instantiateViewController"]
 - ["Ps23CustomStringConvertible", "integer"]
 - !private ["Ps23CustomStringConvertible", "invalidate"]
+- !private ["Ps23CustomStringConvertible", "isAuthorized"]
 - !private ["Ps23CustomStringConvertible", "isConnected"]
 - !private ["Ps23CustomStringConvertible", "isEmpty"]
 - !private ["Ps23CustomStringConvertible", "isExclusiveTouch"]
@@ -1139,6 +1177,8 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "remove"]
 - !private ["Ps23CustomStringConvertible", "removeDelegate"]
 - !private ["Ps23CustomStringConvertible", "removeObserver"]
+- !private ["Ps23CustomStringConvertible", "requestTabBarItem"]
+- ["Ps23CustomStringConvertible", "requestTimer"]
 - !private ["Ps23CustomStringConvertible", "responseJSON"]
 - !private ["Ps23CustomStringConvertible", "result"]
 - !private ["Ps23CustomStringConvertible", "rightBarButtonItems"]
@@ -1237,6 +1277,7 @@ depends-member:
 - !private ["C11DiabetesApp21DialogsViewController", "Alamofire"]
 - !private ["C11DiabetesApp21DialogsViewController", "AlertView"]
 - ["C11DiabetesApp21DialogsViewController", "AnyHashable"]
+- !private ["C11DiabetesApp21DialogsViewController", "ApiMethods"]
 - ["C11DiabetesApp21DialogsViewController", "AppDelegate"]
 - !private ["C11DiabetesApp21DialogsViewController", "Array"]
 - ["C11DiabetesApp21DialogsViewController", "Bool"]
@@ -1266,6 +1307,7 @@ depends-member:
 - !private ["C11DiabetesApp21DialogsViewController", "NotificationCenter"]
 - !private ["C11DiabetesApp21DialogsViewController", "ObjCBool"]
 - !private ["C11DiabetesApp21DialogsViewController", "OperationQueue"]
+- !private ["C11DiabetesApp21DialogsViewController", "Parameters"]
 - !private ["C11DiabetesApp21DialogsViewController", "QBCOCustomObject"]
 - !private ["C11DiabetesApp21DialogsViewController", "QBChat"]
 - ["C11DiabetesApp21DialogsViewController", "QBChatDialog"]
@@ -1308,6 +1350,7 @@ depends-member:
 - ["C11DiabetesApp21DialogsViewController", "authService"]
 - ["C11DiabetesApp21DialogsViewController", "authServiceDidLogOut"]
 - ["C11DiabetesApp21DialogsViewController", "awakeFromNib"]
+- !private ["C11DiabetesApp21DialogsViewController", "baseUrl"]
 - ["C11DiabetesApp21DialogsViewController", "chatService"]
 - ["C11DiabetesApp21DialogsViewController", "chatServiceChatDidAccidentallyDisconnect"]
 - ["C11DiabetesApp21DialogsViewController", "chatServiceChatDidConnect"]
@@ -1324,8 +1367,10 @@ depends-member:
 - !private ["C11DiabetesApp21DialogsViewController", "didEnterBackgroundDate"]
 - ["C11DiabetesApp21DialogsViewController", "didEnterBackgroundNotification"]
 - ["C11DiabetesApp21DialogsViewController", "didReceiveNewSession"]
+- !private ["C11DiabetesApp21DialogsViewController", "equestTabBarItem"]
 - ["C11DiabetesApp21DialogsViewController", "getDialogs"]
 - ["C11DiabetesApp21DialogsViewController", "getImage"]
+- ["C11DiabetesApp21DialogsViewController", "getRequestBadgeCounter"]
 - ["C11DiabetesApp21DialogsViewController", "incomingCallViewControllerAccept"]
 - ["C11DiabetesApp21DialogsViewController", "incomingCallViewControllerReject"]
 - ["C11DiabetesApp21DialogsViewController", "init"]
@@ -1343,6 +1388,8 @@ depends-member:
 - !private ["C11DiabetesApp21DialogsViewController", "present"]
 - !private ["C11DiabetesApp21DialogsViewController", "print"]
 - ["C11DiabetesApp21DialogsViewController", "reloadTableViewIfNeeded"]
+- !private ["C11DiabetesApp21DialogsViewController", "requestTabBarItem"]
+- ["C11DiabetesApp21DialogsViewController", "requestTimer"]
 - ["C11DiabetesApp21DialogsViewController", "runTimedCode"]
 - ["C11DiabetesApp21DialogsViewController", "selectedUserType"]
 - ["C11DiabetesApp21DialogsViewController", "session"]
@@ -1363,10 +1410,11 @@ depends-member:
 - !private ["V8Dispatch12DispatchTime", "init"]
 - !private ["V8Dispatch16DispatchWallTime", "deinit"]
 - !private ["V8Dispatch16DispatchWallTime", "init"]
-- !private ["Sd", "deinit"]
+- ["Sd", "deinit"]
 - !private ["Sd", "init"]
 - !private ["Ps9Equatable", "Alamofire"]
 - !private ["Ps9Equatable", "AlertView"]
+- !private ["Ps9Equatable", "ApiMethods"]
 - !private ["Ps9Equatable", "DialogTableViewCellModel"]
 - !private ["Ps9Equatable", "DialogsViewController"]
 - !private ["Ps9Equatable", "GoogleAnalyticManagerApi"]
@@ -1423,6 +1471,8 @@ depends-member:
 - ["Ps9Equatable", "awakeFromNib"]
 - !private ["Ps9Equatable", "backBarButtonItem"]
 - !private ["Ps9Equatable", "backgroundColor"]
+- !private ["Ps9Equatable", "badgeValue"]
+- !private ["Ps9Equatable", "baseUrl"]
 - ["Ps9Equatable", "chatService"]
 - ["Ps9Equatable", "chatServiceChatDidAccidentallyDisconnect"]
 - ["Ps9Equatable", "chatServiceChatDidConnect"]
@@ -1464,6 +1514,7 @@ depends-member:
 - !private ["Ps9Equatable", "displayAlertMessage"]
 - !private ["Ps9Equatable", "downloadImage"]
 - !private ["Ps9Equatable", "email"]
+- !private ["Ps9Equatable", "equestTabBarItem"]
 - !private ["Ps9Equatable", "error"]
 - !private ["Ps9Equatable", "fetchDialogsUpdated"]
 - !private ["Ps9Equatable", "fields"]
@@ -1472,6 +1523,7 @@ depends-member:
 - !private ["Ps9Equatable", "get"]
 - ["Ps9Equatable", "getDialogs"]
 - ["Ps9Equatable", "getImage"]
+- ["Ps9Equatable", "getRequestBadgeCounter"]
 - ["Ps9Equatable", "group"]
 - !private ["Ps9Equatable", "hidesBackButton"]
 - !private ["Ps9Equatable", "hidesBottomBarWhenPushed"]
@@ -1488,6 +1540,7 @@ depends-member:
 - !private ["Ps9Equatable", "instantiateViewController"]
 - ["Ps9Equatable", "integer"]
 - !private ["Ps9Equatable", "invalidate"]
+- !private ["Ps9Equatable", "isAuthorized"]
 - !private ["Ps9Equatable", "isConnected"]
 - !private ["Ps9Equatable", "isEmpty"]
 - !private ["Ps9Equatable", "isExclusiveTouch"]
@@ -1522,6 +1575,7 @@ depends-member:
 - !private ["Ps9Equatable", "plain"]
 - !private ["Ps9Equatable", "popToRootViewController"]
 - !private ["Ps9Equatable", "popViewController"]
+- !private ["Ps9Equatable", "post"]
 - ["Ps9Equatable", "prepare"]
 - !private ["Ps9Equatable", "present"]
 - !private ["Ps9Equatable", "print"]
@@ -1536,6 +1590,8 @@ depends-member:
 - !private ["Ps9Equatable", "remove"]
 - !private ["Ps9Equatable", "removeDelegate"]
 - !private ["Ps9Equatable", "removeObserver"]
+- !private ["Ps9Equatable", "requestTabBarItem"]
+- ["Ps9Equatable", "requestTimer"]
 - !private ["Ps9Equatable", "right"]
 - !private ["Ps9Equatable", "rightBarButtonItems"]
 - !private ["Ps9Equatable", "rightToLeft"]
@@ -1644,8 +1700,10 @@ depends-member:
 - !private ["C11DiabetesApp24GoogleAnalyticManagerApi", "startScreenSessionWithName"]
 - ["O9Alamofire10HTTPMethod", "deinit"]
 - !private ["O9Alamofire10HTTPMethod", "get"]
+- !private ["O9Alamofire10HTTPMethod", "post"]
 - !private ["Ps8Hashable", "Alamofire"]
 - !private ["Ps8Hashable", "AlertView"]
+- !private ["Ps8Hashable", "ApiMethods"]
 - !private ["Ps8Hashable", "DialogTableViewCellModel"]
 - !private ["Ps8Hashable", "DialogsViewController"]
 - !private ["Ps8Hashable", "GoogleAnalyticManagerApi"]
@@ -1702,6 +1760,8 @@ depends-member:
 - ["Ps8Hashable", "awakeFromNib"]
 - !private ["Ps8Hashable", "backBarButtonItem"]
 - !private ["Ps8Hashable", "backgroundColor"]
+- !private ["Ps8Hashable", "badgeValue"]
+- !private ["Ps8Hashable", "baseUrl"]
 - ["Ps8Hashable", "chatService"]
 - ["Ps8Hashable", "chatServiceChatDidAccidentallyDisconnect"]
 - ["Ps8Hashable", "chatServiceChatDidConnect"]
@@ -1743,6 +1803,7 @@ depends-member:
 - !private ["Ps8Hashable", "displayAlertMessage"]
 - !private ["Ps8Hashable", "downloadImage"]
 - !private ["Ps8Hashable", "email"]
+- !private ["Ps8Hashable", "equestTabBarItem"]
 - !private ["Ps8Hashable", "error"]
 - !private ["Ps8Hashable", "fetchDialogsUpdated"]
 - !private ["Ps8Hashable", "fields"]
@@ -1751,6 +1812,7 @@ depends-member:
 - !private ["Ps8Hashable", "get"]
 - ["Ps8Hashable", "getDialogs"]
 - ["Ps8Hashable", "getImage"]
+- ["Ps8Hashable", "getRequestBadgeCounter"]
 - ["Ps8Hashable", "group"]
 - !private ["Ps8Hashable", "hidesBackButton"]
 - !private ["Ps8Hashable", "hidesBottomBarWhenPushed"]
@@ -1766,6 +1828,7 @@ depends-member:
 - !private ["Ps8Hashable", "instantiateViewController"]
 - ["Ps8Hashable", "integer"]
 - !private ["Ps8Hashable", "invalidate"]
+- !private ["Ps8Hashable", "isAuthorized"]
 - !private ["Ps8Hashable", "isConnected"]
 - !private ["Ps8Hashable", "isEmpty"]
 - !private ["Ps8Hashable", "isExclusiveTouch"]
@@ -1800,6 +1863,7 @@ depends-member:
 - !private ["Ps8Hashable", "plain"]
 - !private ["Ps8Hashable", "popToRootViewController"]
 - !private ["Ps8Hashable", "popViewController"]
+- !private ["Ps8Hashable", "post"]
 - ["Ps8Hashable", "prepare"]
 - !private ["Ps8Hashable", "present"]
 - !private ["Ps8Hashable", "print"]
@@ -1814,6 +1878,8 @@ depends-member:
 - !private ["Ps8Hashable", "remove"]
 - !private ["Ps8Hashable", "removeDelegate"]
 - !private ["Ps8Hashable", "removeObserver"]
+- !private ["Ps8Hashable", "requestTabBarItem"]
+- ["Ps8Hashable", "requestTimer"]
 - !private ["Ps8Hashable", "right"]
 - !private ["Ps8Hashable", "rightBarButtonItems"]
 - !private ["Ps8Hashable", "rightToLeft"]
@@ -1874,6 +1940,7 @@ depends-member:
 - !private ["CSo26IncomingCallViewController", "session"]
 - !private ["PSo34IncomingCallViewControllerDelegate", "Alamofire"]
 - !private ["PSo34IncomingCallViewControllerDelegate", "AlertView"]
+- !private ["PSo34IncomingCallViewControllerDelegate", "ApiMethods"]
 - !private ["PSo34IncomingCallViewControllerDelegate", "DialogTableViewCellModel"]
 - !private ["PSo34IncomingCallViewControllerDelegate", "DialogsViewController"]
 - !private ["PSo34IncomingCallViewControllerDelegate", "GoogleAnalyticManagerApi"]
@@ -1913,6 +1980,7 @@ depends-member:
 - !private ["PSo34IncomingCallViewControllerDelegate", "appDelegate"]
 - ["PSo34IncomingCallViewControllerDelegate", "authService"]
 - ["PSo34IncomingCallViewControllerDelegate", "authServiceDidLogOut"]
+- !private ["PSo34IncomingCallViewControllerDelegate", "baseUrl"]
 - ["PSo34IncomingCallViewControllerDelegate", "chatService"]
 - ["PSo34IncomingCallViewControllerDelegate", "chatServiceChatDidAccidentallyDisconnect"]
 - ["PSo34IncomingCallViewControllerDelegate", "chatServiceChatDidConnect"]
@@ -1927,7 +1995,9 @@ depends-member:
 - !private ["PSo34IncomingCallViewControllerDelegate", "didEnterBackgroundDate"]
 - !private ["PSo34IncomingCallViewControllerDelegate", "didEnterBackgroundNotification"]
 - ["PSo34IncomingCallViewControllerDelegate", "didReceiveNewSession"]
+- !private ["PSo34IncomingCallViewControllerDelegate", "equestTabBarItem"]
 - !private ["PSo34IncomingCallViewControllerDelegate", "getDialogs"]
+- !private ["PSo34IncomingCallViewControllerDelegate", "getRequestBadgeCounter"]
 - ["PSo34IncomingCallViewControllerDelegate", "incomingCallViewControllerAccept"]
 - ["PSo34IncomingCallViewControllerDelegate", "incomingCallViewControllerReject"]
 - !private ["PSo34IncomingCallViewControllerDelegate", "kDialogsPageLimit"]
@@ -1942,6 +2012,8 @@ depends-member:
 - !private ["PSo34IncomingCallViewControllerDelegate", "present"]
 - !private ["PSo34IncomingCallViewControllerDelegate", "print"]
 - !private ["PSo34IncomingCallViewControllerDelegate", "reloadTableViewIfNeeded"]
+- !private ["PSo34IncomingCallViewControllerDelegate", "requestTabBarItem"]
+- !private ["PSo34IncomingCallViewControllerDelegate", "requestTimer"]
 - !private ["PSo34IncomingCallViewControllerDelegate", "runTimedCode"]
 - !private ["PSo34IncomingCallViewControllerDelegate", "selectedUserType"]
 - ["PSo34IncomingCallViewControllerDelegate", "session"]
@@ -2053,6 +2125,7 @@ depends-member:
 - ["CSo7NSCoder", "deinit"]
 - !private ["PSo8NSCoding", "Alamofire"]
 - !private ["PSo8NSCoding", "AlertView"]
+- !private ["PSo8NSCoding", "ApiMethods"]
 - !private ["PSo8NSCoding", "DialogTableViewCellModel"]
 - !private ["PSo8NSCoding", "DialogsViewController"]
 - !private ["PSo8NSCoding", "GoogleAnalyticManagerApi"]
@@ -2097,6 +2170,8 @@ depends-member:
 - ["PSo8NSCoding", "awakeFromNib"]
 - !private ["PSo8NSCoding", "backBarButtonItem"]
 - !private ["PSo8NSCoding", "backgroundColor"]
+- !private ["PSo8NSCoding", "badgeValue"]
+- !private ["PSo8NSCoding", "baseUrl"]
 - ["PSo8NSCoding", "chatService"]
 - ["PSo8NSCoding", "chatServiceChatDidAccidentallyDisconnect"]
 - ["PSo8NSCoding", "chatServiceChatDidConnect"]
@@ -2126,10 +2201,12 @@ depends-member:
 - ["PSo8NSCoding", "didReceiveNewSession"]
 - !private ["PSo8NSCoding", "dismiss"]
 - !private ["PSo8NSCoding", "email"]
+- !private ["PSo8NSCoding", "equestTabBarItem"]
 - !private ["PSo8NSCoding", "fields"]
 - !private ["PSo8NSCoding", "frame"]
 - ["PSo8NSCoding", "getDialogs"]
 - ["PSo8NSCoding", "getImage"]
+- ["PSo8NSCoding", "getRequestBadgeCounter"]
 - !private ["PSo8NSCoding", "hidesBackButton"]
 - !private ["PSo8NSCoding", "hidesBottomBarWhenPushed"]
 - !private ["PSo8NSCoding", "id"]
@@ -2169,6 +2246,8 @@ depends-member:
 - !private ["PSo8NSCoding", "recipientID"]
 - !private ["PSo8NSCoding", "reloadData"]
 - ["PSo8NSCoding", "reloadTableViewIfNeeded"]
+- !private ["PSo8NSCoding", "requestTabBarItem"]
+- ["PSo8NSCoding", "requestTimer"]
 - !private ["PSo8NSCoding", "rightBarButtonItems"]
 - ["PSo8NSCoding", "runTimedCode"]
 - ["PSo8NSCoding", "selectedUserType"]
@@ -2228,6 +2307,7 @@ depends-member:
 - !private ["CSo12NSDictionary", "value"]
 - !private ["PSo26NSExtensionRequestHandling", "Alamofire"]
 - !private ["PSo26NSExtensionRequestHandling", "AlertView"]
+- !private ["PSo26NSExtensionRequestHandling", "ApiMethods"]
 - !private ["PSo26NSExtensionRequestHandling", "DialogTableViewCellModel"]
 - !private ["PSo26NSExtensionRequestHandling", "DialogsViewController"]
 - !private ["PSo26NSExtensionRequestHandling", "GoogleAnalyticManagerApi"]
@@ -2268,6 +2348,7 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "authService"]
 - ["PSo26NSExtensionRequestHandling", "authServiceDidLogOut"]
 - ["PSo26NSExtensionRequestHandling", "awakeFromNib"]
+- !private ["PSo26NSExtensionRequestHandling", "baseUrl"]
 - ["PSo26NSExtensionRequestHandling", "chatService"]
 - ["PSo26NSExtensionRequestHandling", "chatServiceChatDidAccidentallyDisconnect"]
 - ["PSo26NSExtensionRequestHandling", "chatServiceChatDidConnect"]
@@ -2286,8 +2367,10 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "didEnterBackgroundDate"]
 - ["PSo26NSExtensionRequestHandling", "didEnterBackgroundNotification"]
 - ["PSo26NSExtensionRequestHandling", "didReceiveNewSession"]
+- !private ["PSo26NSExtensionRequestHandling", "equestTabBarItem"]
 - ["PSo26NSExtensionRequestHandling", "getDialogs"]
 - ["PSo26NSExtensionRequestHandling", "getImage"]
+- ["PSo26NSExtensionRequestHandling", "getRequestBadgeCounter"]
 - !private ["PSo26NSExtensionRequestHandling", "hidesBottomBarWhenPushed"]
 - ["PSo26NSExtensionRequestHandling", "incomingCallViewControllerAccept"]
 - ["PSo26NSExtensionRequestHandling", "incomingCallViewControllerReject"]
@@ -2311,6 +2394,8 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "pushViewController"]
 - !private ["PSo26NSExtensionRequestHandling", "qbUsersArray"]
 - ["PSo26NSExtensionRequestHandling", "reloadTableViewIfNeeded"]
+- !private ["PSo26NSExtensionRequestHandling", "requestTabBarItem"]
+- ["PSo26NSExtensionRequestHandling", "requestTimer"]
 - ["PSo26NSExtensionRequestHandling", "runTimedCode"]
 - ["PSo26NSExtensionRequestHandling", "selectedUserType"]
 - ["PSo26NSExtensionRequestHandling", "session"]
@@ -2350,6 +2435,7 @@ depends-member:
 - !private ["CSo8NSObject", "Alamofire"]
 - !private ["CSo8NSObject", "AlertView"]
 - ["CSo8NSObject", "AnyHashable"]
+- !private ["CSo8NSObject", "ApiMethods"]
 - ["CSo8NSObject", "AppDelegate"]
 - !private ["CSo8NSObject", "Array"]
 - ["CSo8NSObject", "Bool"]
@@ -2380,6 +2466,7 @@ depends-member:
 - !private ["CSo8NSObject", "NotificationCenter"]
 - !private ["CSo8NSObject", "ObjCBool"]
 - !private ["CSo8NSObject", "OperationQueue"]
+- !private ["CSo8NSObject", "Parameters"]
 - !private ["CSo8NSObject", "QBCOCustomObject"]
 - !private ["CSo8NSObject", "QBChat"]
 - ["CSo8NSObject", "QBChatDialog"]
@@ -2429,6 +2516,8 @@ depends-member:
 - ["CSo8NSObject", "awakeFromNib"]
 - !private ["CSo8NSObject", "backBarButtonItem"]
 - !private ["CSo8NSObject", "backgroundColor"]
+- !private ["CSo8NSObject", "badgeValue"]
+- !private ["CSo8NSObject", "baseUrl"]
 - ["CSo8NSObject", "chatService"]
 - ["CSo8NSObject", "chatServiceChatDidAccidentallyDisconnect"]
 - ["CSo8NSObject", "chatServiceChatDidConnect"]
@@ -2468,6 +2557,7 @@ depends-member:
 - !private ["CSo8NSObject", "displayAlertMessage"]
 - !private ["CSo8NSObject", "downloadImage"]
 - !private ["CSo8NSObject", "email"]
+- !private ["CSo8NSObject", "equestTabBarItem"]
 - !private ["CSo8NSObject", "error"]
 - !private ["CSo8NSObject", "fetchDialogsUpdated"]
 - !private ["CSo8NSObject", "fields"]
@@ -2475,6 +2565,7 @@ depends-member:
 - !private ["CSo8NSObject", "frame"]
 - ["CSo8NSObject", "getDialogs"]
 - ["CSo8NSObject", "getImage"]
+- ["CSo8NSObject", "getRequestBadgeCounter"]
 - !private ["CSo8NSObject", "hidesBackButton"]
 - !private ["CSo8NSObject", "hidesBottomBarWhenPushed"]
 - !private ["CSo8NSObject", "id"]
@@ -2489,6 +2580,7 @@ depends-member:
 - !private ["CSo8NSObject", "instantiateViewController"]
 - ["CSo8NSObject", "integer"]
 - !private ["CSo8NSObject", "invalidate"]
+- !private ["CSo8NSObject", "isAuthorized"]
 - !private ["CSo8NSObject", "isConnected"]
 - !private ["CSo8NSObject", "isEmpty"]
 - !private ["CSo8NSObject", "isExclusiveTouch"]
@@ -2533,6 +2625,8 @@ depends-member:
 - !private ["CSo8NSObject", "remove"]
 - !private ["CSo8NSObject", "removeDelegate"]
 - !private ["CSo8NSObject", "removeObserver"]
+- !private ["CSo8NSObject", "requestTabBarItem"]
+- ["CSo8NSObject", "requestTimer"]
 - !private ["CSo8NSObject", "rightBarButtonItems"]
 - ["CSo8NSObject", "runTimedCode"]
 - !private ["CSo8NSObject", "scheduledTimer"]
@@ -2584,6 +2678,7 @@ depends-member:
 - ["CSo8NSObject", ""]
 - !private ["PSo16NSObjectProtocol", "Alamofire"]
 - !private ["PSo16NSObjectProtocol", "AlertView"]
+- !private ["PSo16NSObjectProtocol", "ApiMethods"]
 - !private ["PSo16NSObjectProtocol", "DialogTableViewCellModel"]
 - !private ["PSo16NSObjectProtocol", "DialogsViewController"]
 - !private ["PSo16NSObjectProtocol", "GoogleAnalyticManagerApi"]
@@ -2633,6 +2728,8 @@ depends-member:
 - ["PSo16NSObjectProtocol", "awakeFromNib"]
 - !private ["PSo16NSObjectProtocol", "backBarButtonItem"]
 - !private ["PSo16NSObjectProtocol", "backgroundColor"]
+- !private ["PSo16NSObjectProtocol", "badgeValue"]
+- !private ["PSo16NSObjectProtocol", "baseUrl"]
 - ["PSo16NSObjectProtocol", "chatService"]
 - ["PSo16NSObjectProtocol", "chatServiceChatDidAccidentallyDisconnect"]
 - ["PSo16NSObjectProtocol", "chatServiceChatDidConnect"]
@@ -2672,6 +2769,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "displayAlertMessage"]
 - !private ["PSo16NSObjectProtocol", "downloadImage"]
 - !private ["PSo16NSObjectProtocol", "email"]
+- !private ["PSo16NSObjectProtocol", "equestTabBarItem"]
 - !private ["PSo16NSObjectProtocol", "error"]
 - !private ["PSo16NSObjectProtocol", "fetchDialogsUpdated"]
 - !private ["PSo16NSObjectProtocol", "fields"]
@@ -2679,6 +2777,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "frame"]
 - ["PSo16NSObjectProtocol", "getDialogs"]
 - ["PSo16NSObjectProtocol", "getImage"]
+- ["PSo16NSObjectProtocol", "getRequestBadgeCounter"]
 - !private ["PSo16NSObjectProtocol", "hidesBackButton"]
 - !private ["PSo16NSObjectProtocol", "hidesBottomBarWhenPushed"]
 - !private ["PSo16NSObjectProtocol", "id"]
@@ -2693,6 +2792,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "instantiateViewController"]
 - ["PSo16NSObjectProtocol", "integer"]
 - !private ["PSo16NSObjectProtocol", "invalidate"]
+- !private ["PSo16NSObjectProtocol", "isAuthorized"]
 - !private ["PSo16NSObjectProtocol", "isConnected"]
 - !private ["PSo16NSObjectProtocol", "isEmpty"]
 - !private ["PSo16NSObjectProtocol", "isExclusiveTouch"]
@@ -2737,6 +2837,8 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "remove"]
 - !private ["PSo16NSObjectProtocol", "removeDelegate"]
 - !private ["PSo16NSObjectProtocol", "removeObserver"]
+- !private ["PSo16NSObjectProtocol", "requestTabBarItem"]
+- ["PSo16NSObjectProtocol", "requestTimer"]
 - !private ["PSo16NSObjectProtocol", "rightBarButtonItems"]
 - ["PSo16NSObjectProtocol", "runTimedCode"]
 - !private ["PSo16NSObjectProtocol", "scheduledTimer"]
@@ -2842,6 +2944,7 @@ depends-member:
 - ["OSC16QBChatDialogType", "publicGroup"]
 - !private ["PSo14QBCoreDelegate", "Alamofire"]
 - !private ["PSo14QBCoreDelegate", "AlertView"]
+- !private ["PSo14QBCoreDelegate", "ApiMethods"]
 - !private ["PSo14QBCoreDelegate", "DialogTableViewCellModel"]
 - !private ["PSo14QBCoreDelegate", "DialogsViewController"]
 - !private ["PSo14QBCoreDelegate", "GoogleAnalyticManagerApi"]
@@ -2881,6 +2984,7 @@ depends-member:
 - !private ["PSo14QBCoreDelegate", "appDelegate"]
 - ["PSo14QBCoreDelegate", "authService"]
 - ["PSo14QBCoreDelegate", "authServiceDidLogOut"]
+- !private ["PSo14QBCoreDelegate", "baseUrl"]
 - ["PSo14QBCoreDelegate", "chatService"]
 - ["PSo14QBCoreDelegate", "chatServiceChatDidAccidentallyDisconnect"]
 - ["PSo14QBCoreDelegate", "chatServiceChatDidConnect"]
@@ -2895,7 +2999,9 @@ depends-member:
 - !private ["PSo14QBCoreDelegate", "didEnterBackgroundDate"]
 - !private ["PSo14QBCoreDelegate", "didEnterBackgroundNotification"]
 - ["PSo14QBCoreDelegate", "didReceiveNewSession"]
+- !private ["PSo14QBCoreDelegate", "equestTabBarItem"]
 - !private ["PSo14QBCoreDelegate", "getDialogs"]
+- !private ["PSo14QBCoreDelegate", "getRequestBadgeCounter"]
 - ["PSo14QBCoreDelegate", "incomingCallViewControllerAccept"]
 - ["PSo14QBCoreDelegate", "incomingCallViewControllerReject"]
 - !private ["PSo14QBCoreDelegate", "kDialogsPageLimit"]
@@ -2910,6 +3016,8 @@ depends-member:
 - !private ["PSo14QBCoreDelegate", "present"]
 - !private ["PSo14QBCoreDelegate", "print"]
 - !private ["PSo14QBCoreDelegate", "reloadTableViewIfNeeded"]
+- !private ["PSo14QBCoreDelegate", "requestTabBarItem"]
+- !private ["PSo14QBCoreDelegate", "requestTimer"]
 - !private ["PSo14QBCoreDelegate", "runTimedCode"]
 - !private ["PSo14QBCoreDelegate", "selectedUserType"]
 - ["PSo14QBCoreDelegate", "session"]
@@ -2927,6 +3035,7 @@ depends-member:
 - !private ["CSo11QBRTCClient", "instance"]
 - !private ["PSo19QBRTCClientDelegate", "Alamofire"]
 - !private ["PSo19QBRTCClientDelegate", "AlertView"]
+- !private ["PSo19QBRTCClientDelegate", "ApiMethods"]
 - !private ["PSo19QBRTCClientDelegate", "DialogTableViewCellModel"]
 - !private ["PSo19QBRTCClientDelegate", "DialogsViewController"]
 - !private ["PSo19QBRTCClientDelegate", "GoogleAnalyticManagerApi"]
@@ -2966,6 +3075,7 @@ depends-member:
 - !private ["PSo19QBRTCClientDelegate", "appDelegate"]
 - ["PSo19QBRTCClientDelegate", "authService"]
 - ["PSo19QBRTCClientDelegate", "authServiceDidLogOut"]
+- !private ["PSo19QBRTCClientDelegate", "baseUrl"]
 - ["PSo19QBRTCClientDelegate", "chatService"]
 - ["PSo19QBRTCClientDelegate", "chatServiceChatDidAccidentallyDisconnect"]
 - ["PSo19QBRTCClientDelegate", "chatServiceChatDidConnect"]
@@ -2980,7 +3090,9 @@ depends-member:
 - !private ["PSo19QBRTCClientDelegate", "didEnterBackgroundDate"]
 - !private ["PSo19QBRTCClientDelegate", "didEnterBackgroundNotification"]
 - ["PSo19QBRTCClientDelegate", "didReceiveNewSession"]
+- !private ["PSo19QBRTCClientDelegate", "equestTabBarItem"]
 - !private ["PSo19QBRTCClientDelegate", "getDialogs"]
+- !private ["PSo19QBRTCClientDelegate", "getRequestBadgeCounter"]
 - ["PSo19QBRTCClientDelegate", "incomingCallViewControllerAccept"]
 - ["PSo19QBRTCClientDelegate", "incomingCallViewControllerReject"]
 - !private ["PSo19QBRTCClientDelegate", "kDialogsPageLimit"]
@@ -2995,6 +3107,8 @@ depends-member:
 - !private ["PSo19QBRTCClientDelegate", "present"]
 - !private ["PSo19QBRTCClientDelegate", "print"]
 - !private ["PSo19QBRTCClientDelegate", "reloadTableViewIfNeeded"]
+- !private ["PSo19QBRTCClientDelegate", "requestTabBarItem"]
+- !private ["PSo19QBRTCClientDelegate", "requestTimer"]
 - !private ["PSo19QBRTCClientDelegate", "runTimedCode"]
 - !private ["PSo19QBRTCClientDelegate", "selectedUserType"]
 - ["PSo19QBRTCClientDelegate", "session"]
@@ -3025,6 +3139,7 @@ depends-member:
 - !private ["CSo13QMAuthService", "remove"]
 - !private ["PSo21QMAuthServiceDelegate", "Alamofire"]
 - !private ["PSo21QMAuthServiceDelegate", "AlertView"]
+- !private ["PSo21QMAuthServiceDelegate", "ApiMethods"]
 - !private ["PSo21QMAuthServiceDelegate", "DialogTableViewCellModel"]
 - !private ["PSo21QMAuthServiceDelegate", "DialogsViewController"]
 - !private ["PSo21QMAuthServiceDelegate", "GoogleAnalyticManagerApi"]
@@ -3064,6 +3179,7 @@ depends-member:
 - !private ["PSo21QMAuthServiceDelegate", "appDelegate"]
 - ["PSo21QMAuthServiceDelegate", "authService"]
 - ["PSo21QMAuthServiceDelegate", "authServiceDidLogOut"]
+- !private ["PSo21QMAuthServiceDelegate", "baseUrl"]
 - ["PSo21QMAuthServiceDelegate", "chatService"]
 - ["PSo21QMAuthServiceDelegate", "chatServiceChatDidAccidentallyDisconnect"]
 - ["PSo21QMAuthServiceDelegate", "chatServiceChatDidConnect"]
@@ -3078,7 +3194,9 @@ depends-member:
 - !private ["PSo21QMAuthServiceDelegate", "didEnterBackgroundDate"]
 - !private ["PSo21QMAuthServiceDelegate", "didEnterBackgroundNotification"]
 - ["PSo21QMAuthServiceDelegate", "didReceiveNewSession"]
+- !private ["PSo21QMAuthServiceDelegate", "equestTabBarItem"]
 - !private ["PSo21QMAuthServiceDelegate", "getDialogs"]
+- !private ["PSo21QMAuthServiceDelegate", "getRequestBadgeCounter"]
 - ["PSo21QMAuthServiceDelegate", "incomingCallViewControllerAccept"]
 - ["PSo21QMAuthServiceDelegate", "incomingCallViewControllerReject"]
 - !private ["PSo21QMAuthServiceDelegate", "kDialogsPageLimit"]
@@ -3093,6 +3211,8 @@ depends-member:
 - !private ["PSo21QMAuthServiceDelegate", "present"]
 - !private ["PSo21QMAuthServiceDelegate", "print"]
 - !private ["PSo21QMAuthServiceDelegate", "reloadTableViewIfNeeded"]
+- !private ["PSo21QMAuthServiceDelegate", "requestTabBarItem"]
+- !private ["PSo21QMAuthServiceDelegate", "requestTimer"]
 - !private ["PSo21QMAuthServiceDelegate", "runTimedCode"]
 - !private ["PSo21QMAuthServiceDelegate", "selectedUserType"]
 - ["PSo21QMAuthServiceDelegate", "session"]
@@ -3124,6 +3244,7 @@ depends-member:
 - !private ["PSo38QMChatCollectionViewDelegateFlowLayout", "hidesBottomBarWhenPushed"]
 - !private ["PSo24QMChatConnectionDelegate", "Alamofire"]
 - !private ["PSo24QMChatConnectionDelegate", "AlertView"]
+- !private ["PSo24QMChatConnectionDelegate", "ApiMethods"]
 - !private ["PSo24QMChatConnectionDelegate", "DialogTableViewCellModel"]
 - !private ["PSo24QMChatConnectionDelegate", "DialogsViewController"]
 - !private ["PSo24QMChatConnectionDelegate", "GoogleAnalyticManagerApi"]
@@ -3163,6 +3284,7 @@ depends-member:
 - !private ["PSo24QMChatConnectionDelegate", "appDelegate"]
 - ["PSo24QMChatConnectionDelegate", "authService"]
 - ["PSo24QMChatConnectionDelegate", "authServiceDidLogOut"]
+- !private ["PSo24QMChatConnectionDelegate", "baseUrl"]
 - ["PSo24QMChatConnectionDelegate", "chatService"]
 - ["PSo24QMChatConnectionDelegate", "chatServiceChatDidAccidentallyDisconnect"]
 - ["PSo24QMChatConnectionDelegate", "chatServiceChatDidConnect"]
@@ -3179,11 +3301,14 @@ depends-member:
 - !private ["PSo24QMChatConnectionDelegate", "didEnterBackgroundDate"]
 - !private ["PSo24QMChatConnectionDelegate", "didEnterBackgroundNotification"]
 - ["PSo24QMChatConnectionDelegate", "didReceiveNewSession"]
+- !private ["PSo24QMChatConnectionDelegate", "equestTabBarItem"]
 - !private ["PSo24QMChatConnectionDelegate", "getDialogs"]
+- !private ["PSo24QMChatConnectionDelegate", "getRequestBadgeCounter"]
 - !private ["PSo24QMChatConnectionDelegate", "hidesBottomBarWhenPushed"]
 - ["PSo24QMChatConnectionDelegate", "incomingCallViewControllerAccept"]
 - ["PSo24QMChatConnectionDelegate", "incomingCallViewControllerReject"]
 - !private ["PSo24QMChatConnectionDelegate", "instance"]
+- !private ["PSo24QMChatConnectionDelegate", "isAuthorized"]
 - !private ["PSo24QMChatConnectionDelegate", "isProcessingLogOut"]
 - !private ["PSo24QMChatConnectionDelegate", "kDialogsPageLimit"]
 - !private ["PSo24QMChatConnectionDelegate", "kDialogsScreenName"]
@@ -3199,6 +3324,8 @@ depends-member:
 - !private ["PSo24QMChatConnectionDelegate", "present"]
 - !private ["PSo24QMChatConnectionDelegate", "print"]
 - !private ["PSo24QMChatConnectionDelegate", "reloadTableViewIfNeeded"]
+- !private ["PSo24QMChatConnectionDelegate", "requestTabBarItem"]
+- !private ["PSo24QMChatConnectionDelegate", "requestTimer"]
 - !private ["PSo24QMChatConnectionDelegate", "runTimedCode"]
 - !private ["PSo24QMChatConnectionDelegate", "selectedUserType"]
 - ["PSo24QMChatConnectionDelegate", "session"]
@@ -3223,12 +3350,14 @@ depends-member:
 - !private ["PSo28QMChatServiceCacheDataSource", "chatService"]
 - !private ["PSo28QMChatServiceCacheDataSource", "currentUser"]
 - !private ["PSo28QMChatServiceCacheDataSource", "instance"]
+- !private ["PSo28QMChatServiceCacheDataSource", "isAuthorized"]
 - !private ["PSo28QMChatServiceCacheDataSource", "isProcessingLogOut"]
 - !private ["PSo28QMChatServiceCacheDataSource", "lastActivityDate"]
 - !private ["PSo28QMChatServiceCacheDataSource", "logoutUserWithCompletion"]
 - !private ["PSo28QMChatServiceCacheDataSource", "usersService"]
 - !private ["PSo21QMChatServiceDelegate", "Alamofire"]
 - !private ["PSo21QMChatServiceDelegate", "AlertView"]
+- !private ["PSo21QMChatServiceDelegate", "ApiMethods"]
 - !private ["PSo21QMChatServiceDelegate", "DialogTableViewCellModel"]
 - !private ["PSo21QMChatServiceDelegate", "DialogsViewController"]
 - !private ["PSo21QMChatServiceDelegate", "GoogleAnalyticManagerApi"]
@@ -3268,6 +3397,7 @@ depends-member:
 - !private ["PSo21QMChatServiceDelegate", "appDelegate"]
 - ["PSo21QMChatServiceDelegate", "authService"]
 - ["PSo21QMChatServiceDelegate", "authServiceDidLogOut"]
+- !private ["PSo21QMChatServiceDelegate", "baseUrl"]
 - ["PSo21QMChatServiceDelegate", "chatService"]
 - ["PSo21QMChatServiceDelegate", "chatServiceChatDidAccidentallyDisconnect"]
 - ["PSo21QMChatServiceDelegate", "chatServiceChatDidConnect"]
@@ -3284,11 +3414,14 @@ depends-member:
 - !private ["PSo21QMChatServiceDelegate", "didEnterBackgroundDate"]
 - !private ["PSo21QMChatServiceDelegate", "didEnterBackgroundNotification"]
 - ["PSo21QMChatServiceDelegate", "didReceiveNewSession"]
+- !private ["PSo21QMChatServiceDelegate", "equestTabBarItem"]
 - !private ["PSo21QMChatServiceDelegate", "getDialogs"]
+- !private ["PSo21QMChatServiceDelegate", "getRequestBadgeCounter"]
 - !private ["PSo21QMChatServiceDelegate", "hidesBottomBarWhenPushed"]
 - ["PSo21QMChatServiceDelegate", "incomingCallViewControllerAccept"]
 - ["PSo21QMChatServiceDelegate", "incomingCallViewControllerReject"]
 - !private ["PSo21QMChatServiceDelegate", "instance"]
+- !private ["PSo21QMChatServiceDelegate", "isAuthorized"]
 - !private ["PSo21QMChatServiceDelegate", "isProcessingLogOut"]
 - !private ["PSo21QMChatServiceDelegate", "kDialogsPageLimit"]
 - !private ["PSo21QMChatServiceDelegate", "kDialogsScreenName"]
@@ -3304,6 +3437,8 @@ depends-member:
 - !private ["PSo21QMChatServiceDelegate", "present"]
 - !private ["PSo21QMChatServiceDelegate", "print"]
 - !private ["PSo21QMChatServiceDelegate", "reloadTableViewIfNeeded"]
+- !private ["PSo21QMChatServiceDelegate", "requestTabBarItem"]
+- !private ["PSo21QMChatServiceDelegate", "requestTimer"]
 - !private ["PSo21QMChatServiceDelegate", "runTimedCode"]
 - !private ["PSo21QMChatServiceDelegate", "selectedUserType"]
 - ["PSo21QMChatServiceDelegate", "session"]
@@ -3340,6 +3475,7 @@ depends-member:
 - !private ["PSo24QMServiceManagerProtocol", "chatService"]
 - !private ["PSo24QMServiceManagerProtocol", "currentUser"]
 - !private ["PSo24QMServiceManagerProtocol", "instance"]
+- !private ["PSo24QMServiceManagerProtocol", "isAuthorized"]
 - !private ["PSo24QMServiceManagerProtocol", "isProcessingLogOut"]
 - !private ["PSo24QMServiceManagerProtocol", "lastActivityDate"]
 - !private ["PSo24QMServiceManagerProtocol", "logoutUserWithCompletion"]
@@ -3348,6 +3484,7 @@ depends-member:
 - !private ["CSo17QMServicesManager", "chatService"]
 - !private ["CSo17QMServicesManager", "currentUser"]
 - !private ["CSo17QMServicesManager", "instance"]
+- !private ["CSo17QMServicesManager", "isAuthorized"]
 - !private ["CSo17QMServicesManager", "isProcessingLogOut"]
 - !private ["CSo17QMServicesManager", "lastActivityDate"]
 - !private ["CSo17QMServicesManager", "logoutUserWithCompletion"]
@@ -3360,6 +3497,7 @@ depends-member:
 - !private ["PSo29QMUsersServiceCacheDataSource", "chatService"]
 - !private ["PSo29QMUsersServiceCacheDataSource", "currentUser"]
 - !private ["PSo29QMUsersServiceCacheDataSource", "instance"]
+- !private ["PSo29QMUsersServiceCacheDataSource", "isAuthorized"]
 - !private ["PSo29QMUsersServiceCacheDataSource", "isProcessingLogOut"]
 - !private ["PSo29QMUsersServiceCacheDataSource", "lastActivityDate"]
 - !private ["PSo29QMUsersServiceCacheDataSource", "logoutUserWithCompletion"]
@@ -3368,6 +3506,7 @@ depends-member:
 - !private ["PSo22QMUsersServiceDelegate", "chatService"]
 - !private ["PSo22QMUsersServiceDelegate", "currentUser"]
 - !private ["PSo22QMUsersServiceDelegate", "instance"]
+- !private ["PSo22QMUsersServiceDelegate", "isAuthorized"]
 - !private ["PSo22QMUsersServiceDelegate", "isProcessingLogOut"]
 - !private ["PSo22QMUsersServiceDelegate", "lastActivityDate"]
 - !private ["PSo22QMUsersServiceDelegate", "logoutUserWithCompletion"]
@@ -3439,6 +3578,7 @@ depends-member:
 - !private ["Ps16RawRepresentable", "highPriority"]
 - !private ["Ps16RawRepresentable", "left"]
 - !private ["Ps16RawRepresentable", "plain"]
+- !private ["Ps16RawRepresentable", "post"]
 - ["Ps16RawRepresentable", "private"]
 - ["Ps16RawRepresentable", "publicGroup"]
 - !private ["Ps16RawRepresentable", "right"]
@@ -3485,6 +3625,7 @@ depends-member:
 - !private ["C11DiabetesApp15ServicesManager", "currentUser"]
 - ["C11DiabetesApp15ServicesManager", "deinit"]
 - !private ["C11DiabetesApp15ServicesManager", "instance"]
+- !private ["C11DiabetesApp15ServicesManager", "isAuthorized"]
 - !private ["C11DiabetesApp15ServicesManager", "isProcessingLogOut"]
 - !private ["C11DiabetesApp15ServicesManager", "lastActivityDate"]
 - !private ["C11DiabetesApp15ServicesManager", "logoutUserWithCompletion"]
@@ -3524,6 +3665,7 @@ depends-member:
 - !private ["CSo5Timer", "scheduledTimer"]
 - !private ["PSo29UIAccessibilityIdentification", "accessoryType"]
 - !private ["PSo29UIAccessibilityIdentification", "backgroundColor"]
+- !private ["PSo29UIAccessibilityIdentification", "badgeValue"]
 - !private ["PSo29UIAccessibilityIdentification", "clipsToBounds"]
 - !private ["PSo29UIAccessibilityIdentification", "contentView"]
 - !private ["PSo29UIAccessibilityIdentification", "dequeueReusableCell"]
@@ -3551,10 +3693,11 @@ depends-member:
 - !private ["PSo29UIAccessibilityIdentification", "unreadMessageCounterLabel"]
 - !private ["PSo21UIActionSheetDelegate", "dialog"]
 - !private ["PSo21UIActionSheetDelegate", "hidesBottomBarWhenPushed"]
-- !private ["CSo17UIAlertController", "deinit"]
+- ["CSo17UIAlertController", "deinit"]
 - !private ["PSo19UIAlertViewDelegate", "init"]
 - !private ["PSo12UIAppearance", "accessoryType"]
 - !private ["PSo12UIAppearance", "backgroundColor"]
+- !private ["PSo12UIAppearance", "badgeValue"]
 - !private ["PSo12UIAppearance", "clipsToBounds"]
 - !private ["PSo12UIAppearance", "contentView"]
 - !private ["PSo12UIAppearance", "dequeueReusableCell"]
@@ -3582,6 +3725,7 @@ depends-member:
 - !private ["PSo12UIAppearance", "unreadMessageCounterLabel"]
 - !private ["PSo21UIAppearanceContainer", "Alamofire"]
 - !private ["PSo21UIAppearanceContainer", "AlertView"]
+- !private ["PSo21UIAppearanceContainer", "ApiMethods"]
 - !private ["PSo21UIAppearanceContainer", "DialogTableViewCellModel"]
 - !private ["PSo21UIAppearanceContainer", "DialogsViewController"]
 - !private ["PSo21UIAppearanceContainer", "GoogleAnalyticManagerApi"]
@@ -3624,6 +3768,7 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "authServiceDidLogOut"]
 - ["PSo21UIAppearanceContainer", "awakeFromNib"]
 - !private ["PSo21UIAppearanceContainer", "backgroundColor"]
+- !private ["PSo21UIAppearanceContainer", "baseUrl"]
 - ["PSo21UIAppearanceContainer", "chatService"]
 - ["PSo21UIAppearanceContainer", "chatServiceChatDidAccidentallyDisconnect"]
 - ["PSo21UIAppearanceContainer", "chatServiceChatDidConnect"]
@@ -3651,9 +3796,11 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "didEnterBackgroundNotification"]
 - ["PSo21UIAppearanceContainer", "didReceiveNewSession"]
 - !private ["PSo21UIAppearanceContainer", "dismiss"]
+- !private ["PSo21UIAppearanceContainer", "equestTabBarItem"]
 - !private ["PSo21UIAppearanceContainer", "frame"]
 - ["PSo21UIAppearanceContainer", "getDialogs"]
 - ["PSo21UIAppearanceContainer", "getImage"]
+- ["PSo21UIAppearanceContainer", "getRequestBadgeCounter"]
 - !private ["PSo21UIAppearanceContainer", "hidesBottomBarWhenPushed"]
 - !private ["PSo21UIAppearanceContainer", "image"]
 - ["PSo21UIAppearanceContainer", "incomingCallViewControllerAccept"]
@@ -3682,6 +3829,8 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "qbUsersArray"]
 - !private ["PSo21UIAppearanceContainer", "reloadData"]
 - ["PSo21UIAppearanceContainer", "reloadTableViewIfNeeded"]
+- !private ["PSo21UIAppearanceContainer", "requestTabBarItem"]
+- ["PSo21UIAppearanceContainer", "requestTimer"]
 - ["PSo21UIAppearanceContainer", "runTimedCode"]
 - ["PSo21UIAppearanceContainer", "selectedUserType"]
 - ["PSo21UIAppearanceContainer", "session"]
@@ -3718,6 +3867,7 @@ depends-member:
 - !private ["CSo15UIBarButtonItem", "tag"]
 - ["OSC20UIBarButtonItemStyle", "deinit"]
 - !private ["OSC20UIBarButtonItemStyle", "plain"]
+- !private ["CSo9UIBarItem", "badgeValue"]
 - !private ["CSo9UIBarItem", "init"]
 - !private ["CSo9UIBarItem", "tag"]
 - !private ["PSo26UICollectionViewDataSource", "dialog"]
@@ -3730,6 +3880,7 @@ depends-member:
 - !private ["CSo7UIColor", "white"]
 - !private ["PSo18UIContentContainer", "Alamofire"]
 - !private ["PSo18UIContentContainer", "AlertView"]
+- !private ["PSo18UIContentContainer", "ApiMethods"]
 - !private ["PSo18UIContentContainer", "DialogTableViewCellModel"]
 - !private ["PSo18UIContentContainer", "DialogsViewController"]
 - !private ["PSo18UIContentContainer", "GoogleAnalyticManagerApi"]
@@ -3770,6 +3921,7 @@ depends-member:
 - ["PSo18UIContentContainer", "authService"]
 - ["PSo18UIContentContainer", "authServiceDidLogOut"]
 - ["PSo18UIContentContainer", "awakeFromNib"]
+- !private ["PSo18UIContentContainer", "baseUrl"]
 - ["PSo18UIContentContainer", "chatService"]
 - ["PSo18UIContentContainer", "chatServiceChatDidAccidentallyDisconnect"]
 - ["PSo18UIContentContainer", "chatServiceChatDidConnect"]
@@ -3788,8 +3940,10 @@ depends-member:
 - ["PSo18UIContentContainer", "didEnterBackgroundDate"]
 - ["PSo18UIContentContainer", "didEnterBackgroundNotification"]
 - ["PSo18UIContentContainer", "didReceiveNewSession"]
+- !private ["PSo18UIContentContainer", "equestTabBarItem"]
 - ["PSo18UIContentContainer", "getDialogs"]
 - ["PSo18UIContentContainer", "getImage"]
+- ["PSo18UIContentContainer", "getRequestBadgeCounter"]
 - !private ["PSo18UIContentContainer", "hidesBottomBarWhenPushed"]
 - ["PSo18UIContentContainer", "incomingCallViewControllerAccept"]
 - ["PSo18UIContentContainer", "incomingCallViewControllerReject"]
@@ -3813,6 +3967,8 @@ depends-member:
 - !private ["PSo18UIContentContainer", "pushViewController"]
 - !private ["PSo18UIContentContainer", "qbUsersArray"]
 - ["PSo18UIContentContainer", "reloadTableViewIfNeeded"]
+- !private ["PSo18UIContentContainer", "requestTabBarItem"]
+- ["PSo18UIContentContainer", "requestTimer"]
 - ["PSo18UIContentContainer", "runTimedCode"]
 - ["PSo18UIContentContainer", "selectedUserType"]
 - ["PSo18UIContentContainer", "session"]
@@ -3886,6 +4042,7 @@ depends-member:
 - !private ["PSo13UIDynamicItem", "unreadMessageCounterLabel"]
 - !private ["PSo18UIFocusEnvironment", "Alamofire"]
 - !private ["PSo18UIFocusEnvironment", "AlertView"]
+- !private ["PSo18UIFocusEnvironment", "ApiMethods"]
 - !private ["PSo18UIFocusEnvironment", "DialogTableViewCellModel"]
 - !private ["PSo18UIFocusEnvironment", "DialogsViewController"]
 - !private ["PSo18UIFocusEnvironment", "GoogleAnalyticManagerApi"]
@@ -3928,6 +4085,7 @@ depends-member:
 - ["PSo18UIFocusEnvironment", "authServiceDidLogOut"]
 - ["PSo18UIFocusEnvironment", "awakeFromNib"]
 - !private ["PSo18UIFocusEnvironment", "backgroundColor"]
+- !private ["PSo18UIFocusEnvironment", "baseUrl"]
 - ["PSo18UIFocusEnvironment", "chatService"]
 - ["PSo18UIFocusEnvironment", "chatServiceChatDidAccidentallyDisconnect"]
 - ["PSo18UIFocusEnvironment", "chatServiceChatDidConnect"]
@@ -3955,9 +4113,11 @@ depends-member:
 - ["PSo18UIFocusEnvironment", "didEnterBackgroundNotification"]
 - ["PSo18UIFocusEnvironment", "didReceiveNewSession"]
 - !private ["PSo18UIFocusEnvironment", "dismiss"]
+- !private ["PSo18UIFocusEnvironment", "equestTabBarItem"]
 - !private ["PSo18UIFocusEnvironment", "frame"]
 - ["PSo18UIFocusEnvironment", "getDialogs"]
 - ["PSo18UIFocusEnvironment", "getImage"]
+- ["PSo18UIFocusEnvironment", "getRequestBadgeCounter"]
 - !private ["PSo18UIFocusEnvironment", "hidesBottomBarWhenPushed"]
 - !private ["PSo18UIFocusEnvironment", "image"]
 - ["PSo18UIFocusEnvironment", "incomingCallViewControllerAccept"]
@@ -3986,6 +4146,8 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "qbUsersArray"]
 - !private ["PSo18UIFocusEnvironment", "reloadData"]
 - ["PSo18UIFocusEnvironment", "reloadTableViewIfNeeded"]
+- !private ["PSo18UIFocusEnvironment", "requestTabBarItem"]
+- ["PSo18UIFocusEnvironment", "requestTimer"]
 - ["PSo18UIFocusEnvironment", "runTimedCode"]
 - ["PSo18UIFocusEnvironment", "selectedUserType"]
 - ["PSo18UIFocusEnvironment", "session"]
@@ -4073,6 +4235,7 @@ depends-member:
 - !private ["CSo11UIResponder", "Alamofire"]
 - !private ["CSo11UIResponder", "AlertView"]
 - ["CSo11UIResponder", "AnyHashable"]
+- !private ["CSo11UIResponder", "ApiMethods"]
 - ["CSo11UIResponder", "AppDelegate"]
 - !private ["CSo11UIResponder", "Array"]
 - ["CSo11UIResponder", "Bool"]
@@ -4102,6 +4265,7 @@ depends-member:
 - !private ["CSo11UIResponder", "NotificationCenter"]
 - !private ["CSo11UIResponder", "ObjCBool"]
 - !private ["CSo11UIResponder", "OperationQueue"]
+- !private ["CSo11UIResponder", "Parameters"]
 - !private ["CSo11UIResponder", "QBCOCustomObject"]
 - !private ["CSo11UIResponder", "QBChat"]
 - ["CSo11UIResponder", "QBChatDialog"]
@@ -4146,6 +4310,7 @@ depends-member:
 - ["CSo11UIResponder", "authServiceDidLogOut"]
 - ["CSo11UIResponder", "awakeFromNib"]
 - !private ["CSo11UIResponder", "backgroundColor"]
+- !private ["CSo11UIResponder", "baseUrl"]
 - ["CSo11UIResponder", "chatService"]
 - ["CSo11UIResponder", "chatServiceChatDidAccidentallyDisconnect"]
 - ["CSo11UIResponder", "chatServiceChatDidConnect"]
@@ -4160,6 +4325,7 @@ depends-member:
 - ["CSo11UIResponder", "coreDidLogout"]
 - ["CSo11UIResponder", "createLogoutButton"]
 - !private ["CSo11UIResponder", "currentUser"]
+- ["CSo11UIResponder", "deinit"]
 - ["CSo11UIResponder", "delegate"]
 - !private ["CSo11UIResponder", "dequeueReusableCell"]
 - !private ["CSo11UIResponder", "deselectRow"]
@@ -4173,9 +4339,11 @@ depends-member:
 - ["CSo11UIResponder", "didEnterBackgroundNotification"]
 - ["CSo11UIResponder", "didReceiveNewSession"]
 - !private ["CSo11UIResponder", "dismiss"]
+- !private ["CSo11UIResponder", "equestTabBarItem"]
 - !private ["CSo11UIResponder", "frame"]
 - ["CSo11UIResponder", "getDialogs"]
 - ["CSo11UIResponder", "getImage"]
+- ["CSo11UIResponder", "getRequestBadgeCounter"]
 - !private ["CSo11UIResponder", "hidesBottomBarWhenPushed"]
 - !private ["CSo11UIResponder", "image"]
 - ["CSo11UIResponder", "incomingCallViewControllerAccept"]
@@ -4205,6 +4373,8 @@ depends-member:
 - !private ["CSo11UIResponder", "qbUsersArray"]
 - !private ["CSo11UIResponder", "reloadData"]
 - ["CSo11UIResponder", "reloadTableViewIfNeeded"]
+- !private ["CSo11UIResponder", "requestTabBarItem"]
+- ["CSo11UIResponder", "requestTimer"]
 - ["CSo11UIResponder", "runTimedCode"]
 - ["CSo11UIResponder", "selectedUserType"]
 - ["CSo11UIResponder", "session"]
@@ -4232,6 +4402,7 @@ depends-member:
 - ["CSo11UIResponder", "viewWillDisappear"]
 - !private ["PSo30UIResponderStandardEditActions", "Alamofire"]
 - !private ["PSo30UIResponderStandardEditActions", "AlertView"]
+- !private ["PSo30UIResponderStandardEditActions", "ApiMethods"]
 - !private ["PSo30UIResponderStandardEditActions", "DialogTableViewCellModel"]
 - !private ["PSo30UIResponderStandardEditActions", "DialogsViewController"]
 - !private ["PSo30UIResponderStandardEditActions", "GoogleAnalyticManagerApi"]
@@ -4274,6 +4445,7 @@ depends-member:
 - ["PSo30UIResponderStandardEditActions", "authServiceDidLogOut"]
 - ["PSo30UIResponderStandardEditActions", "awakeFromNib"]
 - !private ["PSo30UIResponderStandardEditActions", "backgroundColor"]
+- !private ["PSo30UIResponderStandardEditActions", "baseUrl"]
 - ["PSo30UIResponderStandardEditActions", "chatService"]
 - ["PSo30UIResponderStandardEditActions", "chatServiceChatDidAccidentallyDisconnect"]
 - ["PSo30UIResponderStandardEditActions", "chatServiceChatDidConnect"]
@@ -4301,9 +4473,11 @@ depends-member:
 - ["PSo30UIResponderStandardEditActions", "didEnterBackgroundNotification"]
 - ["PSo30UIResponderStandardEditActions", "didReceiveNewSession"]
 - !private ["PSo30UIResponderStandardEditActions", "dismiss"]
+- !private ["PSo30UIResponderStandardEditActions", "equestTabBarItem"]
 - !private ["PSo30UIResponderStandardEditActions", "frame"]
 - ["PSo30UIResponderStandardEditActions", "getDialogs"]
 - ["PSo30UIResponderStandardEditActions", "getImage"]
+- ["PSo30UIResponderStandardEditActions", "getRequestBadgeCounter"]
 - !private ["PSo30UIResponderStandardEditActions", "hidesBottomBarWhenPushed"]
 - !private ["PSo30UIResponderStandardEditActions", "image"]
 - ["PSo30UIResponderStandardEditActions", "incomingCallViewControllerAccept"]
@@ -4333,6 +4507,8 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "qbUsersArray"]
 - !private ["PSo30UIResponderStandardEditActions", "reloadData"]
 - ["PSo30UIResponderStandardEditActions", "reloadTableViewIfNeeded"]
+- !private ["PSo30UIResponderStandardEditActions", "requestTabBarItem"]
+- ["PSo30UIResponderStandardEditActions", "requestTimer"]
 - ["PSo30UIResponderStandardEditActions", "runTimedCode"]
 - ["PSo30UIResponderStandardEditActions", "selectedUserType"]
 - ["PSo30UIResponderStandardEditActions", "session"]
@@ -4365,6 +4541,7 @@ depends-member:
 - !private ["CSo12UIScrollView", "tableFooterView"]
 - !private ["PSo20UIScrollViewDelegate", "Alamofire"]
 - !private ["PSo20UIScrollViewDelegate", "AlertView"]
+- !private ["PSo20UIScrollViewDelegate", "ApiMethods"]
 - !private ["PSo20UIScrollViewDelegate", "DialogTableViewCellModel"]
 - !private ["PSo20UIScrollViewDelegate", "DialogsViewController"]
 - !private ["PSo20UIScrollViewDelegate", "GoogleAnalyticManagerApi"]
@@ -4405,6 +4582,7 @@ depends-member:
 - ["PSo20UIScrollViewDelegate", "authService"]
 - ["PSo20UIScrollViewDelegate", "authServiceDidLogOut"]
 - ["PSo20UIScrollViewDelegate", "awakeFromNib"]
+- !private ["PSo20UIScrollViewDelegate", "baseUrl"]
 - ["PSo20UIScrollViewDelegate", "chatService"]
 - ["PSo20UIScrollViewDelegate", "chatServiceChatDidAccidentallyDisconnect"]
 - ["PSo20UIScrollViewDelegate", "chatServiceChatDidConnect"]
@@ -4421,8 +4599,10 @@ depends-member:
 - ["PSo20UIScrollViewDelegate", "didEnterBackgroundDate"]
 - ["PSo20UIScrollViewDelegate", "didEnterBackgroundNotification"]
 - ["PSo20UIScrollViewDelegate", "didReceiveNewSession"]
+- !private ["PSo20UIScrollViewDelegate", "equestTabBarItem"]
 - ["PSo20UIScrollViewDelegate", "getDialogs"]
 - ["PSo20UIScrollViewDelegate", "getImage"]
+- ["PSo20UIScrollViewDelegate", "getRequestBadgeCounter"]
 - !private ["PSo20UIScrollViewDelegate", "hidesBottomBarWhenPushed"]
 - ["PSo20UIScrollViewDelegate", "incomingCallViewControllerAccept"]
 - ["PSo20UIScrollViewDelegate", "incomingCallViewControllerReject"]
@@ -4442,6 +4622,8 @@ depends-member:
 - !private ["PSo20UIScrollViewDelegate", "present"]
 - !private ["PSo20UIScrollViewDelegate", "print"]
 - ["PSo20UIScrollViewDelegate", "reloadTableViewIfNeeded"]
+- !private ["PSo20UIScrollViewDelegate", "requestTabBarItem"]
+- ["PSo20UIScrollViewDelegate", "requestTimer"]
 - ["PSo20UIScrollViewDelegate", "runTimedCode"]
 - ["PSo20UIScrollViewDelegate", "selectedUserType"]
 - ["PSo20UIScrollViewDelegate", "session"]
@@ -4458,6 +4640,7 @@ depends-member:
 - ["PSo20UIScrollViewDelegate", ""]
 - !private ["PSo16UIStateRestoring", "Alamofire"]
 - !private ["PSo16UIStateRestoring", "AlertView"]
+- !private ["PSo16UIStateRestoring", "ApiMethods"]
 - !private ["PSo16UIStateRestoring", "DialogTableViewCellModel"]
 - !private ["PSo16UIStateRestoring", "DialogsViewController"]
 - !private ["PSo16UIStateRestoring", "GoogleAnalyticManagerApi"]
@@ -4498,6 +4681,7 @@ depends-member:
 - ["PSo16UIStateRestoring", "authService"]
 - ["PSo16UIStateRestoring", "authServiceDidLogOut"]
 - ["PSo16UIStateRestoring", "awakeFromNib"]
+- !private ["PSo16UIStateRestoring", "baseUrl"]
 - ["PSo16UIStateRestoring", "chatService"]
 - ["PSo16UIStateRestoring", "chatServiceChatDidAccidentallyDisconnect"]
 - ["PSo16UIStateRestoring", "chatServiceChatDidConnect"]
@@ -4516,8 +4700,10 @@ depends-member:
 - ["PSo16UIStateRestoring", "didEnterBackgroundDate"]
 - ["PSo16UIStateRestoring", "didEnterBackgroundNotification"]
 - ["PSo16UIStateRestoring", "didReceiveNewSession"]
+- !private ["PSo16UIStateRestoring", "equestTabBarItem"]
 - ["PSo16UIStateRestoring", "getDialogs"]
 - ["PSo16UIStateRestoring", "getImage"]
+- ["PSo16UIStateRestoring", "getRequestBadgeCounter"]
 - !private ["PSo16UIStateRestoring", "hidesBottomBarWhenPushed"]
 - ["PSo16UIStateRestoring", "incomingCallViewControllerAccept"]
 - ["PSo16UIStateRestoring", "incomingCallViewControllerReject"]
@@ -4541,6 +4727,8 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "pushViewController"]
 - !private ["PSo16UIStateRestoring", "qbUsersArray"]
 - ["PSo16UIStateRestoring", "reloadTableViewIfNeeded"]
+- !private ["PSo16UIStateRestoring", "requestTabBarItem"]
+- ["PSo16UIStateRestoring", "requestTimer"]
 - ["PSo16UIStateRestoring", "runTimedCode"]
 - ["PSo16UIStateRestoring", "selectedUserType"]
 - ["PSo16UIStateRestoring", "session"]
@@ -4568,6 +4756,7 @@ depends-member:
 - !private ["PSo16UITabBarDelegate", "navigationController"]
 - !private ["PSo16UITabBarDelegate", "navigationItem"]
 - !private ["PSo16UITabBarDelegate", "title"]
+- !private ["CSo12UITabBarItem", "badgeValue"]
 - ["CSo11UITableView", "deinit"]
 - !private ["CSo11UITableView", "dequeueReusableCell"]
 - !private ["CSo11UITableView", "deselectRow"]
@@ -4593,6 +4782,7 @@ depends-member:
 - !private ["CSo21UITableViewController", "Alamofire"]
 - !private ["CSo21UITableViewController", "AlertView"]
 - ["CSo21UITableViewController", "AnyHashable"]
+- !private ["CSo21UITableViewController", "ApiMethods"]
 - ["CSo21UITableViewController", "AppDelegate"]
 - !private ["CSo21UITableViewController", "Array"]
 - ["CSo21UITableViewController", "Bool"]
@@ -4622,6 +4812,7 @@ depends-member:
 - !private ["CSo21UITableViewController", "NotificationCenter"]
 - !private ["CSo21UITableViewController", "ObjCBool"]
 - !private ["CSo21UITableViewController", "OperationQueue"]
+- !private ["CSo21UITableViewController", "Parameters"]
 - !private ["CSo21UITableViewController", "QBCOCustomObject"]
 - !private ["CSo21UITableViewController", "QBChat"]
 - ["CSo21UITableViewController", "QBChatDialog"]
@@ -4664,6 +4855,7 @@ depends-member:
 - ["CSo21UITableViewController", "authService"]
 - ["CSo21UITableViewController", "authServiceDidLogOut"]
 - ["CSo21UITableViewController", "awakeFromNib"]
+- !private ["CSo21UITableViewController", "baseUrl"]
 - ["CSo21UITableViewController", "chatService"]
 - ["CSo21UITableViewController", "chatServiceChatDidAccidentallyDisconnect"]
 - ["CSo21UITableViewController", "chatServiceChatDidConnect"]
@@ -4680,8 +4872,10 @@ depends-member:
 - ["CSo21UITableViewController", "didEnterBackgroundDate"]
 - ["CSo21UITableViewController", "didEnterBackgroundNotification"]
 - ["CSo21UITableViewController", "didReceiveNewSession"]
+- !private ["CSo21UITableViewController", "equestTabBarItem"]
 - ["CSo21UITableViewController", "getDialogs"]
 - ["CSo21UITableViewController", "getImage"]
+- ["CSo21UITableViewController", "getRequestBadgeCounter"]
 - ["CSo21UITableViewController", "incomingCallViewControllerAccept"]
 - ["CSo21UITableViewController", "incomingCallViewControllerReject"]
 - ["CSo21UITableViewController", "init"]
@@ -4699,6 +4893,8 @@ depends-member:
 - !private ["CSo21UITableViewController", "present"]
 - !private ["CSo21UITableViewController", "print"]
 - ["CSo21UITableViewController", "reloadTableViewIfNeeded"]
+- !private ["CSo21UITableViewController", "requestTabBarItem"]
+- ["CSo21UITableViewController", "requestTimer"]
 - ["CSo21UITableViewController", "runTimedCode"]
 - ["CSo21UITableViewController", "selectedUserType"]
 - ["CSo21UITableViewController", "session"]
@@ -4715,6 +4911,7 @@ depends-member:
 - ["CSo21UITableViewController", ""]
 - !private ["PSo21UITableViewDataSource", "Alamofire"]
 - !private ["PSo21UITableViewDataSource", "AlertView"]
+- !private ["PSo21UITableViewDataSource", "ApiMethods"]
 - !private ["PSo21UITableViewDataSource", "DialogTableViewCellModel"]
 - !private ["PSo21UITableViewDataSource", "DialogsViewController"]
 - !private ["PSo21UITableViewDataSource", "GoogleAnalyticManagerApi"]
@@ -4755,6 +4952,7 @@ depends-member:
 - ["PSo21UITableViewDataSource", "authService"]
 - ["PSo21UITableViewDataSource", "authServiceDidLogOut"]
 - ["PSo21UITableViewDataSource", "awakeFromNib"]
+- !private ["PSo21UITableViewDataSource", "baseUrl"]
 - ["PSo21UITableViewDataSource", "chatService"]
 - ["PSo21UITableViewDataSource", "chatServiceChatDidAccidentallyDisconnect"]
 - ["PSo21UITableViewDataSource", "chatServiceChatDidConnect"]
@@ -4770,8 +4968,10 @@ depends-member:
 - ["PSo21UITableViewDataSource", "didEnterBackgroundDate"]
 - ["PSo21UITableViewDataSource", "didEnterBackgroundNotification"]
 - ["PSo21UITableViewDataSource", "didReceiveNewSession"]
+- !private ["PSo21UITableViewDataSource", "equestTabBarItem"]
 - ["PSo21UITableViewDataSource", "getDialogs"]
 - ["PSo21UITableViewDataSource", "getImage"]
+- ["PSo21UITableViewDataSource", "getRequestBadgeCounter"]
 - !private ["PSo21UITableViewDataSource", "hidesBottomBarWhenPushed"]
 - ["PSo21UITableViewDataSource", "incomingCallViewControllerAccept"]
 - ["PSo21UITableViewDataSource", "incomingCallViewControllerReject"]
@@ -4791,6 +4991,8 @@ depends-member:
 - !private ["PSo21UITableViewDataSource", "present"]
 - !private ["PSo21UITableViewDataSource", "print"]
 - ["PSo21UITableViewDataSource", "reloadTableViewIfNeeded"]
+- !private ["PSo21UITableViewDataSource", "requestTabBarItem"]
+- ["PSo21UITableViewDataSource", "requestTimer"]
 - ["PSo21UITableViewDataSource", "runTimedCode"]
 - ["PSo21UITableViewDataSource", "selectedUserType"]
 - ["PSo21UITableViewDataSource", "session"]
@@ -4807,6 +5009,7 @@ depends-member:
 - ["PSo21UITableViewDataSource", ""]
 - !private ["PSo19UITableViewDelegate", "Alamofire"]
 - !private ["PSo19UITableViewDelegate", "AlertView"]
+- !private ["PSo19UITableViewDelegate", "ApiMethods"]
 - !private ["PSo19UITableViewDelegate", "DialogTableViewCellModel"]
 - !private ["PSo19UITableViewDelegate", "DialogsViewController"]
 - !private ["PSo19UITableViewDelegate", "GoogleAnalyticManagerApi"]
@@ -4847,6 +5050,7 @@ depends-member:
 - ["PSo19UITableViewDelegate", "authService"]
 - ["PSo19UITableViewDelegate", "authServiceDidLogOut"]
 - ["PSo19UITableViewDelegate", "awakeFromNib"]
+- !private ["PSo19UITableViewDelegate", "baseUrl"]
 - ["PSo19UITableViewDelegate", "chatService"]
 - ["PSo19UITableViewDelegate", "chatServiceChatDidAccidentallyDisconnect"]
 - ["PSo19UITableViewDelegate", "chatServiceChatDidConnect"]
@@ -4862,8 +5066,10 @@ depends-member:
 - ["PSo19UITableViewDelegate", "didEnterBackgroundDate"]
 - ["PSo19UITableViewDelegate", "didEnterBackgroundNotification"]
 - ["PSo19UITableViewDelegate", "didReceiveNewSession"]
+- !private ["PSo19UITableViewDelegate", "equestTabBarItem"]
 - ["PSo19UITableViewDelegate", "getDialogs"]
 - ["PSo19UITableViewDelegate", "getImage"]
+- ["PSo19UITableViewDelegate", "getRequestBadgeCounter"]
 - !private ["PSo19UITableViewDelegate", "hidesBottomBarWhenPushed"]
 - ["PSo19UITableViewDelegate", "incomingCallViewControllerAccept"]
 - ["PSo19UITableViewDelegate", "incomingCallViewControllerReject"]
@@ -4883,6 +5089,8 @@ depends-member:
 - !private ["PSo19UITableViewDelegate", "present"]
 - !private ["PSo19UITableViewDelegate", "print"]
 - ["PSo19UITableViewDelegate", "reloadTableViewIfNeeded"]
+- !private ["PSo19UITableViewDelegate", "requestTabBarItem"]
+- ["PSo19UITableViewDelegate", "requestTimer"]
 - ["PSo19UITableViewDelegate", "runTimedCode"]
 - ["PSo19UITableViewDelegate", "selectedUserType"]
 - ["PSo19UITableViewDelegate", "session"]
@@ -4902,6 +5110,7 @@ depends-member:
 - !private ["PSo18UITextViewDelegate", "hidesBottomBarWhenPushed"]
 - !private ["PSo18UITraitEnvironment", "Alamofire"]
 - !private ["PSo18UITraitEnvironment", "AlertView"]
+- !private ["PSo18UITraitEnvironment", "ApiMethods"]
 - !private ["PSo18UITraitEnvironment", "DialogTableViewCellModel"]
 - !private ["PSo18UITraitEnvironment", "DialogsViewController"]
 - !private ["PSo18UITraitEnvironment", "GoogleAnalyticManagerApi"]
@@ -4944,6 +5153,7 @@ depends-member:
 - ["PSo18UITraitEnvironment", "authServiceDidLogOut"]
 - ["PSo18UITraitEnvironment", "awakeFromNib"]
 - !private ["PSo18UITraitEnvironment", "backgroundColor"]
+- !private ["PSo18UITraitEnvironment", "baseUrl"]
 - ["PSo18UITraitEnvironment", "chatService"]
 - ["PSo18UITraitEnvironment", "chatServiceChatDidAccidentallyDisconnect"]
 - ["PSo18UITraitEnvironment", "chatServiceChatDidConnect"]
@@ -4971,9 +5181,11 @@ depends-member:
 - ["PSo18UITraitEnvironment", "didEnterBackgroundNotification"]
 - ["PSo18UITraitEnvironment", "didReceiveNewSession"]
 - !private ["PSo18UITraitEnvironment", "dismiss"]
+- !private ["PSo18UITraitEnvironment", "equestTabBarItem"]
 - !private ["PSo18UITraitEnvironment", "frame"]
 - ["PSo18UITraitEnvironment", "getDialogs"]
 - ["PSo18UITraitEnvironment", "getImage"]
+- ["PSo18UITraitEnvironment", "getRequestBadgeCounter"]
 - !private ["PSo18UITraitEnvironment", "hidesBottomBarWhenPushed"]
 - !private ["PSo18UITraitEnvironment", "image"]
 - ["PSo18UITraitEnvironment", "incomingCallViewControllerAccept"]
@@ -5002,6 +5214,8 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "qbUsersArray"]
 - !private ["PSo18UITraitEnvironment", "reloadData"]
 - ["PSo18UITraitEnvironment", "reloadTableViewIfNeeded"]
+- !private ["PSo18UITraitEnvironment", "requestTabBarItem"]
+- ["PSo18UITraitEnvironment", "requestTimer"]
 - ["PSo18UITraitEnvironment", "runTimedCode"]
 - ["PSo18UITraitEnvironment", "selectedUserType"]
 - ["PSo18UITraitEnvironment", "session"]
@@ -5060,6 +5274,7 @@ depends-member:
 - !private ["CSo16UIViewController", "Alamofire"]
 - !private ["CSo16UIViewController", "AlertView"]
 - ["CSo16UIViewController", "AnyHashable"]
+- !private ["CSo16UIViewController", "ApiMethods"]
 - ["CSo16UIViewController", "AppDelegate"]
 - !private ["CSo16UIViewController", "Array"]
 - ["CSo16UIViewController", "Bool"]
@@ -5089,6 +5304,7 @@ depends-member:
 - !private ["CSo16UIViewController", "NotificationCenter"]
 - !private ["CSo16UIViewController", "ObjCBool"]
 - !private ["CSo16UIViewController", "OperationQueue"]
+- !private ["CSo16UIViewController", "Parameters"]
 - !private ["CSo16UIViewController", "QBCOCustomObject"]
 - !private ["CSo16UIViewController", "QBChat"]
 - ["CSo16UIViewController", "QBChatDialog"]
@@ -5131,6 +5347,7 @@ depends-member:
 - ["CSo16UIViewController", "authService"]
 - ["CSo16UIViewController", "authServiceDidLogOut"]
 - ["CSo16UIViewController", "awakeFromNib"]
+- !private ["CSo16UIViewController", "baseUrl"]
 - ["CSo16UIViewController", "chatService"]
 - ["CSo16UIViewController", "chatServiceChatDidAccidentallyDisconnect"]
 - ["CSo16UIViewController", "chatServiceChatDidConnect"]
@@ -5150,8 +5367,10 @@ depends-member:
 - ["CSo16UIViewController", "didEnterBackgroundDate"]
 - ["CSo16UIViewController", "didEnterBackgroundNotification"]
 - ["CSo16UIViewController", "didReceiveNewSession"]
+- !private ["CSo16UIViewController", "equestTabBarItem"]
 - ["CSo16UIViewController", "getDialogs"]
 - ["CSo16UIViewController", "getImage"]
+- ["CSo16UIViewController", "getRequestBadgeCounter"]
 - !private ["CSo16UIViewController", "hidesBottomBarWhenPushed"]
 - ["CSo16UIViewController", "incomingCallViewControllerAccept"]
 - ["CSo16UIViewController", "incomingCallViewControllerReject"]
@@ -5175,6 +5394,8 @@ depends-member:
 - !private ["CSo16UIViewController", "pushViewController"]
 - !private ["CSo16UIViewController", "qbUsersArray"]
 - ["CSo16UIViewController", "reloadTableViewIfNeeded"]
+- !private ["CSo16UIViewController", "requestTabBarItem"]
+- ["CSo16UIViewController", "requestTimer"]
 - ["CSo16UIViewController", "runTimedCode"]
 - ["CSo16UIViewController", "selectedUserType"]
 - ["CSo16UIViewController", "session"]
@@ -5200,6 +5421,7 @@ depends-member:
 - !private ["Vs5UInt8", "deinit"]
 - !private ["Vs5UInt8", "init"]
 - !private ["V10Foundation3URL", "deinit"]
+- !private ["P9Alamofire14URLConvertible", "deinit"]
 - ["P9Alamofire14URLConvertible", "init"]
 - !private ["P9Alamofire14URLConvertible", "isEmpty"]
 - !private ["P9Alamofire14URLConvertible", "localized"]
@@ -5293,6 +5515,7 @@ depends-member:
 - !private ["Ps35_HasCustomAnyHashableRepresentation", "uintValue"]
 - !private ["Ps9_Hashable", "Alamofire"]
 - !private ["Ps9_Hashable", "AlertView"]
+- !private ["Ps9_Hashable", "ApiMethods"]
 - !private ["Ps9_Hashable", "DialogTableViewCellModel"]
 - !private ["Ps9_Hashable", "DialogsViewController"]
 - !private ["Ps9_Hashable", "GoogleAnalyticManagerApi"]
@@ -5349,6 +5572,8 @@ depends-member:
 - ["Ps9_Hashable", "awakeFromNib"]
 - !private ["Ps9_Hashable", "backBarButtonItem"]
 - !private ["Ps9_Hashable", "backgroundColor"]
+- !private ["Ps9_Hashable", "badgeValue"]
+- !private ["Ps9_Hashable", "baseUrl"]
 - ["Ps9_Hashable", "chatService"]
 - ["Ps9_Hashable", "chatServiceChatDidAccidentallyDisconnect"]
 - ["Ps9_Hashable", "chatServiceChatDidConnect"]
@@ -5390,6 +5615,7 @@ depends-member:
 - !private ["Ps9_Hashable", "displayAlertMessage"]
 - !private ["Ps9_Hashable", "downloadImage"]
 - !private ["Ps9_Hashable", "email"]
+- !private ["Ps9_Hashable", "equestTabBarItem"]
 - !private ["Ps9_Hashable", "error"]
 - !private ["Ps9_Hashable", "fetchDialogsUpdated"]
 - !private ["Ps9_Hashable", "fields"]
@@ -5398,6 +5624,7 @@ depends-member:
 - !private ["Ps9_Hashable", "get"]
 - ["Ps9_Hashable", "getDialogs"]
 - ["Ps9_Hashable", "getImage"]
+- ["Ps9_Hashable", "getRequestBadgeCounter"]
 - ["Ps9_Hashable", "group"]
 - !private ["Ps9_Hashable", "hidesBackButton"]
 - !private ["Ps9_Hashable", "hidesBottomBarWhenPushed"]
@@ -5413,6 +5640,7 @@ depends-member:
 - !private ["Ps9_Hashable", "instantiateViewController"]
 - ["Ps9_Hashable", "integer"]
 - !private ["Ps9_Hashable", "invalidate"]
+- !private ["Ps9_Hashable", "isAuthorized"]
 - !private ["Ps9_Hashable", "isConnected"]
 - !private ["Ps9_Hashable", "isEmpty"]
 - !private ["Ps9_Hashable", "isExclusiveTouch"]
@@ -5447,6 +5675,7 @@ depends-member:
 - !private ["Ps9_Hashable", "plain"]
 - !private ["Ps9_Hashable", "popToRootViewController"]
 - !private ["Ps9_Hashable", "popViewController"]
+- !private ["Ps9_Hashable", "post"]
 - ["Ps9_Hashable", "prepare"]
 - !private ["Ps9_Hashable", "present"]
 - !private ["Ps9_Hashable", "print"]
@@ -5461,6 +5690,8 @@ depends-member:
 - !private ["Ps9_Hashable", "remove"]
 - !private ["Ps9_Hashable", "removeDelegate"]
 - !private ["Ps9_Hashable", "removeObserver"]
+- !private ["Ps9_Hashable", "requestTabBarItem"]
+- ["Ps9_Hashable", "requestTimer"]
 - !private ["Ps9_Hashable", "right"]
 - !private ["Ps9_Hashable", "rightBarButtonItems"]
 - !private ["Ps9_Hashable", "rightToLeft"]
@@ -5582,6 +5813,7 @@ depends-nominal:
 - "C11DiabetesApp9AlertView"
 - !private "Vs11AnyHashable"
 - "Ps9AnyObject"
+- !private "V11DiabetesApp10ApiMethods"
 - "C11DiabetesApp11AppDelegate"
 - "Sa"
 - !private "Ps23BidirectionalCollection"
@@ -5620,7 +5852,7 @@ depends-nominal:
 - "Vs10Dictionary"
 - !private "V8Dispatch12DispatchTime"
 - !private "V8Dispatch16DispatchWallTime"
-- !private "Sd"
+- "Sd"
 - "Ps9Equatable"
 - "Ps5Error"
 - !private "Ps25ExpressibleByArrayLiteral"
@@ -5753,7 +5985,7 @@ depends-nominal:
 - "CSo5Timer"
 - !private "PSo29UIAccessibilityIdentification"
 - !private "PSo21UIActionSheetDelegate"
-- !private "CSo17UIAlertController"
+- "CSo17UIAlertController"
 - !private "PSo19UIAlertViewDelegate"
 - !private "PSo12UIAppearance"
 - "PSo21UIAppearanceContainer"
@@ -5789,6 +6021,7 @@ depends-nominal:
 - "CSo17UIStoryboardSegue"
 - "CSo18UITabBarController"
 - !private "PSo16UITabBarDelegate"
+- !private "CSo12UITabBarItem"
 - "CSo11UITableView"
 - "CSo15UITableViewCell"
 - "OSC28UITableViewCellAccessoryType"
@@ -6193,4 +6426,5 @@ depends-external:
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController-umbrella.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Modules/module.modulemap"
-interface-hash: "f30a5f24ca9a48ed938bec78ec9bba16"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/simd.swiftmodule"
+interface-hash: "510f7a431eedbf7e526419b245e0c990"

@@ -143,6 +143,9 @@ class DialogTableViewCellModel: NSObject {
 class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCoreDelegate, QMChatConnectionDelegate, QMAuthServiceDelegate, QBRTCClientDelegate, IncomingCallViewControllerDelegate  {
 
     var myTimer  =  Timer()
+    
+    var requestTimer  =  Timer()
+    
     private var didEnterBackgroundDate: NSDate?
     private var observer: NSObjectProtocol?
     
@@ -181,7 +184,7 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
                
         NotificationCenter.default.addObserver(self, selector: #selector(DialogsViewController.didEnterBackgroundNotification), name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
         
-        if (QBChat.instance().isConnected) {
+        if (QBChat.instance().isConnected && ServicesManager.instance().isAuthorized()) {
           
             self.getDialogs()
         }
@@ -189,6 +192,14 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
         QBRTCClient.instance().add(self)
         
         tableView.tableFooterView = UIView()
+       if self.requestTimer != nil {
+            self.requestTimer .invalidate()
+            self.requestTimer == nil
+        }
+        
+        self .getRequestBadgeCounter()
+        
+        self.requestTimer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.getRequestBadgeCounter), userInfo: nil, repeats: true)
     }
     
     
@@ -210,6 +221,8 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
         //--------Google Analytics Start-----
         GoogleAnalyticManagerApi.sharedInstance.startScreenSessionWithName(screenName: kDialogsScreenName)
         //--------Google Analytics Finish-----
+        
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -225,6 +238,53 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
         if appDelegate.session != nil {
             appDelegate.session = nil
         }
+        
+    }
+    
+    
+    func getRequestBadgeCounter()  {
+        
+       let loggedInUserID: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserID)!
+        let selectedUserType: Int = Int(UserDefaults.standard.integer(forKey: userDefaults.loggedInUserType))
+        let parameters: Parameters = [
+            "loggedinuserid": loggedInUserID,
+            "loggedinusertype": selectedUserType
+           
+        ]
+        
+        //"\(baseUrl)\(ApiMethods.doctorApprove)"
+        Alamofire.request("\(baseUrl)\(ApiMethods.getRequestCount)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+            
+            print("Validation Successful ")
+            
+            switch response.result {
+                
+            case .success:
+                
+                if let JSON: NSDictionary = response.result.value! as? NSDictionary {
+                    
+                         let badgeCounter =  JSON .value(forKey: "requestNumber") as! String
+                    if badgeCounter == "0" {
+                        requestTabBarItem.badgeValue = nil
+                    }
+                    else{
+                         requestTabBarItem.badgeValue = String(badgeCounter)
+                    }
+                    
+                    
+                    
+                    
+                }
+                
+                break
+            case .failure:
+                print("failure")
+               // SVProgressHUD.showError(withStatus:response.result.error?.localizedDescription )
+                break
+                
+            }
+        }
+        
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -394,7 +454,8 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
         
         SVProgressHUD.show(withStatus: "SA_STR_LOGOUTING".localized, maskType: SVProgressHUDMaskType.clear)
         
-        ServicesManager.instance().logoutUserWithCompletion { [weak self] (boolValue) -> () in
+         ServicesManager.instance().lastActivityDate = nil;
+         ServicesManager.instance().logoutUserWithCompletion { [weak self] (boolValue) -> () in
             
             guard let strongSelf = self else { return }
             if boolValue {
@@ -408,7 +469,7 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
                 ServicesManager.instance().chatService.removeDelegate(strongSelf)
                 ServicesManager.instance().authService.remove(strongSelf)
                 UserDefaults.standard.set(false, forKey: userDefaults.isLoggedIn)
-                ServicesManager.instance().lastActivityDate = nil;
+               
                 
                 // Update UserDefaults
                 UserDefaults.standard.set(false, forKey: userDefaults.isLoggedIn)
@@ -447,6 +508,8 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
         if let lastActivityDate = ServicesManager.instance().lastActivityDate {
 			
 			ServicesManager.instance().chatService.fetchDialogsUpdated(from: lastActivityDate as Date, andPageLimit: kDialogsPageLimit, iterationBlock: { (response, dialogObjects, dialogsUsersIDs, stop) -> Void in
+               
+                print(dialogsUsersIDs)
                 
             }, completionBlock: { (response) -> Void in
 					
@@ -496,8 +559,12 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		if let dialogs = self.dialogs() {
 			return dialogs.count
-		}
-        return 0
+        }
+        else{
+            self.present(UtilityClass.displayAlertMessage(message: "Dialog count is 0", title: "SA_STR_ERROR".localized), animated: true, completion: nil)
+            //Google Analytic
+          return 0
+        }
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -710,7 +777,7 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
        
         tableView.deselectRow(at: indexPath, animated: true)
         
-               if (ServicesManager.instance().isProcessingLogOut!) {
+        if (ServicesManager.instance().isProcessingLogOut!) {
             return
         }
         

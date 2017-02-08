@@ -1647,6 +1647,7 @@ SWIFT_CLASS("_TtC11DiabetesApp20ReportViewController")
 @property (nonatomic, strong) NSMutableArray * _Nonnull oldCurrentMedArray;
 @property (nonatomic) NSInteger selectedUserType;
 @property (nonatomic, copy) NSString * _Nonnull reportUser;
+@property (nonatomic) NSInteger totalBadgeCounter;
 - (void)awakeFromNib;
 - (void)viewDidLoad;
 - (void)imageTapped:(UITapGestureRecognizer * _Nonnull)sender;
