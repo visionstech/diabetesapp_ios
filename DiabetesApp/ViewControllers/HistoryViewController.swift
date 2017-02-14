@@ -84,13 +84,15 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidAppear(_ animated: Bool) {
         selectedConditionIndex = 0
         noOfDays = "0"
+        
         conditionTxtFld.text = conditionsArray[0] as! String
         resetUI()
             self.addNotifications()
         //--------Google Analytics Start-----
         GoogleAnalyticManagerApi.sharedInstance.startScreenSessionWithName(screenName: kHistoryViewScreenName)
         //--------Google Analytics Finish-----
-        getReadingHistory(condition: conditionsArray[0] as! String)
+        
+        getReadingHistory(condition: conditionsArrayEng[0] as! String)
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -148,14 +150,11 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func resetUI() {
-        print("Count")
-        print(self.sectionsArray.count)
         if self.sectionsArray.count > 0 {
             tblView.isHidden = false
             noHistoryAvailableLbl.isHidden = true
         }
         else {
-            
             tblView.isHidden = true
             noHistoryAvailableLbl.isHidden = false
         }
@@ -183,6 +182,13 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     
     //MARK: - Notifications Methods
     func listViewNotification(notification: NSNotification) {
+        let dict = notification.object as! NSDictionary
+        let receivedCondition = dict["current"]
+        
+        selectedConditionIndex = conditionsArrayEng.index(of: receivedCondition!)
+        pickerView.selectRow(selectedConditionIndex, inComponent: 0, animated: true)
+        getReadingHistory(condition: conditionsArrayEng[selectedConditionIndex] as! String)
+        conditionTxtFld.text = conditionsArray[selectedConditionIndex] as! String
         
     }
     
@@ -191,7 +197,10 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         noOfDays = String(describing: notification.value(forKey: "object")!)
          print("noOfDays \(noOfDays)")
         //getHistory()
-        getReadingHistory(condition: conditionTxtFld.text!)
+        selectedConditionIndex = pickerView.selectedRow(inComponent: 0) as Int
+        let selectedConditionEng = conditionsArrayEng[pickerView.selectedRow(inComponent: 0)] as? String
+        UserDefaults.standard.setValue(selectedConditionEng, forKey: "currentHistoryCondition")
+        getReadingHistory(condition: selectedConditionEng!)
         
     }
     
@@ -202,8 +211,11 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
             
             conditionTxtFld.text = conditionsArray[pickerView.selectedRow(inComponent: 0)] as? String
             selectedConditionIndex = pickerView.selectedRow(inComponent: 0) as Int
+            
+            let selectedConditionEng = conditionsArrayEng[pickerView.selectedRow(inComponent: 0)] as? String
             // Api Method
-            getReadingHistory(condition: conditionTxtFld.text!)
+            UserDefaults.standard.setValue(selectedConditionEng, forKey: "currentHistoryCondition")
+            getReadingHistory(condition: selectedConditionEng!)
             
             //getHistory()
         }
@@ -212,7 +224,8 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBAction func conditionBtn_Clicked(_ sender: Any) {
         //Google Analytic
         GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "History View", action:"Condition Clicked" , label:"Condition Clicked")
-        
+    
+        pickerView.selectRow(selectedConditionIndex, inComponent: 0, animated: true)
         showOverlay(overlayView: pickerViewContainer)
     }
     @IBAction func cancelBtn_Clicked(_ sender: Any) {
@@ -231,7 +244,11 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         conditionTxtFld.text = conditionsArray[pickerView.selectedRow(inComponent: 0)] as? String
         selectedConditionIndex = pickerView.selectedRow(inComponent: 0) as Int
         // Api Method
-        getReadingHistory(condition: conditionTxtFld.text!)
+        let selectedConditionEng = conditionsArrayEng[pickerView.selectedRow(inComponent: 0)] as? String
+        
+        UserDefaults.standard.setValue(selectedConditionEng, forKey: "currentHistoryCondition")
+       
+        getReadingHistory(condition: selectedConditionEng!)
     }
     
     
@@ -259,9 +276,11 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
 
             
         let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+        let selectedNoOfDays: String = UserDefaults.standard.string(forKey: userDefaults.selectedNoOfDays)!
+        noOfDays = selectedNoOfDays
         let parameters: Parameters = [
             "userid": patientsID,
-             "numDaysBack": noOfDays,
+             "numDaysBack": selectedNoOfDays,
              "condition": newCondition
         ]
         
@@ -329,7 +348,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
                         
                        
                         if mainArray.count != 0 {
-                            self.noHistoryAvailableLbl.isHidden = true
+                            //self.noHistoryAvailableLbl.isHidden = true
                             let mainDict: NSMutableDictionary = NSMutableDictionary()
                             var count = 0
                             let itemsArray = NSMutableArray()
@@ -337,10 +356,32 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
                                 let obj: NSDictionary = dict as! NSDictionary
                                 let dateStr: String = String(describing: obj.allKeys.first!)
                                 if count == 0 {
-                                    mainDict.setValue(dateStr, forKey: "start_date")
+                                    
+                                    if let numDaysInt = Int(self.noOfDays){
+                                        let startDate = Calendar.current.date(byAdding: .day, value: -numDaysInt, to: Date())
+                                        
+                                        let dateFormatter = DateFormatter()
+                                        dateFormatter.dateFormat = "dd/MM/YYYY"
+                                        dateFormatter.locale = NSLocale(localeIdentifier: "en") as Locale!
+                                        let someDate = dateFormatter.string(from: startDate!)
+                                        
+                                        mainDict.setValue(someDate, forKey: "start_date")
+                                    }
+                                    else{
+                                        mainDict.setValue("", forKey: "start_date")
+                                    }
+                                    
                                 }
                                 else if count == mainArray.count-1 {
-                                    mainDict.setValue(dateStr, forKey: "end_date")
+                                    
+                                        let endDate = Calendar.current.date(byAdding: .day, value: 0, to: Date())
+                                        let dateFormatter = DateFormatter()
+                                        dateFormatter.dateFormat = "dd/MM/YYYY"
+                                        dateFormatter.locale = NSLocale(localeIdentifier: "en") as Locale!
+                                        let someDate = dateFormatter.string(from: endDate!)
+                                        
+                                        mainDict.setValue(someDate, forKey: "end_date")
+                                    
                                 }
                                 let array: NSArray = NSArray(array: (dict as AnyObject).object(forKey: dateStr) as! NSArray)
                                 itemsArray.addObjects(from: array as! [Any])
@@ -372,7 +413,12 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
                 break
            case .failure(let error):
                 //Google Analytic
-                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.getglucoseDaysCondition) Calling", action:"Fail - Web API Calling" , label:String(describing: error), value : self.formInterval.intervalAsSeconds())
+            var strError = ""
+            if(error.localizedDescription.length>0)
+            {
+                strError = error.localizedDescription
+            }
+                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.getglucoseDaysCondition) Calling", action:"Fail - Web API Calling" , label:String(describing: strError), value : self.formInterval.intervalAsSeconds())
                 print("failure")
                 
                 break
@@ -463,6 +509,9 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
             cell.readingLbl.text = "\(obj.value(forKey: "reading")!) mg/dl"
             
             if (obj.value(forKey: "reading") as? Int)! > 180{
+                cell.readingLbl.textColor = UIColor(red: 238.0/255.0, green: 130.0/255.0, blue: 238.0/255.0, alpha: 1.0)
+            }
+            else if (obj.value(forKey: "reading") as? Int)! < 70{
                 cell.readingLbl.textColor = Colors.DHPinkRed
             }
             else{
@@ -484,7 +533,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
 
             var outStr : String = ""
             
-            if currentLocale == "en"
+           /* if currentLocale == "en"
             {
                 let inFormatter = DateFormatter()
                 inFormatter.locale = NSLocale(localeIdentifier: "en") as Locale!
@@ -497,9 +546,9 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
                 let date = inFormatter.date(from: String(describing: obj.value(forKey: "readingtime")!))
                 outStr = outFormatter.string(from: date!)
             }
-            else{
+            else{*/
                 outStr = String(describing: obj.value(forKey: "readingtime")!)
-            }
+           // }
             
             let index = conditionsArrayEng.index(of: conditionString)
             if(index != -1)
@@ -522,6 +571,9 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
             cell.readingLbl.text = "\(obj.value(forKey: "reading")!) mg/dl"
             
             if (obj.value(forKey: "reading") as? Int)! > 180{
+                 cell.readingLbl.textColor = UIColor(red: 238.0/255.0, green: 130.0/255.0, blue: 238.0/255.0, alpha: 1.0)
+            }
+            else if (obj.value(forKey: "reading") as? Int)! < 70{
                 cell.readingLbl.textColor = Colors.DHPinkRed
             }
             else{
@@ -543,7 +595,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
             
             var outStrCondition : String = ""
             var outStrReadingTime : String = ""
-            if currentLocale == "ar"
+           /* if currentLocale == "ar"
             {
                 let inFormatter = DateFormatter()
                 inFormatter.locale = NSLocale(localeIdentifier: "en") as Locale!
@@ -568,14 +620,14 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
                 outStrReadingTime = outFormatter.string(from: reading!)
                 
             }
-            else{
+            else{*/
                 outStrCondition = String(describing: obj.value(forKey: "condition")!)
                 
-                let tempString : String = String(describing: obj.value(forKey: "readingtime")!)
-                let tempSplits : [String] = tempString.components(separatedBy: " ")
+                let tempStringRead : String = String(describing: obj.value(forKey: "readingtime")!)
+                let tempSplits : [String] = tempStringRead.components(separatedBy: " ")
                 let result : String = tempSplits[0]+tempSplits[1]+" "+tempSplits[2]
                 outStrReadingTime = result
-            }
+          //  }
             
             cell.dateLbl.text = outStrReadingTime
             cell.dateLbl.textColor = Colors.PrimaryColor
@@ -600,14 +652,10 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         let arr =  cellArray .object(at: indexPath.row)
         let dict =   arr as! NSDictionary
         
-        //print("\(dict.value(forKey: "reading")!) mg/dl")
-        
         if((dict.value(forKey: "comment") as! String) != "")
         {
-            self.present(UtilityClass.displayAlertMessage(message: "\(dict.value(forKey: "comment")!)".localized, title: "Comment".localized), animated: true, completion: nil)
-
+            self.present(UtilityClass.displayAlertMessage(message: "\(dict.value(forKey: "comment")!)".localized, title: ""), animated: true, completion: nil)
         }
-        
     }
     
     
@@ -646,9 +694,11 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         if conditionTxtFld.text == String(conditionsArray[0] as! String) {
             let dateStr: String = String(describing: dict.allKeys.first!)
             lbl.text = dateStr
+            
+            // CONVERT THE DATE TO ARABIC
            // print("Date string")
            // print(dateStr)
-           if dateStr != nil && currentLocale == "ar"{
+           /*if dateStr != nil && currentLocale == "ar"{
                 let myDateString = "\(dateStr) 00:00:00"
             
                 let inFormatter = DateFormatter()
@@ -666,9 +716,9 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
                 print(headerDateString)
                 lbl.text = headerDateString
             }
-            else{
+            else{*/
                 lbl.text = dateStr
-            }
+           // }
         
             
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapHeader(gestureReconizer:)))
@@ -715,7 +765,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
             
             if startDate != nil && endDate != nil{
             
-                if currentLocale == "ar"{
+               /* if currentLocale == "ar"{
                     
                     
                     
@@ -739,13 +789,13 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
                 
                     lbl.text = startDateString+"  -  "+endDateString
                 }
-                else{
+                else{*/
                     lbl.text = "\(String(describing: dict.value(forKey: "start_date")!)) - \(String(describing: dict.value(forKey: "end_date")!))"
-                }
+               // }
             }
             else if startDate != nil {
                 
-                if currentLocale == "ar"
+                /*if currentLocale == "ar"
                 {
                     let inFormatter = DateFormatter()
                     inFormatter.locale = NSLocale(localeIdentifier: "en-US") as Locale!
@@ -762,13 +812,13 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
                 
                     lbl.text = startDateString
                 }
-                else{
+                else{*/
                     lbl.text = "\(String(describing: dict.value(forKey: "start_date")!))"
-                }
+               // }
             }
             else if endDate != nil {
                 
-                if currentLocale == "ar"
+               /* if currentLocale == "ar"
                 {
                     let inFormatter = DateFormatter()
                     inFormatter.locale = NSLocale(localeIdentifier: "en-US") as Locale!
@@ -785,9 +835,9 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
                 
                     lbl.text = endDateString
                 }
-                else{
+                else{*/
                     lbl.text = "\(String(describing: dict.value(forKey: "end_date")!))"
-                }
+                //}
             }
             else{
              lbl.text = ""

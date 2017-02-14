@@ -115,6 +115,7 @@ struct userDefaults{
     static let deviceToken              = "deviceToken"
     static let groupChat                = "groupChat"
     static let taskID                   = "taskID"
+    static let selectedNoOfDays         = "selectedNoOfDays"
     static let totalBadgeCounter        = "totalBadgeCounter"
 }
 
@@ -154,7 +155,9 @@ struct ApiMethods{
     static let saveEducatorReport = "savetask"
     static let getEducatorGroupReport = "geteducatorreport"
     static let getChartConditionData = "getChartConditionData"
-    static let getRequestCount =       "getRequestCount"
+    static let canceleMeds = "cancelDeleteMeds"
+    static let getRequestCount = "getRequestCount"
+    static let updateReadBy = "requestUpdateEducator"
 }
 
 // MARK: - GeneralLabels
@@ -214,6 +217,8 @@ struct Colors{
     static let DHLoginButtonGreen   = UIColor(red: 63.0/255.0, green: 230.0/255.0, blue: 215.0/255.0, alpha: 1.0)
     static let DHTabBarGreen        = UIColor(red: 0.0/255.0, green: 156.0/255.0, blue: 190.0/255.0, alpha: 1.0)
     static let DHIntakeGreen        = UIColor(red: 62.0/255.0, green: 187.0/255.0, blue: 169.0/255.0, alpha: 1.0)
+    static let DHConditionBg       = UIColor(red: 0.0/255.0, green: 174.0/255.0, blue: 205.0/255.0, alpha: 1.0)
+    static let DHAddConditionBg       = UIColor(red: 68.0/255.0, green: 106.0/255.0, blue: 125.0/255.0, alpha: 1.0)
     
     static let DHLightGray = UIColor(red: 241.0/255.0, green: 241.0/255.0, blue: 241.0/255.0, alpha: 1.0)
     static let DHDarkGray = UIColor(red: 127.0/255.0, green: 127.0/255.0, blue: 127.0/255.0, alpha: 1.0)
@@ -228,7 +233,7 @@ struct Colors{
     
     static let chartHyperHypoColor = UIColor(red: 227.0/255.0, green: 5.0/255.0, blue: 28.0/255.0, alpha: 1.0)
     static let chartNormalColor = UIColor(red: 162.0/255.0, green: 197.0/255.0, blue: 22.0/255.0, alpha: 1.0)
-    
+    static let placeHolderColor = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 0.6)
     
 }
 
@@ -239,7 +244,7 @@ struct Fonts {
     static let SFTextRegularFont: UIFont = UIFont(name: "SFUIText-Regular", size: 18)!
     static let GothamBoldFont: UIFont = UIFont(name: "Gotham-Bold", size: 15)!
     static let NavBarBtnFont: UIFont = UIFont(name: "SFUIText-Regular", size: 15)!
-    static let HistoryHeaderFont: UIFont = UIFont(name: "SFUIText-Bold", size: 16)!
+    static let HistoryHeaderFont: UIFont = UIFont(name: "SFUIText-Bold", size: 14)!
     static let noOfDaysFont: UIFont = UIFont(name: "SFUIText-Regular", size: 14)!
     static let chartFont: UIFont = UIFont(name: "SFUIText-Regular", size: 8)!
     

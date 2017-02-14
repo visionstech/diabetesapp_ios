@@ -8,16 +8,16 @@ provides-member:
 - ["C11SwiftCharts10ChartPoint", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "ChartAxisValue"
-- "CustomStringConvertible"
+- "String"
 - "ChartPoint"
+- !private "StringLiteralType"
+- "ChartAxisValue"
+- "Bool"
+- "Equatable"
+- "CustomStringConvertible"
+- !private "&&"
 - "=="
 - "AssignmentPrecedence"
-- "String"
-- !private "&&"
-- "Equatable"
-- "Bool"
-- !private "StringLiteralType"
 depends-member:
 - ["Ps9AnyObject", "description"]
 - !private ["Ps9AnyObject", "init"]

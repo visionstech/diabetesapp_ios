@@ -35,7 +35,7 @@ class CarePlanMedicationTableViewCell: UITableViewCell {
     
     @IBOutlet weak var medImglbl: UILabel!
     @IBOutlet weak var saveBtn: UIButton!
-    
+    @IBOutlet weak var closeBtn: UIButton!
     
     
 //    @IBOutlet weak var medNameLbl: UILabel!
@@ -67,6 +67,8 @@ class CarePlanMedicationTableViewCell: UITableViewCell {
         // Initialization code
         
         mainView.layer.cornerRadius = 8
+        mainView.layer.borderColor = Colors.DHAddConditionBg.cgColor
+        mainView.layer.borderWidth = 1.5
         
         // Left margins
         setleftpadding(textfield: dosageTxtFld)
@@ -74,28 +76,29 @@ class CarePlanMedicationTableViewCell: UITableViewCell {
             setleftpadding(textfield: medicineNameTxtFld)
         }
         
+  
         
-        if editBtn != nil{
-            editBtn.setTitle("Edit".localized,for: .normal)
-            //saveBtn.setTitle("Save".localized,for: .normal)
-            editBtn.setTitle("Edit".localized,for: .highlighted)
-        }
-        
-        if saveBtn != nil{
-            saveBtn.setTitle("Save".localized,for: .normal)
-            //  editBtn.setTitle("Edit".localized,for: .highlighted)
-            saveBtn.setTitle("Save".localized,for: .highlighted)
-        }
+//        if editBtn != nil{
+//          //  editBtn.setTitle("Edit".localized,for: .normal)
+//            //saveBtn.setTitle("Save".localized,for: .normal)
+//           // editBtn.setTitle("Edit".localized,for: .highlighted)
+//        }
+//        
+//        if saveBtn != nil{
+//            saveBtn.setTitle("Save".localized,for: .normal)
+//            //  editBtn.setTitle("Edit".localized,for: .highlighted)
+//            saveBtn.setTitle("Save".localized,for: .highlighted)
+//        }
         //editBtn.setTitle("Edit".localized,for: .normal)
        // saveBtn.setTitle("Save".localized,for: .normal)
       //  editBtn.setTitle("Edit".localized,for: .highlighted)
       //  saveBtn.setTitle("Save".localized,for: .highlighted)
 
         // Shadow on view
-        mainView.layer.shadowColor = UIColor.black.cgColor
-        mainView.layer.shadowOpacity = 0.5
-        mainView.layer.shadowOffset = CGSize.zero
-        mainView.layer.shadowRadius = 3
+//        mainView.layer.shadowColor = UIColor.black.cgColor
+//        mainView.layer.shadowOpacity = 0.5
+//        mainView.layer.shadowOffset = CGSize.zero
+//        mainView.layer.shadowRadius = 3
         
         medicineNameTxtFld.startVisible = true
         // Set data source
@@ -103,7 +106,7 @@ class CarePlanMedicationTableViewCell: UITableViewCell {
         
         //medicineNameTxtFld.backgroundColor = Colors.DHTabBarGreen
         medicineNameTxtFld.attributedPlaceholder = NSAttributedString(string: "Enter Medicine Name",
-                                                                      attributes: [NSForegroundColorAttributeName: UIColor.gray])
+                                                                      attributes: [NSForegroundColorAttributeName: UIColor.white])
         
         
     }
@@ -117,7 +120,7 @@ class CarePlanMedicationTableViewCell: UITableViewCell {
     
     func setleftpadding(textfield: UITextField)
     {
-        textfield.layer.cornerRadius = 5
+      //  textfield.layer.cornerRadius = 5
         textfield.layer.borderWidth = 1
         textfield.layer.borderColor = UIColor.clear.cgColor
         

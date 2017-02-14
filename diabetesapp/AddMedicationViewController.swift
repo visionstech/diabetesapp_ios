@@ -25,6 +25,7 @@ class AddMedicationViewController: UIViewController, UITableViewDelegate, UITabl
     let selectedUserType: Int = Int(UserDefaults.standard.integer(forKey: userDefaults.loggedInUserType))
     var selectedIndex : NSIndexPath = NSIndexPath()
     var formInterval: GTInterval!
+    var addMedArray = NSMutableArray()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -290,16 +291,15 @@ class AddMedicationViewController: UIViewController, UITableViewDelegate, UITabl
                     array.insert(obj, at: indexPath.row)
                     self.tblView .reloadData()
                 }
-                
             }
         }
     }
     @IBAction func selectMedicineImage_Click(_ sender: Any) {
-        self.view.endEditing(true)
-        self.tblView.contentInset = UIEdgeInsetsMake(0, 0, 0 , 0)
-        let index: Int = (sender as AnyObject).tag
-        picker.view.tag = index
-        present(picker, animated: true, completion: nil)
+//        self.view.endEditing(true)
+//        self.tblView.contentInset = UIEdgeInsetsMake(0, 0, 0 , 0)
+//        let index: Int = (sender as AnyObject).tag
+//        picker.view.tag = index
+//        present(picker, animated: true, completion: nil)
     }
     
     fileprivate func configureSimpleSearchTextField(medicationTextField: AutocompleteSearchTextField) {
@@ -332,6 +332,13 @@ class AddMedicationViewController: UIViewController, UITableViewDelegate, UITabl
             
             cell.medicineNameTxtFld.text = obj.name
             cell.medicineNameTxtFld.tag = 1001
+            cell.medicineNameTxtFld.backgroundColor = Colors.DHAddConditionBg
+            cell.medicineNameTxtFld.layer.cornerRadius = 8.0
+            
+            cell.medImg.layer.borderColor = Colors.DHAddConditionBg.cgColor
+            cell.medImg.layer.borderWidth = 1.0
+            cell.medImg.layer.cornerRadius = 8.0
+            
             
             //Set Default View and Value
             var vwDetailY = cell.vwDetail.frame.origin.y
@@ -378,14 +385,22 @@ class AddMedicationViewController: UIViewController, UITableViewDelegate, UITabl
                 }
                 else
                 {
-                    imgConditionBg = UIImageView(frame: CGRect(x: CGFloat(cell.imgCarBg.frame.origin.x), y: CGFloat(cell.imgCarBg.frame.origin.y), width: CGFloat((vwWidth*60)/100), height: CGFloat(cell.imgCarBg.frame.size.height)))
+                    imgConditionBg = UIImageView(frame: CGRect(x: CGFloat(cell.imgCarBg.frame.origin.x), y: CGFloat(cell.imgCarBg.frame.origin.y), width: CGFloat((vwWidth*56)/100), height: CGFloat(cell.imgCarBg.frame.size.height)))
                     conditionNameLbl = UILabel(frame: CGRect(x: CGFloat(cell.conditionNameLbl.frame.origin.x), y: CGFloat(cell.conditionNameLbl.frame.origin.y), width: CGFloat((vwWidth*50)/100), height: CGFloat(cell.conditionNameLbl.frame.size.height)))
-                    dosageTxtFld = UITextField(frame: CGRect(x: CGFloat(imgConditionBg.frame.size.width-10), y: CGFloat(cell.dosageTxtFld.frame.origin.y), width:  CGFloat(((vwWidth*40)/100) - Double(cell.btnConditionDelete.frame.size.width)), height: CGFloat(cell.dosageTxtFld.frame.size.height)))
-                    conditionTxtFld = UITextField(frame: CGRect(x: CGFloat(cell.conditionTxtFld.frame.origin.x), y: CGFloat(cell.conditionTxtFld.frame.origin.y), width: CGFloat((vwWidth*50)/100), height: CGFloat(cell.conditionTxtFld.frame.size.height)))
+                    
+                    dosageTxtFld = UITextField(frame: CGRect(x: CGFloat(imgConditionBg.frame.size.width-10)+12, y: CGFloat(cell.dosageTxtFld.frame.origin.y), width:  CGFloat(((vwWidth*40)/100) - Double(cell.btnConditionDelete.frame.size.width)), height: CGFloat(cell.dosageTxtFld.frame.size.height)))
+                    
+                    conditionTxtFld = UITextField(frame: CGRect(x: CGFloat(cell.conditionNameLbl.frame.origin.x), y: CGFloat(cell.conditionTxtFld.frame.origin.y), width: CGFloat((vwWidth*50)/100), height: CGFloat(cell.conditionTxtFld.frame.size.height)))
+                    
                 }
                 
-                imgConditionBg.backgroundColor = Colors.DHTabBarGreen
+                imgConditionBg.backgroundColor = Colors.DHAddConditionBg
                 imgConditionBg.clipsToBounds = true
+                let maskPath = UIBezierPath(roundedRect: imgConditionBg.bounds, byRoundingCorners: ([.topLeft, .bottomLeft]), cornerRadii: CGSize(width: CGFloat(10.0), height: CGFloat(10.0)))
+                let maskLayer = CAShapeLayer()
+                maskLayer.frame = self.view.bounds
+                maskLayer.path = maskPath.cgPath
+                imgConditionBg.layer.mask = maskLayer
 //                let vwWidth = Double(vwDetail.frame.size.width)
                 
                 
@@ -414,21 +429,27 @@ class AddMedicationViewController: UIViewController, UITableViewDelegate, UITabl
                 
                 dosageTxtFld.font = cell.dosageTxtFld.font
                 dosageTxtFld.textColor = cell.dosageTxtFld.textColor
-                dosageTxtFld.backgroundColor = cell.dosageTxtFld.backgroundColor
+                dosageTxtFld.backgroundColor = Colors.DHAddConditionBg
                 dosageTxtFld.delegate = self
                 dosageTxtFld.tag = indexDosage
+                let maskPath1 = UIBezierPath(roundedRect: dosageTxtFld.bounds, byRoundingCorners: ([.topRight, .bottomRight]), cornerRadii: CGSize(width: CGFloat(10.0), height: CGFloat(10.0)))
+                let maskLayer1 = CAShapeLayer()
+                maskLayer1.frame = self.view.bounds
+                maskLayer1.path = maskPath1.cgPath
+                dosageTxtFld.layer.mask = maskLayer1
+                
                 dosageTxtFld.keyboardType = UIKeyboardType.numberPad
                 dosageTxtFld.clipsToBounds = true
                 
                 if(dosageTxtFld.text?.length == 0)
                 {
-                    dosageTxtFld.attributedPlaceholder = NSAttributedString(string: "dose",
-                                                                            attributes: [NSForegroundColorAttributeName: UIColor.gray])
+                    dosageTxtFld.attributedPlaceholder = NSAttributedString(string: "Dose",
+                                                                            attributes: [NSForegroundColorAttributeName: Colors.placeHolderColor])
                 }
                 else
                 {
                     dosageTxtFld.attributedPlaceholder = NSAttributedString(string: "",
-                                                                            attributes: [NSForegroundColorAttributeName: UIColor.gray])
+                                                                            attributes: [NSForegroundColorAttributeName: UIColor.white])
                 }
                 
                 setleftpadding(textfield: dosageTxtFld)
@@ -445,13 +466,13 @@ class AddMedicationViewController: UIViewController, UITableViewDelegate, UITabl
                  conditionTxtFld.backgroundColor = UIColor.clear
                 if(obj.condition[indexDosage].length == 0)
                 {
-                    conditionTxtFld.attributedPlaceholder = NSAttributedString(string: "timing",
-                                                                               attributes: [NSForegroundColorAttributeName: UIColor.lightGray] )
+                    conditionTxtFld.attributedPlaceholder = NSAttributedString(string: "Timing",
+                                                                               attributes: [NSForegroundColorAttributeName: Colors.placeHolderColor] )
                 }
                 else
                 {
                     conditionTxtFld.attributedPlaceholder = NSAttributedString(string: "",
-                                                                               attributes: [NSForegroundColorAttributeName: UIColor.lightGray] )
+                                                                               attributes: [NSForegroundColorAttributeName: UIColor.white] )
                 }
                 
                 
@@ -468,7 +489,7 @@ class AddMedicationViewController: UIViewController, UITableViewDelegate, UITabl
                 }
                 else
                 {
-                    btnDeleteCondition = UIButton(frame: CGRect(x: CGFloat(vwDetailNew.frame.size.width - cell.btnConditionDelete.frame.size.width), y: CGFloat(cell.btnConditionDelete.frame.origin.y), width: CGFloat(cell.btnConditionDelete.frame.size.width), height: CGFloat(cell.btnConditionDelete.frame.size.height)))
+                    btnDeleteCondition = UIButton(frame: CGRect(x: CGFloat(vwDetailNew.frame.size.width - (cell.btnConditionDelete.frame.size.width + 8)), y: CGFloat(cell.btnConditionDelete.frame.origin.y), width: CGFloat(cell.btnConditionDelete.frame.size.width), height: CGFloat(cell.btnConditionDelete.frame.size.height)))
                 }
                 btnDeleteCondition.tag = indexDosage
                 btnDeleteCondition.titleLabel?.font = cell.btnConditionDelete.titleLabel?.font
@@ -491,9 +512,8 @@ class AddMedicationViewController: UIViewController, UITableViewDelegate, UITabl
                 let button = UIButton(frame: CGRect(x: 0, y: 0, width: CGFloat(bounds-(cell.medImgView.frame.width+45)), height: vwDetailHeight))
                 button.titleLabel?.font = cell.saveBtn.titleLabel?.font
                 button.contentHorizontalAlignment = .left
-                button .setTitleColor(UIColor.black, for: UIControlState.normal)
-                button .setTitleColor(UIColor.black, for: UIControlState.highlighted)
-                button.setTitle("+ Add More", for: .normal)
+                button.setImage(UIImage(named: "add_more_field"), for: .normal)
+                button.setImage(UIImage(named: "add_more_field"), for: .highlighted)
                 button.tag = indexPath.row
                 button.addTarget(self, action: #selector(btnAdd_Click(_:)), for: .touchUpInside)
                 customView.addSubview(button)
@@ -530,13 +550,13 @@ class AddMedicationViewController: UIViewController, UITableViewDelegate, UITabl
     
     func setleftpadding(textfield: UITextField)
     {
-        textfield.layer.cornerRadius = 5
+       // textfield.layer.cornerRadius = 5
         textfield.layer.borderWidth = 1
         textfield.layer.borderColor = UIColor.clear.cgColor
         
         textfield.leftViewMode = UITextFieldViewMode.always
         let leftView = UIView()
-        leftView.frame = CGRect(x: 0, y: 0, width: 20, height: 10)
+        leftView.frame = CGRect(x: 0, y: 0, width: 10, height: 10)
         textfield.leftView = leftView
     }
     
@@ -569,8 +589,8 @@ class AddMedicationViewController: UIViewController, UITableViewDelegate, UITabl
                 let strTitle = btn.currentTitle
                 if(strTitle?.lowercased() == "edit" )
                 {
-                    btn.setTitle("Save",for: .normal)
-                    btn.setTitle("Save",for: .highlighted)
+                    btn.setTitle("",for: .normal)
+                    btn.setTitle("",for: .highlighted)
                     break
                 }
             }
@@ -608,7 +628,7 @@ class AddMedicationViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        
+         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(GIntakeViewController.dismissKeyboard(_:))))
         let cell = self.parentCellFor(view: textField)
         if !cell.isViewEmpty {
             let indexPath = self.tblView.indexPathForRow(at: cell.center)!
@@ -649,14 +669,14 @@ class AddMedicationViewController: UIViewController, UITableViewDelegate, UITabl
                 if(textField.text?.length == 0)
                 {
                     obj.dosage .insert(0 , at: textField.tag)
-                    textField.attributedPlaceholder = NSAttributedString(string: "dose",
-                                                                         attributes: [NSForegroundColorAttributeName: UIColor.gray])
+                    textField.attributedPlaceholder = NSAttributedString(string: "Dose",
+                                                                         attributes: [NSForegroundColorAttributeName: Colors.placeHolderColor])
                 }
                 else
                 {
                     obj.dosage .insert(Int(textField.text!)! , at: textField.tag)
                     textField.attributedPlaceholder = NSAttributedString(string: "",
-                                                                         attributes: [NSForegroundColorAttributeName: UIColor.gray])
+                                                                         attributes: [NSForegroundColorAttributeName: UIColor.white])
                 }
             }
             
@@ -695,19 +715,28 @@ class AddMedicationViewController: UIViewController, UITableViewDelegate, UITabl
                 
                 if(textField.text?.length == 0)
                 {
-                    textField.attributedPlaceholder = NSAttributedString(string: "timing",
-                                                                         attributes: [NSForegroundColorAttributeName: UIColor.lightGray] )
+                    textField.attributedPlaceholder = NSAttributedString(string: "Timing",
+                                                                         attributes: [NSForegroundColorAttributeName: Colors.placeHolderColor] )
                 }
                 else
                 {
                     textField.attributedPlaceholder = NSAttributedString(string: "",
-                                                                         attributes: [NSForegroundColorAttributeName: UIColor.lightGray] )
+                                                                         attributes: [NSForegroundColorAttributeName: UIColor.white] )
                 }
                 
                 textField.text = ""
                 textField.background = UIImage(named: "")
             }
         }
+    }
+    //MARK: - Helpers
+    func dismissKeyboard(_ sender: UIGestureRecognizer) {
+        self.view.endEditing(true)
+        
+        self.tblView.contentInset = UIEdgeInsetsMake(0, 0, 0 , 0)
+        self.tblView.scrollToNearestSelectedRow(at: .top, animated: true)
+    
+        view.removeGestureRecognizer(sender)
     }
     // MARK: - web service calling
     func addcareplanData(careObj : CarePlanObj)
@@ -733,8 +762,28 @@ class AddMedicationViewController: UIViewController, UITableViewDelegate, UITabl
             switch response.result {
             case .success:
                 //Google Analytic
-                  GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.addcareplan) Calling", action:"Success -Add Care Plan Data" , label:"Add Care Plan Data added Successfully", value : self.formInterval.intervalAsSeconds())
-                  
+                
+                
+                
+                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.addcareplan) Calling", action:"Success -Add Care Plan Data" , label:"Add Care Plan Data added Successfully", value : self.formInterval.intervalAsSeconds())
+                print("Checking mededitbool")
+                print(UserDefaults.standard.bool(forKey: "MedEditBool"))
+                  if let JSON: NSDictionary = response.result.value as! NSDictionary? {
+                    if  UserDefaults.standard.bool(forKey: "MedEditBool") {
+                        let arr : NSArray = UserDefaults.standard.array(forKey: "currentAddMedicationArray")! as [Any] as NSArray
+                            self.addMedArray = NSMutableArray(array: arr)
+                
+                        let pid: String = JSON.value(forKey:"patientID") as! String
+                        self.addMedArray.add(pid)
+                       
+                        UserDefaults.standard.setValue(self.addMedArray, forKey: "currentAddMedicationArray")
+                        UserDefaults.standard.synchronize()
+                       // print("Checking here")
+                        //print(UserDefaults.standard.array(forKey: "currentAddMedicationArray")!)
+                    }
+                    
+                    
+                  }
                   
                 SVProgressHUD.showSuccess(withStatus: "Medication Added", maskType: SVProgressHUDMaskType.clear)
                 
@@ -746,7 +795,12 @@ class AddMedicationViewController: UIViewController, UITableViewDelegate, UITabl
             case .failure(let error):
                 print("failure")
                 //Google Analytic
-                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.addcareplan) Calling", action:"Fail - Web API Calling" , label:String(describing: error), value : self.formInterval.intervalAsSeconds())
+                var strError = ""
+                if(error.localizedDescription.length>0)
+                {
+                    strError = error.localizedDescription
+                }
+                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.addcareplan) Calling", action:"Fail - Web API Calling" , label:String(describing: strError), value : self.formInterval.intervalAsSeconds())
                 
                 SVProgressHUD.dismiss()
                 break

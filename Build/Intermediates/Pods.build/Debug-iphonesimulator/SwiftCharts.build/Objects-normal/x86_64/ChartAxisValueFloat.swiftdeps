@@ -7,16 +7,16 @@ provides-member:
 - ["C11SwiftCharts19ChartAxisValueFloat", ""]
 provides-dynamic-lookup:
 depends-top-level:
+- "ChartLabelSettings"
+- !private "StringLiteralType"
+- "Double"
 - "NumberFormatter"
 - !private "NSNumber"
-- "String"
 - "ChartAxisValue"
-- !private "StringLiteralType"
-- "ChartAxisValueFloat"
-- "ChartLabelSettings"
+- "String"
 - "AssignmentPrecedence"
 - "CGFloat"
-- "Double"
+- "ChartAxisValueFloat"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "init"]
 - !private ["Ps16AbsoluteValuable", "native"]

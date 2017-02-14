@@ -54,6 +54,7 @@ class ReportChartViewController: UIViewController, UIPickerViewDelegate, UIPicke
     @IBOutlet weak var hyperLbl: UILabel!
     @IBOutlet weak var glucoseLbl: UILabel!
     //@IBOutlet weak var hbaLbl: UILabel!
+    @IBOutlet weak var arrowImg: UIImageView!
     
     @IBOutlet weak var hyposLbl: UILabel!
     //@IBOutlet weak var deviationLbl: UILabel!
@@ -72,6 +73,18 @@ class ReportChartViewController: UIViewController, UIPickerViewDelegate, UIPicke
     override func viewDidLoad() {
         super.viewDidLoad()
         selectedConditionIndex = 0
+       
+        conditionTitle.text = "CONDITION".localized
+        conditionTxtFld.text = conditionsArray[0] as! String
+        noHistoryAvailableLabel.text = "No Readings Available".localized
+        if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
+            conditionTxtFld.textAlignment = .left
+            arrowImg.image = UIImage(named:"readinghistoryBack")
+        }
+        else {
+            conditionTxtFld.textAlignment = .right
+            arrowImg.image = UIImage(named:"history_condition")
+        }
 
         // Do any additional setup after loading the view.
         
@@ -80,7 +93,7 @@ class ReportChartViewController: UIViewController, UIPickerViewDelegate, UIPicke
         super.viewDidAppear(animated)
         selectedConditionIndex = 0
         
-         getChartHistoryData(condition: conditionsArray[selectedConditionIndex] as! String)
+        getChartHistoryData(condition: conditionsArrayEng[selectedConditionIndex] as! String)
 
         //--------Google Analytics Start-----
         GoogleAnalyticManagerApi.sharedInstance.startScreenSessionWithName(screenName: kReportChartViewScreenName)
@@ -202,29 +215,18 @@ class ReportChartViewController: UIViewController, UIPickerViewDelegate, UIPicke
         selectedConditionIndex = pickerView.selectedRow(inComponent: 0) as Int
         // Api Method
         
-        if(conditionTxtFld.text! != "All conditions")
+        if(conditionTxtFld.text! != "All conditions".localized)
         {
-           // print("Condition text field")
-            
-            
-            //let tempString : [String] = conditionTxtFld.text!.components(separatedBy: " ")
-            //var newCondition : String = ""
-            //if tempString[0] == "Before"{
-                
-            //    newCondition = "Pre "+tempString[1]
-            //}
-            //else if tempString[0] == "After"{
-            //    newCondition = "Post "+tempString[1]
-            //}
-            //else{
-            //    newCondition = conditionTxtFld.text!
-            //}
-            getChartConditionData(condition: conditionTxtFld.text!)
+            let selectedConditionEng = conditionsArrayEng[selectedConditionIndex] as? String
+            UserDefaults.standard.setValue(selectedConditionEng, forKey: "currentHistoryCondition")
+            getChartConditionData(condition: selectedConditionEng!)
         }
         else{
             print("All conditions")
             print(conditionTxtFld.text!)
-            getChartHistoryData(condition: conditionTxtFld.text!)
+            let selectedConditionEng = conditionsArrayEng[selectedConditionIndex] as? String
+            UserDefaults.standard.setValue(selectedConditionEng, forKey: "currentHistoryCondition")
+            getChartHistoryData(condition: selectedConditionEng!)
             
         }
 
@@ -260,19 +262,7 @@ class ReportChartViewController: UIViewController, UIPickerViewDelegate, UIPicke
             else{
                 newCondition = ConditionVal!
             }
-            
-            /* let tempString : [String] = condition.components(separatedBy: " ")
-             var newCondition : String = ""
-             if tempString[0] == "Before"{
-             newCondition = "Pre "+tempString[1]
-             }
-             else if tempString[0] == "After"{
-             newCondition = "Post "+tempString[1]
-             }
-             else{
-             newCondition = condition
-             }
-             */
+    
             // newCondition = "All conditions"
             let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
             let parameters: Parameters = [
@@ -298,13 +288,11 @@ class ReportChartViewController: UIViewController, UIPickerViewDelegate, UIPicke
                         // print(JSON)
                         let mainArray: NSArray = NSMutableArray(array: JSON.object(forKey: "objectArray") as! NSArray)
                         let dateArray: NSArray = NSMutableArray(array: JSON.object(forKey: "dateArray") as! NSArray)
-                        //self.hba1cValue = JSON.object(forKey: "hba1cValue") as! CGFloat
-                        //self.hba1cDate = JSON.object(forKey: "hba1cCreated") as! String
-                        
-                         self.noHistoryAvailableLabel.isHidden = true
+                     
+                       
                         if mainArray.count > 0 {
                             for dict in mainArray {
-                                self.noHistoryAvailableLabel.isHidden = true
+                               // self.noHistoryAvailableLabel.isHidden = true
                                 let mainDict: NSDictionary = dict as! NSDictionary
                                 if (mainDict.allKeys.first != nil)  {
                                     let dateStr: String = String(describing: mainDict.allKeys.first!)
@@ -347,7 +335,12 @@ class ReportChartViewController: UIViewController, UIPickerViewDelegate, UIPicke
                     break
                 case .failure(let error):
                     //Google Analytic
-                    GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "getChartConditionCalling", action:"Fail - Web API Calling" , label:String(describing: error), value : self.formInterval.intervalAsSeconds())
+                    var strError = ""
+                    if(error.localizedDescription.length>0)
+                    {
+                        strError = error.localizedDescription
+                    }
+                    GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "getChartConditionCalling", action:"Fail - Web API Calling" , label:String(describing: strError), value : self.formInterval.intervalAsSeconds())
                     print("failure")
                     self.resetUI()
                     break
@@ -404,10 +397,10 @@ class ReportChartViewController: UIViewController, UIPickerViewDelegate, UIPicke
                        // self.hba1cValue = JSON.object(forKey: "hba1cValue") as! CGFloat
                         //self.hba1cDate = JSON.object(forKey: "hba1cCreated") as! String
                         
-                        self.noHistoryAvailableLabel.isHidden = false
+                      //  self.noHistoryAvailableLabel.isHidden = false
                         if mainArray.count > 0 {
                             for dict in mainArray {
-                                self.noHistoryAvailableLabel.isHidden = true
+                               // self.noHistoryAvailableLabel.isHidden = true
                                 let mainDict: NSDictionary = dict as! NSDictionary
                                 if (mainDict.allKeys.first != nil)  {
                                     let dateStr: String = String(describing: mainDict.allKeys.first!)
@@ -445,7 +438,12 @@ class ReportChartViewController: UIViewController, UIPickerViewDelegate, UIPicke
                     break
                 case .failure(let error):
                     //Google Analytic
-                    GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.getglucoseDaysConditionChart) Calling", action:"Fail - Web API Calling" , label:String(describing: error), value : self.formInterval.intervalAsSeconds())
+                    var strError = ""
+                    if(error.localizedDescription.length>0)
+                    {
+                        strError = error.localizedDescription
+                    }
+                    GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.getglucoseDaysConditionChart) Calling", action:"Fail - Web API Calling" , label:String(describing: strError), value : self.formInterval.intervalAsSeconds())
                     
                     print("failure")
                     self.resetUI()
@@ -500,10 +498,10 @@ class ReportChartViewController: UIViewController, UIPickerViewDelegate, UIPicke
                         // self.hba1cValue = JSON.object(forKey: "hba1cValue") as! CGFloat
                         //self.hba1cDate = JSON.object(forKey: "hba1cCreated") as! String
                         
-                         self.noHistoryAvailableLabel.isHidden = false
+                         //self.noHistoryAvailableLabel.isHidden = false
                         if mainArray.count > 0 {
                             for dict in mainArray {
-                                self.noHistoryAvailableLabel.isHidden = true
+                              //  self.noHistoryAvailableLabel.isHidden = true
                                 let mainDict: NSDictionary = dict as! NSDictionary
                                 if (mainDict.allKeys.first != nil)  {
                                     let dateStr: String = String(describing: mainDict.allKeys.first!)
@@ -541,7 +539,12 @@ class ReportChartViewController: UIViewController, UIPickerViewDelegate, UIPicke
                     break
                 case .failure(let error):
                     //Google Analytic
-                    GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.getglucoseDaysConditionChart) Calling", action:"Fail - Web API Calling" , label:String(describing: error), value : self.formInterval.intervalAsSeconds())
+                    var strError = ""
+                    if(error.localizedDescription.length>0)
+                    {
+                        strError = error.localizedDescription
+                    }
+                    GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.getglucoseDaysConditionChart) Calling", action:"Fail - Web API Calling" , label:String(describing: strError), value : self.formInterval.intervalAsSeconds())
                     
                     print("failure")
                     self.resetUI()
@@ -597,10 +600,10 @@ class ReportChartViewController: UIViewController, UIPickerViewDelegate, UIPicke
                         // self.hba1cValue = JSON.object(forKey: "hba1cValue") as! CGFloat
                         //self.hba1cDate = JSON.object(forKey: "hba1cCreated") as! String
                         
-                         self.noHistoryAvailableLabel.isHidden = false
+                       //  self.noHistoryAvailableLabel.isHidden = false
                         if mainArray.count > 0 {
                             for dict in mainArray {
-                                self.noHistoryAvailableLabel.isHidden = true
+                             //   self.noHistoryAvailableLabel.isHidden = true
                                 let mainDict: NSDictionary = dict as! NSDictionary
                                 if (mainDict.allKeys.first != nil)  {
                                     let dateStr: String = String(describing: mainDict.allKeys.first!)
@@ -638,7 +641,12 @@ class ReportChartViewController: UIViewController, UIPickerViewDelegate, UIPicke
                     break
                 case .failure(let error):
                     //Google Analytic
-                    GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.getglucoseDaysConditionChart) Calling", action:"Fail - Web API Calling" , label:String(describing: error), value : self.formInterval.intervalAsSeconds())
+                    var strError = ""
+                    if(error.localizedDescription.length>0)
+                    {
+                        strError = error.localizedDescription
+                    }
+                    GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.getglucoseDaysConditionChart) Calling", action:"Fail - Web API Calling" , label:String(describing: strError), value : self.formInterval.intervalAsSeconds())
                     
                     print("failure")
                     self.resetUI()
@@ -668,94 +676,68 @@ class ReportChartViewController: UIViewController, UIPickerViewDelegate, UIPicke
     //MARK: - Notifications Methods
     func chartViewNotification(notification: NSNotification) {
         
-        if(conditionTxtFld.text! != "All conditions")
+        let dict = notification.object as! NSDictionary
+        let receivedCondition = dict["current"]
+        //getReadingHistory(condition: receivedCondition! as! String)
+        let selectedConditionEng = receivedCondition as! String
+        UserDefaults.standard.setValue(selectedConditionEng, forKey: "currentHistoryCondition")
+        
+        selectedConditionIndex = conditionsArrayEng.index(of: receivedCondition!)
+        conditionTxtFld.text = conditionsArray[selectedConditionIndex] as! String
+        pickerView.selectRow(selectedConditionIndex, inComponent: 0, animated: true)
+
+        if(selectedConditionEng != "All conditions")
         {
-           // print("Condition text field")
-            
-            
-           // let tempString : [String] = conditionTxtFld.text!.components(separatedBy: " ")
-           // var newCondition : String = ""
-           // if tempString[0] == "Before"{
-                
-           //     newCondition = "Pre "+tempString[1]
-           // }
-           // else if tempString[0] == "After"{
-           //     newCondition = "Post "+tempString[1]
-           // }
-           // else{
-           //     newCondition = conditionTxtFld.text!
-           // }
-            getChartConditionData(condition: conditionTxtFld.text!)
+            //let selectedConditionEng = conditionsArrayEng[selectedConditionIndex] as? String
+            getChartConditionData(condition: selectedConditionEng)
         }
         else{
             print("All conditions")
             print(conditionTxtFld.text!)
-            getChartHistoryData(condition: conditionTxtFld.text!)
+            let selectedConditionEng = conditionsArrayEng[selectedConditionIndex] as? String
+            getChartHistoryData(condition: selectedConditionEng!)
             
         }
-
-      //  getChartHistoryData(condition: conditionsArray[0] as! String)
-        // self.drawChart()
     }
     
     func doctorchartViewNotification(notification: NSNotification) {
+        
+        let dict = notification.object as! NSDictionary
+        let receivedCondition = dict["current"]
+        //getReadingHistory(condition: receivedCondition! as! String)
+        let selectedConditionEng = receivedCondition as! String
+        UserDefaults.standard.setValue(selectedConditionEng, forKey: "currentHistoryCondition")
+        
+        selectedConditionIndex = conditionsArrayEng.index(of: receivedCondition!)
+        conditionTxtFld.text = conditionsArray[selectedConditionIndex] as! String
+        pickerView.selectRow(selectedConditionIndex, inComponent: 0, animated: true)
+        
         if UserDefaults.standard.bool(forKey: "groupChat") {
             
-            if(conditionTxtFld.text! != "All conditions")
+            if(conditionTxtFld.text! != "All conditions".localized)
             {
-               // print("Condition text field")
-                
-                
-                //let tempString : [String] = conditionTxtFld.text!.components(separatedBy: " ")
-                //var newCondition : String = ""
-               // if tempString[0] == "Before"{
-                    
-               //     newCondition = "Pre "+tempString[1]
-               // }
-               // else if tempString[0] == "After"{
-               //     newCondition = "Post "+tempString[1]
-               // }
-               // else{
-               //     newCondition = conditionTxtFld.text!
-               // }
-                getChartConditionData(condition: conditionTxtFld.text!)
+                //let selectedConditionEng = conditionsArrayEng[selectedConditionIndex] as? String
+                getChartConditionData(condition: selectedConditionEng)
             }
             else{
-                print("All conditions")
-                print(conditionTxtFld.text!)
-                //getChartHistoryData(condition: conditionTxtFld.text!)
-                
-            
-                getDoctorSingleChartHistoryData(condition: conditionTxtFld.text!)
+               // let selectedConditionEng = conditionsArrayEng[selectedConditionIndex] as? String
+                getDoctorSingleChartHistoryData(condition: selectedConditionEng)
             }
         }
         else {
-            if(conditionTxtFld.text! != "All conditions")
+            if(conditionTxtFld.text! != "All conditions".localized)
             {
                 print("Condition text field")
-                
-                
-               // let tempString : [String] = conditionTxtFld.text!.components(separatedBy: " ")
-                //var newCondition : String = ""
-                //if tempString[0] == "Before"{
-                    
-                //    newCondition = "Pre "+tempString[1]
-                //}
-                //else if tempString[0] == "After"{
-                //    newCondition = "Post "+tempString[1]
-                //}
-               // else{
-               //     newCondition = conditionTxtFld.text!
-               // }
-                getChartConditionData(condition: conditionTxtFld.text!)
+                //let selectedConditionEng = conditionsArrayEng[selectedConditionIndex] as? String
+                getChartConditionData(condition: selectedConditionEng)
             }
             else{
                 print("All conditions")
                 print(conditionTxtFld.text!)
                // getChartHistoryData(condition: conditionTxtFld.text!)
                 
-            
-            getDoctorChartHistoryData(condition: conditionTxtFld.text!)
+                //let selectedConditionEng = conditionsArrayEng[selectedConditionIndex] as? String
+                getDoctorChartHistoryData(condition: selectedConditionEng)
             }
         }
     }
@@ -770,88 +752,51 @@ class ReportChartViewController: UIViewController, UIPickerViewDelegate, UIPicke
         if selectedUserType == userType.doctor {
             if UserDefaults.standard.bool(forKey:"groupChat") {
                 
-                if(conditionTxtFld.text! != "All conditions")
+                if(conditionTxtFld.text! != "All conditions".localized)
                 {
-                   // print("Condition text field")
-                    
-                    
-                    //let tempString : [String] = conditionTxtFld.text!.components(separatedBy: " ")
-                   // var newCondition : String = ""
-                   // if tempString[0] == "Before"{
-                        
-                   //     newCondition = "Pre "+tempString[1]
-                   // }
-                   // else if tempString[0] == "After"{
-                   //     newCondition = "Post "+tempString[1]
-                   // }
-                   // else{
-                  //      newCondition = conditionTxtFld.text!
-                   // }
-                    getChartConditionData(condition: conditionTxtFld.text!)
+                    let selectedConditionEng = conditionsArrayEng[selectedConditionIndex] as? String
+                    UserDefaults.standard.setValue(selectedConditionEng, forKey: "currentHistoryCondition")
+                    getChartConditionData(condition: selectedConditionEng!)
                 }
                 else{
                     print("All conditions")
                     print(conditionTxtFld.text!)
-                    getDoctorSingleChartHistoryData(condition: conditionTxtFld.text!)
+                    let selectedConditionEng = conditionsArrayEng[selectedConditionIndex] as? String
+                    UserDefaults.standard.setValue(selectedConditionEng, forKey: "currentHistoryCondition")
+                    getDoctorSingleChartHistoryData(condition:selectedConditionEng!)
                     
                 }
                
             }else {
                 
-                if(conditionTxtFld.text! != "All conditions")
+                if(conditionTxtFld.text! != "All conditions".localized)
                 {
-                  //  print("Condition text field")
-                    
-                    
-                   // let tempString : [String] = conditionTxtFld.text!.components(separatedBy: " ")
-                   // var newCondition : String = ""
-                   // if tempString[0] == "Before"{
-                   //
-                     //   newCondition = "Pre "+tempString[1]
-                    //}
-                    //else if tempString[0] == "After"{
-                    //    newCondition = "Post "+tempString[1]
-                    //}
-                    //else{
-                      //  newCondition = conditionTxtFld.text!
-                    //}
-                    getChartConditionData(condition: conditionTxtFld.text!)
+                    let selectedConditionEng = conditionsArrayEng[selectedConditionIndex] as? String
+                    UserDefaults.standard.setValue(selectedConditionEng, forKey: "currentHistoryCondition")
+                    getChartConditionData(condition: selectedConditionEng!)
                 }
                 else{
                     print("All conditions")
                     print(conditionTxtFld.text!)
-                   // getChartHistoryData(condition: conditionTxtFld.text!)
-                    
-                
-
-                getDoctorChartHistoryData(condition: conditionTxtFld.text!)
+                    let selectedConditionEng = conditionsArrayEng[selectedConditionIndex] as? String
+                    UserDefaults.standard.setValue(selectedConditionEng, forKey: "currentHistoryCondition")
+                    getDoctorChartHistoryData(condition: selectedConditionEng!)
                 }
             }
         }else {
             
-            if(conditionTxtFld.text! != "All conditions")
+            if(conditionTxtFld.text! != "All conditions".localized)
             {
-                //print("Condition text field")
-                
-                
-                //let tempString : [String] = conditionTxtFld.text!.components(separatedBy: " ")
-                //var newCondition : String = ""
-                //if tempString[0] == "Before"{
-                    
-                //    newCondition = "Pre "+tempString[1]
-                //}
-                //else if tempString[0] == "After"{
-                //    newCondition = "Post "+tempString[1]
-                //}
-               // else{
-               //     newCondition = conditionTxtFld.text!
-               // }
-                getChartConditionData(condition: conditionTxtFld.text!)
+                let selectedConditionEng = conditionsArrayEng[selectedConditionIndex] as? String
+                UserDefaults.standard.setValue(selectedConditionEng, forKey: "currentHistoryCondition")
+                getChartConditionData(condition: selectedConditionEng!)
             }
             else{
                 print("All conditions")
                 print(conditionTxtFld.text!)
-                getChartHistoryData(condition: conditionTxtFld.text!)
+                let selectedConditionEng = conditionsArrayEng[selectedConditionIndex] as? String
+                UserDefaults.standard.setValue(selectedConditionEng, forKey: "currentHistoryCondition")
+                getChartHistoryData(condition: selectedConditionEng!)
                 
             }
 
@@ -869,58 +814,62 @@ class ReportChartViewController: UIViewController, UIPickerViewDelegate, UIPicke
         var numHypers = 0
         
         var dataSorted = dataArrayLabels.sorted()
-       
         
-        if(dataSorted.count >= 2)
+        if selectedConditionIndex > 0
         {
-           // var median : CGFloat = 0.0
-            let middle = dataSorted.count/2
-            var firstPrecentileArray : [CGFloat] = []
-            var thirdPrecentileArray : [CGFloat] = []
-            
-            if dataSorted.count % 2 == 0{
-                
-                for index in 0..<middle
-                {
-                    firstPrecentileArray.append(dataSorted[index])
-                }
-                for index in (middle)..<dataSorted.count
-                {
-                    thirdPrecentileArray.append(dataSorted[index])
-                }
-            }
-            else
+            if(dataSorted.count >= 2)
             {
-                for index in 0..<middle
-                {
-                    firstPrecentileArray.append(dataSorted[index])
+                var median : CGFloat = 0.0
+                let middle = dataSorted.count/2
+                var firstPrecentileArray : [CGFloat] = []
+                var thirdPrecentileArray : [CGFloat] = []
+                
+                if dataSorted.count % 2 == 0{
+                    for index in 0..<middle
+                    {
+                        firstPrecentileArray.append(dataSorted[index])
+                    }
+                    for index in (middle)..<dataSorted.count
+                    {
+                        thirdPrecentileArray.append(dataSorted[index])
+                    }
                 }
-                for index in (middle+1)..<dataSorted.count
+                else
                 {
-                    thirdPrecentileArray.append(dataSorted[index])
+                    for index in 0..<middle
+                    {
+                        firstPrecentileArray.append(dataSorted[index])
+                    }
+                    for index in (middle+1)..<dataSorted.count
+                    {
+                        thirdPrecentileArray.append(dataSorted[index])
+                    }
                 }
-            }
-            
-            let middleElementQ1 = firstPrecentileArray[firstPrecentileArray.count/2]
-            let middleElementQ3 = thirdPrecentileArray[thirdPrecentileArray.count/2]
-            
-            if middleElementQ3 == 0.0{
-                IQRLabel.text = "\(middleElementQ1)"
-            }
-            else if middleElementQ1 == 0.0{
-                IQRLabel.text = "\(middleElementQ3)"
+                
+                let middleElementQ1 = firstPrecentileArray[firstPrecentileArray.count/2]
+                let middleElementQ3 = thirdPrecentileArray[thirdPrecentileArray.count/2]
+                
+                if middleElementQ3 == 0.0{
+                    IQRLabel.text = "\(middleElementQ1)"
+                }
+                else if middleElementQ1 == 0.0{
+                    IQRLabel.text = "\(middleElementQ3)"
+                }
+                else{
+                    IQRLabel.text = "\(middleElementQ3 -  middleElementQ1)"
+                }
             }
             else{
-                IQRLabel.text = "\(middleElementQ3 -  middleElementQ1)"
+                if(dataSorted[0] != 0.0)
+                {
+                    IQRLabel.text = "\(dataSorted[0])"
+                }
             }
         }
         else{
-            if(dataSorted[0] != 0.0)
-            {
-                IQRLabel.text = "\(dataSorted[0])"
-            }
+            IQRLabel.text = "N/A"
         }
-        
+
         for i in 0..<dataArrayLabels.count{
             sum = sum + CGFloat(dataArrayLabels[i])
             
@@ -1003,8 +952,8 @@ class ReportChartViewController: UIViewController, UIPickerViewDelegate, UIPicke
     func addNotifications() {
         
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.chartViewNotification(notification:)), name: NSNotification.Name(rawValue: Notifications.chartHistoryView), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.doctorchartViewNotification(notification:)), name: NSNotification.Name(rawValue: Notifications.chartHistoryView), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.chartViewNotification(notification:)), name: NSNotification.Name(rawValue: Notifications.ReportChartHistoryView), object: nil)
+       // NotificationCenter.default.addObserver(self, selector: #selector(self.doctorchartViewNotification(notification:)), name: NSNotification.Name(rawValue: Notifications.chartHistoryView), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.noOfDaysNotification(notification:)), name: NSNotification.Name(rawValue: Notifications.noOfDays), object: nil)
     }
     
@@ -1155,7 +1104,7 @@ class ReportChartViewController: UIViewController, UIPickerViewDelegate, UIPicke
         let scatterLayers = self.toLayers(models, layerSpecifications: layerSpecifications, xAxis: xAxis, yAxis: yAxis, chartInnerFrame: innerFrame)
         
         //set guide lines
-        let guidelinesLayerSettings = ChartGuideLinesDottedLayerSettings(linesColor: UIColor.black, linesWidth: 1.5)
+        let guidelinesLayerSettings = ChartGuideLinesDottedLayerSettings(linesColor: UIColor.lightGray, linesWidth: 1.5)
         let guidelinesLayer = ChartGuideLinesDottedLayer(xAxis: xAxis, yAxis: yAxis, innerFrame: innerFrame, settings: guidelinesLayerSettings)
         
         print("Median Line Data")
@@ -1352,7 +1301,7 @@ class ReportChartViewController: UIViewController, UIPickerViewDelegate, UIPicke
         let scatterLayers = self.toLayers(models, layerSpecifications: layerSpecifications, xAxis: xAxis, yAxis: yAxis, chartInnerFrame: innerFrame)
         
         //set guide lines
-        let guidelinesLayerSettings = ChartGuideLinesDottedLayerSettings(linesColor: UIColor.darkGray, linesWidth: 1.5)
+        let guidelinesLayerSettings = ChartGuideLinesDottedLayerSettings(linesColor: UIColor.lightGray, linesWidth: 1.5)
         let guidelinesLayer = ChartGuideLinesDottedLayer(xAxis: xAxis, yAxis: yAxis, innerFrame: innerFrame, settings: guidelinesLayerSettings)
         
         //        print("Median Line Data")

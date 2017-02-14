@@ -23,6 +23,8 @@ class CarePlanReadingViewController: UIViewController, UITableViewDelegate, UITa
     var currentLocale : String = ""
     var formInterval: GTInterval!
     var isEdit: Bool = false
+    var editReadArray = NSMutableArray()
+    var tempReadArray = NSMutableArray()
     
     @IBOutlet weak var frequencyTblView: UITableView!
     @IBOutlet weak var noreadingsLabel: UILabel!
@@ -40,6 +42,10 @@ class CarePlanReadingViewController: UIViewController, UITableViewDelegate, UITa
     @IBOutlet weak var btnCancelFreqPicker: UIButton!
     @IBOutlet weak var btnOkFreqPicker: UIButton!
     
+    @IBOutlet weak var addReadingView: UIView!
+    
+    @IBOutlet weak var addNewReadingTitle: UILabel!
+    @IBOutlet weak var addNewReadingButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,12 +54,14 @@ class CarePlanReadingViewController: UIViewController, UITableViewDelegate, UITa
       //  goalHeaderLabel.text = "Goal".localized
         takereadingsLabel.text = "Take the following readings".localized
         
+        addReadingView.backgroundColor = UIColor.white
+        addNewReadingButton.backgroundColor = Colors.PrimaryColor
+
+        
         noreadingsLabel.isHidden = true
         tblView.backgroundColor = UIColor.clear
 
       //  frequencyTblView.backgroundColor = UIColor.clear
-
-
 
         // Do any additional setup after loading the view.
         
@@ -109,6 +117,14 @@ class CarePlanReadingViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     override func viewDidDisappear(_ animated: Bool) {
+        
+        //tempReadArray = NSMutableArray()
+        
+        //tblView.reloadData()
+        //print("Temp Read Array")
+        //print(self.tempReadArray)
+        //UserDefaults.standard.setValue(self.tempReadArray, forKey: "updateReadingCareArray")
+       // UserDefaults.standard.synchronize()
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: Notifications.readingView), object: nil)
     }
     
@@ -191,6 +207,21 @@ class CarePlanReadingViewController: UIViewController, UITableViewDelegate, UITa
     }
     
 
+   
+    @IBAction func AddReading_Click(_ sender: Any) {
+        
+        GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "Add Reading", action:"Add reading Clicked" , label:"Add care plan reading")
+      //  NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: Notifications.selectMedicationNotification), object: nil)
+        let viewController = self.storyboard!.instantiateViewController(withIdentifier: "addreading")
+       // let formSheetController = MZFormSheetPresentationViewController(contentViewController: viewController)
+        //formSheetController.presentationController?.contentViewSize = CGSize(width: self.view.bounds.width - 10, height: 210)
+        //formSheetController.presentationController?.shouldCenterVertically = true
+       // formSheetController.presentationController?.shouldDismissOnBackgroundViewTap = true
+        //self.present(formSheetController, animated: true, completion: nil)
+
+    }
+    
+    
     @IBAction func ToolBarButtons_Click(_ sender: Any) {
         
         self.view.endEditing(true)
@@ -229,7 +260,7 @@ class CarePlanReadingViewController: UIViewController, UITableViewDelegate, UITa
         else
         {
             
-            let inverseSet = NSCharacterSet(charactersIn:"0123456789-<").inverted
+            let inverseSet = NSCharacterSet(charactersIn:"0123456789-< ").inverted
             
             let components = self.objCarePlanFrequencyObj.goal.components(separatedBy: inverseSet)
             
@@ -252,20 +283,85 @@ class CarePlanReadingViewController: UIViewController, UITableViewDelegate, UITa
                 
             else
             {
-                self.updatecareplanData()
-                self.objCarePlanFrequencyObj.isEdit = false
-                cell.btnEdit.setImage(UIImage(named: "edit_icon"), for: .normal)
-                cell.btnEdit.setImage(UIImage(named: "edit_icon"), for: .highlighted)
-                self.tblView .reloadData()
+                if UserDefaults.standard.bool(forKey: "CurrentReadEditBool") {
+                    self.objCarePlanFrequencyObj.isEdit = false
+                    cell.btnEdit.setImage(UIImage(named: "edit_icon"), for: .normal)
+                    cell.btnEdit.setImage(UIImage(named: "edit_icon"), for: .highlighted)
+                    
+                    self.tblView.reloadData()
+                    
+                    self.tblView .layoutIfNeeded()
+                    let arr : NSArray = UserDefaults.standard.array(forKey: "currentEditReadingCareArray")! as [Any] as NSArray
+                    editReadArray = NSMutableArray(array: arr)
+                    let mainDict: NSMutableDictionary = NSMutableDictionary()
+                    mainDict.setValue(self.objCarePlanFrequencyObj.id, forKey: "id")
+                    mainDict.setValue(self.objCarePlanFrequencyObj.frequency, forKey: "frequency")
+                    mainDict.setValue(self.objCarePlanFrequencyObj.time, forKey: "time")
+                    mainDict.setValue(self.objCarePlanFrequencyObj.goal, forKey: "goal")
+                    if editReadArray.count > 0 {
+                        for i in 0..<self.editReadArray.count {
+                            let id: String = (editReadArray.object(at:i) as AnyObject).value(forKey: "id") as! String
+                            print(id)
+                            if id == self.objCarePlanFrequencyObj.id {
+                                editReadArray.replaceObject(at:i, with: mainDict)
+                                UserDefaults.standard.setValue(editReadArray, forKey: "currentEditReadingCareArray")
+                                UserDefaults.standard.synchronize()
+                                return
+                            }
+                        }
+                        editReadArray.add(mainDict)
+                    }
+                    else {
+                        editReadArray.add(mainDict)
+                    }
+                   
+                    
+                    if tempReadArray.count >= array.count{
+                        let first = tempReadArray.count - array.count
+                        var finalArray = NSMutableArray();
+                        //var index : Int = 0
+                        for i in first..<(first+array.count){
+                            finalArray.add(tempReadArray[i])
+                            //index = index + 1
+                        }
+                        print("Final array")
+                        print(finalArray)
+                        UserDefaults.standard.set(finalArray, forKey: "updateReadingCareArray")
+                        //print(UserDefaults.standard.array(forKey: "updateReadingCareArray"))
+                        UserDefaults.standard.synchronize()
+                        print("Stuff")
+                        print(UserDefaults.standard.array(forKey: "updateReadingCareArray"))
+                    }
+                    UserDefaults.standard.setValue(editReadArray, forKey: "currentEditReadingCareArray")
+                    UserDefaults.standard.synchronize()
+                    
+                }
+                else
+                {
+                    //if self.pickerTimingView.superview == nil && self.pickerFreqView.superview == nil
+                      //  {
+                            self.updatecareplanData()
+                            self.objCarePlanFrequencyObj.isEdit = false
+                            cell.btnEdit.setImage(UIImage(named: "edit_icon"), for: .normal)
+                            cell.btnEdit.setImage(UIImage(named: "edit_icon"), for: .highlighted)
+                            self.tblView .reloadData()
+                       // }
+                    //else{
+                     //   print("Please close picker view")
+                    //}
+                   
+                }
             }
             
             
         }
     }
     
+       
     @IBAction func cancelFreqBtn_Clicked(_ sender: Any) {
          hideOverlay(overlayView: pickerViewContainer)
     }
+    
     @IBAction func okFreqBtn_Clicked(_ sender: Any) {
         let btn = sender as! UIButton
         
@@ -324,7 +420,8 @@ class CarePlanReadingViewController: UIViewController, UITableViewDelegate, UITa
         self.btnOkFreqPicker.tag = btn.tag
         self.btnCancelFreqPicker.tag = btn.tag
         let carePlanFrequencyObj = (array[btn.tag] as? CarePlanFrequencyObj)!
-        let index = frequnecyArray.index(of: carePlanFrequencyObj.frequency)
+        
+        let index = frequnecyArray.index(of: carePlanFrequencyObj.frequency.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines))
         pickerFreqView.selectRow(index, inComponent: 0, animated: true)
         
         showOverlay(overlayView: pickerViewContainer)
@@ -344,7 +441,9 @@ class CarePlanReadingViewController: UIViewController, UITableViewDelegate, UITa
         self.btnCancelPicker.tag = btn.tag
 
         let carePlanFrequencyObj = (array[btn.tag] as? CarePlanFrequencyObj)!
-        let index = conditionsArrayEng.index(of: carePlanFrequencyObj.time)
+        
+        let index = conditionsArrayEng.index(of: carePlanFrequencyObj.time.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines))
+
         pickerTimingView.selectRow(index, inComponent: 0, animated: true)
         
         showOverlay(overlayView: pickerViewContainer)
@@ -374,6 +473,7 @@ class CarePlanReadingViewController: UIViewController, UITableViewDelegate, UITa
             return true
     }
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        //check this
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(GIntakeViewController.dismissKeyboard(_:))))
         textField.becomeFirstResponder()
     }
@@ -383,6 +483,7 @@ class CarePlanReadingViewController: UIViewController, UITableViewDelegate, UITa
         textField .resignFirstResponder()
         return true
     }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         let cell = self.parentCellFor(view: textField) as! CarePlanReadingTableViewCell
         
@@ -411,7 +512,7 @@ class CarePlanReadingViewController: UIViewController, UITableViewDelegate, UITa
             
         ]
         self.formInterval = GTInterval.intervalWithNowAsStartDate()
-        SVProgressHUD.show(withStatus: "SA_STR_LOADING".localized, maskType: SVProgressHUDMaskType.clear)
+        SVProgressHUD.show(withStatus: "Loading readings plan".localized, maskType: SVProgressHUDMaskType.clear)
         Alamofire.request("\(baseUrl)\(ApiMethods.updatecareplanReadings)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
             self.formInterval.end()
             
@@ -427,7 +528,12 @@ class CarePlanReadingViewController: UIViewController, UITableViewDelegate, UITa
                 break
             case .failure(let error):
                 print("failure")
-                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.updatecareplanReadings) Calling", action:"Fail - Web API Calling" , label:String(describing: error), value : self.formInterval.intervalAsSeconds())
+                var strError = ""
+                if(error.localizedDescription.length>0)
+                {
+                    strError = error.localizedDescription
+                }
+                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.updatecareplanReadings) Calling", action:"Fail - Web API Calling" , label:String(describing: strError), value : self.formInterval.intervalAsSeconds())
                 SVProgressHUD.dismiss()
                 break
                 
@@ -476,7 +582,12 @@ class CarePlanReadingViewController: UIViewController, UITableViewDelegate, UITa
                 case .failure(let error):
                     print("failure")
                     //Google Analytic
-                    GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.getcareplanReadings) Calling", action:"Fail - Web API Calling" , label:String(describing: error), value : self.formInterval.intervalAsSeconds())
+                    var strError = ""
+                    if(error.localizedDescription.length>0)
+                    {
+                        strError = error.localizedDescription
+                    }
+                    GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.getcareplanReadings) Calling", action:"Fail - Web API Calling" , label:String(describing: strError), value : self.formInterval.intervalAsSeconds())
                     self.tblView.reloadData()
                     // self.frequencyTblView.reloadData()
                     // self.resetUI()
@@ -489,82 +600,7 @@ class CarePlanReadingViewController: UIViewController, UITableViewDelegate, UITa
 }
 
     
-    func getReadingsDataConstant() {
-        if  UserDefaults.standard.string(forKey: userDefaults.selectedPatientID) != nil {
-            
-            
-            let patientsID: String! = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
-            //array = NSMutableArray()
-            let parameters: Parameters = [
-                "userid": patientsID
-            ]
-            self.formInterval = GTInterval.intervalWithNowAsStartDate()
-            Alamofire.request("\(baseUrl)\(ApiMethods.getcareplanConstantReadings)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
-                
-                print(response)
-                self.formInterval.end()
-                switch response.result {
-                case .success:
-                    print("Validation Successful")
-                    //Google Analytic
-                    GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.getcareplanReadings) Calling", action:"Success - Get care plan  Constant Readings Data" , label:"Get care plan Readings Data Listed Successfully", value : self.formInterval.intervalAsSeconds())
-                    
-                    if let JSON: NSArray = response.result.value as? NSArray {
-                        //                        print(JSON)
-                        self.arrayConstant.removeAllObjects()
-                        //  for time in frequencyArrayEng {
-                        let mainDict: NSMutableDictionary = NSMutableDictionary()
-                        // mainDict.setValue(String(describing: time), forKey: "frequency")
-                        let itemsArray: NSMutableArray = NSMutableArray()
-                        for data in JSON {
-                            let dict: NSDictionary = data as! NSDictionary
-                            let obj = CarePlanReadingObj()
-                            obj.id = dict.value(forKey: "_id") as! String
-                            // Between
-                            
-                            let goalStr: String = dict.value(forKey: "goal") as! String
-                            obj.goal = goalStr.replacingOccurrences(of: "Between ", with: "")
-                            //obj.goal = dict.value(forKey: "goal") as! String
-                            obj.time = dict.value(forKey: "time") as! String
-                           // obj.frequency = dict.value(forKey: "frequency") as! String
-                            // if String(describing: time) == obj.frequency {
-                            itemsArray.add(obj)
-                            // }
-                        }
-                        
-                        if itemsArray.count > 0{
-                            
-                            mainDict.setObject(itemsArray, forKey: "constant" as NSCopying)
-                            self.arrayConstant.add(mainDict)
-                            print(self.array.count)
-                        }
-                        
-                        //  }
-                        
-                        print(self.array)
-                    }
-                   // self.tblView.reloadData()
-                    self.getReadingsData()
-                    //self.frequencyTblView.reloadData()
-                    self.resetUI()
-                    
-                    break
-                    
-                case .failure(let error):
-                    print("failure")
-                    //Google Analytic
-                    GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.getcareplanReadings) Calling", action:"Fail - Web API Calling" , label:String(describing: error), value : self.formInterval.intervalAsSeconds())
-                    self.tblView.reloadData()
-                    //self.frequencyTblView.reloadData()
-                    self.resetUI()
-                    
-                    break
-                    
-                }
-            }
-        }
-    }
-
+   
     // MARK: - Get Subview and Superview
     func parentCellFor(view: UIView) -> UITableViewCell {
         if (view.superview == nil){
@@ -598,6 +634,8 @@ class CarePlanReadingViewController: UIViewController, UITableViewDelegate, UITa
         let selectedUserType: Int = Int(UserDefaults.standard.integer(forKey: userDefaults.loggedInUserType))
        
         
+       // tempReadArray.removeAll()
+        
         if let obj: CarePlanFrequencyObj = array[indexPath.row] as? CarePlanFrequencyObj {
             cell.goalLbl.text = obj.goal
             cell.txtGoal.text = obj.goal
@@ -620,6 +658,15 @@ class CarePlanReadingViewController: UIViewController, UITableViewDelegate, UITa
                 cell.frequencyLbl.text = "2/Daily"
             }
             
+            let mainDict: NSMutableDictionary = NSMutableDictionary()
+            mainDict.setValue(obj.id, forKey: "id")
+            mainDict.setValue(obj.frequency, forKey: "frequency")
+            mainDict.setValue(obj.time, forKey: "time")
+            mainDict.setValue(obj.goal, forKey: "goal")
+            
+            tempReadArray.add(mainDict)
+           
+
             cell.txtGoal.delegate = self
             cell.btnFreq.addTarget(self, action: #selector(btnFreq_Clicked(_:)), for: .touchUpInside)
             cell.btnTiming.addTarget(self, action: #selector(btnTiming_Clicked(_:)), for: .touchUpInside)
@@ -653,6 +700,12 @@ class CarePlanReadingViewController: UIViewController, UITableViewDelegate, UITa
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let cell : CarePlanReadingHeaderTableViewCell = tableView.dequeueReusableCell(withIdentifier: "headerCell")! as! CarePlanReadingHeaderTableViewCell
+        if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
+//            cell.frequencyLbl.textAlignment = .center
+           cell.timingHeaderLabel.textAlignment = .center
+//            cell.goalHeaderLabel.textAlignment = .left
+        }
+        
         return cell
         
     }

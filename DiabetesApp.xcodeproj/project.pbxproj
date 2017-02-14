@@ -76,7 +76,6 @@
 		8E458C8B1E0BD09400A4E136 /* UtilityClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E458C8A1E0BD09400A4E136 /* UtilityClass.swift */; };
 		8E458C8D1E0BD0AF00A4E136 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E458C8C1E0BD0AF00A4E136 /* ChatViewController.swift */; };
 		8E50156A1E1A5EDA0079CF16 /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5015691E1A5EDA0079CF16 /* LineChart.swift */; };
-		8E5015791E1A7EB40079CF16 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8FC5F6C81E0A89E10086326D /* Info.plist */; };
 		8E50158E1E1A899F0079CF16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E50158C1E1A899F0079CF16 /* Main.storyboard */; };
 		8E5015911E1A89E00079CF16 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8E5015931E1A89E00079CF16 /* Localizable.strings */; };
 		8E5015961E1A8A670079CF16 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8E5015981E1A8A670079CF16 /* Localizable.strings */; };
@@ -568,6 +567,14 @@
 				82E635461E37F1D300B71D16 /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
 			);
 			name = TPKeyboardExternal;
+			sourceTree = "<group>";
+		};
+		8B207C231E486E0400570EA2 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				8E458C821E0BD05C00A4E136 /* Extensions */,
+			);
+			name = "New Group";
 			sourceTree = "<group>";
 		};
 		8E13A8581E0BEA010069D0B7 /* VideoObjC */ = {
@@ -1116,7 +1123,7 @@
 				8E13A8581E0BEA010069D0B7 /* VideoObjC */,
 				8E458C891E0BD08C00A4E136 /* UtilityClass */,
 				8E458C881E0BD08100A4E136 /* Constants */,
-				8E458C821E0BD05C00A4E136 /* Extensions */,
+				8B207C231E486E0400570EA2 /* New Group */,
 				8E458C7D1E0BD03000A4E136 /* Views */,
 				8E458C7C1E0BD00200A4E136 /* ViewControllers */,
 				8FC5F7231E0AB6B60086326D /* Modal */,
@@ -1392,7 +1399,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = Visions;
 				TargetAttributes = {
 					8FC5F6B51E0A89E10086326D = {
@@ -1405,7 +1412,7 @@
 								enabled = 1;
 							};
 							com.apple.Push = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -1468,7 +1475,6 @@
 				8EFB38FE1E1E0AD300649F28 /* Gotham-XLight.ttf in Resources */,
 				8EFB39091E1E0AD300649F28 /* Gotham-MediumItalic.otf in Resources */,
 				8E658A851E128FE80007B0D7 /* user.png in Resources */,
-				8E5015791E1A7EB40079CF16 /* Info.plist in Resources */,
 				8EFB38F31E1E0AD300649F28 /* Gotham-BoldItalic.ttf in Resources */,
 				8EFB39071E1E0AD300649F28 /* Gotham-LightItalic.otf in Resources */,
 				8EFB391D1E1E0AD300649F28 /* SF-UI-Text-HeavyItalic.otf in Resources */,
@@ -1881,6 +1887,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1932,6 +1939,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1961,9 +1969,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C560AD7C0A8289E6573799A3 /* Pods-DiabetesApp.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = DiabetesApp/DiabetesApp.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: David Levy (NY3HZJ9U86)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = E2K34DPS6D;
 				ENABLE_BITCODE = NO;
@@ -1975,7 +1985,7 @@
 				INFOPLIST_FILE = DiabetesApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.visions.diabetesApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vision.navigatio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1989,9 +1999,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C18890C246A66537DB0E341B /* Pods-DiabetesApp.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = DiabetesApp/DiabetesApp.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: David Levy (NY3HZJ9U86)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = E2K34DPS6D;
 				ENABLE_BITCODE = NO;
@@ -2003,7 +2015,7 @@
 				INFOPLIST_FILE = DiabetesApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.visions.diabetesApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vision.navigatio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

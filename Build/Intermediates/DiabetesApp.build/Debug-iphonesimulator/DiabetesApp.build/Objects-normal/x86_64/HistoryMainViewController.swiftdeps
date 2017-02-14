@@ -6,80 +6,81 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp25HistoryMainViewController", ""]
 provides-dynamic-lookup:
-- "chartViewContainer"
 - "recipientIDs"
-- "chartBtn"
-- "getImage"
-- "listViewContainer"
-- "createCustomTopView"
-- "readingTypeSegmentControls"
-- "getSelectedNoOfDays"
-- "topBackView"
 - "viewWillDisappear"
-- "awakeFromNib"
-- "listBtn"
-- "viewWillAppear"
-- "viewDidLoad"
 - "didReceiveMemoryWarning"
-- "setNavBarUI"
-- "segmentControl"
-- "SegmentControl_ValueChange"
+- "createCustomTopView"
 - "recipientTypes"
+- "resetSegment"
+- "listBtn"
+- "chartViewContainer"
+- "viewWillAppear"
+- "chartBtn"
+- "setNavBarUI"
+- "SegmentControl_ValueChange"
+- "listViewContainer"
+- "getImage"
+- "readingTypeSegmentControls"
+- "segmentControl"
+- "awakeFromNib"
+- "viewDidLoad"
+- "topBackView"
 - "BackBtn_Click"
+- "getSelectedNoOfDays"
 - "ViewModeButtons_Click"
 depends-top-level:
-- !private "GoogleAnalyticManagerApi"
-- "UISegmentedControl"
-- "Array"
-- !private "-"
-- !private "kButtonRadius"
-- !private "/"
-- !private "UIImage"
-- !private "NSForegroundColorAttributeName"
-- !private "UnicodeScalarType"
-- "HistoryMainViewController"
-- "UIViewController"
-- !private "UIImageView"
-- !private "Int"
-- !private "JSONEncoding"
-- !private "SDWebImageOptions"
-- !private "Colors"
-- "Void"
+- !private "HistoryDays"
+- !private "userType"
 - "UIView"
+- !private "UITapGestureRecognizer"
+- !private "!="
+- !private "print"
+- !private "NSForegroundColorAttributeName"
+- !private "CastingPrecedence"
+- !private "~="
+- "AssignmentPrecedence"
+- !private "Int"
+- !private "=="
+- !private "URL"
+- !private "GoogleAnalyticManagerApi"
+- "HistoryMainViewController"
+- "UIButton"
+- !private "Colors"
+- !private "NSURL"
+- "UISegmentedControl"
+- !private "&&"
 - "UserDefaults"
+- !private "Fonts"
+- !private "UIImage"
+- !private "NSDictionary"
+- !private "SDWebImageOptions"
+- !private "/"
+- "userDefaults"
+- !private "NSFontAttributeName"
+- "BooleanLiteralType"
+- !private "Dictionary"
+- "String"
+- !private "+"
+- "Bool"
+- "UIViewController"
+- !private "Notifications"
+- !private "JSONEncoding"
+- !private "UIColor"
+- "NSString"
+- !private "UIUserInterfaceLayoutDirection"
+- !private "kButtonRadius"
+- !private "UnicodeScalarType"
+- !private "CGRect"
+- !private "-"
+- !private "NotificationCenter"
 - !private "NSNotification"
 - !private "UIApplication"
-- !private "BooleanLiteralType"
-- !private "NSURL"
-- !private "URL"
-- "Bool"
-- "UIButton"
-- "AssignmentPrecedence"
-- !private "=="
-- !private "Fonts"
-- !private "&&"
-- !private "Alamofire"
-- !private "~="
-- !private "CastingPrecedence"
-- !private "AlertView"
-- "String"
-- "NSString"
-- !private "!="
-- !private "CGRect"
-- !private "userType"
-- !private "NotificationCenter"
-- "userDefaults"
-- !private "print"
 - !private "SDWebImageManager"
-- !private "Dictionary"
-- !private "UITapGestureRecognizer"
-- !private "Notifications"
-- !private "+"
-- !private "NSFontAttributeName"
-- !private "NSDictionary"
-- !private "HistoryDays"
-- !private "UIColor"
-- !private "UIUserInterfaceLayoutDirection"
+- !private "AlertView"
+- !private "Alamofire"
+- "Void"
+- "Array"
+- !private "UIImageView"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "Stride"]
 - !private ["C11DiabetesApp9AlertView", "deinit"]
@@ -105,6 +106,7 @@ depends-member:
 - !private ["Ps9AnyObject", "SDWebImageManager"]
 - !private ["Ps9AnyObject", "SDWebImageOptions"]
 - ["Ps9AnyObject", "SegmentControl_ValueChange"]
+- !private ["Ps9AnyObject", "String"]
 - !private ["Ps9AnyObject", "UIApplication"]
 - !private ["Ps9AnyObject", "UIColor"]
 - !private ["Ps9AnyObject", "UIImage"]
@@ -155,6 +157,7 @@ depends-member:
 - ["Ps9AnyObject", "recipientIDs"]
 - ["Ps9AnyObject", "recipientTypes"]
 - !private ["Ps9AnyObject", "removeFromSuperview"]
+- ["Ps9AnyObject", "resetSegment"]
 - !private ["Ps9AnyObject", "responseJSON"]
 - !private ["Ps9AnyObject", "rightBarButtonItem"]
 - !private ["Ps9AnyObject", "rightBarButtonItems"]
@@ -164,11 +167,13 @@ depends-member:
 - ["Ps9AnyObject", "setNavBarUI"]
 - !private ["Ps9AnyObject", "setTitle"]
 - !private ["Ps9AnyObject", "setTitleTextAttributes"]
+- !private ["Ps9AnyObject", "setValue"]
 - !private ["Ps9AnyObject", "shared"]
 - !private ["Ps9AnyObject", "sharedInstance"]
 - ["Ps9AnyObject", "standard"]
 - !private ["Ps9AnyObject", "string"]
 - ["Ps9AnyObject", "stringArray"]
+- !private ["Ps9AnyObject", "synchronize"]
 - !private ["Ps9AnyObject", "tabBarController"]
 - !private ["Ps9AnyObject", "title"]
 - ["Ps9AnyObject", "topBackView"]
@@ -283,6 +288,7 @@ depends-member:
 - !private ["Ps7CVarArg", "SDWebImageOptions"]
 - ["Ps7CVarArg", "SegmentControl_ValueChange"]
 - !private ["Ps7CVarArg", "Stride"]
+- !private ["Ps7CVarArg", "String"]
 - !private ["Ps7CVarArg", "SubSequence"]
 - !private ["Ps7CVarArg", "UIApplication"]
 - !private ["Ps7CVarArg", "UIColor"]
@@ -339,6 +345,7 @@ depends-member:
 - ["Ps7CVarArg", "recipientIDs"]
 - ["Ps7CVarArg", "recipientTypes"]
 - !private ["Ps7CVarArg", "removeFromSuperview"]
+- ["Ps7CVarArg", "resetSegment"]
 - !private ["Ps7CVarArg", "rightBarButtonItem"]
 - !private ["Ps7CVarArg", "rightBarButtonItems"]
 - ["Ps7CVarArg", "segmentControl"]
@@ -347,12 +354,14 @@ depends-member:
 - ["Ps7CVarArg", "setNavBarUI"]
 - !private ["Ps7CVarArg", "setTitle"]
 - !private ["Ps7CVarArg", "setTitleTextAttributes"]
+- !private ["Ps7CVarArg", "setValue"]
 - !private ["Ps7CVarArg", "shared"]
 - !private ["Ps7CVarArg", "sharedInstance"]
 - ["Ps7CVarArg", "standard"]
 - !private ["Ps7CVarArg", "string"]
 - ["Ps7CVarArg", "stringArray"]
 - !private ["Ps7CVarArg", "subscript"]
+- !private ["Ps7CVarArg", "synchronize"]
 - !private ["Ps7CVarArg", "tabBarController"]
 - !private ["Ps7CVarArg", "title"]
 - ["Ps7CVarArg", "topBackView"]
@@ -367,6 +376,7 @@ depends-member:
 - !private ["Ps7CVarArg", "white"]
 - ["Ps7CVarArg", ""]
 - !private ["Vs9Character", "deinit"]
+- !private ["VSS13CharacterView", "deinit"]
 - !private ["Ps10Collection", "Element"]
 - !private ["Ps10Collection", "Index"]
 - !private ["Ps10Collection", "IndexDistance"]
@@ -413,6 +423,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "SDWebImageOptions"]
 - ["Ps28CustomDebugStringConvertible", "SegmentControl_ValueChange"]
 - !private ["Ps28CustomDebugStringConvertible", "Stride"]
+- !private ["Ps28CustomDebugStringConvertible", "String"]
 - !private ["Ps28CustomDebugStringConvertible", "SubSequence"]
 - !private ["Ps28CustomDebugStringConvertible", "UIApplication"]
 - !private ["Ps28CustomDebugStringConvertible", "UIColor"]
@@ -469,6 +480,7 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "recipientIDs"]
 - ["Ps28CustomDebugStringConvertible", "recipientTypes"]
 - !private ["Ps28CustomDebugStringConvertible", "removeFromSuperview"]
+- ["Ps28CustomDebugStringConvertible", "resetSegment"]
 - !private ["Ps28CustomDebugStringConvertible", "responseJSON"]
 - !private ["Ps28CustomDebugStringConvertible", "result"]
 - !private ["Ps28CustomDebugStringConvertible", "rightBarButtonItem"]
@@ -479,6 +491,7 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "setNavBarUI"]
 - !private ["Ps28CustomDebugStringConvertible", "setTitle"]
 - !private ["Ps28CustomDebugStringConvertible", "setTitleTextAttributes"]
+- !private ["Ps28CustomDebugStringConvertible", "setValue"]
 - !private ["Ps28CustomDebugStringConvertible", "shared"]
 - !private ["Ps28CustomDebugStringConvertible", "sharedInstance"]
 - !private ["Ps28CustomDebugStringConvertible", "size"]
@@ -487,6 +500,7 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "stringArray"]
 - !private ["Ps28CustomDebugStringConvertible", "subscript"]
 - !private ["Ps28CustomDebugStringConvertible", "success"]
+- !private ["Ps28CustomDebugStringConvertible", "synchronize"]
 - !private ["Ps28CustomDebugStringConvertible", "tabBarController"]
 - !private ["Ps28CustomDebugStringConvertible", "title"]
 - ["Ps28CustomDebugStringConvertible", "topBackView"]
@@ -557,6 +571,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "SDWebImageOptions"]
 - ["Ps23CustomStringConvertible", "SegmentControl_ValueChange"]
 - !private ["Ps23CustomStringConvertible", "Stride"]
+- !private ["Ps23CustomStringConvertible", "String"]
 - !private ["Ps23CustomStringConvertible", "SubSequence"]
 - !private ["Ps23CustomStringConvertible", "UIApplication"]
 - !private ["Ps23CustomStringConvertible", "UIColor"]
@@ -615,6 +630,7 @@ depends-member:
 - ["Ps23CustomStringConvertible", "recipientIDs"]
 - ["Ps23CustomStringConvertible", "recipientTypes"]
 - !private ["Ps23CustomStringConvertible", "removeFromSuperview"]
+- ["Ps23CustomStringConvertible", "resetSegment"]
 - !private ["Ps23CustomStringConvertible", "responseJSON"]
 - !private ["Ps23CustomStringConvertible", "result"]
 - !private ["Ps23CustomStringConvertible", "rightBarButtonItem"]
@@ -625,6 +641,7 @@ depends-member:
 - ["Ps23CustomStringConvertible", "setNavBarUI"]
 - !private ["Ps23CustomStringConvertible", "setTitle"]
 - !private ["Ps23CustomStringConvertible", "setTitleTextAttributes"]
+- !private ["Ps23CustomStringConvertible", "setValue"]
 - !private ["Ps23CustomStringConvertible", "shared"]
 - !private ["Ps23CustomStringConvertible", "sharedInstance"]
 - ["Ps23CustomStringConvertible", "standard"]
@@ -632,6 +649,7 @@ depends-member:
 - ["Ps23CustomStringConvertible", "stringArray"]
 - !private ["Ps23CustomStringConvertible", "subscript"]
 - !private ["Ps23CustomStringConvertible", "success"]
+- !private ["Ps23CustomStringConvertible", "synchronize"]
 - !private ["Ps23CustomStringConvertible", "tabBarController"]
 - !private ["Ps23CustomStringConvertible", "title"]
 - ["Ps23CustomStringConvertible", "topBackView"]
@@ -687,6 +705,7 @@ depends-member:
 - !private ["Ps9Equatable", "SDWebImageOptions"]
 - ["Ps9Equatable", "SegmentControl_ValueChange"]
 - !private ["Ps9Equatable", "Stride"]
+- !private ["Ps9Equatable", "String"]
 - !private ["Ps9Equatable", "UIApplication"]
 - !private ["Ps9Equatable", "UIColor"]
 - !private ["Ps9Equatable", "UIImage"]
@@ -742,6 +761,7 @@ depends-member:
 - ["Ps9Equatable", "recipientIDs"]
 - ["Ps9Equatable", "recipientTypes"]
 - !private ["Ps9Equatable", "removeFromSuperview"]
+- ["Ps9Equatable", "resetSegment"]
 - !private ["Ps9Equatable", "rightBarButtonItem"]
 - !private ["Ps9Equatable", "rightBarButtonItems"]
 - !private ["Ps9Equatable", "rightToLeft"]
@@ -752,12 +772,14 @@ depends-member:
 - ["Ps9Equatable", "setNavBarUI"]
 - !private ["Ps9Equatable", "setTitle"]
 - !private ["Ps9Equatable", "setTitleTextAttributes"]
+- !private ["Ps9Equatable", "setValue"]
 - !private ["Ps9Equatable", "shared"]
 - !private ["Ps9Equatable", "sharedInstance"]
 - !private ["Ps9Equatable", "size"]
 - ["Ps9Equatable", "standard"]
 - !private ["Ps9Equatable", "string"]
 - ["Ps9Equatable", "stringArray"]
+- !private ["Ps9Equatable", "synchronize"]
 - !private ["Ps9Equatable", "tabBarController"]
 - !private ["Ps9Equatable", "title"]
 - ["Ps9Equatable", "topBackView"]
@@ -834,6 +856,7 @@ depends-member:
 - !private ["Ps8Hashable", "SDWebImageOptions"]
 - ["Ps8Hashable", "SegmentControl_ValueChange"]
 - !private ["Ps8Hashable", "Stride"]
+- !private ["Ps8Hashable", "String"]
 - !private ["Ps8Hashable", "UIApplication"]
 - !private ["Ps8Hashable", "UIColor"]
 - !private ["Ps8Hashable", "UIImage"]
@@ -887,6 +910,7 @@ depends-member:
 - ["Ps8Hashable", "recipientIDs"]
 - ["Ps8Hashable", "recipientTypes"]
 - !private ["Ps8Hashable", "removeFromSuperview"]
+- ["Ps8Hashable", "resetSegment"]
 - !private ["Ps8Hashable", "rightBarButtonItem"]
 - !private ["Ps8Hashable", "rightBarButtonItems"]
 - !private ["Ps8Hashable", "rightToLeft"]
@@ -896,11 +920,13 @@ depends-member:
 - ["Ps8Hashable", "setNavBarUI"]
 - !private ["Ps8Hashable", "setTitle"]
 - !private ["Ps8Hashable", "setTitleTextAttributes"]
+- !private ["Ps8Hashable", "setValue"]
 - !private ["Ps8Hashable", "shared"]
 - !private ["Ps8Hashable", "sharedInstance"]
 - ["Ps8Hashable", "standard"]
 - !private ["Ps8Hashable", "string"]
 - ["Ps8Hashable", "stringArray"]
+- !private ["Ps8Hashable", "synchronize"]
 - !private ["Ps8Hashable", "tabBarController"]
 - !private ["Ps8Hashable", "title"]
 - ["Ps8Hashable", "topBackView"]
@@ -972,6 +998,7 @@ depends-member:
 - ["C11DiabetesApp25HistoryMainViewController", "readingTypeSegmentControls"]
 - ["C11DiabetesApp25HistoryMainViewController", "recipientIDs"]
 - ["C11DiabetesApp25HistoryMainViewController", "recipientTypes"]
+- ["C11DiabetesApp25HistoryMainViewController", "resetSegment"]
 - ["C11DiabetesApp25HistoryMainViewController", "segmentControl"]
 - ["C11DiabetesApp25HistoryMainViewController", "setNavBarUI"]
 - !private ["C11DiabetesApp25HistoryMainViewController", "tabBarController"]
@@ -1078,6 +1105,7 @@ depends-member:
 - !private ["PSo8NSCoding", "SDWebImageManager"]
 - !private ["PSo8NSCoding", "SDWebImageOptions"]
 - ["PSo8NSCoding", "SegmentControl_ValueChange"]
+- !private ["PSo8NSCoding", "String"]
 - !private ["PSo8NSCoding", "UIApplication"]
 - !private ["PSo8NSCoding", "UIColor"]
 - !private ["PSo8NSCoding", "UIImage"]
@@ -1124,6 +1152,7 @@ depends-member:
 - ["PSo8NSCoding", "recipientIDs"]
 - ["PSo8NSCoding", "recipientTypes"]
 - !private ["PSo8NSCoding", "removeFromSuperview"]
+- ["PSo8NSCoding", "resetSegment"]
 - !private ["PSo8NSCoding", "rightBarButtonItem"]
 - !private ["PSo8NSCoding", "rightBarButtonItems"]
 - ["PSo8NSCoding", "segmentControl"]
@@ -1171,6 +1200,7 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "SDWebImageManager"]
 - !private ["PSo26NSExtensionRequestHandling", "SDWebImageOptions"]
 - ["PSo26NSExtensionRequestHandling", "SegmentControl_ValueChange"]
+- !private ["PSo26NSExtensionRequestHandling", "String"]
 - !private ["PSo26NSExtensionRequestHandling", "UIApplication"]
 - !private ["PSo26NSExtensionRequestHandling", "UIColor"]
 - !private ["PSo26NSExtensionRequestHandling", "UIImage"]
@@ -1199,6 +1229,7 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "readingTypeSegmentControls"]
 - ["PSo26NSExtensionRequestHandling", "recipientIDs"]
 - ["PSo26NSExtensionRequestHandling", "recipientTypes"]
+- ["PSo26NSExtensionRequestHandling", "resetSegment"]
 - ["PSo26NSExtensionRequestHandling", "segmentControl"]
 - ["PSo26NSExtensionRequestHandling", "setNavBarUI"]
 - !private ["PSo26NSExtensionRequestHandling", "tabBarController"]
@@ -1297,6 +1328,7 @@ depends-member:
 - ["CSo8NSObject", "recipientIDs"]
 - ["CSo8NSObject", "recipientTypes"]
 - !private ["CSo8NSObject", "removeFromSuperview"]
+- ["CSo8NSObject", "resetSegment"]
 - !private ["CSo8NSObject", "rightBarButtonItem"]
 - !private ["CSo8NSObject", "rightBarButtonItems"]
 - ["CSo8NSObject", "segmentControl"]
@@ -1305,11 +1337,13 @@ depends-member:
 - ["CSo8NSObject", "setNavBarUI"]
 - !private ["CSo8NSObject", "setTitle"]
 - !private ["CSo8NSObject", "setTitleTextAttributes"]
+- !private ["CSo8NSObject", "setValue"]
 - !private ["CSo8NSObject", "shared"]
 - !private ["CSo8NSObject", "sharedInstance"]
 - ["CSo8NSObject", "standard"]
 - !private ["CSo8NSObject", "string"]
 - ["CSo8NSObject", "stringArray"]
+- !private ["CSo8NSObject", "synchronize"]
 - !private ["CSo8NSObject", "tabBarController"]
 - !private ["CSo8NSObject", "title"]
 - ["CSo8NSObject", "topBackView"]
@@ -1343,6 +1377,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "SDWebImageManager"]
 - !private ["PSo16NSObjectProtocol", "SDWebImageOptions"]
 - ["PSo16NSObjectProtocol", "SegmentControl_ValueChange"]
+- !private ["PSo16NSObjectProtocol", "String"]
 - !private ["PSo16NSObjectProtocol", "UIApplication"]
 - !private ["PSo16NSObjectProtocol", "UIColor"]
 - !private ["PSo16NSObjectProtocol", "UIImage"]
@@ -1393,6 +1428,7 @@ depends-member:
 - ["PSo16NSObjectProtocol", "recipientIDs"]
 - ["PSo16NSObjectProtocol", "recipientTypes"]
 - !private ["PSo16NSObjectProtocol", "removeFromSuperview"]
+- ["PSo16NSObjectProtocol", "resetSegment"]
 - !private ["PSo16NSObjectProtocol", "rightBarButtonItem"]
 - !private ["PSo16NSObjectProtocol", "rightBarButtonItems"]
 - ["PSo16NSObjectProtocol", "segmentControl"]
@@ -1401,11 +1437,13 @@ depends-member:
 - ["PSo16NSObjectProtocol", "setNavBarUI"]
 - !private ["PSo16NSObjectProtocol", "setTitle"]
 - !private ["PSo16NSObjectProtocol", "setTitleTextAttributes"]
+- !private ["PSo16NSObjectProtocol", "setValue"]
 - !private ["PSo16NSObjectProtocol", "shared"]
 - !private ["PSo16NSObjectProtocol", "sharedInstance"]
 - ["PSo16NSObjectProtocol", "standard"]
 - !private ["PSo16NSObjectProtocol", "string"]
 - ["PSo16NSObjectProtocol", "stringArray"]
+- !private ["PSo16NSObjectProtocol", "synchronize"]
 - !private ["PSo16NSObjectProtocol", "tabBarController"]
 - !private ["PSo16NSObjectProtocol", "title"]
 - ["PSo16NSObjectProtocol", "topBackView"]
@@ -1593,6 +1631,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "SDWebImageManager"]
 - !private ["PSo21UIAppearanceContainer", "SDWebImageOptions"]
 - ["PSo21UIAppearanceContainer", "SegmentControl_ValueChange"]
+- !private ["PSo21UIAppearanceContainer", "String"]
 - !private ["PSo21UIAppearanceContainer", "UIApplication"]
 - !private ["PSo21UIAppearanceContainer", "UIColor"]
 - !private ["PSo21UIAppearanceContainer", "UIImage"]
@@ -1631,6 +1670,7 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "recipientIDs"]
 - ["PSo21UIAppearanceContainer", "recipientTypes"]
 - !private ["PSo21UIAppearanceContainer", "removeFromSuperview"]
+- ["PSo21UIAppearanceContainer", "resetSegment"]
 - ["PSo21UIAppearanceContainer", "segmentControl"]
 - !private ["PSo21UIAppearanceContainer", "selectedSegmentIndex"]
 - ["PSo21UIAppearanceContainer", "setNavBarUI"]
@@ -1674,6 +1714,7 @@ depends-member:
 - !private ["PSo18UIContentContainer", "SDWebImageManager"]
 - !private ["PSo18UIContentContainer", "SDWebImageOptions"]
 - ["PSo18UIContentContainer", "SegmentControl_ValueChange"]
+- !private ["PSo18UIContentContainer", "String"]
 - !private ["PSo18UIContentContainer", "UIApplication"]
 - !private ["PSo18UIContentContainer", "UIColor"]
 - !private ["PSo18UIContentContainer", "UIImage"]
@@ -1702,6 +1743,7 @@ depends-member:
 - ["PSo18UIContentContainer", "readingTypeSegmentControls"]
 - ["PSo18UIContentContainer", "recipientIDs"]
 - ["PSo18UIContentContainer", "recipientTypes"]
+- ["PSo18UIContentContainer", "resetSegment"]
 - ["PSo18UIContentContainer", "segmentControl"]
 - ["PSo18UIContentContainer", "setNavBarUI"]
 - !private ["PSo18UIContentContainer", "tabBarController"]
@@ -1769,6 +1811,7 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "SDWebImageManager"]
 - !private ["PSo18UIFocusEnvironment", "SDWebImageOptions"]
 - ["PSo18UIFocusEnvironment", "SegmentControl_ValueChange"]
+- !private ["PSo18UIFocusEnvironment", "String"]
 - !private ["PSo18UIFocusEnvironment", "UIApplication"]
 - !private ["PSo18UIFocusEnvironment", "UIColor"]
 - !private ["PSo18UIFocusEnvironment", "UIImage"]
@@ -1807,6 +1850,7 @@ depends-member:
 - ["PSo18UIFocusEnvironment", "recipientIDs"]
 - ["PSo18UIFocusEnvironment", "recipientTypes"]
 - !private ["PSo18UIFocusEnvironment", "removeFromSuperview"]
+- ["PSo18UIFocusEnvironment", "resetSegment"]
 - ["PSo18UIFocusEnvironment", "segmentControl"]
 - !private ["PSo18UIFocusEnvironment", "selectedSegmentIndex"]
 - ["PSo18UIFocusEnvironment", "setNavBarUI"]
@@ -1922,6 +1966,7 @@ depends-member:
 - ["CSo11UIResponder", "recipientIDs"]
 - ["CSo11UIResponder", "recipientTypes"]
 - !private ["CSo11UIResponder", "removeFromSuperview"]
+- ["CSo11UIResponder", "resetSegment"]
 - ["CSo11UIResponder", "segmentControl"]
 - !private ["CSo11UIResponder", "selectedSegmentIndex"]
 - ["CSo11UIResponder", "setNavBarUI"]
@@ -1957,6 +2002,7 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "SDWebImageManager"]
 - !private ["PSo30UIResponderStandardEditActions", "SDWebImageOptions"]
 - ["PSo30UIResponderStandardEditActions", "SegmentControl_ValueChange"]
+- !private ["PSo30UIResponderStandardEditActions", "String"]
 - !private ["PSo30UIResponderStandardEditActions", "UIApplication"]
 - !private ["PSo30UIResponderStandardEditActions", "UIColor"]
 - !private ["PSo30UIResponderStandardEditActions", "UIImage"]
@@ -1995,6 +2041,7 @@ depends-member:
 - ["PSo30UIResponderStandardEditActions", "recipientIDs"]
 - ["PSo30UIResponderStandardEditActions", "recipientTypes"]
 - !private ["PSo30UIResponderStandardEditActions", "removeFromSuperview"]
+- ["PSo30UIResponderStandardEditActions", "resetSegment"]
 - ["PSo30UIResponderStandardEditActions", "segmentControl"]
 - !private ["PSo30UIResponderStandardEditActions", "selectedSegmentIndex"]
 - ["PSo30UIResponderStandardEditActions", "setNavBarUI"]
@@ -2037,6 +2084,7 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "SDWebImageManager"]
 - !private ["PSo16UIStateRestoring", "SDWebImageOptions"]
 - ["PSo16UIStateRestoring", "SegmentControl_ValueChange"]
+- !private ["PSo16UIStateRestoring", "String"]
 - !private ["PSo16UIStateRestoring", "UIApplication"]
 - !private ["PSo16UIStateRestoring", "UIColor"]
 - !private ["PSo16UIStateRestoring", "UIImage"]
@@ -2065,6 +2113,7 @@ depends-member:
 - ["PSo16UIStateRestoring", "readingTypeSegmentControls"]
 - ["PSo16UIStateRestoring", "recipientIDs"]
 - ["PSo16UIStateRestoring", "recipientTypes"]
+- ["PSo16UIStateRestoring", "resetSegment"]
 - ["PSo16UIStateRestoring", "segmentControl"]
 - ["PSo16UIStateRestoring", "setNavBarUI"]
 - !private ["PSo16UIStateRestoring", "tabBarController"]
@@ -2105,6 +2154,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "SDWebImageManager"]
 - !private ["PSo18UITraitEnvironment", "SDWebImageOptions"]
 - ["PSo18UITraitEnvironment", "SegmentControl_ValueChange"]
+- !private ["PSo18UITraitEnvironment", "String"]
 - !private ["PSo18UITraitEnvironment", "UIApplication"]
 - !private ["PSo18UITraitEnvironment", "UIColor"]
 - !private ["PSo18UITraitEnvironment", "UIImage"]
@@ -2143,6 +2193,7 @@ depends-member:
 - ["PSo18UITraitEnvironment", "recipientIDs"]
 - ["PSo18UITraitEnvironment", "recipientTypes"]
 - !private ["PSo18UITraitEnvironment", "removeFromSuperview"]
+- ["PSo18UITraitEnvironment", "resetSegment"]
 - ["PSo18UITraitEnvironment", "segmentControl"]
 - !private ["PSo18UITraitEnvironment", "selectedSegmentIndex"]
 - ["PSo18UITraitEnvironment", "setNavBarUI"]
@@ -2232,6 +2283,7 @@ depends-member:
 - ["CSo16UIViewController", "readingTypeSegmentControls"]
 - ["CSo16UIViewController", "recipientIDs"]
 - ["CSo16UIViewController", "recipientTypes"]
+- ["CSo16UIViewController", "resetSegment"]
 - ["CSo16UIViewController", "segmentControl"]
 - ["CSo16UIViewController", "setNavBarUI"]
 - !private ["CSo16UIViewController", "tabBarController"]
@@ -2251,12 +2303,17 @@ depends-member:
 - !private ["Vs5UInt8", "deinit"]
 - !private ["P9Alamofire14URLConvertible", "init"]
 - !private ["P9Alamofire14URLConvertible", "localized"]
+- !private ["VSS9UTF16View", "deinit"]
+- !private ["VSS8UTF8View", "deinit"]
 - !private ["Sc", "deinit"]
+- !private ["VSS17UnicodeScalarView", "deinit"]
 - ["CSo12UserDefaults", "deinit"]
 - !private ["CSo12UserDefaults", "integer"]
+- !private ["CSo12UserDefaults", "setValue"]
 - ["CSo12UserDefaults", "standard"]
 - !private ["CSo12UserDefaults", "string"]
 - ["CSo12UserDefaults", "stringArray"]
+- !private ["CSo12UserDefaults", "synchronize"]
 - !private ["Ps14_ArrayProtocol", "Element"]
 - !private ["Ps14_ArrayProtocol", "Index"]
 - !private ["Ps14_ArrayProtocol", "IndexDistance"]
@@ -2336,6 +2393,7 @@ depends-member:
 - !private ["Ps9_Hashable", "SDWebImageOptions"]
 - ["Ps9_Hashable", "SegmentControl_ValueChange"]
 - !private ["Ps9_Hashable", "Stride"]
+- !private ["Ps9_Hashable", "String"]
 - !private ["Ps9_Hashable", "UIApplication"]
 - !private ["Ps9_Hashable", "UIColor"]
 - !private ["Ps9_Hashable", "UIImage"]
@@ -2389,6 +2447,7 @@ depends-member:
 - ["Ps9_Hashable", "recipientIDs"]
 - ["Ps9_Hashable", "recipientTypes"]
 - !private ["Ps9_Hashable", "removeFromSuperview"]
+- ["Ps9_Hashable", "resetSegment"]
 - !private ["Ps9_Hashable", "rightBarButtonItem"]
 - !private ["Ps9_Hashable", "rightBarButtonItems"]
 - !private ["Ps9_Hashable", "rightToLeft"]
@@ -2398,11 +2457,13 @@ depends-member:
 - ["Ps9_Hashable", "setNavBarUI"]
 - !private ["Ps9_Hashable", "setTitle"]
 - !private ["Ps9_Hashable", "setTitleTextAttributes"]
+- !private ["Ps9_Hashable", "setValue"]
 - !private ["Ps9_Hashable", "shared"]
 - !private ["Ps9_Hashable", "sharedInstance"]
 - ["Ps9_Hashable", "standard"]
 - !private ["Ps9_Hashable", "string"]
 - ["Ps9_Hashable", "stringArray"]
+- !private ["Ps9_Hashable", "synchronize"]
 - !private ["Ps9_Hashable", "tabBarController"]
 - !private ["Ps9_Hashable", "title"]
 - ["Ps9_Hashable", "topBackView"]
@@ -2456,10 +2517,12 @@ depends-member:
 - !private ["Ps11_Strideable", "Stride"]
 - !private ["Ps11_Strideable", "_DisabledRangeIndex"]
 - !private ["Ps11_Strideable", "init"]
+- !private ["Vs11_StringCore", "deinit"]
 - !private ["Ps20_SwiftNewtypeWrapper", "init"]
 - !private ["V11DiabetesApp12userDefaults", "loggedInUserType"]
 - ["V11DiabetesApp12userDefaults", "recipientIDArray"]
 - ["V11DiabetesApp12userDefaults", "recipientTypesArray"]
+- !private ["V11DiabetesApp12userDefaults", "selectedNoOfDays"]
 - !private ["V11DiabetesApp12userDefaults", "selectedPatientID"]
 - !private ["V11DiabetesApp8userType", "doctor"]
 - !private ["V11DiabetesApp8userType", "educator"]
@@ -2484,6 +2547,7 @@ depends-nominal:
 - !private "VSC6CGSize"
 - "Ps7CVarArg"
 - !private "Vs9Character"
+- !private "VSS13CharacterView"
 - !private "Ps10Collection"
 - !private "V11DiabetesApp6Colors"
 - !private "Ps10Comparable"
@@ -2613,7 +2677,10 @@ depends-nominal:
 - !private "Vs6UInt64"
 - !private "Vs5UInt8"
 - !private "P9Alamofire14URLConvertible"
+- !private "VSS9UTF16View"
+- !private "VSS8UTF8View"
 - !private "Sc"
+- !private "VSS17UnicodeScalarView"
 - "CSo12UserDefaults"
 - !private "Ps14_ArrayProtocol"
 - !private "Ps15_CVarArgAligned"
@@ -2638,6 +2705,7 @@ depends-nominal:
 - !private "Vs26_OptionalNilComparisonType"
 - !private "Ps14_SignedInteger"
 - !private "Ps11_Strideable"
+- !private "Vs11_StringCore"
 - !private "Ps20_SwiftNewtypeWrapper"
 - "V11DiabetesApp12userDefaults"
 - !private "V11DiabetesApp8userType"
@@ -2992,4 +3060,4 @@ depends-external:
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController-umbrella.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Modules/module.modulemap"
-interface-hash: "f2c2a388a85fd474b82a802237f68f8d"
+interface-hash: "5bebbd588ec25583ecc27214e09ed6cc"

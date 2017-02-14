@@ -139,6 +139,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @class UITableViewCell;
 @class UITextField;
 @class CarePlanMedicationTableViewCell;
+@class UIGestureRecognizer;
 @class CarePlanObj;
 @class NSBundle;
 @class NSCoder;
@@ -153,6 +154,7 @@ SWIFT_CLASS("_TtC11DiabetesApp27AddMedicationViewController")
 @property (nonatomic, readonly) NSInteger selectedUserType;
 @property (nonatomic, strong) NSIndexPath * _Nonnull selectedIndex;
 @property (nonatomic, strong) GTInterval * _Null_unspecified formInterval;
+@property (nonatomic, strong) NSMutableArray * _Nonnull addMedArray;
 - (void)awakeFromNib;
 - (void)viewDidLoad;
 - (void)viewDidAppear:(BOOL)animated;
@@ -178,6 +180,7 @@ SWIFT_CLASS("_TtC11DiabetesApp27AddMedicationViewController")
 - (void)textFieldDidBeginEditing:(UITextField * _Nonnull)textField;
 - (BOOL)textFieldShouldReturn:(UITextField * _Nonnull)textField;
 - (void)textFieldDidEndEditing:(UITextField * _Nonnull)textField;
+- (void)dismissKeyboard:(UIGestureRecognizer * _Nonnull)sender;
 - (void)addcareplanDataWithCareObj:(CarePlanObj * _Nonnull)careObj;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
@@ -351,6 +354,8 @@ SWIFT_CLASS("_TtC11DiabetesApp26CarePlanMainViewController")
 @property (nonatomic, weak) IBOutlet UISegmentedControl * _Null_unspecified carePlanSegmentControl;
 @property (nonatomic, strong) UIBarButtonItem * _Nonnull addBtn;
 @property (nonatomic, strong) UIView * _Nonnull topBackView;
+@property (nonatomic) BOOL currentMedEditBool;
+@property (nonatomic) BOOL currentReadEditBool;
 @property (nonatomic, readonly) NSInteger selectedUserType;
 @property (nonatomic, readonly, copy) NSArray<NSString *> * _Nullable recipientTypes;
 @property (nonatomic, readonly, copy) NSArray<NSString *> * _Nullable recipientIDs;
@@ -412,6 +417,7 @@ SWIFT_CLASS("_TtC11DiabetesApp31CarePlanMedicationTableViewCell")
 @property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified medImg;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified medImglbl;
 @property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified saveBtn;
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified closeBtn;
 - (void)awakeFromNib;
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated;
 - (void)setleftpaddingWithTextfield:(UITextField * _Nonnull)textfield;
@@ -481,7 +487,6 @@ SWIFT_CLASS("_TtC11DiabetesApp28CarePlanReadingTableViewCell")
 @end
 
 @class UIPickerView;
-@class UIGestureRecognizer;
 
 SWIFT_CLASS("_TtC11DiabetesApp29CarePlanReadingViewController")
 @interface CarePlanReadingViewController : UIViewController <UIScrollViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UITableViewDelegate>
@@ -495,6 +500,8 @@ SWIFT_CLASS("_TtC11DiabetesApp29CarePlanReadingViewController")
 @property (nonatomic, copy) NSString * _Nonnull currentLocale;
 @property (nonatomic, strong) GTInterval * _Null_unspecified formInterval;
 @property (nonatomic) BOOL isEdit;
+@property (nonatomic, strong) NSMutableArray * _Nonnull editReadArray;
+@property (nonatomic, strong) NSMutableArray * _Nonnull tempReadArray;
 @property (nonatomic, weak) IBOutlet UITableView * _Null_unspecified frequencyTblView;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified noreadingsLabel;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified takereadingsLabel;
@@ -505,6 +512,9 @@ SWIFT_CLASS("_TtC11DiabetesApp29CarePlanReadingViewController")
 @property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified btnCancelPicker;
 @property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified btnCancelFreqPicker;
 @property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified btnOkFreqPicker;
+@property (nonatomic, weak) IBOutlet UIView * _Null_unspecified addReadingView;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified addNewReadingTitle;
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified addNewReadingButton;
 - (void)viewDidLoad;
 - (void)viewWillAppear:(BOOL)animated;
 - (void)didReceiveMemoryWarning;
@@ -516,6 +526,7 @@ SWIFT_CLASS("_TtC11DiabetesApp29CarePlanReadingViewController")
 - (NSInteger)pickerView:(UIPickerView * _Nonnull)pickerView numberOfRowsInComponent:(NSInteger)component;
 - (NSString * _Nullable)pickerView:(UIPickerView * _Nonnull)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component;
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView * _Nonnull)pickerView;
+- (IBAction)AddReading_Click:(id _Nonnull)sender;
 - (IBAction)ToolBarButtons_Click:(id _Nonnull)sender;
 - (IBAction)EditReading_Clicked:(id _Nonnull)sender;
 - (IBAction)cancelFreqBtn_Clicked:(id _Nonnull)sender;
@@ -531,7 +542,6 @@ SWIFT_CLASS("_TtC11DiabetesApp29CarePlanReadingViewController")
 - (void)dismissKeyboard:(UIGestureRecognizer * _Nonnull)sender;
 - (void)updatecareplanData;
 - (void)getReadingsData;
-- (void)getReadingsDataConstant;
 - (UITableViewCell * _Nonnull)parentCellForView:(UIView * _Nonnull)view;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section;
 - (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView;
@@ -551,6 +561,7 @@ SWIFT_CLASS("_TtC11DiabetesApp19ChartViewController")
 @interface ChartViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified hyposLbl;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified hyperLbl;
+@property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified arrowImg;
 @property (nonatomic, weak) IBOutlet UIView * _Null_unspecified chartView;
 @property (nonatomic, weak) IBOutlet UIView * _Null_unspecified readingsView;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified IQRLabel;
@@ -824,14 +835,17 @@ SWIFT_CLASS("_TtC11DiabetesApp24DialogTableViewCellModel")
 
 SWIFT_CLASS("_TtC11DiabetesApp21DialogsViewController")
 @interface DialogsViewController : UITableViewController <QMChatConnectionDelegate, QMAuthServiceDelegate, QMChatServiceDelegate, IncomingCallViewControllerDelegate, QBRTCClientDelegate, QBCoreDelegate>
-@property (nonatomic, strong) NSTimer * _Nonnull myTimer;
+@property (nonatomic) NSInteger counterCall;
 @property (nonatomic, readonly, strong) AppDelegate * _Nonnull appDelegate;
 @property (nonatomic, readonly) NSInteger selectedUserType;
+@property (nonatomic, strong) NSTimer * _Nonnull requestTimer;
+@property (nonatomic, strong) NSTimer * _Nonnull myTimer;
 - (void)awakeFromNib;
 - (void)runTimedCode;
 - (void)viewDidAppear:(BOOL)animated;
 - (void)viewWillAppear:(BOOL)animated;
 - (void)viewWillDisappear:(BOOL)animated;
+- (void)getRequestBadgeCounter;
 - (void)prepareForSegue:(UIStoryboardSegue * _Nonnull)segue sender:(id _Nullable)sender;
 - (void)setNavBarUI;
 - (void)didReceiveNewSession:(QBRTCSession * _Null_unspecified)session userInfo:(NSDictionary * _Null_unspecified)userInfo;
@@ -853,6 +867,7 @@ SWIFT_CLASS("_TtC11DiabetesApp21DialogsViewController")
 - (BOOL)tableView:(UITableView * _Nonnull)tableView canEditRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 - (void)tableView:(UITableView * _Nonnull)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 - (NSString * _Nullable)tableView:(UITableView * _Nonnull)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (void)updateCounter;
 - (void)chatService:(QMChatService * _Nonnull)chatService didUpdateChatDialogInMemoryStorage:(QBChatDialog * _Nonnull)chatDialog;
 - (void)chatService:(QMChatService * _Nonnull)chatService didUpdateChatDialogsInMemoryStorage:(NSArray<QBChatDialog *> * _Nonnull)dialogs;
 - (void)chatService:(QMChatService * _Nonnull)chatService didAddChatDialogsToMemoryStorage:(NSArray<QBChatDialog *> * _Nonnull)chatDialogs;
@@ -866,6 +881,7 @@ SWIFT_CLASS("_TtC11DiabetesApp21DialogsViewController")
 - (void)chatService:(QMChatService * _Nonnull)chatService chatDidNotConnectWithError:(NSError * _Nonnull)error;
 - (void)chatServiceChatDidReconnect:(QMChatService * _Nonnull)chatService;
 - (void)reloadTableViewIfNeeded;
+- (void)getReadCount;
 - (nonnull instancetype)initWithStyle:(UITableViewStyle)style OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
@@ -877,6 +893,7 @@ SWIFT_CLASS("_TtC11DiabetesApp26DoctorTabBarViewController")
 @property (nonatomic, copy) NSString * _Nonnull currentLocale;
 - (void)viewDidLoad;
 - (void)didReceiveMemoryWarning;
+- (void)getReadCount;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -978,6 +995,8 @@ SWIFT_CLASS("_TtC11DiabetesApp21GIntakeViewController")
 @property (nonatomic, copy) NSDate * _Nonnull lastSelectedDate;
 @property (nonatomic, strong) UIView * _Nonnull topBackView;
 @property (nonatomic, copy) NSString * _Nonnull currentLocale;
+@property (nonatomic) BOOL fromDoneButton;
+@property (nonatomic, strong) UITapGestureRecognizer * _Nonnull KeyboardTapGesture;
 - (void)viewDidLoad;
 - (void)viewDidAppear:(BOOL)animated;
 - (void)segmentedControlValueChangedWithSegment:(UISegmentedControl * _Nonnull)segment;
@@ -985,6 +1004,8 @@ SWIFT_CLASS("_TtC11DiabetesApp21GIntakeViewController")
 - (void)doneButtonAction;
 - (void)viewWillAppear:(BOOL)animated;
 - (void)createCustomTopView;
+- (void)invalidReadingEntered;
+- (void)conditionSegmentEnable;
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView * _Nonnull)pickerView;
 - (NSInteger)pickerView:(UIPickerView * _Nonnull)pickerView numberOfRowsInComponent:(NSInteger)component;
 - (CGFloat)pickerView:(UIPickerView * _Nonnull)pickerView rowHeightForComponent:(NSInteger)component;
@@ -1072,6 +1093,7 @@ SWIFT_CLASS("_TtC11DiabetesApp25HistoryMainViewController")
 @property (nonatomic, weak) IBOutlet UISegmentedControl * _Null_unspecified readingTypeSegmentControls;
 @property (nonatomic, readonly, copy) NSArray<NSString *> * _Nullable recipientTypes;
 @property (nonatomic, readonly, copy) NSArray<NSString *> * _Nullable recipientIDs;
+@property (nonatomic) BOOL resetSegment;
 @property (nonatomic, strong) UIView * _Nonnull topBackView;
 - (void)awakeFromNib;
 - (void)viewDidLoad;
@@ -1177,6 +1199,7 @@ SWIFT_CLASS("_TtC11DiabetesApp20HomeTabBarController")
 @property (nonatomic, copy) NSString * _Nonnull currentLocale;
 - (void)viewDidLoad;
 - (void)didReceiveMemoryWarning;
+- (void)getReadCount;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -1256,6 +1279,7 @@ SWIFT_CLASS("_TtC11DiabetesApp19LoginViewController")
 - (void)loginToQuickBloxWithLogin:(NSString * _Nonnull)login username:(NSString * _Nonnull)username userID:(NSString * _Nonnull)userID fullname:(NSString * _Nonnull)fullname;
 - (void)getTaskDate;
 - (BOOL)textFieldShouldReturn:(UITextField * _Nonnull)textField;
+- (void)getReadCount;
 - (void)getMedicationArray;
 - (void)registerForRemoteNotification;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
@@ -1274,8 +1298,10 @@ SWIFT_CLASS("_TtC11DiabetesApp24MedicationViewController")
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified lblAddMedicineTitle;
 @property (nonatomic, readonly, strong) UIImagePickerController * _Nonnull picker;
 @property (nonatomic, strong) NSMutableArray * _Nonnull array;
+@property (nonatomic, strong) NSArray * _Nonnull arrayCopy;
 @property (nonatomic, strong) NSIndexPath * _Nonnull selectedIndex;
 @property (nonatomic, strong) NSMutableArray * _Nonnull editMedArray;
+@property (nonatomic) BOOL isnewConditionAdd;
 @property (nonatomic, strong) GTInterval * _Null_unspecified formInterval;
 @property (nonatomic, readonly) NSInteger selectedUserType;
 - (void)viewDidLoad;
@@ -1298,6 +1324,7 @@ SWIFT_CLASS("_TtC11DiabetesApp24MedicationViewController")
 - (IBAction)EditMedication_Click:(id _Nonnull)sender;
 - (IBAction)btnAdd_Click:(id _Nonnull)sender;
 - (IBAction)btndeleteCondtion_Click:(id _Nonnull)sender;
+- (IBAction)btnClose_Clicked:(id _Nonnull)sender;
 - (IBAction)DeleteMedication_Click:(id _Nonnull)sender;
 - (void)updatecareplanDataWithCareObj:(CarePlanObj * _Nonnull)careObj btnEdit:(UIButton * _Nonnull)btnEdit;
 - (void)deleteMedicationsWithCareObj:(CarePlanObj * _Nonnull)careObj;
@@ -1378,6 +1405,13 @@ SWIFT_CLASS("_TtC11DiabetesApp24ReportCarePlanController")
 @property (nonatomic, weak) IBOutlet UIPickerView * _Null_unspecified pickerView;
 @property (nonatomic, strong) IBOutlet UIView * _Null_unspecified pickerViewContainer;
 @property (nonatomic, weak) IBOutlet UITableView * _Null_unspecified tblView;
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified btnOkFreqPicker;
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified btnCancelFreqPicker;
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified btnOkPicker;
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified btnCancelPicker;
+@property (nonatomic, weak) IBOutlet UIPickerView * _Null_unspecified pickerFreqView;
+@property (nonatomic, weak) IBOutlet UIPickerView * _Null_unspecified pickerTimingView;
+@property (nonatomic, weak) IBOutlet UIView * _Null_unspecified pickerViewInner;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified noReadingsAvailable;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified takereadingsLabel;
 @property (nonatomic, copy) NSString * _Nonnull reportUSer;
@@ -1385,6 +1419,7 @@ SWIFT_CLASS("_TtC11DiabetesApp24ReportCarePlanController")
 @property (nonatomic) NSInteger selectedIndexPath;
 @property (nonatomic, strong) NSMutableArray * _Nonnull array;
 @property (nonatomic, strong) NSMutableArray * _Nonnull currentEditReadingArray;
+@property (nonatomic, strong) CarePlanFrequencyObj * _Nonnull objCarePlanFrequencyObj;
 - (void)viewDidLoad;
 - (void)viewDidAppear:(BOOL)animated;
 - (void)viewWillAppear:(BOOL)animated;
@@ -1392,14 +1427,15 @@ SWIFT_CLASS("_TtC11DiabetesApp24ReportCarePlanController")
 - (void)viewDidDisappear:(BOOL)animated;
 - (void)resetUI;
 - (void)addNotifications;
+- (BOOL)textField:(UITextField * _Nonnull)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString * _Nonnull)string;
+- (void)textFieldDidBeginEditing:(UITextField * _Nonnull)textField;
 - (BOOL)textFieldShouldReturn:(UITextField * _Nonnull)textField;
 - (void)textFieldDidEndEditing:(UITextField * _Nonnull)textField;
-- (void)textFieldDidBeginEditing:(UITextField * _Nonnull)textField;
-- (BOOL)textField:(UITextField * _Nonnull)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString * _Nonnull)string;
 - (void)readingNotificationWithNotification:(NSNotification * _Nonnull)notification;
 - (void)getReadingsData;
 - (void)getDoctorSingleData;
 - (void)getDoctorReadingsData;
+- (UITableViewCell * _Nonnull)parentCellForView:(UIView * _Nonnull)view;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section;
 - (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
@@ -1420,10 +1456,15 @@ SWIFT_CLASS("_TtC11DiabetesApp24ReportCarePlanController")
 
 SWIFT_CLASS("_TtC11DiabetesApp29ReportCarePlanReadingViewCell")
 @interface ReportCarePlanReadingViewCell : UITableViewCell
-@property (nonatomic, weak) IBOutlet UITextField * _Null_unspecified conditionLbl;
-@property (nonatomic, weak) IBOutlet UITextField * _Null_unspecified goalLbl;
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified btnEdit;
+@property (nonatomic, weak) IBOutlet UITextField * _Null_unspecified txtGoal;
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified btnFreq;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified frequencyLbl;
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified btnTiming;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified conditionLbl;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified numberLbl;
 @property (nonatomic, weak) IBOutlet UIView * _Null_unspecified mainView;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified goalLbl;
 - (void)awakeFromNib;
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated;
 - (void)setUIWithView:(UIView * _Nonnull)view;
@@ -1453,6 +1494,7 @@ SWIFT_CLASS("_TtC11DiabetesApp25ReportChartViewController")
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified noHistoryAvailableLabel;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified hyperLbl;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified glucoseLbl;
+@property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified arrowImg;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified hyposLbl;
 @property (nonatomic, strong) GTInterval * _Null_unspecified formInterval;
 @property (nonatomic, strong) UILabel * _Nonnull label;
@@ -1512,6 +1554,7 @@ SWIFT_CLASS("_TtC11DiabetesApp27ReportHistoryViewController")
 @property (nonatomic, strong) NSMutableArray * _Nonnull boolArray;
 @property (nonatomic, copy) NSString * _Nonnull noOfDays;
 @property (nonatomic, copy) NSString * _Nonnull currentLocale;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified conditionTitle;
 @property (nonatomic, strong) NSDictionary * _Nonnull obj;
 @property (nonatomic, strong) NSArray * _Nonnull cellArray;
 @property (nonatomic, strong) GTInterval * _Null_unspecified formInterval;
@@ -1640,7 +1683,9 @@ SWIFT_CLASS("_TtC11DiabetesApp20ReportViewController")
 @property (nonatomic, strong) NSMutableArray * _Nonnull medicationArray;
 @property (nonatomic, strong) NSMutableArray * _Nonnull newMedicationArray;
 @property (nonatomic) BOOL currentMedEditBool;
+@property (nonatomic) BOOL currentReadEditBool;
 @property (nonatomic, strong) NSDictionary * _Nonnull editCurrentMedDict;
+@property (nonatomic, strong) NSArray * _Nonnull addCurrentMedArray;
 @property (nonatomic, strong) NSMutableArray * _Nonnull editMedArray;
 @property (nonatomic, strong) NSArray * _Nonnull editCurrentMedArray;
 @property (nonatomic, strong) NSArray * _Nonnull editCurrentReadArray;
@@ -1650,6 +1695,9 @@ SWIFT_CLASS("_TtC11DiabetesApp20ReportViewController")
 @property (nonatomic) NSInteger totalBadgeCounter;
 - (void)awakeFromNib;
 - (void)viewDidLoad;
+- (void)updateReadByEducator;
+- (void)addDoneButtonOnKeyboard;
+- (void)doneButtonAction;
 - (void)imageTapped:(UITapGestureRecognizer * _Nonnull)sender;
 - (void)dismissFullscreenImage:(UITapGestureRecognizer * _Nonnull)sender;
 - (void)viewDidLayoutSubviews;
@@ -1731,6 +1779,7 @@ SWIFT_CLASS("_TtC11DiabetesApp21RequestViewController")
 @property (nonatomic, copy) NSString * _Nonnull userTypeString;
 @property (nonatomic, strong) NSMutableArray * _Nonnull requestListArray;
 @property (nonatomic, copy) NSString * _Nonnull selectedPatientID;
+@property (nonatomic) NSInteger totalBadgeCounter;
 @property (nonatomic, weak) IBOutlet UITableView * _Null_unspecified tableView;
 - (void)viewDidLoad;
 - (void)viewDidAppear:(BOOL)animated;
@@ -1837,6 +1886,12 @@ SWIFT_CLASS("_TtC11DiabetesApp20SummartTableViewCell")
   by DaRk-_-D0G
 */
 - (void)setHeightWithHeight:(CGFloat)height;
+@end
+
+
+@interface UIViewController (SWIFT_EXTENSION(DiabetesApp))
+- (void)hideKeyboardWhenTappedAround;
+- (void)dismissKeyboard;
 @end
 
 @class UIAlertController;

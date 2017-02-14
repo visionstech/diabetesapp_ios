@@ -6,14 +6,14 @@ provides-nominal:
 provides-member:
 - ["C11SwiftCharts13HandlingLabel", ""]
 provides-dynamic-lookup:
-- "movedToSuperViewHandler"
 - "didMoveToSuperview"
 - "touchHandler"
+- "movedToSuperViewHandler"
 - "touchesEnded"
 depends-top-level:
+- "HandlingLabel"
 - "UITouch"
 - "UIEvent"
-- "HandlingLabel"
 - "Set"
 - "UILabel"
 depends-member:

@@ -74,7 +74,8 @@ class GIntakeViewController: UIViewController, UITextFieldDelegate, UIPickerView
     var lastSelectedDate = Date()
     var topBackView:UIView = UIView()
     var currentLocale : String = ""
-    
+    var fromDoneButton : Bool = false
+    var KeyboardTapGesture : UITapGestureRecognizer = UITapGestureRecognizer()
     private enum DHReadingState {
         case low, normal, high
     }
@@ -88,6 +89,7 @@ class GIntakeViewController: UIViewController, UITextFieldDelegate, UIPickerView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        KeyboardTapGesture = UITapGestureRecognizer(target: self, action: #selector(GIntakeViewController.dismissKeyboard(_:)))
         
         backgroundImage.alpha = 0.7
         NotificationCenter.default.addObserver(self, selector: #selector(GIntakeViewController.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
@@ -113,7 +115,7 @@ class GIntakeViewController: UIViewController, UITextFieldDelegate, UIPickerView
         inputConfirmationCancelButton.setTitle("CANCEL".localized, for: .normal)
         dateInputTitleLabel.text = "Change date and time".localized
         dateInputCancelButton.setTitle("Cancel".localized, for: .normal)
-        dateInputOKButton.setTitle("Ok".localized, for: .normal)
+        dateInputOKButton.setTitle("DONE".localized, for: .normal)
         
     
         dateInputPicker.locale = NSLocale.init(localeIdentifier: "en") as Locale
@@ -133,7 +135,8 @@ class GIntakeViewController: UIViewController, UITextFieldDelegate, UIPickerView
         currentLocale = NSLocale.current.languageCode!
         
         if currentLocale == "ar"{
-            enterGlucoseLabel.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightBold)
+            enterGlucoseLabel.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightBold)
+            enterGlucoseTextField.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightRegular)
             doneButton.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: UIFontWeightBold)
            // conditionSegmentedControl.titleForSegment(at: 0) = UIFont.systemFont(ofSize: 17, weight: UIFontWeightBold)
             conditionSegmentedControl.setTitleTextAttributes([ NSFontAttributeName: UIFont.systemFont(ofSize: 17, weight: UIFontWeightBold) ], for: .normal)
@@ -173,8 +176,6 @@ class GIntakeViewController: UIViewController, UITextFieldDelegate, UIPickerView
     
     func addDoneButtonOnKeyboard()
     {
-        
-        
         let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 50))
         toolBar.barStyle = UIBarStyle.default
         toolBar.items = [
@@ -189,46 +190,100 @@ class GIntakeViewController: UIViewController, UITextFieldDelegate, UIPickerView
     
     func doneButtonAction()
     {
-        guard let textFieldText = self.enterGlucoseTextField.text else { return; }
+        self.view.endEditing(true)
+        guard let textFieldTextTemp = enterGlucoseTextField.text else { return; }
+        glucoseEntry = ""
+        let numberStr: String = textFieldTextTemp
+        let formatter: NumberFormatter = NumberFormatter()
+        formatter.locale = NSLocale(localeIdentifier: "EN") as Locale!
+        view.removeGestureRecognizer(KeyboardTapGesture)
+        if let final = formatter.number(from: numberStr) { glucoseEntry = String(describing: final)
+            print(final) }
         
+        enterGlucoseTextField.text = glucoseEntry
+       // view.removeGestureRecognizer(enterGlucoseTextField)
+        guard let textFieldText = enterGlucoseTextField.text else { return; }
+
+       // fromDoneButton = true
         if(textFieldText.length == 0 || textFieldText == "0")
         {
-            enterGlucoseTextFieldView.backgroundColor = Colors.DHLightGray
+            
+            /*enterGlucoseTextFieldView.backgroundColor = Colors.DHLightGray
             enterGlucoseTextField.textColor = Colors.PrimaryColor
-            //showAlert(title: "Data missing".localized, message: "Please input a valid number".localized)
+            enterGlucoseTextField.text = "EG".localized + " 120 mg/dl"*/
+            enterGlucoseTextField.resignFirstResponder()
+           
+           /* mealPickerView.isUserInteractionEnabled = false
+            mealPickerView.alpha = 0.25
+            
+            conditionSegmentedControl.isEnabled = false
+            conditionSegmentedControl.alpha = 0.25
+            conditionSegmentedControl.selectedSegmentIndex = UISegmentedControlNoSegment*/
+            
+            invalidReadingEntered()
+            
+            
+           // view.removeGestureRecognizer(sender)
+            //showAlert(title: "Data missing", message: "Please input a valid number".localized)
             
             //return;
         }
-        else{
-            self.enterGlucoseTextField.resignFirstResponder()
-            self.enterGlucoseTextField.resignFirstResponder()
-            self.enterGlucoseTextField.textColor = UIColor.white
-            enterGlucoseTextFieldView.backgroundColor = Colors.DHTabBarGreen
-            
-            mealPickerView.isUserInteractionEnabled = true
-            mealPickerView.alpha = 1.0
-            
-            conditionSegmentedControl.isUserInteractionEnabled = true
-            conditionSegmentedControl.alpha = 1.0
+        else if let number = Int(textFieldText)
+        {
+            if number > 600
+            {
+               /* enterGlucoseTextFieldView.backgroundColor = Colors.DHLightGray
+                enterGlucoseTextField.textColor = Colors.PrimaryColor
+                enterGlucoseTextField.text = "EG".localized + " 120 mg/dl"*/
+                enterGlucoseTextField.resignFirstResponder()
+               /* mealPickerView.isUserInteractionEnabled = false
+                mealPickerView.alpha = 0.25
+                
+                conditionSegmentedControl.isEnabled = false
+                conditionSegmentedControl.alpha = 0.25
+                conditionSegmentedControl.selectedSegmentIndex = UISegmentedControlNoSegment
+                */
+                invalidReadingEntered()
+                
+                
+                showAlert(title: "Invalid Reading".localized, message: "Your reading has to be less than 600mg/dl".localized)
+                
+            }
+            else
+            {
+                
+                enterGlucoseTextField.textColor = UIColor.white
+                enterGlucoseTextFieldView.backgroundColor = Colors.DHTabBarGreen
+                enterGlucoseTextField.text = textFieldText + " mg/dl"
+                
+                mealPickerView.isUserInteractionEnabled = true
+                mealPickerView.alpha = 1.0
+                conditionSegmentedControl.isUserInteractionEnabled = true
+                conditionSegmentedControl.alpha = 1.0
+
+                
+                enterGlucoseTextField.resignFirstResponder()
+                //view.removeGestureRecognizer(sender)
+                
+                mealPickerView.isUserInteractionEnabled = true
+                mealPickerView.alpha = 1.0
+                
+                conditionSegmentedControl.isEnabled = true
+                conditionSegmentedControl.isUserInteractionEnabled = true
+                conditionSegmentedControl.alpha = 1.0
+
+               // view.removeGestureRecognizer(sender)
+            }
         }
-        
-        self.enterGlucoseTextField.resignFirstResponder()
-        self.enterGlucoseTextField.resignFirstResponder()
+       conditionSegmentEnable()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        dateInputPicker.date = Date()
         configureAppearance()
         
-       
-        
-        //        if mealArray.count > 0 {
-        //            let index = mealArray.count == 1 ? 1 : mealArray.count % 2 + 1
-        //            mealPickerView.selectRow(index, inComponent: 0, animated: false)
-        //            selectedMeal = mealArray[index]
-        //        }
-        
-        //Get indexes for fasting and bedtime
+       //Get indexes for fasting and bedtime
         fastingIndex = mealArrayEng.index(of: "Fasting")
         bedtimeIndex = mealArrayEng.index(of: "Bedtime")
         breakfastIndex = mealArrayEng.index(of: "Breakfast")
@@ -239,7 +294,7 @@ class GIntakeViewController: UIViewController, UITextFieldDelegate, UIPickerView
         topBackView = UIView(frame: CGRect(x: 0, y: 0, width: 74, height: 40))
         topBackView.backgroundColor = UIColor(patternImage: UIImage(named: "topBackBtn")!)
         let userImgView: UIImageView = UIImageView(frame: CGRect(x: 35, y: 3, width: 34, height: 34))
-        userImgView.image = UIImage(named: "user.png")
+       // userImgView.image = UIImage(named: "user.png")
         // topBackView.addSubview(userImgView)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(BackBtn_Click))
@@ -357,6 +412,61 @@ class GIntakeViewController: UIViewController, UITextFieldDelegate, UIPickerView
         inputConfirmationView.insertSubview(confirmationBlurEffectView, belowSubview: inputConfirmationContainerView)
     }
     
+    func invalidReadingEntered(){
+        
+        enterGlucoseTextFieldView.backgroundColor = Colors.DHLightGray
+        enterGlucoseTextField.textColor = Colors.PrimaryColor
+        enterGlucoseTextField.text = "EG".localized + " 120 mg/dl"
+        
+        mealPickerView.isUserInteractionEnabled = false
+        mealPickerView.alpha = 0.25
+        
+        conditionSegmentedControl.isEnabled = false
+        conditionSegmentedControl.alpha = 0.25
+        conditionSegmentedControl.selectedSegmentIndex = UISegmentedControlNoSegment
+    }
+    
+    func conditionSegmentEnable(){
+        
+        if conditionSegmentedControl.isEnabled{
+            //let pickerRow : Int = selecteedConditionIndex
+            
+            if let fastingIndex = fastingIndex, fastingIndex == selectedConditionIndex {
+                conditionSegmentedControl.isEnabled = false
+                conditionSegmentedControl.selectedSegmentIndex = UISegmentedControlNoSegment
+                doneButton.isEnabled = true
+                doneButton.alpha = 1.0
+            }
+            else if let bedtimeIndex = bedtimeIndex, bedtimeIndex == selectedConditionIndex {
+                conditionSegmentedControl.isEnabled = false
+                
+                conditionSegmentedControl.selectedSegmentIndex = UISegmentedControlNoSegment
+                doneButton.isEnabled = true
+                doneButton.alpha = 1.0
+            }
+            else if let breakfastIndex = breakfastIndex, breakfastIndex == selectedConditionIndex {
+                
+                conditionSegmentedControl.isEnabled = true
+                conditionSegmentedControl.alpha = 1.0
+                conditionSegmentedControl.setEnabled(true, forSegmentAt: 1)
+                conditionSegmentedControl.setEnabled(false, forSegmentAt: 0)
+                conditionSegmentedControl.selectedSegmentIndex = UISegmentedControlNoSegment
+                doneButton.isEnabled = false
+                doneButton.alpha = 0.25
+            }
+            else {
+                conditionSegmentedControl.isEnabled = true
+                conditionSegmentedControl.alpha = 1.0
+                conditionSegmentedControl.setEnabled(true, forSegmentAt: 1)
+                conditionSegmentedControl.setEnabled(true, forSegmentAt: 0)
+                doneButton.isEnabled = false
+                doneButton.alpha = 0.25
+            }
+
+            
+        }
+    }
+    
     //MARK: - UIPickerViewDataSource
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -424,15 +534,16 @@ class GIntakeViewController: UIViewController, UITextFieldDelegate, UIPickerView
         
     }
     
+    
     //MARK: - UITextFieldDelegate
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
         textField.text = ""
+        enterGlucoseTextField.text = ""
+        glucoseEntry = ""
         enterGlucoseTextFieldView.backgroundColor = Colors.DHLightGray
         enterGlucoseTextField.textColor = Colors.PrimaryColor
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(GIntakeViewController.dismissKeyboard(_:))))
-        //        glucoseEntry = textField.text
-        
+        view.addGestureRecognizer(KeyboardTapGesture)
     }
     
     
@@ -454,7 +565,7 @@ class GIntakeViewController: UIViewController, UITextFieldDelegate, UIPickerView
         if let final = formatter.number(from: numberStr) { glucoseEntry = String(describing: final)
             print(final) }
         
-        textField.text = textFieldText + " mg/dl"
+        //textField.text = textFieldText + " mg/dl"
         
         
        // mealPickerView.isUserInteractionEnabled = true
@@ -466,35 +577,90 @@ class GIntakeViewController: UIViewController, UITextFieldDelegate, UIPickerView
     //MARK: - Helpers
     func dismissKeyboard(_ sender: UIGestureRecognizer) {
         
-        guard let textFieldText = enterGlucoseTextField.text else { return; }
+        guard let textFieldTextTemp = enterGlucoseTextField.text else { return; }
         
-        if let number = Int(textFieldText)
+        let numberStr: String = textFieldTextTemp
+        let formatter: NumberFormatter = NumberFormatter()
+        formatter.locale = NSLocale(localeIdentifier: "EN") as Locale!
+        glucoseEntry = ""
+        if let final = formatter.number(from: numberStr) { glucoseEntry = String(describing: final)
+            print(final) }
+        enterGlucoseTextField.text = glucoseEntry
+       
+        
+        guard let textFieldText = enterGlucoseTextField.text else { return; }
+
+        if(textFieldText.length == 0 || textFieldText == "0")
         {
-             if(textFieldText.length == 0 || textFieldText == "0")
-             {
-                enterGlucoseTextFieldView.backgroundColor = Colors.DHLightGray
-                enterGlucoseTextField.textColor = Colors.PrimaryColor
+            /*enterGlucoseTextFieldView.backgroundColor = Colors.DHLightGray
+            enterGlucoseTextField.textColor = Colors.PrimaryColor
+            enterGlucoseTextField.text = "EG".localized + " 120 mg/dl"*/
+            enterGlucoseTextField.resignFirstResponder()
+            view.removeGestureRecognizer(sender)
+            
+          /*  mealPickerView.isUserInteractionEnabled = false
+            mealPickerView.alpha = 0.25
+            
+            conditionSegmentedControl.isEnabled = false
+            conditionSegmentedControl.alpha = 0.25
+            conditionSegmentedControl.selectedSegmentIndex = UISegmentedControlNoSegment*/
+            
+            invalidReadingEntered()
+           // mealPickerEnable()
             //showAlert(title: "Data missing", message: "Please input a valid number".localized)
             
             //return;
+        }
+        else if let number = Int(textFieldText)
+        {
+            if number > 600
+             {
+               /* enterGlucoseTextFieldView.backgroundColor = Colors.DHLightGray
+                enterGlucoseTextField.textColor = Colors.PrimaryColor
+                enterGlucoseTextField.text = "EG".localized + " 120 mg/dl"
+                */
+                enterGlucoseTextField.resignFirstResponder()
+                view.removeGestureRecognizer(sender)
+
+                
+                /*mealPickerView.isUserInteractionEnabled = false
+                mealPickerView.alpha = 0.25
+                
+                conditionSegmentedControl.isEnabled = false
+                conditionSegmentedControl.alpha = 0.25
+                conditionSegmentedControl.selectedSegmentIndex = UISegmentedControlNoSegment*/
+                invalidReadingEntered()
+               // mealPickerEnable()
+                
+                showAlert(title: "Invalid Reading".localized, message: "Your reading has to be less than 600mg/dl".localized)
+
+
+
              }
-             else{
+             else
+             {
           
                 enterGlucoseTextField.textColor = UIColor.white
                 enterGlucoseTextFieldView.backgroundColor = Colors.DHTabBarGreen
+                
+                enterGlucoseTextField.text = textFieldText + " mg/dl"
             
+                enterGlucoseTextField.resignFirstResponder()
+                view.removeGestureRecognizer(sender)
+                
                 mealPickerView.isUserInteractionEnabled = true
                 mealPickerView.alpha = 1.0
+                
                 conditionSegmentedControl.isUserInteractionEnabled = true
+                conditionSegmentedControl.isEnabled = true
                 conditionSegmentedControl.alpha = 1.0
             }
-            enterGlucoseTextField.resignFirstResponder()
-            view.removeGestureRecognizer(sender)
         }
-        else{
-            showAlert(title: "Valid Data", message: "Please input a valid number".localized)
-        }
-       
+        
+       // else{
+         //   showAlert(title: "Valid Data", message: "Please input a valid number".localized)
+        //}
+       conditionSegmentEnable()
     }
     
     private func showOverlay(overlayView: UIView) {
@@ -525,8 +691,8 @@ class GIntakeViewController: UIViewController, UITextFieldDelegate, UIPickerView
        
         
         let string = NSMutableAttributedString()
-        string.append(NSAttributedString(string: "\(dateFormatter.string(from: date))", attributes: [NSForegroundColorAttributeName: Colors.PrimaryColor, NSFontAttributeName: UIFont.systemFont(ofSize: 16.0)]))
-        string.append(NSAttributedString(string: " >", attributes: [NSForegroundColorAttributeName: Colors.DHDarkGray, NSFontAttributeName: UIFont.systemFont(ofSize: 16.0)]))
+        string.append(NSAttributedString(string: "\(dateFormatter.string(from: date))", attributes: [NSForegroundColorAttributeName: Colors.PrimaryColor, NSFontAttributeName: UIFont.systemFont(ofSize: 14.0)]))
+        string.append(NSAttributedString(string: " >", attributes: [NSForegroundColorAttributeName: Colors.DHDarkGray, NSFontAttributeName: UIFont.systemFont(ofSize: 14.0)]))
         
         dateButton.setAttributedTitle(string, for: .normal)
         inputConfirmationDateLabel.text = String(describing: string)
@@ -543,34 +709,53 @@ class GIntakeViewController: UIViewController, UITextFieldDelegate, UIPickerView
         let dateTaken = dateFormatter.string(from: selectedDate)
         
         if glucoseEntry?.length == 0{
-            showAlert(title: "Data missing", message: "Please input a valid number".localized)
+            showAlert(title: "Data missing".localized, message: "Please input a valid number".localized)
             return
         }
-        let comment = inputConfirmationCommentTextView.text
-        let condition = getConditionValue()
         
-        let parameters = ["id": patientID, "reading": glucoseEntry, "condition": condition, "comment": comment, "dateTaken": dateTaken]
-        
-        let started = NSDate()
-        Alamofire.request("\(baseUrl)\(ApiMethods.saveGlucose)", method: .post, parameters: parameters, encoding:JSONEncoding.default).responseString {(response) in
+        //if let glucoseEntryNum = Int(glucoseEntry!){
             
-            SVProgressHUD.dismiss()
-            let interval = NSDate().timeIntervalSince(started as Date)
+            let comment = inputConfirmationCommentTextView.text
+            let condition = getConditionValue()
             
-            switch response.result
-            {
-            case .success:
-                print("Interval")
-                print(interval)
-                self.tabBarController!.selectedIndex = 1
-                break
+            let parameters = ["id": patientID, "reading": glucoseEntry, "condition": condition, "comment": comment, "dateTaken": dateTaken]
+            
+            let started = NSDate()
+            Alamofire.request("\(baseUrl)\(ApiMethods.saveGlucose)", method: .post, parameters: parameters, encoding:JSONEncoding.default).responseString {(response) in
                 
-            case .failure:
-                break
+                SVProgressHUD.dismiss()
+                let interval = NSDate().timeIntervalSince(started as Date)
+                
+                switch response.result
+                {
+                case .success:
+                    print("Interval")
+                    print(interval)
+                    
+                    let navController = self.tabBarController?.viewControllers![1] as! UINavigationController
+                    let vc = navController.topViewController as! HistoryMainViewController
+                    vc.resetSegment = true
+                    self.tabBarController!.selectedIndex = 1
+                    //        segmentControl.selectedSegmentIndex = 0
+                    //        readingTypeSegmentControls.selectedSegmentIndex = 0
+                    break
+                    
+                case .failure:
+                    break
+                }
+                
+                //            }
             }
-            
-            //            }
-        }
+            //showAlert(title: "Data invalid", message: "Please input a valid number".localized)
+            //return
+       /* }
+        else{
+            showAlert(title: "Data invalid", message: "Please input a valid number".localized)
+            return
+
+        }*/
+        
+       
     }
     
     private func getConditionValue() -> String? {
@@ -695,8 +880,8 @@ class GIntakeViewController: UIViewController, UITextFieldDelegate, UIPickerView
                 inputConfirmationWarningLabel.textColor = Colors.DHPinkRed
                 inputConfirmationHeightConstraint.constant = inputConfirmationHeightBig
                 inputConfirmationTitleLabel.text = "Out of Range".localized
-                inputConfirmationGlucoseLabel.textColor = UIColor.orange
-                inputConfirmationDescriptionLabel.text = "Comments?"
+                inputConfirmationGlucoseLabel.textColor = Colors.DHPinkRed
+                inputConfirmationDescriptionLabel.text = "Comments?".localized
                // inputConfirmationDescriptionLabel.text = "The value you have entered is out of the normal (lower) range for \(condition) condition. Please specify a reason:"
             }
             else if readingState == .high {
@@ -704,7 +889,7 @@ class GIntakeViewController: UIViewController, UITextFieldDelegate, UIPickerView
                 inputConfirmationGlucoseLabel.textColor = UIColor.orange
                 inputConfirmationHeightConstraint.constant = inputConfirmationHeightBig
                 inputConfirmationTitleLabel.text = "Out of Range".localized
-                inputConfirmationDescriptionLabel.text = "Comments?"
+                inputConfirmationDescriptionLabel.text = "Comments?".localized
                // inputConfirmationDescriptionLabel.text = "The value you have entered is out of the normal (higher) range for \(condition) condition. Please specify a reason:"
             }
             else  {
@@ -761,7 +946,8 @@ class GIntakeViewController: UIViewController, UITextFieldDelegate, UIPickerView
     }
     
     @IBAction func dateInputCancelTap(_ sender: Any) {
-        //selectedDate = lastSelectedDate
+        selectedDate = lastSelectedDate
+        dateInputPicker.date = lastSelectedDate
         hideOverlay(overlayView: dateInputView)
     }
     

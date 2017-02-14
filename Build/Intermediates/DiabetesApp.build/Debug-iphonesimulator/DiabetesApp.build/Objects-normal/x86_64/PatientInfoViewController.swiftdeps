@@ -9,95 +9,96 @@ provides-member:
 - ["C11DiabetesApp8InfoCell", ""]
 - ["C11DiabetesApp25PatientInfoViewController", ""]
 provides-dynamic-lookup:
-- "setSelected"
-- "photoView"
-- "sectionTitle_bioData"
-- "setNavBarUI"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "itemLabel"
-- "awakeFromNib"
-- "awakeFromNib"
-- "sectionNum_diseaseDetail"
-- "onBack"
-- "infoTable"
-- "viewDidAppear"
-- "selectedPatientID"
-- "diseaseDataValues"
-- "diseaseDetail"
-- "numberOfSections"
-- "numberOfSections"
-- "isDone"
 - "BackBtn_Click"
-- "itemValue"
-- "bioDataValues"
-- "bioData"
-- "dismissFullscreenImage"
+- "setSelected"
+- "infoTable"
+- "sectionTitle_bioData"
+- "isDone"
+- "didReceiveMemoryWarning"
+- "diseaseDetail"
+- "awakeFromNib"
+- "awakeFromNib"
+- "imageTapped"
+- "selectedPatientID"
+- "numberOfSections"
+- "numberOfSections"
+- "formInterval"
 - "infoImageView"
-- "topBackView"
-- "viewWillDisappear"
-- "typeUser"
-- "viewDidLoad"
 - "sectionTitle_diseaseDetail"
 - "currentLocale"
+- "viewDidAppear"
+- "bioDataValues"
+- "itemValue"
 - "viewWillAppear"
-- "imageTapped"
+- "setNavBarUI"
+- "bioData"
+- "viewWillDisappear"
 - "sectionNum_bioData"
-- "didReceiveMemoryWarning"
+- "viewDidLoad"
+- "dismissFullscreenImage"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "sectionNum_diseaseDetail"
+- "itemLabel"
+- "onBack"
 - "createCustomTopView"
-- "formInterval"
+- "topBackView"
+- "typeUser"
+- "photoView"
+- "diseaseDataValues"
 depends-top-level:
-- "UITableView"
-- "UILabel"
-- !private "SDWebImageManager"
-- "InfoCell"
-- !private "&&"
-- !private "Dictionary"
-- "IndexPath"
-- !private "Alamofire"
-- "userDefaults"
-- "Bool"
-- !private "UIColor"
-- !private "NSLocale"
-- !private "UIFontWeightRegular"
-- !private "+"
-- !private "print"
-- "UITableViewCell"
+- "CastingPrecedence"
+- "UITableViewDataSource"
 - !private "kPatientInfoScreenName"
-- "UIImageView"
-- !private "CGRect"
-- "AnyObject"
-- !private "ApiMethods"
-- !private "URL"
-- !private "SDWebImageOptions"
-- !private "GoogleAnalyticManagerApi"
-- !private "/"
-- !private "NSURL"
-- "UIView"
-- "BooleanLiteralType"
-- !private "UIImage"
-- "Int"
-- !private "baseUrl"
-- !private "NSDictionary"
-- "StringLiteralType"
+- "IndexPath"
 - "AssignmentPrecedence"
-- "PatientInfoViewController"
+- !private "NSURL"
+- !private "ApiMethods"
+- "UserDefaults"
+- "UITableViewDelegate"
+- "Bool"
+- !private "baseUrl"
+- "UIImageView"
 - "String"
 - !private "=="
-- "UserDefaults"
-- "CastingPrecedence"
+- !private "SDWebImageManager"
+- !private "Alamofire"
+- !private "UIImage"
+- "UIView"
+- "userDefaults"
+- "Int"
+- !private "NSDictionary"
+- !private "CGRect"
+- !private "&&"
 - "GTInterval"
-- !private "!="
-- !private "UIFont"
+- "UITableViewCell"
+- !private "UIFontWeightRegular"
+- !private "URL"
 - !private "DispatchQueue"
-- "UIViewController"
-- !private "JSONEncoding"
-- !private "Parameters"
-- "UITableViewDataSource"
-- "UITableViewDelegate"
+- !private "+"
+- !private "Dictionary"
+- !private "SDWebImageOptions"
+- !private "GoogleAnalyticManagerApi"
+- "UITableView"
+- !private "UIColor"
+- "AnyObject"
+- !private "/"
+- "UILabel"
+- !private "print"
+- "PatientInfoViewController"
 - "UITapGestureRecognizer"
+- "UIViewController"
+- !private "!="
+- !private "NSLocale"
+- !private ">"
+- "BooleanLiteralType"
+- !private "JSONEncoding"
+- "StringLiteralType"
+- !private "UIFont"
+- "InfoCell"
+- !private "Parameters"
 depends-member:
 - !private ["Ps9AnyObject", "Alamofire"]
 - !private ["Ps9AnyObject", "ApiMethods"]
@@ -166,6 +167,7 @@ depends-member:
 - !private ["Ps9AnyObject", "kPatientInfoScreenName"]
 - !private ["Ps9AnyObject", "layer"]
 - !private ["Ps9AnyObject", "leftBarButtonItem"]
+- !private ["Ps9AnyObject", "length"]
 - ["Ps9AnyObject", "localized"]
 - !private ["Ps9AnyObject", "main"]
 - !private ["Ps9AnyObject", "masksToBounds"]
@@ -381,6 +383,7 @@ depends-member:
 - !private ["Ps7CVarArg", "kPatientInfoScreenName"]
 - !private ["Ps7CVarArg", "layer"]
 - !private ["Ps7CVarArg", "leftBarButtonItem"]
+- !private ["Ps7CVarArg", "length"]
 - ["Ps7CVarArg", "localized"]
 - !private ["Ps7CVarArg", "main"]
 - !private ["Ps7CVarArg", "masksToBounds"]
@@ -460,6 +463,7 @@ depends-member:
 - !private ["Ps10Comparable", "Stride"]
 - !private ["Ps10Comparable", "_DisabledRangeIndex"]
 - ["Ps10Comparable", "init"]
+- !private ["Ps10Comparable", "length"]
 - ["Ps10Comparable", "localized"]
 - !private ["Ps10Comparable", "row"]
 - !private ["Ps10Comparable", "section"]
@@ -541,6 +545,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "languageCode"]
 - !private ["Ps28CustomDebugStringConvertible", "layer"]
 - !private ["Ps28CustomDebugStringConvertible", "leftBarButtonItem"]
+- !private ["Ps28CustomDebugStringConvertible", "length"]
 - ["Ps28CustomDebugStringConvertible", "localized"]
 - !private ["Ps28CustomDebugStringConvertible", "main"]
 - !private ["Ps28CustomDebugStringConvertible", "masksToBounds"]
@@ -614,6 +619,7 @@ depends-member:
 - !private ["Ps29CustomPlaygroundQuickLookable", "_DisabledRangeIndex"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
 - ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "length"]
 - ["Ps29CustomPlaygroundQuickLookable", "localized"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "size"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "width"]
@@ -633,6 +639,7 @@ depends-member:
 - !private ["Ps17CustomReflectable", "count"]
 - ["Ps17CustomReflectable", "init"]
 - !private ["Ps17CustomReflectable", "languageCode"]
+- !private ["Ps17CustomReflectable", "length"]
 - ["Ps17CustomReflectable", "localized"]
 - !private ["Ps17CustomReflectable", "row"]
 - !private ["Ps17CustomReflectable", "section"]
@@ -722,6 +729,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "languageCode"]
 - !private ["Ps23CustomStringConvertible", "layer"]
 - !private ["Ps23CustomStringConvertible", "leftBarButtonItem"]
+- !private ["Ps23CustomStringConvertible", "length"]
 - ["Ps23CustomStringConvertible", "localized"]
 - !private ["Ps23CustomStringConvertible", "main"]
 - !private ["Ps23CustomStringConvertible", "masksToBounds"]
@@ -885,6 +893,7 @@ depends-member:
 - !private ["Ps9Equatable", "languageCode"]
 - !private ["Ps9Equatable", "layer"]
 - !private ["Ps9Equatable", "leftBarButtonItem"]
+- !private ["Ps9Equatable", "length"]
 - ["Ps9Equatable", "localized"]
 - !private ["Ps9Equatable", "main"]
 - !private ["Ps9Equatable", "masksToBounds"]
@@ -952,6 +961,7 @@ depends-member:
 - !private ["Ps9Equatable", "width"]
 - ["Ps9Equatable", ""]
 - !private ["Ps5Error", "deinit"]
+- !private ["Ps5Error", "localizedDescription"]
 - !private ["Ps25ExpressibleByArrayLiteral", "Index"]
 - !private ["Ps25ExpressibleByArrayLiteral", "IndexDistance"]
 - !private ["Ps25ExpressibleByArrayLiteral", "Iterator"]
@@ -968,6 +978,7 @@ depends-member:
 - !private ["Ps30ExpressibleByDictionaryLiteral", "Value"]
 - !private ["Ps30ExpressibleByDictionaryLiteral", "value"]
 - ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "length"]
 - ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "localized"]
 - !private ["Ps27ExpressibleByIntegerLiteral", "IntegerLiteralType"]
 - !private ["Ps27ExpressibleByIntegerLiteral", "Stride"]
@@ -975,10 +986,13 @@ depends-member:
 - ["Ps27ExpressibleByIntegerLiteral", "init"]
 - !private ["Ps23ExpressibleByNilLiteral", "black"]
 - ["Ps32ExpressibleByStringInterpolation", "init"]
+- !private ["Ps32ExpressibleByStringInterpolation", "length"]
 - ["Ps32ExpressibleByStringInterpolation", "localized"]
 - ["Ps26ExpressibleByStringLiteral", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "length"]
 - ["Ps26ExpressibleByStringLiteral", "localized"]
 - ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "length"]
 - ["Ps33ExpressibleByUnicodeScalarLiteral", "localized"]
 - !private ["Sf", "deinit"]
 - ["C11DiabetesApp10GTInterval", "deinit"]
@@ -1065,6 +1079,7 @@ depends-member:
 - !private ["Ps8Hashable", "languageCode"]
 - !private ["Ps8Hashable", "layer"]
 - !private ["Ps8Hashable", "leftBarButtonItem"]
+- !private ["Ps8Hashable", "length"]
 - ["Ps8Hashable", "localized"]
 - !private ["Ps8Hashable", "main"]
 - !private ["Ps8Hashable", "masksToBounds"]
@@ -1192,11 +1207,13 @@ depends-member:
 - !private ["V10Foundation6Locale", "languageCode"]
 - !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
 - ["Ps25LosslessStringConvertible", "init"]
+- !private ["Ps25LosslessStringConvertible", "length"]
 - ["Ps25LosslessStringConvertible", "localized"]
 - !private ["Ps10MirrorPath", "IntegerLiteralType"]
 - !private ["Ps10MirrorPath", "Stride"]
 - !private ["Ps10MirrorPath", "_DisabledRangeIndex"]
 - ["Ps10MirrorPath", "init"]
+- !private ["Ps10MirrorPath", "length"]
 - ["Ps10MirrorPath", "localized"]
 - !private ["Ps17MutableCollection", "Index"]
 - !private ["Ps17MutableCollection", "IndexDistance"]
@@ -1280,6 +1297,7 @@ depends-member:
 - !private ["PSo8NSCoding", "kPatientInfoScreenName"]
 - !private ["PSo8NSCoding", "layer"]
 - !private ["PSo8NSCoding", "leftBarButtonItem"]
+- !private ["PSo8NSCoding", "length"]
 - ["PSo8NSCoding", "localized"]
 - !private ["PSo8NSCoding", "masksToBounds"]
 - !private ["PSo8NSCoding", "navigationBar"]
@@ -1336,6 +1354,7 @@ depends-member:
 - !private ["PSo9NSCopying", "clear"]
 - !private ["PSo9NSCopying", "current"]
 - ["PSo9NSCopying", "init"]
+- !private ["PSo9NSCopying", "length"]
 - ["PSo9NSCopying", "localized"]
 - !private ["PSo9NSCopying", "systemFont"]
 - !private ["PSo9NSCopying", "value"]
@@ -1429,6 +1448,7 @@ depends-member:
 - !private ["PSo20NSFetchRequestResult", "value"]
 - !private ["CSo8NSLocale", "current"]
 - ["PSo16NSMutableCopying", "init"]
+- !private ["PSo16NSMutableCopying", "length"]
 - ["PSo16NSMutableCopying", "localized"]
 - !private ["PSo16NSMutableCopying", "value"]
 - !private ["CSo8NSNumber", "deinit"]
@@ -1509,6 +1529,7 @@ depends-member:
 - !private ["CSo8NSObject", "kPatientInfoScreenName"]
 - !private ["CSo8NSObject", "layer"]
 - !private ["CSo8NSObject", "leftBarButtonItem"]
+- !private ["CSo8NSObject", "length"]
 - ["CSo8NSObject", "localized"]
 - !private ["CSo8NSObject", "main"]
 - !private ["CSo8NSObject", "masksToBounds"]
@@ -1635,6 +1656,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "kPatientInfoScreenName"]
 - !private ["PSo16NSObjectProtocol", "layer"]
 - !private ["PSo16NSObjectProtocol", "leftBarButtonItem"]
+- !private ["PSo16NSObjectProtocol", "length"]
 - ["PSo16NSObjectProtocol", "localized"]
 - !private ["PSo16NSObjectProtocol", "main"]
 - !private ["PSo16NSObjectProtocol", "masksToBounds"]
@@ -1699,9 +1721,11 @@ depends-member:
 - !private ["PSo14NSSecureCoding", "clear"]
 - !private ["PSo14NSSecureCoding", "current"]
 - ["PSo14NSSecureCoding", "init"]
+- !private ["PSo14NSSecureCoding", "length"]
 - ["PSo14NSSecureCoding", "localized"]
 - !private ["PSo14NSSecureCoding", "value"]
 - ["CSo8NSString", "init"]
+- !private ["CSo8NSString", "length"]
 - ["CSo8NSString", "localized"]
 - !private ["CSo5NSURL", "init"]
 - !private ["CSo9OS_object", "async"]
@@ -1898,10 +1922,13 @@ depends-member:
 - ["Ps10Strideable", "init"]
 - ["SS", "deinit"]
 - ["SS", "init"]
+- !private ["SS", "length"]
 - ["SS", "localized"]
 - ["Ps16TextOutputStream", "init"]
+- !private ["Ps16TextOutputStream", "length"]
 - ["Ps16TextOutputStream", "localized"]
 - ["Ps20TextOutputStreamable", "init"]
+- !private ["Ps20TextOutputStreamable", "length"]
 - ["Ps20TextOutputStreamable", "localized"]
 - !private ["PSo29UIAccessibilityIdentification", "addGestureRecognizer"]
 - !private ["PSo29UIAccessibilityIdentification", "addSubview"]
@@ -3111,6 +3138,7 @@ depends-member:
 - !private ["Vs5UInt8", "deinit"]
 - !private ["P9Alamofire14URLConvertible", "deinit"]
 - ["P9Alamofire14URLConvertible", "init"]
+- !private ["P9Alamofire14URLConvertible", "length"]
 - ["P9Alamofire14URLConvertible", "localized"]
 - !private ["Sc", "deinit"]
 - ["CSo12UserDefaults", "deinit"]
@@ -3156,16 +3184,20 @@ depends-member:
 - !private ["Ps24_DestructorSafeContainer", "subscript"]
 - !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
 - ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "length"]
 - ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "localized"]
 - !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "IntegerLiteralType"]
 - !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "Stride"]
 - !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "_DisabledRangeIndex"]
 - ["Ps35_ExpressibleByBuiltinIntegerLiteral", "init"]
 - ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "length"]
 - ["Ps34_ExpressibleByBuiltinStringLiteral", "localized"]
 - ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "length"]
 - ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "localized"]
 - ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "length"]
 - ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "localized"]
 - !private ["Ps26_ExpressibleByColorLiteral", "black"]
 - !private ["Ps26_ExpressibleByColorLiteral", "clear"]
@@ -3173,6 +3205,7 @@ depends-member:
 - !private ["Ps26_ExpressibleByImageLiteral", "init"]
 - !private ["Ps35_HasCustomAnyHashableRepresentation", "current"]
 - ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "length"]
 - ["Ps35_HasCustomAnyHashableRepresentation", "localized"]
 - !private ["Ps9_Hashable", "Alamofire"]
 - !private ["Ps9_Hashable", "ApiMethods"]
@@ -3247,6 +3280,7 @@ depends-member:
 - !private ["Ps9_Hashable", "languageCode"]
 - !private ["Ps9_Hashable", "layer"]
 - !private ["Ps9_Hashable", "leftBarButtonItem"]
+- !private ["Ps9_Hashable", "length"]
 - ["Ps9_Hashable", "localized"]
 - !private ["Ps9_Hashable", "main"]
 - !private ["Ps9_Hashable", "masksToBounds"]
@@ -3339,6 +3373,7 @@ depends-member:
 - !private ["Ps21_ObjectiveCBridgeable", "count"]
 - ["Ps21_ObjectiveCBridgeable", "init"]
 - !private ["Ps21_ObjectiveCBridgeable", "languageCode"]
+- !private ["Ps21_ObjectiveCBridgeable", "length"]
 - ["Ps21_ObjectiveCBridgeable", "localized"]
 - !private ["Ps21_ObjectiveCBridgeable", "row"]
 - !private ["Ps21_ObjectiveCBridgeable", "section"]

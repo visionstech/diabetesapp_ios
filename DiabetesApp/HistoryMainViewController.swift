@@ -23,7 +23,7 @@ class HistoryMainViewController: UIViewController {
     
     let recipientTypes = UserDefaults.standard.stringArray(forKey: userDefaults.recipientTypesArray)
     let recipientIDs = UserDefaults.standard.stringArray(forKey: userDefaults.recipientIDArray)
-    
+    var resetSegment : Bool = false
     var topBackView:UIView = UIView()
     
     override func awakeFromNib() {
@@ -57,6 +57,8 @@ class HistoryMainViewController: UIViewController {
         readingTypeSegmentControls.layer.borderWidth = 1
         readingTypeSegmentControls.layer.masksToBounds = true
         
+        UserDefaults.standard.setValue("All conditions", forKey: "currentHistoryCondition")
+        UserDefaults.standard.synchronize()
         //listBtn.layer.cornerRadius = 13.61
         // listBtn.setTitle("List View".localized, for: .normal)
         // chartBtn.setTitle("Chart View".localized, for: .normal)
@@ -68,8 +70,23 @@ class HistoryMainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         setNavBarUI()
-        segmentControl.selectedSegmentIndex = 0
-        readingTypeSegmentControls.selectedSegmentIndex = 0
+        if(resetSegment)
+        {
+            resetSegment = false
+            segmentControl.selectedSegmentIndex = 0
+            readingTypeSegmentControls.selectedSegmentIndex = 0
+            listViewContainer.isHidden = false
+            chartViewContainer.isHidden = true
+            UserDefaults.standard.setValue(String(0), forKey: userDefaults.selectedNoOfDays)
+            UserDefaults.standard.synchronize()
+        }
+        else
+        {
+            segmentControl.selectedSegmentIndex = segmentControl.selectedSegmentIndex
+            readingTypeSegmentControls.selectedSegmentIndex = readingTypeSegmentControls.selectedSegmentIndex
+            UserDefaults.standard.setValue(getSelectedNoOfDays(), forKey: userDefaults.selectedNoOfDays)
+            UserDefaults.standard.synchronize()
+        }
     }
     
     
@@ -153,6 +170,7 @@ class HistoryMainViewController: UIViewController {
             self.navigationController?.navigationBar.addSubview(topBackView)
         }
     }
+    
     func getImage(userid: String, type: String, withCompletionHandler:@escaping (_ result:Bool) -> Void)  {
         
         Alamofire.request("http://54.212.229.198:3000/showImage?id="+userid+"&type="+type, method: .get, encoding: JSONEncoding.default).responseJSON { (response) in
@@ -240,11 +258,11 @@ class HistoryMainViewController: UIViewController {
         case HistoryDays.days_today:
             return "0"
         case HistoryDays.days_7:
-            return "7"
+            return "6"
         case HistoryDays.days_14:
-            return "14"
+            return "13"
         case HistoryDays.days_30:
-            return "30"
+            return "29"
         default:
             return ""
         }
@@ -253,11 +271,15 @@ class HistoryMainViewController: UIViewController {
     
     //MARK: - SegmentControl Methods
     @IBAction func SegmentControl_ValueChange(_ sender: Any) {
+        UserDefaults.standard.setValue(getSelectedNoOfDays(), forKey: userDefaults.selectedNoOfDays)
+        UserDefaults.standard.synchronize()
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notifications.noOfDays), object: getSelectedNoOfDays())
     }
     
     @IBAction func ViewModeButtons_Click(_ sender: UISegmentedControl) {
         
+        let currentCondition =  UserDefaults.standard.string(forKey: "currentHistoryCondition");
+        let myDict = ["current": currentCondition]
         if sender.backgroundColor == Colors.DHTabBarGreen {
             return
         }
@@ -276,7 +298,7 @@ class HistoryMainViewController: UIViewController {
                 listViewContainer.isHidden = false
                 chartViewContainer.isHidden = true
                 
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notifications.listHistoryView), object: nil)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notifications.listHistoryView), object: myDict)
                 
             }
             else {
@@ -287,11 +309,10 @@ class HistoryMainViewController: UIViewController {
                 
                 // chartBtn.backgroundColor = Colors.DHTabBarGreen
                 // listBtn.backgroundColor = UIColor.white
-                
                 listViewContainer.isHidden = true
                 chartViewContainer.isHidden = false
                 
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notifications.chartHistoryView), object: nil)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notifications.chartHistoryView), object: myDict)
                 
             }
         }

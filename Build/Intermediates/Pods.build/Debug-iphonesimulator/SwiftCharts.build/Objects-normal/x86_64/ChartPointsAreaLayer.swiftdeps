@@ -7,20 +7,20 @@ provides-member:
 - ["C11SwiftCharts20ChartPointsAreaLayer", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "CGRect"
-- !private "CGPoint"
-- "UIColor"
 - "ChartPoint"
-- !private "+"
-- "AssignmentPrecedence"
-- "Chart"
+- !private "CGPoint"
+- "CGRect"
 - !private "StringLiteralType"
-- "Bool"
-- "ChartPointsLayer"
+- "UIColor"
+- "Chart"
+- !private "+"
 - "ChartAxisLayer"
-- "Float"
-- !private "ChartAreasView"
+- "ChartPointsLayer"
 - "ChartPointsAreaLayer"
+- "Bool"
+- "Float"
+- "AssignmentPrecedence"
+- !private "ChartAreasView"
 depends-member:
 - !private ["Ps9AnyObject", "CGPoint"]
 - !private ["Ps9AnyObject", "ChartAreasView"]

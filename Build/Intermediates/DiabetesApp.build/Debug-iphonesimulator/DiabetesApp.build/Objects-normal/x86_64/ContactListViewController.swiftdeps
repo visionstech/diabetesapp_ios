@@ -6,104 +6,104 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp25ContactListViewController", ""]
 provides-dynamic-lookup:
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "viewDidLoad"
-- "Done_Click"
-- "isGroupMode"
-- "didReceiveMemoryWarning"
-- "resetSelectedUsers"
-- "prepare"
-- "selectedUserType"
-- "naviagteToChatScreen"
-- "createChat"
-- "getDoctorPatients"
-- "getContactsList"
-- "Back_Click"
-- "patientList"
-- "getPatientEducators"
-- "getEducatorPatients"
-- "viewDidAppear"
-- "createGroupForDoctor"
-- "getDoctorEducators"
-- "getEducatorDoctors"
-- "doctorList"
-- "numberOfSections"
 - "getPatientDoctors"
+- "doctorList"
 - "formInterval"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "getEducatorPatients"
+- "Back_Click"
+- "createChat"
+- "patientList"
+- "resetSelectedUsers"
+- "numberOfSections"
+- "didReceiveMemoryWarning"
+- "naviagteToChatScreen"
+- "getDoctorPatients"
+- "createGroupForDoctor"
+- "Done_Click"
+- "prepare"
+- "getEducatorDoctors"
+- "selectedUserType"
+- "getPatientEducators"
+- "viewDidAppear"
+- "isGroupMode"
 - "educatorsList"
+- "getContactsList"
+- "viewDidLoad"
+- "getDoctorEducators"
 depends-top-level:
-- "UITableView"
-- !private "GoogleAnalyticManagerApi"
-- "Int"
+- "BooleanLiteralType"
+- !private "+="
 - !private "QBGeneralResponsePage"
+- !private "SVProgressHUDMaskType"
+- !private "ChatViewController"
+- !private "userType"
+- !private "AnyObject"
 - !private "kContactListScreenName"
+- "GTInterval"
+- "Int"
+- "NSMutableArray"
+- !private "Array"
+- !private "SDWebImageManager"
+- !private "SVProgressHUD"
+- "UITableViewCell"
+- "UITableView"
+- "Void"
 - !private "UnicodeScalarType"
+- !private "UILabel"
+- "ContactObj"
+- !private "QBCOCustomObject"
+- !private "print"
+- !private "baseUrl"
+- !private "AlertView"
+- !private "NSArray"
+- !private "NSDictionary"
+- !private "ApiMethods"
+- "UITableViewDataSource"
+- "CGFloat"
+- !private ">"
+- !private "<"
+- !private "NSCopying"
+- "UITableViewDelegate"
+- !private "QBRequest"
+- "Bool"
+- !private "GoogleAnalyticManagerApi"
+- !private "UIBarButtonItem"
+- "userDefaults"
+- !private "CharacterSet"
+- !private "&&"
+- !private "Parameters"
+- !private "SDWebImageOptions"
+- "String"
+- !private "NSString"
+- !private "/"
+- "QBResponse"
+- !private "!="
+- "IndexPath"
+- "UserDefaults"
+- !private "Data"
+- "UIViewController"
+- "UIStoryboardSegue"
+- "Dictionary"
+- !private "NSURL"
+- !private "URL"
+- !private "ServicesManager"
+- !private "UIImageView"
 - !private "=="
 - "AssignmentPrecedence"
-- !private "URL"
-- "NSMutableArray"
-- "CastingPrecedence"
-- "TernaryPrecedence"
-- "ContactListViewController"
-- !private "Array"
-- !private "NSArray"
-- !private "+="
-- !private "SDWebImageManager"
-- "Dictionary"
-- !private "SVProgressHUDMaskType"
-- !private "AnyObject"
-- !private "UILabel"
-- "IndexPath"
-- !private "print"
-- !private "QBCOCustomObject"
-- "UIViewController"
-- "UITableViewDataSource"
-- "UITableViewDelegate"
-- "Void"
-- !private "NSDictionary"
-- !private "CharacterSet"
-- "UserDefaults"
-- !private ">"
-- !private "&&"
-- !private "QBRequest"
-- "UIStoryboardSegue"
-- !private "Alamofire"
-- !private "NSCopying"
-- !private "NSString"
-- "userDefaults"
-- !private "AlertView"
-- "String"
-- !private "UIBarButtonItem"
-- "Bool"
-- !private "userType"
-- "QBResponse"
-- !private "SDWebImageOptions"
-- "CGFloat"
-- !private "SVProgressHUD"
-- "ContactObj"
-- !private "!="
-- !private "Data"
-- !private "UIImageView"
-- "BooleanLiteralType"
-- !private "JSONEncoding"
-- !private "+"
-- !private "baseUrl"
-- !private "NSURL"
-- !private "ChatViewController"
-- !private "ApiMethods"
 - !private "||"
-- !private "/"
-- "UITableViewCell"
-- !private "Parameters"
-- "GTInterval"
+- !private "+"
+- "CastingPrecedence"
+- !private "JSONEncoding"
+- "TernaryPrecedence"
+- !private "Alamofire"
+- "ContactListViewController"
 - "QBChatDialog"
-- !private "ServicesManager"
-- !private "<"
 depends-member:
 - ["C11DiabetesApp9AlertView", "deinit"]
 - !private ["C11DiabetesApp9AlertView", "init"]
@@ -193,6 +193,7 @@ depends-member:
 - !private ["Ps9AnyObject", "isSelected"]
 - !private ["Ps9AnyObject", "kContactListScreenName"]
 - !private ["Ps9AnyObject", "layer"]
+- !private ["Ps9AnyObject", "length"]
 - !private ["Ps9AnyObject", "localized"]
 - ["Ps9AnyObject", "naviagteToChatScreen"]
 - !private ["Ps9AnyObject", "navigationController"]
@@ -403,6 +404,7 @@ depends-member:
 - !private ["Ps7CVarArg", "isSelected"]
 - !private ["Ps7CVarArg", "kContactListScreenName"]
 - !private ["Ps7CVarArg", "layer"]
+- !private ["Ps7CVarArg", "length"]
 - !private ["Ps7CVarArg", "localized"]
 - ["Ps7CVarArg", "naviagteToChatScreen"]
 - !private ["Ps7CVarArg", "navigationController"]
@@ -484,6 +486,7 @@ depends-member:
 - !private ["Ps10Comparable", "Encoding"]
 - ["Ps10Comparable", "init"]
 - !private ["Ps10Comparable", "isEmpty"]
+- !private ["Ps10Comparable", "length"]
 - !private ["Ps10Comparable", "localized"]
 - !private ["Ps10Comparable", "row"]
 - !private ["Ps10Comparable", "section"]
@@ -686,6 +689,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "isSelected"]
 - !private ["Ps28CustomDebugStringConvertible", "kContactListScreenName"]
 - !private ["Ps28CustomDebugStringConvertible", "layer"]
+- !private ["Ps28CustomDebugStringConvertible", "length"]
 - !private ["Ps28CustomDebugStringConvertible", "localized"]
 - ["Ps28CustomDebugStringConvertible", "naviagteToChatScreen"]
 - !private ["Ps28CustomDebugStringConvertible", "navigationController"]
@@ -759,6 +763,7 @@ depends-member:
 - !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
 - ["Ps29CustomPlaygroundQuickLookable", "init"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "isEmpty"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "length"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "localized"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "size"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "trimmingCharacters"]
@@ -777,6 +782,7 @@ depends-member:
 - !private ["Ps17CustomReflectable", "first"]
 - ["Ps17CustomReflectable", "init"]
 - !private ["Ps17CustomReflectable", "isEmpty"]
+- !private ["Ps17CustomReflectable", "length"]
 - !private ["Ps17CustomReflectable", "localized"]
 - !private ["Ps17CustomReflectable", "replaceObject"]
 - !private ["Ps17CustomReflectable", "row"]
@@ -880,6 +886,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "isSelected"]
 - !private ["Ps23CustomStringConvertible", "kContactListScreenName"]
 - !private ["Ps23CustomStringConvertible", "layer"]
+- !private ["Ps23CustomStringConvertible", "length"]
 - !private ["Ps23CustomStringConvertible", "localized"]
 - ["Ps23CustomStringConvertible", "naviagteToChatScreen"]
 - !private ["Ps23CustomStringConvertible", "navigationController"]
@@ -1049,6 +1056,7 @@ depends-member:
 - !private ["Ps9Equatable", "isSelected"]
 - !private ["Ps9Equatable", "kContactListScreenName"]
 - !private ["Ps9Equatable", "layer"]
+- !private ["Ps9Equatable", "length"]
 - !private ["Ps9Equatable", "localized"]
 - ["Ps9Equatable", "naviagteToChatScreen"]
 - !private ["Ps9Equatable", "navigationController"]
@@ -1145,22 +1153,26 @@ depends-member:
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "Encoding"]
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "isEmpty"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "length"]
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "localized"]
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "trimmingCharacters"]
 - ["Ps27ExpressibleByIntegerLiteral", "init"]
 - !private ["Ps32ExpressibleByStringInterpolation", "Encoding"]
 - !private ["Ps32ExpressibleByStringInterpolation", "init"]
 - !private ["Ps32ExpressibleByStringInterpolation", "isEmpty"]
+- !private ["Ps32ExpressibleByStringInterpolation", "length"]
 - !private ["Ps32ExpressibleByStringInterpolation", "localized"]
 - !private ["Ps32ExpressibleByStringInterpolation", "trimmingCharacters"]
 - !private ["Ps26ExpressibleByStringLiteral", "Encoding"]
 - !private ["Ps26ExpressibleByStringLiteral", "init"]
 - !private ["Ps26ExpressibleByStringLiteral", "isEmpty"]
+- !private ["Ps26ExpressibleByStringLiteral", "length"]
 - !private ["Ps26ExpressibleByStringLiteral", "localized"]
 - !private ["Ps26ExpressibleByStringLiteral", "trimmingCharacters"]
 - !private ["Ps33ExpressibleByUnicodeScalarLiteral", "Encoding"]
 - !private ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
 - !private ["Ps33ExpressibleByUnicodeScalarLiteral", "isEmpty"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "length"]
 - !private ["Ps33ExpressibleByUnicodeScalarLiteral", "localized"]
 - !private ["Ps33ExpressibleByUnicodeScalarLiteral", "trimmingCharacters"]
 - !private ["Sf", "deinit"]
@@ -1261,6 +1273,7 @@ depends-member:
 - !private ["Ps8Hashable", "isSelected"]
 - !private ["Ps8Hashable", "kContactListScreenName"]
 - !private ["Ps8Hashable", "layer"]
+- !private ["Ps8Hashable", "length"]
 - !private ["Ps8Hashable", "localized"]
 - ["Ps8Hashable", "naviagteToChatScreen"]
 - !private ["Ps8Hashable", "navigationController"]
@@ -1374,11 +1387,13 @@ depends-member:
 - !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
 - !private ["Ps25LosslessStringConvertible", "init"]
 - !private ["Ps25LosslessStringConvertible", "isEmpty"]
+- !private ["Ps25LosslessStringConvertible", "length"]
 - !private ["Ps25LosslessStringConvertible", "localized"]
 - !private ["Ps25LosslessStringConvertible", "trimmingCharacters"]
 - !private ["Ps10MirrorPath", "Encoding"]
 - ["Ps10MirrorPath", "init"]
 - !private ["Ps10MirrorPath", "isEmpty"]
+- !private ["Ps10MirrorPath", "length"]
 - !private ["Ps10MirrorPath", "localized"]
 - !private ["Ps10MirrorPath", "trimmingCharacters"]
 - !private ["Ps17MutableCollection", "Element"]
@@ -1474,6 +1489,7 @@ depends-member:
 - ["PSo8NSCoding", "isGroupMode"]
 - !private ["PSo8NSCoding", "kContactListScreenName"]
 - !private ["PSo8NSCoding", "layer"]
+- !private ["PSo8NSCoding", "length"]
 - !private ["PSo8NSCoding", "localized"]
 - ["PSo8NSCoding", "naviagteToChatScreen"]
 - !private ["PSo8NSCoding", "navigationController"]
@@ -1535,6 +1551,7 @@ depends-member:
 - !private ["PSo9NSCopying", "id"]
 - ["PSo9NSCopying", "init"]
 - !private ["PSo9NSCopying", "isEmpty"]
+- !private ["PSo9NSCopying", "length"]
 - !private ["PSo9NSCopying", "localized"]
 - !private ["PSo9NSCopying", "replaceObject"]
 - !private ["PSo9NSCopying", "setObject"]
@@ -1650,6 +1667,7 @@ depends-member:
 - !private ["PSo16NSMutableCopying", "count"]
 - ["PSo16NSMutableCopying", "init"]
 - !private ["PSo16NSMutableCopying", "isEmpty"]
+- !private ["PSo16NSMutableCopying", "length"]
 - !private ["PSo16NSMutableCopying", "localized"]
 - !private ["PSo16NSMutableCopying", "replaceObject"]
 - !private ["PSo16NSMutableCopying", "setObject"]
@@ -1761,6 +1779,7 @@ depends-member:
 - !private ["CSo8NSObject", "isSelected"]
 - !private ["CSo8NSObject", "kContactListScreenName"]
 - !private ["CSo8NSObject", "layer"]
+- !private ["CSo8NSObject", "length"]
 - !private ["CSo8NSObject", "localized"]
 - ["CSo8NSObject", "naviagteToChatScreen"]
 - !private ["CSo8NSObject", "navigationController"]
@@ -1905,6 +1924,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "isSelected"]
 - !private ["PSo16NSObjectProtocol", "kContactListScreenName"]
 - !private ["PSo16NSObjectProtocol", "layer"]
+- !private ["PSo16NSObjectProtocol", "length"]
 - !private ["PSo16NSObjectProtocol", "localized"]
 - ["PSo16NSObjectProtocol", "naviagteToChatScreen"]
 - !private ["PSo16NSObjectProtocol", "navigationController"]
@@ -1972,6 +1992,7 @@ depends-member:
 - !private ["PSo14NSSecureCoding", "count"]
 - ["PSo14NSSecureCoding", "init"]
 - !private ["PSo14NSSecureCoding", "isEmpty"]
+- !private ["PSo14NSSecureCoding", "length"]
 - !private ["PSo14NSSecureCoding", "localized"]
 - !private ["PSo14NSSecureCoding", "replaceObject"]
 - !private ["PSo14NSSecureCoding", "setObject"]
@@ -1981,6 +2002,7 @@ depends-member:
 - !private ["CSo8NSString", "Encoding"]
 - !private ["CSo8NSString", "init"]
 - !private ["CSo8NSString", "isEmpty"]
+- !private ["CSo8NSString", "length"]
 - !private ["CSo8NSString", "localized"]
 - !private ["CSo8NSString", "trimmingCharacters"]
 - !private ["CSo5NSURL", "init"]
@@ -2136,16 +2158,19 @@ depends-member:
 - ["SS", "deinit"]
 - !private ["SS", "init"]
 - !private ["SS", "isEmpty"]
+- !private ["SS", "length"]
 - !private ["SS", "localized"]
 - !private ["SS", "trimmingCharacters"]
 - !private ["Ps16TextOutputStream", "Encoding"]
 - !private ["Ps16TextOutputStream", "init"]
 - !private ["Ps16TextOutputStream", "isEmpty"]
+- !private ["Ps16TextOutputStream", "length"]
 - !private ["Ps16TextOutputStream", "localized"]
 - !private ["Ps16TextOutputStream", "trimmingCharacters"]
 - !private ["Ps20TextOutputStreamable", "Encoding"]
 - !private ["Ps20TextOutputStreamable", "init"]
 - !private ["Ps20TextOutputStreamable", "isEmpty"]
+- !private ["Ps20TextOutputStreamable", "length"]
 - !private ["Ps20TextOutputStreamable", "localized"]
 - !private ["Ps20TextOutputStreamable", "trimmingCharacters"]
 - !private ["PSo29UIAccessibilityIdentification", "accessoryType"]
@@ -3243,6 +3268,7 @@ depends-member:
 - !private ["P9Alamofire14URLConvertible", "deinit"]
 - !private ["P9Alamofire14URLConvertible", "init"]
 - !private ["P9Alamofire14URLConvertible", "isEmpty"]
+- !private ["P9Alamofire14URLConvertible", "length"]
 - !private ["P9Alamofire14URLConvertible", "localized"]
 - !private ["P9Alamofire14URLConvertible", "trimmingCharacters"]
 - !private ["P9Alamofire21URLRequestConvertible", "deinit"]
@@ -3286,27 +3312,32 @@ depends-member:
 - !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "Encoding"]
 - !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
 - !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "isEmpty"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "length"]
 - !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "localized"]
 - !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "trimmingCharacters"]
 - ["Ps35_ExpressibleByBuiltinIntegerLiteral", "init"]
 - !private ["Ps34_ExpressibleByBuiltinStringLiteral", "Encoding"]
 - !private ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
 - !private ["Ps34_ExpressibleByBuiltinStringLiteral", "isEmpty"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "length"]
 - !private ["Ps34_ExpressibleByBuiltinStringLiteral", "localized"]
 - !private ["Ps34_ExpressibleByBuiltinStringLiteral", "trimmingCharacters"]
 - !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "Encoding"]
 - !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
 - !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "isEmpty"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "length"]
 - !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "localized"]
 - !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "trimmingCharacters"]
 - !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "Encoding"]
 - !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
 - !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "isEmpty"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "length"]
 - !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "localized"]
 - !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "trimmingCharacters"]
 - !private ["Ps35_HasCustomAnyHashableRepresentation", "Encoding"]
 - !private ["Ps35_HasCustomAnyHashableRepresentation", "init"]
 - !private ["Ps35_HasCustomAnyHashableRepresentation", "isEmpty"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "length"]
 - !private ["Ps35_HasCustomAnyHashableRepresentation", "localized"]
 - !private ["Ps35_HasCustomAnyHashableRepresentation", "trimmingCharacters"]
 - !private ["Ps9_Hashable", "Alamofire"]
@@ -3396,6 +3427,7 @@ depends-member:
 - !private ["Ps9_Hashable", "isSelected"]
 - !private ["Ps9_Hashable", "kContactListScreenName"]
 - !private ["Ps9_Hashable", "layer"]
+- !private ["Ps9_Hashable", "length"]
 - !private ["Ps9_Hashable", "localized"]
 - ["Ps9_Hashable", "naviagteToChatScreen"]
 - !private ["Ps9_Hashable", "navigationController"]
@@ -3482,6 +3514,7 @@ depends-member:
 - !private ["Ps21_ObjectiveCBridgeable", "first"]
 - ["Ps21_ObjectiveCBridgeable", "init"]
 - !private ["Ps21_ObjectiveCBridgeable", "isEmpty"]
+- !private ["Ps21_ObjectiveCBridgeable", "length"]
 - !private ["Ps21_ObjectiveCBridgeable", "localized"]
 - !private ["Ps21_ObjectiveCBridgeable", "row"]
 - !private ["Ps21_ObjectiveCBridgeable", "section"]
@@ -3707,11 +3740,11 @@ depends-nominal:
 - "V11DiabetesApp12userDefaults"
 - !private "V11DiabetesApp8userType"
 depends-dynamic-lookup:
-- !private "HCNumber"
-- !private "isSelected"
 - !private "full_name"
-- !private "chatid"
+- !private "HCNumber"
 - !private "patient_id"
+- !private "isSelected"
+- !private "chatid"
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/DiabetesApp/DiabetesApp-Bridging-Header.h"

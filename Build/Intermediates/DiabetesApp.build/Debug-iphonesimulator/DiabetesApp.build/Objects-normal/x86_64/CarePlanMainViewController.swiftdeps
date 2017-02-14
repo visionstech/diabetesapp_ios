@@ -6,77 +6,79 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp26CarePlanMainViewController", ""]
 provides-dynamic-lookup:
-- "recipientIDs"
-- "topBackView"
-- "readingBtn"
-- "getImage"
-- "readingContainer"
-- "createCustomTopView"
-- "carePlanSegmentControl"
-- "awakeFromNib"
-- "viewWillDisappear"
-- "viewDidLoad"
-- "AddBtn_Click"
-- "viewWillAppear"
-- "medicationContainer"
-- "setNavBarUI"
-- "didReceiveMemoryWarning"
-- "ViewModeButtons_Click"
-- "recipientTypes"
-- "BackBtn_Click"
-- "selectedUserType"
 - "medicationBtn"
 - "addBtn"
+- "currentReadEditBool"
+- "viewWillDisappear"
+- "awakeFromNib"
+- "didReceiveMemoryWarning"
+- "AddBtn_Click"
+- "createCustomTopView"
+- "medicationContainer"
+- "currentMedEditBool"
+- "getImage"
+- "selectedUserType"
+- "setNavBarUI"
+- "carePlanSegmentControl"
+- "recipientTypes"
+- "BackBtn_Click"
+- "topBackView"
+- "readingContainer"
+- "ViewModeButtons_Click"
+- "viewDidLoad"
+- "readingBtn"
+- "recipientIDs"
+- "viewWillAppear"
 depends-top-level:
-- !private "AlertView"
-- !private "UIColor"
-- !private "Fonts"
-- "Bool"
-- "AssignmentPrecedence"
-- !private "=="
-- !private "&&"
-- !private "Dictionary"
-- !private "NSNotification"
-- !private "Alamofire"
-- !private "CastingPrecedence"
-- !private "userType"
-- !private "NSFontAttributeName"
-- !private "!="
-- !private "Notifications"
-- !private "SDWebImageManager"
-- "userDefaults"
-- !private "UIApplication"
-- "CarePlanMainViewController"
-- !private "Colors"
-- "Array"
-- !private "NSURL"
-- !private "JSONEncoding"
 - "UIViewController"
-- "UserDefaults"
-- "UIBarButtonItem"
-- !private "UITapGestureRecognizer"
-- !private "NSDictionary"
-- "UISegmentedControl"
+- !private "Notifications"
+- !private "print"
+- !private "userType"
+- !private "!="
 - !private "kButtonRadius"
+- !private "UIUserInterfaceLayoutDirection"
 - !private "SDWebImageOptions"
-- !private "UIImageView"
-- !private "-"
-- "UIView"
-- !private "NSForegroundColorAttributeName"
-- !private "UIImage"
-- "Int"
-- "String"
+- !private "Dictionary"
 - !private "GoogleAnalyticManagerApi"
 - !private "CGRect"
-- !private "BooleanLiteralType"
+- !private "Colors"
+- !private "NSURL"
+- "String"
+- !private "Fonts"
 - "Void"
-- !private "NotificationCenter"
-- !private "+"
-- !private "print"
+- "UIBarButtonItem"
 - !private "URL"
+- !private "UIImageView"
+- !private "UIApplication"
+- !private "NotificationCenter"
+- !private "-"
+- "UIView"
 - !private "/"
+- !private "NSDictionary"
+- "userDefaults"
+- !private "UITapGestureRecognizer"
+- !private "JSONEncoding"
+- !private "SDWebImageManager"
+- !private "NSForegroundColorAttributeName"
+- !private "BooleanLiteralType"
+- "UserDefaults"
+- !private "+"
+- !private "UIImage"
+- "UISegmentedControl"
+- "AssignmentPrecedence"
+- !private "NSFontAttributeName"
+- !private "=="
+- "CarePlanMainViewController"
+- !private "CastingPrecedence"
+- !private "UIColor"
 - "UIButton"
-- !private "UIUserInterfaceLayoutDirection"
+- "Array"
+- !private "&&"
+- "Int"
+- !private "AlertView"
+- !private "Alamofire"
+- !private "NSNotification"
+- "Bool"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "Stride"]
 - !private ["C11DiabetesApp9AlertView", "deinit"]
@@ -85,6 +87,7 @@ depends-member:
 - !private ["Ps9AnyObject", "Alamofire"]
 - !private ["Ps9AnyObject", "AlertView"]
 - ["Ps9AnyObject", "BackBtn_Click"]
+- ["Ps9AnyObject", "Bool"]
 - !private ["Ps9AnyObject", "CGRect"]
 - !private ["Ps9AnyObject", "Colors"]
 - !private ["Ps9AnyObject", "Fonts"]
@@ -116,6 +119,7 @@ depends-member:
 - !private ["Ps9AnyObject", "addSubview"]
 - ["Ps9AnyObject", "awakeFromNib"]
 - !private ["Ps9AnyObject", "backgroundColor"]
+- !private ["Ps9AnyObject", "bool"]
 - !private ["Ps9AnyObject", "borderColor"]
 - !private ["Ps9AnyObject", "borderWidth"]
 - ["Ps9AnyObject", "carePlanSegmentControl"]
@@ -123,6 +127,8 @@ depends-member:
 - !private ["Ps9AnyObject", "clipsToBounds"]
 - !private ["Ps9AnyObject", "cornerRadius"]
 - ["Ps9AnyObject", "createCustomTopView"]
+- ["Ps9AnyObject", "currentMedEditBool"]
+- ["Ps9AnyObject", "currentReadEditBool"]
 - !private ["Ps9AnyObject", "default"]
 - ["Ps9AnyObject", "didReceiveMemoryWarning"]
 - !private ["Ps9AnyObject", "downloadImage"]
@@ -222,6 +228,7 @@ depends-member:
 - ["Ps17BitwiseOperations", "init"]
 - !private ["Sb", "_getBuiltinLogicValue"]
 - ["Sb", "deinit"]
+- ["Sb", "init"]
 - !private ["CSo7CALayer", "borderColor"]
 - !private ["CSo7CALayer", "borderWidth"]
 - !private ["CSo7CALayer", "cornerRadius"]
@@ -256,6 +263,7 @@ depends-member:
 - !private ["Ps7CVarArg", "Alamofire"]
 - !private ["Ps7CVarArg", "AlertView"]
 - ["Ps7CVarArg", "BackBtn_Click"]
+- ["Ps7CVarArg", "Bool"]
 - !private ["Ps7CVarArg", "CGRect"]
 - !private ["Ps7CVarArg", "Colors"]
 - !private ["Ps7CVarArg", "Element"]
@@ -298,6 +306,7 @@ depends-member:
 - !private ["Ps7CVarArg", "addSubview"]
 - ["Ps7CVarArg", "awakeFromNib"]
 - !private ["Ps7CVarArg", "backgroundColor"]
+- !private ["Ps7CVarArg", "bool"]
 - !private ["Ps7CVarArg", "borderColor"]
 - !private ["Ps7CVarArg", "borderWidth"]
 - ["Ps7CVarArg", "carePlanSegmentControl"]
@@ -306,6 +315,8 @@ depends-member:
 - !private ["Ps7CVarArg", "contains"]
 - !private ["Ps7CVarArg", "cornerRadius"]
 - ["Ps7CVarArg", "createCustomTopView"]
+- ["Ps7CVarArg", "currentMedEditBool"]
+- ["Ps7CVarArg", "currentReadEditBool"]
 - !private ["Ps7CVarArg", "default"]
 - ["Ps7CVarArg", "didReceiveMemoryWarning"]
 - !private ["Ps7CVarArg", "downloadImage"]
@@ -402,6 +413,8 @@ depends-member:
 - ["C11DiabetesApp26CarePlanMainViewController", "awakeFromNib"]
 - ["C11DiabetesApp26CarePlanMainViewController", "carePlanSegmentControl"]
 - ["C11DiabetesApp26CarePlanMainViewController", "createCustomTopView"]
+- ["C11DiabetesApp26CarePlanMainViewController", "currentMedEditBool"]
+- ["C11DiabetesApp26CarePlanMainViewController", "currentReadEditBool"]
 - ["C11DiabetesApp26CarePlanMainViewController", "deinit"]
 - ["C11DiabetesApp26CarePlanMainViewController", "didReceiveMemoryWarning"]
 - ["C11DiabetesApp26CarePlanMainViewController", "getImage"]
@@ -451,6 +464,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "Alamofire"]
 - !private ["Ps28CustomDebugStringConvertible", "AlertView"]
 - ["Ps28CustomDebugStringConvertible", "BackBtn_Click"]
+- ["Ps28CustomDebugStringConvertible", "Bool"]
 - !private ["Ps28CustomDebugStringConvertible", "CGRect"]
 - !private ["Ps28CustomDebugStringConvertible", "Colors"]
 - !private ["Ps28CustomDebugStringConvertible", "Element"]
@@ -491,6 +505,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "addSubview"]
 - ["Ps28CustomDebugStringConvertible", "awakeFromNib"]
 - !private ["Ps28CustomDebugStringConvertible", "backgroundColor"]
+- !private ["Ps28CustomDebugStringConvertible", "bool"]
 - !private ["Ps28CustomDebugStringConvertible", "borderColor"]
 - !private ["Ps28CustomDebugStringConvertible", "borderWidth"]
 - ["Ps28CustomDebugStringConvertible", "carePlanSegmentControl"]
@@ -499,6 +514,8 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "contains"]
 - !private ["Ps28CustomDebugStringConvertible", "cornerRadius"]
 - ["Ps28CustomDebugStringConvertible", "createCustomTopView"]
+- ["Ps28CustomDebugStringConvertible", "currentMedEditBool"]
+- ["Ps28CustomDebugStringConvertible", "currentReadEditBool"]
 - !private ["Ps28CustomDebugStringConvertible", "default"]
 - ["Ps28CustomDebugStringConvertible", "didReceiveMemoryWarning"]
 - !private ["Ps28CustomDebugStringConvertible", "downloadImage"]
@@ -594,6 +611,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "Alamofire"]
 - !private ["Ps23CustomStringConvertible", "AlertView"]
 - ["Ps23CustomStringConvertible", "BackBtn_Click"]
+- ["Ps23CustomStringConvertible", "Bool"]
 - !private ["Ps23CustomStringConvertible", "CGRect"]
 - !private ["Ps23CustomStringConvertible", "Colors"]
 - !private ["Ps23CustomStringConvertible", "Element"]
@@ -637,6 +655,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "addSubview"]
 - ["Ps23CustomStringConvertible", "awakeFromNib"]
 - !private ["Ps23CustomStringConvertible", "backgroundColor"]
+- !private ["Ps23CustomStringConvertible", "bool"]
 - !private ["Ps23CustomStringConvertible", "borderColor"]
 - !private ["Ps23CustomStringConvertible", "borderWidth"]
 - ["Ps23CustomStringConvertible", "carePlanSegmentControl"]
@@ -645,6 +664,8 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "contains"]
 - !private ["Ps23CustomStringConvertible", "cornerRadius"]
 - ["Ps23CustomStringConvertible", "createCustomTopView"]
+- ["Ps23CustomStringConvertible", "currentMedEditBool"]
+- ["Ps23CustomStringConvertible", "currentReadEditBool"]
 - !private ["Ps23CustomStringConvertible", "default"]
 - ["Ps23CustomStringConvertible", "didReceiveMemoryWarning"]
 - !private ["Ps23CustomStringConvertible", "downloadImage"]
@@ -729,6 +750,7 @@ depends-member:
 - !private ["Ps9Equatable", "Alamofire"]
 - !private ["Ps9Equatable", "AlertView"]
 - ["Ps9Equatable", "BackBtn_Click"]
+- ["Ps9Equatable", "Bool"]
 - !private ["Ps9Equatable", "CGRect"]
 - !private ["Ps9Equatable", "Colors"]
 - !private ["Ps9Equatable", "Fonts"]
@@ -764,6 +786,7 @@ depends-member:
 - !private ["Ps9Equatable", "addSubview"]
 - ["Ps9Equatable", "awakeFromNib"]
 - !private ["Ps9Equatable", "backgroundColor"]
+- !private ["Ps9Equatable", "bool"]
 - !private ["Ps9Equatable", "borderColor"]
 - !private ["Ps9Equatable", "borderWidth"]
 - ["Ps9Equatable", "carePlanSegmentControl"]
@@ -771,6 +794,8 @@ depends-member:
 - !private ["Ps9Equatable", "clipsToBounds"]
 - !private ["Ps9Equatable", "cornerRadius"]
 - ["Ps9Equatable", "createCustomTopView"]
+- ["Ps9Equatable", "currentMedEditBool"]
+- ["Ps9Equatable", "currentReadEditBool"]
 - !private ["Ps9Equatable", "default"]
 - ["Ps9Equatable", "didReceiveMemoryWarning"]
 - !private ["Ps9Equatable", "downloadImage"]
@@ -848,6 +873,7 @@ depends-member:
 - !private ["Ps25ExpressibleByArrayLiteral", "selected"]
 - !private ["Ps25ExpressibleByArrayLiteral", "subscript"]
 - !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- ["Ps27ExpressibleByBooleanLiteral", "init"]
 - !private ["Ps30ExpressibleByDictionaryLiteral", "Key"]
 - !private ["Ps30ExpressibleByDictionaryLiteral", "Value"]
 - !private ["Ps30ExpressibleByDictionaryLiteral", "value"]
@@ -876,6 +902,7 @@ depends-member:
 - !private ["Ps8Hashable", "Alamofire"]
 - !private ["Ps8Hashable", "AlertView"]
 - ["Ps8Hashable", "BackBtn_Click"]
+- ["Ps8Hashable", "Bool"]
 - !private ["Ps8Hashable", "CGRect"]
 - !private ["Ps8Hashable", "Colors"]
 - !private ["Ps8Hashable", "Fonts"]
@@ -911,6 +938,7 @@ depends-member:
 - !private ["Ps8Hashable", "addSubview"]
 - ["Ps8Hashable", "awakeFromNib"]
 - !private ["Ps8Hashable", "backgroundColor"]
+- !private ["Ps8Hashable", "bool"]
 - !private ["Ps8Hashable", "borderColor"]
 - !private ["Ps8Hashable", "borderWidth"]
 - ["Ps8Hashable", "carePlanSegmentControl"]
@@ -918,6 +946,8 @@ depends-member:
 - !private ["Ps8Hashable", "clipsToBounds"]
 - !private ["Ps8Hashable", "cornerRadius"]
 - ["Ps8Hashable", "createCustomTopView"]
+- ["Ps8Hashable", "currentMedEditBool"]
+- ["Ps8Hashable", "currentReadEditBool"]
 - !private ["Ps8Hashable", "default"]
 - ["Ps8Hashable", "didReceiveMemoryWarning"]
 - !private ["Ps8Hashable", "downloadImage"]
@@ -1024,7 +1054,7 @@ depends-member:
 - ["V9Alamofire12JSONEncoding", "deinit"]
 - !private ["Ps25LosslessStringConvertible", "Stride"]
 - !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
-- !private ["Ps25LosslessStringConvertible", "init"]
+- ["Ps25LosslessStringConvertible", "init"]
 - !private ["Ps25LosslessStringConvertible", "localized"]
 - !private ["Ps10MirrorPath", "IntegerLiteralType"]
 - !private ["Ps10MirrorPath", "Stride"]
@@ -1054,6 +1084,7 @@ depends-member:
 - !private ["PSo8NSCoding", "Alamofire"]
 - !private ["PSo8NSCoding", "AlertView"]
 - ["PSo8NSCoding", "BackBtn_Click"]
+- ["PSo8NSCoding", "Bool"]
 - !private ["PSo8NSCoding", "CGRect"]
 - !private ["PSo8NSCoding", "Colors"]
 - !private ["PSo8NSCoding", "Fonts"]
@@ -1092,6 +1123,8 @@ depends-member:
 - !private ["PSo8NSCoding", "clipsToBounds"]
 - !private ["PSo8NSCoding", "cornerRadius"]
 - ["PSo8NSCoding", "createCustomTopView"]
+- ["PSo8NSCoding", "currentMedEditBool"]
+- ["PSo8NSCoding", "currentReadEditBool"]
 - ["PSo8NSCoding", "didReceiveMemoryWarning"]
 - !private ["PSo8NSCoding", "frame"]
 - ["PSo8NSCoding", "getImage"]
@@ -1149,6 +1182,7 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "Alamofire"]
 - !private ["PSo26NSExtensionRequestHandling", "AlertView"]
 - ["PSo26NSExtensionRequestHandling", "BackBtn_Click"]
+- ["PSo26NSExtensionRequestHandling", "Bool"]
 - !private ["PSo26NSExtensionRequestHandling", "CGRect"]
 - !private ["PSo26NSExtensionRequestHandling", "Colors"]
 - !private ["PSo26NSExtensionRequestHandling", "Fonts"]
@@ -1177,6 +1211,8 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "awakeFromNib"]
 - ["PSo26NSExtensionRequestHandling", "carePlanSegmentControl"]
 - ["PSo26NSExtensionRequestHandling", "createCustomTopView"]
+- ["PSo26NSExtensionRequestHandling", "currentMedEditBool"]
+- ["PSo26NSExtensionRequestHandling", "currentReadEditBool"]
 - ["PSo26NSExtensionRequestHandling", "didReceiveMemoryWarning"]
 - ["PSo26NSExtensionRequestHandling", "getImage"]
 - !private ["PSo26NSExtensionRequestHandling", "init"]
@@ -1252,6 +1288,7 @@ depends-member:
 - !private ["CSo8NSObject", "addSubview"]
 - ["CSo8NSObject", "awakeFromNib"]
 - !private ["CSo8NSObject", "backgroundColor"]
+- !private ["CSo8NSObject", "bool"]
 - !private ["CSo8NSObject", "borderColor"]
 - !private ["CSo8NSObject", "borderWidth"]
 - ["CSo8NSObject", "carePlanSegmentControl"]
@@ -1259,6 +1296,8 @@ depends-member:
 - !private ["CSo8NSObject", "clipsToBounds"]
 - !private ["CSo8NSObject", "cornerRadius"]
 - ["CSo8NSObject", "createCustomTopView"]
+- ["CSo8NSObject", "currentMedEditBool"]
+- ["CSo8NSObject", "currentReadEditBool"]
 - !private ["CSo8NSObject", "default"]
 - !private ["CSo8NSObject", "deinit"]
 - ["CSo8NSObject", "didReceiveMemoryWarning"]
@@ -1318,6 +1357,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "Alamofire"]
 - !private ["PSo16NSObjectProtocol", "AlertView"]
 - ["PSo16NSObjectProtocol", "BackBtn_Click"]
+- ["PSo16NSObjectProtocol", "Bool"]
 - !private ["PSo16NSObjectProtocol", "CGRect"]
 - !private ["PSo16NSObjectProtocol", "Colors"]
 - !private ["PSo16NSObjectProtocol", "Fonts"]
@@ -1349,6 +1389,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "addSubview"]
 - ["PSo16NSObjectProtocol", "awakeFromNib"]
 - !private ["PSo16NSObjectProtocol", "backgroundColor"]
+- !private ["PSo16NSObjectProtocol", "bool"]
 - !private ["PSo16NSObjectProtocol", "borderColor"]
 - !private ["PSo16NSObjectProtocol", "borderWidth"]
 - ["PSo16NSObjectProtocol", "carePlanSegmentControl"]
@@ -1356,6 +1397,8 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "clipsToBounds"]
 - !private ["PSo16NSObjectProtocol", "cornerRadius"]
 - ["PSo16NSObjectProtocol", "createCustomTopView"]
+- ["PSo16NSObjectProtocol", "currentMedEditBool"]
+- ["PSo16NSObjectProtocol", "currentReadEditBool"]
 - !private ["PSo16NSObjectProtocol", "default"]
 - ["PSo16NSObjectProtocol", "didReceiveMemoryWarning"]
 - !private ["PSo16NSObjectProtocol", "downloadImage"]
@@ -1569,6 +1612,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "Alamofire"]
 - !private ["PSo21UIAppearanceContainer", "AlertView"]
 - ["PSo21UIAppearanceContainer", "BackBtn_Click"]
+- ["PSo21UIAppearanceContainer", "Bool"]
 - !private ["PSo21UIAppearanceContainer", "CGRect"]
 - !private ["PSo21UIAppearanceContainer", "Colors"]
 - !private ["PSo21UIAppearanceContainer", "Fonts"]
@@ -1601,6 +1645,8 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "carePlanSegmentControl"]
 - !private ["PSo21UIAppearanceContainer", "clipsToBounds"]
 - ["PSo21UIAppearanceContainer", "createCustomTopView"]
+- ["PSo21UIAppearanceContainer", "currentMedEditBool"]
+- ["PSo21UIAppearanceContainer", "currentReadEditBool"]
 - ["PSo21UIAppearanceContainer", "didReceiveMemoryWarning"]
 - !private ["PSo21UIAppearanceContainer", "frame"]
 - ["PSo21UIAppearanceContainer", "getImage"]
@@ -1655,6 +1701,7 @@ depends-member:
 - !private ["PSo18UIContentContainer", "Alamofire"]
 - !private ["PSo18UIContentContainer", "AlertView"]
 - ["PSo18UIContentContainer", "BackBtn_Click"]
+- ["PSo18UIContentContainer", "Bool"]
 - !private ["PSo18UIContentContainer", "CGRect"]
 - !private ["PSo18UIContentContainer", "Colors"]
 - !private ["PSo18UIContentContainer", "Fonts"]
@@ -1683,6 +1730,8 @@ depends-member:
 - ["PSo18UIContentContainer", "awakeFromNib"]
 - ["PSo18UIContentContainer", "carePlanSegmentControl"]
 - ["PSo18UIContentContainer", "createCustomTopView"]
+- ["PSo18UIContentContainer", "currentMedEditBool"]
+- ["PSo18UIContentContainer", "currentReadEditBool"]
 - ["PSo18UIContentContainer", "didReceiveMemoryWarning"]
 - ["PSo18UIContentContainer", "getImage"]
 - !private ["PSo18UIContentContainer", "init"]
@@ -1750,6 +1799,7 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "Alamofire"]
 - !private ["PSo18UIFocusEnvironment", "AlertView"]
 - ["PSo18UIFocusEnvironment", "BackBtn_Click"]
+- ["PSo18UIFocusEnvironment", "Bool"]
 - !private ["PSo18UIFocusEnvironment", "CGRect"]
 - !private ["PSo18UIFocusEnvironment", "Colors"]
 - !private ["PSo18UIFocusEnvironment", "Fonts"]
@@ -1782,6 +1832,8 @@ depends-member:
 - ["PSo18UIFocusEnvironment", "carePlanSegmentControl"]
 - !private ["PSo18UIFocusEnvironment", "clipsToBounds"]
 - ["PSo18UIFocusEnvironment", "createCustomTopView"]
+- ["PSo18UIFocusEnvironment", "currentMedEditBool"]
+- ["PSo18UIFocusEnvironment", "currentReadEditBool"]
 - ["PSo18UIFocusEnvironment", "didReceiveMemoryWarning"]
 - !private ["PSo18UIFocusEnvironment", "frame"]
 - ["PSo18UIFocusEnvironment", "getImage"]
@@ -1896,6 +1948,8 @@ depends-member:
 - ["CSo11UIResponder", "carePlanSegmentControl"]
 - !private ["CSo11UIResponder", "clipsToBounds"]
 - ["CSo11UIResponder", "createCustomTopView"]
+- ["CSo11UIResponder", "currentMedEditBool"]
+- ["CSo11UIResponder", "currentReadEditBool"]
 - ["CSo11UIResponder", "didReceiveMemoryWarning"]
 - !private ["CSo11UIResponder", "frame"]
 - ["CSo11UIResponder", "getImage"]
@@ -1937,6 +1991,7 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "Alamofire"]
 - !private ["PSo30UIResponderStandardEditActions", "AlertView"]
 - ["PSo30UIResponderStandardEditActions", "BackBtn_Click"]
+- ["PSo30UIResponderStandardEditActions", "Bool"]
 - !private ["PSo30UIResponderStandardEditActions", "CGRect"]
 - !private ["PSo30UIResponderStandardEditActions", "Colors"]
 - !private ["PSo30UIResponderStandardEditActions", "Fonts"]
@@ -1969,6 +2024,8 @@ depends-member:
 - ["PSo30UIResponderStandardEditActions", "carePlanSegmentControl"]
 - !private ["PSo30UIResponderStandardEditActions", "clipsToBounds"]
 - ["PSo30UIResponderStandardEditActions", "createCustomTopView"]
+- ["PSo30UIResponderStandardEditActions", "currentMedEditBool"]
+- ["PSo30UIResponderStandardEditActions", "currentReadEditBool"]
 - ["PSo30UIResponderStandardEditActions", "didReceiveMemoryWarning"]
 - !private ["PSo30UIResponderStandardEditActions", "frame"]
 - ["PSo30UIResponderStandardEditActions", "getImage"]
@@ -2017,6 +2074,7 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "Alamofire"]
 - !private ["PSo16UIStateRestoring", "AlertView"]
 - ["PSo16UIStateRestoring", "BackBtn_Click"]
+- ["PSo16UIStateRestoring", "Bool"]
 - !private ["PSo16UIStateRestoring", "CGRect"]
 - !private ["PSo16UIStateRestoring", "Colors"]
 - !private ["PSo16UIStateRestoring", "Fonts"]
@@ -2045,6 +2103,8 @@ depends-member:
 - ["PSo16UIStateRestoring", "awakeFromNib"]
 - ["PSo16UIStateRestoring", "carePlanSegmentControl"]
 - ["PSo16UIStateRestoring", "createCustomTopView"]
+- ["PSo16UIStateRestoring", "currentMedEditBool"]
+- ["PSo16UIStateRestoring", "currentReadEditBool"]
 - ["PSo16UIStateRestoring", "didReceiveMemoryWarning"]
 - ["PSo16UIStateRestoring", "getImage"]
 - !private ["PSo16UIStateRestoring", "init"]
@@ -2083,6 +2143,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "Alamofire"]
 - !private ["PSo18UITraitEnvironment", "AlertView"]
 - ["PSo18UITraitEnvironment", "BackBtn_Click"]
+- ["PSo18UITraitEnvironment", "Bool"]
 - !private ["PSo18UITraitEnvironment", "CGRect"]
 - !private ["PSo18UITraitEnvironment", "Colors"]
 - !private ["PSo18UITraitEnvironment", "Fonts"]
@@ -2115,6 +2176,8 @@ depends-member:
 - ["PSo18UITraitEnvironment", "carePlanSegmentControl"]
 - !private ["PSo18UITraitEnvironment", "clipsToBounds"]
 - ["PSo18UITraitEnvironment", "createCustomTopView"]
+- ["PSo18UITraitEnvironment", "currentMedEditBool"]
+- ["PSo18UITraitEnvironment", "currentReadEditBool"]
 - ["PSo18UITraitEnvironment", "didReceiveMemoryWarning"]
 - !private ["PSo18UITraitEnvironment", "frame"]
 - ["PSo18UITraitEnvironment", "getImage"]
@@ -2208,6 +2271,8 @@ depends-member:
 - ["CSo16UIViewController", "awakeFromNib"]
 - ["CSo16UIViewController", "carePlanSegmentControl"]
 - ["CSo16UIViewController", "createCustomTopView"]
+- ["CSo16UIViewController", "currentMedEditBool"]
+- ["CSo16UIViewController", "currentReadEditBool"]
 - ["CSo16UIViewController", "deinit"]
 - ["CSo16UIViewController", "didReceiveMemoryWarning"]
 - ["CSo16UIViewController", "getImage"]
@@ -2244,6 +2309,7 @@ depends-member:
 - !private ["P9Alamofire14URLConvertible", "init"]
 - !private ["P9Alamofire14URLConvertible", "localized"]
 - !private ["Sc", "deinit"]
+- !private ["CSo12UserDefaults", "bool"]
 - ["CSo12UserDefaults", "deinit"]
 - ["CSo12UserDefaults", "integer"]
 - ["CSo12UserDefaults", "standard"]
@@ -2284,6 +2350,7 @@ depends-member:
 - !private ["Ps24_DestructorSafeContainer", "index"]
 - !private ["Ps24_DestructorSafeContainer", "subscript"]
 - !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- ["Ps35_ExpressibleByBuiltinBooleanLiteral", "init"]
 - !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
 - !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "localized"]
 - !private ["Ps33_ExpressibleByBuiltinFloatLiteral", "Stride"]
@@ -2309,6 +2376,7 @@ depends-member:
 - !private ["Ps9_Hashable", "Alamofire"]
 - !private ["Ps9_Hashable", "AlertView"]
 - ["Ps9_Hashable", "BackBtn_Click"]
+- ["Ps9_Hashable", "Bool"]
 - !private ["Ps9_Hashable", "CGRect"]
 - !private ["Ps9_Hashable", "Colors"]
 - !private ["Ps9_Hashable", "Fonts"]
@@ -2344,6 +2412,7 @@ depends-member:
 - !private ["Ps9_Hashable", "addSubview"]
 - ["Ps9_Hashable", "awakeFromNib"]
 - !private ["Ps9_Hashable", "backgroundColor"]
+- !private ["Ps9_Hashable", "bool"]
 - !private ["Ps9_Hashable", "borderColor"]
 - !private ["Ps9_Hashable", "borderWidth"]
 - ["Ps9_Hashable", "carePlanSegmentControl"]
@@ -2351,6 +2420,8 @@ depends-member:
 - !private ["Ps9_Hashable", "clipsToBounds"]
 - !private ["Ps9_Hashable", "cornerRadius"]
 - ["Ps9_Hashable", "createCustomTopView"]
+- ["Ps9_Hashable", "currentMedEditBool"]
+- ["Ps9_Hashable", "currentReadEditBool"]
 - !private ["Ps9_Hashable", "default"]
 - ["Ps9_Hashable", "didReceiveMemoryWarning"]
 - !private ["Ps9_Hashable", "downloadImage"]
@@ -2494,7 +2565,7 @@ depends-nominal:
 - "Ps9Equatable"
 - !private "Ps5Error"
 - !private "Ps25ExpressibleByArrayLiteral"
-- !private "Ps27ExpressibleByBooleanLiteral"
+- "Ps27ExpressibleByBooleanLiteral"
 - !private "Ps30ExpressibleByDictionaryLiteral"
 - !private "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
 - !private "Ps25ExpressibleByFloatLiteral"
@@ -2521,7 +2592,7 @@ depends-nominal:
 - "Ps17IntegerArithmetic"
 - !private "Ps16IteratorProtocol"
 - "V9Alamofire12JSONEncoding"
-- !private "Ps25LosslessStringConvertible"
+- "Ps25LosslessStringConvertible"
 - "Ps10MirrorPath"
 - !private "Ps17MutableCollection"
 - !private "Ps16MutableIndexable"
@@ -2614,7 +2685,7 @@ depends-nominal:
 - !private "Ps22_CVarArgPassedAsDouble"
 - "Ps37_DefaultCustomPlaygroundQuickLookable"
 - !private "Ps24_DestructorSafeContainer"
-- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- "Ps35_ExpressibleByBuiltinBooleanLiteral"
 - !private "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
 - !private "Ps33_ExpressibleByBuiltinFloatLiteral"
 - "Ps35_ExpressibleByBuiltinIntegerLiteral"
@@ -2986,4 +3057,4 @@ depends-external:
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController-umbrella.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Modules/module.modulemap"
-interface-hash: "4c04a953089aeb776b184d24c9b43f92"
+interface-hash: "ece3cfd30aeec0cb053826cc70c38896"

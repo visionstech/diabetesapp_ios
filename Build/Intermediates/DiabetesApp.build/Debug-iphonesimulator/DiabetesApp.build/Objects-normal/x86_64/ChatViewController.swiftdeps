@@ -9,262 +9,263 @@ provides-member:
 - ["C11DiabetesApp18ChatViewController", ""]
 - ["SS", "length"]
 provides-dynamic-lookup:
-- "dialog"
-- "willResignActiveBlock"
-- "storedMessages"
-- "viewWillDisappear"
-- "appDelegate"
-- "callWithConferenceType"
-- "getImage"
-- "chatCellDidTapAvatar"
-- "sendMessage"
 - "queueManager"
-- "collectionView"
-- "collectionView"
-- "collectionView"
-- "collectionView"
-- "collectionView"
-- "collectionView"
-- "collectionView"
-- "chatServiceChatDidReconnect"
-- "didPickAttachmentImage"
-- "readMessages"
-- "updateTitle"
-- "reportClick"
-- "recipientTypes"
-- "prepare"
-- "imagePickerViewController"
-- "didPressSend"
-- "didPressSend"
-- "BackBtn_Click"
-- "sendBeginTyping"
-- "textViewDidChange"
-- "chatService"
-- "chatService"
-- "chatService"
-- "chatService"
-- "chatService"
-- "chatAttachmentService"
-- "chatAttachmentService"
-- "chatAttachmentService"
-- "textViewDidEndEditing"
-- "viewDidAppear"
-- "showCharactersNumberError"
-- "messageShouldBeRead"
-- "optionsClick"
-- "viewWillAppear"
-- "recipientIDs"
-- "attributedString"
-- "bottomLabelAttributedString"
-- "maxCharactersNumber"
-- "selectedUserType"
-- "groupMembersArray"
-- "occupantUser"
-- "videoAudioClick"
-- "unreadMessages"
-- "handleNotSentMessage"
-- "loadMessages"
 - "topLabelAttributedString"
-- "refreshAndReadMessages"
-- "occupantID"
-- "sendStopTyping"
-- "fireSendStopTypingIfNecessary"
+- "topUserImageView"
+- "chatCellDidTapAvatar"
+- "getGroupMemberName"
+- "chatAttachmentService"
+- "chatAttachmentService"
+- "chatAttachmentService"
+- "appDelegate"
+- "willResignActiveBlock"
+- "deferredQueueManager"
+- "deferredQueueManager"
 - "imageTapped"
-- "typingTimer"
-- "viewClass"
-- "chatServiceChatDidConnect"
-- "dismissFullscreenImage"
 - "placeHolderTextView"
+- "canMakeACall"
+- "optionsClick"
+- "didPressSend"
+- "didPressSend"
+- "recipientTypes"
+- "textViewDidEndEditing"
+- "attachmentCellsMap"
+- "getImage"
+- "viewDidLoad"
+- "chatServiceChatDidConnect"
+- "sendBeginTyping"
+- "unreadMessages"
+- "sendReadStatusForMessage"
+- "viewClass"
+- "readMessages"
+- "viewDidDisappear"
+- "textViewDidChange"
 - "textView"
 - "tempImageView"
-- "canMakeACall"
-- "detailedCells"
-- "topUserImageView"
-- "getGroupMemberName"
-- "chatCell"
-- "chatCell"
-- "chatCell"
-- "viewDidDisappear"
+- "loadMessages"
+- "attributedString"
+- "reportClick"
+- "showCharactersNumberError"
+- "sendMessage"
+- "selectedUserType"
+- "chatServiceChatDidReconnect"
+- "dismissFullscreenImage"
+- "occupantID"
+- "chatService"
+- "chatService"
+- "chatService"
+- "chatService"
+- "chatService"
+- "fireSendStopTypingIfNecessary"
+- "occupantUser"
+- "prepare"
+- "BackBtn_Click"
+- "maxCharactersNumber"
 - "topBackView"
-- "deferredQueueManager"
-- "deferredQueueManager"
-- "viewDidLoad"
-- "attachmentCellsMap"
-- "chatCellDidTapContainer"
 - "createCustomTopView"
+- "viewDidAppear"
+- "groupMembersArray"
+- "refreshAndReadMessages"
+- "chatCell"
+- "chatCell"
+- "chatCell"
+- "didPickAttachmentImage"
+- "dialog"
+- "chatCellDidTapContainer"
+- "viewWillDisappear"
 - "statusStringFromMessage"
-- "sendReadStatusForMessage"
+- "detailedCells"
+- "imagePickerViewController"
+- "storedMessages"
+- "bottomLabelAttributedString"
+- "updateTitle"
+- "sendStopTyping"
+- "viewWillAppear"
+- "messageShouldBeRead"
+- "videoAudioClick"
+- "recipientIDs"
+- "collectionView"
+- "collectionView"
+- "collectionView"
+- "collectionView"
+- "collectionView"
+- "collectionView"
+- "collectionView"
+- "handleNotSentMessage"
+- "callWithConferenceType"
+- "typingTimer"
 depends-top-level:
-- !private "kMessageContainerWidthPadding"
-- !private "QMChatIncomingCell"
-- !private "NSURL"
-- !private "GeneralLabels"
-- !private "<"
-- !private "UIImageJPEGRepresentation"
-- !private "CGRect"
-- "UIApplication"
-- "UIImagePickerController"
-- "UITextView"
-- !private "UnicodeScalarType"
-- !private "Parameters"
-- !private "Colors"
-- !private "GoogleAnalyticManagerApi"
-- "Date"
-- "Selector"
-- !private "NSTextAttachment"
-- !private "SVProgressHUDMaskType"
-- "Void"
-- !private "UIImagePickerControllerSourceType"
-- !private "UIBarButtonItem"
-- !private "QBRequest"
-- !private "ceil"
-- !private "UIScreen"
-- !private "NSMutableParagraphStyle"
-- !private "NSMakeRange"
-- !private "print"
-- !private "QMChatAttachmentCell"
-- !private "floor"
-- !private ">="
-- "CGFloat"
-- !private "NSLineBreakMode"
-- "NSMutableArray"
-- "UIView"
-- "ChatViewController"
-- !private "SDWebImageOptions"
-- "QMChatCollectionView"
-- !private "SVProgressHUD"
-- !private "QBAVCallPermissions"
+- !private "UtilityClass"
 - !private "ChatInfo"
-- "UITapGestureRecognizer"
-- "QMPlaceHolderTextView"
-- !private "BooleanLiteralType"
-- !private "UIGraphicsBeginImageContext"
-- !private "UIPasteboard"
-- "NSMapTable"
-- !private "QMChatOutgoingCell"
-- "Bool"
-- "DateFormatter"
-- !private "&&"
-- !private "Error"
-- "NSTextCheckingResult"
-- !private "QMChatAttachmentOutgoingCell"
-- "UICollectionViewCell"
-- !private "CallViewController"
-- !private "DispatchQueue"
+- "QMChatCell"
+- "AnyObject"
+- "UserDefaults"
+- "CGPoint"
+- "QMChatAttachmentService"
+- !private "QMMessageStatus"
 - "AssignmentPrecedence"
 - !private "=="
-- !private "!="
-- !private "userType"
-- "CastingPrecedence"
-- "UIButton"
-- !private "NSNumber"
-- "UIImage"
-- !private ">"
-- !private "QMMessageNotificationType"
-- !private "UIAlertActionStyle"
-- !private "NSNotification"
-- !private "QBMPushMessage"
-- "Array"
-- !private "JSONEncoding"
-- "Timer"
-- "UICollectionView"
-- !private "QMMessageStatus"
-- !private "VideoAudioCall"
-- !private "UIGraphicsEndImageContext"
-- !private "QBChatDialogType"
-- !private "CTTelephonyNetworkInfo"
-- !private "UIBarButtonItemStyle"
-- !private "UIAlertAction"
-- !private "NSMutableString"
-- "TernaryPrecedence"
-- !private "==="
-- !private "NSPointerFunctions"
-- "CGSize"
-- !private "+="
-- !private "UILabel"
-- "AnyObject"
-- !private "QMMessageNotificationManager"
-- "QMChatCellLayoutModel"
-- !private "QBChat"
-- !private "ReportViewController"
-- !private "SDWebImageManager"
-- !private "~="
-- !private "UIUserInterfaceLayoutDirection"
-- "QBChatAttachment"
-- "QMPlaceHolderTextViewPasteDelegate"
-- "Set"
-- "QMDeferredQueueManagerDelegate"
-- !private "UIGraphicsGetImageFromCurrentImageContext"
-- !private "QMChatNotificationCell"
-- "String"
-- !private "ServicesManager"
-- "UserDefaults"
-- "AnyClass"
-- !private "NSString"
-- !private "-"
-- !private "UIColor"
-- !private "HistoryMainViewController"
-- !private "NSDictionary"
-- "QMChatConnectionDelegate"
-- !private "Dictionary"
-- !private "<="
-- "UIActionSheetDelegate"
-- "UIStoryboardSegue"
-- "QMChatServiceDelegate"
-- !private "baseUrl"
-- "Int"
-- "messageTimeDateFormatter"
-- "QMChatAttachmentService"
-- "QMChatAttachmentServiceDelegate"
-- !private "QMChatContactRequestCell"
-- !private "URL"
-- "QMChatCellDelegate"
-- !private "ViewIdentifiers"
-- !private "..<"
-- "QBChatDialog"
-- !private "QBRTCClient"
-- !private "QBSession"
-- "userDefaults"
-- !private "NSMutableDictionary"
-- !private "+"
-- !private "ApiMethods"
-- !private "??"
-- "QBUUser"
-- !private "UIImageView"
-- !private "/"
-- !private "NotificationCenter"
-- "QMChatViewController"
-- "NSRange"
-- !private "CarePlanMainViewController"
-- !private "UIAlertController"
 - !private "PatientInfoViewController"
+- !private "QMChatNotificationCell"
+- "Void"
+- "CastingPrecedence"
+- !private "~="
+- !private "GoogleAnalyticManagerApi"
 - "UInt"
-- !private "NSFontAttributeName"
-- !private "min"
-- !private "||"
-- "IndexPath"
-- !private "AlertView"
-- "QBRTCConferenceType"
-- "NSAttributedString"
-- "CGPoint"
-- !private "Alamofire"
-- "UINavigationControllerDelegate"
-- !private "SFSafariViewController"
+- !private "UIColor"
+- "TernaryPrecedence"
 - "QBChatMessage"
-- "QMMessageAttachmentStatus"
-- "UIImagePickerControllerDelegate"
-- "QMChatCell"
-- !private "NSParagraphStyleAttributeName"
-- !private "!"
-- "AppDelegate"
-- !private "NSTextCheckingAllTypes"
-- !private "NSForegroundColorAttributeName"
-- !private "kChatScreenName"
-- !private "TTTAttributedLabel"
-- "QMDeferredQueueManager"
+- !private ">="
+- "userDefaults"
+- !private "QBRequest"
+- !private "UIGraphicsEndImageContext"
+- "UIStoryboardSegue"
+- "NSMapTable"
+- !private "ReportViewController"
+- !private "DispatchQueue"
+- "NSRange"
+- "NSAttributedString"
+- !private "QMMessageNotificationType"
+- "CGSize"
+- !private "NSLineBreakMode"
+- !private "UIImageJPEGRepresentation"
+- "Selector"
 - !private "Fonts"
-- !private "QMChatAttachmentIncomingCell"
+- "UIView"
+- "NSMutableArray"
+- !private "userType"
+- !private "kChatScreenName"
+- !private "UIImageView"
 - "QMChatService"
+- !private "UIUserInterfaceLayoutDirection"
+- !private "QMMessageNotificationManager"
+- "AnyClass"
+- !private "Error"
+- !private "QMChatOutgoingCell"
+- !private "NSTextCheckingAllTypes"
+- !private "ceil"
+- "CGFloat"
+- "QMPlaceHolderTextView"
+- "QBChatDialog"
+- !private "!"
+- !private "QMChatAttachmentOutgoingCell"
+- !private "UIAlertController"
+- !private "Alamofire"
+- !private "==="
+- !private "QMChatAttachmentCell"
+- !private "HistoryMainViewController"
+- !private "AlertView"
+- !private "SVProgressHUDMaskType"
+- !private "UIAlertAction"
+- !private "min"
+- !private "CarePlanMainViewController"
+- !private "NSMutableString"
+- "QMChatCellLayoutModel"
+- !private "ServicesManager"
+- !private "UIBarButtonItemStyle"
+- !private "QBMPushMessage"
+- !private "Parameters"
+- !private "UILabel"
+- !private "UIAlertActionStyle"
+- "QBRTCConferenceType"
+- "Int"
+- "IndexPath"
+- "UIImagePickerController"
+- "UITextView"
+- !private "+"
+- "QMChatAttachmentServiceDelegate"
+- "QBChatAttachment"
+- !private "UIGraphicsBeginImageContext"
+- "NSTextCheckingResult"
+- !private "NSNumber"
+- "messageTimeDateFormatter"
+- "QMChatCellDelegate"
+- "Timer"
+- !private "CGRect"
+- "QMDeferredQueueManagerDelegate"
+- !private "NotificationCenter"
+- !private "JSONEncoding"
+- !private "||"
+- "QMPlaceHolderTextViewPasteDelegate"
+- !private "Colors"
+- "Array"
+- !private "NSNotification"
+- !private "NSTextAttachment"
+- !private "UnicodeScalarType"
+- !private "URL"
+- !private "&&"
+- "QBUUser"
+- !private "SDWebImageManager"
+- !private "QBRTCClient"
+- !private "VideoAudioCall"
+- !private "UIScreen"
+- !private "-"
+- !private "NSMutableParagraphStyle"
+- !private "..<"
+- !private "CTTelephonyNetworkInfo"
+- !private "QMChatIncomingCell"
+- !private "QBChat"
+- "QMChatViewController"
+- "String"
+- !private "UIBarButtonItem"
+- "QMChatCollectionView"
+- !private "QBSession"
+- "QMDeferredQueueManager"
+- !private "QBAVCallPermissions"
+- !private "SFSafariViewController"
+- !private "ViewIdentifiers"
+- !private "Dictionary"
+- "UIApplication"
+- "QMChatConnectionDelegate"
+- "UIImagePickerControllerDelegate"
+- !private "+="
+- !private "NSForegroundColorAttributeName"
+- "UINavigationControllerDelegate"
+- !private "!="
+- !private "UIImagePickerControllerSourceType"
+- "QMChatServiceDelegate"
+- !private "ApiMethods"
+- !private "floor"
+- "UITapGestureRecognizer"
+- !private "NSMutableDictionary"
+- !private "NSDictionary"
+- !private "QBChatDialogType"
+- !private "CallViewController"
+- !private "/"
+- !private "SDWebImageOptions"
+- !private "NSFontAttributeName"
+- "Set"
+- !private "<"
+- !private "GeneralLabels"
+- !private "NSParagraphStyleAttributeName"
+- !private ">"
+- !private "print"
+- !private "QMChatContactRequestCell"
+- !private "<="
+- "UICollectionViewCell"
+- !private "UIPasteboard"
+- !private "NSURL"
+- "Date"
+- !private "baseUrl"
+- !private "BooleanLiteralType"
+- !private "NSMakeRange"
+- "UIImage"
+- !private "NSPointerFunctions"
+- !private "TTTAttributedLabel"
+- !private "kMessageContainerWidthPadding"
+- "ChatViewController"
+- "Bool"
+- !private "SVProgressHUD"
+- !private "QMChatAttachmentIncomingCell"
+- !private "UIGraphicsGetImageFromCurrentImageContext"
+- "UIButton"
+- "QMMessageAttachmentStatus"
+- !private "NSString"
+- "UICollectionView"
+- "DateFormatter"
+- !private "??"
+- "AppDelegate"
+- "UIActionSheetDelegate"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "Stride"]
 - !private ["Ps16AbsoluteValuable", "greatestFiniteMagnitude"]
@@ -365,6 +366,7 @@ depends-member:
 - !private ["Ps9AnyObject", "UInt"]
 - !private ["Ps9AnyObject", "URL"]
 - ["Ps9AnyObject", "UserDefaults"]
+- !private ["Ps9AnyObject", "UtilityClass"]
 - !private ["Ps9AnyObject", "Value"]
 - !private ["Ps9AnyObject", "VideoAudioCall"]
 - !private ["Ps9AnyObject", "ViewIdentifiers"]
@@ -446,6 +448,7 @@ depends-member:
 - ["Ps9AnyObject", "didPressSend"]
 - !private ["Ps9AnyObject", "dismiss"]
 - ["Ps9AnyObject", "dismissFullscreenImage"]
+- !private ["Ps9AnyObject", "displayAlertMessage"]
 - !private ["Ps9AnyObject", "doubleValue"]
 - !private ["Ps9AnyObject", "downloadImage"]
 - !private ["Ps9AnyObject", "draw"]
@@ -891,6 +894,7 @@ depends-member:
 - !private ["Ps7CVarArg", "UInt"]
 - !private ["Ps7CVarArg", "URL"]
 - ["Ps7CVarArg", "UserDefaults"]
+- !private ["Ps7CVarArg", "UtilityClass"]
 - !private ["Ps7CVarArg", "Value"]
 - !private ["Ps7CVarArg", "VideoAudioCall"]
 - !private ["Ps7CVarArg", "ViewIdentifiers"]
@@ -975,6 +979,7 @@ depends-member:
 - ["Ps7CVarArg", "didPressSend"]
 - !private ["Ps7CVarArg", "dismiss"]
 - ["Ps7CVarArg", "dismissFullscreenImage"]
+- !private ["Ps7CVarArg", "displayAlertMessage"]
 - !private ["Ps7CVarArg", "doubleValue"]
 - !private ["Ps7CVarArg", "downloadImage"]
 - !private ["Ps7CVarArg", "draw"]
@@ -1317,6 +1322,7 @@ depends-member:
 - ["C11DiabetesApp18ChatViewController", "UInt"]
 - !private ["C11DiabetesApp18ChatViewController", "URL"]
 - ["C11DiabetesApp18ChatViewController", "UserDefaults"]
+- !private ["C11DiabetesApp18ChatViewController", "UtilityClass"]
 - !private ["C11DiabetesApp18ChatViewController", "VideoAudioCall"]
 - !private ["C11DiabetesApp18ChatViewController", "ViewIdentifiers"]
 - ["C11DiabetesApp18ChatViewController", "Void"]
@@ -1578,6 +1584,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "UInt"]
 - !private ["Ps28CustomDebugStringConvertible", "URL"]
 - ["Ps28CustomDebugStringConvertible", "UserDefaults"]
+- !private ["Ps28CustomDebugStringConvertible", "UtilityClass"]
 - !private ["Ps28CustomDebugStringConvertible", "Value"]
 - !private ["Ps28CustomDebugStringConvertible", "VideoAudioCall"]
 - !private ["Ps28CustomDebugStringConvertible", "ViewIdentifiers"]
@@ -1661,6 +1668,7 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "didPressSend"]
 - !private ["Ps28CustomDebugStringConvertible", "dismiss"]
 - ["Ps28CustomDebugStringConvertible", "dismissFullscreenImage"]
+- !private ["Ps28CustomDebugStringConvertible", "displayAlertMessage"]
 - !private ["Ps28CustomDebugStringConvertible", "doubleValue"]
 - !private ["Ps28CustomDebugStringConvertible", "downloadImage"]
 - !private ["Ps28CustomDebugStringConvertible", "draw"]
@@ -2051,6 +2059,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "UInt"]
 - !private ["Ps23CustomStringConvertible", "URL"]
 - ["Ps23CustomStringConvertible", "UserDefaults"]
+- !private ["Ps23CustomStringConvertible", "UtilityClass"]
 - !private ["Ps23CustomStringConvertible", "Value"]
 - !private ["Ps23CustomStringConvertible", "VideoAudioCall"]
 - !private ["Ps23CustomStringConvertible", "ViewIdentifiers"]
@@ -2137,6 +2146,7 @@ depends-member:
 - ["Ps23CustomStringConvertible", "didPressSend"]
 - !private ["Ps23CustomStringConvertible", "dismiss"]
 - ["Ps23CustomStringConvertible", "dismissFullscreenImage"]
+- !private ["Ps23CustomStringConvertible", "displayAlertMessage"]
 - !private ["Ps23CustomStringConvertible", "doubleValue"]
 - !private ["Ps23CustomStringConvertible", "downloadImage"]
 - !private ["Ps23CustomStringConvertible", "draw"]
@@ -2489,6 +2499,7 @@ depends-member:
 - !private ["Ps9Equatable", "UInt"]
 - !private ["Ps9Equatable", "URL"]
 - ["Ps9Equatable", "UserDefaults"]
+- !private ["Ps9Equatable", "UtilityClass"]
 - !private ["Ps9Equatable", "Value"]
 - !private ["Ps9Equatable", "VideoAudioCall"]
 - !private ["Ps9Equatable", "ViewIdentifiers"]
@@ -2584,6 +2595,7 @@ depends-member:
 - ["Ps9Equatable", "didPressSend"]
 - !private ["Ps9Equatable", "dismiss"]
 - ["Ps9Equatable", "dismissFullscreenImage"]
+- !private ["Ps9Equatable", "displayAlertMessage"]
 - !private ["Ps9Equatable", "doubleValue"]
 - !private ["Ps9Equatable", "downloadImage"]
 - !private ["Ps9Equatable", "draw"]
@@ -3032,6 +3044,7 @@ depends-member:
 - !private ["Ps8Hashable", "UInt"]
 - !private ["Ps8Hashable", "URL"]
 - ["Ps8Hashable", "UserDefaults"]
+- !private ["Ps8Hashable", "UtilityClass"]
 - !private ["Ps8Hashable", "Value"]
 - !private ["Ps8Hashable", "VideoAudioCall"]
 - !private ["Ps8Hashable", "ViewIdentifiers"]
@@ -3127,6 +3140,7 @@ depends-member:
 - ["Ps8Hashable", "didPressSend"]
 - !private ["Ps8Hashable", "dismiss"]
 - ["Ps8Hashable", "dismissFullscreenImage"]
+- !private ["Ps8Hashable", "displayAlertMessage"]
 - !private ["Ps8Hashable", "doubleValue"]
 - !private ["Ps8Hashable", "downloadImage"]
 - !private ["Ps8Hashable", "draw"]
@@ -3589,6 +3603,7 @@ depends-member:
 - !private ["PSo8NSCoding", "UInt"]
 - !private ["PSo8NSCoding", "URL"]
 - ["PSo8NSCoding", "UserDefaults"]
+- !private ["PSo8NSCoding", "UtilityClass"]
 - !private ["PSo8NSCoding", "Value"]
 - !private ["PSo8NSCoding", "VideoAudioCall"]
 - !private ["PSo8NSCoding", "ViewIdentifiers"]
@@ -3976,6 +3991,7 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "UInt"]
 - !private ["PSo26NSExtensionRequestHandling", "URL"]
 - ["PSo26NSExtensionRequestHandling", "UserDefaults"]
+- !private ["PSo26NSExtensionRequestHandling", "UtilityClass"]
 - !private ["PSo26NSExtensionRequestHandling", "VideoAudioCall"]
 - !private ["PSo26NSExtensionRequestHandling", "ViewIdentifiers"]
 - ["PSo26NSExtensionRequestHandling", "actionSheet"]
@@ -4309,6 +4325,7 @@ depends-member:
 - ["CSo8NSObject", "UInt"]
 - !private ["CSo8NSObject", "URL"]
 - ["CSo8NSObject", "UserDefaults"]
+- !private ["CSo8NSObject", "UtilityClass"]
 - !private ["CSo8NSObject", "Value"]
 - !private ["CSo8NSObject", "VideoAudioCall"]
 - !private ["CSo8NSObject", "ViewIdentifiers"]
@@ -4390,6 +4407,7 @@ depends-member:
 - ["CSo8NSObject", "didPressSend"]
 - !private ["CSo8NSObject", "dismiss"]
 - ["CSo8NSObject", "dismissFullscreenImage"]
+- !private ["CSo8NSObject", "displayAlertMessage"]
 - !private ["CSo8NSObject", "doubleValue"]
 - !private ["CSo8NSObject", "downloadImage"]
 - !private ["CSo8NSObject", "draw"]
@@ -4687,6 +4705,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "UInt"]
 - !private ["PSo16NSObjectProtocol", "URL"]
 - ["PSo16NSObjectProtocol", "UserDefaults"]
+- !private ["PSo16NSObjectProtocol", "UtilityClass"]
 - !private ["PSo16NSObjectProtocol", "Value"]
 - !private ["PSo16NSObjectProtocol", "VideoAudioCall"]
 - !private ["PSo16NSObjectProtocol", "ViewIdentifiers"]
@@ -4769,6 +4788,7 @@ depends-member:
 - ["PSo16NSObjectProtocol", "didPressSend"]
 - !private ["PSo16NSObjectProtocol", "dismiss"]
 - ["PSo16NSObjectProtocol", "dismissFullscreenImage"]
+- !private ["PSo16NSObjectProtocol", "displayAlertMessage"]
 - !private ["PSo16NSObjectProtocol", "doubleValue"]
 - !private ["PSo16NSObjectProtocol", "downloadImage"]
 - !private ["PSo16NSObjectProtocol", "draw"]
@@ -5247,6 +5267,7 @@ depends-member:
 - !private ["PSo31QMChatAttachmentServiceDelegate", "UInt"]
 - !private ["PSo31QMChatAttachmentServiceDelegate", "URL"]
 - ["PSo31QMChatAttachmentServiceDelegate", "UserDefaults"]
+- !private ["PSo31QMChatAttachmentServiceDelegate", "UtilityClass"]
 - !private ["PSo31QMChatAttachmentServiceDelegate", "VideoAudioCall"]
 - !private ["PSo31QMChatAttachmentServiceDelegate", "ViewIdentifiers"]
 - ["PSo31QMChatAttachmentServiceDelegate", "actionSheet"]
@@ -5439,6 +5460,7 @@ depends-member:
 - !private ["PSo18QMChatCellDelegate", "UInt"]
 - !private ["PSo18QMChatCellDelegate", "URL"]
 - ["PSo18QMChatCellDelegate", "UserDefaults"]
+- !private ["PSo18QMChatCellDelegate", "UtilityClass"]
 - !private ["PSo18QMChatCellDelegate", "VideoAudioCall"]
 - !private ["PSo18QMChatCellDelegate", "ViewIdentifiers"]
 - ["PSo18QMChatCellDelegate", "actionSheet"]
@@ -5636,6 +5658,7 @@ depends-member:
 - !private ["PSo30QMChatCollectionViewDataSource", "UInt"]
 - !private ["PSo30QMChatCollectionViewDataSource", "URL"]
 - ["PSo30QMChatCollectionViewDataSource", "UserDefaults"]
+- !private ["PSo30QMChatCollectionViewDataSource", "UtilityClass"]
 - !private ["PSo30QMChatCollectionViewDataSource", "VideoAudioCall"]
 - !private ["PSo30QMChatCollectionViewDataSource", "ViewIdentifiers"]
 - ["PSo30QMChatCollectionViewDataSource", "actionSheet"]
@@ -5837,6 +5860,7 @@ depends-member:
 - !private ["PSo38QMChatCollectionViewDelegateFlowLayout", "UInt"]
 - !private ["PSo38QMChatCollectionViewDelegateFlowLayout", "URL"]
 - ["PSo38QMChatCollectionViewDelegateFlowLayout", "UserDefaults"]
+- !private ["PSo38QMChatCollectionViewDelegateFlowLayout", "UtilityClass"]
 - !private ["PSo38QMChatCollectionViewDelegateFlowLayout", "VideoAudioCall"]
 - !private ["PSo38QMChatCollectionViewDelegateFlowLayout", "ViewIdentifiers"]
 - ["PSo38QMChatCollectionViewDelegateFlowLayout", "actionSheet"]
@@ -6039,6 +6063,7 @@ depends-member:
 - !private ["PSo24QMChatConnectionDelegate", "UInt"]
 - !private ["PSo24QMChatConnectionDelegate", "URL"]
 - ["PSo24QMChatConnectionDelegate", "UserDefaults"]
+- !private ["PSo24QMChatConnectionDelegate", "UtilityClass"]
 - !private ["PSo24QMChatConnectionDelegate", "VideoAudioCall"]
 - !private ["PSo24QMChatConnectionDelegate", "ViewIdentifiers"]
 - ["PSo24QMChatConnectionDelegate", "actionSheet"]
@@ -6269,6 +6294,7 @@ depends-member:
 - !private ["PSo21QMChatServiceDelegate", "UInt"]
 - !private ["PSo21QMChatServiceDelegate", "URL"]
 - ["PSo21QMChatServiceDelegate", "UserDefaults"]
+- !private ["PSo21QMChatServiceDelegate", "UtilityClass"]
 - !private ["PSo21QMChatServiceDelegate", "VideoAudioCall"]
 - !private ["PSo21QMChatServiceDelegate", "ViewIdentifiers"]
 - ["PSo21QMChatServiceDelegate", "actionSheet"]
@@ -6496,6 +6522,7 @@ depends-member:
 - ["CSo20QMChatViewController", "UInt"]
 - !private ["CSo20QMChatViewController", "URL"]
 - ["CSo20QMChatViewController", "UserDefaults"]
+- !private ["CSo20QMChatViewController", "UtilityClass"]
 - !private ["CSo20QMChatViewController", "VideoAudioCall"]
 - !private ["CSo20QMChatViewController", "ViewIdentifiers"]
 - ["CSo20QMChatViewController", "Void"]
@@ -6705,6 +6732,7 @@ depends-member:
 - !private ["PSo30QMDeferredQueueManagerDelegate", "UInt"]
 - !private ["PSo30QMDeferredQueueManagerDelegate", "URL"]
 - ["PSo30QMDeferredQueueManagerDelegate", "UserDefaults"]
+- !private ["PSo30QMDeferredQueueManagerDelegate", "UtilityClass"]
 - !private ["PSo30QMDeferredQueueManagerDelegate", "VideoAudioCall"]
 - !private ["PSo30QMDeferredQueueManagerDelegate", "ViewIdentifiers"]
 - ["PSo30QMDeferredQueueManagerDelegate", "actionSheet"]
@@ -6926,6 +6954,7 @@ depends-member:
 - !private ["PSo34QMPlaceHolderTextViewPasteDelegate", "UInt"]
 - !private ["PSo34QMPlaceHolderTextViewPasteDelegate", "URL"]
 - ["PSo34QMPlaceHolderTextViewPasteDelegate", "UserDefaults"]
+- !private ["PSo34QMPlaceHolderTextViewPasteDelegate", "UtilityClass"]
 - !private ["PSo34QMPlaceHolderTextViewPasteDelegate", "VideoAudioCall"]
 - !private ["PSo34QMPlaceHolderTextViewPasteDelegate", "ViewIdentifiers"]
 - ["PSo34QMPlaceHolderTextViewPasteDelegate", "actionSheet"]
@@ -7426,6 +7455,7 @@ depends-member:
 - !private ["PSo21UIActionSheetDelegate", "UInt"]
 - !private ["PSo21UIActionSheetDelegate", "URL"]
 - ["PSo21UIActionSheetDelegate", "UserDefaults"]
+- !private ["PSo21UIActionSheetDelegate", "UtilityClass"]
 - !private ["PSo21UIActionSheetDelegate", "VideoAudioCall"]
 - !private ["PSo21UIActionSheetDelegate", "ViewIdentifiers"]
 - ["PSo21UIActionSheetDelegate", "actionSheet"]
@@ -7669,6 +7699,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "UInt"]
 - !private ["PSo21UIAppearanceContainer", "URL"]
 - ["PSo21UIAppearanceContainer", "UserDefaults"]
+- !private ["PSo21UIAppearanceContainer", "UtilityClass"]
 - !private ["PSo21UIAppearanceContainer", "VideoAudioCall"]
 - !private ["PSo21UIAppearanceContainer", "ViewIdentifiers"]
 - ["PSo21UIAppearanceContainer", "actionSheet"]
@@ -7956,6 +7987,7 @@ depends-member:
 - !private ["PSo26UICollectionViewDataSource", "UInt"]
 - !private ["PSo26UICollectionViewDataSource", "URL"]
 - ["PSo26UICollectionViewDataSource", "UserDefaults"]
+- !private ["PSo26UICollectionViewDataSource", "UtilityClass"]
 - !private ["PSo26UICollectionViewDataSource", "VideoAudioCall"]
 - !private ["PSo26UICollectionViewDataSource", "ViewIdentifiers"]
 - ["PSo26UICollectionViewDataSource", "actionSheet"]
@@ -8157,6 +8189,7 @@ depends-member:
 - !private ["PSo24UICollectionViewDelegate", "UInt"]
 - !private ["PSo24UICollectionViewDelegate", "URL"]
 - ["PSo24UICollectionViewDelegate", "UserDefaults"]
+- !private ["PSo24UICollectionViewDelegate", "UtilityClass"]
 - !private ["PSo24UICollectionViewDelegate", "VideoAudioCall"]
 - !private ["PSo24UICollectionViewDelegate", "ViewIdentifiers"]
 - ["PSo24UICollectionViewDelegate", "actionSheet"]
@@ -8358,6 +8391,7 @@ depends-member:
 - !private ["PSo34UICollectionViewDelegateFlowLayout", "UInt"]
 - !private ["PSo34UICollectionViewDelegateFlowLayout", "URL"]
 - ["PSo34UICollectionViewDelegateFlowLayout", "UserDefaults"]
+- !private ["PSo34UICollectionViewDelegateFlowLayout", "UtilityClass"]
 - !private ["PSo34UICollectionViewDelegateFlowLayout", "VideoAudioCall"]
 - !private ["PSo34UICollectionViewDelegateFlowLayout", "ViewIdentifiers"]
 - ["PSo34UICollectionViewDelegateFlowLayout", "actionSheet"]
@@ -8565,6 +8599,7 @@ depends-member:
 - !private ["PSo18UIContentContainer", "UInt"]
 - !private ["PSo18UIContentContainer", "URL"]
 - ["PSo18UIContentContainer", "UserDefaults"]
+- !private ["PSo18UIContentContainer", "UtilityClass"]
 - !private ["PSo18UIContentContainer", "VideoAudioCall"]
 - !private ["PSo18UIContentContainer", "ViewIdentifiers"]
 - ["PSo18UIContentContainer", "actionSheet"]
@@ -8865,6 +8900,7 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "UInt"]
 - !private ["PSo18UIFocusEnvironment", "URL"]
 - ["PSo18UIFocusEnvironment", "UserDefaults"]
+- !private ["PSo18UIFocusEnvironment", "UtilityClass"]
 - !private ["PSo18UIFocusEnvironment", "VideoAudioCall"]
 - !private ["PSo18UIFocusEnvironment", "ViewIdentifiers"]
 - ["PSo18UIFocusEnvironment", "actionSheet"]
@@ -9169,6 +9205,7 @@ depends-member:
 - !private ["PSo31UIImagePickerControllerDelegate", "UInt"]
 - !private ["PSo31UIImagePickerControllerDelegate", "URL"]
 - ["PSo31UIImagePickerControllerDelegate", "UserDefaults"]
+- !private ["PSo31UIImagePickerControllerDelegate", "UtilityClass"]
 - !private ["PSo31UIImagePickerControllerDelegate", "VideoAudioCall"]
 - !private ["PSo31UIImagePickerControllerDelegate", "ViewIdentifiers"]
 - ["PSo31UIImagePickerControllerDelegate", "actionSheet"]
@@ -9393,6 +9430,7 @@ depends-member:
 - !private ["PSo30UINavigationControllerDelegate", "UInt"]
 - !private ["PSo30UINavigationControllerDelegate", "URL"]
 - ["PSo30UINavigationControllerDelegate", "UserDefaults"]
+- !private ["PSo30UINavigationControllerDelegate", "UtilityClass"]
 - !private ["PSo30UINavigationControllerDelegate", "VideoAudioCall"]
 - !private ["PSo30UINavigationControllerDelegate", "ViewIdentifiers"]
 - ["PSo30UINavigationControllerDelegate", "actionSheet"]
@@ -9630,6 +9668,7 @@ depends-member:
 - ["CSo11UIResponder", "UInt"]
 - !private ["CSo11UIResponder", "URL"]
 - ["CSo11UIResponder", "UserDefaults"]
+- !private ["CSo11UIResponder", "UtilityClass"]
 - !private ["CSo11UIResponder", "VideoAudioCall"]
 - !private ["CSo11UIResponder", "ViewIdentifiers"]
 - ["CSo11UIResponder", "Void"]
@@ -9883,6 +9922,7 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "UInt"]
 - !private ["PSo30UIResponderStandardEditActions", "URL"]
 - ["PSo30UIResponderStandardEditActions", "UserDefaults"]
+- !private ["PSo30UIResponderStandardEditActions", "UtilityClass"]
 - !private ["PSo30UIResponderStandardEditActions", "VideoAudioCall"]
 - !private ["PSo30UIResponderStandardEditActions", "ViewIdentifiers"]
 - ["PSo30UIResponderStandardEditActions", "actionSheet"]
@@ -10150,6 +10190,7 @@ depends-member:
 - !private ["PSo20UIScrollViewDelegate", "UInt"]
 - !private ["PSo20UIScrollViewDelegate", "URL"]
 - ["PSo20UIScrollViewDelegate", "UserDefaults"]
+- !private ["PSo20UIScrollViewDelegate", "UtilityClass"]
 - !private ["PSo20UIScrollViewDelegate", "VideoAudioCall"]
 - !private ["PSo20UIScrollViewDelegate", "ViewIdentifiers"]
 - ["PSo20UIScrollViewDelegate", "actionSheet"]
@@ -10351,6 +10392,7 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "UInt"]
 - !private ["PSo16UIStateRestoring", "URL"]
 - ["PSo16UIStateRestoring", "UserDefaults"]
+- !private ["PSo16UIStateRestoring", "UtilityClass"]
 - !private ["PSo16UIStateRestoring", "VideoAudioCall"]
 - !private ["PSo16UIStateRestoring", "ViewIdentifiers"]
 - ["PSo16UIStateRestoring", "actionSheet"]
@@ -10582,6 +10624,7 @@ depends-member:
 - !private ["PSo18UITextViewDelegate", "UInt"]
 - !private ["PSo18UITextViewDelegate", "URL"]
 - ["PSo18UITextViewDelegate", "UserDefaults"]
+- !private ["PSo18UITextViewDelegate", "UtilityClass"]
 - !private ["PSo18UITextViewDelegate", "VideoAudioCall"]
 - !private ["PSo18UITextViewDelegate", "ViewIdentifiers"]
 - ["PSo18UITextViewDelegate", "actionSheet"]
@@ -10784,6 +10827,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "UInt"]
 - !private ["PSo18UITraitEnvironment", "URL"]
 - ["PSo18UITraitEnvironment", "UserDefaults"]
+- !private ["PSo18UITraitEnvironment", "UtilityClass"]
 - !private ["PSo18UITraitEnvironment", "VideoAudioCall"]
 - !private ["PSo18UITraitEnvironment", "ViewIdentifiers"]
 - ["PSo18UITraitEnvironment", "actionSheet"]
@@ -11114,6 +11158,7 @@ depends-member:
 - ["CSo16UIViewController", "UInt"]
 - !private ["CSo16UIViewController", "URL"]
 - ["CSo16UIViewController", "UserDefaults"]
+- !private ["CSo16UIViewController", "UtilityClass"]
 - !private ["CSo16UIViewController", "VideoAudioCall"]
 - !private ["CSo16UIViewController", "ViewIdentifiers"]
 - ["CSo16UIViewController", "Void"]
@@ -11280,6 +11325,7 @@ depends-member:
 - !private ["CSo12UserDefaults", "string"]
 - ["CSo12UserDefaults", "stringArray"]
 - !private ["CSo12UserDefaults", "synchronize"]
+- !private ["C11DiabetesApp12UtilityClass", "displayAlertMessage"]
 - !private ["V11DiabetesApp14VideoAudioCall", "audioCall"]
 - !private ["V11DiabetesApp14VideoAudioCall", "videoCall"]
 - !private ["V11DiabetesApp15ViewIdentifiers", "ReportViewController"]
@@ -11534,6 +11580,7 @@ depends-member:
 - !private ["Ps9_Hashable", "UInt"]
 - !private ["Ps9_Hashable", "URL"]
 - ["Ps9_Hashable", "UserDefaults"]
+- !private ["Ps9_Hashable", "UtilityClass"]
 - !private ["Ps9_Hashable", "Value"]
 - !private ["Ps9_Hashable", "VideoAudioCall"]
 - !private ["Ps9_Hashable", "ViewIdentifiers"]
@@ -11629,6 +11676,7 @@ depends-member:
 - ["Ps9_Hashable", "didPressSend"]
 - !private ["Ps9_Hashable", "dismiss"]
 - ["Ps9_Hashable", "dismissFullscreenImage"]
+- !private ["Ps9_Hashable", "displayAlertMessage"]
 - !private ["Ps9_Hashable", "doubleValue"]
 - !private ["Ps9_Hashable", "downloadImage"]
 - !private ["Ps9_Hashable", "draw"]
@@ -12240,6 +12288,7 @@ depends-nominal:
 - !private "Sc"
 - !private "Ps15UnsignedInteger"
 - "CSo12UserDefaults"
+- !private "C11DiabetesApp12UtilityClass"
 - !private "V11DiabetesApp14VideoAudioCall"
 - !private "V11DiabetesApp15ViewIdentifiers"
 - !private "Ps14_ArrayProtocol"

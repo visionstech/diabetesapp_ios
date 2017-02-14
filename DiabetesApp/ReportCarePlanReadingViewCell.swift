@@ -10,13 +10,20 @@ import UIKit
 
 class ReportCarePlanReadingViewCell: UITableViewCell {
 
-    @IBOutlet weak var conditionLbl: UITextField!
+  //  @IBOutlet weak var conditionLbl: UITextField!
        
    
-    @IBOutlet weak var goalLbl: UITextField!
+   
+    @IBOutlet weak var btnEdit: UIButton!
+    @IBOutlet weak var txtGoal: UITextField!
+    @IBOutlet weak var btnFreq: UIButton!
+    @IBOutlet weak var frequencyLbl: UILabel!
+    @IBOutlet weak var btnTiming: UIButton!
+    @IBOutlet weak var conditionLbl: UILabel!
     @IBOutlet weak var numberLbl: UILabel!
     @IBOutlet weak var mainView: UIView!
     
+    @IBOutlet weak var goalLbl: UILabel!
     
     
     override func awakeFromNib() {

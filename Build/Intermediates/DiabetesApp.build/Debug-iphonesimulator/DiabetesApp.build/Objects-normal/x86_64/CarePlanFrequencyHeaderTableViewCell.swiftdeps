@@ -8,16 +8,16 @@ provides-member:
 provides-dynamic-lookup:
 - "awakeFromNib"
 - "headerView"
-- "setSelected"
 - "reqReadings"
+- "setSelected"
 depends-top-level:
-- "UITableViewCell"
-- !private "StringLiteralType"
-- "CarePlanFrequencyHeaderTableViewCell"
+- "UILabel"
 - "AssignmentPrecedence"
 - "Bool"
-- "UILabel"
 - "UIView"
+- "CarePlanFrequencyHeaderTableViewCell"
+- !private "StringLiteralType"
+- "UITableViewCell"
 depends-member:
 - ["Ps9AnyObject", "awakeFromNib"]
 - ["Ps9AnyObject", "headerView"]

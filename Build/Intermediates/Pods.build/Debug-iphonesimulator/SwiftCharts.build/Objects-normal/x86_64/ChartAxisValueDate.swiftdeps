@@ -7,16 +7,16 @@ provides-member:
 - ["C11SwiftCharts18ChartAxisValueDate", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "StringLiteralType"
-- "Double"
-- "ChartLabelSettings"
+- "String"
+- "ChartAxisValue"
 - "ChartAxisValueDate"
 - "DateFormatter"
-- "String"
 - !private "TimeInterval"
-- "ChartAxisValue"
-- "Date"
 - "AssignmentPrecedence"
+- !private "StringLiteralType"
+- "ChartLabelSettings"
+- "Date"
+- "Double"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "init"]
 - !private ["Ps9AnyObject", "ChartAxisValueDate"]

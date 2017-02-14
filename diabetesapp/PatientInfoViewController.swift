@@ -142,7 +142,12 @@ class PatientInfoViewController: UIViewController, UITableViewDelegate, UITableV
                 break
            case .failure(let error):
                 print("failure")
-                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.getUserProfile) Calling", action:"Fail - Web API Calling" , label:String(describing: error), value : self.formInterval.intervalAsSeconds())
+                var strError = ""
+                if(error.localizedDescription.length>0)
+                {
+                    strError = error.localizedDescription
+                }
+                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.getUserProfile) Calling", action:"Fail - Web API Calling" , label:String(describing: strError), value : self.formInterval.intervalAsSeconds())
                 break
                 
             }

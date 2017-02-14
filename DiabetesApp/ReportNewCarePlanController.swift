@@ -147,7 +147,12 @@ class ReportNewCarePlanController: UIViewController, UITableViewDelegate, UITabl
                 case .failure(let error):
                     print("failure")
                     //Google Analytic
-                    GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "getdoctorreport Calling", action:"Fail - Web API Calling" , label:String(describing: error), value : self.formInterval.intervalAsSeconds())
+                    var strError = ""
+                    if(error.localizedDescription.length>0)
+                    {
+                        strError = error.localizedDescription
+                    }
+                    GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "getdoctorreport Calling", action:"Fail - Web API Calling" , label:String(describing: strError), value : self.formInterval.intervalAsSeconds())
                     
                     self.tblView.reloadData()
                     self.resetUI()

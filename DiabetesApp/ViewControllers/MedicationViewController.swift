@@ -31,30 +31,14 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBOutlet weak var lblAddMedicineTitle: UILabel!
     
-   // @IBOutlet weak var addMedicationLabel: UILabel!
-    //@IBOutlet weak var noMedicationsAvailableLabel: UILabel!
-   // @IBOutlet weak var constTableBottom: NSLayoutConstraint!
-   // @IBOutlet weak var constTableBottom: NSLayoutConstraint!
-   // @IBOutlet weak var addNewMedicationBtn: UIButton!
-   // @IBOutlet weak var addNewMedicationView: UIView!
-   // @IBOutlet weak var tblView: UITableView!
-//    @IBOutlet weak var tblView: UITableView!
-//    @IBOutlet weak var addNewMedicationView: UIView!
-//    @IBOutlet weak var addNewMedicationBtn: UIButton!
-    //@IBOutlet weak var tblView: UITableView!
-   // @IBOutlet weak var addBtn: UIButton!
     let picker = UIImagePickerController()
     var array = NSMutableArray()
+    var arrayCopy = NSArray()
     var selectedIndex : NSIndexPath = NSIndexPath()
     var editMedArray = NSMutableArray()
+    var isnewConditionAdd : Bool = false
     
     var formInterval: GTInterval!
-    
-    //@IBOutlet weak var addBtn: UIButton!
-    
-    //@IBOutlet weak var constTableBottom: NSLayoutConstraint!
-   
-    
     let selectedUserType: Int = Int(UserDefaults.standard.integer(forKey: userDefaults.loggedInUserType))
     
     override func viewDidLoad() {
@@ -256,18 +240,16 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
         self.tblView.contentInset = UIEdgeInsetsMake(0, 0, 0 , 0)
         let index: Int = (sender as AnyObject).tag
         let btn = sender as! UIButton
-        let strTitle = btn.currentTitle
+        let obj: CarePlanObj = (array[index] as? CarePlanObj)!
         
-        if(strTitle == "Edit".localized )
+        if(!obj.isEdit)
         {
-            btn.setTitle("Save".localized,for: .normal)
-            btn.setTitle("Save".localized,for: .highlighted)
+            btn.setImage(UIImage(named: "save_icon"), for: .normal)
+            btn.setImage(UIImage(named: "save_icon"), for: .highlighted)
+            btn.setTitle("".localized,for: .normal)
+            btn.setTitle("".localized,for: .highlighted)
             if let obj: CarePlanObj = array[index] as? CarePlanObj {
                 obj.isEdit = true
-              //  array.removeObject(at: index)
-               // array.insert(obj, at: index)
-                
-                
             }
             self.tblView.reloadData()
             self.tblView .layoutIfNeeded()
@@ -277,6 +259,7 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         else
         {
+           // isnewConditionAdd = false
             if let obj: CarePlanObj = array[index] as? CarePlanObj {
                 if(obj.name .isEmpty)
                 {
@@ -314,9 +297,10 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
                 }
                 else
                 {
-                    btn.setTitle("Edit".localized,for: .normal)
-                    btn.setTitle("Edit".localized,for: .highlighted)
-                    
+                    btn.setImage(UIImage(named: "edit_icon"), for: .normal)
+                    btn.setImage(UIImage(named: "edit_icon"), for: .highlighted)
+                    btn.setTitle("".localized,for: .normal)
+                    btn.setTitle("".localized,for: .highlighted)
                     if  UserDefaults.standard.bool(forKey: "MedEditBool") {
                        
                         obj.isEdit = false
@@ -362,19 +346,20 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBAction func btnAdd_Click(_ sender: Any) {
         //Google Analytic
-        GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "Add Medication", action:"Add medication Clicked" , label:"Add care plan medication")
+        GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "Add Medication", action:"Add medication Clicked" , label:"Add care plan medication condition")
         self.view.endEditing(true)
         let index: Int = (sender as AnyObject).tag
         let btn = sender as! UIButton
         let cell = self.parentCellFor(view: btn)
         self.listSubviewsOf(cell)
-        if let obj: CarePlanObj = array[index] as? CarePlanObj {
-            if obj.dosage.contains(0) {
+        if let obj1: CarePlanObj = self.array[index] as? CarePlanObj {
+            
+            if obj1.dosage.contains(0) {
                 SVProgressHUD.showError(withStatus: "Please enter the missing fields".localized)
                 //Google Analytic
                 GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "Care Plan", action:"Add Medication" , label:"Please enter the missing fields")
             }
-            else if (obj.condition.contains(""))
+            else if (obj1.condition.contains(""))
             {
                 //Google Analytic
                 GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "Care Plan", action:"Add Medication" , label:"Please enter the missing fields")
@@ -382,11 +367,12 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
             }
             else
             {
-                obj.dosage.append(0)
-                obj.condition.append("")
-                obj.isEdit = true
-                array.removeObject(at: index)
-                array.insert(obj, at: index)
+                isnewConditionAdd = true
+                obj1.dosage.append(0)
+                obj1.condition.append("")
+                obj1.isEdit = true
+                self.array.removeObject(at: index)
+                self.array.insert(obj1, at: index)
                 self.resetUI()
                 self.tblView .reloadData()
                 self.tblView .layoutIfNeeded()
@@ -427,6 +413,22 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     
+    @IBAction func btnClose_Clicked(_ sender: Any) {
+        self.view.endEditing(true)
+        let index: Int = (sender as AnyObject).tag
+        
+            if let objMain: CarePlanObj = self.arrayCopy[index] as? CarePlanObj {
+                objMain.isEdit = false
+                if !isnewConditionAdd
+                {
+                    array.removeObject(at: index)
+                    array.insert(objMain, at: index)
+                }
+            
+        }
+    
+        self.tblView.reloadData()
+    }
     @IBAction func DeleteMedication_Click(_ sender: Any) {
         self.view.endEditing(true)
         let index: Int = (sender as AnyObject).tag
@@ -475,7 +477,12 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
                 break
             case .failure(let error):
                 print("failure")
-                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.updatecareplan) Calling", action:"Fail - Web API Calling" , label:String(describing: error), value : self.formInterval.intervalAsSeconds())
+                var strError = ""
+                if(error.localizedDescription.length>0)
+                {
+                    strError = error.localizedDescription
+                }
+                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.updatecareplan) Calling", action:"Fail - Web API Calling" , label:String(describing: strError), value : self.formInterval.intervalAsSeconds())
                 self.resetUI()
                 SVProgressHUD.dismiss()
                 break
@@ -516,7 +523,12 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
                         break
                     case .failure(let error):
                         print("failure")
-                        GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.deletecareplan) Calling", action:"Fail - Web API Calling" , label:String(describing: error), value : self.formInterval.intervalAsSeconds())
+                        var strError = ""
+                        if(error.localizedDescription.length>0)
+                        {
+                            strError = error.localizedDescription
+                        }
+                        GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.deletecareplan) Calling", action:"Fail - Web API Calling" , label:String(describing: strError), value : self.formInterval.intervalAsSeconds())
                         SVProgressHUD.dismiss()
                         break
                 
@@ -533,7 +545,7 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
         let parameters: Parameters = [
             "userid": patientsID
         ]
-        SVProgressHUD.show(withStatus: "SA_STR_LOADING_MEDICATION".localized)
+        SVProgressHUD.show(withStatus: "Loading Medications".localized)
          self.formInterval = GTInterval.intervalWithNowAsStartDate()
         //"\(baseUrl)\(ApiMethods.getcareplan)"
         Alamofire.request("\(baseUrl)\(ApiMethods.getcareplan)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
@@ -544,7 +556,7 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
                 
                 print("Validation Successful")
                 self.array = NSMutableArray()
-                
+                self.arrayCopy = NSArray()
                 GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "getcareplanUpdated Calling", action:"Success - get Medications List" , label:"get Medications Listed Successfully", value : self.formInterval.intervalAsSeconds())
                 
                 if let JSON: NSArray = response.result.value as? NSArray {
@@ -554,11 +566,12 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
                         let obj = CarePlanObj()
                         obj.id = dict.value(forKey: "_id") as! String
                         obj.name = dict.value(forKey: "name") as! String
-                        //obj.type = dict.value(forKey: "type") as! String
+                        obj.type = dict.value(forKey: "type") as! String
                         //obj.type = dict.value(forKey: "medType") as! String
                         obj.isNew = false
                         obj.isEdit = false
-                        obj.carePlanImageURL =   UIImage(named:"med.png")!
+                        //obj.type = dict.value(forKey: "name") as! String
+                       // obj.carePlanImageURL =   UIImage(named:"med.png")!
                         for data in dictMedicationList {
                             if let medication = data as? medicationObj {
                                 if(medication.medicineName == obj.name)
@@ -578,8 +591,13 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
                             }
                         }
                         self.array.add(obj)
+                       
                     }
                 }
+                
+                
+                 self.arrayCopy = self.array.mutableCopy() as! NSArray
+                
                 //print("Object medication array")
                // print(self.array)
                 self.tblView.reloadData()
@@ -589,8 +607,12 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
                 break
             case .failure(let error):
                 print("failure")
-                
-                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "getcareplanUpdated Calling", action:"Fail - Web API Calling" , label:String(describing: error), value : self.formInterval.intervalAsSeconds())
+                var strError = ""
+                if(error.localizedDescription.length>0)
+                {
+                    strError = error.localizedDescription
+                }
+                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "getcareplanUpdated Calling", action:"Fail - Web API Calling" , label:String(describing: strError), value : self.formInterval.intervalAsSeconds())
                 self.array = NSMutableArray()
                 self.tblView.reloadData()
                 self.tblView.layoutIfNeeded()
@@ -634,10 +656,14 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.editBtn.tag = indexPath.row
         cell.deleteBtn.tag = indexPath.row
         cell.medImgBtn.tag = indexPath.row
-        cell.saveBtn.tag = indexPath.row
+        //cell.saveBtn.tag = indexPath.row
+        cell.closeBtn.tag = indexPath.row
         
         cell.deleteBtn.isHidden = true
         cell.deleteBtn.isUserInteractionEnabled = false
+        
+        cell.closeBtn.isHidden = true
+        cell.closeBtn.isUserInteractionEnabled = false
         
         if selectedUserType == userType.patient {
             cell.editBtn.isHidden = true
@@ -647,11 +673,12 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
             
             cell.editBtn.isHidden = false
             cell.editBtn.isUserInteractionEnabled = true
+            
         }
         
         // self.addNewMedicationView.isHidden = false
-        cell.saveBtn.isHidden = true
-        cell.saveBtn.isUserInteractionEnabled = false
+       // cell.saveBtn.isHidden = true
+      //  cell.saveBtn.isUserInteractionEnabled = false
         cell.medImgView.isHidden = true
         cell.medImageView.isHidden = false
         
@@ -677,7 +704,7 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
             
             let medicationType = obj.type
             let bounds = UIScreen.main.bounds.size.width
-            
+            var deleteWidth = 25
             cell.medImageView.image = obj.carePlanImageURL
             
             let manager:SDWebImageManager = SDWebImageManager.shared()
@@ -705,14 +732,20 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
                 
                 if((dosage == 0 && obj.condition[indexDosage] == "") || obj.isEdit)
                 {
-                    cell.editBtn.setTitle("Save".localized,for: .normal)
-                    cell.editBtn.setTitle("Save".localized,for: .highlighted)
+                    
+                  cell.editBtn.setTitle("".localized,for: .normal)
+                  cell.editBtn.setTitle("".localized,for: .highlighted)
+                    cell.editBtn.setImage(UIImage(named: "save_icon"), for: .normal)
+                    cell.editBtn.setImage(UIImage(named: "save_icon"), for: .highlighted)
                     vwDetailNew.isUserInteractionEnabled = true
                 }
                 else
                 {
-                    cell.editBtn.setTitle("Edit".localized,for: .normal)
-                    cell.editBtn.setTitle("Edit".localized,for: .highlighted)
+                    cell.editBtn.setImage(UIImage(named: "edit_icon"), for: .normal)
+                    cell.editBtn.setImage(UIImage(named: "edit_icon"), for: .highlighted)
+                    
+                    cell.editBtn.setTitle("".localized,for: .normal)
+                    cell.editBtn.setTitle("".localized,for: .highlighted)
                     vwDetailNew.isUserInteractionEnabled = false
                 }
                 
@@ -723,10 +756,10 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
                 
                 if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
                     if selectedUserType != userType.patient && obj.isEdit {
-                        dosageTxtFld = UITextField(frame: CGRect(x: CGFloat(cell.btnConditionDelete.frame.size.width), y: CGFloat(cell.dosageTxtFld.frame.origin.y), width:  CGFloat(((vwWidth*40)/100) ), height: CGFloat(cell.dosageTxtFld.frame.size.height)))
+                        dosageTxtFld = UITextField(frame: CGRect(x: CGFloat(deleteWidth), y: CGFloat(cell.dosageTxtFld.frame.origin.y), width:  CGFloat(((vwWidth*38)/100) ), height: CGFloat(cell.dosageTxtFld.frame.size.height)))
                         
-                        imgConditionBg = UIImageView(frame: CGRect(x: CGFloat((dosageTxtFld.frame.origin.x + dosageTxtFld.frame.size.width)-10), y: CGFloat(cell.imgCarBg.frame.origin.y), width: CGFloat((vwWidth*53)/100), height: CGFloat(cell.imgCarBg.frame.size.height)))
-                        imgConditionBg.transform = CGAffineTransform(rotationAngle: (180.0 * CGFloat(M_PI)) / 180.0)
+                        imgConditionBg = UIImageView(frame: CGRect(x: CGFloat((dosageTxtFld.frame.origin.x + dosageTxtFld.frame.size.width) + 2), y: CGFloat(cell.imgCarBg.frame.origin.y), width: CGFloat((vwWidth*50)/100), height: CGFloat(cell.imgCarBg.frame.size.height)))
+                        
                         conditionNameLbl = UILabel(frame: CGRect(x: CGFloat(imgConditionBg.frame.origin.x+10), y: CGFloat(cell.conditionNameLbl.frame.origin.y), width: CGFloat((vwWidth*45)/100), height: CGFloat(cell.conditionNameLbl.frame.size.height)))
                         
                         
@@ -735,8 +768,8 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
                     else
                     {
                         dosageTxtFld = UITextField(frame: CGRect(x: CGFloat(0), y: CGFloat(cell.dosageTxtFld.frame.origin.y), width:  CGFloat((vwWidth*40)/100), height: CGFloat(cell.dosageTxtFld.frame.size.height)))
-                        imgConditionBg = UIImageView(frame: CGRect(x: CGFloat((dosageTxtFld.frame.origin.x + dosageTxtFld.frame.size.width)-10), y: CGFloat(cell.imgCarBg.frame.origin.y), width: CGFloat((vwWidth*64)/100), height: CGFloat(cell.imgCarBg.frame.size.height)))
-                        imgConditionBg.transform = CGAffineTransform(rotationAngle: (180.0 * CGFloat(M_PI)) / 180.0)
+                        imgConditionBg = UIImageView(frame: CGRect(x: CGFloat((dosageTxtFld.frame.origin.x + dosageTxtFld.frame.size.width + 3)), y: CGFloat(cell.imgCarBg.frame.origin.y), width: CGFloat((vwWidth*58)/100), height: CGFloat(cell.imgCarBg.frame.size.height)))
+                      
                         conditionNameLbl = UILabel(frame: CGRect(x: CGFloat(imgConditionBg.frame.origin.x+10), y: CGFloat(cell.conditionNameLbl.frame.origin.y), width: CGFloat((vwWidth*50)/100), height: CGFloat(cell.conditionNameLbl.frame.size.height)))
                         
                         conditionTxtFld = UITextField(frame: CGRect(x: CGFloat(conditionNameLbl.frame.origin.x), y: CGFloat(cell.conditionNameLbl.frame.origin.y), width: CGFloat((vwWidth*50)/100), height: CGFloat(cell.conditionNameLbl.frame.size.height)))
@@ -746,32 +779,44 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
                 {
               
                     if selectedUserType != userType.patient && obj.isEdit {
-                        imgConditionBg = UIImageView(frame: CGRect(x: CGFloat(cell.imgCarBg.frame.origin.x), y: CGFloat(cell.imgCarBg.frame.origin.y), width: CGFloat((vwWidth*60)/100), height: CGFloat(cell.imgCarBg.frame.size.height)))
+                        imgConditionBg = UIImageView(frame: CGRect(x: CGFloat(cell.imgCarBg.frame.origin.x), y: CGFloat(cell.imgCarBg.frame.origin.y), width: CGFloat((vwWidth*56)/100), height: CGFloat(cell.imgCarBg.frame.size.height)))
                         conditionNameLbl = UILabel(frame: CGRect(x: CGFloat(cell.conditionNameLbl.frame.origin.x), y: CGFloat(cell.conditionNameLbl.frame.origin.y), width: CGFloat((vwWidth*50)/100), height: CGFloat(cell.conditionNameLbl.frame.size.height)))
                         
-                        dosageTxtFld = UITextField(frame: CGRect(x: CGFloat(imgConditionBg.frame.size.width-10), y: CGFloat(cell.dosageTxtFld.frame.origin.y), width:  CGFloat(((vwWidth*44)/100) - Double(cell.btnConditionDelete.frame.size.width)), height: CGFloat(cell.dosageTxtFld.frame.size.height)))
+                        dosageTxtFld = UITextField(frame: CGRect(x: CGFloat(imgConditionBg.frame.size.width-10)+12, y: CGFloat(cell.dosageTxtFld.frame.origin.y), width:  CGFloat(((vwWidth*40)/100) - Double(deleteWidth)), height: CGFloat(cell.dosageTxtFld.frame.size.height)))
                         
                         conditionTxtFld = UITextField(frame: CGRect(x: CGFloat(cell.conditionNameLbl.frame.origin.x), y: CGFloat(cell.conditionTxtFld.frame.origin.y), width: CGFloat((vwWidth*50)/100), height: CGFloat(cell.conditionTxtFld.frame.size.height)))
                     }
                     else
                     {
-                        imgConditionBg = UIImageView(frame: CGRect(x: CGFloat(cell.imgCarBg.frame.origin.x), y: CGFloat(cell.imgCarBg.frame.origin.y), width: CGFloat((vwWidth*64)/100), height: CGFloat(cell.imgCarBg.frame.size.height)))
+                        imgConditionBg = UIImageView(frame: CGRect(x: CGFloat(cell.imgCarBg.frame.origin.x), y: CGFloat(cell.imgCarBg.frame.origin.y), width: CGFloat((vwWidth*60)/100), height: CGFloat(cell.imgCarBg.frame.size.height)))
                         conditionNameLbl = UILabel(frame: CGRect(x: CGFloat(cell.conditionNameLbl.frame.origin.x), y: CGFloat(cell.conditionNameLbl.frame.origin.y), width: CGFloat((vwWidth*50)/100), height: CGFloat(cell.conditionNameLbl.frame.size.height)))
                         
-                        dosageTxtFld = UITextField(frame: CGRect(x: CGFloat(imgConditionBg.frame.size.width-10), y: CGFloat(cell.dosageTxtFld.frame.origin.y), width:  CGFloat((vwWidth*40)/100), height: CGFloat(cell.dosageTxtFld.frame.size.height)))
+                        dosageTxtFld = UITextField(frame: CGRect(x: CGFloat(imgConditionBg.frame.size.width-10)+12, y: CGFloat(cell.dosageTxtFld.frame.origin.y), width:  CGFloat((vwWidth*36)/100), height: CGFloat(cell.dosageTxtFld.frame.size.height)))
                         
                         conditionTxtFld = UITextField(frame: CGRect(x: CGFloat(cell.conditionNameLbl.frame.origin.x), y: CGFloat(cell.conditionTxtFld.frame.origin.y), width: CGFloat((vwWidth*50)/100), height: CGFloat(cell.conditionTxtFld.frame.size.height)))
                     }
-                    
-         
                 }
                 
             
-                imgConditionBg.backgroundColor = Colors.DHTabBarGreen
-                imgConditionBg.layer.cornerRadius = 5.0
-                imgConditionBg.layer.masksToBounds = true
+                imgConditionBg.backgroundColor = Colors.DHConditionBg
+//                imgConditionBg.layer.cornerRadius = 5.0
+//                imgConditionBg.layer.masksToBounds = true
                 imgConditionBg.clipsToBounds = true
-                
+                let maskPath : UIBezierPath
+                 if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
+                     maskPath = UIBezierPath(roundedRect: imgConditionBg.bounds, byRoundingCorners: ([.topRight, .bottomRight]), cornerRadii: CGSize(width: CGFloat(10.0), height: CGFloat(10.0)))
+
+                }
+                else
+                 {
+                     maskPath = UIBezierPath(roundedRect: imgConditionBg.bounds, byRoundingCorners: ([.topLeft, .bottomLeft]), cornerRadii: CGSize(width: CGFloat(10.0), height: CGFloat(10.0)))
+
+                }
+                let maskLayer = CAShapeLayer()
+                maskLayer.frame = self.view.bounds
+                maskLayer.path = maskPath.cgPath
+                imgConditionBg.layer.mask = maskLayer
+              //  imgConditionBg.layer.masksToBounds = true
                 
                 
                 //Set Left Side condition Text Lable
@@ -788,8 +833,8 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
                 
                 //Set Left Side dosage TextField with Background
             
-                print("Object")
-                print(obj.type)
+               // print("Object")
+                //print(obj.type)
                 if(dosage == 0)
                 {
                     dosageTxtFld.text = ""
@@ -807,17 +852,31 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
                 }
                 dosageTxtFld.font = cell.dosageTxtFld.font
                 dosageTxtFld.textColor = cell.dosageTxtFld.textColor
-                dosageTxtFld.backgroundColor = cell.dosageTxtFld.backgroundColor
+                dosageTxtFld.backgroundColor = Colors.DHConditionBg
                 dosageTxtFld.delegate = self
                 dosageTxtFld.tag = indexDosage
-                
-                dosageTxtFld.keyboardType = UIKeyboardType.numberPad
                 dosageTxtFld.clipsToBounds = true
+                let maskPath1 : UIBezierPath
+                if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
+                     maskPath1 = UIBezierPath(roundedRect: dosageTxtFld.bounds, byRoundingCorners: ([.topLeft, .bottomLeft]), cornerRadii: CGSize(width: CGFloat(10.0), height: CGFloat(10.0)))
+                }
+                else
+                {
+                     maskPath1 = UIBezierPath(roundedRect: dosageTxtFld.bounds, byRoundingCorners: ([.topRight, .bottomRight]), cornerRadii: CGSize(width: CGFloat(10.0), height: CGFloat(10.0)))
+                }
+                
+                let maskLayer1 = CAShapeLayer()
+                maskLayer1.frame = self.view.bounds
+                maskLayer1.path = maskPath1.cgPath
+                dosageTxtFld.layer.mask = maskLayer1
+               // dosageTxtFld.layer.masksToBounds = true
+                dosageTxtFld.keyboardType = UIKeyboardType.numberPad
+               
                 
                 if(dosageTxtFld.text?.length == 0)
                 {
-                    dosageTxtFld.attributedPlaceholder = NSAttributedString(string: "dose",
-                                                                            attributes: [NSForegroundColorAttributeName: UIColor.gray])
+                    dosageTxtFld.attributedPlaceholder = NSAttributedString(string: "Dose",
+                                                                            attributes: [NSForegroundColorAttributeName: Colors.placeHolderColor])
                 }
                 else
                 {
@@ -835,13 +894,13 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
                 conditionTxtFld.backgroundColor = UIColor.clear
                 if(obj.condition[indexDosage].length == 0)
                 {
-                    conditionTxtFld.attributedPlaceholder = NSAttributedString(string: "timing",
-                                                                               attributes: [NSForegroundColorAttributeName: UIColor.lightGray] )
+                    conditionTxtFld.attributedPlaceholder = NSAttributedString(string: "Timing",
+                                                                               attributes: [NSForegroundColorAttributeName: Colors.placeHolderColor] )
                 }
                 else
                 {
                     conditionTxtFld.attributedPlaceholder = NSAttributedString(string: "",
-                                                                               attributes: [NSForegroundColorAttributeName: UIColor.lightGray] )
+                                                                               attributes: [NSForegroundColorAttributeName: Colors.placeHolderColor] )
                 }
                 
                 //add view to Detail View
@@ -857,19 +916,26 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
                     if selectedUserType == userType.doctor || selectedUserType == userType.educator {
                         cell.deleteBtn.isHidden = false
                         cell.deleteBtn.isUserInteractionEnabled = true
+                        
+                        cell.closeBtn.isHidden = false
+                        cell.closeBtn.isUserInteractionEnabled = true
                     }
                     else {
                         cell.deleteBtn.isHidden = true
                         cell.deleteBtn.isUserInteractionEnabled = false
+                        
+                        cell.closeBtn.isHidden = true
+                        cell.closeBtn.isUserInteractionEnabled = false
                     }
                     
                     if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
-                        btnDeleteCondition = UIButton(frame: CGRect(x: CGFloat(0), y: CGFloat(cell.btnConditionDelete.frame.origin.y), width: CGFloat(cell.btnConditionDelete.frame.size.width), height: CGFloat(cell.btnConditionDelete.frame.size.height)))
+                        btnDeleteCondition = UIButton(frame: CGRect(x: CGFloat(0), y: CGFloat(cell.btnConditionDelete.frame.origin.y), width: CGFloat(deleteWidth), height: CGFloat(cell.btnConditionDelete.frame.size.height)))
                     }
                     else
                     {
-                        btnDeleteCondition = UIButton(frame: CGRect(x: CGFloat(vwDetailNew.frame.size.width - cell.btnConditionDelete.frame.size.width), y: CGFloat(cell.btnConditionDelete.frame.origin.y), width: CGFloat(cell.btnConditionDelete.frame.size.width), height: CGFloat(cell.btnConditionDelete.frame.size.height)))
+                        btnDeleteCondition = UIButton(frame: CGRect(x: CGFloat(vwDetailNew.frame.size.width - CGFloat (deleteWidth + 5 )), y: CGFloat(cell.btnConditionDelete.frame.origin.y), width: CGFloat(deleteWidth), height: CGFloat(cell.btnConditionDelete.frame.size.height)))
                     }
+                    
                     btnDeleteCondition.tag = indexDosage
                     btnDeleteCondition.titleLabel?.font = cell.btnConditionDelete.titleLabel?.font
                     btnDeleteCondition.backgroundColor = UIColor.white
@@ -890,11 +956,18 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
             if obj.isEdit{
                 let customView = UIView(frame: CGRect(x: 0, y:vwDetailY, width:CGFloat(bounds-(cell.medImgView.frame.width+45)), height:vwDetailHeight))
                 let button = UIButton(frame: CGRect(x: 0, y: 0, width: CGFloat(bounds-(cell.medImgView.frame.width+45)), height: vwDetailHeight))
+                if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
+                button.contentHorizontalAlignment = .right
+                }
+                else
+                {
+                   button.contentHorizontalAlignment = .left
+                }
+
                 button.titleLabel?.font = cell.editBtn.titleLabel?.font
-                button.contentHorizontalAlignment = .left
-                button .setTitleColor(UIColor.black, for: UIControlState.normal)
-                button .setTitleColor(UIColor.black, for: UIControlState.highlighted)
-                button.setTitle("+ Add More", for: .normal)
+                button.setImage(UIImage(named: "add_more_field"), for: .normal)
+                button.setImage(UIImage(named: "add_more_field"), for: .highlighted)
+                
                 button.tag = indexPath.row
                 button.addTarget(self, action: #selector(btnAdd_Click(_:)), for: .touchUpInside)
                 customView.addSubview(button)
@@ -934,13 +1007,13 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func setleftpadding(textfield: UITextField)
     {
-        textfield.layer.cornerRadius = 5
+        //textfield.layer.cornerRadius = 5
         textfield.layer.borderWidth = 1
         textfield.layer.borderColor = UIColor.clear.cgColor
         
         textfield.leftViewMode = UITextFieldViewMode.always
         let leftView = UIView()
-        leftView.frame = CGRect(x: 0, y: 0, width: 20, height: 10)
+        leftView.frame = CGRect(x: 0, y: 0, width: 10, height: 10)
         textfield.leftView = leftView
     }
     
@@ -973,8 +1046,10 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
                 let strTitle = btn.currentTitle
                 if(strTitle == "Edit".localized )
                 {
-                    btn.setTitle("Save".localized,for: .normal)
-                    btn.setTitle("Save".localized,for: .highlighted)
+                   btn.setImage(UIImage(named: "save_icon"), for: .normal)
+                    btn.setImage(UIImage(named: "save_icon"), for: .highlighted)
+                    btn.setTitle("".localized,for: .normal)
+                    btn.setTitle("".localized,for: .highlighted)
                     break
                 }
             }
@@ -1063,8 +1138,8 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
                 if(textField.text?.length == 0)
                 {
                     obj.dosage .insert(0 , at: textField.tag)
-                    textField.attributedPlaceholder = NSAttributedString(string: "dose",
-                                                                         attributes: [NSForegroundColorAttributeName: UIColor.gray])
+                    textField.attributedPlaceholder = NSAttributedString(string: "Dose",
+                                                                         attributes: [NSForegroundColorAttributeName: Colors.placeHolderColor])
                 }
                 else
                 {
@@ -1117,8 +1192,8 @@ class MedicationViewController: UIViewController, UITableViewDelegate, UITableVi
                 
                 if(textField.text?.length == 0)
                 {
-                    textField.attributedPlaceholder = NSAttributedString(string: "timing",
-                                                                         attributes: [NSForegroundColorAttributeName: UIColor.lightGray] )
+                    textField.attributedPlaceholder = NSAttributedString(string: "Timing",
+                                                                         attributes: [NSForegroundColorAttributeName: Colors.placeHolderColor] )
                 }
                 else
                 {

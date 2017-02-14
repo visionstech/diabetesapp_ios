@@ -6,16 +6,16 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp20CarePlanFrequencyObj", ""]
 provides-dynamic-lookup:
-- "id"
-- "goal"
-- "isEdit"
 - "time"
 - "frequency"
+- "id"
+- "isEdit"
+- "goal"
 depends-top-level:
-- "Bool"
-- "String"
 - "CarePlanFrequencyObj"
 - "NSObject"
+- "Bool"
+- "String"
 depends-member:
 - ["Ps9AnyObject", "Bool"]
 - ["Ps9AnyObject", "String"]

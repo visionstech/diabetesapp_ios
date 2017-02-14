@@ -43,8 +43,9 @@ class CarePlanReadingHeaderTableViewCell: UITableViewCell {
 //        view.layer.shadowOffset = CGSize.zero
 //        view.layer.shadowRadius = 3
         
-       timingHeaderLabel.text = "Condition".localized
-       goalHeaderLabel.text = "Goal".localized
+        timingHeaderLabel.text = "CONDITION".localized
+        goalHeaderLabel.text = "Goal".localized
+        frequencyLbl.text = "Frequency".localized
         
     }
 

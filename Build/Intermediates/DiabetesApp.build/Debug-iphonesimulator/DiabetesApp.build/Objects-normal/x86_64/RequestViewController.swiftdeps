@@ -6,62 +6,73 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp21RequestViewController", ""]
 provides-dynamic-lookup:
-- "selectedUserType"
+- "totalBadgeCounter"
 - "setNavBarUI"
-- "getRequestTask"
 - "viewDidLoad"
-- "selectedPatientID"
+- "selectedUserType"
 - "viewDidAppear"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
 - "requestListArray"
-- "userTypeString"
+- "selectedPatientID"
 - "didReceiveMemoryWarning"
+- "getRequestTask"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "userTypeString"
 depends-top-level:
-- !private "NSDictionary"
-- "RequestViewController"
-- !private "JSONEncoding"
-- "UITableViewDelegate"
-- "UITableViewDataSource"
-- !private "BooleanLiteralType"
-- "UITableView"
+- !private "RequestObject"
 - !private "/"
-- "UIViewController"
+- !private "<="
+- !private "UIBarButtonItem"
 - "Bool"
-- !private "&&"
-- "UserDefaults"
+- "String"
+- "UITableView"
+- !private "SDWebImageOptions"
+- !private "BooleanLiteralType"
+- !private "baseUrl"
+- !private "NSDictionary"
+- !private "ApiMethods"
+- !private "SDWebImageManager"
+- !private "Dictionary"
+- !private "!="
+- "Int"
+- !private "RequestTableViewCell"
+- !private "=="
+- "RequestViewController"
+- !private "ViewIdentifiers"
+- "AssignmentPrecedence"
+- "UIViewController"
+- "NSMutableArray"
+- !private "userType"
+- !private "+"
+- "CastingPrecedence"
+- !private "print"
 - !private "NSURL"
 - !private "Parameters"
+- "UserDefaults"
 - "IndexPath"
-- !private "UIBarButtonItem"
-- !private "ReportViewController"
-- !private "userType"
-- "String"
-- !private "=="
-- !private "!="
-- "AssignmentPrecedence"
 - !private "NSArray"
-- "CastingPrecedence"
-- !private "SVProgressHUD"
-- "Int"
-- "userDefaults"
-- !private "ApiMethods"
-- !private "Dictionary"
-- !private "ViewIdentifiers"
+- !private "JSONEncoding"
 - "UITableViewCell"
-- !private "Alamofire"
-- !private "baseUrl"
-- !private "RequestObject"
-- !private "+"
-- !private "print"
-- !private "RequestTableViewCell"
-- !private "SDWebImageOptions"
+- !private "SVProgressHUD"
+- "UITableViewDelegate"
+- "UITableViewDataSource"
 - !private "URL"
-- !private "SDWebImageManager"
-- "NSMutableArray"
+- !private "&&"
+- !private "requestTabBarItem"
+- !private "ReportViewController"
+- "userDefaults"
+- !private "Account"
+- !private "Alamofire"
 depends-member:
+- !private ["V11DiabetesApp7Account", "accessToken"]
+- ["V11DiabetesApp7Account", "deinit"]
+- !private ["V11DiabetesApp7Account", "fetchFromKeychain"]
+- !private ["V11DiabetesApp7Account", "init"]
+- !private ["V11DiabetesApp7Account", "saveInKeychain"]
+- !private ["V11DiabetesApp7Account", "tDate"]
+- !private ["Ps9AnyObject", "Account"]
 - !private ["Ps9AnyObject", "Alamofire"]
 - !private ["Ps9AnyObject", "ApiMethods"]
 - !private ["Ps9AnyObject", "Element"]
@@ -81,6 +92,7 @@ depends-member:
 - !private ["Ps9AnyObject", "accessoryType"]
 - !private ["Ps9AnyObject", "add"]
 - !private ["Ps9AnyObject", "backBarButtonItem"]
+- !private ["Ps9AnyObject", "badgeValue"]
 - !private ["Ps9AnyObject", "baseUrl"]
 - !private ["Ps9AnyObject", "clipsToBounds"]
 - !private ["Ps9AnyObject", "cornerRadius"]
@@ -110,6 +122,7 @@ depends-member:
 - !private ["Ps9AnyObject", "lblTime"]
 - !private ["Ps9AnyObject", "leftBarButtonItem"]
 - !private ["Ps9AnyObject", "localized"]
+- !private ["Ps9AnyObject", "lowercased"]
 - !private ["Ps9AnyObject", "navigationController"]
 - !private ["Ps9AnyObject", "navigationItem"]
 - ["Ps9AnyObject", "numberOfSections"]
@@ -123,6 +136,7 @@ depends-member:
 - !private ["Ps9AnyObject", "reloadData"]
 - !private ["Ps9AnyObject", "removeAllObjects"]
 - ["Ps9AnyObject", "requestListArray"]
+- !private ["Ps9AnyObject", "requestTabBarItem"]
 - !private ["Ps9AnyObject", "responseJSON"]
 - !private ["Ps9AnyObject", "rightBarButtonItems"]
 - ["Ps9AnyObject", "scrollViewDidEndDecelerating"]
@@ -158,6 +172,7 @@ depends-member:
 - !private ["Ps9AnyObject", "text"]
 - !private ["Ps9AnyObject", "time"]
 - !private ["Ps9AnyObject", "title"]
+- ["Ps9AnyObject", "totalBadgeCounter"]
 - ["Ps9AnyObject", "userDefaults"]
 - !private ["Ps9AnyObject", "userImageView"]
 - !private ["Ps9AnyObject", "userType"]
@@ -197,6 +212,7 @@ depends-member:
 - !private ["V12CoreGraphics7CGFloat", "deinit"]
 - !private ["VSC6CGRect", "size"]
 - !private ["VSC6CGSize", "width"]
+- !private ["Ps7CVarArg", "Account"]
 - !private ["Ps7CVarArg", "Alamofire"]
 - !private ["Ps7CVarArg", "ApiMethods"]
 - ["Ps7CVarArg", "Int"]
@@ -217,6 +233,7 @@ depends-member:
 - !private ["Ps7CVarArg", "accessoryType"]
 - !private ["Ps7CVarArg", "add"]
 - !private ["Ps7CVarArg", "backBarButtonItem"]
+- !private ["Ps7CVarArg", "badgeValue"]
 - !private ["Ps7CVarArg", "baseUrl"]
 - !private ["Ps7CVarArg", "clipsToBounds"]
 - !private ["Ps7CVarArg", "cornerRadius"]
@@ -246,6 +263,7 @@ depends-member:
 - !private ["Ps7CVarArg", "lblTime"]
 - !private ["Ps7CVarArg", "leftBarButtonItem"]
 - !private ["Ps7CVarArg", "localized"]
+- !private ["Ps7CVarArg", "lowercased"]
 - !private ["Ps7CVarArg", "navigationController"]
 - !private ["Ps7CVarArg", "navigationItem"]
 - ["Ps7CVarArg", "numberOfSections"]
@@ -259,6 +277,7 @@ depends-member:
 - !private ["Ps7CVarArg", "reloadData"]
 - !private ["Ps7CVarArg", "removeAllObjects"]
 - ["Ps7CVarArg", "requestListArray"]
+- !private ["Ps7CVarArg", "requestTabBarItem"]
 - !private ["Ps7CVarArg", "rightBarButtonItems"]
 - ["Ps7CVarArg", "scrollViewDidEndDecelerating"]
 - ["Ps7CVarArg", "scrollViewDidEndDragging"]
@@ -293,6 +312,7 @@ depends-member:
 - !private ["Ps7CVarArg", "text"]
 - !private ["Ps7CVarArg", "time"]
 - !private ["Ps7CVarArg", "title"]
+- ["Ps7CVarArg", "totalBadgeCounter"]
 - ["Ps7CVarArg", "userDefaults"]
 - !private ["Ps7CVarArg", "userImageView"]
 - !private ["Ps7CVarArg", "userType"]
@@ -309,7 +329,9 @@ depends-member:
 - !private ["Ps10Collection", "row"]
 - ["Ps10Comparable", "init"]
 - !private ["Ps10Comparable", "localized"]
+- !private ["Ps10Comparable", "lowercased"]
 - !private ["Ps10Comparable", "row"]
+- !private ["Ps28CustomDebugStringConvertible", "Account"]
 - !private ["Ps28CustomDebugStringConvertible", "Alamofire"]
 - !private ["Ps28CustomDebugStringConvertible", "ApiMethods"]
 - ["Ps28CustomDebugStringConvertible", "Int"]
@@ -330,6 +352,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "accessoryType"]
 - !private ["Ps28CustomDebugStringConvertible", "add"]
 - !private ["Ps28CustomDebugStringConvertible", "backBarButtonItem"]
+- !private ["Ps28CustomDebugStringConvertible", "badgeValue"]
 - !private ["Ps28CustomDebugStringConvertible", "baseUrl"]
 - !private ["Ps28CustomDebugStringConvertible", "clipsToBounds"]
 - !private ["Ps28CustomDebugStringConvertible", "cornerRadius"]
@@ -360,6 +383,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "lblTime"]
 - !private ["Ps28CustomDebugStringConvertible", "leftBarButtonItem"]
 - !private ["Ps28CustomDebugStringConvertible", "localized"]
+- !private ["Ps28CustomDebugStringConvertible", "lowercased"]
 - !private ["Ps28CustomDebugStringConvertible", "navigationController"]
 - !private ["Ps28CustomDebugStringConvertible", "navigationItem"]
 - ["Ps28CustomDebugStringConvertible", "numberOfSections"]
@@ -373,6 +397,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "reloadData"]
 - !private ["Ps28CustomDebugStringConvertible", "removeAllObjects"]
 - ["Ps28CustomDebugStringConvertible", "requestListArray"]
+- !private ["Ps28CustomDebugStringConvertible", "requestTabBarItem"]
 - !private ["Ps28CustomDebugStringConvertible", "responseJSON"]
 - !private ["Ps28CustomDebugStringConvertible", "result"]
 - !private ["Ps28CustomDebugStringConvertible", "rightBarButtonItems"]
@@ -412,6 +437,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "text"]
 - !private ["Ps28CustomDebugStringConvertible", "time"]
 - !private ["Ps28CustomDebugStringConvertible", "title"]
+- ["Ps28CustomDebugStringConvertible", "totalBadgeCounter"]
 - ["Ps28CustomDebugStringConvertible", "userDefaults"]
 - !private ["Ps28CustomDebugStringConvertible", "userImageView"]
 - !private ["Ps28CustomDebugStringConvertible", "userType"]
@@ -426,6 +452,7 @@ depends-member:
 - !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
 - ["Ps29CustomPlaygroundQuickLookable", "init"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "localized"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "lowercased"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "size"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "width"]
 - !private ["Ps17CustomReflectable", "Iterator"]
@@ -436,6 +463,7 @@ depends-member:
 - !private ["Ps17CustomReflectable", "count"]
 - ["Ps17CustomReflectable", "init"]
 - !private ["Ps17CustomReflectable", "localized"]
+- !private ["Ps17CustomReflectable", "lowercased"]
 - !private ["Ps17CustomReflectable", "object"]
 - !private ["Ps17CustomReflectable", "removeAllObjects"]
 - !private ["Ps17CustomReflectable", "row"]
@@ -443,6 +471,7 @@ depends-member:
 - !private ["Ps17CustomReflectable", "subscript"]
 - !private ["Ps17CustomReflectable", "value"]
 - !private ["Ps17CustomReflectable", "width"]
+- !private ["Ps23CustomStringConvertible", "Account"]
 - !private ["Ps23CustomStringConvertible", "Alamofire"]
 - !private ["Ps23CustomStringConvertible", "ApiMethods"]
 - ["Ps23CustomStringConvertible", "Int"]
@@ -464,6 +493,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "accessoryType"]
 - !private ["Ps23CustomStringConvertible", "add"]
 - !private ["Ps23CustomStringConvertible", "backBarButtonItem"]
+- !private ["Ps23CustomStringConvertible", "badgeValue"]
 - !private ["Ps23CustomStringConvertible", "baseUrl"]
 - !private ["Ps23CustomStringConvertible", "clipsToBounds"]
 - !private ["Ps23CustomStringConvertible", "cornerRadius"]
@@ -494,6 +524,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "lblTime"]
 - !private ["Ps23CustomStringConvertible", "leftBarButtonItem"]
 - !private ["Ps23CustomStringConvertible", "localized"]
+- !private ["Ps23CustomStringConvertible", "lowercased"]
 - !private ["Ps23CustomStringConvertible", "navigationController"]
 - !private ["Ps23CustomStringConvertible", "navigationItem"]
 - ["Ps23CustomStringConvertible", "numberOfSections"]
@@ -507,6 +538,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "reloadData"]
 - !private ["Ps23CustomStringConvertible", "removeAllObjects"]
 - ["Ps23CustomStringConvertible", "requestListArray"]
+- !private ["Ps23CustomStringConvertible", "requestTabBarItem"]
 - !private ["Ps23CustomStringConvertible", "responseJSON"]
 - !private ["Ps23CustomStringConvertible", "result"]
 - !private ["Ps23CustomStringConvertible", "rightBarButtonItems"]
@@ -545,6 +577,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "text"]
 - !private ["Ps23CustomStringConvertible", "time"]
 - !private ["Ps23CustomStringConvertible", "title"]
+- ["Ps23CustomStringConvertible", "totalBadgeCounter"]
 - ["Ps23CustomStringConvertible", "userDefaults"]
 - !private ["Ps23CustomStringConvertible", "userImageView"]
 - !private ["Ps23CustomStringConvertible", "userType"]
@@ -563,6 +596,7 @@ depends-member:
 - !private ["Vs10Dictionary", "Value"]
 - ["Vs10Dictionary", "deinit"]
 - !private ["Sd", "deinit"]
+- !private ["Ps9Equatable", "Account"]
 - !private ["Ps9Equatable", "Alamofire"]
 - !private ["Ps9Equatable", "ApiMethods"]
 - ["Ps9Equatable", "Int"]
@@ -582,6 +616,7 @@ depends-member:
 - !private ["Ps9Equatable", "accessoryType"]
 - !private ["Ps9Equatable", "add"]
 - !private ["Ps9Equatable", "backBarButtonItem"]
+- !private ["Ps9Equatable", "badgeValue"]
 - !private ["Ps9Equatable", "baseUrl"]
 - !private ["Ps9Equatable", "clipsToBounds"]
 - !private ["Ps9Equatable", "cornerRadius"]
@@ -613,6 +648,7 @@ depends-member:
 - !private ["Ps9Equatable", "lblTime"]
 - !private ["Ps9Equatable", "leftBarButtonItem"]
 - !private ["Ps9Equatable", "localized"]
+- !private ["Ps9Equatable", "lowercased"]
 - !private ["Ps9Equatable", "navigationController"]
 - !private ["Ps9Equatable", "navigationItem"]
 - !private ["Ps9Equatable", "none"]
@@ -629,6 +665,7 @@ depends-member:
 - !private ["Ps9Equatable", "reloadData"]
 - !private ["Ps9Equatable", "removeAllObjects"]
 - ["Ps9Equatable", "requestListArray"]
+- !private ["Ps9Equatable", "requestTabBarItem"]
 - !private ["Ps9Equatable", "rightBarButtonItems"]
 - !private ["Ps9Equatable", "row"]
 - ["Ps9Equatable", "scrollViewDidEndDecelerating"]
@@ -665,6 +702,7 @@ depends-member:
 - !private ["Ps9Equatable", "text"]
 - !private ["Ps9Equatable", "time"]
 - !private ["Ps9Equatable", "title"]
+- ["Ps9Equatable", "totalBadgeCounter"]
 - ["Ps9Equatable", "userDefaults"]
 - !private ["Ps9Equatable", "userImageView"]
 - !private ["Ps9Equatable", "userType"]
@@ -676,7 +714,7 @@ depends-member:
 - ["Ps9Equatable", "viewForZoomingInScrollView"]
 - !private ["Ps9Equatable", "width"]
 - ["Ps9Equatable", ""]
-- !private ["Ps5Error", "deinit"]
+- ["Ps5Error", "deinit"]
 - !private ["Ps25ExpressibleByArrayLiteral", "Iterator"]
 - !private ["Ps25ExpressibleByArrayLiteral", "add"]
 - !private ["Ps25ExpressibleByArrayLiteral", "count"]
@@ -692,16 +730,21 @@ depends-member:
 - !private ["Ps30ExpressibleByDictionaryLiteral", "value"]
 - ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "localized"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "lowercased"]
 - ["Ps27ExpressibleByIntegerLiteral", "init"]
 - ["Ps32ExpressibleByStringInterpolation", "init"]
 - !private ["Ps32ExpressibleByStringInterpolation", "localized"]
+- !private ["Ps32ExpressibleByStringInterpolation", "lowercased"]
 - ["Ps26ExpressibleByStringLiteral", "init"]
 - !private ["Ps26ExpressibleByStringLiteral", "localized"]
+- !private ["Ps26ExpressibleByStringLiteral", "lowercased"]
 - ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
 - !private ["Ps33ExpressibleByUnicodeScalarLiteral", "localized"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "lowercased"]
 - !private ["Sf", "deinit"]
 - ["O9Alamofire10HTTPMethod", "deinit"]
 - !private ["O9Alamofire10HTTPMethod", "post"]
+- !private ["Ps8Hashable", "Account"]
 - !private ["Ps8Hashable", "Alamofire"]
 - !private ["Ps8Hashable", "ApiMethods"]
 - ["Ps8Hashable", "Int"]
@@ -721,6 +764,7 @@ depends-member:
 - !private ["Ps8Hashable", "accessoryType"]
 - !private ["Ps8Hashable", "add"]
 - !private ["Ps8Hashable", "backBarButtonItem"]
+- !private ["Ps8Hashable", "badgeValue"]
 - !private ["Ps8Hashable", "baseUrl"]
 - !private ["Ps8Hashable", "clipsToBounds"]
 - !private ["Ps8Hashable", "cornerRadius"]
@@ -751,6 +795,7 @@ depends-member:
 - !private ["Ps8Hashable", "lblTime"]
 - !private ["Ps8Hashable", "leftBarButtonItem"]
 - !private ["Ps8Hashable", "localized"]
+- !private ["Ps8Hashable", "lowercased"]
 - !private ["Ps8Hashable", "navigationController"]
 - !private ["Ps8Hashable", "navigationItem"]
 - !private ["Ps8Hashable", "none"]
@@ -767,6 +812,7 @@ depends-member:
 - !private ["Ps8Hashable", "reloadData"]
 - !private ["Ps8Hashable", "removeAllObjects"]
 - ["Ps8Hashable", "requestListArray"]
+- !private ["Ps8Hashable", "requestTabBarItem"]
 - !private ["Ps8Hashable", "rightBarButtonItems"]
 - !private ["Ps8Hashable", "row"]
 - ["Ps8Hashable", "scrollViewDidEndDecelerating"]
@@ -802,6 +848,7 @@ depends-member:
 - !private ["Ps8Hashable", "text"]
 - !private ["Ps8Hashable", "time"]
 - !private ["Ps8Hashable", "title"]
+- ["Ps8Hashable", "totalBadgeCounter"]
 - ["Ps8Hashable", "userDefaults"]
 - !private ["Ps8Hashable", "userImageView"]
 - !private ["Ps8Hashable", "userType"]
@@ -832,11 +879,23 @@ depends-member:
 - !private ["Ps16IteratorProtocol", "Element"]
 - !private ["V9Alamofire12JSONEncoding", "default"]
 - ["V9Alamofire12JSONEncoding", "deinit"]
+- !private ["P11DiabetesApp27KeychainGenericPasswordType", "accessToken"]
+- !private ["P11DiabetesApp27KeychainGenericPasswordType", "fetchFromKeychain"]
+- !private ["P11DiabetesApp27KeychainGenericPasswordType", "init"]
+- !private ["P11DiabetesApp27KeychainGenericPasswordType", "saveInKeychain"]
+- !private ["P11DiabetesApp27KeychainGenericPasswordType", "tDate"]
+- !private ["P11DiabetesApp16KeychainItemType", "accessToken"]
+- !private ["P11DiabetesApp16KeychainItemType", "fetchFromKeychain"]
+- !private ["P11DiabetesApp16KeychainItemType", "init"]
+- !private ["P11DiabetesApp16KeychainItemType", "saveInKeychain"]
+- !private ["P11DiabetesApp16KeychainItemType", "tDate"]
 - !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
 - ["Ps25LosslessStringConvertible", "init"]
 - !private ["Ps25LosslessStringConvertible", "localized"]
+- !private ["Ps25LosslessStringConvertible", "lowercased"]
 - ["Ps10MirrorPath", "init"]
 - !private ["Ps10MirrorPath", "localized"]
+- !private ["Ps10MirrorPath", "lowercased"]
 - !private ["Ps17MutableCollection", "row"]
 - !private ["Ps16MutableIndexable", "row"]
 - !private ["CSo7NSArray", "Iterator"]
@@ -848,6 +907,7 @@ depends-member:
 - !private ["CSo7NSArray", "removeAllObjects"]
 - !private ["CSo7NSArray", "subscript"]
 - ["CSo7NSCoder", "deinit"]
+- !private ["PSo8NSCoding", "Account"]
 - !private ["PSo8NSCoding", "Alamofire"]
 - !private ["PSo8NSCoding", "ApiMethods"]
 - ["PSo8NSCoding", "Int"]
@@ -866,6 +926,7 @@ depends-member:
 - !private ["PSo8NSCoding", "accessoryType"]
 - !private ["PSo8NSCoding", "add"]
 - !private ["PSo8NSCoding", "backBarButtonItem"]
+- !private ["PSo8NSCoding", "badgeValue"]
 - !private ["PSo8NSCoding", "baseUrl"]
 - !private ["PSo8NSCoding", "clipsToBounds"]
 - !private ["PSo8NSCoding", "cornerRadius"]
@@ -889,6 +950,7 @@ depends-member:
 - !private ["PSo8NSCoding", "lblTime"]
 - !private ["PSo8NSCoding", "leftBarButtonItem"]
 - !private ["PSo8NSCoding", "localized"]
+- !private ["PSo8NSCoding", "lowercased"]
 - !private ["PSo8NSCoding", "navigationController"]
 - !private ["PSo8NSCoding", "navigationItem"]
 - ["PSo8NSCoding", "numberOfSections"]
@@ -900,6 +962,7 @@ depends-member:
 - !private ["PSo8NSCoding", "reloadData"]
 - !private ["PSo8NSCoding", "removeAllObjects"]
 - ["PSo8NSCoding", "requestListArray"]
+- !private ["PSo8NSCoding", "requestTabBarItem"]
 - !private ["PSo8NSCoding", "rightBarButtonItems"]
 - ["PSo8NSCoding", "scrollViewDidEndDecelerating"]
 - ["PSo8NSCoding", "scrollViewDidEndDragging"]
@@ -926,6 +989,7 @@ depends-member:
 - ["PSo8NSCoding", "tableView"]
 - !private ["PSo8NSCoding", "text"]
 - !private ["PSo8NSCoding", "title"]
+- ["PSo8NSCoding", "totalBadgeCounter"]
 - ["PSo8NSCoding", "userDefaults"]
 - !private ["PSo8NSCoding", "userImageView"]
 - !private ["PSo8NSCoding", "userType"]
@@ -941,12 +1005,14 @@ depends-member:
 - !private ["PSo9NSCopying", "count"]
 - ["PSo9NSCopying", "init"]
 - !private ["PSo9NSCopying", "localized"]
+- !private ["PSo9NSCopying", "lowercased"]
 - !private ["PSo9NSCopying", "object"]
 - !private ["PSo9NSCopying", "removeAllObjects"]
 - !private ["PSo9NSCopying", "subscript"]
 - !private ["PSo9NSCopying", "value"]
 - !private ["CSo12NSDictionary", "deinit"]
 - !private ["CSo12NSDictionary", "value"]
+- !private ["PSo26NSExtensionRequestHandling", "Account"]
 - !private ["PSo26NSExtensionRequestHandling", "Alamofire"]
 - !private ["PSo26NSExtensionRequestHandling", "ApiMethods"]
 - ["PSo26NSExtensionRequestHandling", "Int"]
@@ -976,6 +1042,7 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "print"]
 - !private ["PSo26NSExtensionRequestHandling", "pushViewController"]
 - ["PSo26NSExtensionRequestHandling", "requestListArray"]
+- !private ["PSo26NSExtensionRequestHandling", "requestTabBarItem"]
 - ["PSo26NSExtensionRequestHandling", "scrollViewDidEndDecelerating"]
 - ["PSo26NSExtensionRequestHandling", "scrollViewDidEndDragging"]
 - ["PSo26NSExtensionRequestHandling", "scrollViewDidEndScrollingAnimation"]
@@ -997,6 +1064,7 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "tabBarController"]
 - ["PSo26NSExtensionRequestHandling", "tableView"]
 - !private ["PSo26NSExtensionRequestHandling", "title"]
+- ["PSo26NSExtensionRequestHandling", "totalBadgeCounter"]
 - ["PSo26NSExtensionRequestHandling", "userDefaults"]
 - !private ["PSo26NSExtensionRequestHandling", "userType"]
 - ["PSo26NSExtensionRequestHandling", "userTypeString"]
@@ -1027,10 +1095,12 @@ depends-member:
 - !private ["PSo16NSMutableCopying", "count"]
 - ["PSo16NSMutableCopying", "init"]
 - !private ["PSo16NSMutableCopying", "localized"]
+- !private ["PSo16NSMutableCopying", "lowercased"]
 - !private ["PSo16NSMutableCopying", "object"]
 - !private ["PSo16NSMutableCopying", "removeAllObjects"]
 - !private ["PSo16NSMutableCopying", "subscript"]
 - !private ["PSo16NSMutableCopying", "value"]
+- !private ["CSo8NSObject", "Account"]
 - !private ["CSo8NSObject", "Alamofire"]
 - !private ["CSo8NSObject", "ApiMethods"]
 - ["CSo8NSObject", "Bool"]
@@ -1059,6 +1129,7 @@ depends-member:
 - !private ["CSo8NSObject", "accessoryType"]
 - !private ["CSo8NSObject", "add"]
 - !private ["CSo8NSObject", "backBarButtonItem"]
+- !private ["CSo8NSObject", "badgeValue"]
 - !private ["CSo8NSObject", "baseUrl"]
 - !private ["CSo8NSObject", "clipsToBounds"]
 - !private ["CSo8NSObject", "cornerRadius"]
@@ -1088,6 +1159,7 @@ depends-member:
 - !private ["CSo8NSObject", "lblTime"]
 - !private ["CSo8NSObject", "leftBarButtonItem"]
 - !private ["CSo8NSObject", "localized"]
+- !private ["CSo8NSObject", "lowercased"]
 - !private ["CSo8NSObject", "navigationController"]
 - !private ["CSo8NSObject", "navigationItem"]
 - ["CSo8NSObject", "numberOfSections"]
@@ -1101,6 +1173,7 @@ depends-member:
 - !private ["CSo8NSObject", "reloadData"]
 - !private ["CSo8NSObject", "removeAllObjects"]
 - ["CSo8NSObject", "requestListArray"]
+- !private ["CSo8NSObject", "requestTabBarItem"]
 - !private ["CSo8NSObject", "rightBarButtonItems"]
 - ["CSo8NSObject", "scrollViewDidEndDecelerating"]
 - ["CSo8NSObject", "scrollViewDidEndDragging"]
@@ -1135,6 +1208,7 @@ depends-member:
 - !private ["CSo8NSObject", "text"]
 - !private ["CSo8NSObject", "time"]
 - !private ["CSo8NSObject", "title"]
+- ["CSo8NSObject", "totalBadgeCounter"]
 - ["CSo8NSObject", "userDefaults"]
 - !private ["CSo8NSObject", "userImageView"]
 - !private ["CSo8NSObject", "userType"]
@@ -1144,6 +1218,7 @@ depends-member:
 - ["CSo8NSObject", "viewDidLoad"]
 - ["CSo8NSObject", "viewForZooming"]
 - ["CSo8NSObject", "viewForZoomingInScrollView"]
+- !private ["PSo16NSObjectProtocol", "Account"]
 - !private ["PSo16NSObjectProtocol", "Alamofire"]
 - !private ["PSo16NSObjectProtocol", "ApiMethods"]
 - ["PSo16NSObjectProtocol", "Int"]
@@ -1162,6 +1237,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "accessoryType"]
 - !private ["PSo16NSObjectProtocol", "add"]
 - !private ["PSo16NSObjectProtocol", "backBarButtonItem"]
+- !private ["PSo16NSObjectProtocol", "badgeValue"]
 - !private ["PSo16NSObjectProtocol", "baseUrl"]
 - !private ["PSo16NSObjectProtocol", "clipsToBounds"]
 - !private ["PSo16NSObjectProtocol", "cornerRadius"]
@@ -1191,6 +1267,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "lblTime"]
 - !private ["PSo16NSObjectProtocol", "leftBarButtonItem"]
 - !private ["PSo16NSObjectProtocol", "localized"]
+- !private ["PSo16NSObjectProtocol", "lowercased"]
 - !private ["PSo16NSObjectProtocol", "navigationController"]
 - !private ["PSo16NSObjectProtocol", "navigationItem"]
 - ["PSo16NSObjectProtocol", "numberOfSections"]
@@ -1204,6 +1281,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "reloadData"]
 - !private ["PSo16NSObjectProtocol", "removeAllObjects"]
 - ["PSo16NSObjectProtocol", "requestListArray"]
+- !private ["PSo16NSObjectProtocol", "requestTabBarItem"]
 - !private ["PSo16NSObjectProtocol", "rightBarButtonItems"]
 - ["PSo16NSObjectProtocol", "scrollViewDidEndDecelerating"]
 - ["PSo16NSObjectProtocol", "scrollViewDidEndDragging"]
@@ -1238,6 +1316,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "text"]
 - !private ["PSo16NSObjectProtocol", "time"]
 - !private ["PSo16NSObjectProtocol", "title"]
+- ["PSo16NSObjectProtocol", "totalBadgeCounter"]
 - ["PSo16NSObjectProtocol", "userDefaults"]
 - !private ["PSo16NSObjectProtocol", "userImageView"]
 - !private ["PSo16NSObjectProtocol", "userType"]
@@ -1253,12 +1332,14 @@ depends-member:
 - !private ["PSo14NSSecureCoding", "count"]
 - ["PSo14NSSecureCoding", "init"]
 - !private ["PSo14NSSecureCoding", "localized"]
+- !private ["PSo14NSSecureCoding", "lowercased"]
 - !private ["PSo14NSSecureCoding", "object"]
 - !private ["PSo14NSSecureCoding", "removeAllObjects"]
 - !private ["PSo14NSSecureCoding", "subscript"]
 - !private ["PSo14NSSecureCoding", "value"]
 - ["CSo8NSString", "init"]
 - !private ["CSo8NSString", "localized"]
+- !private ["CSo8NSString", "lowercased"]
 - !private ["CSo5NSURL", "init"]
 - !private ["Ps9OptionSet", "highPriority"]
 - ["Sq", "deinit"]
@@ -1293,6 +1374,7 @@ depends-member:
 - !private ["C11DiabetesApp20RequestTableViewCell", "lblTime"]
 - !private ["C11DiabetesApp20RequestTableViewCell", "selectionStyle"]
 - !private ["C11DiabetesApp20RequestTableViewCell", "userImageView"]
+- !private ["C11DiabetesApp21RequestViewController", "Account"]
 - !private ["C11DiabetesApp21RequestViewController", "Alamofire"]
 - !private ["C11DiabetesApp21RequestViewController", "ApiMethods"]
 - ["C11DiabetesApp21RequestViewController", "Bool"]
@@ -1330,6 +1412,7 @@ depends-member:
 - !private ["C11DiabetesApp21RequestViewController", "parent"]
 - !private ["C11DiabetesApp21RequestViewController", "print"]
 - ["C11DiabetesApp21RequestViewController", "requestListArray"]
+- !private ["C11DiabetesApp21RequestViewController", "requestTabBarItem"]
 - ["C11DiabetesApp21RequestViewController", "scrollViewDidEndDecelerating"]
 - ["C11DiabetesApp21RequestViewController", "scrollViewDidEndDragging"]
 - ["C11DiabetesApp21RequestViewController", "scrollViewDidEndScrollingAnimation"]
@@ -1351,6 +1434,7 @@ depends-member:
 - !private ["C11DiabetesApp21RequestViewController", "tabBarController"]
 - ["C11DiabetesApp21RequestViewController", "tableView"]
 - !private ["C11DiabetesApp21RequestViewController", "title"]
+- ["C11DiabetesApp21RequestViewController", "totalBadgeCounter"]
 - ["C11DiabetesApp21RequestViewController", "userDefaults"]
 - !private ["C11DiabetesApp21RequestViewController", "userType"]
 - ["C11DiabetesApp21RequestViewController", "userTypeString"]
@@ -1388,11 +1472,15 @@ depends-member:
 - ["SS", "deinit"]
 - ["SS", "init"]
 - !private ["SS", "localized"]
+- !private ["SS", "lowercased"]
 - ["Ps16TextOutputStream", "init"]
 - !private ["Ps16TextOutputStream", "localized"]
+- !private ["Ps16TextOutputStream", "lowercased"]
 - ["Ps20TextOutputStreamable", "init"]
 - !private ["Ps20TextOutputStreamable", "localized"]
+- !private ["Ps20TextOutputStreamable", "lowercased"]
 - !private ["PSo29UIAccessibilityIdentification", "accessoryType"]
+- !private ["PSo29UIAccessibilityIdentification", "badgeValue"]
 - !private ["PSo29UIAccessibilityIdentification", "clipsToBounds"]
 - !private ["PSo29UIAccessibilityIdentification", "dequeueReusableCell"]
 - !private ["PSo29UIAccessibilityIdentification", "dismiss"]
@@ -1411,6 +1499,7 @@ depends-member:
 - !private ["PSo29UIAccessibilityIdentification", "text"]
 - !private ["PSo29UIAccessibilityIdentification", "userImageView"]
 - !private ["PSo12UIAppearance", "accessoryType"]
+- !private ["PSo12UIAppearance", "badgeValue"]
 - !private ["PSo12UIAppearance", "clipsToBounds"]
 - !private ["PSo12UIAppearance", "dequeueReusableCell"]
 - !private ["PSo12UIAppearance", "dismiss"]
@@ -1428,6 +1517,7 @@ depends-member:
 - !private ["PSo12UIAppearance", "show"]
 - !private ["PSo12UIAppearance", "text"]
 - !private ["PSo12UIAppearance", "userImageView"]
+- !private ["PSo21UIAppearanceContainer", "Account"]
 - !private ["PSo21UIAppearanceContainer", "Alamofire"]
 - !private ["PSo21UIAppearanceContainer", "ApiMethods"]
 - ["PSo21UIAppearanceContainer", "Int"]
@@ -1470,6 +1560,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "pushViewController"]
 - !private ["PSo21UIAppearanceContainer", "reloadData"]
 - ["PSo21UIAppearanceContainer", "requestListArray"]
+- !private ["PSo21UIAppearanceContainer", "requestTabBarItem"]
 - ["PSo21UIAppearanceContainer", "scrollViewDidEndDecelerating"]
 - ["PSo21UIAppearanceContainer", "scrollViewDidEndDragging"]
 - ["PSo21UIAppearanceContainer", "scrollViewDidEndScrollingAnimation"]
@@ -1494,6 +1585,7 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "tableView"]
 - !private ["PSo21UIAppearanceContainer", "text"]
 - !private ["PSo21UIAppearanceContainer", "title"]
+- ["PSo21UIAppearanceContainer", "totalBadgeCounter"]
 - ["PSo21UIAppearanceContainer", "userDefaults"]
 - !private ["PSo21UIAppearanceContainer", "userImageView"]
 - !private ["PSo21UIAppearanceContainer", "userType"]
@@ -1507,7 +1599,9 @@ depends-member:
 - !private ["CSo15UIBarButtonItem", "init"]
 - ["OSC20UIBarButtonItemStyle", "deinit"]
 - !private ["OSC20UIBarButtonItemStyle", "plain"]
+- !private ["CSo9UIBarItem", "badgeValue"]
 - !private ["CSo9UIBarItem", "init"]
+- !private ["PSo18UIContentContainer", "Account"]
 - !private ["PSo18UIContentContainer", "Alamofire"]
 - !private ["PSo18UIContentContainer", "ApiMethods"]
 - ["PSo18UIContentContainer", "Int"]
@@ -1537,6 +1631,7 @@ depends-member:
 - !private ["PSo18UIContentContainer", "print"]
 - !private ["PSo18UIContentContainer", "pushViewController"]
 - ["PSo18UIContentContainer", "requestListArray"]
+- !private ["PSo18UIContentContainer", "requestTabBarItem"]
 - ["PSo18UIContentContainer", "scrollViewDidEndDecelerating"]
 - ["PSo18UIContentContainer", "scrollViewDidEndDragging"]
 - ["PSo18UIContentContainer", "scrollViewDidEndScrollingAnimation"]
@@ -1558,6 +1653,7 @@ depends-member:
 - !private ["PSo18UIContentContainer", "tabBarController"]
 - ["PSo18UIContentContainer", "tableView"]
 - !private ["PSo18UIContentContainer", "title"]
+- ["PSo18UIContentContainer", "totalBadgeCounter"]
 - ["PSo18UIContentContainer", "userDefaults"]
 - !private ["PSo18UIContentContainer", "userType"]
 - ["PSo18UIContentContainer", "userTypeString"]
@@ -1601,6 +1697,7 @@ depends-member:
 - !private ["PSo13UIDynamicItem", "show"]
 - !private ["PSo13UIDynamicItem", "text"]
 - !private ["PSo13UIDynamicItem", "userImageView"]
+- !private ["PSo18UIFocusEnvironment", "Account"]
 - !private ["PSo18UIFocusEnvironment", "Alamofire"]
 - !private ["PSo18UIFocusEnvironment", "ApiMethods"]
 - ["PSo18UIFocusEnvironment", "Int"]
@@ -1643,6 +1740,7 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "pushViewController"]
 - !private ["PSo18UIFocusEnvironment", "reloadData"]
 - ["PSo18UIFocusEnvironment", "requestListArray"]
+- !private ["PSo18UIFocusEnvironment", "requestTabBarItem"]
 - ["PSo18UIFocusEnvironment", "scrollViewDidEndDecelerating"]
 - ["PSo18UIFocusEnvironment", "scrollViewDidEndDragging"]
 - ["PSo18UIFocusEnvironment", "scrollViewDidEndScrollingAnimation"]
@@ -1667,6 +1765,7 @@ depends-member:
 - ["PSo18UIFocusEnvironment", "tableView"]
 - !private ["PSo18UIFocusEnvironment", "text"]
 - !private ["PSo18UIFocusEnvironment", "title"]
+- ["PSo18UIFocusEnvironment", "totalBadgeCounter"]
 - ["PSo18UIFocusEnvironment", "userDefaults"]
 - !private ["PSo18UIFocusEnvironment", "userImageView"]
 - !private ["PSo18UIFocusEnvironment", "userType"]
@@ -1714,6 +1813,7 @@ depends-member:
 - !private ["CSo16UINavigationItem", "leftBarButtonItem"]
 - !private ["CSo16UINavigationItem", "rightBarButtonItems"]
 - !private ["CSo16UINavigationItem", "title"]
+- !private ["CSo11UIResponder", "Account"]
 - !private ["CSo11UIResponder", "Alamofire"]
 - !private ["CSo11UIResponder", "ApiMethods"]
 - ["CSo11UIResponder", "Bool"]
@@ -1766,6 +1866,7 @@ depends-member:
 - !private ["CSo11UIResponder", "pushViewController"]
 - !private ["CSo11UIResponder", "reloadData"]
 - ["CSo11UIResponder", "requestListArray"]
+- !private ["CSo11UIResponder", "requestTabBarItem"]
 - ["CSo11UIResponder", "scrollViewDidEndDecelerating"]
 - ["CSo11UIResponder", "scrollViewDidEndDragging"]
 - ["CSo11UIResponder", "scrollViewDidEndScrollingAnimation"]
@@ -1790,6 +1891,7 @@ depends-member:
 - ["CSo11UIResponder", "tableView"]
 - !private ["CSo11UIResponder", "text"]
 - !private ["CSo11UIResponder", "title"]
+- ["CSo11UIResponder", "totalBadgeCounter"]
 - ["CSo11UIResponder", "userDefaults"]
 - !private ["CSo11UIResponder", "userImageView"]
 - !private ["CSo11UIResponder", "userType"]
@@ -1798,6 +1900,7 @@ depends-member:
 - ["CSo11UIResponder", "viewDidLoad"]
 - ["CSo11UIResponder", "viewForZooming"]
 - ["CSo11UIResponder", "viewForZoomingInScrollView"]
+- !private ["PSo30UIResponderStandardEditActions", "Account"]
 - !private ["PSo30UIResponderStandardEditActions", "Alamofire"]
 - !private ["PSo30UIResponderStandardEditActions", "ApiMethods"]
 - ["PSo30UIResponderStandardEditActions", "Int"]
@@ -1840,6 +1943,7 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "pushViewController"]
 - !private ["PSo30UIResponderStandardEditActions", "reloadData"]
 - ["PSo30UIResponderStandardEditActions", "requestListArray"]
+- !private ["PSo30UIResponderStandardEditActions", "requestTabBarItem"]
 - ["PSo30UIResponderStandardEditActions", "scrollViewDidEndDecelerating"]
 - ["PSo30UIResponderStandardEditActions", "scrollViewDidEndDragging"]
 - ["PSo30UIResponderStandardEditActions", "scrollViewDidEndScrollingAnimation"]
@@ -1864,6 +1968,7 @@ depends-member:
 - ["PSo30UIResponderStandardEditActions", "tableView"]
 - !private ["PSo30UIResponderStandardEditActions", "text"]
 - !private ["PSo30UIResponderStandardEditActions", "title"]
+- ["PSo30UIResponderStandardEditActions", "totalBadgeCounter"]
 - ["PSo30UIResponderStandardEditActions", "userDefaults"]
 - !private ["PSo30UIResponderStandardEditActions", "userImageView"]
 - !private ["PSo30UIResponderStandardEditActions", "userType"]
@@ -1875,6 +1980,7 @@ depends-member:
 - ["PSo30UIResponderStandardEditActions", ""]
 - !private ["CSo12UIScrollView", "dequeueReusableCell"]
 - !private ["CSo12UIScrollView", "reloadData"]
+- !private ["PSo20UIScrollViewDelegate", "Account"]
 - !private ["PSo20UIScrollViewDelegate", "Alamofire"]
 - !private ["PSo20UIScrollViewDelegate", "ApiMethods"]
 - ["PSo20UIScrollViewDelegate", "Int"]
@@ -1900,6 +2006,7 @@ depends-member:
 - !private ["PSo20UIScrollViewDelegate", "parent"]
 - !private ["PSo20UIScrollViewDelegate", "print"]
 - !private ["PSo20UIScrollViewDelegate", "requestListArray"]
+- !private ["PSo20UIScrollViewDelegate", "requestTabBarItem"]
 - ["PSo20UIScrollViewDelegate", "scrollViewDidEndDecelerating"]
 - ["PSo20UIScrollViewDelegate", "scrollViewDidEndDragging"]
 - ["PSo20UIScrollViewDelegate", "scrollViewDidEndScrollingAnimation"]
@@ -1921,12 +2028,14 @@ depends-member:
 - !private ["PSo20UIScrollViewDelegate", "tabBarController"]
 - ["PSo20UIScrollViewDelegate", "tableView"]
 - !private ["PSo20UIScrollViewDelegate", "title"]
+- !private ["PSo20UIScrollViewDelegate", "totalBadgeCounter"]
 - ["PSo20UIScrollViewDelegate", "userDefaults"]
 - !private ["PSo20UIScrollViewDelegate", "userType"]
 - !private ["PSo20UIScrollViewDelegate", "userTypeString"]
 - ["PSo20UIScrollViewDelegate", "viewForZooming"]
 - ["PSo20UIScrollViewDelegate", "viewForZoomingInScrollView"]
 - ["PSo20UIScrollViewDelegate", ""]
+- !private ["PSo16UIStateRestoring", "Account"]
 - !private ["PSo16UIStateRestoring", "Alamofire"]
 - !private ["PSo16UIStateRestoring", "ApiMethods"]
 - ["PSo16UIStateRestoring", "Int"]
@@ -1956,6 +2065,7 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "print"]
 - !private ["PSo16UIStateRestoring", "pushViewController"]
 - ["PSo16UIStateRestoring", "requestListArray"]
+- !private ["PSo16UIStateRestoring", "requestTabBarItem"]
 - ["PSo16UIStateRestoring", "scrollViewDidEndDecelerating"]
 - ["PSo16UIStateRestoring", "scrollViewDidEndDragging"]
 - ["PSo16UIStateRestoring", "scrollViewDidEndScrollingAnimation"]
@@ -1977,6 +2087,7 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "tabBarController"]
 - ["PSo16UIStateRestoring", "tableView"]
 - !private ["PSo16UIStateRestoring", "title"]
+- ["PSo16UIStateRestoring", "totalBadgeCounter"]
 - ["PSo16UIStateRestoring", "userDefaults"]
 - !private ["PSo16UIStateRestoring", "userType"]
 - ["PSo16UIStateRestoring", "userTypeString"]
@@ -1992,6 +2103,7 @@ depends-member:
 - !private ["CSo18UITabBarController", "title"]
 - !private ["PSo16UITabBarDelegate", "navigationItem"]
 - !private ["PSo16UITabBarDelegate", "title"]
+- !private ["CSo12UITabBarItem", "badgeValue"]
 - ["CSo11UITableView", "deinit"]
 - !private ["CSo11UITableView", "dequeueReusableCell"]
 - !private ["CSo11UITableView", "reloadData"]
@@ -2008,6 +2120,7 @@ depends-member:
 - !private ["OSC28UITableViewCellAccessoryType", "disclosureIndicator"]
 - ["OSC29UITableViewCellSelectionStyle", "deinit"]
 - !private ["OSC29UITableViewCellSelectionStyle", "none"]
+- !private ["PSo21UITableViewDataSource", "Account"]
 - !private ["PSo21UITableViewDataSource", "Alamofire"]
 - !private ["PSo21UITableViewDataSource", "ApiMethods"]
 - ["PSo21UITableViewDataSource", "Int"]
@@ -2033,6 +2146,7 @@ depends-member:
 - !private ["PSo21UITableViewDataSource", "parent"]
 - !private ["PSo21UITableViewDataSource", "print"]
 - !private ["PSo21UITableViewDataSource", "requestListArray"]
+- !private ["PSo21UITableViewDataSource", "requestTabBarItem"]
 - ["PSo21UITableViewDataSource", "scrollViewDidEndDecelerating"]
 - ["PSo21UITableViewDataSource", "scrollViewDidEndDragging"]
 - ["PSo21UITableViewDataSource", "scrollViewDidEndScrollingAnimation"]
@@ -2054,12 +2168,14 @@ depends-member:
 - !private ["PSo21UITableViewDataSource", "tabBarController"]
 - ["PSo21UITableViewDataSource", "tableView"]
 - !private ["PSo21UITableViewDataSource", "title"]
+- !private ["PSo21UITableViewDataSource", "totalBadgeCounter"]
 - ["PSo21UITableViewDataSource", "userDefaults"]
 - !private ["PSo21UITableViewDataSource", "userType"]
 - !private ["PSo21UITableViewDataSource", "userTypeString"]
 - ["PSo21UITableViewDataSource", "viewForZooming"]
 - ["PSo21UITableViewDataSource", "viewForZoomingInScrollView"]
 - ["PSo21UITableViewDataSource", ""]
+- !private ["PSo19UITableViewDelegate", "Account"]
 - !private ["PSo19UITableViewDelegate", "Alamofire"]
 - !private ["PSo19UITableViewDelegate", "ApiMethods"]
 - ["PSo19UITableViewDelegate", "Int"]
@@ -2085,6 +2201,7 @@ depends-member:
 - !private ["PSo19UITableViewDelegate", "parent"]
 - !private ["PSo19UITableViewDelegate", "print"]
 - !private ["PSo19UITableViewDelegate", "requestListArray"]
+- !private ["PSo19UITableViewDelegate", "requestTabBarItem"]
 - ["PSo19UITableViewDelegate", "scrollViewDidEndDecelerating"]
 - ["PSo19UITableViewDelegate", "scrollViewDidEndDragging"]
 - ["PSo19UITableViewDelegate", "scrollViewDidEndScrollingAnimation"]
@@ -2106,6 +2223,7 @@ depends-member:
 - !private ["PSo19UITableViewDelegate", "tabBarController"]
 - ["PSo19UITableViewDelegate", "tableView"]
 - !private ["PSo19UITableViewDelegate", "title"]
+- !private ["PSo19UITableViewDelegate", "totalBadgeCounter"]
 - ["PSo19UITableViewDelegate", "userDefaults"]
 - !private ["PSo19UITableViewDelegate", "userType"]
 - !private ["PSo19UITableViewDelegate", "userTypeString"]
@@ -2113,6 +2231,7 @@ depends-member:
 - ["PSo19UITableViewDelegate", "viewForZoomingInScrollView"]
 - ["PSo19UITableViewDelegate", ""]
 - !private ["PSo19UITextFieldDelegate", "hidesBottomBarWhenPushed"]
+- !private ["PSo18UITraitEnvironment", "Account"]
 - !private ["PSo18UITraitEnvironment", "Alamofire"]
 - !private ["PSo18UITraitEnvironment", "ApiMethods"]
 - ["PSo18UITraitEnvironment", "Int"]
@@ -2155,6 +2274,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "pushViewController"]
 - !private ["PSo18UITraitEnvironment", "reloadData"]
 - ["PSo18UITraitEnvironment", "requestListArray"]
+- !private ["PSo18UITraitEnvironment", "requestTabBarItem"]
 - ["PSo18UITraitEnvironment", "scrollViewDidEndDecelerating"]
 - ["PSo18UITraitEnvironment", "scrollViewDidEndDragging"]
 - ["PSo18UITraitEnvironment", "scrollViewDidEndScrollingAnimation"]
@@ -2179,6 +2299,7 @@ depends-member:
 - ["PSo18UITraitEnvironment", "tableView"]
 - !private ["PSo18UITraitEnvironment", "text"]
 - !private ["PSo18UITraitEnvironment", "title"]
+- ["PSo18UITraitEnvironment", "totalBadgeCounter"]
 - ["PSo18UITraitEnvironment", "userDefaults"]
 - !private ["PSo18UITraitEnvironment", "userImageView"]
 - !private ["PSo18UITraitEnvironment", "userType"]
@@ -2205,6 +2326,7 @@ depends-member:
 - !private ["CSo6UIView", "show"]
 - !private ["CSo6UIView", "text"]
 - !private ["CSo6UIView", "userImageView"]
+- !private ["CSo16UIViewController", "Account"]
 - !private ["CSo16UIViewController", "Alamofire"]
 - !private ["CSo16UIViewController", "ApiMethods"]
 - ["CSo16UIViewController", "Bool"]
@@ -2245,6 +2367,7 @@ depends-member:
 - !private ["CSo16UIViewController", "print"]
 - !private ["CSo16UIViewController", "pushViewController"]
 - ["CSo16UIViewController", "requestListArray"]
+- !private ["CSo16UIViewController", "requestTabBarItem"]
 - ["CSo16UIViewController", "scrollViewDidEndDecelerating"]
 - ["CSo16UIViewController", "scrollViewDidEndDragging"]
 - ["CSo16UIViewController", "scrollViewDidEndScrollingAnimation"]
@@ -2266,6 +2389,7 @@ depends-member:
 - !private ["CSo16UIViewController", "tabBarController"]
 - ["CSo16UIViewController", "tableView"]
 - !private ["CSo16UIViewController", "title"]
+- ["CSo16UIViewController", "totalBadgeCounter"]
 - ["CSo16UIViewController", "userDefaults"]
 - !private ["CSo16UIViewController", "userType"]
 - ["CSo16UIViewController", "userTypeString"]
@@ -2283,6 +2407,7 @@ depends-member:
 - !private ["P9Alamofire14URLConvertible", "deinit"]
 - ["P9Alamofire14URLConvertible", "init"]
 - !private ["P9Alamofire14URLConvertible", "localized"]
+- !private ["P9Alamofire14URLConvertible", "lowercased"]
 - !private ["Sc", "deinit"]
 - ["CSo12UserDefaults", "deinit"]
 - ["CSo12UserDefaults", "integer"]
@@ -2311,15 +2436,21 @@ depends-member:
 - !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
 - ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
 - !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "localized"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "lowercased"]
 - ["Ps35_ExpressibleByBuiltinIntegerLiteral", "init"]
 - ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
 - !private ["Ps34_ExpressibleByBuiltinStringLiteral", "localized"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "lowercased"]
 - ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
 - !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "localized"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "lowercased"]
 - ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
 - !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "localized"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "lowercased"]
 - ["Ps35_HasCustomAnyHashableRepresentation", "init"]
 - !private ["Ps35_HasCustomAnyHashableRepresentation", "localized"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "lowercased"]
+- !private ["Ps9_Hashable", "Account"]
 - !private ["Ps9_Hashable", "Alamofire"]
 - !private ["Ps9_Hashable", "ApiMethods"]
 - ["Ps9_Hashable", "Int"]
@@ -2339,6 +2470,7 @@ depends-member:
 - !private ["Ps9_Hashable", "accessoryType"]
 - !private ["Ps9_Hashable", "add"]
 - !private ["Ps9_Hashable", "backBarButtonItem"]
+- !private ["Ps9_Hashable", "badgeValue"]
 - !private ["Ps9_Hashable", "baseUrl"]
 - !private ["Ps9_Hashable", "clipsToBounds"]
 - !private ["Ps9_Hashable", "cornerRadius"]
@@ -2369,6 +2501,7 @@ depends-member:
 - !private ["Ps9_Hashable", "lblTime"]
 - !private ["Ps9_Hashable", "leftBarButtonItem"]
 - !private ["Ps9_Hashable", "localized"]
+- !private ["Ps9_Hashable", "lowercased"]
 - !private ["Ps9_Hashable", "navigationController"]
 - !private ["Ps9_Hashable", "navigationItem"]
 - !private ["Ps9_Hashable", "none"]
@@ -2385,6 +2518,7 @@ depends-member:
 - !private ["Ps9_Hashable", "reloadData"]
 - !private ["Ps9_Hashable", "removeAllObjects"]
 - ["Ps9_Hashable", "requestListArray"]
+- !private ["Ps9_Hashable", "requestTabBarItem"]
 - !private ["Ps9_Hashable", "rightBarButtonItems"]
 - !private ["Ps9_Hashable", "row"]
 - ["Ps9_Hashable", "scrollViewDidEndDecelerating"]
@@ -2420,6 +2554,7 @@ depends-member:
 - !private ["Ps9_Hashable", "text"]
 - !private ["Ps9_Hashable", "time"]
 - !private ["Ps9_Hashable", "title"]
+- ["Ps9_Hashable", "totalBadgeCounter"]
 - ["Ps9_Hashable", "userDefaults"]
 - !private ["Ps9_Hashable", "userImageView"]
 - !private ["Ps9_Hashable", "userType"]
@@ -2438,6 +2573,7 @@ depends-member:
 - !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
 - ["Ps21_ObjectiveCBridgeable", "init"]
 - !private ["Ps21_ObjectiveCBridgeable", "localized"]
+- !private ["Ps21_ObjectiveCBridgeable", "lowercased"]
 - !private ["Ps21_ObjectiveCBridgeable", "row"]
 - !private ["Ps21_ObjectiveCBridgeable", "size"]
 - !private ["Ps21_ObjectiveCBridgeable", "width"]
@@ -2452,6 +2588,7 @@ depends-member:
 - !private ["V11DiabetesApp8userType", "doctor"]
 - !private ["V11DiabetesApp8userType", "educator"]
 depends-nominal:
+- "V11DiabetesApp7Account"
 - "Ps9AnyObject"
 - !private "V11DiabetesApp10ApiMethods"
 - !private "Ps23BidirectionalCollection"
@@ -2477,7 +2614,7 @@ depends-nominal:
 - "Vs10Dictionary"
 - !private "Sd"
 - "Ps9Equatable"
-- !private "Ps5Error"
+- "Ps5Error"
 - "Ps25ExpressibleByArrayLiteral"
 - !private "Ps27ExpressibleByBooleanLiteral"
 - !private "Ps30ExpressibleByDictionaryLiteral"
@@ -2502,6 +2639,8 @@ depends-nominal:
 - "Ps17IntegerArithmetic"
 - !private "Ps16IteratorProtocol"
 - "V9Alamofire12JSONEncoding"
+- !private "P11DiabetesApp27KeychainGenericPasswordType"
+- !private "P11DiabetesApp16KeychainItemType"
 - "Ps25LosslessStringConvertible"
 - "Ps10MirrorPath"
 - !private "Ps17MutableCollection"
@@ -2572,6 +2711,7 @@ depends-nominal:
 - "CSo12UIStoryboard"
 - "CSo18UITabBarController"
 - !private "PSo16UITabBarDelegate"
+- !private "CSo12UITabBarItem"
 - "CSo11UITableView"
 - "CSo15UITableViewCell"
 - "OSC28UITableViewCellAccessoryType"
@@ -2961,4 +3101,4 @@ depends-external:
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController-umbrella.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Modules/module.modulemap"
-interface-hash: "a8cbe63687c5961f5099a27d6aacd45e"
+interface-hash: "54293f7c5684c4630b28ba5bf6f0f2d6"

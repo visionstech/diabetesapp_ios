@@ -15,6 +15,7 @@ let kQBApplicationID:UInt = 47247
 let kQBAuthKey = "wbtMCF5p5c3yC-S"
 let kQBAuthSecret = "kSJ29gCrnWTjZFW"
 let kQBAccountKey = "QwJxtpozqbEi58QT1Qm9"
+var tabCounter = "0"
 // Video Calling Values
 
 let kQBRingThickness : CGFloat = 1.0
@@ -37,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,NotificationServiceDelegat
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-      
+        UserDefaults.standard.set("0", forKey:userDefaults.totalBadgeCounter)
         // set Navigation bar Fonts
         UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: Fonts.GothamBoldFont, NSForegroundColorAttributeName:UIColor.white]
        // UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: Fonts.NavBarBtnFont, NSForegroundColorAttributeName:UIColor.white], for: UIControlState.normal)
@@ -122,8 +123,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,NotificationServiceDelegat
         
        // Persist it in your backend in case it's new
         
-          //  UserDefaults.standard.setValue(deviceTokenString, forKey: userDefaults.deviceToken)
-           // UserDefaults.standard.synchronize()
+        //UserDefaults.standard.setValue(deviceTokenString, forKey: userDefaults.deviceToken)
+       // UserDefaults.standard.synchronize()
         
         let token = UserDefaults.standard.value(forKey: userDefaults.deviceToken)
 
@@ -132,7 +133,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,NotificationServiceDelegat
         subscription.deviceUDID = deviceIdentifier
         subscription.deviceToken = deviceToken
         
-         UserDefaults.standard.set(deviceToken, forKey: "DeviceToken")
+        UserDefaults.standard.set(deviceToken, forKey: "DeviceToken")
         QBRequest.createSubscription(subscription, successBlock: { (response: QBResponse!, objects: [QBMSubscription]?) -> Void in
             //
         }) { (response: QBResponse!) -> Void in
@@ -151,6 +152,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,NotificationServiceDelegat
             return
         }
         
+        
         if let messageFrom : String = userInfo["type"] as? String {
             if messageFrom == "Report" {
                 
@@ -159,13 +161,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate,NotificationServiceDelegat
                // viewController.taskID = (userInfo["taskid"] as! String)
                 UserDefaults.standard.set(false, forKey:userDefaults.groupChat)
                 UserDefaults.standard.set((userInfo["taskid"] as! String), forKey:userDefaults.taskID)
-                UserDefaults.standard.set((userInfo["patientid"] as! String), forKey:userDefaults.taskID)
+                UserDefaults.standard.set((userInfo["patientid"] as! String), forKey:userDefaults.selectedPatientID)
                 UserDefaults.standard.set((userInfo["badgeCounter"] as! String), forKey:userDefaults.totalBadgeCounter)
                 
                 UserDefaults.standard.synchronize()
-                application.applicationIconBadgeNumber = Int(userInfo["badgeCounter"] as! String)!
+                application.applicationIconBadgeNumber = userInfo["badgeCounter"] as! Int
                 navigatonController.pushViewController(viewController, animated: true)
-                
             }
         }
         

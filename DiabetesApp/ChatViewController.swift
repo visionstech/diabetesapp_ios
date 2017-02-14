@@ -405,8 +405,11 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         
         if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
             
-            topBackView = UIView(frame: CGRect(x: self.view.frame.size.width - 80, y: 0, width: 75, height: 40))
-            topBackView.backgroundColor = UIColor(patternImage: UIImage(named: "topbackArbic")!)
+            topBackView = UIView(frame: CGRect(x: self.view.frame.size.width - 40, y: 0, width: 40, height: 40))
+//            topBackView.backgroundColor = UIColor(patternImage: UIImage(named: "topbackArbic")!)
+            let backImg : UIImageView = UIImageView(frame:CGRect( x: 0, y: 8, width: 40, height: 25))
+            backImg.image = UIImage(named:"topbackArbic")
+            topBackView.addSubview(backImg)
             
             topUserImageView =  UIView(frame: CGRect(x: self.view.frame.size.width - 75 , y: 0, width: 35, height: 35))
            // let userImgView: UIImageView = UIImageView(frame: CGRect(x: 0, y: 3, width: 34, height: 34))
@@ -431,17 +434,16 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
             self.tabBarController?.navigationController?.navigationBar.addSubview(topUserImageView)
         }
         else {
-            topBackView = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 40))
-            topBackView.backgroundColor = UIColor(patternImage: UIImage(named: "topBackBtn")!)
+            topBackView = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+//           topBackView.backgroundColor = UIColor(patternImage: UIImage(named: "topBackBtn")!)
+            let backImg : UIImageView = UIImageView(frame:CGRect( x: 0, y: 8, width: 40, height: 25))
+            backImg.image = UIImage(named:"topBackBtn")
+            topBackView.addSubview(backImg)
             
-            
-            
-            topUserImageView =  UIView(frame: CGRect(x: 50 , y: 0, width: 35, height: 35))
+            topUserImageView =  UIView(frame: CGRect(x: 40 , y: 0, width: 35, height: 35))
            // let userImgView: UIImageView = UIImageView(frame: CGRect(x: 0, y: 3, width: 34, height: 34))
             //userImgView.image = UIImage(named: "user.png")
-            
             //topUserImageView.addSubview(userImgView)
-            
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(BackBtn_Click))
             topBackView.addGestureRecognizer(tapGesture)
             topBackView.isUserInteractionEnabled = true
@@ -464,6 +466,7 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
     }
     
     func BackBtn_Click(){
+         topBackView.removeFromSuperview()
         self.navigationController?.popViewController(animated: true)
     }
 
@@ -983,12 +986,14 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
             }
            let pushMessage =  QBMPushMessage()
             pushMessage.alertBody = self.dialog.name! + " : " + message.text!
-            //pushMessage.badge = 1
             
             QBRequest .sendPush(pushMessage, toUsers: String(self.dialog.userID), successBlock: { (response, event) in
-                
+                print("Success")
+                self.present(UtilityClass.displayAlertMessage(message: "Success", title: "Success"), animated: true, completion: nil)
             }, errorBlock: { (error) in
-                
+                print("Error")
+                print(error!)
+                self.present(UtilityClass.displayAlertMessage(message: String(describing: error), title: "Error"), animated: true, completion: nil)
             })
 //            QBRequest.sendPush(withText: message.text!, toUsers: String(self.dialog.userID) , successBlock: { (response, event) in
 //                print(response)
@@ -2040,7 +2045,7 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         self.present(alertController, animated: true) {
         }
     }
-    
+   
     
     
     

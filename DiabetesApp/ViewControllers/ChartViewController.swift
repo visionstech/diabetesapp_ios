@@ -28,6 +28,7 @@ class ChartViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var hyposLbl: UILabel!
     @IBOutlet weak var hyperLbl: UILabel!
    
+    @IBOutlet weak var arrowImg: UIImageView!
     @IBOutlet weak var chartView: UIView!
     @IBOutlet weak var readingsView: UIView!
     
@@ -69,8 +70,19 @@ class ChartViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         noHistoryAvailableLabel.text = "No Readings Available".localized
         pickerCancelButton.setTitle("Cancel".localized, for: .normal)
         pickerDoneButton.setTitle("Done".localized, for: .normal)
-
+        conditionTxtFld.text = conditionsArray[0] as! String
+        conditionTitle.text = "CONDITION".localized
         selectedConditionIndex = 0
+        
+        if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
+            conditionTxtFld.textAlignment = .left
+            arrowImg.image = UIImage(named:"readinghistoryBack")
+        }
+        else {
+            conditionTxtFld.textAlignment = .right
+            arrowImg.image = UIImage(named:"history_condition")
+        }
+
         
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -146,7 +158,7 @@ class ChartViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBAction func conditionBtn_Clicked(_ sender: Any) {
         //Google Analytic
         GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "Chart View", action:"Condition Clicked" , label:"Condition Clicked")
-
+        pickerView.selectRow(selectedConditionIndex, inComponent: 0, animated: true)
         showOverlay(overlayView: pickerViewContainer)
     }
     
@@ -165,13 +177,14 @@ class ChartViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         conditionTxtFld.text = conditionsArray[pickerView.selectedRow(inComponent: 0)] as? String
         selectedConditionIndex = pickerView.selectedRow(inComponent: 0) as Int
         // Api Method
-        
-        if(conditionTxtFld.text! != "All conditions")
+        let selectedConditionEng = conditionsArrayEng[selectedConditionIndex] as? String
+        UserDefaults.standard.setValue(selectedConditionEng, forKey: "currentHistoryCondition")
+        if(selectedConditionEng != "All conditions")
         {
             print("Condition text field")
             
             
-            let tempString : [String] = conditionTxtFld.text!.components(separatedBy: " ")
+            let tempString : [String] = selectedConditionEng!.components(separatedBy: " ")
             var newCondition : String = ""
             if tempString[0] == "Before"{
                 
@@ -181,14 +194,14 @@ class ChartViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                 newCondition = "Post "+tempString[1]
             }
             else{
-                newCondition = conditionTxtFld.text!
+                newCondition = selectedConditionEng!
             }
             getChartConditionData(condition: newCondition)
         }
         else{
             print("All conditions")
             print(conditionTxtFld.text!)
-            getChartHistoryData(condition: conditionTxtFld.text!)
+            getChartHistoryData(condition: selectedConditionEng!)
 
         }
     }
@@ -248,19 +261,7 @@ class ChartViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                 newCondition = ConditionVal!
             }
 
-           /* let tempString : [String] = condition.components(separatedBy: " ")
-            var newCondition : String = ""
-            if tempString[0] == "Before"{
-                newCondition = "Pre "+tempString[1]
-            }
-           else if tempString[0] == "After"{
-                newCondition = "Post "+tempString[1]
-            }
-            else{
-                newCondition = condition
-            }
-            */
-            // newCondition = "All conditions"
+         
             let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
             let parameters: Parameters = [
                 "userid": patientsID,
@@ -334,7 +335,12 @@ class ChartViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                     break
                 case .failure(let error):
                     //Google Analytic
-                    GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "getSpec Calling", action:"Fail - Web API Calling" , label:String(describing: error), value : self.formInterval.intervalAsSeconds())
+                    var strError = ""
+                    if(error.localizedDescription.length>0)
+                    {
+                        strError = error.localizedDescription
+                    }
+                    GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "getSpec Calling", action:"Fail - Web API Calling" , label:String(describing: strError), value : self.formInterval.intervalAsSeconds())
                     print("failure")
                     self.resetUI()
                     break
@@ -366,6 +372,8 @@ class ChartViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             
             newCondition = "All conditions"
             let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+            let selectedNoOfDays: String = UserDefaults.standard.string(forKey: userDefaults.selectedNoOfDays)!
+            noOfDays = selectedNoOfDays
             let parameters: Parameters = [
                 "userid": patientsID,
                 "numDaysBack": noOfDays,
@@ -431,7 +439,12 @@ class ChartViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                 break
             case .failure(let error):
                 //Google Analytic
-                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.getglucoseDaysConditionChart) Calling", action:"Fail - Web API Calling" , label:String(describing: error), value : self.formInterval.intervalAsSeconds())
+                var strError = ""
+                if(error.localizedDescription.length>0)
+                {
+                    strError = error.localizedDescription
+                }
+                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.getglucoseDaysConditionChart) Calling", action:"Fail - Web API Calling" , label:String(describing: strError), value : self.formInterval.intervalAsSeconds())
                 
                 print("failure")
                 self.resetUI()
@@ -446,12 +459,21 @@ class ChartViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     //MARK: - Notifications Methods
     func chartViewNotification(notification: NSNotification) {
        //getChartHistoryData(condition: conditionTxtFld.text!)
-        if(conditionTxtFld.text! != "All conditions")
+        let dict = notification.object as! NSDictionary
+        let receivedCondition = dict["current"]
+        //getReadingHistory(condition: receivedCondition! as! String)
+        let selectedConditionEng = receivedCondition as! String
+        UserDefaults.standard.setValue(selectedConditionEng, forKey: "currentHistoryCondition")
+        
+        selectedConditionIndex = conditionsArrayEng.index(of: receivedCondition!)
+        conditionTxtFld.text = conditionsArray[selectedConditionIndex] as! String
+        pickerView.selectRow(selectedConditionIndex, inComponent: 0, animated: true)
+        if(selectedConditionEng != "All conditions")
         {
             print("Condition text field")
             
             
-            let tempString : [String] = conditionTxtFld.text!.components(separatedBy: " ")
+            let tempString : [String] = selectedConditionEng.components(separatedBy: " ")
             var newCondition : String = ""
             if tempString[0] == "Before"{
                 
@@ -461,14 +483,14 @@ class ChartViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                 newCondition = "Post "+tempString[1]
             }
             else{
-                newCondition = conditionTxtFld.text!
+                newCondition = selectedConditionEng
             }
             getChartConditionData(condition: newCondition)
         }
         else{
             print("All conditions")
             print(conditionTxtFld.text!)
-            getChartHistoryData(condition: conditionTxtFld.text!)
+            getChartHistoryData(condition: selectedConditionEng)
             
         }
         // self.drawChart()
@@ -480,12 +502,14 @@ class ChartViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         print("noOfDays \(noOfDays)")
         //getChartHistoryData(condition: conditionTxtFld.text!)
         
-        if(conditionTxtFld.text! != "All conditions")
+        let selectedConditionEng = conditionsArrayEng[selectedConditionIndex] as? String
+        UserDefaults.standard.setValue(selectedConditionEng, forKey: "currentHistoryCondition")
+        if(selectedConditionEng != "All conditions")
         {
             print("Condition text field")
             
             
-            let tempString : [String] = conditionTxtFld.text!.components(separatedBy: " ")
+            let tempString : [String] = selectedConditionEng!.components(separatedBy: " ")
             var newCondition : String = ""
             if tempString[0] == "Before"{
                 
@@ -495,14 +519,14 @@ class ChartViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                 newCondition = "Post "+tempString[1]
             }
             else{
-                newCondition = conditionTxtFld.text!
+                newCondition = selectedConditionEng!
             }
             getChartConditionData(condition: newCondition)
         }
         else{
             print("All conditions")
             print(conditionTxtFld.text!)
-            getChartHistoryData(condition: conditionTxtFld.text!)
+            getChartHistoryData(condition: selectedConditionEng!)
             
         }
         
@@ -820,7 +844,7 @@ class ChartViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         let scatterLayers = self.toLayers(models, layerSpecifications: layerSpecifications, xAxis: xAxis, yAxis: yAxis, chartInnerFrame: innerFrame)
         
         //set guide lines
-        let guidelinesLayerSettings = ChartGuideLinesDottedLayerSettings(linesColor: UIColor.black, linesWidth: 1.5)
+        let guidelinesLayerSettings = ChartGuideLinesDottedLayerSettings(linesColor: UIColor.lightGray, linesWidth: 1.5)
         let guidelinesLayer = ChartGuideLinesDottedLayer(xAxis: xAxis, yAxis: yAxis, innerFrame: innerFrame, settings: guidelinesLayerSettings)
         
         //        print("Median Line Data")

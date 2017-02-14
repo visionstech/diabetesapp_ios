@@ -18,6 +18,13 @@ class ReportCarePlanController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet var pickerViewContainer: UIView!
     @IBOutlet weak var tblView: UITableView!
     
+    @IBOutlet weak var btnOkFreqPicker: UIButton!
+    @IBOutlet weak var btnCancelFreqPicker: UIButton!
+    @IBOutlet weak var btnOkPicker: UIButton!
+    @IBOutlet weak var btnCancelPicker: UIButton!
+    @IBOutlet weak var pickerFreqView: UIPickerView!
+    @IBOutlet weak var pickerTimingView: UIPickerView!
+    @IBOutlet weak var pickerViewInner: UIView!
     @IBOutlet weak var noReadingsAvailable: UILabel!
     @IBOutlet weak var takereadingsLabel: UILabel!
     var reportUSer = String()
@@ -25,6 +32,8 @@ class ReportCarePlanController: UIViewController, UITableViewDelegate, UITableVi
     var selectedIndexPath = Int()
     var array = NSMutableArray()
     var currentEditReadingArray = NSMutableArray()
+    
+    var objCarePlanFrequencyObj = CarePlanFrequencyObj()
 
     //    @IBOutlet weak var numberLbl: UILabel!
 //    @IBOutlet weak var goalLbl: UITextField!
@@ -96,7 +105,10 @@ class ReportCarePlanController: UIViewController, UITableViewDelegate, UITableVi
     
     //MARK: - Custom Methods
     func resetUI() {
-        if self.array.count > 0 {
+        
+        tblView.isHidden = false
+
+        /*if self.array.count > 0 {
             tblView.isHidden = false
              noReadingsAvailable.isHidden = true
         }
@@ -104,15 +116,16 @@ class ReportCarePlanController: UIViewController, UITableViewDelegate, UITableVi
             
             tblView.isHidden = true
             noReadingsAvailable.isHidden = false
-        }
+        }*/
     }
     
     func addNotifications(){
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.readingNotification(notification:)), name: NSNotification.Name(rawValue: Notifications.readingView), object: nil)
     }
+    
     //MARK: - textfield  Delegates
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    /*func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         let selectedIndex : Int = Int(textField.accessibilityLabel!)!
         let mainDict: NSMutableDictionary = array[textField.tag] as! NSMutableDictionary
         let itemsArray: NSMutableArray = mainDict.object(forKey: "data") as! NSMutableArray
@@ -223,7 +236,37 @@ class ReportCarePlanController: UIViewController, UITableViewDelegate, UITableVi
             
         }
         return true
+    }*/
+    
+    // MARK: - Editable TableView TextField
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+        return true
     }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        //check this
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(GIntakeViewController.dismissKeyboard(_:))))
+        textField.becomeFirstResponder()
+    }
+    private func textFieldDidEndEditing(textField: UITextField, inRowAtIndexPath indexPath: NSIndexPath) {
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField .resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        let cell = self.parentCellFor(view: textField) as! CarePlanReadingTableViewCell
+        
+        if !cell.isViewEmpty {
+            cell.goalLbl.text = textField.text
+            self.objCarePlanFrequencyObj.goal = textField.text!
+            let objCarePlanObj = (array[textField.tag] as? CarePlanFrequencyObj)!
+            objCarePlanObj.goal = textField.text!
+        }
+    }
+
     
     //MARK: - Notifications Methods
     func readingNotification(notification: NSNotification) {
@@ -460,23 +503,119 @@ class ReportCarePlanController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     
+    func parentCellFor(view: UIView) -> UITableViewCell {
+        if (view.superview == nil){
+            return view as! UITableViewCell
+        }
+        
+        if   view is UITableViewCell {
+            return (view as! UITableViewCell)
+        }
+        return self.parentCellFor(view: view.superview!)
+    }
+    
     //MARK: - TableView Delegate Methods
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let mainDict: NSMutableDictionary = array[section] as! NSMutableDictionary
         let itemsArray: NSMutableArray = mainDict.object(forKey: "data") as! NSMutableArray
         
         return itemsArray.count
+        //return itemsArray.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
+      //  print("Array count")
+       // print(array.count)
         return array.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        let mainDict: NSMutableDictionary = array[indexPath.section] as! NSMutableDictionary
+        
+        
+        let itemsArray: NSMutableArray = mainDict.object(forKey: "data") as! NSMutableArray
+        
+
+        let tempArray : NSArray = UserDefaults.standard.array(forKey: "updateReadingCareArray")! as [Any] as NSArray
+
+        
+        
         //print("Bool vaue for readings")
         //print(UserDefaults.standard.bool(forKey: "CurrentReadEditBool"))
-        let mainDict: NSMutableDictionary = array[indexPath.section] as! NSMutableDictionary
+        
+        
+        let cell : ReportCarePlanReadingViewCell = tableView.dequeueReusableCell(withIdentifier: "readingsCell")! as! ReportCarePlanReadingViewCell
+        cell.selectionStyle = .none
+        cell.tag = indexPath.row
+        cell.btnEdit.tag = indexPath.row
+        cell.btnFreq.tag = indexPath.row
+        cell.btnTiming.tag = indexPath.row
+        cell.txtGoal.tag = indexPath.row
+        
+        
+        let selectedUserType: Int = Int(UserDefaults.standard.integer(forKey: userDefaults.loggedInUserType))
+        
+        
+        if let obj: CarePlanReadingObj = itemsArray[indexPath.row] as? CarePlanReadingObj {
+            cell.goalLbl.text = obj.goal
+            cell.txtGoal.text = obj.goal
+            cell.conditionLbl.text = obj.time
+            
+            let valFreq = obj.frequency.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).lowercased()
+            if valFreq == "once a week"{
+                cell.frequencyLbl.text = "1/week"
+            }
+            else if valFreq == "twice a week"{
+                cell.frequencyLbl.text = "2/week"
+            }
+            else if valFreq == "thrice a week"{
+                cell.frequencyLbl.text = "3/week"
+            }
+            else if valFreq == "once daily"{
+                cell.frequencyLbl.text = "Daily"
+            }
+            else if valFreq == "twice daily"{
+                cell.frequencyLbl.text = "2/Daily"
+            }
+            
+            cell.txtGoal.delegate = self
+            cell.txtGoal.isHidden = true
+            cell.btnEdit.isHidden = true
+            cell.btnTiming.isHidden = true
+           // cell.btnFreq.addTarget(self, action: #selector(btnFreq_Clicked(_:)), for: .touchUpInside)
+            //cell.btnTiming.addTarget(self, action: #selector(btnTiming_Clicked(_:)), for: .touchUpInside)
+            /*if(obj.isEdit)
+            {
+                cell.btnTiming.isHidden = false
+                cell.btnFreq.isHidden = false
+                cell.txtGoal.isHidden = false
+            }
+            else
+            {
+                cell.btnTiming.isHidden = true
+                cell.btnFreq.isHidden = true
+                cell.txtGoal.isHidden = true
+            }
+            
+            if(selectedUserType == userType.patient)
+            {
+                cell.btnEdit.isHidden = true
+                cell.btnTiming.isHidden = true
+                cell.btnFreq.isHidden = true
+                cell.txtGoal.isHidden = true
+            }
+            else{
+                cell.btnEdit.isHidden = false
+            }*/
+        }
+        return cell;
+    }
+
+    
+        //CODE BELOW IS IF EDITING IS REQUIRED ON REPORT VIEW ITSELF
+       /* let mainDict: NSMutableDictionary = array[indexPath.section] as! NSMutableDictionary
         let itemsArray: NSMutableArray = mainDict.object(forKey: "data") as! NSMutableArray
         let cell : ReportCarePlanReadingViewCell = tableView.dequeueReusableCell(withIdentifier: "readingsCell")! as! ReportCarePlanReadingViewCell
         cell.selectionStyle = .none
@@ -591,13 +730,13 @@ class ReportCarePlanController: UIViewController, UITableViewDelegate, UITableVi
         
         return cell
         
-    }
+    }*/
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
         let cell : CarePlanReadingHeaderTableViewCell = tableView.dequeueReusableCell(withIdentifier: "headerCell")! as! CarePlanReadingHeaderTableViewCell
-        let mainDict: NSMutableDictionary = array[section] as! NSMutableDictionary
-       // cell.frequencyLbl.text = String(mainDict.value(forKey: "frequency") as! String)
         return cell
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -19,6 +19,9 @@ class RequestViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     var selectedPatientID: String = ""
     
+    var totalBadgeCounter =  Int()
+
+    
     @IBOutlet weak var tableView: UITableView!
     
     
@@ -74,14 +77,14 @@ class RequestViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         
         if selectedUserType == userType.doctor {
-            cell.lblDoctorEductor.text = "Educator:"
+            cell.lblDoctorEductor.text = "Educator:".localized
             cell.lblEducator.text = obj.educatorName
         }
         if selectedUserType == userType.educator {
-            cell.lblDoctorEductor.text = "Doctor:"
+            cell.lblDoctorEductor.text = "Doctor:".localized
             cell.lblEducator.text = obj.doctorName
         }
-        
+        // TODO generalize this URL to the new public ip
         let imagePath = "http://54.212.229.198:3000/upload/" + selectedPatientID + "image.jpg"
         let manager:SDWebImageManager = SDWebImageManager.shared()
         
@@ -129,20 +132,57 @@ class RequestViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         
     }
+    
     func getRequestTask() {
-        //         SVProgressHUD.show(withStatus: "SA_STR_LOADING".localized, maskType: 
         
             let userID: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserID)!
+            var account = Account(name: userID)
+            var tDate = ""
+            var tokenVal = ""
+            do {
+            
+                try account.fetchFromKeychain()
+            
+                if let token = account.accessToken {
+                    tokenVal = token
+                }
+            
+                if let taskDate = account.tDate {
+                    tDate = taskDate
+                }
+            
+            } catch {
+                tDate = ""
+                print(error)
+            }
+
+        
+        
             let parameters: Parameters = [
                 "usertype": userTypeString,
-                "userid": userID
+                "userid": userID,
+                "lastUpdateDate":tDate
             ]
-            
+        
+        
+        
+            var unreadCounter = 0
+            var reloadTable : Bool = true
             print(parameters)
-            
-            
+        
+            print("Total Badge Counter")
+            print(totalBadgeCounter)
+           // if let badgeCounter = UserDefaults.standard.value(forKey: userDefaults.totalBadgeCounter) as! Int?{
+             //   totalBadgeCounter = badgeCounter
+           // }
+           // else{
+            //    totalBadgeCounter = 0
+           // }
+        
+        
             SVProgressHUD.show(withStatus: "Loading requests".localized)
            // Alamofire.request("\(baseUrl)\(ApiMethods.getTasks)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+        //"\(baseUrl)\(ApiMethods.getTasks)
          Alamofire.request("\(baseUrl)\(ApiMethods.getTasks)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
 
                 print("Validation Successful ")
@@ -150,14 +190,33 @@ class RequestViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 switch response.result {
                     
                 case .success:
-                    //                    SVProgressHUD.dismiss()
-                    
-                   // if let JSON: NSArray = response.result.value! as? NSArray {
-                    if let JSON: NSDictionary = response.result.value! as? NSDictionary{
+                                      if let JSON: NSDictionary = response.result.value! as? NSDictionary{
                         self.requestListArray .removeAllObjects()
                             print("JSON \(JSON)")
                             //for data in JSON {
+                        
+                        // Still pending : Store NSDate in keychain to check lastUpdateForRequests. Do not pull all requests everytime
+                        if let maxDate: String = JSON.value(forKey:"maxDate") as! String{
+                            let newAccount = Account(name: userID, accessToken: tokenVal, tDate : maxDate)
+                        
+                            // save / update
+                            do {
+                                try newAccount.saveInKeychain()
+                                print("> saved the account in the Keychain")
+                            
+                            } catch {
+                            
+                                print(error)
+                            }
+                        }
+                        
+                        
                         if  let jsonArray :  NSArray = JSON.value(forKey: "taskList") as? NSArray{
+                            if jsonArray.count <= 0
+                            {
+                                reloadTable = false
+                            }
+
                             for data in jsonArray {
                                 let dict: NSDictionary = data as! NSDictionary
                                 let requestObj = RequestObject()
@@ -173,12 +232,49 @@ class RequestViewController: UIViewController,UITableViewDelegate,UITableViewDat
                                 requestObj.time =   dict.value(forKey: "time") as! String
                                 requestObj.status =   dict.value(forKey: "status") as! String
                                 requestObj.patientid = (dict.value(forKey: "patientid") as? String)!
+                                
+                                if self.selectedUserType == userType.doctor{
+                                    var status = dict.value(forKey: "status") as! String
+
+                                    if status == "Pending"{
+                                        status = "Pending".localized
+                                        unreadCounter = unreadCounter + 1
+                                    }
+                                    else if status == "Accepted"{
+                                        status = "Accepted".localized
+                                    }
+                                    else if status == "Declined"{
+                                        status = "Declined".localized
+                                       
+                                    }
+                                }
+                                    
+                                else if self.selectedUserType == userType.educator{
+                                    if let readENUM = dict.value(forKey: "readBy"){
+                                       let readENUMstr = readENUM as! String
+                                        if readENUMstr.lowercased() == "DOCTOR".lowercased(){
+                                            unreadCounter = unreadCounter + 1
+                                        }
+                                    }
+                                    
+                                    
+                                }
+                                
                                 self.selectedPatientID = dict.value(forKey: "patientid") as! String
                                 self.requestListArray.add(requestObj)
                             }
                         }
+                        //if reloadTable{   // reload only if something new
                             self.tableView.reloadData()
+                        //}
                         
+                        }
+                
+                        if unreadCounter == 0 {
+                            requestTabBarItem.badgeValue = nil
+                        }
+                        else{
+                            requestTabBarItem.badgeValue = String(unreadCounter)
                         }
                         SVProgressHUD.dismiss()
                     break

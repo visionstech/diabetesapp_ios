@@ -6,21 +6,23 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp20RequestTableViewCell", ""]
 provides-dynamic-lookup:
-- "userImageView"
-- "awakeFromNib"
-- "lblDoctorEductor"
-- "lblTime"
-- "lbPatientName"
 - "lblRequestStatus"
-- "patientTitleLabel"
-- "lblEducator"
+- "lblTime"
 - "setSelected"
+- "patientTitleLabel"
+- "awakeFromNib"
+- "userImageView"
+- "lbPatientName"
+- "lblEducator"
+- "lblDoctorEductor"
 depends-top-level:
-- "UIImageView"
-- "UILabel"
 - "UITableViewCell"
-- "RequestTableViewCell"
+- "UIImageView"
+- "AssignmentPrecedence"
+- "UILabel"
 - "Bool"
+- "RequestTableViewCell"
+- !private "StringLiteralType"
 depends-member:
 - ["Ps9AnyObject", "awakeFromNib"]
 - !private ["Ps9AnyObject", "init"]
@@ -29,8 +31,10 @@ depends-member:
 - ["Ps9AnyObject", "lblEducator"]
 - ["Ps9AnyObject", "lblRequestStatus"]
 - ["Ps9AnyObject", "lblTime"]
+- !private ["Ps9AnyObject", "localized"]
 - ["Ps9AnyObject", "patientTitleLabel"]
 - ["Ps9AnyObject", "setSelected"]
+- !private ["Ps9AnyObject", "text"]
 - ["Ps9AnyObject", "userImageView"]
 - ["Ps9AnyObject", ""]
 - ["Sb", "deinit"]
@@ -43,6 +47,7 @@ depends-member:
 - ["PSo15CALayerDelegate", "lblTime"]
 - ["PSo15CALayerDelegate", "patientTitleLabel"]
 - ["PSo15CALayerDelegate", "setSelected"]
+- !private ["PSo15CALayerDelegate", "text"]
 - ["PSo15CALayerDelegate", "userImageView"]
 - ["PSo15CALayerDelegate", ""]
 - ["Ps7CVarArg", "awakeFromNib"]
@@ -52,10 +57,14 @@ depends-member:
 - ["Ps7CVarArg", "lblEducator"]
 - ["Ps7CVarArg", "lblRequestStatus"]
 - ["Ps7CVarArg", "lblTime"]
+- !private ["Ps7CVarArg", "localized"]
 - ["Ps7CVarArg", "patientTitleLabel"]
 - ["Ps7CVarArg", "setSelected"]
+- !private ["Ps7CVarArg", "text"]
 - ["Ps7CVarArg", "userImageView"]
 - ["Ps7CVarArg", ""]
+- !private ["Ps10Comparable", "init"]
+- !private ["Ps10Comparable", "localized"]
 - ["Ps28CustomDebugStringConvertible", "awakeFromNib"]
 - !private ["Ps28CustomDebugStringConvertible", "init"]
 - ["Ps28CustomDebugStringConvertible", "lbPatientName"]
@@ -63,10 +72,16 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "lblEducator"]
 - ["Ps28CustomDebugStringConvertible", "lblRequestStatus"]
 - ["Ps28CustomDebugStringConvertible", "lblTime"]
+- !private ["Ps28CustomDebugStringConvertible", "localized"]
 - ["Ps28CustomDebugStringConvertible", "patientTitleLabel"]
 - ["Ps28CustomDebugStringConvertible", "setSelected"]
+- !private ["Ps28CustomDebugStringConvertible", "text"]
 - ["Ps28CustomDebugStringConvertible", "userImageView"]
 - ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "localized"]
+- !private ["Ps17CustomReflectable", "init"]
+- !private ["Ps17CustomReflectable", "localized"]
 - ["Ps23CustomStringConvertible", "awakeFromNib"]
 - !private ["Ps23CustomStringConvertible", "init"]
 - ["Ps23CustomStringConvertible", "lbPatientName"]
@@ -74,8 +89,10 @@ depends-member:
 - ["Ps23CustomStringConvertible", "lblEducator"]
 - ["Ps23CustomStringConvertible", "lblRequestStatus"]
 - ["Ps23CustomStringConvertible", "lblTime"]
+- !private ["Ps23CustomStringConvertible", "localized"]
 - ["Ps23CustomStringConvertible", "patientTitleLabel"]
 - ["Ps23CustomStringConvertible", "setSelected"]
+- !private ["Ps23CustomStringConvertible", "text"]
 - ["Ps23CustomStringConvertible", "userImageView"]
 - ["Ps23CustomStringConvertible", ""]
 - ["Ps9Equatable", "awakeFromNib"]
@@ -85,10 +102,20 @@ depends-member:
 - ["Ps9Equatable", "lblEducator"]
 - ["Ps9Equatable", "lblRequestStatus"]
 - ["Ps9Equatable", "lblTime"]
+- !private ["Ps9Equatable", "localized"]
 - ["Ps9Equatable", "patientTitleLabel"]
 - ["Ps9Equatable", "setSelected"]
+- !private ["Ps9Equatable", "text"]
 - ["Ps9Equatable", "userImageView"]
 - ["Ps9Equatable", ""]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "localized"]
+- !private ["Ps32ExpressibleByStringInterpolation", "init"]
+- !private ["Ps32ExpressibleByStringInterpolation", "localized"]
+- !private ["Ps26ExpressibleByStringLiteral", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "localized"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "localized"]
 - ["Ps8Hashable", "awakeFromNib"]
 - !private ["Ps8Hashable", "init"]
 - ["Ps8Hashable", "lbPatientName"]
@@ -96,11 +123,17 @@ depends-member:
 - ["Ps8Hashable", "lblEducator"]
 - ["Ps8Hashable", "lblRequestStatus"]
 - ["Ps8Hashable", "lblTime"]
+- !private ["Ps8Hashable", "localized"]
 - ["Ps8Hashable", "patientTitleLabel"]
 - ["Ps8Hashable", "setSelected"]
+- !private ["Ps8Hashable", "text"]
 - ["Ps8Hashable", "userImageView"]
 - ["Ps8Hashable", ""]
 - ["SQ", "deinit"]
+- !private ["Ps25LosslessStringConvertible", "init"]
+- !private ["Ps25LosslessStringConvertible", "localized"]
+- !private ["Ps10MirrorPath", "init"]
+- !private ["Ps10MirrorPath", "localized"]
 - ["CSo7NSCoder", "deinit"]
 - ["PSo8NSCoding", "awakeFromNib"]
 - !private ["PSo8NSCoding", "init"]
@@ -109,10 +142,16 @@ depends-member:
 - ["PSo8NSCoding", "lblEducator"]
 - ["PSo8NSCoding", "lblRequestStatus"]
 - ["PSo8NSCoding", "lblTime"]
+- !private ["PSo8NSCoding", "localized"]
 - ["PSo8NSCoding", "patientTitleLabel"]
 - ["PSo8NSCoding", "setSelected"]
+- !private ["PSo8NSCoding", "text"]
 - ["PSo8NSCoding", "userImageView"]
 - ["PSo8NSCoding", ""]
+- !private ["PSo9NSCopying", "init"]
+- !private ["PSo9NSCopying", "localized"]
+- !private ["PSo16NSMutableCopying", "init"]
+- !private ["PSo16NSMutableCopying", "localized"]
 - ["CSo8NSObject", "Bool"]
 - ["CSo8NSObject", "UIImageView"]
 - ["CSo8NSObject", "UILabel"]
@@ -123,8 +162,10 @@ depends-member:
 - ["CSo8NSObject", "lblEducator"]
 - ["CSo8NSObject", "lblRequestStatus"]
 - ["CSo8NSObject", "lblTime"]
+- !private ["CSo8NSObject", "localized"]
 - ["CSo8NSObject", "patientTitleLabel"]
 - ["CSo8NSObject", "setSelected"]
+- !private ["CSo8NSObject", "text"]
 - ["CSo8NSObject", "userImageView"]
 - ["PSo16NSObjectProtocol", "awakeFromNib"]
 - !private ["PSo16NSObjectProtocol", "init"]
@@ -133,10 +174,16 @@ depends-member:
 - ["PSo16NSObjectProtocol", "lblEducator"]
 - ["PSo16NSObjectProtocol", "lblRequestStatus"]
 - ["PSo16NSObjectProtocol", "lblTime"]
+- !private ["PSo16NSObjectProtocol", "localized"]
 - ["PSo16NSObjectProtocol", "patientTitleLabel"]
 - ["PSo16NSObjectProtocol", "setSelected"]
+- !private ["PSo16NSObjectProtocol", "text"]
 - ["PSo16NSObjectProtocol", "userImageView"]
 - ["PSo16NSObjectProtocol", ""]
+- !private ["PSo14NSSecureCoding", "init"]
+- !private ["PSo14NSSecureCoding", "localized"]
+- !private ["CSo8NSString", "init"]
+- !private ["CSo8NSString", "localized"]
 - ["Sq", "deinit"]
 - ["C11DiabetesApp20RequestTableViewCell", "Bool"]
 - ["C11DiabetesApp20RequestTableViewCell", "UIImageView"]
@@ -152,6 +199,13 @@ depends-member:
 - ["C11DiabetesApp20RequestTableViewCell", "patientTitleLabel"]
 - ["C11DiabetesApp20RequestTableViewCell", "setSelected"]
 - ["C11DiabetesApp20RequestTableViewCell", "userImageView"]
+- ["SS", "deinit"]
+- !private ["SS", "init"]
+- !private ["SS", "localized"]
+- !private ["Ps16TextOutputStream", "init"]
+- !private ["Ps16TextOutputStream", "localized"]
+- !private ["Ps20TextOutputStreamable", "init"]
+- !private ["Ps20TextOutputStreamable", "localized"]
 - ["PSo29UIAccessibilityIdentification", "awakeFromNib"]
 - !private ["PSo29UIAccessibilityIdentification", "init"]
 - ["PSo29UIAccessibilityIdentification", "lbPatientName"]
@@ -161,6 +215,7 @@ depends-member:
 - ["PSo29UIAccessibilityIdentification", "lblTime"]
 - ["PSo29UIAccessibilityIdentification", "patientTitleLabel"]
 - ["PSo29UIAccessibilityIdentification", "setSelected"]
+- !private ["PSo29UIAccessibilityIdentification", "text"]
 - ["PSo29UIAccessibilityIdentification", "userImageView"]
 - ["PSo29UIAccessibilityIdentification", ""]
 - ["PSo12UIAppearance", "awakeFromNib"]
@@ -172,6 +227,7 @@ depends-member:
 - ["PSo12UIAppearance", "lblTime"]
 - ["PSo12UIAppearance", "patientTitleLabel"]
 - ["PSo12UIAppearance", "setSelected"]
+- !private ["PSo12UIAppearance", "text"]
 - ["PSo12UIAppearance", "userImageView"]
 - ["PSo12UIAppearance", ""]
 - ["PSo21UIAppearanceContainer", "awakeFromNib"]
@@ -183,8 +239,10 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "lblTime"]
 - ["PSo21UIAppearanceContainer", "patientTitleLabel"]
 - ["PSo21UIAppearanceContainer", "setSelected"]
+- !private ["PSo21UIAppearanceContainer", "text"]
 - ["PSo21UIAppearanceContainer", "userImageView"]
 - ["PSo21UIAppearanceContainer", ""]
+- !private ["PSo30UIContentSizeCategoryAdjusting", "text"]
 - ["PSo17UICoordinateSpace", "awakeFromNib"]
 - !private ["PSo17UICoordinateSpace", "init"]
 - ["PSo17UICoordinateSpace", "lbPatientName"]
@@ -194,6 +252,7 @@ depends-member:
 - ["PSo17UICoordinateSpace", "lblTime"]
 - ["PSo17UICoordinateSpace", "patientTitleLabel"]
 - ["PSo17UICoordinateSpace", "setSelected"]
+- !private ["PSo17UICoordinateSpace", "text"]
 - ["PSo17UICoordinateSpace", "userImageView"]
 - ["PSo17UICoordinateSpace", ""]
 - ["PSo13UIDynamicItem", "awakeFromNib"]
@@ -205,6 +264,7 @@ depends-member:
 - ["PSo13UIDynamicItem", "lblTime"]
 - ["PSo13UIDynamicItem", "patientTitleLabel"]
 - ["PSo13UIDynamicItem", "setSelected"]
+- !private ["PSo13UIDynamicItem", "text"]
 - ["PSo13UIDynamicItem", "userImageView"]
 - ["PSo13UIDynamicItem", ""]
 - ["PSo18UIFocusEnvironment", "awakeFromNib"]
@@ -216,6 +276,7 @@ depends-member:
 - ["PSo18UIFocusEnvironment", "lblTime"]
 - ["PSo18UIFocusEnvironment", "patientTitleLabel"]
 - ["PSo18UIFocusEnvironment", "setSelected"]
+- !private ["PSo18UIFocusEnvironment", "text"]
 - ["PSo18UIFocusEnvironment", "userImageView"]
 - ["PSo18UIFocusEnvironment", ""]
 - ["PSo11UIFocusItem", "awakeFromNib"]
@@ -227,6 +288,7 @@ depends-member:
 - ["PSo11UIFocusItem", "lblTime"]
 - ["PSo11UIFocusItem", "patientTitleLabel"]
 - ["PSo11UIFocusItem", "setSelected"]
+- !private ["PSo11UIFocusItem", "text"]
 - ["PSo11UIFocusItem", "userImageView"]
 - ["PSo11UIFocusItem", ""]
 - ["PSo27UIGestureRecognizerDelegate", "awakeFromNib"]
@@ -240,6 +302,7 @@ depends-member:
 - ["PSo27UIGestureRecognizerDelegate", "setSelected"]
 - ["PSo27UIGestureRecognizerDelegate", "userImageView"]
 - ["PSo27UIGestureRecognizerDelegate", ""]
+- !private ["CSo7UILabel", "text"]
 - ["CSo11UIResponder", "Bool"]
 - ["CSo11UIResponder", "UIImageView"]
 - ["CSo11UIResponder", "UILabel"]
@@ -252,6 +315,7 @@ depends-member:
 - ["CSo11UIResponder", "lblTime"]
 - ["CSo11UIResponder", "patientTitleLabel"]
 - ["CSo11UIResponder", "setSelected"]
+- !private ["CSo11UIResponder", "text"]
 - ["CSo11UIResponder", "userImageView"]
 - ["PSo30UIResponderStandardEditActions", "awakeFromNib"]
 - !private ["PSo30UIResponderStandardEditActions", "init"]
@@ -262,6 +326,7 @@ depends-member:
 - ["PSo30UIResponderStandardEditActions", "lblTime"]
 - ["PSo30UIResponderStandardEditActions", "patientTitleLabel"]
 - ["PSo30UIResponderStandardEditActions", "setSelected"]
+- !private ["PSo30UIResponderStandardEditActions", "text"]
 - ["PSo30UIResponderStandardEditActions", "userImageView"]
 - ["PSo30UIResponderStandardEditActions", ""]
 - ["CSo15UITableViewCell", "Bool"]
@@ -289,6 +354,7 @@ depends-member:
 - ["PSo18UITraitEnvironment", "lblTime"]
 - ["PSo18UITraitEnvironment", "patientTitleLabel"]
 - ["PSo18UITraitEnvironment", "setSelected"]
+- !private ["PSo18UITraitEnvironment", "text"]
 - ["PSo18UITraitEnvironment", "userImageView"]
 - ["PSo18UITraitEnvironment", ""]
 - ["CSo6UIView", "Bool"]
@@ -303,7 +369,10 @@ depends-member:
 - ["CSo6UIView", "lblTime"]
 - ["CSo6UIView", "patientTitleLabel"]
 - ["CSo6UIView", "setSelected"]
+- !private ["CSo6UIView", "text"]
 - ["CSo6UIView", "userImageView"]
+- !private ["P9Alamofire14URLConvertible", "init"]
+- !private ["P9Alamofire14URLConvertible", "localized"]
 - ["Ps37_DefaultCustomPlaygroundQuickLookable", "awakeFromNib"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "init"]
 - ["Ps37_DefaultCustomPlaygroundQuickLookable", "lbPatientName"]
@@ -313,8 +382,19 @@ depends-member:
 - ["Ps37_DefaultCustomPlaygroundQuickLookable", "lblTime"]
 - ["Ps37_DefaultCustomPlaygroundQuickLookable", "patientTitleLabel"]
 - ["Ps37_DefaultCustomPlaygroundQuickLookable", "setSelected"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "text"]
 - ["Ps37_DefaultCustomPlaygroundQuickLookable", "userImageView"]
 - ["Ps37_DefaultCustomPlaygroundQuickLookable", ""]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "localized"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "localized"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "localized"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "localized"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "localized"]
 - ["Ps9_Hashable", "awakeFromNib"]
 - !private ["Ps9_Hashable", "init"]
 - ["Ps9_Hashable", "lbPatientName"]
@@ -322,42 +402,71 @@ depends-member:
 - ["Ps9_Hashable", "lblEducator"]
 - ["Ps9_Hashable", "lblRequestStatus"]
 - ["Ps9_Hashable", "lblTime"]
+- !private ["Ps9_Hashable", "localized"]
 - ["Ps9_Hashable", "patientTitleLabel"]
 - ["Ps9_Hashable", "setSelected"]
+- !private ["Ps9_Hashable", "text"]
 - ["Ps9_Hashable", "userImageView"]
 - ["Ps9_Hashable", ""]
+- !private ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Ps21_ObjectiveCBridgeable", "localized"]
 depends-nominal:
 - "Ps9AnyObject"
 - "Sb"
 - "PSo15CALayerDelegate"
 - "Ps7CVarArg"
+- !private "Ps10Comparable"
 - "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
 - "Ps23CustomStringConvertible"
 - "Ps9Equatable"
+- !private "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- !private "Ps32ExpressibleByStringInterpolation"
+- !private "Ps26ExpressibleByStringLiteral"
+- !private "Ps33ExpressibleByUnicodeScalarLiteral"
 - "Ps8Hashable"
 - "SQ"
+- !private "Ps25LosslessStringConvertible"
+- !private "Ps10MirrorPath"
 - "CSo7NSCoder"
 - "PSo8NSCoding"
+- !private "PSo9NSCopying"
+- !private "PSo16NSMutableCopying"
 - "CSo8NSObject"
 - "PSo16NSObjectProtocol"
+- !private "PSo14NSSecureCoding"
+- !private "CSo8NSString"
 - "Sq"
 - "C11DiabetesApp20RequestTableViewCell"
+- "SS"
+- !private "Ps16TextOutputStream"
+- !private "Ps20TextOutputStreamable"
 - "PSo29UIAccessibilityIdentification"
 - "PSo12UIAppearance"
 - "PSo21UIAppearanceContainer"
+- !private "PSo30UIContentSizeCategoryAdjusting"
 - "PSo17UICoordinateSpace"
 - "PSo13UIDynamicItem"
 - "PSo18UIFocusEnvironment"
 - "PSo11UIFocusItem"
 - "PSo27UIGestureRecognizerDelegate"
+- !private "CSo7UILabel"
 - "CSo11UIResponder"
 - "PSo30UIResponderStandardEditActions"
 - "CSo15UITableViewCell"
 - "OSC20UITableViewCellStyle"
 - "PSo18UITraitEnvironment"
 - "CSo6UIView"
+- !private "P9Alamofire14URLConvertible"
 - "Ps37_DefaultCustomPlaygroundQuickLookable"
+- !private "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- !private "Ps34_ExpressibleByBuiltinStringLiteral"
+- !private "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- !private "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- !private "Ps35_HasCustomAnyHashableRepresentation"
 - "Ps9_Hashable"
+- !private "Ps21_ObjectiveCBridgeable"
 depends-dynamic-lookup:
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"

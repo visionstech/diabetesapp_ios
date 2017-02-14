@@ -32,6 +32,8 @@ class RequestTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        patientTitleLabel.text = "Patient:".localized
         // Initialization code
     }
 

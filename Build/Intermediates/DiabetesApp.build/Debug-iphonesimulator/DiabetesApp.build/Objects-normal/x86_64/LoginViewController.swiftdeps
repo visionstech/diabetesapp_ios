@@ -9,103 +9,107 @@ provides-member:
 - ["V11DiabetesApp7Account", ""]
 - ["C11DiabetesApp19LoginViewController", ""]
 provides-dynamic-lookup:
+- "getReadCount"
 - "activityIndicator"
-- "createAccountButton"
-- "navigateToNextScreen"
 - "usernameTxtFld"
-- "getTaskDate"
-- "LoginBtn_Click"
-- "registerForRemoteNotification"
-- "segmentUserType"
-- "viewDidLoad"
-- "SelectUserTypBtns_Click"
-- "viewWillAppear"
-- "usernameTextFieldView"
-- "forgotPasswordButton"
-- "viewDidAppear"
 - "didReceiveMemoryWarning"
-- "loginButton"
-- "titleLabel"
-- "loginToQuickBlox"
-- "selectedUserType"
-- "passwordTextFieldView"
-- "passwordTxtFld"
-- "textFieldShouldReturn"
-- "formInterval"
-- "checkLoginStatus"
+- "navigateToNextScreen"
 - "getMedicationArray"
+- "textFieldShouldReturn"
+- "passwordTxtFld"
+- "titleLabel"
+- "getTaskDate"
+- "createAccountButton"
+- "usernameTextFieldView"
+- "selectedUserType"
+- "loginButton"
+- "loginToQuickBlox"
+- "checkLoginStatus"
+- "registerForRemoteNotification"
+- "passwordTextFieldView"
+- "forgotPasswordButton"
+- "segmentUserType"
+- "LoginBtn_Click"
+- "viewDidLoad"
+- "viewDidAppear"
+- "viewWillAppear"
+- "SelectUserTypBtns_Click"
+- "formInterval"
 depends-top-level:
-- "Int"
-- !private "QBRequest"
-- !private "UIBarButtonItem"
-- !private "NSAttributedString"
-- !private "UtilityClass"
+- !private "AppDelegate"
+- !private "Void"
+- !private "ApiMethods"
+- !private "BooleanLiteralType"
+- !private "UIUserNotificationType"
+- !private "print"
+- !private "userType"
+- "UIActivityIndicatorView"
+- !private "HomeTabBarController"
+- !private "kButtonRadius"
+- "UIButton"
+- "AssignmentPrecedence"
+- "CastingPrecedence"
+- !private "=="
+- !private "||"
+- "AnyObject"
+- !private "SVProgressHUD"
+- !private "ViewIdentifiers"
+- !private "UIUserNotificationSettings"
+- !private "NSDictionary"
+- !private "CharacterSet"
+- !private "baseUrl"
+- "String"
+- "GTInterval"
 - !private "ServicesManager"
-- !private "kLoginScreenName"
-- !private "UIRemoteNotificationType"
+- !private "+"
+- !private "medicationObj"
+- "Account"
+- !private "Alamofire"
+- !private "tabCounter"
+- "UIView"
 - !private "Parameters"
 - !private "GoogleAnalyticManagerApi"
-- !private "NSForegroundColorAttributeName"
 - "UITextFieldDelegate"
-- "UIViewController"
-- "UISegmentedControl"
-- !private "+"
-- !private "ApiMethods"
-- !private "Void"
-- !private "print"
 - !private "UIApplication"
-- "CastingPrecedence"
-- "UIView"
-- "AssignmentPrecedence"
-- "GTInterval"
-- !private "Dictionary"
-- !private "||"
-- "String"
-- !private "=="
-- "AnyObject"
-- !private "baseUrl"
-- !private "NSMutableArray"
-- !private "AppDelegate"
+- !private "NSAttributedString"
+- !private "NSForegroundColorAttributeName"
 - !private "QBUUser"
-- !private "QBChat"
-- !private "Array"
-- !private "/"
-- !private "UIUserNotificationType"
-- "KeychainGenericPasswordType"
-- "UIActivityIndicatorView"
+- !private "NSMutableArray"
+- "LoginViewController"
 - !private "userDefaults"
-- !private "DoctorTabBarViewController"
-- !private "requestTabBarItem"
-- !private "CharacterSet"
-- !private "Alamofire"
-- !private "HomeTabBarController"
-- !private "NSArray"
-- !private "ViewIdentifiers"
-- !private "BooleanLiteralType"
-- "Bool"
-- !private "userType"
-- !private "dictMedicationList"
-- !private "StringLiteralType"
-- "UIButton"
-- !private "medicationObj"
+- !private "Array"
 - !private "JSONEncoding"
-- "UITextField"
-- !private "NSDictionary"
-- "UILabel"
-- !private "Colors"
-- !private "NSNumber"
-- !private "UIUserNotificationSettings"
-- "Account"
+- "UIViewController"
+- !private "UtilityClass"
+- !private "requestTabBarItem"
+- !private "NSArray"
+- !private "dictMedicationList"
 - !private "UserDefaults"
+- !private "kLoginScreenName"
+- !private "UIBarButtonItem"
 - !private "!"
-- !private "SVProgressHUDMaskType"
+- !private "QBChat"
+- !private "DoctorTabBarViewController"
+- "Int"
+- !private "StringLiteralType"
 - !private "CAGradientLayer"
 - !private "UIColor"
-- !private "SVProgressHUD"
+- "UISegmentedControl"
+- !private "Colors"
 - "QBCoreDelegate"
+- "UILabel"
+- !private "QBRequest"
+- "Bool"
 - !private "dictMedicationName"
-- "LoginViewController"
+- !private "Dictionary"
+- !private "SVProgressHUDMaskType"
+- !private "UIRemoteNotificationType"
+- "KeychainGenericPasswordType"
+- !private ">"
+- !private "NSNumber"
+- "UITextField"
 depends-member:
+- !private ["Ps16AbsoluteValuable", "Stride"]
 - ["V11DiabetesApp7Account", "AnyObject"]
 - ["V11DiabetesApp7Account", "String"]
 - ["V11DiabetesApp7Account", "accessMode"]
@@ -195,6 +199,7 @@ depends-member:
 - !private ["Ps9AnyObject", "frame"]
 - !private ["Ps9AnyObject", "fullName"]
 - ["Ps9AnyObject", "getMedicationArray"]
+- ["Ps9AnyObject", "getReadCount"]
 - ["Ps9AnyObject", "getTaskDate"]
 - !private ["Ps9AnyObject", "hidesBackButton"]
 - !private ["Ps9AnyObject", "init"]
@@ -208,6 +213,7 @@ depends-member:
 - !private ["Ps9AnyObject", "isEmpty"]
 - !private ["Ps9AnyObject", "isNavigationBarHidden"]
 - !private ["Ps9AnyObject", "items"]
+- !private ["Ps9AnyObject", "kButtonRadius"]
 - !private ["Ps9AnyObject", "kLoginScreenName"]
 - !private ["Ps9AnyObject", "lastActivityDate"]
 - !private ["Ps9AnyObject", "layer"]
@@ -260,6 +266,7 @@ depends-member:
 - !private ["Ps9AnyObject", "subscript"]
 - !private ["Ps9AnyObject", "synchronize"]
 - !private ["Ps9AnyObject", "tabBar"]
+- !private ["Ps9AnyObject", "tabCounter"]
 - !private ["Ps9AnyObject", "tags"]
 - !private ["Ps9AnyObject", "text"]
 - ["Ps9AnyObject", "textField"]
@@ -327,9 +334,11 @@ depends-member:
 - !private ["Vs18BidirectionalSlice", "Iterator"]
 - !private ["Vs18BidirectionalSlice", "SubSequence"]
 - !private ["Vs18BidirectionalSlice", "_Element"]
+- !private ["Ps19BinaryFloatingPoint", "Stride"]
 - !private ["Ps17BitwiseOperations", "IntegerLiteralType"]
 - !private ["Ps17BitwiseOperations", "Stride"]
 - !private ["Ps17BitwiseOperations", "_DisabledRangeIndex"]
+- !private ["Ps17BitwiseOperations", "_DisallowMixedSignArithmetic"]
 - !private ["Ps17BitwiseOperations", "init"]
 - !private ["Sb", "_getBuiltinLogicValue"]
 - ["Sb", "deinit"]
@@ -368,9 +377,9 @@ depends-member:
 - !private ["PSo13CAMediaTiming", "init"]
 - !private ["PSo13CAMediaTiming", "insertSublayer"]
 - !private ["CSo7CGColor", "deinit"]
+- !private ["V12CoreGraphics7CGFloat", "Stride"]
 - !private ["V12CoreGraphics7CGFloat", "deinit"]
-- !private ["VSC6CGRect", "size"]
-- !private ["VSC6CGSize", "height"]
+- !private ["VSC6CMTime", "deinit"]
 - !private ["Ps7CVarArg", "Account"]
 - !private ["Ps7CVarArg", "Alamofire"]
 - !private ["Ps7CVarArg", "ApiMethods"]
@@ -413,6 +422,7 @@ depends-member:
 - !private ["Ps7CVarArg", "Value"]
 - !private ["Ps7CVarArg", "ViewIdentifiers"]
 - !private ["Ps7CVarArg", "_DisabledRangeIndex"]
+- !private ["Ps7CVarArg", "_DisallowMixedSignArithmetic"]
 - !private ["Ps7CVarArg", "_Element"]
 - ["Ps7CVarArg", "activityIndicator"]
 - !private ["Ps7CVarArg", "add"]
@@ -453,6 +463,7 @@ depends-member:
 - !private ["Ps7CVarArg", "frame"]
 - !private ["Ps7CVarArg", "fullName"]
 - ["Ps7CVarArg", "getMedicationArray"]
+- ["Ps7CVarArg", "getReadCount"]
 - ["Ps7CVarArg", "getTaskDate"]
 - !private ["Ps7CVarArg", "hidesBackButton"]
 - ["Ps7CVarArg", "init"]
@@ -466,6 +477,7 @@ depends-member:
 - !private ["Ps7CVarArg", "isEmpty"]
 - !private ["Ps7CVarArg", "isNavigationBarHidden"]
 - !private ["Ps7CVarArg", "items"]
+- !private ["Ps7CVarArg", "kButtonRadius"]
 - !private ["Ps7CVarArg", "kLoginScreenName"]
 - !private ["Ps7CVarArg", "lastActivityDate"]
 - !private ["Ps7CVarArg", "layer"]
@@ -517,6 +529,7 @@ depends-member:
 - !private ["Ps7CVarArg", "subscript"]
 - !private ["Ps7CVarArg", "synchronize"]
 - !private ["Ps7CVarArg", "tabBar"]
+- !private ["Ps7CVarArg", "tabCounter"]
 - !private ["Ps7CVarArg", "tags"]
 - !private ["Ps7CVarArg", "text"]
 - ["Ps7CVarArg", "textField"]
@@ -567,6 +580,7 @@ depends-member:
 - !private ["Ps10Comparable", "IntegerLiteralType"]
 - !private ["Ps10Comparable", "Stride"]
 - !private ["Ps10Comparable", "_DisabledRangeIndex"]
+- !private ["Ps10Comparable", "_DisallowMixedSignArithmetic"]
 - !private ["Ps10Comparable", "init"]
 - !private ["Ps10Comparable", "isEmpty"]
 - !private ["Ps10Comparable", "length"]
@@ -601,6 +615,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "SVProgressHUDMaskType"]
 - ["Ps28CustomDebugStringConvertible", "SelectUserTypBtns_Click"]
 - !private ["Ps28CustomDebugStringConvertible", "ServicesManager"]
+- !private ["Ps28CustomDebugStringConvertible", "Stride"]
 - !private ["Ps28CustomDebugStringConvertible", "String"]
 - !private ["Ps28CustomDebugStringConvertible", "SubSequence"]
 - !private ["Ps28CustomDebugStringConvertible", "UIApplication"]
@@ -655,8 +670,8 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "frame"]
 - !private ["Ps28CustomDebugStringConvertible", "fullName"]
 - ["Ps28CustomDebugStringConvertible", "getMedicationArray"]
+- ["Ps28CustomDebugStringConvertible", "getReadCount"]
 - ["Ps28CustomDebugStringConvertible", "getTaskDate"]
-- !private ["Ps28CustomDebugStringConvertible", "height"]
 - !private ["Ps28CustomDebugStringConvertible", "hidesBackButton"]
 - ["Ps28CustomDebugStringConvertible", "init"]
 - !private ["Ps28CustomDebugStringConvertible", "insertSublayer"]
@@ -669,6 +684,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "isEmpty"]
 - !private ["Ps28CustomDebugStringConvertible", "isNavigationBarHidden"]
 - !private ["Ps28CustomDebugStringConvertible", "items"]
+- !private ["Ps28CustomDebugStringConvertible", "kButtonRadius"]
 - !private ["Ps28CustomDebugStringConvertible", "kLoginScreenName"]
 - !private ["Ps28CustomDebugStringConvertible", "lastActivityDate"]
 - !private ["Ps28CustomDebugStringConvertible", "layer"]
@@ -716,7 +732,6 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "showActivityIndicator"]
 - !private ["Ps28CustomDebugStringConvertible", "showError"]
 - !private ["Ps28CustomDebugStringConvertible", "signUp"]
-- !private ["Ps28CustomDebugStringConvertible", "size"]
 - !private ["Ps28CustomDebugStringConvertible", "standard"]
 - !private ["Ps28CustomDebugStringConvertible", "startScreenSessionWithName"]
 - !private ["Ps28CustomDebugStringConvertible", "storyboard"]
@@ -725,6 +740,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "success"]
 - !private ["Ps28CustomDebugStringConvertible", "synchronize"]
 - !private ["Ps28CustomDebugStringConvertible", "tabBar"]
+- !private ["Ps28CustomDebugStringConvertible", "tabCounter"]
 - !private ["Ps28CustomDebugStringConvertible", "tags"]
 - !private ["Ps28CustomDebugStringConvertible", "text"]
 - ["Ps28CustomDebugStringConvertible", "textField"]
@@ -754,13 +770,12 @@ depends-member:
 - !private ["Ps29CustomPlaygroundQuickLookable", "IntegerLiteralType"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "Stride"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "_DisabledRangeIndex"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_DisallowMixedSignArithmetic"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
-- !private ["Ps29CustomPlaygroundQuickLookable", "height"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "init"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "isEmpty"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "length"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "localized"]
-- !private ["Ps29CustomPlaygroundQuickLookable", "size"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "trimmingCharacters"]
 - !private ["Ps17CustomReflectable", "Element"]
 - !private ["Ps17CustomReflectable", "Index"]
@@ -772,18 +787,17 @@ depends-member:
 - !private ["Ps17CustomReflectable", "SubSequence"]
 - !private ["Ps17CustomReflectable", "Value"]
 - !private ["Ps17CustomReflectable", "_DisabledRangeIndex"]
+- !private ["Ps17CustomReflectable", "_DisallowMixedSignArithmetic"]
 - !private ["Ps17CustomReflectable", "_Element"]
 - !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
 - !private ["Ps17CustomReflectable", "add"]
 - !private ["Ps17CustomReflectable", "append"]
 - !private ["Ps17CustomReflectable", "description"]
-- !private ["Ps17CustomReflectable", "height"]
 - ["Ps17CustomReflectable", "init"]
 - !private ["Ps17CustomReflectable", "isEmpty"]
 - !private ["Ps17CustomReflectable", "length"]
 - !private ["Ps17CustomReflectable", "localized"]
 - !private ["Ps17CustomReflectable", "removeAll"]
-- !private ["Ps17CustomReflectable", "size"]
 - !private ["Ps17CustomReflectable", "subscript"]
 - !private ["Ps17CustomReflectable", "trimmingCharacters"]
 - !private ["Ps17CustomReflectable", "value"]
@@ -829,6 +843,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "Value"]
 - !private ["Ps23CustomStringConvertible", "ViewIdentifiers"]
 - !private ["Ps23CustomStringConvertible", "_DisabledRangeIndex"]
+- !private ["Ps23CustomStringConvertible", "_DisallowMixedSignArithmetic"]
 - !private ["Ps23CustomStringConvertible", "_Element"]
 - !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
 - ["Ps23CustomStringConvertible", "activityIndicator"]
@@ -872,6 +887,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "frame"]
 - !private ["Ps23CustomStringConvertible", "fullName"]
 - ["Ps23CustomStringConvertible", "getMedicationArray"]
+- ["Ps23CustomStringConvertible", "getReadCount"]
 - ["Ps23CustomStringConvertible", "getTaskDate"]
 - !private ["Ps23CustomStringConvertible", "hidesBackButton"]
 - ["Ps23CustomStringConvertible", "init"]
@@ -885,6 +901,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "isEmpty"]
 - !private ["Ps23CustomStringConvertible", "isNavigationBarHidden"]
 - !private ["Ps23CustomStringConvertible", "items"]
+- !private ["Ps23CustomStringConvertible", "kButtonRadius"]
 - !private ["Ps23CustomStringConvertible", "kLoginScreenName"]
 - !private ["Ps23CustomStringConvertible", "lastActivityDate"]
 - !private ["Ps23CustomStringConvertible", "layer"]
@@ -940,6 +957,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "success"]
 - !private ["Ps23CustomStringConvertible", "synchronize"]
 - !private ["Ps23CustomStringConvertible", "tabBar"]
+- !private ["Ps23CustomStringConvertible", "tabCounter"]
 - !private ["Ps23CustomStringConvertible", "tags"]
 - !private ["Ps23CustomStringConvertible", "text"]
 - ["Ps23CustomStringConvertible", "textField"]
@@ -973,6 +991,9 @@ depends-member:
 - !private ["C9Alamofire11DataRequest", "responseJSON"]
 - !private ["V9Alamofire12DataResponse", "deinit"]
 - !private ["V9Alamofire12DataResponse", "result"]
+- !private ["V10Foundation4Date", "deinit"]
+- !private ["VSC7Decimal", "Stride"]
+- !private ["VSC7Decimal", "deinit"]
 - !private ["Vs27DefaultBidirectionalIndices", "Index"]
 - !private ["Vs27DefaultBidirectionalIndices", "Iterator"]
 - !private ["Vs27DefaultBidirectionalIndices", "SubSequence"]
@@ -990,8 +1011,12 @@ depends-member:
 - ["Vs10Dictionary", "deinit"]
 - ["Vs10Dictionary", "init"]
 - !private ["Vs10Dictionary", "subscript"]
+- !private ["V8Dispatch12DispatchTime", "deinit"]
+- !private ["O8Dispatch20DispatchTimeInterval", "deinit"]
+- !private ["V8Dispatch16DispatchWallTime", "deinit"]
 - ["C11DiabetesApp26DoctorTabBarViewController", "deinit"]
 - !private ["C11DiabetesApp26DoctorTabBarViewController", "tabBar"]
+- !private ["Sd", "Stride"]
 - !private ["Sd", "deinit"]
 - !private ["Ps9Equatable", "Account"]
 - !private ["Ps9Equatable", "Alamofire"]
@@ -1030,6 +1055,7 @@ depends-member:
 - !private ["Ps9Equatable", "UtilityClass"]
 - !private ["Ps9Equatable", "ViewIdentifiers"]
 - !private ["Ps9Equatable", "_DisabledRangeIndex"]
+- !private ["Ps9Equatable", "_DisallowMixedSignArithmetic"]
 - !private ["Ps9Equatable", "_getBuiltinLogicValue"]
 - ["Ps9Equatable", "activityIndicator"]
 - !private ["Ps9Equatable", "add"]
@@ -1074,8 +1100,8 @@ depends-member:
 - !private ["Ps9Equatable", "fullName"]
 - !private ["Ps9Equatable", "get"]
 - ["Ps9Equatable", "getMedicationArray"]
+- ["Ps9Equatable", "getReadCount"]
 - ["Ps9Equatable", "getTaskDate"]
-- !private ["Ps9Equatable", "height"]
 - !private ["Ps9Equatable", "hidesBackButton"]
 - !private ["Ps9Equatable", "init"]
 - !private ["Ps9Equatable", "insertSublayer"]
@@ -1088,6 +1114,7 @@ depends-member:
 - !private ["Ps9Equatable", "isEmpty"]
 - !private ["Ps9Equatable", "isNavigationBarHidden"]
 - !private ["Ps9Equatable", "items"]
+- !private ["Ps9Equatable", "kButtonRadius"]
 - !private ["Ps9Equatable", "kLoginScreenName"]
 - !private ["Ps9Equatable", "lastActivityDate"]
 - !private ["Ps9Equatable", "layer"]
@@ -1134,7 +1161,6 @@ depends-member:
 - ["Ps9Equatable", "showActivityIndicator"]
 - !private ["Ps9Equatable", "showError"]
 - !private ["Ps9Equatable", "signUp"]
-- !private ["Ps9Equatable", "size"]
 - !private ["Ps9Equatable", "sound"]
 - !private ["Ps9Equatable", "standard"]
 - !private ["Ps9Equatable", "startScreenSessionWithName"]
@@ -1143,6 +1169,7 @@ depends-member:
 - !private ["Ps9Equatable", "subscript"]
 - !private ["Ps9Equatable", "synchronize"]
 - !private ["Ps9Equatable", "tabBar"]
+- !private ["Ps9Equatable", "tabCounter"]
 - !private ["Ps9Equatable", "tags"]
 - !private ["Ps9Equatable", "text"]
 - ["Ps9Equatable", "textField"]
@@ -1170,6 +1197,7 @@ depends-member:
 - !private ["Ps9Equatable", "withAlphaComponent"]
 - ["Ps9Equatable", ""]
 - ["Ps5Error", "deinit"]
+- !private ["Ps5Error", "localizedDescription"]
 - !private ["Ps25ExpressibleByArrayLiteral", "Element"]
 - !private ["Ps25ExpressibleByArrayLiteral", "Index"]
 - !private ["Ps25ExpressibleByArrayLiteral", "IndexDistance"]
@@ -1201,10 +1229,12 @@ depends-member:
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "localized"]
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "trimmingCharacters"]
 - !private ["Ps25ExpressibleByFloatLiteral", "RawValue"]
+- !private ["Ps25ExpressibleByFloatLiteral", "Stride"]
 - !private ["Ps27ExpressibleByIntegerLiteral", "IntegerLiteralType"]
 - !private ["Ps27ExpressibleByIntegerLiteral", "RawValue"]
 - !private ["Ps27ExpressibleByIntegerLiteral", "Stride"]
 - !private ["Ps27ExpressibleByIntegerLiteral", "_DisabledRangeIndex"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "_DisallowMixedSignArithmetic"]
 - !private ["Ps27ExpressibleByIntegerLiteral", "init"]
 - !private ["Ps32ExpressibleByStringInterpolation", "init"]
 - !private ["Ps32ExpressibleByStringInterpolation", "isEmpty"]
@@ -1221,7 +1251,11 @@ depends-member:
 - !private ["Ps33ExpressibleByUnicodeScalarLiteral", "length"]
 - !private ["Ps33ExpressibleByUnicodeScalarLiteral", "localized"]
 - !private ["Ps33ExpressibleByUnicodeScalarLiteral", "trimmingCharacters"]
+- !private ["Sf", "Stride"]
 - !private ["Sf", "deinit"]
+- !private ["Vs7Float80", "Stride"]
+- !private ["Vs7Float80", "deinit"]
+- !private ["Ps13FloatingPoint", "Stride"]
 - ["C11DiabetesApp10GTInterval", "deinit"]
 - !private ["C11DiabetesApp10GTInterval", "end"]
 - !private ["C11DiabetesApp10GTInterval", "intervalAsSeconds"]
@@ -1271,6 +1305,7 @@ depends-member:
 - !private ["Ps8Hashable", "UtilityClass"]
 - !private ["Ps8Hashable", "ViewIdentifiers"]
 - !private ["Ps8Hashable", "_DisabledRangeIndex"]
+- !private ["Ps8Hashable", "_DisallowMixedSignArithmetic"]
 - !private ["Ps8Hashable", "_getBuiltinLogicValue"]
 - ["Ps8Hashable", "activityIndicator"]
 - !private ["Ps8Hashable", "add"]
@@ -1313,6 +1348,7 @@ depends-member:
 - !private ["Ps8Hashable", "fullName"]
 - !private ["Ps8Hashable", "get"]
 - ["Ps8Hashable", "getMedicationArray"]
+- ["Ps8Hashable", "getReadCount"]
 - ["Ps8Hashable", "getTaskDate"]
 - !private ["Ps8Hashable", "hidesBackButton"]
 - !private ["Ps8Hashable", "init"]
@@ -1326,6 +1362,7 @@ depends-member:
 - !private ["Ps8Hashable", "isEmpty"]
 - !private ["Ps8Hashable", "isNavigationBarHidden"]
 - !private ["Ps8Hashable", "items"]
+- !private ["Ps8Hashable", "kButtonRadius"]
 - !private ["Ps8Hashable", "kLoginScreenName"]
 - !private ["Ps8Hashable", "lastActivityDate"]
 - !private ["Ps8Hashable", "layer"]
@@ -1378,6 +1415,7 @@ depends-member:
 - !private ["Ps8Hashable", "subscript"]
 - !private ["Ps8Hashable", "synchronize"]
 - !private ["Ps8Hashable", "tabBar"]
+- !private ["Ps8Hashable", "tabCounter"]
 - !private ["Ps8Hashable", "tags"]
 - !private ["Ps8Hashable", "text"]
 - ["Ps8Hashable", "textField"]
@@ -1406,6 +1444,7 @@ depends-member:
 - ["Ps8Hashable", ""]
 - ["C11DiabetesApp20HomeTabBarController", "deinit"]
 - ["SQ", "deinit"]
+- !private ["V10Foundation9IndexPath", "deinit"]
 - !private ["Ps9Indexable", "Element"]
 - !private ["Ps9Indexable", "Index"]
 - !private ["Ps9Indexable", "IndexDistance"]
@@ -1440,17 +1479,23 @@ depends-member:
 - !private ["Si", "_DisabledRangeIndex"]
 - ["Si", "deinit"]
 - !private ["Si", "init"]
+- !private ["Vs5Int16", "Stride"]
 - !private ["Vs5Int16", "deinit"]
+- !private ["Vs5Int32", "Stride"]
 - !private ["Vs5Int32", "deinit"]
+- !private ["Vs5Int64", "Stride"]
 - !private ["Vs5Int64", "deinit"]
+- !private ["Vs4Int8", "Stride"]
 - !private ["Vs4Int8", "deinit"]
 - !private ["Ps7Integer", "IntegerLiteralType"]
 - !private ["Ps7Integer", "Stride"]
 - !private ["Ps7Integer", "_DisabledRangeIndex"]
+- !private ["Ps7Integer", "_DisallowMixedSignArithmetic"]
 - !private ["Ps7Integer", "init"]
 - !private ["Ps17IntegerArithmetic", "IntegerLiteralType"]
 - !private ["Ps17IntegerArithmetic", "Stride"]
 - !private ["Ps17IntegerArithmetic", "_DisabledRangeIndex"]
+- !private ["Ps17IntegerArithmetic", "_DisallowMixedSignArithmetic"]
 - !private ["Ps17IntegerArithmetic", "init"]
 - !private ["Ps16IteratorProtocol", "Element"]
 - !private ["V9Alamofire12JSONEncoding", "default"]
@@ -1548,8 +1593,10 @@ depends-member:
 - ["C11DiabetesApp19LoginViewController", "forgotPasswordButton"]
 - ["C11DiabetesApp19LoginViewController", "formInterval"]
 - ["C11DiabetesApp19LoginViewController", "getMedicationArray"]
+- ["C11DiabetesApp19LoginViewController", "getReadCount"]
 - ["C11DiabetesApp19LoginViewController", "getTaskDate"]
 - ["C11DiabetesApp19LoginViewController", "init"]
+- !private ["C11DiabetesApp19LoginViewController", "kButtonRadius"]
 - !private ["C11DiabetesApp19LoginViewController", "kLoginScreenName"]
 - ["C11DiabetesApp19LoginViewController", "loginButton"]
 - ["C11DiabetesApp19LoginViewController", "loginToQuickBlox"]
@@ -1567,6 +1614,7 @@ depends-member:
 - ["C11DiabetesApp19LoginViewController", "selectedUserType"]
 - !private ["C11DiabetesApp19LoginViewController", "showActivityIndicator"]
 - !private ["C11DiabetesApp19LoginViewController", "storyboard"]
+- !private ["C11DiabetesApp19LoginViewController", "tabCounter"]
 - ["C11DiabetesApp19LoginViewController", "textField"]
 - ["C11DiabetesApp19LoginViewController", "textFieldDidBeginEditing"]
 - ["C11DiabetesApp19LoginViewController", "textFieldDidEndEditing"]
@@ -1583,6 +1631,7 @@ depends-member:
 - ["C11DiabetesApp19LoginViewController", "viewDidAppear"]
 - ["C11DiabetesApp19LoginViewController", "viewDidLoad"]
 - ["C11DiabetesApp19LoginViewController", "viewWillAppear"]
+- !private ["Ps25LosslessStringConvertible", "Stride"]
 - !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
 - !private ["Ps25LosslessStringConvertible", "init"]
 - !private ["Ps25LosslessStringConvertible", "isEmpty"]
@@ -1690,6 +1739,7 @@ depends-member:
 - !private ["PSo8NSCoding", "frame"]
 - !private ["PSo8NSCoding", "fullName"]
 - ["PSo8NSCoding", "getMedicationArray"]
+- ["PSo8NSCoding", "getReadCount"]
 - ["PSo8NSCoding", "getTaskDate"]
 - !private ["PSo8NSCoding", "hidesBackButton"]
 - !private ["PSo8NSCoding", "init"]
@@ -1697,6 +1747,7 @@ depends-member:
 - !private ["PSo8NSCoding", "isEmpty"]
 - !private ["PSo8NSCoding", "isNavigationBarHidden"]
 - !private ["PSo8NSCoding", "items"]
+- !private ["PSo8NSCoding", "kButtonRadius"]
 - !private ["PSo8NSCoding", "kLoginScreenName"]
 - !private ["PSo8NSCoding", "layer"]
 - !private ["PSo8NSCoding", "length"]
@@ -1729,6 +1780,7 @@ depends-member:
 - !private ["PSo8NSCoding", "storyboard"]
 - !private ["PSo8NSCoding", "subscript"]
 - !private ["PSo8NSCoding", "tabBar"]
+- !private ["PSo8NSCoding", "tabCounter"]
 - !private ["PSo8NSCoding", "tags"]
 - !private ["PSo8NSCoding", "text"]
 - ["PSo8NSCoding", "textField"]
@@ -1821,9 +1873,11 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "forgotPasswordButton"]
 - ["PSo26NSExtensionRequestHandling", "formInterval"]
 - ["PSo26NSExtensionRequestHandling", "getMedicationArray"]
+- ["PSo26NSExtensionRequestHandling", "getReadCount"]
 - ["PSo26NSExtensionRequestHandling", "getTaskDate"]
 - !private ["PSo26NSExtensionRequestHandling", "init"]
 - !private ["PSo26NSExtensionRequestHandling", "isNavigationBarHidden"]
+- !private ["PSo26NSExtensionRequestHandling", "kButtonRadius"]
 - !private ["PSo26NSExtensionRequestHandling", "kLoginScreenName"]
 - ["PSo26NSExtensionRequestHandling", "loginButton"]
 - ["PSo26NSExtensionRequestHandling", "loginToQuickBlox"]
@@ -1845,6 +1899,7 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "showActivityIndicator"]
 - !private ["PSo26NSExtensionRequestHandling", "storyboard"]
 - !private ["PSo26NSExtensionRequestHandling", "tabBar"]
+- !private ["PSo26NSExtensionRequestHandling", "tabCounter"]
 - ["PSo26NSExtensionRequestHandling", "textField"]
 - ["PSo26NSExtensionRequestHandling", "textFieldDidBeginEditing"]
 - ["PSo26NSExtensionRequestHandling", "textFieldDidEndEditing"]
@@ -1972,6 +2027,7 @@ depends-member:
 - !private ["CSo8NSObject", "frame"]
 - !private ["CSo8NSObject", "fullName"]
 - ["CSo8NSObject", "getMedicationArray"]
+- ["CSo8NSObject", "getReadCount"]
 - ["CSo8NSObject", "getTaskDate"]
 - !private ["CSo8NSObject", "hidesBackButton"]
 - ["CSo8NSObject", "init"]
@@ -1985,6 +2041,7 @@ depends-member:
 - !private ["CSo8NSObject", "isEmpty"]
 - !private ["CSo8NSObject", "isNavigationBarHidden"]
 - !private ["CSo8NSObject", "items"]
+- !private ["CSo8NSObject", "kButtonRadius"]
 - !private ["CSo8NSObject", "kLoginScreenName"]
 - !private ["CSo8NSObject", "lastActivityDate"]
 - !private ["CSo8NSObject", "layer"]
@@ -2035,6 +2092,7 @@ depends-member:
 - !private ["CSo8NSObject", "subscript"]
 - !private ["CSo8NSObject", "synchronize"]
 - !private ["CSo8NSObject", "tabBar"]
+- !private ["CSo8NSObject", "tabCounter"]
 - !private ["CSo8NSObject", "tags"]
 - !private ["CSo8NSObject", "text"]
 - ["CSo8NSObject", "textField"]
@@ -2130,6 +2188,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "frame"]
 - !private ["PSo16NSObjectProtocol", "fullName"]
 - ["PSo16NSObjectProtocol", "getMedicationArray"]
+- ["PSo16NSObjectProtocol", "getReadCount"]
 - ["PSo16NSObjectProtocol", "getTaskDate"]
 - !private ["PSo16NSObjectProtocol", "hidesBackButton"]
 - !private ["PSo16NSObjectProtocol", "init"]
@@ -2143,6 +2202,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "isEmpty"]
 - !private ["PSo16NSObjectProtocol", "isNavigationBarHidden"]
 - !private ["PSo16NSObjectProtocol", "items"]
+- !private ["PSo16NSObjectProtocol", "kButtonRadius"]
 - !private ["PSo16NSObjectProtocol", "kLoginScreenName"]
 - !private ["PSo16NSObjectProtocol", "lastActivityDate"]
 - !private ["PSo16NSObjectProtocol", "layer"]
@@ -2193,6 +2253,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "subscript"]
 - !private ["PSo16NSObjectProtocol", "synchronize"]
 - !private ["PSo16NSObjectProtocol", "tabBar"]
+- !private ["PSo16NSObjectProtocol", "tabCounter"]
 - !private ["PSo16NSObjectProtocol", "tags"]
 - !private ["PSo16NSObjectProtocol", "text"]
 - ["PSo16NSObjectProtocol", "textField"]
@@ -2299,6 +2360,8 @@ depends-member:
 - !private ["PSo14QBCoreDelegate", "forgotPasswordButton"]
 - !private ["PSo14QBCoreDelegate", "formInterval"]
 - !private ["PSo14QBCoreDelegate", "getMedicationArray"]
+- !private ["PSo14QBCoreDelegate", "getReadCount"]
+- !private ["PSo14QBCoreDelegate", "kButtonRadius"]
 - !private ["PSo14QBCoreDelegate", "kLoginScreenName"]
 - !private ["PSo14QBCoreDelegate", "loginButton"]
 - !private ["PSo14QBCoreDelegate", "loginToQuickBlox"]
@@ -2314,6 +2377,7 @@ depends-member:
 - !private ["PSo14QBCoreDelegate", "selectedUserType"]
 - !private ["PSo14QBCoreDelegate", "showActivityIndicator"]
 - !private ["PSo14QBCoreDelegate", "storyboard"]
+- !private ["PSo14QBCoreDelegate", "tabCounter"]
 - ["PSo14QBCoreDelegate", "textField"]
 - ["PSo14QBCoreDelegate", "textFieldDidBeginEditing"]
 - ["PSo14QBCoreDelegate", "textFieldDidEndEditing"]
@@ -2475,6 +2539,7 @@ depends-member:
 - !private ["Ps10Strideable", "IntegerLiteralType"]
 - !private ["Ps10Strideable", "Stride"]
 - !private ["Ps10Strideable", "_DisabledRangeIndex"]
+- !private ["Ps10Strideable", "_DisallowMixedSignArithmetic"]
 - !private ["Ps10Strideable", "init"]
 - ["SS", "deinit"]
 - !private ["SS", "init"]
@@ -2578,10 +2643,12 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "forgotPasswordButton"]
 - ["PSo21UIAppearanceContainer", "formInterval"]
 - ["PSo21UIAppearanceContainer", "getMedicationArray"]
+- ["PSo21UIAppearanceContainer", "getReadCount"]
 - ["PSo21UIAppearanceContainer", "getTaskDate"]
 - !private ["PSo21UIAppearanceContainer", "init"]
 - !private ["PSo21UIAppearanceContainer", "isNavigationBarHidden"]
 - !private ["PSo21UIAppearanceContainer", "items"]
+- !private ["PSo21UIAppearanceContainer", "kButtonRadius"]
 - !private ["PSo21UIAppearanceContainer", "kLoginScreenName"]
 - !private ["PSo21UIAppearanceContainer", "layer"]
 - ["PSo21UIAppearanceContainer", "loginButton"]
@@ -2609,6 +2676,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "showError"]
 - !private ["PSo21UIAppearanceContainer", "storyboard"]
 - !private ["PSo21UIAppearanceContainer", "tabBar"]
+- !private ["PSo21UIAppearanceContainer", "tabCounter"]
 - !private ["PSo21UIAppearanceContainer", "text"]
 - ["PSo21UIAppearanceContainer", "textField"]
 - ["PSo21UIAppearanceContainer", "textFieldDidBeginEditing"]
@@ -2639,7 +2707,6 @@ depends-member:
 - !private ["OSC20UIBarButtonItemStyle", "plain"]
 - !private ["CSo9UIBarItem", "init"]
 - !private ["PSo16UIBarPositioning", "barTintColor"]
-- !private ["CSo8UIButton", "bounds"]
 - !private ["CSo8UIButton", "layer"]
 - !private ["CSo8UIButton", "setTitle"]
 - !private ["CSo7UIColor", "black"]
@@ -2691,9 +2758,11 @@ depends-member:
 - ["PSo18UIContentContainer", "forgotPasswordButton"]
 - ["PSo18UIContentContainer", "formInterval"]
 - ["PSo18UIContentContainer", "getMedicationArray"]
+- ["PSo18UIContentContainer", "getReadCount"]
 - ["PSo18UIContentContainer", "getTaskDate"]
 - !private ["PSo18UIContentContainer", "init"]
 - !private ["PSo18UIContentContainer", "isNavigationBarHidden"]
+- !private ["PSo18UIContentContainer", "kButtonRadius"]
 - !private ["PSo18UIContentContainer", "kLoginScreenName"]
 - ["PSo18UIContentContainer", "loginButton"]
 - ["PSo18UIContentContainer", "loginToQuickBlox"]
@@ -2715,6 +2784,7 @@ depends-member:
 - ["PSo18UIContentContainer", "showActivityIndicator"]
 - !private ["PSo18UIContentContainer", "storyboard"]
 - !private ["PSo18UIContentContainer", "tabBar"]
+- !private ["PSo18UIContentContainer", "tabCounter"]
 - ["PSo18UIContentContainer", "textField"]
 - ["PSo18UIContentContainer", "textFieldDidBeginEditing"]
 - ["PSo18UIContentContainer", "textFieldDidEndEditing"]
@@ -2740,7 +2810,6 @@ depends-member:
 - !private ["PSo30UIContentSizeCategoryAdjusting", "text"]
 - !private ["CSo9UIControl", "attributedPlaceholder"]
 - !private ["CSo9UIControl", "becomeFirstResponder"]
-- !private ["CSo9UIControl", "bounds"]
 - !private ["CSo9UIControl", "delegate"]
 - !private ["CSo9UIControl", "layer"]
 - !private ["CSo9UIControl", "resignFirstResponder"]
@@ -2830,10 +2899,12 @@ depends-member:
 - ["PSo18UIFocusEnvironment", "forgotPasswordButton"]
 - ["PSo18UIFocusEnvironment", "formInterval"]
 - ["PSo18UIFocusEnvironment", "getMedicationArray"]
+- ["PSo18UIFocusEnvironment", "getReadCount"]
 - ["PSo18UIFocusEnvironment", "getTaskDate"]
 - !private ["PSo18UIFocusEnvironment", "init"]
 - !private ["PSo18UIFocusEnvironment", "isNavigationBarHidden"]
 - !private ["PSo18UIFocusEnvironment", "items"]
+- !private ["PSo18UIFocusEnvironment", "kButtonRadius"]
 - !private ["PSo18UIFocusEnvironment", "kLoginScreenName"]
 - !private ["PSo18UIFocusEnvironment", "layer"]
 - ["PSo18UIFocusEnvironment", "loginButton"]
@@ -2861,6 +2932,7 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "showError"]
 - !private ["PSo18UIFocusEnvironment", "storyboard"]
 - !private ["PSo18UIFocusEnvironment", "tabBar"]
+- !private ["PSo18UIFocusEnvironment", "tabCounter"]
 - !private ["PSo18UIFocusEnvironment", "text"]
 - ["PSo18UIFocusEnvironment", "textField"]
 - ["PSo18UIFocusEnvironment", "textFieldDidBeginEditing"]
@@ -2984,10 +3056,12 @@ depends-member:
 - ["CSo11UIResponder", "forgotPasswordButton"]
 - ["CSo11UIResponder", "formInterval"]
 - ["CSo11UIResponder", "getMedicationArray"]
+- ["CSo11UIResponder", "getReadCount"]
 - ["CSo11UIResponder", "getTaskDate"]
 - ["CSo11UIResponder", "init"]
 - !private ["CSo11UIResponder", "isNavigationBarHidden"]
 - !private ["CSo11UIResponder", "items"]
+- !private ["CSo11UIResponder", "kButtonRadius"]
 - !private ["CSo11UIResponder", "kLoginScreenName"]
 - !private ["CSo11UIResponder", "layer"]
 - ["CSo11UIResponder", "loginButton"]
@@ -3018,6 +3092,7 @@ depends-member:
 - !private ["CSo11UIResponder", "showError"]
 - !private ["CSo11UIResponder", "storyboard"]
 - !private ["CSo11UIResponder", "tabBar"]
+- !private ["CSo11UIResponder", "tabCounter"]
 - !private ["CSo11UIResponder", "text"]
 - ["CSo11UIResponder", "textField"]
 - ["CSo11UIResponder", "textFieldDidBeginEditing"]
@@ -3088,10 +3163,12 @@ depends-member:
 - ["PSo30UIResponderStandardEditActions", "forgotPasswordButton"]
 - ["PSo30UIResponderStandardEditActions", "formInterval"]
 - ["PSo30UIResponderStandardEditActions", "getMedicationArray"]
+- ["PSo30UIResponderStandardEditActions", "getReadCount"]
 - ["PSo30UIResponderStandardEditActions", "getTaskDate"]
 - !private ["PSo30UIResponderStandardEditActions", "init"]
 - !private ["PSo30UIResponderStandardEditActions", "isNavigationBarHidden"]
 - !private ["PSo30UIResponderStandardEditActions", "items"]
+- !private ["PSo30UIResponderStandardEditActions", "kButtonRadius"]
 - !private ["PSo30UIResponderStandardEditActions", "kLoginScreenName"]
 - !private ["PSo30UIResponderStandardEditActions", "layer"]
 - ["PSo30UIResponderStandardEditActions", "loginButton"]
@@ -3122,6 +3199,7 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "showError"]
 - !private ["PSo30UIResponderStandardEditActions", "storyboard"]
 - !private ["PSo30UIResponderStandardEditActions", "tabBar"]
+- !private ["PSo30UIResponderStandardEditActions", "tabCounter"]
 - !private ["PSo30UIResponderStandardEditActions", "text"]
 - ["PSo30UIResponderStandardEditActions", "textField"]
 - ["PSo30UIResponderStandardEditActions", "textFieldDidBeginEditing"]
@@ -3185,9 +3263,11 @@ depends-member:
 - ["PSo16UIStateRestoring", "forgotPasswordButton"]
 - ["PSo16UIStateRestoring", "formInterval"]
 - ["PSo16UIStateRestoring", "getMedicationArray"]
+- ["PSo16UIStateRestoring", "getReadCount"]
 - ["PSo16UIStateRestoring", "getTaskDate"]
 - !private ["PSo16UIStateRestoring", "init"]
 - !private ["PSo16UIStateRestoring", "isNavigationBarHidden"]
+- !private ["PSo16UIStateRestoring", "kButtonRadius"]
 - !private ["PSo16UIStateRestoring", "kLoginScreenName"]
 - ["PSo16UIStateRestoring", "loginButton"]
 - ["PSo16UIStateRestoring", "loginToQuickBlox"]
@@ -3209,6 +3289,7 @@ depends-member:
 - ["PSo16UIStateRestoring", "showActivityIndicator"]
 - !private ["PSo16UIStateRestoring", "storyboard"]
 - !private ["PSo16UIStateRestoring", "tabBar"]
+- !private ["PSo16UIStateRestoring", "tabCounter"]
 - ["PSo16UIStateRestoring", "textField"]
 - ["PSo16UIStateRestoring", "textFieldDidBeginEditing"]
 - ["PSo16UIStateRestoring", "textFieldDidEndEditing"]
@@ -3282,6 +3363,8 @@ depends-member:
 - !private ["PSo19UITextFieldDelegate", "forgotPasswordButton"]
 - !private ["PSo19UITextFieldDelegate", "formInterval"]
 - !private ["PSo19UITextFieldDelegate", "getMedicationArray"]
+- !private ["PSo19UITextFieldDelegate", "getReadCount"]
+- !private ["PSo19UITextFieldDelegate", "kButtonRadius"]
 - !private ["PSo19UITextFieldDelegate", "kLoginScreenName"]
 - !private ["PSo19UITextFieldDelegate", "loginButton"]
 - !private ["PSo19UITextFieldDelegate", "loginToQuickBlox"]
@@ -3297,6 +3380,7 @@ depends-member:
 - !private ["PSo19UITextFieldDelegate", "selectedUserType"]
 - !private ["PSo19UITextFieldDelegate", "showActivityIndicator"]
 - !private ["PSo19UITextFieldDelegate", "storyboard"]
+- !private ["PSo19UITextFieldDelegate", "tabCounter"]
 - ["PSo19UITextFieldDelegate", "textField"]
 - ["PSo19UITextFieldDelegate", "textFieldDidBeginEditing"]
 - ["PSo19UITextFieldDelegate", "textFieldDidEndEditing"]
@@ -3374,10 +3458,12 @@ depends-member:
 - ["PSo18UITraitEnvironment", "forgotPasswordButton"]
 - ["PSo18UITraitEnvironment", "formInterval"]
 - ["PSo18UITraitEnvironment", "getMedicationArray"]
+- ["PSo18UITraitEnvironment", "getReadCount"]
 - ["PSo18UITraitEnvironment", "getTaskDate"]
 - !private ["PSo18UITraitEnvironment", "init"]
 - !private ["PSo18UITraitEnvironment", "isNavigationBarHidden"]
 - !private ["PSo18UITraitEnvironment", "items"]
+- !private ["PSo18UITraitEnvironment", "kButtonRadius"]
 - !private ["PSo18UITraitEnvironment", "kLoginScreenName"]
 - !private ["PSo18UITraitEnvironment", "layer"]
 - ["PSo18UITraitEnvironment", "loginButton"]
@@ -3405,6 +3491,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "showError"]
 - !private ["PSo18UITraitEnvironment", "storyboard"]
 - !private ["PSo18UITraitEnvironment", "tabBar"]
+- !private ["PSo18UITraitEnvironment", "tabCounter"]
 - !private ["PSo18UITraitEnvironment", "text"]
 - ["PSo18UITraitEnvironment", "textField"]
 - ["PSo18UITraitEnvironment", "textFieldDidBeginEditing"]
@@ -3506,9 +3593,11 @@ depends-member:
 - ["CSo16UIViewController", "forgotPasswordButton"]
 - ["CSo16UIViewController", "formInterval"]
 - ["CSo16UIViewController", "getMedicationArray"]
+- ["CSo16UIViewController", "getReadCount"]
 - ["CSo16UIViewController", "getTaskDate"]
 - ["CSo16UIViewController", "init"]
 - !private ["CSo16UIViewController", "isNavigationBarHidden"]
+- !private ["CSo16UIViewController", "kButtonRadius"]
 - !private ["CSo16UIViewController", "kLoginScreenName"]
 - ["CSo16UIViewController", "loginButton"]
 - ["CSo16UIViewController", "loginToQuickBlox"]
@@ -3530,6 +3619,7 @@ depends-member:
 - ["CSo16UIViewController", "showActivityIndicator"]
 - !private ["CSo16UIViewController", "storyboard"]
 - !private ["CSo16UIViewController", "tabBar"]
+- !private ["CSo16UIViewController", "tabCounter"]
 - ["CSo16UIViewController", "textField"]
 - ["CSo16UIViewController", "textFieldDidBeginEditing"]
 - ["CSo16UIViewController", "textFieldDidEndEditing"]
@@ -3547,10 +3637,20 @@ depends-member:
 - ["CSo16UIViewController", "viewDidLoad"]
 - ["CSo16UIViewController", "viewWillAppear"]
 - ["CSo16UIViewController", ""]
+- !private ["Su", "Stride"]
+- !private ["Su", "_DisallowMixedSignArithmetic"]
 - !private ["Su", "deinit"]
+- !private ["Vs6UInt16", "Stride"]
+- !private ["Vs6UInt16", "_DisallowMixedSignArithmetic"]
 - !private ["Vs6UInt16", "deinit"]
+- !private ["Vs6UInt32", "Stride"]
+- !private ["Vs6UInt32", "_DisallowMixedSignArithmetic"]
 - !private ["Vs6UInt32", "deinit"]
+- !private ["Vs6UInt64", "Stride"]
+- !private ["Vs6UInt64", "_DisallowMixedSignArithmetic"]
 - !private ["Vs6UInt64", "deinit"]
+- !private ["Vs5UInt8", "Stride"]
+- !private ["Vs5UInt8", "_DisallowMixedSignArithmetic"]
 - !private ["Vs5UInt8", "deinit"]
 - !private ["V10Foundation3URL", "deinit"]
 - !private ["P9Alamofire14URLConvertible", "deinit"]
@@ -3560,6 +3660,8 @@ depends-member:
 - !private ["P9Alamofire14URLConvertible", "localized"]
 - !private ["P9Alamofire14URLConvertible", "trimmingCharacters"]
 - !private ["Sc", "deinit"]
+- !private ["Ps15UnsignedInteger", "Stride"]
+- !private ["Ps15UnsignedInteger", "_DisallowMixedSignArithmetic"]
 - !private ["CSo12UserDefaults", "bool"]
 - ["CSo12UserDefaults", "deinit"]
 - !private ["CSo12UserDefaults", "integer"]
@@ -3581,6 +3683,9 @@ depends-member:
 - !private ["Ps14_ArrayProtocol", "append"]
 - !private ["Ps14_ArrayProtocol", "removeAll"]
 - !private ["Ps14_ArrayProtocol", "subscript"]
+- !private ["Ps15_CVarArgAligned", "Stride"]
+- !private ["Ps15_CVarArgAligned", "_DisallowMixedSignArithmetic"]
+- !private ["Ps22_CVarArgPassedAsDouble", "Stride"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "attributedPlaceholder"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "barTintColor"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "becomeFirstResponder"]
@@ -3605,15 +3710,19 @@ depends-member:
 - !private ["Ps24_DestructorSafeContainer", "append"]
 - !private ["Ps24_DestructorSafeContainer", "removeAll"]
 - !private ["Ps24_DestructorSafeContainer", "subscript"]
+- !private ["Ps28_DisallowMixedSignArithmetic", "Stride"]
+- !private ["Ps28_DisallowMixedSignArithmetic", "_DisallowMixedSignArithmetic"]
 - !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
 - !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
 - !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "isEmpty"]
 - !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "length"]
 - !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "localized"]
 - !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "trimmingCharacters"]
+- !private ["Ps33_ExpressibleByBuiltinFloatLiteral", "Stride"]
 - !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "IntegerLiteralType"]
 - !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "Stride"]
 - !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "_DisabledRangeIndex"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "_DisallowMixedSignArithmetic"]
 - !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "init"]
 - !private ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
 - !private ["Ps34_ExpressibleByBuiltinStringLiteral", "isEmpty"]
@@ -3675,6 +3784,7 @@ depends-member:
 - !private ["Ps9_Hashable", "UtilityClass"]
 - !private ["Ps9_Hashable", "ViewIdentifiers"]
 - !private ["Ps9_Hashable", "_DisabledRangeIndex"]
+- !private ["Ps9_Hashable", "_DisallowMixedSignArithmetic"]
 - !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
 - ["Ps9_Hashable", "activityIndicator"]
 - !private ["Ps9_Hashable", "add"]
@@ -3717,6 +3827,7 @@ depends-member:
 - !private ["Ps9_Hashable", "fullName"]
 - !private ["Ps9_Hashable", "get"]
 - ["Ps9_Hashable", "getMedicationArray"]
+- ["Ps9_Hashable", "getReadCount"]
 - ["Ps9_Hashable", "getTaskDate"]
 - !private ["Ps9_Hashable", "hidesBackButton"]
 - !private ["Ps9_Hashable", "init"]
@@ -3730,6 +3841,7 @@ depends-member:
 - !private ["Ps9_Hashable", "isEmpty"]
 - !private ["Ps9_Hashable", "isNavigationBarHidden"]
 - !private ["Ps9_Hashable", "items"]
+- !private ["Ps9_Hashable", "kButtonRadius"]
 - !private ["Ps9_Hashable", "kLoginScreenName"]
 - !private ["Ps9_Hashable", "lastActivityDate"]
 - !private ["Ps9_Hashable", "layer"]
@@ -3782,6 +3894,7 @@ depends-member:
 - !private ["Ps9_Hashable", "subscript"]
 - !private ["Ps9_Hashable", "synchronize"]
 - !private ["Ps9_Hashable", "tabBar"]
+- !private ["Ps9_Hashable", "tabCounter"]
 - !private ["Ps9_Hashable", "tags"]
 - !private ["Ps9_Hashable", "text"]
 - ["Ps9_Hashable", "textField"]
@@ -3811,14 +3924,17 @@ depends-member:
 - !private ["Ps14_Incrementable", "IntegerLiteralType"]
 - !private ["Ps14_Incrementable", "Stride"]
 - !private ["Ps14_Incrementable", "_DisabledRangeIndex"]
+- !private ["Ps14_Incrementable", "_DisallowMixedSignArithmetic"]
 - !private ["Ps14_Incrementable", "init"]
 - !private ["Ps8_Integer", "IntegerLiteralType"]
 - !private ["Ps8_Integer", "Stride"]
 - !private ["Ps8_Integer", "_DisabledRangeIndex"]
+- !private ["Ps8_Integer", "_DisallowMixedSignArithmetic"]
 - !private ["Ps8_Integer", "init"]
 - !private ["Ps18_IntegerArithmetic", "IntegerLiteralType"]
 - !private ["Ps18_IntegerArithmetic", "Stride"]
 - !private ["Ps18_IntegerArithmetic", "_DisabledRangeIndex"]
+- !private ["Ps18_IntegerArithmetic", "_DisallowMixedSignArithmetic"]
 - !private ["Ps18_IntegerArithmetic", "init"]
 - !private ["P10Foundation18_MutablePairBoxing", "description"]
 - !private ["P10Foundation18_MutablePairBoxing", "whitespaces"]
@@ -3832,17 +3948,16 @@ depends-member:
 - !private ["Ps21_ObjectiveCBridgeable", "SubSequence"]
 - !private ["Ps21_ObjectiveCBridgeable", "Value"]
 - !private ["Ps21_ObjectiveCBridgeable", "_DisabledRangeIndex"]
+- !private ["Ps21_ObjectiveCBridgeable", "_DisallowMixedSignArithmetic"]
 - !private ["Ps21_ObjectiveCBridgeable", "_Element"]
 - !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
 - !private ["Ps21_ObjectiveCBridgeable", "append"]
 - !private ["Ps21_ObjectiveCBridgeable", "description"]
-- !private ["Ps21_ObjectiveCBridgeable", "height"]
 - ["Ps21_ObjectiveCBridgeable", "init"]
 - !private ["Ps21_ObjectiveCBridgeable", "isEmpty"]
 - !private ["Ps21_ObjectiveCBridgeable", "length"]
 - !private ["Ps21_ObjectiveCBridgeable", "localized"]
 - !private ["Ps21_ObjectiveCBridgeable", "removeAll"]
-- !private ["Ps21_ObjectiveCBridgeable", "size"]
 - !private ["Ps21_ObjectiveCBridgeable", "subscript"]
 - !private ["Ps21_ObjectiveCBridgeable", "trimmingCharacters"]
 - !private ["Ps21_ObjectiveCBridgeable", "whitespaces"]
@@ -3854,12 +3969,16 @@ depends-member:
 - !private ["Ps11_Strideable", "IntegerLiteralType"]
 - !private ["Ps11_Strideable", "Stride"]
 - !private ["Ps11_Strideable", "_DisabledRangeIndex"]
+- !private ["Ps11_Strideable", "_DisallowMixedSignArithmetic"]
 - !private ["Ps11_Strideable", "init"]
+- !private ["Ps14_StringElement", "Stride"]
+- !private ["Ps14_StringElement", "_DisallowMixedSignArithmetic"]
 - !private ["C11DiabetesApp13medicationObj", "deinit"]
 - !private ["C11DiabetesApp13medicationObj", "init"]
 - !private ["C11DiabetesApp13medicationObj", "medicineImage"]
 - !private ["C11DiabetesApp13medicationObj", "medicineName"]
 - !private ["C11DiabetesApp13medicationObj", "type"]
+- !private ["V11DiabetesApp12userDefaults", "deviceToken"]
 - !private ["V11DiabetesApp12userDefaults", "isLoggedIn"]
 - !private ["V11DiabetesApp12userDefaults", "loggedInUserEmail"]
 - !private ["V11DiabetesApp12userDefaults", "loggedInUserFullname"]
@@ -3872,6 +3991,7 @@ depends-member:
 - !private ["V11DiabetesApp8userType", "educator"]
 - !private ["V11DiabetesApp8userType", "patient"]
 depends-nominal:
+- !private "Ps16AbsoluteValuable"
 - "V11DiabetesApp7Account"
 - "Ps9AnyObject"
 - !private "V11DiabetesApp10ApiMethods"
@@ -3880,6 +4000,7 @@ depends-nominal:
 - !private "Ps23BidirectionalCollection"
 - !private "Ps22BidirectionalIndexable"
 - !private "Vs18BidirectionalSlice"
+- !private "Ps19BinaryFloatingPoint"
 - !private "Ps17BitwiseOperations"
 - "Sb"
 - !private "CSo15CAGradientLayer"
@@ -3888,8 +4009,7 @@ depends-nominal:
 - !private "PSo13CAMediaTiming"
 - !private "CSo7CGColor"
 - !private "V12CoreGraphics7CGFloat"
-- !private "VSC6CGRect"
-- !private "VSC6CGSize"
+- !private "VSC6CMTime"
 - "Ps7CVarArg"
 - !private "Vs9Character"
 - "V10Foundation12CharacterSet"
@@ -3906,9 +4026,14 @@ depends-nominal:
 - !private "V10Foundation4Data"
 - "C9Alamofire11DataRequest"
 - !private "V9Alamofire12DataResponse"
+- !private "V10Foundation4Date"
+- !private "VSC7Decimal"
 - !private "Vs27DefaultBidirectionalIndices"
 - !private "Vs26DefaultRandomAccessIndices"
 - "Vs10Dictionary"
+- !private "V8Dispatch12DispatchTime"
+- !private "O8Dispatch20DispatchTimeInterval"
+- !private "V8Dispatch16DispatchWallTime"
 - "C11DiabetesApp26DoctorTabBarViewController"
 - !private "Sd"
 - "Ps9Equatable"
@@ -3923,12 +4048,15 @@ depends-nominal:
 - !private "Ps26ExpressibleByStringLiteral"
 - !private "Ps33ExpressibleByUnicodeScalarLiteral"
 - !private "Sf"
+- !private "Vs7Float80"
+- !private "Ps13FloatingPoint"
 - "C11DiabetesApp10GTInterval"
 - "C11DiabetesApp24GoogleAnalyticManagerApi"
 - "O9Alamofire10HTTPMethod"
 - "Ps8Hashable"
 - "C11DiabetesApp20HomeTabBarController"
 - "SQ"
+- !private "V10Foundation9IndexPath"
 - "Ps9Indexable"
 - "Ps13IndexableBase"
 - !private "Vs16IndexingIterator"
@@ -4058,14 +4186,19 @@ depends-nominal:
 - !private "V10Foundation3URL"
 - !private "P9Alamofire14URLConvertible"
 - !private "Sc"
+- !private "Ps15UnsignedInteger"
 - "CSo12UserDefaults"
 - !private "C11DiabetesApp12UtilityClass"
 - !private "V11DiabetesApp15ViewIdentifiers"
 - !private "Ps14_ArrayProtocol"
+- !private "Ps15_CVarArgAligned"
+- !private "Ps22_CVarArgPassedAsDouble"
 - !private "Ps37_DefaultCustomPlaygroundQuickLookable"
 - !private "Ps24_DestructorSafeContainer"
+- !private "Ps28_DisallowMixedSignArithmetic"
 - !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
 - !private "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- !private "Ps33_ExpressibleByBuiltinFloatLiteral"
 - !private "Ps35_ExpressibleByBuiltinIntegerLiteral"
 - !private "Ps34_ExpressibleByBuiltinStringLiteral"
 - !private "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
@@ -4081,6 +4214,7 @@ depends-nominal:
 - !private "Vs26_OptionalNilComparisonType"
 - !private "Ps14_SignedInteger"
 - !private "Ps11_Strideable"
+- !private "Ps14_StringElement"
 - !private "C11DiabetesApp13medicationObj"
 - !private "V11DiabetesApp12userDefaults"
 - !private "V11DiabetesApp8userType"
@@ -4435,4 +4569,4 @@ depends-external:
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController-umbrella.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Modules/module.modulemap"
-interface-hash: "d4b778c12220a14b0824b9a24685031f"
+interface-hash: "ee36c68ec86e1745ea37c9aa03a4bef8"

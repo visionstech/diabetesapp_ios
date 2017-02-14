@@ -35,6 +35,7 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
     
     var currentLocale: String = ""
     
+    @IBOutlet weak var conditionTitle: UILabel!
     var obj = NSDictionary()
     var cellArray = NSArray()
     var formInterval: GTInterval!
@@ -48,7 +49,9 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
         
         self.title = "Report".localized
         selectedConditionIndex = 0
-
+        conditionTitle.text = "CONDITION".localized
+        noHistoryAvailableLbl.text = "No Readings Available".localized
+        conditionTxtFld.text = conditionsArray[0] as! String
         self.setUI()
         
         currentLocale = NSLocale.current.languageCode!
@@ -69,20 +72,20 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
         conditionTxtFld.text = conditionsArray[0] as? String
         if !UserDefaults.standard.bool(forKey: "groupChat") {
             if selectedUserType == userType.doctor {
-                getDoctorReportReadingHistory(condition: conditionsArray[0] as! String)
+                getDoctorReportReadingHistory(condition: conditionsArrayEng[0] as! String)
             }
             else{
-                getReportReadingHistory(condition: conditionsArray[0] as! String)
+                getReportReadingHistory(condition: conditionsArrayEng[0] as! String)
             }
         }
         else {
             
             if selectedUserType == userType.doctor {
-                getDoctorSingleReadingHistory(condition: conditionsArray[0] as! String)
+                getDoctorSingleReadingHistory(condition: conditionsArrayEng[0] as! String)
             }
                 
             else{
-                getReportReadingHistory(condition: conditionsArray[0] as! String)
+                getReportReadingHistory(condition: conditionsArrayEng[0] as! String)
             }
         }
     }
@@ -98,7 +101,7 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
         GoogleAnalyticManagerApi.sharedInstance.startScreenSessionWithName(screenName: kReportHistoryViewScreenName)
         //--------Google Analytics Finish-----
         
-         getReportReadingHistory(condition: conditionsArray[0] as! String)
+         getReportReadingHistory(condition: conditionsArrayEng[0] as! String)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -145,17 +148,19 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func addNotifications() {
-        if selectedUserType == userType.doctor {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.listViewNotification(notification:)), name: NSNotification.Name(rawValue: Notifications.ReportListHistoryView), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.noOfDaysNotification(notification:)), name: NSNotification.Name(rawValue: Notifications.noOfDays), object: nil)
+      /*  if selectedUserType == userType.doctor {
             
-            NotificationCenter.default.addObserver(self, selector: #selector(self.listViewNotification(notification:)), name: NSNotification.Name(rawValue: Notifications.DoctorReportListHistoryView), object: nil)
-            
-            NotificationCenter.default.addObserver(self, selector: #selector(self.noOfDaysNotification(notification:)), name: NSNotification.Name(rawValue: Notifications.noOfDays), object: nil)
+          
         }
         else {
             NotificationCenter.default.addObserver(self, selector: #selector(self.listViewNotification(notification:)), name: NSNotification.Name(rawValue: Notifications.ReportListHistoryView), object: nil)
             
             NotificationCenter.default.addObserver(self, selector: #selector(self.noOfDaysNotification(notification:)), name: NSNotification.Name(rawValue: Notifications.noOfDays), object: nil)
-        }
+        }*/
         
     }
     
@@ -169,21 +174,6 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
             value = true
         }
         boolArray.replaceObject(at: section, with: value)
-        //        print("section \(section)")
-        //        var count = 0
-        //        for bool in boolArray {
-        //            let value: Bool
-        //            if count == section {
-        //                value = true
-        //            }
-        //            else {
-        //                value = false
-        //            }
-        //            boolArray.replaceObject(at: count, with: value)
-        //            count += 1
-        //        }
-        
-        //self.tblView.reloadSections(IndexSet(integer: section ), with: .automatic)
         self.tblView.reloadData()
     }
     
@@ -191,24 +181,33 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
     //MARK: - Notifications Methods
     func listViewNotification(notification: NSNotification) {
         
+        let dict = notification.object as! NSDictionary
+        let receivedCondition = dict["current"]
+        
+        selectedConditionIndex = conditionsArrayEng.index(of: receivedCondition!)
+        pickerView.selectRow(selectedConditionIndex, inComponent: 0, animated: true)
+        getDoctorReportReadingHistory(condition: conditionsArrayEng[selectedConditionIndex] as! String)
+        conditionTxtFld.text = conditionsArray[selectedConditionIndex] as! String
     }
     
     func noOfDaysNotification(notification: NSNotification) {
         
         noOfDays = String(describing: notification.value(forKey: "object")!)
         print("noOfDays \(noOfDays)")
+        let selectedConditionEng = conditionsArrayEng[selectedConditionIndex] as? String
+        UserDefaults.standard.setValue(selectedConditionEng, forKey: "currentHistoryCondition")
         //getHistory()
         if selectedUserType == userType.doctor {
             
             if UserDefaults.standard.bool(forKey: "groupChat") {
-                getDoctorSingleReadingHistory(condition: conditionTxtFld.text!)
+                getDoctorSingleReadingHistory(condition: selectedConditionEng!)
                 
             }else{
-                getDoctorReportReadingHistory(condition: conditionTxtFld.text!)
+                getDoctorReportReadingHistory(condition: selectedConditionEng!)
             }
         }
         else {
-            getReportReadingHistory(condition: conditionTxtFld.text!)
+            getReportReadingHistory(condition: selectedConditionEng!)
         }
         
         
@@ -221,18 +220,20 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
             
             conditionTxtFld.text = conditionsArray[pickerView.selectedRow(inComponent: 0)] as? String
             selectedConditionIndex = pickerView.selectedRow(inComponent: 0) as Int
+            let selectedConditionEng = conditionsArrayEng[selectedConditionIndex] as? String
+            UserDefaults.standard.setValue(selectedConditionEng, forKey: "currentHistoryCondition")
             // Api Method
             if selectedUserType == userType.doctor {
                 
                 if UserDefaults.standard.bool(forKey: "groupChat") {
                     
-                    getDoctorSingleReadingHistory(condition: conditionTxtFld.text!)
+                    getDoctorSingleReadingHistory(condition: selectedConditionEng!)
                 }else{
-                    getDoctorReportReadingHistory(condition: conditionTxtFld.text!)
+                    getDoctorReportReadingHistory(condition: selectedConditionEng!)
                 }
             }
             else {
-                getReportReadingHistory(condition: conditionTxtFld.text! )
+                getReportReadingHistory(condition: selectedConditionEng! )
             }
         }
     }
@@ -323,7 +324,7 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
                         if newCondition == String(conditionsArrayEng[0] as! String) {
                             let mainArray: NSArray = NSMutableArray(array: JSON.object(forKey: "objectArray") as! NSArray)
                             if mainArray.count != 0 {
-                                self.noHistoryAvailableLbl.isHidden = true
+                           //     self.noHistoryAvailableLbl.isHidden = true
                                 self.sectionsArray = NSMutableArray(array: JSON.object(forKey: "objectArray") as! NSArray)
                             }
                         }
@@ -333,7 +334,7 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
                             
                             
                             if mainArray.count != 0 {
-                                self.noHistoryAvailableLbl.isHidden = true
+                               // self.noHistoryAvailableLbl.isHidden = true
                                 let mainDict: NSMutableDictionary = NSMutableDictionary()
                                 var count = 0
                                 let itemsArray = NSMutableArray()
@@ -341,10 +342,32 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
                                     let obj: NSDictionary = dict as! NSDictionary
                                     let dateStr: String = String(describing: obj.allKeys.first!)
                                     if count == 0 {
-                                        mainDict.setValue(dateStr, forKey: "start_date")
+                                        
+                                        if let numDaysInt = Int(self.noOfDays){
+                                            let startDate = Calendar.current.date(byAdding: .day, value: -numDaysInt, to: Date())
+                                            
+                                            let dateFormatter = DateFormatter()
+                                            dateFormatter.dateFormat = "dd/MM/YYYY"
+                                            dateFormatter.locale = NSLocale(localeIdentifier: "en") as Locale!
+                                            let someDate = dateFormatter.string(from: startDate!)
+                                            
+                                            mainDict.setValue(someDate, forKey: "start_date")
+                                        }
+                                        else{
+                                            mainDict.setValue("", forKey: "start_date")
+                                        }
+                                        
                                     }
                                     else if count == mainArray.count-1 {
-                                        mainDict.setValue(dateStr, forKey: "end_date")
+                                        
+                                        let endDate = Calendar.current.date(byAdding: .day, value: 0, to: Date())
+                                        let dateFormatter = DateFormatter()
+                                        dateFormatter.dateFormat = "dd/MM/YYYY"
+                                         dateFormatter.locale = NSLocale(localeIdentifier: "en") as Locale!
+                                        let someDate = dateFormatter.string(from: endDate!)
+                                        
+                                        mainDict.setValue(someDate, forKey: "end_date")
+                                        
                                     }
                                     let array: NSArray = NSArray(array: (dict as AnyObject).object(forKey: dateStr) as! NSArray)
                                     itemsArray.addObjects(from: array as! [Any])
@@ -376,7 +399,12 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
                     break
                 case .failure(let error):
                     //Google Analytic
-                    GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.getglucoseDaysCondition) Calling", action:"Fail - Web API Calling" , label:String(describing: error), value : self.formInterval.intervalAsSeconds())
+                    var strError = ""
+                    if(error.localizedDescription.length>0)
+                    {
+                        strError = error.localizedDescription
+                    }
+                    GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.getglucoseDaysCondition) Calling", action:"Fail - Web API Calling" , label:String(describing: strError), value : self.formInterval.intervalAsSeconds())
                     print("failure")
                     
                     break
@@ -413,10 +441,10 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
             let parameters: Parameters = [
                 "userid": patientsID,
                 "numDaysBack": noOfDays,
-                "condition": "All conditions"
+                "condition": newCondition
             ]
             
-            newCondition = "All conditions"
+           // newCondition = "All conditions"
             if(Int(noOfDays)! < 0)
             {
                 return;
@@ -470,7 +498,7 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
                         if newCondition == String(conditionsArrayEng[0] as! String) {
                             let mainArray: NSArray = NSMutableArray(array: JSON.object(forKey: "objectArray") as! NSArray)
                             if mainArray.count != 0 {
-                                self.noHistoryAvailableLbl.isHidden = true
+                               // self.noHistoryAvailableLbl.isHidden = true
                                 self.sectionsArray = NSMutableArray(array: JSON.object(forKey: "objectArray") as! NSArray)
                             }
                         }
@@ -480,7 +508,7 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
                             
                             
                             if mainArray.count != 0 {
-                                self.noHistoryAvailableLbl.isHidden = true
+                                //self.noHistoryAvailableLbl.isHidden = true
                                 let mainDict: NSMutableDictionary = NSMutableDictionary()
                                 var count = 0
                                 let itemsArray = NSMutableArray()
@@ -488,10 +516,32 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
                                     let obj: NSDictionary = dict as! NSDictionary
                                     let dateStr: String = String(describing: obj.allKeys.first!)
                                     if count == 0 {
-                                        mainDict.setValue(dateStr, forKey: "start_date")
+                                        
+                                        if let numDaysInt = Int(self.noOfDays){
+                                            let startDate = Calendar.current.date(byAdding: .day, value: -numDaysInt, to: Date())
+                                            
+                                            let dateFormatter = DateFormatter()
+                                            dateFormatter.dateFormat = "dd/MM/YYYY"
+                                             dateFormatter.locale = NSLocale(localeIdentifier: "en") as Locale!
+                                            let someDate = dateFormatter.string(from: startDate!)
+                                            
+                                            mainDict.setValue(someDate, forKey: "start_date")
+                                        }
+                                        else{
+                                            mainDict.setValue("", forKey: "start_date")
+                                        }
+                                        
                                     }
                                     else if count == mainArray.count-1 {
-                                        mainDict.setValue(dateStr, forKey: "end_date")
+                                        
+                                        let endDate = Calendar.current.date(byAdding: .day, value: 0, to: Date())
+                                        let dateFormatter = DateFormatter()
+                                        dateFormatter.dateFormat = "dd/MM/YYYY"
+                                        dateFormatter.locale = NSLocale(localeIdentifier: "en") as Locale!
+                                        let someDate = dateFormatter.string(from: endDate!)
+                                        
+                                        mainDict.setValue(someDate, forKey: "end_date")
+                                        
                                     }
                                     let array: NSArray = NSArray(array: (dict as AnyObject).object(forKey: dateStr) as! NSArray)
                                     itemsArray.addObjects(from: array as! [Any])
@@ -512,10 +562,6 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
                             self.boolArray[0] = true
                         }
                         
-                        
-                        
-                        
-                        //                    print(self.sectionsArray)
                         self.tblView.reloadData()
                         self.resetUI()
                     }
@@ -523,7 +569,12 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
                     break
                 case .failure(let error):
                     //Google Analytic
-                    GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.getglucoseDaysCondition) Calling", action:"Fail - Web API Calling" , label:String(describing: error), value : self.formInterval.intervalAsSeconds())
+                    var strError = ""
+                    if(error.localizedDescription.length>0)
+                    {
+                        strError = error.localizedDescription
+                    }
+                    GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.getglucoseDaysCondition) Calling", action:"Fail - Web API Calling" , label:String(describing: strError), value : self.formInterval.intervalAsSeconds())
                     print("failure")
                     
                     break
@@ -616,7 +667,7 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
                         if newCondition == String(conditionsArrayEng[0] as! String) {
                             let mainArray: NSArray = NSMutableArray(array: JSON.object(forKey: "objectArray") as! NSArray)
                             if mainArray.count != 0 {
-                                self.noHistoryAvailableLbl.isHidden = true
+                               // self.noHistoryAvailableLbl.isHidden = true
                                 self.sectionsArray = NSMutableArray(array: JSON.object(forKey: "objectArray") as! NSArray)
                             }
                         }
@@ -626,7 +677,7 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
                             
                             
                             if mainArray.count != 0 {
-                                self.noHistoryAvailableLbl.isHidden = true
+                               // self.noHistoryAvailableLbl.isHidden = true
                                 let mainDict: NSMutableDictionary = NSMutableDictionary()
                                 var count = 0
                                 let itemsArray = NSMutableArray()
@@ -634,10 +685,32 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
                                     let obj: NSDictionary = dict as! NSDictionary
                                     let dateStr: String = String(describing: obj.allKeys.first!)
                                     if count == 0 {
-                                        mainDict.setValue(dateStr, forKey: "start_date")
+                                        
+                                        if let numDaysInt = Int(self.noOfDays){
+                                            let startDate = Calendar.current.date(byAdding: .day, value: -numDaysInt, to: Date())
+                                            
+                                            let dateFormatter = DateFormatter()
+                                            dateFormatter.dateFormat = "dd/MM/YYYY"
+                                            dateFormatter.locale = NSLocale(localeIdentifier: "en") as Locale!
+                                            let someDate = dateFormatter.string(from: startDate!)
+                                            
+                                            mainDict.setValue(someDate, forKey: "start_date")
+                                        }
+                                        else{
+                                            mainDict.setValue("", forKey: "start_date")
+                                        }
+                                        
                                     }
                                     else if count == mainArray.count-1 {
-                                        mainDict.setValue(dateStr, forKey: "end_date")
+                                        
+                                        let endDate = Calendar.current.date(byAdding: .day, value: 0, to: Date())
+                                        let dateFormatter = DateFormatter()
+                                        dateFormatter.dateFormat = "dd/MM/YYYY"
+                                        dateFormatter.locale = NSLocale(localeIdentifier: "en") as Locale!
+                                        let someDate = dateFormatter.string(from: endDate!)
+                                        
+                                        mainDict.setValue(someDate, forKey: "end_date")
+                                        
                                     }
                                     let array: NSArray = NSArray(array: (dict as AnyObject).object(forKey: dateStr) as! NSArray)
                                     itemsArray.addObjects(from: array as! [Any])
@@ -669,7 +742,12 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
                     break
                 case .failure(let error):
                     //Google Analytic
-                    GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.getglucoseDaysCondition) Calling", action:"Fail - Web API Calling" , label:String(describing: error), value : self.formInterval.intervalAsSeconds())
+                    var strError = ""
+                    if(error.localizedDescription.length>0)
+                    {
+                        strError = error.localizedDescription
+                    }
+                    GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.getglucoseDaysCondition) Calling", action:"Fail - Web API Calling" , label:String(describing: strError), value : self.formInterval.intervalAsSeconds())
                     print("failure")
                     
                     break
@@ -713,160 +791,166 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
         
         // return (bool == true ? 4 : 0)
     }
-    
+  
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let dict: NSDictionary = sectionsArray[indexPath.section] as! NSDictionary
-        
-        if conditionTxtFld.text == String(conditionsArray[0] as! String) {
-            let dateStr: String = String(describing: dict.allKeys.first!)
-            cellArray = NSArray(array: dict.object(forKey: dateStr) as! NSArray)
-            obj = cellArray[indexPath.row] as! NSDictionary
-        }
-        else {
-            cellArray = NSArray(array: dict.object(forKey: "items" as NSCopying)! as! NSArray).copy() as! NSArray
-            obj = cellArray[indexPath.row] as! NSDictionary
-        }
-        
-        let cell: HistoryTableViewCell = tableView.dequeueReusableCell(withIdentifier: "historyCell")! as! HistoryTableViewCell
-        if(isToday && isAll || !isToday && isAll)
-        {
             
-            cell.readingLbl.text = "\(obj.value(forKey: "reading")!) mg/dl"
+            let dict: NSDictionary = sectionsArray[indexPath.section] as! NSDictionary
             
-            if (obj.value(forKey: "reading") as? Int)! > 180{
-                cell.readingLbl.textColor = Colors.DHPinkRed
+            if conditionTxtFld.text == String(conditionsArray[0] as! String) {
+                let dateStr: String = String(describing: dict.allKeys.first!)
+                cellArray = NSArray(array: dict.object(forKey: dateStr) as! NSArray)
+                obj = cellArray[indexPath.row] as! NSDictionary
             }
-            else{
-                cell.readingLbl.textColor = Colors.PrimaryColor
+            else {
+                cellArray = NSArray(array: dict.object(forKey: "items" as NSCopying)! as! NSArray).copy() as! NSArray
+                obj = cellArray[indexPath.row] as! NSDictionary
             }
             
-            var conditionString = String(describing: obj.value(forKey: "condition")!)
+            let cell: HistoryTableViewCell = tableView.dequeueReusableCell(withIdentifier: "historyCell")! as! HistoryTableViewCell
             
-            var tempString : [String] = conditionString.components(separatedBy: " ")
-            if tempString[0] == "Pre"
+            if(isToday && isAll || !isToday && isAll)
             {
-                conditionString = "Before "+tempString[1]
-            }
-            else if tempString[0] == "Post"
-            {
-                conditionString = "After "+tempString[1]
-            }
-            
-            
-            var outStr : String = ""
-            
-            cell.commentLabel.textColor = Colors.DHPinkRed
-            
-            if currentLocale == "en"
-            {
-                let inFormatter = DateFormatter()
-                inFormatter.locale = NSLocale(localeIdentifier: "en") as Locale!
-                inFormatter.dateFormat = "hh:mm a"
                 
-                let outFormatter = DateFormatter()
-                outFormatter.locale = NSLocale(localeIdentifier: "en") as Locale!
-                outFormatter.dateFormat = "HH:mm"
+                cell.readingLbl.text = "\(obj.value(forKey: "reading")!) mg/dl"
                 
-                let date = inFormatter.date(from: String(describing: obj.value(forKey: "readingtime")!))
-                outStr = outFormatter.string(from: date!)
-            }
-            else{
+                if (obj.value(forKey: "reading") as? Int)! > 180{
+                    cell.readingLbl.textColor = UIColor(red: 238.0/255.0, green: 130.0/255.0, blue: 238.0/255.0, alpha: 1.0)
+                }
+                else if (obj.value(forKey: "reading") as? Int)! < 70{
+                    cell.readingLbl.textColor = Colors.DHPinkRed
+                }
+                else{
+                    cell.readingLbl.textColor = Colors.PrimaryColor
+                }
+                
+                var conditionString = String(describing: obj.value(forKey: "condition")!)
+                
+                var tempString : [String] = conditionString.components(separatedBy: " ")
+                if tempString[0] == "Pre"
+                {
+                    conditionString = "Before "+tempString[1]
+                }
+                else if tempString[0] == "Post"
+                {
+                    conditionString = "After "+tempString[1]
+                }
+                
+                
+                var outStr : String = ""
+                
+                /* if currentLocale == "en"
+                 {
+                 let inFormatter = DateFormatter()
+                 inFormatter.locale = NSLocale(localeIdentifier: "en") as Locale!
+                 inFormatter.dateFormat = "hh:mm a"
+                 
+                 let outFormatter = DateFormatter()
+                 outFormatter.locale = NSLocale(localeIdentifier: "en") as Locale!
+                 outFormatter.dateFormat = "HH:mm"
+                 
+                 let date = inFormatter.date(from: String(describing: obj.value(forKey: "readingtime")!))
+                 outStr = outFormatter.string(from: date!)
+                 }
+                 else{*/
                 outStr = String(describing: obj.value(forKey: "readingtime")!)
-            }
-            
-            let index = conditionsArrayEng.index(of: conditionString)
-            if(index != -1)
-            {
-                cell.dateLbl.text = conditionsArray[index] as? String
-            }
-            else{
-                cell.dateLbl.text = String(describing: obj.value(forKey: "condition")!)
-            }
-            
-            
-            // cell.dateLbl.text = String(describing: obj.value(forKey: "condition")!)
-            cell.conditionLbl.text = outStr
-            cell.conditionLbl.textColor = Colors.PrimaryColor
-            cell.commentLabel.text = String(describing: obj.value(forKey: "comment")!)
-            //            cell.selectionStyle = .default
-            
-        }
-        else{
-            cell.readingLbl.text = "\(obj.value(forKey: "reading")!) mg/dl"
-            
-            if (obj.value(forKey: "reading") as? Int)! > 180{
-                cell.readingLbl.textColor = Colors.DHPinkRed
-            }
-            else{
-                cell.readingLbl.textColor = Colors.PrimaryColor
-            }
-            
-            var conditionString = String(describing: obj.value(forKey: "condition")!)
-            
-            var tempString : [String] = conditionString.components(separatedBy: " ")
-            if tempString[0] == "Pre"
-            {
-                conditionString = "Before "+tempString[1]
-            }
-            else if tempString[0] == "Post"
-            {
-                conditionString = "After "+tempString[1]
-            }
-            let index = conditionsArrayEng.index(of: conditionString)
-            
-            var outStrCondition : String = ""
-            var outStrReadingTime : String = ""
-            if currentLocale == "ar"
-            {
-                let inFormatter = DateFormatter()
-                inFormatter.locale = NSLocale(localeIdentifier: "en") as Locale!
-                inFormatter.dateFormat = "hh:mm a"
+                // }
                 
-                let outFormatter = DateFormatter()
-                outFormatter.locale = NSLocale(localeIdentifier: "en") as Locale!
-                outFormatter.dateFormat = "HH:mm"
+                let index = conditionsArrayEng.index(of: conditionString)
+                if(index != -1)
+                {
+                    cell.dateLbl.text = conditionsArray[index] as? String
+                }
+                else{
+                    cell.dateLbl.text = String(describing: obj.value(forKey: "condition")!)
+                }
                 
-                var date = inFormatter.date(from: String(describing: obj.value(forKey: "condition")!))
-                outStrCondition = outFormatter.string(from: date!)
                 
-                //for reading time with date and day of the week
-                inFormatter.dateFormat = "d EEEE"
-                outFormatter.dateFormat = "d EEEE"
-                
-                let tempString : String = String(describing: obj.value(forKey: "readingtime")!)
-                let tempSplits : [String] = tempString.components(separatedBy: " ")
-                let result : String = tempSplits[0]+" "+tempSplits[2]
-                let reading = inFormatter.date(from: result)
-                
-                outStrReadingTime = outFormatter.string(from: reading!)
+                // cell.dateLbl.text = String(describing: obj.value(forKey: "condition")!)
+                cell.conditionLbl.text = outStr
+                cell.conditionLbl.textColor = Colors.PrimaryColor
+                cell.commentLabel.text = String(describing: obj.value(forKey: "comment")!)
+                //            cell.selectionStyle = .default
                 
             }
             else{
+                cell.readingLbl.text = "\(obj.value(forKey: "reading")!) mg/dl"
+                
+                if (obj.value(forKey: "reading") as? Int)! > 180{
+                    cell.readingLbl.textColor = UIColor(red: 238.0/255.0, green: 130.0/255.0, blue: 238.0/255.0, alpha: 1.0)
+                }
+                else if (obj.value(forKey: "reading") as? Int)! < 70{
+                    cell.readingLbl.textColor = Colors.DHPinkRed
+                }
+                else{
+                    cell.readingLbl.textColor = Colors.PrimaryColor
+                }
+                
+                var conditionString = String(describing: obj.value(forKey: "condition")!)
+                
+                var tempString : [String] = conditionString.components(separatedBy: " ")
+                if tempString[0] == "Pre"
+                {
+                    conditionString = "Before "+tempString[1]
+                }
+                else if tempString[0] == "Post"
+                {
+                    conditionString = "After "+tempString[1]
+                }
+                let index = conditionsArrayEng.index(of: conditionString)
+                
+                var outStrCondition : String = ""
+                var outStrReadingTime : String = ""
+                /* if currentLocale == "ar"
+                 {
+                 let inFormatter = DateFormatter()
+                 inFormatter.locale = NSLocale(localeIdentifier: "en") as Locale!
+                 inFormatter.dateFormat = "hh:mm a"
+                 
+                 let outFormatter = DateFormatter()
+                 outFormatter.locale = NSLocale(localeIdentifier: "en") as Locale!
+                 outFormatter.dateFormat = "HH:mm"
+                 
+                 var date = inFormatter.date(from: String(describing: obj.value(forKey: "condition")!))
+                 outStrCondition = outFormatter.string(from: date!)
+                 
+                 //for reading time with date and day of the week
+                 inFormatter.dateFormat = "d EEEE"
+                 outFormatter.dateFormat = "d EEEE"
+                 
+                 let tempString : String = String(describing: obj.value(forKey: "readingtime")!)
+                 let tempSplits : [String] = tempString.components(separatedBy: " ")
+                 let result : String = tempSplits[0]+" "+tempSplits[2]
+                 let reading = inFormatter.date(from: result)
+                 
+                 outStrReadingTime = outFormatter.string(from: reading!)
+                 
+                 }
+                 else{*/
                 outStrCondition = String(describing: obj.value(forKey: "condition")!)
                 
-                let tempString : String = String(describing: obj.value(forKey: "readingtime")!)
-                let tempSplits : [String] = tempString.components(separatedBy: " ")
+                let tempStringRead : String = String(describing: obj.value(forKey: "readingtime")!)
+                let tempSplits : [String] = tempStringRead.components(separatedBy: " ")
                 let result : String = tempSplits[0]+tempSplits[1]+" "+tempSplits[2]
                 outStrReadingTime = result
+                //  }
+                
+                cell.dateLbl.text = outStrReadingTime
+                cell.dateLbl.textColor = Colors.PrimaryColor
+                cell.conditionLbl.text = outStrCondition
+                cell.conditionLbl.textColor = Colors.PrimaryColor
+                cell.commentLabel.text = String(describing: obj.value(forKey: "comment")!)
             }
+            let clearView = UIView()
+            clearView.backgroundColor = UIColor.clear // Whatever color you like
+            UITableViewCell.appearance().selectedBackgroundView = clearView
+            // cell.selectionStyle = .none
             
-            cell.dateLbl.text = outStrReadingTime
-            cell.dateLbl.textColor = Colors.PrimaryColor
-            cell.conditionLbl.text = outStrCondition
-            cell.conditionLbl.textColor = Colors.PrimaryColor
-            cell.commentLabel.text = String(describing: obj.value(forKey: "comment")!)
+            //        cell.readingLbl.text = "\(obj.value(forKey: "reading")!) mg/dl"
+            //        cell.dateLbl.text = String(describing: obj.value(forKey: "created")!)
+            //        cell.conditionLbl.text = String(describing: obj.value(forKey: "condition")!)
+            return cell
+            
         }
-        let clearView = UIView()
-        clearView.backgroundColor = UIColor.clear // Whatever color you like
-        UITableViewCell.appearance().selectedBackgroundView = clearView
-        // cell.selectionStyle = .none
-        
-        //        cell.readingLbl.text = "\(obj.value(forKey: "reading")!) mg/dl"
-        //        cell.dateLbl.text = String(describing: obj.value(forKey: "created")!)
-        //        cell.conditionLbl.text = String(describing: obj.value(forKey: "condition")!)
-        return cell        
-    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -960,8 +1044,8 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
             
             if startDate != nil && endDate != nil{
                 
-                if currentLocale == "ar"{
-                    
+                /*if currentLocale == "ar"{
+                
                     
                     
                     let inFormatter = DateFormatter()
@@ -984,13 +1068,13 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
                     
                     lbl.text = startDateString+"  -  "+endDateString
                 }
-                else{
+                else{*/
                     lbl.text = "\(String(describing: dict.value(forKey: "start_date")!)) - \(String(describing: dict.value(forKey: "end_date")!))"
-                }
+               // }
             }
             else if startDate != nil {
                 
-                if currentLocale == "ar"
+                /*if currentLocale == "ar"
                 {
                     let inFormatter = DateFormatter()
                     inFormatter.locale = NSLocale(localeIdentifier: "en-US") as Locale!
@@ -1007,13 +1091,13 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
                     
                     lbl.text = startDateString
                 }
-                else{
+                else{*/
                     lbl.text = "\(String(describing: dict.value(forKey: "start_date")!))"
-                }
+                //}
             }
             else if endDate != nil {
                 
-                if currentLocale == "ar"
+               /* if currentLocale == "ar"
                 {
                     let inFormatter = DateFormatter()
                     inFormatter.locale = NSLocale(localeIdentifier: "en-US") as Locale!
@@ -1030,9 +1114,9 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
                     
                     lbl.text = endDateString
                 }
-                else{
+                else{*/
                     lbl.text = "\(String(describing: dict.value(forKey: "end_date")!))"
-                }
+               // }
             }
             else{
                 lbl.text = ""

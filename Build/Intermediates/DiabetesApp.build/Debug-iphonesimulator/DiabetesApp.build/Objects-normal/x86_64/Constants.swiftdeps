@@ -68,61 +68,62 @@ provides-member:
 - ["V11DiabetesApp5Fonts", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "kGIntakeScreenName"
-- "kChatScreenName"
-- "Notifications"
-- "NSArray"
-- "kMedicationScreenName"
-- "kReportChartViewScreenName"
-- "UITabBarItem"
-- "GeneralLabels"
-- "kChartViewScreenName"
-- "kChatPresenceTimeInterval"
-- "Array"
-- "Fonts"
-- "kReportCarePlanScreenName"
-- "ViewIdentifiers"
-- "frequnecyArray"
-- "/"
-- "kReportHistoryViewScreenName"
-- "baseUrl"
-- "ChatInfo"
-- "kLoginScreenName"
-- "requestTabBarItem"
-- "ApiMethods"
-- "kDialogsScreenName"
-- "kDialogsPageLimit"
-- "UInt"
-- "userType"
-- "kContactListScreenName"
-- "String"
-- "TimeInterval"
-- "UIColor"
-- "VideoAudioCall"
-- "HistoryDays"
-- "frequencyArrayEng"
-- "kHistoryViewScreenName"
-- "conditionsArray"
-- "CGFloat"
-- "kMessageContainerWidthPadding"
-- "CellIdentifiers"
-- "Constants"
-- "StringLiteralType"
-- "kButtonRadius"
-- "userDefaults"
-- "UIFont"
-- "kCarePlanReadingScreenName"
-- "conditionsArrayEng"
-- "kPatientInfoScreenName"
-- "kReportNewCarePlanScreenName"
-- "kAddMedicationScreenName"
 - "Colors"
+- "ViewIdentifiers"
+- "kDialogsPageLimit"
+- "Fonts"
+- "CellIdentifiers"
+- "kReportNewCarePlanScreenName"
+- "kLoginScreenName"
+- "Array"
+- "frequencyArrayEng"
+- "Constants"
+- "NSArray"
+- "userDefaults"
+- "kAddMedicationScreenName"
+- "kDialogsScreenName"
+- "kReportHistoryViewScreenName"
+- "kHistoryViewScreenName"
+- "Notifications"
+- "kCarePlanReadingScreenName"
+- "TimeInterval"
+- "kButtonRadius"
+- "conditionsArray"
+- "conditionsArrayEng"
+- "kChartViewScreenName"
+- "ChatInfo"
+- "UInt"
+- "HistoryDays"
+- "kMessageContainerWidthPadding"
+- "CGFloat"
+- "requestTabBarItem"
+- "baseUrl"
+- "UIFont"
+- "kChatScreenName"
+- "GeneralLabels"
+- "kReportCarePlanScreenName"
+- "kReportChartViewScreenName"
+- "/"
+- "StringLiteralType"
+- "ApiMethods"
+- "kMedicationScreenName"
+- "UITabBarItem"
+- "frequnecyArray"
+- "userType"
+- "String"
+- "kGIntakeScreenName"
+- "VideoAudioCall"
+- "kPatientInfoScreenName"
+- "kChatPresenceTimeInterval"
+- "UIColor"
+- "kContactListScreenName"
 depends-member:
 - ["Ps9AnyObject", "Element"]
 - ["Ps9AnyObject", "init"]
 - ["Ps9AnyObject", "localized"]
 - ["Ps9AnyObject", ""]
 - ["V11DiabetesApp10ApiMethods", "addcareplan"]
+- ["V11DiabetesApp10ApiMethods", "canceleMeds"]
 - ["V11DiabetesApp10ApiMethods", "deletecareplan"]
 - ["V11DiabetesApp10ApiMethods", "doctorApprove"]
 - ["V11DiabetesApp10ApiMethods", "doctorDecline"]
@@ -154,6 +155,7 @@ depends-member:
 - ["V11DiabetesApp10ApiMethods", "saveEducatorReport"]
 - ["V11DiabetesApp10ApiMethods", "saveGlucose"]
 - ["V11DiabetesApp10ApiMethods", "updatePatient"]
+- ["V11DiabetesApp10ApiMethods", "updateReadBy"]
 - ["V11DiabetesApp10ApiMethods", "updatecareplan"]
 - ["V11DiabetesApp10ApiMethods", "updatecareplanReadings"]
 - ["V12CoreGraphics7CGFloat", "deinit"]
@@ -171,8 +173,10 @@ depends-member:
 - ["V11DiabetesApp8ChatInfo", "patientInfo"]
 - ["V11DiabetesApp8ChatInfo", "readingHistory"]
 - ["V11DiabetesApp6Colors", "ChatTextColor"]
+- ["V11DiabetesApp6Colors", "DHAddConditionBg"]
 - ["V11DiabetesApp6Colors", "DHBackgroundBlue"]
 - ["V11DiabetesApp6Colors", "DHBackgroundGreen"]
+- ["V11DiabetesApp6Colors", "DHConditionBg"]
 - ["V11DiabetesApp6Colors", "DHDarkGray"]
 - ["V11DiabetesApp6Colors", "DHIntakeGreen"]
 - ["V11DiabetesApp6Colors", "DHLightGray"]
@@ -192,6 +196,7 @@ depends-member:
 - ["V11DiabetesApp6Colors", "incomingMSgColor"]
 - ["V11DiabetesApp6Colors", "init"]
 - ["V11DiabetesApp6Colors", "outgoingMsgColor"]
+- ["V11DiabetesApp6Colors", "placeHolderColor"]
 - ["V11DiabetesApp6Colors", "userTypeSelectedColor"]
 - ["Ps10Comparable", "init"]
 - ["Ps10Comparable", "localized"]
@@ -352,6 +357,7 @@ depends-member:
 - ["V11DiabetesApp12userDefaults", "loggedInUsername"]
 - ["V11DiabetesApp12userDefaults", "recipientIDArray"]
 - ["V11DiabetesApp12userDefaults", "recipientTypesArray"]
+- ["V11DiabetesApp12userDefaults", "selectedNoOfDays"]
 - ["V11DiabetesApp12userDefaults", "selectedPatientHCNumber"]
 - ["V11DiabetesApp12userDefaults", "selectedPatientID"]
 - ["V11DiabetesApp12userDefaults", "taskID"]
@@ -774,4 +780,4 @@ depends-external:
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController-umbrella.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Modules/module.modulemap"
-interface-hash: "0f39f5c92e2cdabfd3aa5a605325983b"
+interface-hash: "3fe23363ca1f2126cefcd09a2492c64a"

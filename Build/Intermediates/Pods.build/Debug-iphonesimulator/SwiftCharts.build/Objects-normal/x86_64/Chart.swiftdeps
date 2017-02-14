@@ -15,23 +15,23 @@ provides-member:
 - ["C11SwiftCharts13ChartBaseView", ""]
 - ["C11SwiftCharts9ChartView", ""]
 provides-dynamic-lookup:
-- "sharedInit"
 - "draw"
+- "sharedInit"
 depends-top-level:
-- !private "UIGraphicsGetCurrentContext"
-- "Chart"
-- "UIView"
 - "CGRect"
-- !private "StringLiteralType"
-- !private "fatalError"
-- "ChartBaseView"
-- "ChartView"
 - "AssignmentPrecedence"
-- "ChartSettings"
-- "ChartLayer"
+- !private "UIGraphicsGetCurrentContext"
+- "ChartBaseView"
+- "Chart"
 - !private "UIColor"
+- !private "fatalError"
 - "CGFloat"
 - "NSCoder"
+- "ChartView"
+- "UIView"
+- "ChartLayer"
+- "ChartSettings"
+- !private "StringLiteralType"
 depends-member:
 - !private ["Ps9AnyObject", "ChartBaseView"]
 - !private ["Ps9AnyObject", "UIColor"]

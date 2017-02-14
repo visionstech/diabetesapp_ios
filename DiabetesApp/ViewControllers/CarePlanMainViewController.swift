@@ -22,6 +22,9 @@ class CarePlanMainViewController: UIViewController {
     var addBtn = UIBarButtonItem()
     var topBackView:UIView = UIView()
     
+    var currentMedEditBool = Bool()
+    var currentReadEditBool = Bool()
+    
     let selectedUserType: Int = Int(UserDefaults.standard.integer(forKey: userDefaults.loggedInUserType))
     
     let recipientTypes = UserDefaults.standard.stringArray(forKey: userDefaults.recipientTypesArray)
@@ -64,6 +67,24 @@ class CarePlanMainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
        setNavBarUI()
+        if  UserDefaults.standard.bool(forKey: "CurrentReadEditBool") {
+            carePlanSegmentControl.selectedSegmentIndex = 1
+            medicationContainer.isHidden = true
+            readingContainer.isHidden = false
+            
+            if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
+                self.navigationItem.leftBarButtonItem = nil
+            }
+            else {
+                self.navigationItem.rightBarButtonItem = nil
+            }
+            
+            
+            
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notifications.readingView), object: nil)
+            
+        }
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -182,7 +203,7 @@ class CarePlanMainViewController: UIViewController {
             self.navigationController?.navigationBar.addSubview(topBackView)
         }
         
-        topBackView = UIView(frame: CGRect(x: 0, y: 0, width: 74, height: 40))
+      /*  topBackView = UIView(frame: CGRect(x: 0, y: 0, width: 74, height: 40))
         topBackView.backgroundColor = UIColor(patternImage: UIImage(named: "topBackBtn")!)
         //        let userImgView: UIImageView = UIImageView(frame: CGRect(x: 35, y: 3, width: 34, height: 34))
         //        userImgView.image = UIImage(named: "user.png")
@@ -193,7 +214,7 @@ class CarePlanMainViewController: UIViewController {
         topBackView.isUserInteractionEnabled = true
         
         self.tabBarController?.navigationController?.navigationBar.addSubview(topBackView)
-        self.navigationController?.navigationBar.addSubview(topBackView)
+        self.navigationController?.navigationBar.addSubview(topBackView)*/
     }
     
     
