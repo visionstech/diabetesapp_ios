@@ -7,12 +7,12 @@ provides-member:
 - ["C11SwiftCharts18ChartContextDrawer", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "CGContext"
-- !private "!"
+- "ChartContextDrawer"
 - "Chart"
+- "CGContext"
 - "BooleanLiteralType"
 - "Bool"
-- "ChartContextDrawer"
+- !private "!"
 depends-member:
 - !private ["Ps9AnyObject", "draw"]
 - !private ["Ps9AnyObject", "hidden"]

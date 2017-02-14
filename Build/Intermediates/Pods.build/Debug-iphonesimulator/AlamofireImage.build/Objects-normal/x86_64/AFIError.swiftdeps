@@ -10,14 +10,14 @@ provides-member:
 - ["O14AlamofireImage8AFIError", "isImageSerializationFailedError"]
 provides-dynamic-lookup:
 depends-top-level:
-- "Error"
-- "String"
+- "Bool"
 - "=="
+- "String"
+- !private "BooleanLiteralType"
+- "Error"
+- "LocalizedError"
 - "AFIError"
 - !private "StringLiteralType"
-- "Bool"
-- "LocalizedError"
-- !private "BooleanLiteralType"
 depends-member:
 - ["O14AlamofireImage8AFIError", "=="]
 - ["O14AlamofireImage8AFIError", "Bool"]

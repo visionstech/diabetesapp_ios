@@ -1,6 +1,5 @@
 dependencies: \
-  /Users/IPHONE/Deepak/baljeet/Baljit\ Code/ViralDiabetes_SourceTree\ 2/DiabetesApp/QMMessageNotificationManager/QMMessageNotification.m \
-  /Users/IPHONE/Deepak/baljeet/Baljit\ Code/ViralDiabetes_SourceTree\ 2/DiabetesApp/QMMessageNotificationManager/QMMessageNotification.h \
-  /Users/IPHONE/Deepak/baljeet/Baljit\ Code/ViralDiabetes_SourceTree\ 2/Pods/Google/Headers/module.modulemap \
-  /Users/IPHONE/Deepak/svn_new/diabetesapp/Pods/Google/Headers/module.modulemap \
-  /Users/IPHONE/Deepak/baljeet/Baljit\ Code/ViralDiabetes_SourceTree\ 2/DiabetesApp/MPGNotification/MPGNotification.h
+  /Users/IPHONE/Downloads/diabetesapp_ios-master/DiabetesApp/QMMessageNotificationManager/QMMessageNotification.m \
+  /Users/IPHONE/Downloads/diabetesapp_ios-master/DiabetesApp/QMMessageNotificationManager/QMMessageNotification.h \
+  /Users/IPHONE/Downloads/diabetesapp_ios-master/Pods/Google/Headers/module.modulemap \
+  /Users/IPHONE/Downloads/diabetesapp_ios-master/DiabetesApp/MPGNotification/MPGNotification.h

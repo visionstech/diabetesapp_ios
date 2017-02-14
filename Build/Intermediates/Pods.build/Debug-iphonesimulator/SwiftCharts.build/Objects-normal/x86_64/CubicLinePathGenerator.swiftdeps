@@ -7,19 +7,19 @@ provides-member:
 - ["C11SwiftCharts22CubicLinePathGenerator", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "ChartLinesViewPathGenerator"
-- !private "..<"
-- !private "-"
-- "UIBezierPath"
+- !private "*"
 - !private "<"
-- !private ">"
-- "AssignmentPrecedence"
+- !private "..<"
+- "ChartLinesViewPathGenerator"
+- !private "-"
 - "CubicLinePathGenerator"
-- !private "=="
+- "AssignmentPrecedence"
 - !private "+"
+- "UIBezierPath"
+- !private "=="
 - !private "/"
 - "CGPoint"
-- !private "*"
+- !private ">"
 - "CGFloat"
 depends-member:
 - !private ["Ps9AnyObject", "CGPoint"]

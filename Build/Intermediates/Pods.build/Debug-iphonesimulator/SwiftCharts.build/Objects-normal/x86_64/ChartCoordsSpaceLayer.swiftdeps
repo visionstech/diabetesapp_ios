@@ -7,14 +7,14 @@ provides-member:
 - ["C11SwiftCharts21ChartCoordsSpaceLayer", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "StringLiteralType"
 - "ChartLayerBase"
-- "CGRect"
-- !private "IntegerLiteralType"
-- !private "FloatLiteralType"
+- !private "StringLiteralType"
 - "ChartCoordsSpaceLayer"
-- "ChartAxisLayer"
+- "CGRect"
 - "AssignmentPrecedence"
+- "ChartAxisLayer"
+- !private "FloatLiteralType"
+- !private "IntegerLiteralType"
 depends-member:
 - ["Ps9AnyObject", "init"]
 - ["Ps9AnyObject", "innerFrame"]

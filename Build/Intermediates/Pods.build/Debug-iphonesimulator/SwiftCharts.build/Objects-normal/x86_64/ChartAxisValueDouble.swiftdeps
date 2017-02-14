@@ -7,16 +7,16 @@ provides-member:
 - ["C11SwiftCharts20ChartAxisValueDouble", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "StringLiteralType"
 - "ChartLabelSettings"
-- !private "NSNumber"
-- "String"
-- "Int"
-- "ChartAxisValueDouble"
 - "Double"
-- "NumberFormatter"
+- !private "StringLiteralType"
 - "ChartAxisValue"
+- "ChartAxisValueDouble"
+- !private "NSNumber"
+- "Int"
 - "AssignmentPrecedence"
+- "NumberFormatter"
+- "String"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "init"]
 - !private ["Ps9AnyObject", "ChartAxisValueDouble"]

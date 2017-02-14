@@ -7,15 +7,15 @@ provides-member:
 - ["C11SwiftCharts25StraightLinePathGenerator", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "StraightLinePathGenerator"
 - "ChartLinesViewPathGenerator"
+- "StraightLinePathGenerator"
 - "CGPoint"
-- !private "..<"
-- !private "+"
 - !private ">="
+- !private "+"
+- !private "..<"
+- "AssignmentPrecedence"
 - "UIBezierPath"
 - !private "-"
-- "AssignmentPrecedence"
 - "CGFloat"
 depends-member:
 - !private ["Ps9AnyObject", "UIBezierPath"]

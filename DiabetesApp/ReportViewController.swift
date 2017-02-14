@@ -1135,9 +1135,9 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
     func createCustomTopView() {
         
         if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
-            topBackView = UIView(frame: CGRect(x: self.view.frame.size.width - 75, y: 0, width: 75, height: 40))
+            topBackView = UIView(frame: CGRect(x: self.view.frame.size.width - 80, y: 0, width: 80, height: 40))
 //            topBackView.backgroundColor = UIColor(patternImage: UIImage(named: "topbackArbic")!)
-            let backImg : UIImageView = UIImageView(frame:CGRect( x: 40, y: 8, width: 40, height: 25))
+            let backImg : UIImageView = UIImageView(frame:CGRect( x: 45, y: 8, width: 40, height: 25))
             backImg.image = UIImage(named:"topbackArbic")
             topBackView.addSubview(backImg)
 
@@ -1156,13 +1156,13 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
         }
         else {
             
-            topBackView = UIView(frame: CGRect(x: 0, y: 0, width: 74, height: 40))
+            topBackView = UIView(frame: CGRect(x: 0, y: 0, width: 80, height: 40))
 //            topBackView.backgroundColor = UIColor(patternImage: UIImage(named: "topBackBtn")!)
             let backImg : UIImageView = UIImageView(frame:CGRect( x: 0, y: 8, width: 40, height: 25))
             backImg.image = UIImage(named:"topBackBtn")
             topBackView.addSubview(backImg)
 
-            let userImgView: UIImageView = UIImageView(frame: CGRect(x: 40, y: 3, width: 34, height: 34))
+            let userImgView: UIImageView = UIImageView(frame: CGRect(x: 45, y: 3, width: 34, height: 34))
             //userImgView.image = UIImage(named: "user.png")
             topBackView.addSubview(userImgView)
             

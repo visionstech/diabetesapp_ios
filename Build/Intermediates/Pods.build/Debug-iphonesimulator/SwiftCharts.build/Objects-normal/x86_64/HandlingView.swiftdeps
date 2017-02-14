@@ -6,16 +6,16 @@ provides-nominal:
 provides-member:
 - ["C11SwiftCharts12HandlingView", ""]
 provides-dynamic-lookup:
-- "movedToSuperViewHandler"
 - "touchesEnded"
+- "movedToSuperViewHandler"
 - "didMoveToSuperview"
 - "touchHandler"
 depends-top-level:
 - "Set"
 - "UIEvent"
-- "UITouch"
 - "HandlingView"
 - "UIView"
+- "UITouch"
 depends-member:
 - ["Ps9AnyObject", "didMoveToSuperview"]
 - !private ["Ps9AnyObject", "init"]

@@ -6,22 +6,22 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp34CarePlanReadingHeaderTableViewCell", ""]
 provides-dynamic-lookup:
-- "btnEdit"
-- "awakeFromNib"
-- "goalHeaderLabel"
-- "setSelected"
-- "timingHeaderLabel"
-- "setUI"
-- "frequencyLbl"
 - "headerView"
+- "awakeFromNib"
+- "frequencyLbl"
+- "timingHeaderLabel"
+- "setSelected"
+- "setUI"
+- "goalHeaderLabel"
+- "btnEdit"
 depends-top-level:
-- "Bool"
-- "UITableViewCell"
 - "UIView"
-- !private "StringLiteralType"
 - "CarePlanReadingHeaderTableViewCell"
-- "AssignmentPrecedence"
+- "UITableViewCell"
+- !private "StringLiteralType"
 - "UIButton"
+- "AssignmentPrecedence"
+- "Bool"
 - "UILabel"
 depends-member:
 - ["Ps9AnyObject", "awakeFromNib"]
@@ -450,7 +450,7 @@ depends-dynamic-lookup:
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/DiabetesApp/DiabetesApp-Bridging-Header.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree/Pods/Google/Headers/module.modulemap"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Google/Headers/module.modulemap"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBMulticastDelegate.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBRequest+QBChat.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBChat.h"
@@ -519,7 +519,6 @@ depends-external:
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBSettings.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBGeneric.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBNullability.h"
-- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Google/Headers/module.modulemap"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBCEntity.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBCoreModels.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBCoreBusiness.h"

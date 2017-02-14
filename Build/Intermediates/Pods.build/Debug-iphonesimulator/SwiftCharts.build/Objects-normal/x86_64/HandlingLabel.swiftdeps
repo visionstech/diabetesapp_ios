@@ -8,14 +8,14 @@ provides-member:
 provides-dynamic-lookup:
 - "didMoveToSuperview"
 - "touchHandler"
-- "movedToSuperViewHandler"
 - "touchesEnded"
+- "movedToSuperViewHandler"
 depends-top-level:
 - "HandlingLabel"
-- "UITouch"
+- "UILabel"
 - "UIEvent"
 - "Set"
-- "UILabel"
+- "UITouch"
 depends-member:
 - ["Ps9AnyObject", "didMoveToSuperview"]
 - !private ["Ps9AnyObject", "init"]

@@ -7,17 +7,17 @@ provides-member:
 - ["V11SwiftCharts18TrendlineGenerator", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "TrendlineGenerator"
-- !private "/"
-- !private "+"
-- !private "*"
 - "ChartPoint"
-- !private ">"
+- !private "/"
+- "TrendlineGenerator"
+- !private "*"
+- !private "-"
+- !private "ChartAxisValueDouble"
 - !private "IntegerLiteralType"
 - !private "Double"
+- !private ">"
 - !private "FloatLiteralType"
-- !private "ChartAxisValueDouble"
-- !private "-"
+- !private "+"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "init"]
 - !private ["Ps9AnyObject", "init"]

@@ -7,18 +7,18 @@ provides-member:
 - ["C11SwiftCharts15ChartLineDrawer", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "StringLiteralType"
-- "UIColor"
-- "CGContext"
-- "Chart"
 - !private "ChartDrawLine"
 - "ChartContextDrawer"
-- !private "IntegerLiteralType"
+- "Chart"
+- !private "StringLiteralType"
+- "ChartLineDrawer"
+- "UIColor"
+- "AssignmentPrecedence"
+- "CGContext"
 - "CGPoint"
 - "FloatLiteralType"
-- "AssignmentPrecedence"
+- !private "IntegerLiteralType"
 - "CGFloat"
-- "ChartLineDrawer"
 depends-member:
 - !private ["Ps9AnyObject", "ChartDrawLine"]
 - ["Ps9AnyObject", "color"]

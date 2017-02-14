@@ -7,15 +7,15 @@ provides-member:
 - ["C11SwiftCharts26ChartPointsSingleViewLayer", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "ChartPointLayerModel"
-- "ChartPoint"
-- "ChartPointsSingleViewLayer"
-- "ChartAxisLayer"
-- !private "StringLiteralType"
-- "CGRect"
-- "ChartPointsViewsLayer"
 - "UIView"
+- "ChartPointsSingleViewLayer"
+- !private "StringLiteralType"
+- !private "ChartPointLayerModel"
+- "CGRect"
+- "ChartPoint"
+- "ChartAxisLayer"
 - "Chart"
+- "ChartPointsViewsLayer"
 depends-member:
 - !private ["Ps9AnyObject", "ChartPointLayerModel"]
 - !private ["Ps9AnyObject", "addSubview"]
