@@ -6,26 +6,26 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp28CarePlanReadingTableViewCell", ""]
 provides-dynamic-lookup:
-- "btnEdit"
-- "setUI"
-- "mainView"
-- "conditionLbl"
 - "btnTiming"
-- "goalLbl"
-- "btnFreq"
-- "numberLbl"
-- "txtGoal"
 - "awakeFromNib"
+- "mainView"
+- "btnEdit"
 - "frequencyLbl"
+- "goalLbl"
+- "setUI"
+- "txtGoal"
+- "btnFreq"
 - "setSelected"
+- "numberLbl"
+- "conditionLbl"
 depends-top-level:
-- "UIButton"
 - "CarePlanReadingTableViewCell"
-- "UILabel"
-- "UIView"
+- "UIButton"
 - "UITextField"
-- "Bool"
 - "UITableViewCell"
+- "UILabel"
+- "Bool"
+- "UIView"
 depends-member:
 - ["Ps9AnyObject", "awakeFromNib"]
 - ["Ps9AnyObject", "btnEdit"]

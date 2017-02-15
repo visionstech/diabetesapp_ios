@@ -7,17 +7,17 @@ provides-member:
 - ["C11DiabetesApp20HistoryTableViewCell", ""]
 provides-dynamic-lookup:
 - "commentLabel"
-- "dateLbl"
-- "timeLbl"
+- "awakeFromNib"
+- "setSelected"
 - "readingLbl"
 - "conditionLbl"
-- "setSelected"
-- "awakeFromNib"
+- "timeLbl"
+- "dateLbl"
 depends-top-level:
 - "HistoryTableViewCell"
 - "UILabel"
-- "UITableViewCell"
 - "Bool"
+- "UITableViewCell"
 depends-member:
 - ["Ps9AnyObject", "awakeFromNib"]
 - ["Ps9AnyObject", "commentLabel"]

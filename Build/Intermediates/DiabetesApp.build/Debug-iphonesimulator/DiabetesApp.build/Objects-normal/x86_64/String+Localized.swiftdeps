@@ -6,10 +6,10 @@ provides-member:
 - ["SS", "localized"]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "StringLiteralType"
-- !private "NSLocalizedString"
 - !private "Bundle"
 - "String"
+- !private "NSLocalizedString"
+- !private "StringLiteralType"
 depends-member:
 - !private ["Ps9AnyObject", "init"]
 - !private ["Ps9AnyObject", "main"]

@@ -8,17 +8,17 @@ provides-member:
 - ["C11SwiftCharts14ChartAxisValue", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "Double"
-- "ChartLabelSettings"
-- "Bool"
-- "BooleanLiteralType"
 - "Equatable"
+- "CustomStringConvertible"
+- "Bool"
+- "ChartLabelSettings"
+- "Double"
+- "BooleanLiteralType"
 - "ChartAxisValue"
 - "String"
-- "CustomStringConvertible"
+- "ChartAxisLabel"
 - "=="
 - "AssignmentPrecedence"
-- "ChartAxisLabel"
 depends-member:
 - !private ["Ps9AnyObject", "ChartAxisLabel"]
 - !private ["Ps9AnyObject", "ChartAxisValue"]

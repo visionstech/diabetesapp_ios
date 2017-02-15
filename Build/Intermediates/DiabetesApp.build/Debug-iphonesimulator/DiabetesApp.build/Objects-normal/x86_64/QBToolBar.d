@@ -1,5 +1,6 @@
 dependencies: \
-  /Users/IPHONE/Downloads/diabetesapp_ios-master/DiabetesApp/QBToolBar/QBToolBar.m \
-  /Users/IPHONE/Downloads/diabetesapp_ios-master/DiabetesApp/QBToolBar/QBToolBar.h \
+  /Users/IPHONE/Deepak/baljeet/diabetesapp_ios/DiabetesApp/QBToolBar/QBToolBar.m \
+  /Users/IPHONE/Deepak/baljeet/diabetesapp_ios/DiabetesApp/QBToolBar/QBToolBar.h \
+  /Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Google/Headers/module.modulemap \
   /Users/IPHONE/Downloads/diabetesapp_ios-master/Pods/Google/Headers/module.modulemap \
-  /Users/IPHONE/Downloads/diabetesapp_ios-master/DiabetesApp/QBToolBar/QBButton.h
+  /Users/IPHONE/Deepak/baljeet/diabetesapp_ios/DiabetesApp/QBToolBar/QBButton.h

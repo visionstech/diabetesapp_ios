@@ -190,7 +190,7 @@ class RequestViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 switch response.result {
                     
                 case .success:
-                                      if let JSON: NSDictionary = response.result.value! as? NSDictionary{
+                        if let JSON: NSDictionary = response.result.value! as? NSDictionary{
                         self.requestListArray .removeAllObjects()
                             print("JSON \(JSON)")
                             //for data in JSON {
@@ -280,7 +280,7 @@ class RequestViewController: UIViewController,UITableViewDelegate,UITableViewDat
                     break
                 case .failure:
                     //                    SVProgressHUD.showError(withStatus:response.result.error?.localizedDescription )
-                    print("failure")
+                    print("failure\(response.description)")
                     
                     break
                     

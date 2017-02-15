@@ -8,14 +8,14 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - !private "StringLiteralType"
-- "NumberFormatter"
-- !private "NSNumber"
-- "ChartAxisValueFloatScreenLoc"
 - "String"
-- "AssignmentPrecedence"
-- "CGFloat"
+- "NumberFormatter"
+- "ChartAxisValueFloatScreenLoc"
+- !private "NSNumber"
 - "ChartLabelSettings"
 - "ChartAxisValueFloat"
+- "AssignmentPrecedence"
+- "CGFloat"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "init"]
 - !private ["Ps16AbsoluteValuable", "native"]

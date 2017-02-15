@@ -124,7 +124,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import QuartzCore;
 #endif
 
-#import "/Users/IPHONE/Downloads/diabetesapp_ios-master/DiabetesApp/DiabetesApp-Bridging-Header.h"
+#import "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/DiabetesApp/DiabetesApp-Bridging-Header.h"
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
 #pragma clang diagnostic ignored "-Wduplicate-method-arg"
@@ -1627,7 +1627,7 @@ SWIFT_CLASS("_TtC11DiabetesApp27ReportNewCarePlanController")
 @class UIScrollView;
 
 SWIFT_CLASS("_TtC11DiabetesApp20ReportViewController")
-@interface ReportViewController : UIViewController <UIScrollViewDelegate, UITableViewDelegate, UITextFieldDelegate, UITableViewDataSource>
+@interface ReportViewController : UIViewController <UIScrollViewDelegate, UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate, UITableViewDataSource>
 @property (nonatomic, weak) IBOutlet UIScrollView * _Null_unspecified scrollView;
 @property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified patientImage;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified summaryTextLabel;
@@ -1653,6 +1653,7 @@ SWIFT_CLASS("_TtC11DiabetesApp20ReportViewController")
 @property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified currentReadEdit;
 @property (nonatomic, weak) IBOutlet UIView * _Null_unspecified currentReadingView;
 @property (nonatomic, weak) IBOutlet UIView * _Null_unspecified newReadingViewContainer;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint * _Null_unspecified AcceptDeclineViewHeight;
 @property (nonatomic, weak) IBOutlet UIView * _Null_unspecified newReadingEditView;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint * _Null_unspecified currentReadingContainerHeight;
 @property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified readNewEdit;
@@ -1662,7 +1663,6 @@ SWIFT_CLASS("_TtC11DiabetesApp20ReportViewController")
 @property (nonatomic, weak) IBOutlet UIView * _Null_unspecified educatorActionView;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint * _Null_unspecified readingScheduleHeightConstraint;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified actionLabel;
-@property (nonatomic, weak) IBOutlet UISegmentedControl * _Null_unspecified actionSegmentControl;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified commentEducatorLabel;
 @property (nonatomic, weak) IBOutlet UIView * _Null_unspecified doctorActionView;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified addCommentsLabel;
@@ -1677,6 +1677,7 @@ SWIFT_CLASS("_TtC11DiabetesApp20ReportViewController")
 @property (nonatomic, weak) IBOutlet UITextView * _Null_unspecified educatorCommentTxtViw;
 @property (nonatomic) NSInteger sections;
 @property (nonatomic, strong) UIButton * _Null_unspecified editButton;
+@property (nonatomic, strong) UITextView * _Nonnull approveTextView;
 @property (nonatomic, strong) UIView * _Nonnull topBackView;
 @property (nonatomic, strong) NSArray * _Nonnull summaryArray;
 @property (nonatomic, strong) NSMutableArray * _Nonnull summaryTxtArray;
@@ -1687,6 +1688,7 @@ SWIFT_CLASS("_TtC11DiabetesApp20ReportViewController")
 @property (nonatomic, strong) NSDictionary * _Nonnull editCurrentMedDict;
 @property (nonatomic, strong) NSArray * _Nonnull addCurrentMedArray;
 @property (nonatomic, strong) NSMutableArray * _Nonnull editMedArray;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint * _Null_unspecified lblCommentByEducatorHeight;
 @property (nonatomic, strong) NSArray * _Nonnull editCurrentMedArray;
 @property (nonatomic, strong) NSArray * _Nonnull editCurrentReadArray;
 @property (nonatomic, strong) NSMutableArray * _Nonnull oldCurrentMedArray;

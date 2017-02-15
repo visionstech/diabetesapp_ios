@@ -8,21 +8,21 @@ provides-member:
 provides-dynamic-lookup:
 - "headerView"
 - "awakeFromNib"
-- "frequencyLbl"
-- "timingHeaderLabel"
 - "setSelected"
 - "setUI"
+- "frequencyLbl"
 - "goalHeaderLabel"
 - "btnEdit"
+- "timingHeaderLabel"
 depends-top-level:
-- "UIView"
 - "CarePlanReadingHeaderTableViewCell"
-- "UITableViewCell"
 - !private "StringLiteralType"
 - "UIButton"
-- "AssignmentPrecedence"
 - "Bool"
 - "UILabel"
+- "UIView"
+- "UITableViewCell"
+- "AssignmentPrecedence"
 depends-member:
 - ["Ps9AnyObject", "awakeFromNib"]
 - ["Ps9AnyObject", "btnEdit"]

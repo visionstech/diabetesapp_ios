@@ -7,19 +7,19 @@ provides-member:
 - ["C11SwiftCharts32ChartPointsCandleStickViewsLayer", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "ChartCandleStickView"
-- "ChartPointsViewsLayer"
-- "ChartPointCandleStick"
-- "CGPoint"
-- !private ">"
+- "ChartPointsCandleStickViewsLayer"
 - !private "+"
-- !private "StringLiteralType"
+- "AssignmentPrecedence"
+- "ChartAxisLayer"
 - "CGRect"
 - !private "<"
-- "AssignmentPrecedence"
 - !private "&&"
-- "ChartAxisLayer"
-- "ChartPointsCandleStickViewsLayer"
+- "ChartPointsViewsLayer"
+- !private "StringLiteralType"
+- "ChartCandleStickView"
+- "ChartPointCandleStick"
+- !private ">"
+- "CGPoint"
 depends-member:
 - !private ["Ps9AnyObject", "frame"]
 - ["Ps9AnyObject", "highlightChartpointView"]

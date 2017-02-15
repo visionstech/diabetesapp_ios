@@ -8,13 +8,13 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "Double"
-- "AssignmentPrecedence"
+- !private "StringLiteralType"
 - "ChartAxisValue"
 - "ChartAxisValueDate"
 - "DateFormatter"
 - !private "TimeInterval"
 - "ChartLabelSettings"
-- !private "StringLiteralType"
+- "AssignmentPrecedence"
 - "String"
 - "Date"
 depends-member:

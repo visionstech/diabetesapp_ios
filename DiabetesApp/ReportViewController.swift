@@ -23,7 +23,7 @@ extension UIViewController {
     }
 }
 
-class ReportViewController: UIViewController , UITableViewDataSource, UITableViewDelegate , UITextFieldDelegate {
+class ReportViewController: UIViewController , UITableViewDataSource, UITableViewDelegate , UITextFieldDelegate,UITextViewDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
     //@IBOutlet weak var scrollView: TPKeyboardAvoidingScrollView!
@@ -64,6 +64,7 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
     
     @IBOutlet weak var newReadingViewContainer: UIView!
     
+    @IBOutlet weak var AcceptDeclineViewHeight: NSLayoutConstraint!
     @IBOutlet weak var newReadingEditView: UIView!
     @IBOutlet weak var currentReadingContainerHeight: NSLayoutConstraint!
     
@@ -78,7 +79,7 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
     
     @IBOutlet weak var actionLabel: UILabel!
     
-    @IBOutlet weak var actionSegmentControl: UISegmentedControl!
+    
     
     @IBOutlet weak var commentEducatorLabel: UILabel!
     @IBOutlet weak var doctorActionView: UIView!
@@ -97,7 +98,7 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
     
     var sections = Int()
     var editButton: UIButton!
-    
+    var approveTextView = UITextView()
   
     var topBackView:UIView = UIView()
     var summaryArray = NSArray()
@@ -112,6 +113,7 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
     //var editCurrentMedDict = NSDictionary()
     var addCurrentMedArray = NSArray()
     var editMedArray = NSMutableArray()
+    @IBOutlet weak var lblCommentByEducatorHeight: NSLayoutConstraint!
     var editCurrentMedArray = NSArray()
     var editCurrentReadArray = NSArray()
     var oldCurrentMedArray = NSMutableArray()
@@ -168,95 +170,96 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
         currentMedicationsLabel.layer.cornerRadius = kButtonRadius
         currentMedicationsLabel.layer.masksToBounds = true
 
-        actionLabel.text = "  "+"Action".localized
-        actionLabel.layer.cornerRadius = kButtonRadius
-        actionLabel.layer.masksToBounds = true
+//        actionLabel.text = "  "+"Action".localized
+//        actionLabel.layer.cornerRadius = kButtonRadius
+//        actionLabel.layer.masksToBounds = true
         
-         if !UserDefaults.standard.bool(forKey: "groupChat")  {
-            if selectedUserType == userType.doctor {
-                sections = 1
-                summaryArray = ["Patient".localized,"Educator".localized,"HC#".localized,"Diabetes".localized]
-                doctorReportAPI()
-                educatorActionViewHeight.constant = 0
-                let rect = CGRect(x: 0, y: 0, width: 100, height: educatorActionViewHeight.constant)
-                educatorActionView.frame = rect
-                educatorActionView.isHidden = true
-                //newReadingViewContainer.isHidden = false
-                newReadingViewContainer.isHidden = true
-                self.currentMedEdit.isHidden = false
-                self.readNewEdit.isHidden = false
-                self.currentReadEdit.isHidden = false
-                self.readNewEdit.isHidden = false
-                lbl.isHidden = false
-                
-            }
-            else {
-                sections = 1
-                doctorSingleReportAPI()
-                summaryArray = ["Patient".localized,"Doctor".localized,"HC#".localized,"Diabetes".localized]
-                doctorActionViewHeight.constant = 0
-                let rect = CGRect(x: 0, y: 0, width: 100, height: doctorActionViewHeight.constant)
-                doctorActionView.frame = rect
-                doctorActionView.isHidden = true
-                let rect1 = CGRect(x: 0, y: 0, width: 100, height: educatorActionViewHeight.constant)
-                educatorActionView.frame = rect1
-                educatorActionView.isHidden = true
-                newReadingViewContainer.isHidden = true
-                self.currentMedEdit.isHidden = false
-                self.readNewEdit.isHidden = true
-                self.currentReadEdit.isHidden = false
-                self.readNewEdit.isHidden = true
-                lbl.isHidden = true
-                
-                updateReadByEducator()
-                
-            }
-            
-        }
-        else {
-            
-            if selectedUserType == userType.doctor {
-                sections = 1
-                doctorSingleReportAPI()
-                doctorCommentTextView.isHidden = true
-                
-                approveLabel.setTitle("Save Changes".localized, for: .normal)
-                declineLabel.setTitle("Cancel".localized, for: .normal)
-                commentsByEducatorHeightConstraint.constant = 0
-                commentEducatorLabel.isHidden = true
-                summaryArray = ["Patient".localized,"Doctor".localized,"HC#".localized,"Diabetes".localized]
-                educatorActionViewHeight.constant = 0
-                let rect = CGRect(x: 0, y: 0, width: 100, height: educatorActionViewHeight.constant)
-                educatorActionView.frame = rect
-                educatorActionView.isHidden = true
-               // newReadingViewContainer.isHidden = true
-                self.currentMedEdit.isHidden = false
-                self.readNewEdit.isHidden = true
-                self.currentReadEdit.isHidden = false
-                //self.readNewEdit.isHidden = true
-                lbl.isHidden = true
-            }
-            else {
-                sections = 1
-                getEducatorReportAPI()
-                summaryArray = ["Patient".localized,"Doctor".localized,"HC#".localized,"Diabetes".localized]
-                doctorActionViewHeight.constant = 0
-                let rect = CGRect(x: 0, y: 0, width: 100, height: doctorActionViewHeight.constant)
-                doctorActionView.frame = rect
-                doctorActionView.isHidden = true
-               
-                newReadingViewContainer.isHidden = true
-                self.currentMedEdit.isHidden = false
-                self.readNewEdit.isHidden = true
-                self.currentReadEdit.isHidden = false
-                self.readNewEdit.isHidden = true
-                lbl.isHidden = true
-                
-                
-            }
-            
-            
-        }
+//         if !UserDefaults.standard.bool(forKey: "groupChat")  {
+//            if selectedUserType == userType.doctor {
+//                sections = 1
+//                summaryArray = ["Patient".localized,"Educator".localized,"HC#".localized,"Diabetes".localized]
+//                doctorReportAPI()
+//                educatorActionViewHeight.constant = 0
+//                let rect = CGRect(x: 0, y: 0, width: 100, height: educatorActionViewHeight.constant)
+//                educatorActionView.frame = rect
+//                educatorActionView.isHidden = true
+//                //newReadingViewContainer.isHidden = false
+//                newReadingViewContainer.isHidden = true
+//                self.currentMedEdit.isHidden = false
+//                self.readNewEdit.isHidden = false
+//                self.currentReadEdit.isHidden = false
+//                self.readNewEdit.isHidden = false
+//                lbl.isHidden = false
+//                
+//            }
+//            else {
+//                sections = 1
+//                doctorSingleReportAPI()
+//                summaryArray = ["Patient".localized,"Doctor".localized,"HC#".localized,"Diabetes".localized]
+//                doctorActionViewHeight.constant = 0
+//                let rect = CGRect(x: 0, y: 0, width: 100, height: doctorActionViewHeight.constant)
+//                doctorActionView.frame = rect
+//                doctorActionView.isHidden = true
+//                let rect1 = CGRect(x: 0, y: 0, width: 100, height: educatorActionViewHeight.constant)
+//                educatorActionView.frame = rect1
+//                educatorActionView.isHidden = true
+//                newReadingViewContainer.isHidden = true
+//                self.currentMedEdit.isHidden = false
+//                self.readNewEdit.isHidden = true
+//                self.currentReadEdit.isHidden = false
+//                self.readNewEdit.isHidden = true
+//                lbl.isHidden = true
+//                
+//                updateReadByEducator()
+//                
+//            }
+//            
+//        }
+//        else {
+//            
+//            if selectedUserType == userType.doctor {
+//                sections = 1
+//                doctorSingleReportAPI()
+//                //doctorCommentTextView.isHidden = true
+//               
+//                
+//                approveLabel.setTitle("Save Changes".localized, for: .normal)
+//                declineLabel.setTitle("Cancel".localized, for: .normal)
+//                commentsByEducatorHeightConstraint.constant = 0
+//                commentEducatorLabel.isHidden = true
+//                summaryArray = ["Patient".localized,"Doctor".localized,"HC#".localized,"Diabetes".localized]
+//                educatorActionViewHeight.constant = 0
+//                let rect = CGRect(x: 0, y: 0, width: 100, height: educatorActionViewHeight.constant)
+//                educatorActionView.frame = rect
+//                educatorActionView.isHidden = true
+//               // newReadingViewContainer.isHidden = true
+//                self.currentMedEdit.isHidden = false
+//                self.readNewEdit.isHidden = true
+//                self.currentReadEdit.isHidden = false
+//                //self.readNewEdit.isHidden = true
+//                lbl.isHidden = true
+//            }
+//            else {
+//                sections = 1
+//                getEducatorReportAPI()
+//                summaryArray = ["Patient".localized,"Doctor".localized,"HC#".localized,"Diabetes".localized]
+//                doctorActionViewHeight.constant = 0
+//                let rect = CGRect(x: 0, y: 0, width: 100, height: doctorActionViewHeight.constant)
+//                doctorActionView.frame = rect
+//                doctorActionView.isHidden = true
+//               
+//                newReadingViewContainer.isHidden = true
+//                self.currentMedEdit.isHidden = false
+//                self.readNewEdit.isHidden = true
+//                self.currentReadEdit.isHidden = false
+//                self.readNewEdit.isHidden = true
+//                lbl.isHidden = true
+//                
+//                
+//            }
+//            
+//            
+//        }
         
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notifications.readingView), object: nil)
         self.view.setNeedsLayout()
@@ -489,11 +492,14 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
             if selectedUserType == userType.doctor {
                 sections = 1
                 doctorSingleReportAPI()
-                doctorCommentTextView.isHidden = true
+               // doctorCommentTextView.isHidden = true
+               
+                
+             
                 
                 approveLabel.setTitle("Save Changes".localized, for: .normal)
                 declineLabel.setTitle("Cancel".localized, for: .normal)
-                commentsByEducatorHeightConstraint.constant = 0
+                
                 commentEducatorLabel.isHidden = true
                 summaryArray = ["Patient".localized,"Doctor".localized,"HC#".localized,"Diabetes".localized]
                 educatorActionViewHeight.constant = 0
@@ -663,33 +669,179 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
     //MARK: - Approve & Decline Button Methods
     
     @IBAction func declineBtn_Click(_ sender: Any) {
-        SVProgressHUD.show(withStatus: "SA_STR_LOADING".localized, maskType: SVProgressHUDMaskType.clear)
-        // let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
         
-        let taskID: String = UserDefaults.standard.string(forKey: userDefaults.taskID)!
-        let parameters: Parameters = [
-            "taskid": taskID ]
+        let alertController = UIAlertController(title: "\n\n\n\n\n\n", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
         
-        if declineLabel.titleLabel!.text != "Cancel".localized
-        {   //"\(baseUrl)\(ApiMethods.doctorDecline)"
-            Alamofire.request("\(baseUrl)\(ApiMethods.doctorDecline)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+        let margin:CGFloat = 8.0
+        let rect = CGRect(x: margin, y: margin, width: alertController.view.bounds.size.width - margin * 4.0, height:100.0)
+        //let rect = 100.0//CGRect(margin, margin, alertController.view.bounds.size.width - margin * 4.0, 100.0)
+        approveTextView = UITextView(frame: rect)
+        
+        approveTextView.backgroundColor = UIColor.clear
+        approveTextView.font = UIFont(name: "Helvetica", size: 15)
+        approveTextView.textColor = UIColor.lightGray
+        approveTextView.text  = "Please add comments to justify your decision"
+        approveTextView.delegate = self
+        
+        
+        //  customView.backgroundColor = UIColor.greenColor()
+        alertController.view.addSubview(approveTextView)
+        
+        let somethingAction = UIAlertAction(title: "Send", style: UIAlertActionStyle.default, handler: {(alert: UIAlertAction!) in print("something")
+            print(self.approveTextView.text)
+            SVProgressHUD.show(withStatus: "SA_STR_LOADING".localized, maskType: SVProgressHUDMaskType.clear)
+            // let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
             
-                print("Validation Successful ")
+            let taskID: String = UserDefaults.standard.string(forKey: userDefaults.taskID)!
+            let parameters: Parameters = [
+                "taskid": taskID ]
             
+            if self.declineLabel.titleLabel!.text != "Cancel".localized
+            {   //"\(baseUrl)\(ApiMethods.doctorDecline)"
+                Alamofire.request("\(baseUrl)\(ApiMethods.doctorDecline)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+                    
+                    print("Validation Successful ")
+                    
+                    switch response.result {
+                        
+                    case .success:
+                        
+                        SVProgressHUD.dismiss()
+                        if let JSON: NSDictionary = response.result.value! as? NSDictionary {
+                            SVProgressHUD.dismiss()
+                            
+                            let status : String = JSON.value(forKey: "message") as! String
+                            if status == "Success" {
+                                let alert = UIAlertController(title:"Message".localized, message: "Request Decline. Please inform the educator using group chat".localized, preferredStyle: UIAlertControllerStyle.alert)
+                                alert.addAction(UIAlertAction(title: "Ok".localized, style: UIAlertActionStyle.default, handler: { (UIAlertAction)in
+                                    //self.popToViewController()
+                                    self.navigationController?.popViewController(animated: true)
+                                }) )
+                                self.present(alert, animated: true, completion: nil)
+                            }
+                            else {
+                                self.present(UtilityClass.displayAlertMessage(message:status, title: "Message".localized), animated: true, completion: nil)
+                            }
+                            
+                            if let badgeCounter = (UserDefaults.standard.value(forKey: userDefaults.totalBadgeCounter) as! String?){
+                                let NewCounter = Int(badgeCounter )
+                                let StringCounter = String(NewCounter! - 1 )
+                                
+                                UserDefaults.standard.set((StringCounter as! String), forKey:userDefaults.totalBadgeCounter)
+                                
+                            }
+                            
+                        }
+                        break
+                        
+                    case .failure:
+                        print("failure")
+                        SVProgressHUD.showError(withStatus:response.result.error?.localizedDescription )
+                        break
+                        
+                    }
+                }
+            }
+            else{
+                
+                //let arr : NSArray = UserDefaults.standard.array(forKey: "currentAddMedicationArray")! as [Any] as NSArray
+                let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+                
+                let declineParams: Parameters = [
+                    "MedArraylength": self.addCurrentMedArray.count ,
+                    "patientID":patientsID,
+                    "comment" : self.approveTextView.text]
+                
+                Alamofire.request("\(baseUrl)\(ApiMethods.canceleMeds)", method: .post, parameters: declineParams, encoding: JSONEncoding.default).responseJSON { response in
+                    
+                    print("Validation Successful ")
+                    
+                    switch response.result {
+                        
+                    case .success:
+                        
+                        SVProgressHUD.dismiss()
+                        if let JSON: NSDictionary = response.result.value! as? NSDictionary {
+                            SVProgressHUD.dismiss()
+                            self.navigationController?.popViewController(animated: true)
+                        }
+                        break
+                        
+                    case .failure:
+                        print("failure")
+                        SVProgressHUD.showError(withStatus:response.result.error?.localizedDescription )
+                        break
+                        
+                    }
+                }
+                
+                
+                
+            }
+        
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: {(alert: UIAlertAction!) in print("cancel")})
+        
+        alertController.addAction(somethingAction)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true, completion:{})
+        
+    }
+    
+    @IBAction func approveBtn_Click(_ sender: Any) {
+        
+        
+        let alertController = UIAlertController(title: "\n\n\n\n\n\n", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+        
+        let margin:CGFloat = 8.0
+         let rect = CGRect(x: margin, y: margin, width: alertController.view.bounds.size.width - margin * 4.0, height:100.0)
+        //let rect = 100.0//CGRect(margin, margin, alertController.view.bounds.size.width - margin * 4.0, 100.0)
+         approveTextView = UITextView(frame: rect)
+        
+        approveTextView.backgroundColor = UIColor.clear
+        approveTextView.font = UIFont(name: "Helvetica", size: 15)
+        approveTextView.textColor = UIColor.lightGray
+        approveTextView.text  = "Please add comments to justify your decision"
+        approveTextView.delegate = self
+        
+        
+        //  customView.backgroundColor = UIColor.greenColor()
+        alertController.view.addSubview(approveTextView)
+        
+        let somethingAction = UIAlertAction(title: "Send", style: UIAlertActionStyle.default, handler: {(alert: UIAlertAction!) in print("something")
+            
+            print(self.approveTextView.text)
+            SVProgressHUD.show(withStatus: "SA_STR_LOADING".localized, maskType: SVProgressHUDMaskType.clear)
+            let taskID: String = UserDefaults.standard.string(forKey: userDefaults.taskID)!
+            // let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+            let parameters: Parameters = [
+                "taskid": taskID,
+                "editMedArray": self.editCurrentMedArray,
+                "editReadArray":self.editCurrentReadArray,
+                "comment" : self.approveTextView.text]
+            
+            //"\(baseUrl)\(ApiMethods.doctorApprove)"
+            Alamofire.request("\(baseUrl)\(ApiMethods.doctorApprove)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+                
+                print("Validation Successful")
+                
                 switch response.result {
-                
+                    
                 case .success:
-                
+                    
                     SVProgressHUD.dismiss()
                     if let JSON: NSDictionary = response.result.value! as? NSDictionary {
                         SVProgressHUD.dismiss()
                         
                         let status : String = JSON.value(forKey: "message") as! String
                         if status == "Success" {
-                            let alert = UIAlertController(title:"Message".localized, message: "Request Decline. Please inform the educator using group chat".localized, preferredStyle: UIAlertControllerStyle.alert)
+                            let alert = UIAlertController(title:"Message".localized, message: "Report Approved. Please inform the respective educator through group chat.".localized, preferredStyle: UIAlertControllerStyle.alert)
                             alert.addAction(UIAlertAction(title: "Ok".localized, style: UIAlertActionStyle.default, handler: { (UIAlertAction)in
-                                //self.popToViewController()
+                                // self.popToViewController()
                                 self.navigationController?.popViewController(animated: true)
+                                
                             }) )
                             self.present(alert, animated: true, completion: nil)
                         }
@@ -704,42 +856,10 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
                             UserDefaults.standard.set((StringCounter as! String), forKey:userDefaults.totalBadgeCounter)
                             
                         }
-
+                        
                     }
+                    
                     break
-                    
-                case .failure:
-                    print("failure")
-                    SVProgressHUD.showError(withStatus:response.result.error?.localizedDescription )
-                    break
-                
-                }
-            }
-        }
-        else{
-            
-            //let arr : NSArray = UserDefaults.standard.array(forKey: "currentAddMedicationArray")! as [Any] as NSArray
-            let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
-            
-            let declineParams: Parameters = [
-                "MedArraylength": addCurrentMedArray.count ,
-                "patientID":patientsID]
-            
-            Alamofire.request("\(baseUrl)\(ApiMethods.canceleMeds)", method: .post, parameters: declineParams, encoding: JSONEncoding.default).responseJSON { response in
-                
-                print("Validation Successful ")
-                
-                switch response.result {
-                    
-                case .success:
-                    
-                    SVProgressHUD.dismiss()
-                    if let JSON: NSDictionary = response.result.value! as? NSDictionary {
-                        SVProgressHUD.dismiss()
-                        self.navigationController?.popViewController(animated: true)
-                    }
-                    break
-                    
                 case .failure:
                     print("failure")
                     SVProgressHUD.showError(withStatus:response.result.error?.localizedDescription )
@@ -749,67 +869,20 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
             }
             
             
-            
-        }
+        })
         
-    }
-    
-    @IBAction func approveBtn_Click(_ sender: Any) {
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: {(alert: UIAlertAction!) in print("cancel")})
         
-        SVProgressHUD.show(withStatus: "SA_STR_LOADING".localized, maskType: SVProgressHUDMaskType.clear)
-        let taskID: String = UserDefaults.standard.string(forKey: userDefaults.taskID)!
-        // let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
-        let parameters: Parameters = [
-            "taskid": taskID,
-            "editMedArray": editCurrentMedArray,
-            "editReadArray":editCurrentReadArray]
-      
-//"\(baseUrl)\(ApiMethods.doctorApprove)"
-        Alamofire.request("\(baseUrl)\(ApiMethods.doctorApprove)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
-            
-            print("Validation Successful")
-            
-            switch response.result {
-                
-            case .success:
-                
-                SVProgressHUD.dismiss()
-                if let JSON: NSDictionary = response.result.value! as? NSDictionary {
-                    SVProgressHUD.dismiss()
-                    
-                    let status : String = JSON.value(forKey: "message") as! String
-                    if status == "Success" {
-                        let alert = UIAlertController(title:"Message".localized, message: "Report Approved. Please inform the respective educator through group chat.".localized, preferredStyle: UIAlertControllerStyle.alert)
-                        alert.addAction(UIAlertAction(title: "Ok".localized, style: UIAlertActionStyle.default, handler: { (UIAlertAction)in
-                           // self.popToViewController()
-                            self.navigationController?.popViewController(animated: true)
+        alertController.addAction(somethingAction)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true, completion:{})
+        
+        
+        
+        
+     
 
-                        }) )
-                        self.present(alert, animated: true, completion: nil)
-                    }
-                    else {
-                        self.present(UtilityClass.displayAlertMessage(message:status, title: "Message".localized), animated: true, completion: nil)
-                    }
-                    
-                    if let badgeCounter = (UserDefaults.standard.value(forKey: userDefaults.totalBadgeCounter) as! String?){
-                        let NewCounter = Int(badgeCounter )
-                        let StringCounter = String(NewCounter! - 1 )
-                        
-                        UserDefaults.standard.set((StringCounter as! String), forKey:userDefaults.totalBadgeCounter)
-                        
-                    }
-
-                }
-                
-                break
-            case .failure:
-                print("failure")
-                SVProgressHUD.showError(withStatus:response.result.error?.localizedDescription )
-                break
-                
-            }
-        }
-        
     }
     
     //MARK: - SegmentControl Methods
@@ -936,12 +1009,23 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
             educatorCommentTxtViw.text = nil
             educatorCommentTxtViw.textColor = UIColor.darkGray
         }
+        
+        if approveTextView.textColor == UIColor.lightGray {
+            approveTextView.text = nil
+            approveTextView.textColor = UIColor.darkGray
+        }
     }
     func textViewDidEndEditing(_ textView: UITextView) {
         if educatorCommentTxtViw.text.isEmpty {
             educatorCommentTxtViw.text = "Please add comments to justify your decision".localized
             educatorCommentTxtViw.textColor = UIColor.lightGray
         }
+        
+        if approveTextView.text.isEmpty {
+            approveTextView.text = "Please add comments to justify your decision".localized
+            approveTextView.textColor = UIColor.lightGray
+        }
+
     }
     
     // MARK: - TableView Delegates
@@ -1503,12 +1587,12 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
             
             
             var actionSegment = String()
-            if actionSegmentControl.selectedSegmentIndex == 0 {
-                actionSegment = "No Change".localized
-            }
-            else {
-                actionSegment = "Changes made".localized
-            }
+//            if actionSegmentControl.selectedSegmentIndex == 0 {
+//                actionSegment = "No Change".localized
+//            }
+//            else {
+//                actionSegment = "Changes made".localized
+//            }
             
             let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
             let educatorID = UserDefaults.standard.string(forKey: userDefaults.loggedInUserID)! as String
@@ -1609,10 +1693,10 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
         }
         if readingArrcount > 0{
             self.readingScheduleView.setY(y: self.medicationView.frame.origin.y +  self.medicationViewHeight.constant)
-            currentReadingContainerHeight.constant   = CGFloat((readingArrcount * 160)) ;
+            currentReadingContainerHeight.constant   = CGFloat((readingArrcount * 55)) ;
             newReadingContainerHeight.constant = 0.0
             newRedEditConstraint.constant = 0.0
-            readingScheduleHeightConstraint.constant = CGFloat((readingArrcount * 160)) ;
+            readingScheduleHeightConstraint.constant = currentReadingContainerHeight.constant + 95
         }
         else {
             self.readingScheduleView.setY(y: self.medicationView.frame.origin.y +  self.medicationViewHeight.constant)
@@ -1622,10 +1706,16 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
             readingScheduleHeightConstraint.constant = 0.0 ;
             
         }
+       
         educatorViewHeightConstraint.constant = 0.0
-        
+        commentsByEducatorHeightConstraint.constant = 0
+        lblCommentByEducatorHeight.constant = 0
+        doctorActionView.frame.size.height = AcceptDeclineViewHeight.constant
+        let rect = CGRect(x: doctorActionView.frame.origin.x, y: doctorActionView.frame.origin.y, width: doctorActionView.frame.size.width, height: doctorActionView.frame.size.height)
+        doctorActionView.frame = rect
+        print(rect)
         self.doctorActionView.setY(y: readingScheduleView.frame.origin.y + readingScheduleHeightConstraint.constant)
-        scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: doctorActionView.frame.origin.y + doctorActionView.frame.size.height)
+        scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: doctorActionView.frame.origin.y + doctorActionView.frame.size.height+10)
         print( doctorActionView.frame.origin.y)
     }
     
@@ -1641,10 +1731,11 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
         }
         if readingArrcount > 0{
             self.readingScheduleView.setY(y: self.medicationView.frame.origin.y +  self.medicationViewHeight.constant)
-            currentReadingContainerHeight.constant   = CGFloat((readingArrcount * 160)) ;
+            currentReadingContainerHeight.constant   = CGFloat((readingArrcount * 55)) ;
             newReadingContainerHeight.constant = 0.0
             newRedEditConstraint.constant = 0.0
-            readingScheduleHeightConstraint.constant = CGFloat((readingArrcount * 160)) ;
+            readingScheduleHeightConstraint.constant = currentReadingContainerHeight.constant + 95
+
         }
         else {
             self.readingScheduleView.setY(y: self.medicationView.frame.origin.y +  self.medicationViewHeight.constant)

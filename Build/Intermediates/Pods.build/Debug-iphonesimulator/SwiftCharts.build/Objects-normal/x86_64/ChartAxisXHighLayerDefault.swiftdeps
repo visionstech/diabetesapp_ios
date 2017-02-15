@@ -7,19 +7,19 @@ provides-member:
 - ["C11SwiftCharts26ChartAxisXHighLayerDefault", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "CGContext"
 - "Chart"
-- "ChartAxisXHighLayerDefault"
+- "CGContext"
+- !private "+"
+- "CGPoint"
 - !private "BooleanLiteralType"
-- "Bool"
 - "ChartAxisXLayerDefault"
 - !private "IntegerLiteralType"
-- "CGPoint"
+- "ChartAxisXHighLayerDefault"
 - !private "FloatLiteralType"
-- !private "+"
+- "Bool"
+- !private "/"
 - "AssignmentPrecedence"
 - "CGFloat"
-- !private "/"
 depends-member:
 - !private ["Ps9AnyObject", "CGPoint"]
 - !private ["Ps9AnyObject", "axisStrokeWidth"]

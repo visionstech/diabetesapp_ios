@@ -8,12 +8,12 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "StringLiteralType"
-- "ChartLabelSettings"
+- !private "Double"
+- "String"
 - "ChartAxisValueString"
 - "ChartAxisValue"
-- "String"
 - "Int"
-- !private "Double"
+- "ChartLabelSettings"
 - "AssignmentPrecedence"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "init"]

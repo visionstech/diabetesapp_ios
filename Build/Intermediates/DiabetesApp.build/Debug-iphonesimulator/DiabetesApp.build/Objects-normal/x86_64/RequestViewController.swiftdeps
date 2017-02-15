@@ -6,65 +6,65 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp21RequestViewController", ""]
 provides-dynamic-lookup:
+- "selectedPatientID"
+- "viewDidAppear"
+- "totalBadgeCounter"
 - "selectedUserType"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
 - "userTypeString"
 - "setNavBarUI"
-- "viewDidLoad"
-- "viewDidAppear"
-- "didReceiveMemoryWarning"
-- "requestListArray"
-- "selectedPatientID"
-- "totalBadgeCounter"
 - "getRequestTask"
+- "requestListArray"
+- "didReceiveMemoryWarning"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "viewDidLoad"
 depends-top-level:
-- !private "NSArray"
-- !private "RequestObject"
-- !private "&&"
-- "String"
-- !private "ViewIdentifiers"
-- !private "BooleanLiteralType"
-- "IndexPath"
-- !private "URL"
-- "Int"
-- "RequestViewController"
-- !private "UIBarButtonItem"
-- !private "Dictionary"
-- "UIViewController"
-- !private "/"
-- !private "Parameters"
-- "NSMutableArray"
-- "Bool"
-- !private "Account"
-- !private "NSURL"
-- "UITableView"
-- !private "Alamofire"
-- !private "JSONEncoding"
-- !private "=="
-- "UITableViewCell"
-- !private "print"
-- "userDefaults"
-- !private "RequestTableViewCell"
-- !private "ApiMethods"
-- "AssignmentPrecedence"
-- "CastingPrecedence"
-- !private "NSDictionary"
-- !private "!="
 - !private "SDWebImageManager"
-- !private "ReportViewController"
-- !private "requestTabBarItem"
+- !private "print"
+- !private "!="
+- !private "Alamofire"
+- "UITableViewCell"
 - !private "userType"
-- !private "+"
-- !private "SDWebImageOptions"
-- "UITableViewDataSource"
-- "UITableViewDelegate"
-- !private "<="
-- "UserDefaults"
+- !private "=="
+- "AssignmentPrecedence"
+- !private "Parameters"
+- !private "URL"
+- !private "ApiMethods"
+- "IndexPath"
+- "CastingPrecedence"
 - !private "baseUrl"
+- !private "RequestObject"
+- "UITableViewDelegate"
+- "NSMutableArray"
+- !private "&&"
+- "UITableViewDataSource"
+- !private "+"
+- !private "ReportViewController"
+- "RequestViewController"
+- !private "<="
+- !private "BooleanLiteralType"
+- !private "ViewIdentifiers"
+- !private "UIBarButtonItem"
+- !private "NSDictionary"
+- !private "RequestTableViewCell"
+- !private "NSArray"
 - !private "SVProgressHUD"
+- !private "/"
+- "Bool"
+- !private "Dictionary"
+- "UserDefaults"
+- !private "Account"
+- !private "requestTabBarItem"
+- !private "JSONEncoding"
+- "String"
+- "UITableView"
+- !private "SDWebImageOptions"
+- "Int"
+- "userDefaults"
+- !private "NSURL"
+- "UIViewController"
 depends-member:
 - !private ["V11DiabetesApp7Account", "accessToken"]
 - ["V11DiabetesApp7Account", "deinit"]
@@ -359,6 +359,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "count"]
 - !private ["Ps28CustomDebugStringConvertible", "date"]
 - !private ["Ps28CustomDebugStringConvertible", "dequeueReusableCell"]
+- !private ["Ps28CustomDebugStringConvertible", "description"]
 - ["Ps28CustomDebugStringConvertible", "didReceiveMemoryWarning"]
 - !private ["Ps28CustomDebugStringConvertible", "dismiss"]
 - !private ["Ps28CustomDebugStringConvertible", "doctorName"]
@@ -500,6 +501,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "count"]
 - !private ["Ps23CustomStringConvertible", "date"]
 - !private ["Ps23CustomStringConvertible", "dequeueReusableCell"]
+- !private ["Ps23CustomStringConvertible", "description"]
 - ["Ps23CustomStringConvertible", "didReceiveMemoryWarning"]
 - !private ["Ps23CustomStringConvertible", "dismiss"]
 - !private ["Ps23CustomStringConvertible", "doctorName"]
@@ -591,6 +593,7 @@ depends-member:
 - ["C9Alamofire11DataRequest", "deinit"]
 - !private ["C9Alamofire11DataRequest", "responseJSON"]
 - !private ["V9Alamofire12DataResponse", "deinit"]
+- !private ["V9Alamofire12DataResponse", "description"]
 - !private ["V9Alamofire12DataResponse", "result"]
 - !private ["Vs10Dictionary", "Key"]
 - !private ["Vs10Dictionary", "Value"]
@@ -1442,6 +1445,7 @@ depends-member:
 - ["C11DiabetesApp21RequestViewController", "viewDidLoad"]
 - ["C11DiabetesApp21RequestViewController", "viewForZooming"]
 - ["C11DiabetesApp21RequestViewController", "viewForZoomingInScrollView"]
+- !private ["P9Alamofire8Response", "description"]
 - !private ["P9Alamofire8Response", "result"]
 - !private ["O9Alamofire6Result", "deinit"]
 - !private ["O9Alamofire6Result", "failure"]
@@ -2231,6 +2235,7 @@ depends-member:
 - ["PSo19UITableViewDelegate", "viewForZoomingInScrollView"]
 - ["PSo19UITableViewDelegate", ""]
 - !private ["PSo19UITextFieldDelegate", "hidesBottomBarWhenPushed"]
+- !private ["PSo18UITextViewDelegate", "hidesBottomBarWhenPushed"]
 - !private ["PSo18UITraitEnvironment", "Account"]
 - !private ["PSo18UITraitEnvironment", "Alamofire"]
 - !private ["PSo18UITraitEnvironment", "ApiMethods"]
@@ -2719,6 +2724,7 @@ depends-nominal:
 - "PSo21UITableViewDataSource"
 - "PSo19UITableViewDelegate"
 - !private "PSo19UITextFieldDelegate"
+- !private "PSo18UITextViewDelegate"
 - "PSo18UITraitEnvironment"
 - !private "CSo6UIView"
 - "CSo16UIViewController"

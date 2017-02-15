@@ -7,10 +7,10 @@ provides-member:
 provides-dynamic-lookup:
 - "mySetActive"
 depends-top-level:
-- "UIActivityIndicatorView"
 - "AssignmentPrecedence"
-- "Bool"
 - !private "BooleanLiteralType"
+- "Bool"
+- "UIActivityIndicatorView"
 depends-member:
 - !private ["Ps9AnyObject", "isHidden"]
 - ["Ps9AnyObject", "mySetActive"]
