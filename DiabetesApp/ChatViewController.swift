@@ -1257,6 +1257,7 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         guard self.dialog.type != QBChatDialogType.private else {
             return nil
         }
+        
          
         let paragrpahStyle: NSMutableParagraphStyle = NSMutableParagraphStyle()
         paragrpahStyle.lineBreakMode = NSLineBreakMode.byTruncatingTail

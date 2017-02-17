@@ -1,5 +1,6 @@
 ### Swift dependencies file v0 ###
 provides-top-level:
+- "recentMessageTimeDateFormatter"
 - "DialogTableViewCellModel"
 - "DialogsViewController"
 provides-nominal:
@@ -8,164 +9,179 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp24DialogTableViewCellModel", ""]
 - ["C11DiabetesApp21DialogsViewController", ""]
+- ["V10Foundation4Date", ""]
+- ["V10Foundation4Date", "years"]
+- ["V10Foundation4Date", "months"]
+- ["V10Foundation4Date", "weeks"]
+- ["V10Foundation4Date", "days"]
+- ["V10Foundation4Date", "hours"]
+- ["V10Foundation4Date", "minutes"]
+- ["V10Foundation4Date", "seconds"]
+- ["V10Foundation4Date", "relativeTime"]
 provides-dynamic-lookup:
-- "selectedUserType"
-- "getDialogs"
-- "viewDidAppear"
-- "chatServiceChatDidFail"
-- "awakeFromNib"
-- "dialogs"
-- "dialogIcon"
-- "getRequestBadgeCounter"
-- "unreadMessagesCounterHiden"
-- "requestTimer"
-- "logoutAction"
-- "chatServiceChatDidReconnect"
-- "numberOfSections"
-- "reloadTableViewIfNeeded"
-- "sessionDidClose"
-- "prepare"
-- "viewWillAppear"
-- "setNavBarUI"
-- "unreadMessagesCounterLabelText"
 - "createLogoutButton"
-- "updateCounter"
-- "didReceiveNewSession"
+- "unreadMessagesCounterHiden"
+- "selectedUserType"
 - "myTimer"
 - "GroupAction"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "getImage"
-- "chatServiceChatDidAccidentallyDisconnect"
+- "viewWillAppear"
 - "counterCall"
-- "textLabelText"
+- "didReceiveNewSession"
 - "runTimedCode"
+- "numberOfSections"
 - "chatServiceChatDidConnect"
+- "logoutAction"
+- "requestTimer"
 - "incomingCallViewControllerAccept"
+- "setNavBarUI"
+- "chatServiceChatDidAccidentallyDisconnect"
+- "dialogIcon"
+- "chatServiceChatDidReconnect"
+- "updateCounter"
+- "getDialogs"
+- "chatServiceChatDidFail"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "detailTextLabelText"
+- "viewDidAppear"
+- "lblDate"
 - "getReadCount"
+- "getRequestBadgeCounter"
+- "dialogs"
+- "reloadTableViewIfNeeded"
+- "prepare"
+- "unreadMessagesCounterLabelText"
+- "getImage"
+- "awakeFromNib"
+- "didEnterBackgroundNotification"
+- "sessionDidClose"
+- "chatService"
+- "chatService"
+- "chatService"
+- "chatService"
+- "chatService"
+- "chatService"
+- "chatService"
+- "chatService"
+- "appDelegate"
+- "textLabelText"
 - "viewWillDisappear"
 - "incomingCallViewControllerReject"
-- "chatService"
-- "chatService"
-- "chatService"
-- "chatService"
-- "chatService"
-- "chatService"
-- "chatService"
-- "chatService"
-- "detailTextLabelText"
-- "didEnterBackgroundNotification"
-- "appDelegate"
 depends-top-level:
-- !private "Dictionary"
-- "AssignmentPrecedence"
 - !private "=="
-- !private "&&"
-- "CastingPrecedence"
-- "TernaryPrecedence"
-- "IndexPath"
-- !private "NotificationCenter"
-- !private "OperationQueue"
-- !private "SVProgressHUD"
-- "Error"
-- !private "AlertView"
-- "String"
-- "Bool"
-- "AppDelegate"
-- !private "tabCounter"
-- "QBChatDialog"
-- !private "JSONEncoding"
-- !private "URL"
-- "NSDate"
-- !private "!="
-- !private "SDWebImageManager"
-- !private "QBRTCClient"
-- !private "UInt"
-- "QBRTCClientDelegate"
-- !private "Array"
-- "QBRTCSession"
-- !private "ObjCBool"
-- !private "baseUrl"
-- "QBChatMessage"
-- !private "ApiMethods"
-- !private "UIBarButtonItemStyle"
-- "CGFloat"
-- "NSObjectProtocol"
-- !private "ViewIdentifiers"
-- !private "/"
-- !private "<"
-- !private "QBChatDialogType"
-- "UIBarButtonItem"
-- !private "QBRequest"
-- !private "??"
-- !private "print"
-- !private "Set"
-- !private "QBChat"
-- "UITableViewController"
-- "AnyHashable"
-- !private "SDWebImageOptions"
-- !private "ChatViewController"
-- !private "QBResponse"
-- !private "NSURL"
-- "UITableViewCellEditingStyle"
-- !private "GoogleAnalyticManagerApi"
-- "DialogTableViewCellModel"
-- !private ">="
-- "QMAuthServiceDelegate"
 - !private "QBCOCustomObject"
-- !private "ServicesManager"
+- "DialogsViewController"
+- !private "JSONEncoding"
+- !private "tabCounter"
 - !private "Alamofire"
-- "UITableView"
-- "QMChatServiceDelegate"
-- !private "SVProgressHUDMaskType"
-- !private "NSNumber"
-- "QBCoreDelegate"
-- "Void"
-- "QMChatConnectionDelegate"
 - !private "NSDictionary"
+- !private "SDWebImageManager"
+- !private "kDialogsPageLimit"
+- "AppDelegate"
+- !private "QBRTCSoundRouter"
+- !private "QBChat"
+- "IncomingCallViewControllerDelegate"
+- !private "kDialogsScreenName"
+- !private "UIColor"
+- !private "CallViewController"
+- "userDefaults"
+- "DialogTableViewCellModel"
+- "IncomingCallViewController"
+- !private "UnsafeMutablePointer"
+- "UILabel"
+- !private "??"
+- !private "ObjCBool"
+- !private "UInt"
+- "UIImage"
+- !private "AlertView"
+- "UserDefaults"
+- !private "NSNotification"
+- !private "ViewIdentifiers"
+- !private "print"
+- "Date"
+- !private "NSMutableDictionary"
+- "UnicodeScalarType"
+- !private "SDWebImageOptions"
+- "UITableViewCell"
+- "UITableViewController"
+- !private "ContactListViewController"
+- "UITableViewCellEditingStyle"
+- !private "QBChatDialogType"
+- "Void"
+- "QBChatDialog"
+- !private "Array"
+- !private "Parameters"
+- !private "Calendar"
+- "UITableView"
+- !private "<"
+- !private "URL"
+- !private "UIView"
+- "QBRTCSession"
+- !private "SVProgressHUDMaskType"
 - !private ">"
 - "UIApplication"
-- !private "kDialogsScreenName"
-- !private "UIView"
-- !private "!"
-- !private "NSMutableArray"
-- "UnicodeScalarType"
-- "UITableViewCell"
-- !private "userType"
-- !private "kDialogsPageLimit"
-- !private "ContactListViewController"
-- !private "Date"
-- !private "NSMutableDictionary"
-- "UIStoryboardSegue"
-- !private "QBRTCSoundRouter"
-- !private "QBUUser"
-- !private "CallViewController"
-- "QMChatService"
-- !private "NSNotification"
-- "IncomingCallViewControllerDelegate"
-- "IncomingCallViewController"
+- "QBRTCClientDelegate"
+- "NSDate"
+- !private "QBRTCClient"
+- !private "/"
+- "Bool"
+- !private "&&"
+- !private "NSURL"
+- "DateFormatter"
+- "QBCoreDelegate"
+- "recentMessageTimeDateFormatter"
+- !private "SVProgressHUD"
+- "String"
+- !private "!="
 - !private "requestTabBarItem"
-- "NSObject"
+- "UIBarButtonItem"
+- "NSObjectProtocol"
+- !private "NSMutableArray"
+- !private ">="
+- !private "NotificationCenter"
 - "DialogTableViewCell"
-- "BooleanLiteralType"
-- "DialogsViewController"
-- "userDefaults"
-- !private "Parameters"
-- !private "UtilityClass"
-- "Int"
-- !private "UIUserInterfaceLayoutDirection"
-- "UIImage"
-- !private "+"
-- "UserDefaults"
-- !private "UnsafeMutablePointer"
-- "StringLiteralType"
+- "CGFloat"
+- "Error"
 - "Timer"
-- !private "UIColor"
+- !private "OperationQueue"
+- !private "+"
+- !private "QBResponse"
+- !private "Set"
+- !private "Dictionary"
+- "QBChatMessage"
+- !private "NSNumber"
+- !private "ServicesManager"
+- !private "ApiMethods"
+- "NSObject"
+- !private "ChatViewController"
+- "AnyHashable"
+- "StringLiteralType"
+- !private "DateComponents"
+- "BooleanLiteralType"
+- !private "GoogleAnalyticManagerApi"
+- !private "baseUrl"
+- "Int"
+- !private "QBRequest"
+- "QMChatService"
+- !private "userType"
+- !private "QBUUser"
+- "QMAuthServiceDelegate"
+- !private "UIUserInterfaceLayoutDirection"
+- !private "UIBarButtonItemStyle"
+- "QMChatConnectionDelegate"
+- "UIStoryboardSegue"
+- "TernaryPrecedence"
+- "IndexPath"
+- !private "UtilityClass"
+- "CastingPrecedence"
+- !private "!"
+- "AssignmentPrecedence"
+- "QMChatServiceDelegate"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "Stride"]
 - !private ["Ps16AbsoluteValuable", "init"]
@@ -175,6 +191,8 @@ depends-member:
 - !private ["Ps9AnyObject", "Alamofire"]
 - !private ["Ps9AnyObject", "AlertView"]
 - !private ["Ps9AnyObject", "ApiMethods"]
+- !private ["Ps9AnyObject", "Calendar"]
+- !private ["Ps9AnyObject", "DateComponents"]
 - !private ["Ps9AnyObject", "DialogTableViewCellModel"]
 - !private ["Ps9AnyObject", "DialogsViewController"]
 - !private ["Ps9AnyObject", "GoogleAnalyticManagerApi"]
@@ -244,6 +262,7 @@ depends-member:
 - ["Ps9AnyObject", "counterCall"]
 - ["Ps9AnyObject", "createLogoutButton"]
 - !private ["Ps9AnyObject", "currentUser"]
+- !private ["Ps9AnyObject", "dateFormat"]
 - !private ["Ps9AnyObject", "default"]
 - ["Ps9AnyObject", "delegate"]
 - !private ["Ps9AnyObject", "deleteDialog"]
@@ -303,8 +322,10 @@ depends-member:
 - !private ["Ps9AnyObject", "kDialogsPageLimit"]
 - !private ["Ps9AnyObject", "kDialogsScreenName"]
 - !private ["Ps9AnyObject", "lastActivityDate"]
+- !private ["Ps9AnyObject", "lastMessageDate"]
 - !private ["Ps9AnyObject", "lastMessageText"]
 - !private ["Ps9AnyObject", "layer"]
+- ["Ps9AnyObject", "lblDate"]
 - !private ["Ps9AnyObject", "leftBarButtonItem"]
 - !private ["Ps9AnyObject", "length"]
 - !private ["Ps9AnyObject", "localized"]
@@ -454,6 +475,7 @@ depends-member:
 - !private ["Ps17BitwiseOperations", "Stride"]
 - !private ["Ps17BitwiseOperations", "_DisabledRangeIndex"]
 - !private ["Ps17BitwiseOperations", "_DisallowMixedSignArithmetic"]
+- !private ["Ps17BitwiseOperations", "description"]
 - ["Ps17BitwiseOperations", "init"]
 - !private ["Sb", "_getBuiltinLogicValue"]
 - ["Sb", "deinit"]
@@ -478,6 +500,7 @@ depends-member:
 - !private ["PSo15CALayerDelegate", "isUserInteractionEnabled"]
 - !private ["PSo15CALayerDelegate", "items"]
 - !private ["PSo15CALayerDelegate", "layer"]
+- !private ["PSo15CALayerDelegate", "lblDate"]
 - !private ["PSo15CALayerDelegate", "reloadData"]
 - !private ["PSo15CALayerDelegate", "show"]
 - !private ["PSo15CALayerDelegate", "showError"]
@@ -499,6 +522,8 @@ depends-member:
 - !private ["Ps7CVarArg", "Alamofire"]
 - !private ["Ps7CVarArg", "AlertView"]
 - !private ["Ps7CVarArg", "ApiMethods"]
+- !private ["Ps7CVarArg", "Calendar"]
+- !private ["Ps7CVarArg", "DateComponents"]
 - !private ["Ps7CVarArg", "DialogTableViewCellModel"]
 - !private ["Ps7CVarArg", "DialogsViewController"]
 - !private ["Ps7CVarArg", "Element"]
@@ -582,10 +607,12 @@ depends-member:
 - ["Ps7CVarArg", "counterCall"]
 - ["Ps7CVarArg", "createLogoutButton"]
 - !private ["Ps7CVarArg", "currentUser"]
+- !private ["Ps7CVarArg", "dateFormat"]
 - !private ["Ps7CVarArg", "default"]
 - ["Ps7CVarArg", "delegate"]
 - !private ["Ps7CVarArg", "deleteDialog"]
 - !private ["Ps7CVarArg", "dequeueReusableCell"]
+- !private ["Ps7CVarArg", "description"]
 - !private ["Ps7CVarArg", "deselectRow"]
 - !private ["Ps7CVarArg", "destination"]
 - ["Ps7CVarArg", "detailTextLabelText"]
@@ -645,8 +672,10 @@ depends-member:
 - !private ["Ps7CVarArg", "kDialogsScreenName"]
 - !private ["Ps7CVarArg", "last"]
 - !private ["Ps7CVarArg", "lastActivityDate"]
+- !private ["Ps7CVarArg", "lastMessageDate"]
 - !private ["Ps7CVarArg", "lastMessageText"]
 - !private ["Ps7CVarArg", "layer"]
+- ["Ps7CVarArg", "lblDate"]
 - !private ["Ps7CVarArg", "leftBarButtonItem"]
 - !private ["Ps7CVarArg", "length"]
 - !private ["Ps7CVarArg", "localized"]
@@ -733,6 +762,11 @@ depends-member:
 - ["Ps7CVarArg", "viewWillDisappear"]
 - !private ["Ps7CVarArg", "white"]
 - ["Ps7CVarArg", ""]
+- !private ["V10Foundation8Calendar", "component"]
+- !private ["V10Foundation8Calendar", "current"]
+- !private ["V10Foundation8Calendar", "date"]
+- !private ["V10Foundation8Calendar", "dateComponents"]
+- ["V10Foundation8Calendar", "deinit"]
 - !private ["CSo18CallViewController", "currentUser"]
 - !private ["CSo18CallViewController", "deinit"]
 - !private ["CSo18CallViewController", "qbUsersArray"]
@@ -759,23 +793,45 @@ depends-member:
 - !private ["Ps10Collection", "last"]
 - !private ["Ps10Collection", "row"]
 - !private ["Ps10Collection", "subscript"]
+- !private ["Ps10Comparable", "Calendar"]
+- !private ["Ps10Comparable", "Date"]
 - !private ["Ps10Comparable", "IntegerLiteralType"]
 - !private ["Ps10Comparable", "Stride"]
 - !private ["Ps10Comparable", "UIApplicationDidBecomeActive"]
 - !private ["Ps10Comparable", "UIApplicationDidEnterBackground"]
 - !private ["Ps10Comparable", "_DisabledRangeIndex"]
 - !private ["Ps10Comparable", "_DisallowMixedSignArithmetic"]
+- !private ["Ps10Comparable", "days"]
+- !private ["Ps10Comparable", "description"]
+- !private ["Ps10Comparable", "hours"]
 - ["Ps10Comparable", "init"]
 - !private ["Ps10Comparable", "isEmpty"]
 - !private ["Ps10Comparable", "length"]
 - !private ["Ps10Comparable", "localized"]
+- !private ["Ps10Comparable", "minutes"]
+- !private ["Ps10Comparable", "months"]
+- !private ["Ps10Comparable", "relativeTime"]
 - !private ["Ps10Comparable", "row"]
+- !private ["Ps10Comparable", "seconds"]
+- !private ["Ps10Comparable", "weeks"]
+- !private ["Ps10Comparable", "years"]
+- !private ["OV10Foundation8Calendar9Component", "day"]
+- ["OV10Foundation8Calendar9Component", "deinit"]
+- !private ["OV10Foundation8Calendar9Component", "hour"]
+- !private ["OV10Foundation8Calendar9Component", "minute"]
+- !private ["OV10Foundation8Calendar9Component", "month"]
+- !private ["OV10Foundation8Calendar9Component", "second"]
+- !private ["OV10Foundation8Calendar9Component", "weekOfYear"]
+- !private ["OV10Foundation8Calendar9Component", "year"]
 - ["C11DiabetesApp25ContactListViewController", "deinit"]
 - !private ["C11DiabetesApp25ContactListViewController", "hidesBottomBarWhenPushed"]
 - !private ["C11DiabetesApp25ContactListViewController", "isGroupMode"]
 - !private ["Ps28CustomDebugStringConvertible", "Alamofire"]
 - !private ["Ps28CustomDebugStringConvertible", "AlertView"]
 - !private ["Ps28CustomDebugStringConvertible", "ApiMethods"]
+- !private ["Ps28CustomDebugStringConvertible", "Calendar"]
+- !private ["Ps28CustomDebugStringConvertible", "Date"]
+- !private ["Ps28CustomDebugStringConvertible", "DateComponents"]
 - !private ["Ps28CustomDebugStringConvertible", "DialogTableViewCellModel"]
 - !private ["Ps28CustomDebugStringConvertible", "DialogsViewController"]
 - !private ["Ps28CustomDebugStringConvertible", "Element"]
@@ -846,6 +902,7 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "chatServiceChatDidReconnect"]
 - ["Ps28CustomDebugStringConvertible", "chatServiceChatHasStartedConnecting"]
 - !private ["Ps28CustomDebugStringConvertible", "clipsToBounds"]
+- !private ["Ps28CustomDebugStringConvertible", "component"]
 - !private ["Ps28CustomDebugStringConvertible", "contains"]
 - !private ["Ps28CustomDebugStringConvertible", "contentView"]
 - ["Ps28CustomDebugStringConvertible", "core"]
@@ -855,7 +912,13 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "count"]
 - ["Ps28CustomDebugStringConvertible", "counterCall"]
 - ["Ps28CustomDebugStringConvertible", "createLogoutButton"]
+- !private ["Ps28CustomDebugStringConvertible", "current"]
 - !private ["Ps28CustomDebugStringConvertible", "currentUser"]
+- !private ["Ps28CustomDebugStringConvertible", "date"]
+- !private ["Ps28CustomDebugStringConvertible", "dateComponents"]
+- !private ["Ps28CustomDebugStringConvertible", "dateFormat"]
+- !private ["Ps28CustomDebugStringConvertible", "day"]
+- !private ["Ps28CustomDebugStringConvertible", "days"]
 - !private ["Ps28CustomDebugStringConvertible", "default"]
 - ["Ps28CustomDebugStringConvertible", "delegate"]
 - !private ["Ps28CustomDebugStringConvertible", "deleteDialog"]
@@ -892,6 +955,8 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "getReadCount"]
 - ["Ps28CustomDebugStringConvertible", "getRequestBadgeCounter"]
 - !private ["Ps28CustomDebugStringConvertible", "hidesBottomBarWhenPushed"]
+- !private ["Ps28CustomDebugStringConvertible", "hour"]
+- !private ["Ps28CustomDebugStringConvertible", "hours"]
 - !private ["Ps28CustomDebugStringConvertible", "id"]
 - !private ["Ps28CustomDebugStringConvertible", "identifier"]
 - !private ["Ps28CustomDebugStringConvertible", "image"]
@@ -920,8 +985,10 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "kDialogsScreenName"]
 - !private ["Ps28CustomDebugStringConvertible", "last"]
 - !private ["Ps28CustomDebugStringConvertible", "lastActivityDate"]
+- !private ["Ps28CustomDebugStringConvertible", "lastMessageDate"]
 - !private ["Ps28CustomDebugStringConvertible", "lastMessageText"]
 - !private ["Ps28CustomDebugStringConvertible", "layer"]
+- ["Ps28CustomDebugStringConvertible", "lblDate"]
 - !private ["Ps28CustomDebugStringConvertible", "leftBarButtonItem"]
 - !private ["Ps28CustomDebugStringConvertible", "length"]
 - !private ["Ps28CustomDebugStringConvertible", "localized"]
@@ -929,6 +996,10 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "logoutAction"]
 - !private ["Ps28CustomDebugStringConvertible", "logoutUserWithCompletion"]
 - !private ["Ps28CustomDebugStringConvertible", "main"]
+- !private ["Ps28CustomDebugStringConvertible", "minute"]
+- !private ["Ps28CustomDebugStringConvertible", "minutes"]
+- !private ["Ps28CustomDebugStringConvertible", "month"]
+- !private ["Ps28CustomDebugStringConvertible", "months"]
 - ["Ps28CustomDebugStringConvertible", "myTimer"]
 - !private ["Ps28CustomDebugStringConvertible", "name"]
 - !private ["Ps28CustomDebugStringConvertible", "navigationController"]
@@ -949,6 +1020,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "qbUsersArray"]
 - !private ["Ps28CustomDebugStringConvertible", "recipientID"]
 - !private ["Ps28CustomDebugStringConvertible", "rejectCall"]
+- !private ["Ps28CustomDebugStringConvertible", "relativeTime"]
 - !private ["Ps28CustomDebugStringConvertible", "reloadData"]
 - ["Ps28CustomDebugStringConvertible", "reloadTableViewIfNeeded"]
 - !private ["Ps28CustomDebugStringConvertible", "remove"]
@@ -962,6 +1034,8 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "row"]
 - ["Ps28CustomDebugStringConvertible", "runTimedCode"]
 - !private ["Ps28CustomDebugStringConvertible", "scheduledTimer"]
+- !private ["Ps28CustomDebugStringConvertible", "second"]
+- !private ["Ps28CustomDebugStringConvertible", "seconds"]
 - ["Ps28CustomDebugStringConvertible", "selectedUserType"]
 - !private ["Ps28CustomDebugStringConvertible", "sendAnalyticsEventWithCategory"]
 - !private ["Ps28CustomDebugStringConvertible", "sendNotificationMessageAboutLeaving"]
@@ -1011,20 +1085,37 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "viewDidAppear"]
 - ["Ps28CustomDebugStringConvertible", "viewWillAppear"]
 - ["Ps28CustomDebugStringConvertible", "viewWillDisappear"]
+- !private ["Ps28CustomDebugStringConvertible", "weekOfYear"]
+- !private ["Ps28CustomDebugStringConvertible", "weeks"]
 - !private ["Ps28CustomDebugStringConvertible", "white"]
 - !private ["Ps28CustomDebugStringConvertible", "width"]
+- !private ["Ps28CustomDebugStringConvertible", "year"]
+- !private ["Ps28CustomDebugStringConvertible", "years"]
 - ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps29CustomPlaygroundQuickLookable", "Calendar"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "Date"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "IntegerLiteralType"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "Stride"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "_DisabledRangeIndex"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "_DisallowMixedSignArithmetic"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "days"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "description"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "hours"]
 - ["Ps29CustomPlaygroundQuickLookable", "init"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "isEmpty"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "length"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "localized"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "minutes"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "months"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "relativeTime"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "seconds"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "size"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "weeks"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "width"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "years"]
+- !private ["Ps17CustomReflectable", "Calendar"]
+- !private ["Ps17CustomReflectable", "Date"]
 - !private ["Ps17CustomReflectable", "Element"]
 - !private ["Ps17CustomReflectable", "Index"]
 - !private ["Ps17CustomReflectable", "IndexDistance"]
@@ -1039,24 +1130,47 @@ depends-member:
 - !private ["Ps17CustomReflectable", "_DisallowMixedSignArithmetic"]
 - !private ["Ps17CustomReflectable", "_Element"]
 - !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- !private ["Ps17CustomReflectable", "component"]
 - !private ["Ps17CustomReflectable", "contains"]
 - !private ["Ps17CustomReflectable", "count"]
+- !private ["Ps17CustomReflectable", "current"]
+- !private ["Ps17CustomReflectable", "date"]
+- !private ["Ps17CustomReflectable", "dateComponents"]
+- !private ["Ps17CustomReflectable", "day"]
+- !private ["Ps17CustomReflectable", "days"]
+- !private ["Ps17CustomReflectable", "description"]
 - !private ["Ps17CustomReflectable", "filter"]
 - !private ["Ps17CustomReflectable", "first"]
+- !private ["Ps17CustomReflectable", "hour"]
+- !private ["Ps17CustomReflectable", "hours"]
 - !private ["Ps17CustomReflectable", "index"]
 - ["Ps17CustomReflectable", "init"]
 - !private ["Ps17CustomReflectable", "isEmpty"]
 - !private ["Ps17CustomReflectable", "last"]
 - !private ["Ps17CustomReflectable", "length"]
 - !private ["Ps17CustomReflectable", "localized"]
+- !private ["Ps17CustomReflectable", "minute"]
+- !private ["Ps17CustomReflectable", "minutes"]
+- !private ["Ps17CustomReflectable", "month"]
+- !private ["Ps17CustomReflectable", "months"]
+- !private ["Ps17CustomReflectable", "relativeTime"]
 - !private ["Ps17CustomReflectable", "row"]
+- !private ["Ps17CustomReflectable", "second"]
+- !private ["Ps17CustomReflectable", "seconds"]
 - !private ["Ps17CustomReflectable", "size"]
 - !private ["Ps17CustomReflectable", "subscript"]
 - !private ["Ps17CustomReflectable", "value"]
+- !private ["Ps17CustomReflectable", "weekOfYear"]
+- !private ["Ps17CustomReflectable", "weeks"]
 - !private ["Ps17CustomReflectable", "width"]
+- !private ["Ps17CustomReflectable", "year"]
+- !private ["Ps17CustomReflectable", "years"]
 - !private ["Ps23CustomStringConvertible", "Alamofire"]
 - !private ["Ps23CustomStringConvertible", "AlertView"]
 - !private ["Ps23CustomStringConvertible", "ApiMethods"]
+- !private ["Ps23CustomStringConvertible", "Calendar"]
+- !private ["Ps23CustomStringConvertible", "Date"]
+- !private ["Ps23CustomStringConvertible", "DateComponents"]
 - !private ["Ps23CustomStringConvertible", "DialogTableViewCellModel"]
 - !private ["Ps23CustomStringConvertible", "DialogsViewController"]
 - !private ["Ps23CustomStringConvertible", "Element"]
@@ -1131,6 +1245,7 @@ depends-member:
 - ["Ps23CustomStringConvertible", "chatServiceChatDidReconnect"]
 - ["Ps23CustomStringConvertible", "chatServiceChatHasStartedConnecting"]
 - !private ["Ps23CustomStringConvertible", "clipsToBounds"]
+- !private ["Ps23CustomStringConvertible", "component"]
 - !private ["Ps23CustomStringConvertible", "contains"]
 - !private ["Ps23CustomStringConvertible", "contentView"]
 - ["Ps23CustomStringConvertible", "core"]
@@ -1140,11 +1255,18 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "count"]
 - ["Ps23CustomStringConvertible", "counterCall"]
 - ["Ps23CustomStringConvertible", "createLogoutButton"]
+- !private ["Ps23CustomStringConvertible", "current"]
 - !private ["Ps23CustomStringConvertible", "currentUser"]
+- !private ["Ps23CustomStringConvertible", "date"]
+- !private ["Ps23CustomStringConvertible", "dateComponents"]
+- !private ["Ps23CustomStringConvertible", "dateFormat"]
+- !private ["Ps23CustomStringConvertible", "day"]
+- !private ["Ps23CustomStringConvertible", "days"]
 - !private ["Ps23CustomStringConvertible", "default"]
 - ["Ps23CustomStringConvertible", "delegate"]
 - !private ["Ps23CustomStringConvertible", "deleteDialog"]
 - !private ["Ps23CustomStringConvertible", "dequeueReusableCell"]
+- !private ["Ps23CustomStringConvertible", "description"]
 - !private ["Ps23CustomStringConvertible", "deselectRow"]
 - !private ["Ps23CustomStringConvertible", "destination"]
 - ["Ps23CustomStringConvertible", "detailTextLabelText"]
@@ -1177,6 +1299,8 @@ depends-member:
 - ["Ps23CustomStringConvertible", "getReadCount"]
 - ["Ps23CustomStringConvertible", "getRequestBadgeCounter"]
 - !private ["Ps23CustomStringConvertible", "hidesBottomBarWhenPushed"]
+- !private ["Ps23CustomStringConvertible", "hour"]
+- !private ["Ps23CustomStringConvertible", "hours"]
 - !private ["Ps23CustomStringConvertible", "id"]
 - !private ["Ps23CustomStringConvertible", "identifier"]
 - !private ["Ps23CustomStringConvertible", "image"]
@@ -1205,8 +1329,10 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "kDialogsScreenName"]
 - !private ["Ps23CustomStringConvertible", "last"]
 - !private ["Ps23CustomStringConvertible", "lastActivityDate"]
+- !private ["Ps23CustomStringConvertible", "lastMessageDate"]
 - !private ["Ps23CustomStringConvertible", "lastMessageText"]
 - !private ["Ps23CustomStringConvertible", "layer"]
+- ["Ps23CustomStringConvertible", "lblDate"]
 - !private ["Ps23CustomStringConvertible", "leftBarButtonItem"]
 - !private ["Ps23CustomStringConvertible", "length"]
 - !private ["Ps23CustomStringConvertible", "localized"]
@@ -1214,6 +1340,10 @@ depends-member:
 - ["Ps23CustomStringConvertible", "logoutAction"]
 - !private ["Ps23CustomStringConvertible", "logoutUserWithCompletion"]
 - !private ["Ps23CustomStringConvertible", "main"]
+- !private ["Ps23CustomStringConvertible", "minute"]
+- !private ["Ps23CustomStringConvertible", "minutes"]
+- !private ["Ps23CustomStringConvertible", "month"]
+- !private ["Ps23CustomStringConvertible", "months"]
 - ["Ps23CustomStringConvertible", "myTimer"]
 - !private ["Ps23CustomStringConvertible", "name"]
 - !private ["Ps23CustomStringConvertible", "navigationController"]
@@ -1234,6 +1364,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "qbUsersArray"]
 - !private ["Ps23CustomStringConvertible", "recipientID"]
 - !private ["Ps23CustomStringConvertible", "rejectCall"]
+- !private ["Ps23CustomStringConvertible", "relativeTime"]
 - !private ["Ps23CustomStringConvertible", "reloadData"]
 - ["Ps23CustomStringConvertible", "reloadTableViewIfNeeded"]
 - !private ["Ps23CustomStringConvertible", "remove"]
@@ -1247,6 +1378,8 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "row"]
 - ["Ps23CustomStringConvertible", "runTimedCode"]
 - !private ["Ps23CustomStringConvertible", "scheduledTimer"]
+- !private ["Ps23CustomStringConvertible", "second"]
+- !private ["Ps23CustomStringConvertible", "seconds"]
 - ["Ps23CustomStringConvertible", "selectedUserType"]
 - !private ["Ps23CustomStringConvertible", "sendAnalyticsEventWithCategory"]
 - !private ["Ps23CustomStringConvertible", "sendNotificationMessageAboutLeaving"]
@@ -1295,14 +1428,42 @@ depends-member:
 - ["Ps23CustomStringConvertible", "viewDidAppear"]
 - ["Ps23CustomStringConvertible", "viewWillAppear"]
 - ["Ps23CustomStringConvertible", "viewWillDisappear"]
+- !private ["Ps23CustomStringConvertible", "weekOfYear"]
+- !private ["Ps23CustomStringConvertible", "weeks"]
 - !private ["Ps23CustomStringConvertible", "white"]
+- !private ["Ps23CustomStringConvertible", "year"]
+- !private ["Ps23CustomStringConvertible", "years"]
 - ["Ps23CustomStringConvertible", ""]
 - ["C9Alamofire11DataRequest", "deinit"]
 - !private ["C9Alamofire11DataRequest", "responseJSON"]
 - !private ["V9Alamofire12DataResponse", "deinit"]
 - !private ["V9Alamofire12DataResponse", "result"]
+- !private ["V10Foundation4Date", "Calendar"]
+- ["V10Foundation4Date", "Date"]
+- ["V10Foundation4Date", "Int"]
+- ["V10Foundation4Date", "String"]
+- ["V10Foundation4Date", "days"]
 - ["V10Foundation4Date", "deinit"]
+- ["V10Foundation4Date", "hours"]
 - !private ["V10Foundation4Date", "init"]
+- ["V10Foundation4Date", "minutes"]
+- ["V10Foundation4Date", "months"]
+- ["V10Foundation4Date", "relativeTime"]
+- ["V10Foundation4Date", "seconds"]
+- ["V10Foundation4Date", "weeks"]
+- ["V10Foundation4Date", "years"]
+- !private ["V10Foundation14DateComponents", "day"]
+- ["V10Foundation14DateComponents", "deinit"]
+- !private ["V10Foundation14DateComponents", "hour"]
+- !private ["V10Foundation14DateComponents", "init"]
+- !private ["V10Foundation14DateComponents", "minute"]
+- !private ["V10Foundation14DateComponents", "month"]
+- !private ["V10Foundation14DateComponents", "second"]
+- !private ["V10Foundation14DateComponents", "weekOfYear"]
+- !private ["V10Foundation14DateComponents", "year"]
+- !private ["CSo13DateFormatter", "dateFormat"]
+- ["CSo13DateFormatter", "deinit"]
+- !private ["CSo13DateFormatter", "init"]
 - !private ["VSC7Decimal", "Stride"]
 - !private ["VSC7Decimal", "deinit"]
 - !private ["VSC7Decimal", "init"]
@@ -1325,6 +1486,7 @@ depends-member:
 - !private ["C11DiabetesApp19DialogTableViewCell", "dialogName"]
 - !private ["C11DiabetesApp19DialogTableViewCell", "dialogTypeImage"]
 - !private ["C11DiabetesApp19DialogTableViewCell", "isExclusiveTouch"]
+- !private ["C11DiabetesApp19DialogTableViewCell", "lblDate"]
 - !private ["C11DiabetesApp19DialogTableViewCell", "tag"]
 - !private ["C11DiabetesApp19DialogTableViewCell", "unreadMessageCounterHolder"]
 - !private ["C11DiabetesApp19DialogTableViewCell", "unreadMessageCounterLabel"]
@@ -1348,10 +1510,12 @@ depends-member:
 - !private ["C11DiabetesApp21DialogsViewController", "Array"]
 - ["C11DiabetesApp21DialogsViewController", "Bool"]
 - ["C11DiabetesApp21DialogsViewController", "CGFloat"]
+- !private ["C11DiabetesApp21DialogsViewController", "Calendar"]
 - !private ["C11DiabetesApp21DialogsViewController", "CallViewController"]
 - !private ["C11DiabetesApp21DialogsViewController", "ChatViewController"]
 - !private ["C11DiabetesApp21DialogsViewController", "ContactListViewController"]
 - !private ["C11DiabetesApp21DialogsViewController", "Date"]
+- !private ["C11DiabetesApp21DialogsViewController", "DateComponents"]
 - ["C11DiabetesApp21DialogsViewController", "DialogTableViewCell"]
 - !private ["C11DiabetesApp21DialogsViewController", "DialogTableViewCellModel"]
 - !private ["C11DiabetesApp21DialogsViewController", "DialogsViewController"]
@@ -1399,6 +1563,7 @@ depends-member:
 - !private ["C11DiabetesApp21DialogsViewController", "UIBarButtonItemStyle"]
 - !private ["C11DiabetesApp21DialogsViewController", "UIColor"]
 - !private ["C11DiabetesApp21DialogsViewController", "UIImage"]
+- ["C11DiabetesApp21DialogsViewController", "UILabel"]
 - ["C11DiabetesApp21DialogsViewController", "UIStoryboardSegue"]
 - ["C11DiabetesApp21DialogsViewController", "UITableView"]
 - ["C11DiabetesApp21DialogsViewController", "UITableViewCell"]
@@ -1443,6 +1608,7 @@ depends-member:
 - ["C11DiabetesApp21DialogsViewController", "init"]
 - !private ["C11DiabetesApp21DialogsViewController", "kDialogsPageLimit"]
 - !private ["C11DiabetesApp21DialogsViewController", "kDialogsScreenName"]
+- ["C11DiabetesApp21DialogsViewController", "lblDate"]
 - ["C11DiabetesApp21DialogsViewController", "logoutAction"]
 - ["C11DiabetesApp21DialogsViewController", "myTimer"]
 - !private ["C11DiabetesApp21DialogsViewController", "navigationController"]
@@ -1486,8 +1652,12 @@ depends-member:
 - !private ["Ps9Equatable", "Alamofire"]
 - !private ["Ps9Equatable", "AlertView"]
 - !private ["Ps9Equatable", "ApiMethods"]
+- !private ["Ps9Equatable", "Calendar"]
+- !private ["Ps9Equatable", "Date"]
+- !private ["Ps9Equatable", "DateComponents"]
 - !private ["Ps9Equatable", "DialogTableViewCellModel"]
 - !private ["Ps9Equatable", "DialogsViewController"]
+- !private ["Ps9Equatable", "Element"]
 - !private ["Ps9Equatable", "GoogleAnalyticManagerApi"]
 - ["Ps9Equatable", "GroupAction"]
 - ["Ps9Equatable", "Int"]
@@ -1555,6 +1725,7 @@ depends-member:
 - ["Ps9Equatable", "chatServiceChatHasStartedConnecting"]
 - !private ["Ps9Equatable", "clear"]
 - !private ["Ps9Equatable", "clipsToBounds"]
+- !private ["Ps9Equatable", "component"]
 - !private ["Ps9Equatable", "contentView"]
 - ["Ps9Equatable", "core"]
 - ["Ps9Equatable", "coreDidLogin"]
@@ -1562,12 +1733,19 @@ depends-member:
 - !private ["Ps9Equatable", "cornerRadius"]
 - ["Ps9Equatable", "counterCall"]
 - ["Ps9Equatable", "createLogoutButton"]
+- !private ["Ps9Equatable", "current"]
 - !private ["Ps9Equatable", "currentUser"]
+- !private ["Ps9Equatable", "date"]
+- !private ["Ps9Equatable", "dateComponents"]
+- !private ["Ps9Equatable", "dateFormat"]
+- !private ["Ps9Equatable", "day"]
+- !private ["Ps9Equatable", "days"]
 - !private ["Ps9Equatable", "default"]
 - ["Ps9Equatable", "delegate"]
 - !private ["Ps9Equatable", "delete"]
 - !private ["Ps9Equatable", "deleteDialog"]
 - !private ["Ps9Equatable", "dequeueReusableCell"]
+- !private ["Ps9Equatable", "description"]
 - !private ["Ps9Equatable", "deselectRow"]
 - !private ["Ps9Equatable", "destination"]
 - ["Ps9Equatable", "detailTextLabelText"]
@@ -1601,6 +1779,8 @@ depends-member:
 - ["Ps9Equatable", "group"]
 - !private ["Ps9Equatable", "hidesBottomBarWhenPushed"]
 - !private ["Ps9Equatable", "highPriority"]
+- !private ["Ps9Equatable", "hour"]
+- !private ["Ps9Equatable", "hours"]
 - !private ["Ps9Equatable", "id"]
 - !private ["Ps9Equatable", "identifier"]
 - !private ["Ps9Equatable", "image"]
@@ -1627,8 +1807,10 @@ depends-member:
 - !private ["Ps9Equatable", "kDialogsPageLimit"]
 - !private ["Ps9Equatable", "kDialogsScreenName"]
 - !private ["Ps9Equatable", "lastActivityDate"]
+- !private ["Ps9Equatable", "lastMessageDate"]
 - !private ["Ps9Equatable", "lastMessageText"]
 - !private ["Ps9Equatable", "layer"]
+- ["Ps9Equatable", "lblDate"]
 - !private ["Ps9Equatable", "left"]
 - !private ["Ps9Equatable", "leftBarButtonItem"]
 - !private ["Ps9Equatable", "length"]
@@ -1637,6 +1819,10 @@ depends-member:
 - ["Ps9Equatable", "logoutAction"]
 - !private ["Ps9Equatable", "logoutUserWithCompletion"]
 - !private ["Ps9Equatable", "main"]
+- !private ["Ps9Equatable", "minute"]
+- !private ["Ps9Equatable", "minutes"]
+- !private ["Ps9Equatable", "month"]
+- !private ["Ps9Equatable", "months"]
 - ["Ps9Equatable", "myTimer"]
 - !private ["Ps9Equatable", "name"]
 - !private ["Ps9Equatable", "navigationController"]
@@ -1661,6 +1847,7 @@ depends-member:
 - !private ["Ps9Equatable", "qbUsersArray"]
 - !private ["Ps9Equatable", "recipientID"]
 - !private ["Ps9Equatable", "rejectCall"]
+- !private ["Ps9Equatable", "relativeTime"]
 - !private ["Ps9Equatable", "reloadData"]
 - ["Ps9Equatable", "reloadTableViewIfNeeded"]
 - !private ["Ps9Equatable", "remove"]
@@ -1674,6 +1861,8 @@ depends-member:
 - !private ["Ps9Equatable", "row"]
 - ["Ps9Equatable", "runTimedCode"]
 - !private ["Ps9Equatable", "scheduledTimer"]
+- !private ["Ps9Equatable", "second"]
+- !private ["Ps9Equatable", "seconds"]
 - ["Ps9Equatable", "selectedUserType"]
 - !private ["Ps9Equatable", "sendAnalyticsEventWithCategory"]
 - !private ["Ps9Equatable", "sendNotificationMessageAboutLeaving"]
@@ -1722,8 +1911,12 @@ depends-member:
 - ["Ps9Equatable", "viewDidAppear"]
 - ["Ps9Equatable", "viewWillAppear"]
 - ["Ps9Equatable", "viewWillDisappear"]
+- !private ["Ps9Equatable", "weekOfYear"]
+- !private ["Ps9Equatable", "weeks"]
 - !private ["Ps9Equatable", "white"]
 - !private ["Ps9Equatable", "width"]
+- !private ["Ps9Equatable", "year"]
+- !private ["Ps9Equatable", "years"]
 - ["Ps9Equatable", ""]
 - ["Ps5Error", "deinit"]
 - !private ["Ps5Error", "localizedDescription"]
@@ -1761,6 +1954,7 @@ depends-member:
 - !private ["Ps27ExpressibleByIntegerLiteral", "Stride"]
 - !private ["Ps27ExpressibleByIntegerLiteral", "_DisabledRangeIndex"]
 - !private ["Ps27ExpressibleByIntegerLiteral", "_DisallowMixedSignArithmetic"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "description"]
 - ["Ps27ExpressibleByIntegerLiteral", "init"]
 - !private ["Ps27ExpressibleByIntegerLiteral", "uintValue"]
 - !private ["Ps23ExpressibleByNilLiteral", "RawValue"]
@@ -1784,6 +1978,8 @@ depends-member:
 - !private ["Vs7Float80", "init"]
 - !private ["Ps13FloatingPoint", "Stride"]
 - !private ["Ps13FloatingPoint", "init"]
+- !private ["CSo9Formatter", "dateFormat"]
+- !private ["CSo9Formatter", "init"]
 - ["C11DiabetesApp24GoogleAnalyticManagerApi", "deinit"]
 - !private ["C11DiabetesApp24GoogleAnalyticManagerApi", "sendAnalyticsEventWithCategory"]
 - !private ["C11DiabetesApp24GoogleAnalyticManagerApi", "sharedInstance"]
@@ -1794,8 +1990,12 @@ depends-member:
 - !private ["Ps8Hashable", "Alamofire"]
 - !private ["Ps8Hashable", "AlertView"]
 - !private ["Ps8Hashable", "ApiMethods"]
+- !private ["Ps8Hashable", "Calendar"]
+- !private ["Ps8Hashable", "Date"]
+- !private ["Ps8Hashable", "DateComponents"]
 - !private ["Ps8Hashable", "DialogTableViewCellModel"]
 - !private ["Ps8Hashable", "DialogsViewController"]
+- !private ["Ps8Hashable", "Element"]
 - !private ["Ps8Hashable", "GoogleAnalyticManagerApi"]
 - ["Ps8Hashable", "GroupAction"]
 - ["Ps8Hashable", "Int"]
@@ -1863,6 +2063,7 @@ depends-member:
 - ["Ps8Hashable", "chatServiceChatHasStartedConnecting"]
 - !private ["Ps8Hashable", "clear"]
 - !private ["Ps8Hashable", "clipsToBounds"]
+- !private ["Ps8Hashable", "component"]
 - !private ["Ps8Hashable", "contentView"]
 - ["Ps8Hashable", "core"]
 - ["Ps8Hashable", "coreDidLogin"]
@@ -1870,12 +2071,19 @@ depends-member:
 - !private ["Ps8Hashable", "cornerRadius"]
 - ["Ps8Hashable", "counterCall"]
 - ["Ps8Hashable", "createLogoutButton"]
+- !private ["Ps8Hashable", "current"]
 - !private ["Ps8Hashable", "currentUser"]
+- !private ["Ps8Hashable", "date"]
+- !private ["Ps8Hashable", "dateComponents"]
+- !private ["Ps8Hashable", "dateFormat"]
+- !private ["Ps8Hashable", "day"]
+- !private ["Ps8Hashable", "days"]
 - !private ["Ps8Hashable", "default"]
 - ["Ps8Hashable", "delegate"]
 - !private ["Ps8Hashable", "delete"]
 - !private ["Ps8Hashable", "deleteDialog"]
 - !private ["Ps8Hashable", "dequeueReusableCell"]
+- !private ["Ps8Hashable", "description"]
 - !private ["Ps8Hashable", "deselectRow"]
 - !private ["Ps8Hashable", "destination"]
 - ["Ps8Hashable", "detailTextLabelText"]
@@ -1908,6 +2116,8 @@ depends-member:
 - ["Ps8Hashable", "getRequestBadgeCounter"]
 - ["Ps8Hashable", "group"]
 - !private ["Ps8Hashable", "hidesBottomBarWhenPushed"]
+- !private ["Ps8Hashable", "hour"]
+- !private ["Ps8Hashable", "hours"]
 - !private ["Ps8Hashable", "id"]
 - !private ["Ps8Hashable", "identifier"]
 - !private ["Ps8Hashable", "image"]
@@ -1934,8 +2144,10 @@ depends-member:
 - !private ["Ps8Hashable", "kDialogsPageLimit"]
 - !private ["Ps8Hashable", "kDialogsScreenName"]
 - !private ["Ps8Hashable", "lastActivityDate"]
+- !private ["Ps8Hashable", "lastMessageDate"]
 - !private ["Ps8Hashable", "lastMessageText"]
 - !private ["Ps8Hashable", "layer"]
+- ["Ps8Hashable", "lblDate"]
 - !private ["Ps8Hashable", "left"]
 - !private ["Ps8Hashable", "leftBarButtonItem"]
 - !private ["Ps8Hashable", "length"]
@@ -1944,6 +2156,10 @@ depends-member:
 - ["Ps8Hashable", "logoutAction"]
 - !private ["Ps8Hashable", "logoutUserWithCompletion"]
 - !private ["Ps8Hashable", "main"]
+- !private ["Ps8Hashable", "minute"]
+- !private ["Ps8Hashable", "minutes"]
+- !private ["Ps8Hashable", "month"]
+- !private ["Ps8Hashable", "months"]
 - ["Ps8Hashable", "myTimer"]
 - !private ["Ps8Hashable", "name"]
 - !private ["Ps8Hashable", "navigationController"]
@@ -1968,6 +2184,7 @@ depends-member:
 - !private ["Ps8Hashable", "qbUsersArray"]
 - !private ["Ps8Hashable", "recipientID"]
 - !private ["Ps8Hashable", "rejectCall"]
+- !private ["Ps8Hashable", "relativeTime"]
 - !private ["Ps8Hashable", "reloadData"]
 - ["Ps8Hashable", "reloadTableViewIfNeeded"]
 - !private ["Ps8Hashable", "remove"]
@@ -1981,6 +2198,8 @@ depends-member:
 - !private ["Ps8Hashable", "row"]
 - ["Ps8Hashable", "runTimedCode"]
 - !private ["Ps8Hashable", "scheduledTimer"]
+- !private ["Ps8Hashable", "second"]
+- !private ["Ps8Hashable", "seconds"]
 - ["Ps8Hashable", "selectedUserType"]
 - !private ["Ps8Hashable", "sendAnalyticsEventWithCategory"]
 - !private ["Ps8Hashable", "sendNotificationMessageAboutLeaving"]
@@ -2028,7 +2247,11 @@ depends-member:
 - ["Ps8Hashable", "viewDidAppear"]
 - ["Ps8Hashable", "viewWillAppear"]
 - ["Ps8Hashable", "viewWillDisappear"]
+- !private ["Ps8Hashable", "weekOfYear"]
+- !private ["Ps8Hashable", "weeks"]
 - !private ["Ps8Hashable", "white"]
+- !private ["Ps8Hashable", "year"]
+- !private ["Ps8Hashable", "years"]
 - ["Ps8Hashable", ""]
 - ["SQ", "deinit"]
 - !private ["CSo26IncomingCallViewController", "currentUser"]
@@ -2039,6 +2262,8 @@ depends-member:
 - !private ["PSo34IncomingCallViewControllerDelegate", "Alamofire"]
 - !private ["PSo34IncomingCallViewControllerDelegate", "AlertView"]
 - !private ["PSo34IncomingCallViewControllerDelegate", "ApiMethods"]
+- !private ["PSo34IncomingCallViewControllerDelegate", "Calendar"]
+- !private ["PSo34IncomingCallViewControllerDelegate", "DateComponents"]
 - !private ["PSo34IncomingCallViewControllerDelegate", "DialogTableViewCellModel"]
 - !private ["PSo34IncomingCallViewControllerDelegate", "DialogsViewController"]
 - !private ["PSo34IncomingCallViewControllerDelegate", "GoogleAnalyticManagerApi"]
@@ -2169,6 +2394,7 @@ depends-member:
 - !private ["Si", "Stride"]
 - !private ["Si", "_DisabledRangeIndex"]
 - ["Si", "deinit"]
+- !private ["Si", "description"]
 - ["Si", "init"]
 - !private ["Vs5Int16", "Stride"]
 - !private ["Vs5Int16", "deinit"]
@@ -2186,11 +2412,13 @@ depends-member:
 - !private ["Ps7Integer", "Stride"]
 - !private ["Ps7Integer", "_DisabledRangeIndex"]
 - !private ["Ps7Integer", "_DisallowMixedSignArithmetic"]
+- !private ["Ps7Integer", "description"]
 - ["Ps7Integer", "init"]
 - !private ["Ps17IntegerArithmetic", "IntegerLiteralType"]
 - !private ["Ps17IntegerArithmetic", "Stride"]
 - !private ["Ps17IntegerArithmetic", "_DisabledRangeIndex"]
 - !private ["Ps17IntegerArithmetic", "_DisallowMixedSignArithmetic"]
+- !private ["Ps17IntegerArithmetic", "description"]
 - ["Ps17IntegerArithmetic", "init"]
 - !private ["Ps16IteratorProtocol", "Element"]
 - !private ["V9Alamofire12JSONEncoding", "default"]
@@ -2204,6 +2432,7 @@ depends-member:
 - !private ["Ps10MirrorPath", "IntegerLiteralType"]
 - !private ["Ps10MirrorPath", "Stride"]
 - !private ["Ps10MirrorPath", "_DisabledRangeIndex"]
+- !private ["Ps10MirrorPath", "description"]
 - ["Ps10MirrorPath", "init"]
 - !private ["Ps10MirrorPath", "isEmpty"]
 - !private ["Ps10MirrorPath", "length"]
@@ -2243,6 +2472,8 @@ depends-member:
 - !private ["PSo8NSCoding", "Alamofire"]
 - !private ["PSo8NSCoding", "AlertView"]
 - !private ["PSo8NSCoding", "ApiMethods"]
+- !private ["PSo8NSCoding", "Calendar"]
+- !private ["PSo8NSCoding", "DateComponents"]
 - !private ["PSo8NSCoding", "DialogTableViewCellModel"]
 - !private ["PSo8NSCoding", "DialogsViewController"]
 - !private ["PSo8NSCoding", "GoogleAnalyticManagerApi"]
@@ -2306,6 +2537,7 @@ depends-member:
 - ["PSo8NSCoding", "counterCall"]
 - ["PSo8NSCoding", "createLogoutButton"]
 - !private ["PSo8NSCoding", "currentUser"]
+- !private ["PSo8NSCoding", "dateFormat"]
 - !private ["PSo8NSCoding", "delegate"]
 - !private ["PSo8NSCoding", "dequeueReusableCell"]
 - !private ["PSo8NSCoding", "deselectRow"]
@@ -2340,8 +2572,10 @@ depends-member:
 - !private ["PSo8NSCoding", "items"]
 - !private ["PSo8NSCoding", "kDialogsPageLimit"]
 - !private ["PSo8NSCoding", "kDialogsScreenName"]
+- !private ["PSo8NSCoding", "lastMessageDate"]
 - !private ["PSo8NSCoding", "lastMessageText"]
 - !private ["PSo8NSCoding", "layer"]
+- ["PSo8NSCoding", "lblDate"]
 - !private ["PSo8NSCoding", "leftBarButtonItem"]
 - !private ["PSo8NSCoding", "length"]
 - !private ["PSo8NSCoding", "localized"]
@@ -2404,12 +2638,14 @@ depends-member:
 - !private ["PSo8NSCoding", "white"]
 - ["PSo8NSCoding", ""]
 - !private ["PSo9NSCopying", "Name"]
+- !private ["PSo9NSCopying", "dateFormat"]
 - !private ["PSo9NSCopying", "deinit"]
 - !private ["PSo9NSCopying", "email"]
 - !private ["PSo9NSCopying", "fields"]
 - !private ["PSo9NSCopying", "id"]
 - ["PSo9NSCopying", "init"]
 - !private ["PSo9NSCopying", "isEmpty"]
+- !private ["PSo9NSCopying", "lastMessageDate"]
 - !private ["PSo9NSCopying", "lastMessageText"]
 - !private ["PSo9NSCopying", "length"]
 - !private ["PSo9NSCopying", "localized"]
@@ -2434,6 +2670,8 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "Alamofire"]
 - !private ["PSo26NSExtensionRequestHandling", "AlertView"]
 - !private ["PSo26NSExtensionRequestHandling", "ApiMethods"]
+- !private ["PSo26NSExtensionRequestHandling", "Calendar"]
+- !private ["PSo26NSExtensionRequestHandling", "DateComponents"]
 - !private ["PSo26NSExtensionRequestHandling", "DialogTableViewCellModel"]
 - !private ["PSo26NSExtensionRequestHandling", "DialogsViewController"]
 - !private ["PSo26NSExtensionRequestHandling", "GoogleAnalyticManagerApi"]
@@ -2506,6 +2744,7 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "isGroupMode"]
 - !private ["PSo26NSExtensionRequestHandling", "kDialogsPageLimit"]
 - !private ["PSo26NSExtensionRequestHandling", "kDialogsScreenName"]
+- ["PSo26NSExtensionRequestHandling", "lblDate"]
 - ["PSo26NSExtensionRequestHandling", "logoutAction"]
 - ["PSo26NSExtensionRequestHandling", "myTimer"]
 - !private ["PSo26NSExtensionRequestHandling", "navigationController"]
@@ -2571,10 +2810,12 @@ depends-member:
 - !private ["CSo8NSObject", "Array"]
 - ["CSo8NSObject", "Bool"]
 - ["CSo8NSObject", "CGFloat"]
+- !private ["CSo8NSObject", "Calendar"]
 - !private ["CSo8NSObject", "CallViewController"]
 - !private ["CSo8NSObject", "ChatViewController"]
 - !private ["CSo8NSObject", "ContactListViewController"]
 - !private ["CSo8NSObject", "Date"]
+- !private ["CSo8NSObject", "DateComponents"]
 - ["CSo8NSObject", "DialogTableViewCell"]
 - !private ["CSo8NSObject", "DialogTableViewCellModel"]
 - !private ["CSo8NSObject", "DialogsViewController"]
@@ -2624,6 +2865,7 @@ depends-member:
 - !private ["CSo8NSObject", "UIBarButtonItemStyle"]
 - !private ["CSo8NSObject", "UIColor"]
 - ["CSo8NSObject", "UIImage"]
+- ["CSo8NSObject", "UILabel"]
 - ["CSo8NSObject", "UIStoryboardSegue"]
 - ["CSo8NSObject", "UITableView"]
 - ["CSo8NSObject", "UITableViewCell"]
@@ -2666,6 +2908,7 @@ depends-member:
 - ["CSo8NSObject", "counterCall"]
 - ["CSo8NSObject", "createLogoutButton"]
 - !private ["CSo8NSObject", "currentUser"]
+- !private ["CSo8NSObject", "dateFormat"]
 - !private ["CSo8NSObject", "default"]
 - ["CSo8NSObject", "deinit"]
 - ["CSo8NSObject", "delegate"]
@@ -2726,8 +2969,10 @@ depends-member:
 - !private ["CSo8NSObject", "kDialogsPageLimit"]
 - !private ["CSo8NSObject", "kDialogsScreenName"]
 - !private ["CSo8NSObject", "lastActivityDate"]
+- !private ["CSo8NSObject", "lastMessageDate"]
 - !private ["CSo8NSObject", "lastMessageText"]
 - !private ["CSo8NSObject", "layer"]
+- ["CSo8NSObject", "lblDate"]
 - !private ["CSo8NSObject", "leftBarButtonItem"]
 - !private ["CSo8NSObject", "length"]
 - !private ["CSo8NSObject", "localized"]
@@ -2817,6 +3062,8 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "Alamofire"]
 - !private ["PSo16NSObjectProtocol", "AlertView"]
 - !private ["PSo16NSObjectProtocol", "ApiMethods"]
+- !private ["PSo16NSObjectProtocol", "Calendar"]
+- !private ["PSo16NSObjectProtocol", "DateComponents"]
 - !private ["PSo16NSObjectProtocol", "DialogTableViewCellModel"]
 - !private ["PSo16NSObjectProtocol", "DialogsViewController"]
 - !private ["PSo16NSObjectProtocol", "GoogleAnalyticManagerApi"]
@@ -2886,6 +3133,7 @@ depends-member:
 - ["PSo16NSObjectProtocol", "counterCall"]
 - ["PSo16NSObjectProtocol", "createLogoutButton"]
 - !private ["PSo16NSObjectProtocol", "currentUser"]
+- !private ["PSo16NSObjectProtocol", "dateFormat"]
 - !private ["PSo16NSObjectProtocol", "default"]
 - ["PSo16NSObjectProtocol", "deinit"]
 - ["PSo16NSObjectProtocol", "delegate"]
@@ -2946,8 +3194,10 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "kDialogsPageLimit"]
 - !private ["PSo16NSObjectProtocol", "kDialogsScreenName"]
 - !private ["PSo16NSObjectProtocol", "lastActivityDate"]
+- !private ["PSo16NSObjectProtocol", "lastMessageDate"]
 - !private ["PSo16NSObjectProtocol", "lastMessageText"]
 - !private ["PSo16NSObjectProtocol", "layer"]
+- ["PSo16NSObjectProtocol", "lblDate"]
 - !private ["PSo16NSObjectProtocol", "leftBarButtonItem"]
 - !private ["PSo16NSObjectProtocol", "length"]
 - !private ["PSo16NSObjectProtocol", "localized"]
@@ -3080,6 +3330,7 @@ depends-member:
 - !private ["CSo6QBChat", "isConnected"]
 - ["CSo12QBChatDialog", "deinit"]
 - !private ["CSo12QBChatDialog", "id"]
+- !private ["CSo12QBChatDialog", "lastMessageDate"]
 - !private ["CSo12QBChatDialog", "lastMessageText"]
 - !private ["CSo12QBChatDialog", "name"]
 - !private ["CSo12QBChatDialog", "occupantIDs"]
@@ -3095,6 +3346,8 @@ depends-member:
 - !private ["PSo14QBCoreDelegate", "Alamofire"]
 - !private ["PSo14QBCoreDelegate", "AlertView"]
 - !private ["PSo14QBCoreDelegate", "ApiMethods"]
+- !private ["PSo14QBCoreDelegate", "Calendar"]
+- !private ["PSo14QBCoreDelegate", "DateComponents"]
 - !private ["PSo14QBCoreDelegate", "DialogTableViewCellModel"]
 - !private ["PSo14QBCoreDelegate", "DialogsViewController"]
 - !private ["PSo14QBCoreDelegate", "GoogleAnalyticManagerApi"]
@@ -3188,6 +3441,8 @@ depends-member:
 - !private ["PSo19QBRTCClientDelegate", "Alamofire"]
 - !private ["PSo19QBRTCClientDelegate", "AlertView"]
 - !private ["PSo19QBRTCClientDelegate", "ApiMethods"]
+- !private ["PSo19QBRTCClientDelegate", "Calendar"]
+- !private ["PSo19QBRTCClientDelegate", "DateComponents"]
 - !private ["PSo19QBRTCClientDelegate", "DialogTableViewCellModel"]
 - !private ["PSo19QBRTCClientDelegate", "DialogsViewController"]
 - !private ["PSo19QBRTCClientDelegate", "GoogleAnalyticManagerApi"]
@@ -3296,6 +3551,8 @@ depends-member:
 - !private ["PSo21QMAuthServiceDelegate", "Alamofire"]
 - !private ["PSo21QMAuthServiceDelegate", "AlertView"]
 - !private ["PSo21QMAuthServiceDelegate", "ApiMethods"]
+- !private ["PSo21QMAuthServiceDelegate", "Calendar"]
+- !private ["PSo21QMAuthServiceDelegate", "DateComponents"]
 - !private ["PSo21QMAuthServiceDelegate", "DialogTableViewCellModel"]
 - !private ["PSo21QMAuthServiceDelegate", "DialogsViewController"]
 - !private ["PSo21QMAuthServiceDelegate", "GoogleAnalyticManagerApi"]
@@ -3403,6 +3660,8 @@ depends-member:
 - !private ["PSo24QMChatConnectionDelegate", "Alamofire"]
 - !private ["PSo24QMChatConnectionDelegate", "AlertView"]
 - !private ["PSo24QMChatConnectionDelegate", "ApiMethods"]
+- !private ["PSo24QMChatConnectionDelegate", "Calendar"]
+- !private ["PSo24QMChatConnectionDelegate", "DateComponents"]
 - !private ["PSo24QMChatConnectionDelegate", "DialogTableViewCellModel"]
 - !private ["PSo24QMChatConnectionDelegate", "DialogsViewController"]
 - !private ["PSo24QMChatConnectionDelegate", "GoogleAnalyticManagerApi"]
@@ -3518,6 +3777,8 @@ depends-member:
 - !private ["PSo21QMChatServiceDelegate", "Alamofire"]
 - !private ["PSo21QMChatServiceDelegate", "AlertView"]
 - !private ["PSo21QMChatServiceDelegate", "ApiMethods"]
+- !private ["PSo21QMChatServiceDelegate", "Calendar"]
+- !private ["PSo21QMChatServiceDelegate", "DateComponents"]
 - !private ["PSo21QMChatServiceDelegate", "DialogTableViewCellModel"]
 - !private ["PSo21QMChatServiceDelegate", "DialogsViewController"]
 - !private ["PSo21QMChatServiceDelegate", "GoogleAnalyticManagerApi"]
@@ -3753,8 +4014,29 @@ depends-member:
 - ["Ps16RawRepresentable", "publicGroup"]
 - !private ["Ps16RawRepresentable", "right"]
 - !private ["Ps16RawRepresentable", "rightToLeft"]
+- !private ["P10Foundation20ReferenceConvertible", "Calendar"]
+- !private ["P10Foundation20ReferenceConvertible", "Date"]
+- !private ["P10Foundation20ReferenceConvertible", "component"]
+- !private ["P10Foundation20ReferenceConvertible", "current"]
+- !private ["P10Foundation20ReferenceConvertible", "date"]
+- !private ["P10Foundation20ReferenceConvertible", "dateComponents"]
+- !private ["P10Foundation20ReferenceConvertible", "day"]
+- !private ["P10Foundation20ReferenceConvertible", "days"]
+- !private ["P10Foundation20ReferenceConvertible", "hour"]
+- !private ["P10Foundation20ReferenceConvertible", "hours"]
 - !private ["P10Foundation20ReferenceConvertible", "init"]
+- !private ["P10Foundation20ReferenceConvertible", "minute"]
+- !private ["P10Foundation20ReferenceConvertible", "minutes"]
+- !private ["P10Foundation20ReferenceConvertible", "month"]
+- !private ["P10Foundation20ReferenceConvertible", "months"]
+- !private ["P10Foundation20ReferenceConvertible", "relativeTime"]
 - !private ["P10Foundation20ReferenceConvertible", "row"]
+- !private ["P10Foundation20ReferenceConvertible", "second"]
+- !private ["P10Foundation20ReferenceConvertible", "seconds"]
+- !private ["P10Foundation20ReferenceConvertible", "weekOfYear"]
+- !private ["P10Foundation20ReferenceConvertible", "weeks"]
+- !private ["P10Foundation20ReferenceConvertible", "year"]
+- !private ["P10Foundation20ReferenceConvertible", "years"]
 - !private ["C9Alamofire7Request", "responseJSON"]
 - !private ["P9Alamofire8Response", "result"]
 - !private ["O9Alamofire6Result", "deinit"]
@@ -3802,14 +4084,19 @@ depends-member:
 - !private ["C11DiabetesApp15ServicesManager", "lastActivityDate"]
 - !private ["C11DiabetesApp15ServicesManager", "logoutUserWithCompletion"]
 - !private ["C11DiabetesApp15ServicesManager", "usersService"]
+- !private ["Vs3Set", "Element"]
+- ["Vs3Set", "deinit"]
+- !private ["Ps10SetAlgebra", "Element"]
 - !private ["Ps10SetAlgebra", "highPriority"]
 - !private ["Ps13SignedInteger", "IntegerLiteralType"]
 - !private ["Ps13SignedInteger", "Stride"]
 - !private ["Ps13SignedInteger", "_DisabledRangeIndex"]
+- !private ["Ps13SignedInteger", "description"]
 - ["Ps13SignedInteger", "init"]
 - !private ["Ps12SignedNumber", "IntegerLiteralType"]
 - !private ["Ps12SignedNumber", "Stride"]
 - !private ["Ps12SignedNumber", "_DisabledRangeIndex"]
+- !private ["Ps12SignedNumber", "description"]
 - ["Ps12SignedNumber", "init"]
 - !private ["Vs5Slice", "Index"]
 - !private ["Vs5Slice", "Iterator"]
@@ -3821,6 +4108,7 @@ depends-member:
 - !private ["Ps10Strideable", "Stride"]
 - !private ["Ps10Strideable", "_DisabledRangeIndex"]
 - !private ["Ps10Strideable", "_DisallowMixedSignArithmetic"]
+- !private ["Ps10Strideable", "description"]
 - ["Ps10Strideable", "init"]
 - ["SS", "deinit"]
 - ["SS", "init"]
@@ -3859,6 +4147,7 @@ depends-member:
 - !private ["PSo29UIAccessibilityIdentification", "isUserInteractionEnabled"]
 - !private ["PSo29UIAccessibilityIdentification", "items"]
 - !private ["PSo29UIAccessibilityIdentification", "layer"]
+- !private ["PSo29UIAccessibilityIdentification", "lblDate"]
 - !private ["PSo29UIAccessibilityIdentification", "reloadData"]
 - !private ["PSo29UIAccessibilityIdentification", "show"]
 - !private ["PSo29UIAccessibilityIdentification", "showError"]
@@ -3893,6 +4182,7 @@ depends-member:
 - !private ["PSo12UIAppearance", "isUserInteractionEnabled"]
 - !private ["PSo12UIAppearance", "items"]
 - !private ["PSo12UIAppearance", "layer"]
+- !private ["PSo12UIAppearance", "lblDate"]
 - !private ["PSo12UIAppearance", "reloadData"]
 - !private ["PSo12UIAppearance", "show"]
 - !private ["PSo12UIAppearance", "showError"]
@@ -3906,6 +4196,8 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "Alamofire"]
 - !private ["PSo21UIAppearanceContainer", "AlertView"]
 - !private ["PSo21UIAppearanceContainer", "ApiMethods"]
+- !private ["PSo21UIAppearanceContainer", "Calendar"]
+- !private ["PSo21UIAppearanceContainer", "DateComponents"]
 - !private ["PSo21UIAppearanceContainer", "DialogTableViewCellModel"]
 - !private ["PSo21UIAppearanceContainer", "DialogsViewController"]
 - !private ["PSo21UIAppearanceContainer", "GoogleAnalyticManagerApi"]
@@ -3996,6 +4288,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "kDialogsPageLimit"]
 - !private ["PSo21UIAppearanceContainer", "kDialogsScreenName"]
 - !private ["PSo21UIAppearanceContainer", "layer"]
+- ["PSo21UIAppearanceContainer", "lblDate"]
 - ["PSo21UIAppearanceContainer", "logoutAction"]
 - ["PSo21UIAppearanceContainer", "myTimer"]
 - !private ["PSo21UIAppearanceContainer", "navigationController"]
@@ -4067,6 +4360,8 @@ depends-member:
 - !private ["PSo18UIContentContainer", "Alamofire"]
 - !private ["PSo18UIContentContainer", "AlertView"]
 - !private ["PSo18UIContentContainer", "ApiMethods"]
+- !private ["PSo18UIContentContainer", "Calendar"]
+- !private ["PSo18UIContentContainer", "DateComponents"]
 - !private ["PSo18UIContentContainer", "DialogTableViewCellModel"]
 - !private ["PSo18UIContentContainer", "DialogsViewController"]
 - !private ["PSo18UIContentContainer", "GoogleAnalyticManagerApi"]
@@ -4139,6 +4434,7 @@ depends-member:
 - !private ["PSo18UIContentContainer", "isGroupMode"]
 - !private ["PSo18UIContentContainer", "kDialogsPageLimit"]
 - !private ["PSo18UIContentContainer", "kDialogsScreenName"]
+- ["PSo18UIContentContainer", "lblDate"]
 - ["PSo18UIContentContainer", "logoutAction"]
 - ["PSo18UIContentContainer", "myTimer"]
 - !private ["PSo18UIContentContainer", "navigationController"]
@@ -4195,6 +4491,7 @@ depends-member:
 - !private ["PSo17UICoordinateSpace", "isUserInteractionEnabled"]
 - !private ["PSo17UICoordinateSpace", "items"]
 - !private ["PSo17UICoordinateSpace", "layer"]
+- !private ["PSo17UICoordinateSpace", "lblDate"]
 - !private ["PSo17UICoordinateSpace", "reloadData"]
 - !private ["PSo17UICoordinateSpace", "show"]
 - !private ["PSo17UICoordinateSpace", "showError"]
@@ -4224,6 +4521,7 @@ depends-member:
 - !private ["PSo13UIDynamicItem", "isUserInteractionEnabled"]
 - !private ["PSo13UIDynamicItem", "items"]
 - !private ["PSo13UIDynamicItem", "layer"]
+- !private ["PSo13UIDynamicItem", "lblDate"]
 - !private ["PSo13UIDynamicItem", "reloadData"]
 - !private ["PSo13UIDynamicItem", "show"]
 - !private ["PSo13UIDynamicItem", "showError"]
@@ -4237,6 +4535,8 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "Alamofire"]
 - !private ["PSo18UIFocusEnvironment", "AlertView"]
 - !private ["PSo18UIFocusEnvironment", "ApiMethods"]
+- !private ["PSo18UIFocusEnvironment", "Calendar"]
+- !private ["PSo18UIFocusEnvironment", "DateComponents"]
 - !private ["PSo18UIFocusEnvironment", "DialogTableViewCellModel"]
 - !private ["PSo18UIFocusEnvironment", "DialogsViewController"]
 - !private ["PSo18UIFocusEnvironment", "GoogleAnalyticManagerApi"]
@@ -4327,6 +4627,7 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "kDialogsPageLimit"]
 - !private ["PSo18UIFocusEnvironment", "kDialogsScreenName"]
 - !private ["PSo18UIFocusEnvironment", "layer"]
+- ["PSo18UIFocusEnvironment", "lblDate"]
 - ["PSo18UIFocusEnvironment", "logoutAction"]
 - ["PSo18UIFocusEnvironment", "myTimer"]
 - !private ["PSo18UIFocusEnvironment", "navigationController"]
@@ -4391,6 +4692,7 @@ depends-member:
 - !private ["PSo11UIFocusItem", "isUserInteractionEnabled"]
 - !private ["PSo11UIFocusItem", "items"]
 - !private ["PSo11UIFocusItem", "layer"]
+- !private ["PSo11UIFocusItem", "lblDate"]
 - !private ["PSo11UIFocusItem", "reloadData"]
 - !private ["PSo11UIFocusItem", "show"]
 - !private ["PSo11UIFocusItem", "showError"]
@@ -4409,6 +4711,7 @@ depends-member:
 - !private ["PSo27UIGestureRecognizerDelegate", "dialogName"]
 - !private ["PSo27UIGestureRecognizerDelegate", "dialogTypeImage"]
 - !private ["PSo27UIGestureRecognizerDelegate", "isExclusiveTouch"]
+- !private ["PSo27UIGestureRecognizerDelegate", "lblDate"]
 - !private ["PSo27UIGestureRecognizerDelegate", "tag"]
 - !private ["PSo27UIGestureRecognizerDelegate", "unreadMessageCounterHolder"]
 - !private ["PSo27UIGestureRecognizerDelegate", "unreadMessageCounterLabel"]
@@ -4440,10 +4743,12 @@ depends-member:
 - !private ["CSo11UIResponder", "Array"]
 - ["CSo11UIResponder", "Bool"]
 - ["CSo11UIResponder", "CGFloat"]
+- !private ["CSo11UIResponder", "Calendar"]
 - !private ["CSo11UIResponder", "CallViewController"]
 - !private ["CSo11UIResponder", "ChatViewController"]
 - !private ["CSo11UIResponder", "ContactListViewController"]
 - !private ["CSo11UIResponder", "Date"]
+- !private ["CSo11UIResponder", "DateComponents"]
 - ["CSo11UIResponder", "DialogTableViewCell"]
 - !private ["CSo11UIResponder", "DialogTableViewCellModel"]
 - !private ["CSo11UIResponder", "DialogsViewController"]
@@ -4491,6 +4796,7 @@ depends-member:
 - !private ["CSo11UIResponder", "UIBarButtonItemStyle"]
 - !private ["CSo11UIResponder", "UIColor"]
 - !private ["CSo11UIResponder", "UIImage"]
+- ["CSo11UIResponder", "UILabel"]
 - ["CSo11UIResponder", "UIStoryboardSegue"]
 - ["CSo11UIResponder", "UITableView"]
 - ["CSo11UIResponder", "UITableViewCell"]
@@ -4558,6 +4864,7 @@ depends-member:
 - !private ["CSo11UIResponder", "kDialogsPageLimit"]
 - !private ["CSo11UIResponder", "kDialogsScreenName"]
 - !private ["CSo11UIResponder", "layer"]
+- ["CSo11UIResponder", "lblDate"]
 - ["CSo11UIResponder", "logoutAction"]
 - ["CSo11UIResponder", "myTimer"]
 - !private ["CSo11UIResponder", "navigationController"]
@@ -4607,6 +4914,8 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "Alamofire"]
 - !private ["PSo30UIResponderStandardEditActions", "AlertView"]
 - !private ["PSo30UIResponderStandardEditActions", "ApiMethods"]
+- !private ["PSo30UIResponderStandardEditActions", "Calendar"]
+- !private ["PSo30UIResponderStandardEditActions", "DateComponents"]
 - !private ["PSo30UIResponderStandardEditActions", "DialogTableViewCellModel"]
 - !private ["PSo30UIResponderStandardEditActions", "DialogsViewController"]
 - !private ["PSo30UIResponderStandardEditActions", "GoogleAnalyticManagerApi"]
@@ -4698,6 +5007,7 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "kDialogsPageLimit"]
 - !private ["PSo30UIResponderStandardEditActions", "kDialogsScreenName"]
 - !private ["PSo30UIResponderStandardEditActions", "layer"]
+- ["PSo30UIResponderStandardEditActions", "lblDate"]
 - ["PSo30UIResponderStandardEditActions", "logoutAction"]
 - ["PSo30UIResponderStandardEditActions", "myTimer"]
 - !private ["PSo30UIResponderStandardEditActions", "navigationController"]
@@ -4753,6 +5063,8 @@ depends-member:
 - !private ["PSo20UIScrollViewDelegate", "Alamofire"]
 - !private ["PSo20UIScrollViewDelegate", "AlertView"]
 - !private ["PSo20UIScrollViewDelegate", "ApiMethods"]
+- !private ["PSo20UIScrollViewDelegate", "Calendar"]
+- !private ["PSo20UIScrollViewDelegate", "DateComponents"]
 - !private ["PSo20UIScrollViewDelegate", "DialogTableViewCellModel"]
 - !private ["PSo20UIScrollViewDelegate", "DialogsViewController"]
 - !private ["PSo20UIScrollViewDelegate", "GoogleAnalyticManagerApi"]
@@ -4823,6 +5135,7 @@ depends-member:
 - !private ["PSo20UIScrollViewDelegate", "isGroupMode"]
 - !private ["PSo20UIScrollViewDelegate", "kDialogsPageLimit"]
 - !private ["PSo20UIScrollViewDelegate", "kDialogsScreenName"]
+- ["PSo20UIScrollViewDelegate", "lblDate"]
 - ["PSo20UIScrollViewDelegate", "logoutAction"]
 - ["PSo20UIScrollViewDelegate", "myTimer"]
 - !private ["PSo20UIScrollViewDelegate", "navigationController"]
@@ -4856,6 +5169,8 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "Alamofire"]
 - !private ["PSo16UIStateRestoring", "AlertView"]
 - !private ["PSo16UIStateRestoring", "ApiMethods"]
+- !private ["PSo16UIStateRestoring", "Calendar"]
+- !private ["PSo16UIStateRestoring", "DateComponents"]
 - !private ["PSo16UIStateRestoring", "DialogTableViewCellModel"]
 - !private ["PSo16UIStateRestoring", "DialogsViewController"]
 - !private ["PSo16UIStateRestoring", "GoogleAnalyticManagerApi"]
@@ -4928,6 +5243,7 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "isGroupMode"]
 - !private ["PSo16UIStateRestoring", "kDialogsPageLimit"]
 - !private ["PSo16UIStateRestoring", "kDialogsScreenName"]
+- ["PSo16UIStateRestoring", "lblDate"]
 - ["PSo16UIStateRestoring", "logoutAction"]
 - ["PSo16UIStateRestoring", "myTimer"]
 - !private ["PSo16UIStateRestoring", "navigationController"]
@@ -4996,6 +5312,7 @@ depends-member:
 - !private ["CSo15UITableViewCell", "dialogName"]
 - !private ["CSo15UITableViewCell", "dialogTypeImage"]
 - !private ["CSo15UITableViewCell", "isExclusiveTouch"]
+- !private ["CSo15UITableViewCell", "lblDate"]
 - !private ["CSo15UITableViewCell", "tag"]
 - !private ["CSo15UITableViewCell", "unreadMessageCounterHolder"]
 - !private ["CSo15UITableViewCell", "unreadMessageCounterLabel"]
@@ -5012,10 +5329,12 @@ depends-member:
 - !private ["CSo21UITableViewController", "Array"]
 - ["CSo21UITableViewController", "Bool"]
 - ["CSo21UITableViewController", "CGFloat"]
+- !private ["CSo21UITableViewController", "Calendar"]
 - !private ["CSo21UITableViewController", "CallViewController"]
 - !private ["CSo21UITableViewController", "ChatViewController"]
 - !private ["CSo21UITableViewController", "ContactListViewController"]
 - !private ["CSo21UITableViewController", "Date"]
+- !private ["CSo21UITableViewController", "DateComponents"]
 - ["CSo21UITableViewController", "DialogTableViewCell"]
 - !private ["CSo21UITableViewController", "DialogTableViewCellModel"]
 - !private ["CSo21UITableViewController", "DialogsViewController"]
@@ -5063,6 +5382,7 @@ depends-member:
 - !private ["CSo21UITableViewController", "UIBarButtonItemStyle"]
 - !private ["CSo21UITableViewController", "UIColor"]
 - !private ["CSo21UITableViewController", "UIImage"]
+- ["CSo21UITableViewController", "UILabel"]
 - ["CSo21UITableViewController", "UIStoryboardSegue"]
 - ["CSo21UITableViewController", "UITableView"]
 - ["CSo21UITableViewController", "UITableViewCell"]
@@ -5107,6 +5427,7 @@ depends-member:
 - ["CSo21UITableViewController", "init"]
 - !private ["CSo21UITableViewController", "kDialogsPageLimit"]
 - !private ["CSo21UITableViewController", "kDialogsScreenName"]
+- ["CSo21UITableViewController", "lblDate"]
 - ["CSo21UITableViewController", "logoutAction"]
 - ["CSo21UITableViewController", "myTimer"]
 - !private ["CSo21UITableViewController", "navigationController"]
@@ -5140,6 +5461,8 @@ depends-member:
 - !private ["PSo21UITableViewDataSource", "Alamofire"]
 - !private ["PSo21UITableViewDataSource", "AlertView"]
 - !private ["PSo21UITableViewDataSource", "ApiMethods"]
+- !private ["PSo21UITableViewDataSource", "Calendar"]
+- !private ["PSo21UITableViewDataSource", "DateComponents"]
 - !private ["PSo21UITableViewDataSource", "DialogTableViewCellModel"]
 - !private ["PSo21UITableViewDataSource", "DialogsViewController"]
 - !private ["PSo21UITableViewDataSource", "GoogleAnalyticManagerApi"]
@@ -5209,6 +5532,7 @@ depends-member:
 - !private ["PSo21UITableViewDataSource", "isGroupMode"]
 - !private ["PSo21UITableViewDataSource", "kDialogsPageLimit"]
 - !private ["PSo21UITableViewDataSource", "kDialogsScreenName"]
+- ["PSo21UITableViewDataSource", "lblDate"]
 - ["PSo21UITableViewDataSource", "logoutAction"]
 - ["PSo21UITableViewDataSource", "myTimer"]
 - !private ["PSo21UITableViewDataSource", "navigationController"]
@@ -5242,6 +5566,8 @@ depends-member:
 - !private ["PSo19UITableViewDelegate", "Alamofire"]
 - !private ["PSo19UITableViewDelegate", "AlertView"]
 - !private ["PSo19UITableViewDelegate", "ApiMethods"]
+- !private ["PSo19UITableViewDelegate", "Calendar"]
+- !private ["PSo19UITableViewDelegate", "DateComponents"]
 - !private ["PSo19UITableViewDelegate", "DialogTableViewCellModel"]
 - !private ["PSo19UITableViewDelegate", "DialogsViewController"]
 - !private ["PSo19UITableViewDelegate", "GoogleAnalyticManagerApi"]
@@ -5311,6 +5637,7 @@ depends-member:
 - !private ["PSo19UITableViewDelegate", "isGroupMode"]
 - !private ["PSo19UITableViewDelegate", "kDialogsPageLimit"]
 - !private ["PSo19UITableViewDelegate", "kDialogsScreenName"]
+- ["PSo19UITableViewDelegate", "lblDate"]
 - ["PSo19UITableViewDelegate", "logoutAction"]
 - ["PSo19UITableViewDelegate", "myTimer"]
 - !private ["PSo19UITableViewDelegate", "navigationController"]
@@ -5347,6 +5674,8 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "Alamofire"]
 - !private ["PSo18UITraitEnvironment", "AlertView"]
 - !private ["PSo18UITraitEnvironment", "ApiMethods"]
+- !private ["PSo18UITraitEnvironment", "Calendar"]
+- !private ["PSo18UITraitEnvironment", "DateComponents"]
 - !private ["PSo18UITraitEnvironment", "DialogTableViewCellModel"]
 - !private ["PSo18UITraitEnvironment", "DialogsViewController"]
 - !private ["PSo18UITraitEnvironment", "GoogleAnalyticManagerApi"]
@@ -5437,6 +5766,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "kDialogsPageLimit"]
 - !private ["PSo18UITraitEnvironment", "kDialogsScreenName"]
 - !private ["PSo18UITraitEnvironment", "layer"]
+- ["PSo18UITraitEnvironment", "lblDate"]
 - ["PSo18UITraitEnvironment", "logoutAction"]
 - ["PSo18UITraitEnvironment", "myTimer"]
 - !private ["PSo18UITraitEnvironment", "navigationController"]
@@ -5505,6 +5835,7 @@ depends-member:
 - !private ["CSo6UIView", "isUserInteractionEnabled"]
 - !private ["CSo6UIView", "items"]
 - !private ["CSo6UIView", "layer"]
+- !private ["CSo6UIView", "lblDate"]
 - !private ["CSo6UIView", "reloadData"]
 - !private ["CSo6UIView", "show"]
 - !private ["CSo6UIView", "showError"]
@@ -5523,10 +5854,12 @@ depends-member:
 - !private ["CSo16UIViewController", "Array"]
 - ["CSo16UIViewController", "Bool"]
 - ["CSo16UIViewController", "CGFloat"]
+- !private ["CSo16UIViewController", "Calendar"]
 - !private ["CSo16UIViewController", "CallViewController"]
 - !private ["CSo16UIViewController", "ChatViewController"]
 - !private ["CSo16UIViewController", "ContactListViewController"]
 - !private ["CSo16UIViewController", "Date"]
+- !private ["CSo16UIViewController", "DateComponents"]
 - ["CSo16UIViewController", "DialogTableViewCell"]
 - !private ["CSo16UIViewController", "DialogTableViewCellModel"]
 - !private ["CSo16UIViewController", "DialogsViewController"]
@@ -5574,6 +5907,7 @@ depends-member:
 - !private ["CSo16UIViewController", "UIBarButtonItemStyle"]
 - !private ["CSo16UIViewController", "UIColor"]
 - !private ["CSo16UIViewController", "UIImage"]
+- ["CSo16UIViewController", "UILabel"]
 - ["CSo16UIViewController", "UIStoryboardSegue"]
 - ["CSo16UIViewController", "UITableView"]
 - ["CSo16UIViewController", "UITableViewCell"]
@@ -5623,6 +5957,7 @@ depends-member:
 - !private ["CSo16UIViewController", "isGroupMode"]
 - !private ["CSo16UIViewController", "kDialogsPageLimit"]
 - !private ["CSo16UIViewController", "kDialogsScreenName"]
+- ["CSo16UIViewController", "lblDate"]
 - ["CSo16UIViewController", "logoutAction"]
 - ["CSo16UIViewController", "myTimer"]
 - !private ["CSo16UIViewController", "navigationController"]
@@ -5734,6 +6069,7 @@ depends-member:
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "isUserInteractionEnabled"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "items"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "layer"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "lblDate"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "reloadData"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "show"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "showError"]
@@ -5771,6 +6107,7 @@ depends-member:
 - !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "Stride"]
 - !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "_DisabledRangeIndex"]
 - !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "_DisallowMixedSignArithmetic"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "description"]
 - ["Ps35_ExpressibleByBuiltinIntegerLiteral", "init"]
 - ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
 - !private ["Ps34_ExpressibleByBuiltinStringLiteral", "isEmpty"]
@@ -5795,8 +6132,12 @@ depends-member:
 - !private ["Ps9_Hashable", "Alamofire"]
 - !private ["Ps9_Hashable", "AlertView"]
 - !private ["Ps9_Hashable", "ApiMethods"]
+- !private ["Ps9_Hashable", "Calendar"]
+- !private ["Ps9_Hashable", "Date"]
+- !private ["Ps9_Hashable", "DateComponents"]
 - !private ["Ps9_Hashable", "DialogTableViewCellModel"]
 - !private ["Ps9_Hashable", "DialogsViewController"]
+- !private ["Ps9_Hashable", "Element"]
 - !private ["Ps9_Hashable", "GoogleAnalyticManagerApi"]
 - ["Ps9_Hashable", "GroupAction"]
 - ["Ps9_Hashable", "Int"]
@@ -5864,6 +6205,7 @@ depends-member:
 - ["Ps9_Hashable", "chatServiceChatHasStartedConnecting"]
 - !private ["Ps9_Hashable", "clear"]
 - !private ["Ps9_Hashable", "clipsToBounds"]
+- !private ["Ps9_Hashable", "component"]
 - !private ["Ps9_Hashable", "contentView"]
 - ["Ps9_Hashable", "core"]
 - ["Ps9_Hashable", "coreDidLogin"]
@@ -5871,12 +6213,19 @@ depends-member:
 - !private ["Ps9_Hashable", "cornerRadius"]
 - ["Ps9_Hashable", "counterCall"]
 - ["Ps9_Hashable", "createLogoutButton"]
+- !private ["Ps9_Hashable", "current"]
 - !private ["Ps9_Hashable", "currentUser"]
+- !private ["Ps9_Hashable", "date"]
+- !private ["Ps9_Hashable", "dateComponents"]
+- !private ["Ps9_Hashable", "dateFormat"]
+- !private ["Ps9_Hashable", "day"]
+- !private ["Ps9_Hashable", "days"]
 - !private ["Ps9_Hashable", "default"]
 - ["Ps9_Hashable", "delegate"]
 - !private ["Ps9_Hashable", "delete"]
 - !private ["Ps9_Hashable", "deleteDialog"]
 - !private ["Ps9_Hashable", "dequeueReusableCell"]
+- !private ["Ps9_Hashable", "description"]
 - !private ["Ps9_Hashable", "deselectRow"]
 - !private ["Ps9_Hashable", "destination"]
 - ["Ps9_Hashable", "detailTextLabelText"]
@@ -5909,6 +6258,8 @@ depends-member:
 - ["Ps9_Hashable", "getRequestBadgeCounter"]
 - ["Ps9_Hashable", "group"]
 - !private ["Ps9_Hashable", "hidesBottomBarWhenPushed"]
+- !private ["Ps9_Hashable", "hour"]
+- !private ["Ps9_Hashable", "hours"]
 - !private ["Ps9_Hashable", "id"]
 - !private ["Ps9_Hashable", "identifier"]
 - !private ["Ps9_Hashable", "image"]
@@ -5935,8 +6286,10 @@ depends-member:
 - !private ["Ps9_Hashable", "kDialogsPageLimit"]
 - !private ["Ps9_Hashable", "kDialogsScreenName"]
 - !private ["Ps9_Hashable", "lastActivityDate"]
+- !private ["Ps9_Hashable", "lastMessageDate"]
 - !private ["Ps9_Hashable", "lastMessageText"]
 - !private ["Ps9_Hashable", "layer"]
+- ["Ps9_Hashable", "lblDate"]
 - !private ["Ps9_Hashable", "left"]
 - !private ["Ps9_Hashable", "leftBarButtonItem"]
 - !private ["Ps9_Hashable", "length"]
@@ -5945,6 +6298,10 @@ depends-member:
 - ["Ps9_Hashable", "logoutAction"]
 - !private ["Ps9_Hashable", "logoutUserWithCompletion"]
 - !private ["Ps9_Hashable", "main"]
+- !private ["Ps9_Hashable", "minute"]
+- !private ["Ps9_Hashable", "minutes"]
+- !private ["Ps9_Hashable", "month"]
+- !private ["Ps9_Hashable", "months"]
 - ["Ps9_Hashable", "myTimer"]
 - !private ["Ps9_Hashable", "name"]
 - !private ["Ps9_Hashable", "navigationController"]
@@ -5969,6 +6326,7 @@ depends-member:
 - !private ["Ps9_Hashable", "qbUsersArray"]
 - !private ["Ps9_Hashable", "recipientID"]
 - !private ["Ps9_Hashable", "rejectCall"]
+- !private ["Ps9_Hashable", "relativeTime"]
 - !private ["Ps9_Hashable", "reloadData"]
 - ["Ps9_Hashable", "reloadTableViewIfNeeded"]
 - !private ["Ps9_Hashable", "remove"]
@@ -5982,6 +6340,8 @@ depends-member:
 - !private ["Ps9_Hashable", "row"]
 - ["Ps9_Hashable", "runTimedCode"]
 - !private ["Ps9_Hashable", "scheduledTimer"]
+- !private ["Ps9_Hashable", "second"]
+- !private ["Ps9_Hashable", "seconds"]
 - ["Ps9_Hashable", "selectedUserType"]
 - !private ["Ps9_Hashable", "sendAnalyticsEventWithCategory"]
 - !private ["Ps9_Hashable", "sendNotificationMessageAboutLeaving"]
@@ -6029,23 +6389,44 @@ depends-member:
 - ["Ps9_Hashable", "viewDidAppear"]
 - ["Ps9_Hashable", "viewWillAppear"]
 - ["Ps9_Hashable", "viewWillDisappear"]
+- !private ["Ps9_Hashable", "weekOfYear"]
+- !private ["Ps9_Hashable", "weeks"]
 - !private ["Ps9_Hashable", "white"]
+- !private ["Ps9_Hashable", "year"]
+- !private ["Ps9_Hashable", "years"]
 - ["Ps9_Hashable", ""]
 - !private ["Ps14_Incrementable", "IntegerLiteralType"]
 - !private ["Ps14_Incrementable", "Stride"]
 - !private ["Ps14_Incrementable", "_DisabledRangeIndex"]
 - !private ["Ps14_Incrementable", "_DisallowMixedSignArithmetic"]
+- !private ["Ps14_Incrementable", "description"]
 - ["Ps14_Incrementable", "init"]
 - !private ["Ps8_Integer", "IntegerLiteralType"]
 - !private ["Ps8_Integer", "Stride"]
 - !private ["Ps8_Integer", "_DisabledRangeIndex"]
 - !private ["Ps8_Integer", "_DisallowMixedSignArithmetic"]
+- !private ["Ps8_Integer", "description"]
 - ["Ps8_Integer", "init"]
 - !private ["Ps18_IntegerArithmetic", "IntegerLiteralType"]
 - !private ["Ps18_IntegerArithmetic", "Stride"]
 - !private ["Ps18_IntegerArithmetic", "_DisabledRangeIndex"]
 - !private ["Ps18_IntegerArithmetic", "_DisallowMixedSignArithmetic"]
+- !private ["Ps18_IntegerArithmetic", "description"]
 - ["Ps18_IntegerArithmetic", "init"]
+- !private ["P10Foundation14_MutableBoxing", "component"]
+- !private ["P10Foundation14_MutableBoxing", "current"]
+- !private ["P10Foundation14_MutableBoxing", "date"]
+- !private ["P10Foundation14_MutableBoxing", "dateComponents"]
+- !private ["P10Foundation14_MutableBoxing", "day"]
+- !private ["P10Foundation14_MutableBoxing", "hour"]
+- !private ["P10Foundation14_MutableBoxing", "init"]
+- !private ["P10Foundation14_MutableBoxing", "minute"]
+- !private ["P10Foundation14_MutableBoxing", "month"]
+- !private ["P10Foundation14_MutableBoxing", "second"]
+- !private ["P10Foundation14_MutableBoxing", "weekOfYear"]
+- !private ["P10Foundation14_MutableBoxing", "year"]
+- !private ["Ps21_ObjectiveCBridgeable", "Calendar"]
+- !private ["Ps21_ObjectiveCBridgeable", "Date"]
 - !private ["Ps21_ObjectiveCBridgeable", "Element"]
 - !private ["Ps21_ObjectiveCBridgeable", "Index"]
 - !private ["Ps21_ObjectiveCBridgeable", "IndexDistance"]
@@ -6062,29 +6443,51 @@ depends-member:
 - !private ["Ps21_ObjectiveCBridgeable", "_DisallowMixedSignArithmetic"]
 - !private ["Ps21_ObjectiveCBridgeable", "_Element"]
 - !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "component"]
 - !private ["Ps21_ObjectiveCBridgeable", "contains"]
 - !private ["Ps21_ObjectiveCBridgeable", "count"]
+- !private ["Ps21_ObjectiveCBridgeable", "current"]
+- !private ["Ps21_ObjectiveCBridgeable", "date"]
+- !private ["Ps21_ObjectiveCBridgeable", "dateComponents"]
+- !private ["Ps21_ObjectiveCBridgeable", "day"]
+- !private ["Ps21_ObjectiveCBridgeable", "days"]
+- !private ["Ps21_ObjectiveCBridgeable", "description"]
 - !private ["Ps21_ObjectiveCBridgeable", "filter"]
 - !private ["Ps21_ObjectiveCBridgeable", "first"]
+- !private ["Ps21_ObjectiveCBridgeable", "hour"]
+- !private ["Ps21_ObjectiveCBridgeable", "hours"]
 - !private ["Ps21_ObjectiveCBridgeable", "index"]
 - ["Ps21_ObjectiveCBridgeable", "init"]
 - !private ["Ps21_ObjectiveCBridgeable", "isEmpty"]
 - !private ["Ps21_ObjectiveCBridgeable", "last"]
 - !private ["Ps21_ObjectiveCBridgeable", "length"]
 - !private ["Ps21_ObjectiveCBridgeable", "localized"]
+- !private ["Ps21_ObjectiveCBridgeable", "minute"]
+- !private ["Ps21_ObjectiveCBridgeable", "minutes"]
+- !private ["Ps21_ObjectiveCBridgeable", "month"]
+- !private ["Ps21_ObjectiveCBridgeable", "months"]
+- !private ["Ps21_ObjectiveCBridgeable", "relativeTime"]
 - !private ["Ps21_ObjectiveCBridgeable", "row"]
+- !private ["Ps21_ObjectiveCBridgeable", "second"]
+- !private ["Ps21_ObjectiveCBridgeable", "seconds"]
 - !private ["Ps21_ObjectiveCBridgeable", "size"]
 - !private ["Ps21_ObjectiveCBridgeable", "subscript"]
+- !private ["Ps21_ObjectiveCBridgeable", "weekOfYear"]
+- !private ["Ps21_ObjectiveCBridgeable", "weeks"]
 - !private ["Ps21_ObjectiveCBridgeable", "width"]
+- !private ["Ps21_ObjectiveCBridgeable", "year"]
+- !private ["Ps21_ObjectiveCBridgeable", "years"]
 - !private ["Vs26_OptionalNilComparisonType", "deinit"]
 - !private ["Ps14_SignedInteger", "IntegerLiteralType"]
 - !private ["Ps14_SignedInteger", "Stride"]
 - !private ["Ps14_SignedInteger", "_DisabledRangeIndex"]
+- !private ["Ps14_SignedInteger", "description"]
 - ["Ps14_SignedInteger", "init"]
 - !private ["Ps11_Strideable", "IntegerLiteralType"]
 - !private ["Ps11_Strideable", "Stride"]
 - !private ["Ps11_Strideable", "_DisabledRangeIndex"]
 - !private ["Ps11_Strideable", "_DisallowMixedSignArithmetic"]
+- !private ["Ps11_Strideable", "description"]
 - ["Ps11_Strideable", "init"]
 - !private ["Ps14_StringElement", "Stride"]
 - !private ["Ps14_StringElement", "_DisallowMixedSignArithmetic"]
@@ -6127,11 +6530,13 @@ depends-nominal:
 - !private "VSC6CGSize"
 - !private "VSC6CMTime"
 - "Ps7CVarArg"
+- "V10Foundation8Calendar"
 - !private "CSo18CallViewController"
 - !private "Vs9Character"
 - "C11DiabetesApp18ChatViewController"
 - !private "Ps10Collection"
 - "Ps10Comparable"
+- "OV10Foundation8Calendar9Component"
 - "C11DiabetesApp25ContactListViewController"
 - "Ps28CustomDebugStringConvertible"
 - "Ps29CustomPlaygroundQuickLookable"
@@ -6140,6 +6545,8 @@ depends-nominal:
 - "C9Alamofire11DataRequest"
 - !private "V9Alamofire12DataResponse"
 - "V10Foundation4Date"
+- "V10Foundation14DateComponents"
+- "CSo13DateFormatter"
 - !private "VSC7Decimal"
 - !private "Vs27DefaultBidirectionalIndices"
 - !private "Vs26DefaultRandomAccessIndices"
@@ -6166,6 +6573,7 @@ depends-nominal:
 - !private "Sf"
 - !private "Vs7Float80"
 - !private "Ps13FloatingPoint"
+- !private "CSo9Formatter"
 - "C11DiabetesApp24GoogleAnalyticManagerApi"
 - "O9Alamofire10HTTPMethod"
 - "Ps8Hashable"
@@ -6271,6 +6679,7 @@ depends-nominal:
 - "V10ObjectiveC8Selector"
 - !private "Ps8Sequence"
 - "C11DiabetesApp15ServicesManager"
+- "Vs3Set"
 - !private "Ps10SetAlgebra"
 - "Ps13SignedInteger"
 - "Ps12SignedNumber"
@@ -6366,6 +6775,7 @@ depends-nominal:
 - "Ps14_Incrementable"
 - "Ps8_Integer"
 - "Ps18_IntegerArithmetic"
+- !private "P10Foundation14_MutableBoxing"
 - "Ps21_ObjectiveCBridgeable"
 - !private "Vs26_OptionalNilComparisonType"
 - "Ps14_SignedInteger"
@@ -6724,4 +7134,4 @@ depends-external:
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController-umbrella.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Modules/module.modulemap"
-interface-hash: "848301b2058304eb2fac11c4b8bca367"
+interface-hash: "8c6e85dc1468fa979459c8a0bd230f8d"

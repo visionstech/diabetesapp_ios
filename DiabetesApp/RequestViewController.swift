@@ -51,7 +51,7 @@ class RequestViewController: UIViewController,UITableViewDelegate,UITableViewDat
         self.title = "\("Requests".localized)"
         self.tabBarController?.title = "\("Requests".localized)"
         self.tabBarController?.navigationItem.title = "\("Requests".localized)"
-        self.parent?.navigationItem.leftBarButtonItem = nil
+       // self.parent?.navigationItem.leftBarButtonItem = nil
         self.parent?.navigationItem.rightBarButtonItems = nil
         self.parent?.navigationItem.hidesBackButton = true
         

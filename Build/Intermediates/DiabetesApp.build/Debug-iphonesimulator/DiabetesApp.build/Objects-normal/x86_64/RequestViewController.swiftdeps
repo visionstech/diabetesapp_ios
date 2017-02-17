@@ -6,65 +6,65 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp21RequestViewController", ""]
 provides-dynamic-lookup:
+- "didReceiveMemoryWarning"
+- "requestListArray"
 - "selectedPatientID"
-- "viewDidAppear"
-- "totalBadgeCounter"
-- "selectedUserType"
-- "userTypeString"
+- "viewDidLoad"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
 - "setNavBarUI"
 - "getRequestTask"
-- "requestListArray"
-- "didReceiveMemoryWarning"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "viewDidLoad"
+- "userTypeString"
+- "selectedUserType"
+- "totalBadgeCounter"
+- "viewDidAppear"
 depends-top-level:
-- !private "SDWebImageManager"
-- !private "print"
-- !private "!="
-- !private "Alamofire"
-- "UITableViewCell"
-- !private "userType"
-- !private "=="
-- "AssignmentPrecedence"
-- !private "Parameters"
-- !private "URL"
-- !private "ApiMethods"
-- "IndexPath"
-- "CastingPrecedence"
-- !private "baseUrl"
-- !private "RequestObject"
-- "UITableViewDelegate"
-- "NSMutableArray"
-- !private "&&"
-- "UITableViewDataSource"
-- !private "+"
-- !private "ReportViewController"
-- "RequestViewController"
-- !private "<="
-- !private "BooleanLiteralType"
-- !private "ViewIdentifiers"
-- !private "UIBarButtonItem"
-- !private "NSDictionary"
-- !private "RequestTableViewCell"
-- !private "NSArray"
-- !private "SVProgressHUD"
 - !private "/"
-- "Bool"
-- !private "Dictionary"
-- "UserDefaults"
-- !private "Account"
-- !private "requestTabBarItem"
-- !private "JSONEncoding"
 - "String"
-- "UITableView"
-- !private "SDWebImageOptions"
-- "Int"
+- !private "SDWebImageManager"
+- "NSMutableArray"
+- "IndexPath"
+- !private "=="
+- !private "URL"
+- "AssignmentPrecedence"
 - "userDefaults"
-- !private "NSURL"
+- !private "Account"
 - "UIViewController"
+- "CastingPrecedence"
+- "UITableViewDelegate"
+- !private "+"
+- !private "ApiMethods"
+- !private "UIBarButtonItem"
+- !private "baseUrl"
+- !private "SVProgressHUD"
+- "UITableViewCell"
+- !private "JSONEncoding"
+- !private "NSDictionary"
+- !private "ViewIdentifiers"
+- !private "RequestTableViewCell"
+- !private "SDWebImageOptions"
+- !private "print"
+- "UITableViewDataSource"
+- "UserDefaults"
+- !private "BooleanLiteralType"
+- "Bool"
+- !private "&&"
+- !private "<="
+- !private "RequestObject"
+- !private "ReportViewController"
+- !private "Alamofire"
+- "UITableView"
+- !private "NSURL"
+- !private "Dictionary"
+- !private "requestTabBarItem"
+- !private "!="
+- !private "NSArray"
+- !private "userType"
+- "Int"
+- "RequestViewController"
+- !private "Parameters"
 depends-member:
 - !private ["V11DiabetesApp7Account", "accessToken"]
 - ["V11DiabetesApp7Account", "deinit"]
@@ -120,7 +120,6 @@ depends-member:
 - !private ["Ps9AnyObject", "lblEducator"]
 - !private ["Ps9AnyObject", "lblRequestStatus"]
 - !private ["Ps9AnyObject", "lblTime"]
-- !private ["Ps9AnyObject", "leftBarButtonItem"]
 - !private ["Ps9AnyObject", "localized"]
 - !private ["Ps9AnyObject", "lowercased"]
 - !private ["Ps9AnyObject", "navigationController"]
@@ -261,7 +260,6 @@ depends-member:
 - !private ["Ps7CVarArg", "lblEducator"]
 - !private ["Ps7CVarArg", "lblRequestStatus"]
 - !private ["Ps7CVarArg", "lblTime"]
-- !private ["Ps7CVarArg", "leftBarButtonItem"]
 - !private ["Ps7CVarArg", "localized"]
 - !private ["Ps7CVarArg", "lowercased"]
 - !private ["Ps7CVarArg", "navigationController"]
@@ -382,7 +380,6 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "lblEducator"]
 - !private ["Ps28CustomDebugStringConvertible", "lblRequestStatus"]
 - !private ["Ps28CustomDebugStringConvertible", "lblTime"]
-- !private ["Ps28CustomDebugStringConvertible", "leftBarButtonItem"]
 - !private ["Ps28CustomDebugStringConvertible", "localized"]
 - !private ["Ps28CustomDebugStringConvertible", "lowercased"]
 - !private ["Ps28CustomDebugStringConvertible", "navigationController"]
@@ -524,7 +521,6 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "lblEducator"]
 - !private ["Ps23CustomStringConvertible", "lblRequestStatus"]
 - !private ["Ps23CustomStringConvertible", "lblTime"]
-- !private ["Ps23CustomStringConvertible", "leftBarButtonItem"]
 - !private ["Ps23CustomStringConvertible", "localized"]
 - !private ["Ps23CustomStringConvertible", "lowercased"]
 - !private ["Ps23CustomStringConvertible", "navigationController"]
@@ -649,7 +645,6 @@ depends-member:
 - !private ["Ps9Equatable", "lblEducator"]
 - !private ["Ps9Equatable", "lblRequestStatus"]
 - !private ["Ps9Equatable", "lblTime"]
-- !private ["Ps9Equatable", "leftBarButtonItem"]
 - !private ["Ps9Equatable", "localized"]
 - !private ["Ps9Equatable", "lowercased"]
 - !private ["Ps9Equatable", "navigationController"]
@@ -796,7 +791,6 @@ depends-member:
 - !private ["Ps8Hashable", "lblEducator"]
 - !private ["Ps8Hashable", "lblRequestStatus"]
 - !private ["Ps8Hashable", "lblTime"]
-- !private ["Ps8Hashable", "leftBarButtonItem"]
 - !private ["Ps8Hashable", "localized"]
 - !private ["Ps8Hashable", "lowercased"]
 - !private ["Ps8Hashable", "navigationController"]
@@ -951,7 +945,6 @@ depends-member:
 - !private ["PSo8NSCoding", "lblEducator"]
 - !private ["PSo8NSCoding", "lblRequestStatus"]
 - !private ["PSo8NSCoding", "lblTime"]
-- !private ["PSo8NSCoding", "leftBarButtonItem"]
 - !private ["PSo8NSCoding", "localized"]
 - !private ["PSo8NSCoding", "lowercased"]
 - !private ["PSo8NSCoding", "navigationController"]
@@ -1160,7 +1153,6 @@ depends-member:
 - !private ["CSo8NSObject", "lblEducator"]
 - !private ["CSo8NSObject", "lblRequestStatus"]
 - !private ["CSo8NSObject", "lblTime"]
-- !private ["CSo8NSObject", "leftBarButtonItem"]
 - !private ["CSo8NSObject", "localized"]
 - !private ["CSo8NSObject", "lowercased"]
 - !private ["CSo8NSObject", "navigationController"]
@@ -1268,7 +1260,6 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "lblEducator"]
 - !private ["PSo16NSObjectProtocol", "lblRequestStatus"]
 - !private ["PSo16NSObjectProtocol", "lblTime"]
-- !private ["PSo16NSObjectProtocol", "leftBarButtonItem"]
 - !private ["PSo16NSObjectProtocol", "localized"]
 - !private ["PSo16NSObjectProtocol", "lowercased"]
 - !private ["PSo16NSObjectProtocol", "navigationController"]
@@ -1814,7 +1805,6 @@ depends-member:
 - !private ["CSo16UINavigationItem", "backBarButtonItem"]
 - ["CSo16UINavigationItem", "deinit"]
 - !private ["CSo16UINavigationItem", "hidesBackButton"]
-- !private ["CSo16UINavigationItem", "leftBarButtonItem"]
 - !private ["CSo16UINavigationItem", "rightBarButtonItems"]
 - !private ["CSo16UINavigationItem", "title"]
 - !private ["CSo11UIResponder", "Account"]
@@ -2504,7 +2494,6 @@ depends-member:
 - !private ["Ps9_Hashable", "lblEducator"]
 - !private ["Ps9_Hashable", "lblRequestStatus"]
 - !private ["Ps9_Hashable", "lblTime"]
-- !private ["Ps9_Hashable", "leftBarButtonItem"]
 - !private ["Ps9_Hashable", "localized"]
 - !private ["Ps9_Hashable", "lowercased"]
 - !private ["Ps9_Hashable", "navigationController"]

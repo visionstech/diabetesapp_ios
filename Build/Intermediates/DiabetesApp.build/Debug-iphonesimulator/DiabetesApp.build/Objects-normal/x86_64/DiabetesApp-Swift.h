@@ -805,6 +805,7 @@ SWIFT_CLASS("_TtC11DiabetesApp10ContactObj")
 
 SWIFT_CLASS("_TtC11DiabetesApp19DialogTableViewCell")
 @interface DialogTableViewCell : UITableViewCell
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified lblDate;
 @property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified dialogTypeImage;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified dialogName;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified dialogLastMessage;
@@ -835,6 +836,7 @@ SWIFT_CLASS("_TtC11DiabetesApp24DialogTableViewCellModel")
 
 SWIFT_CLASS("_TtC11DiabetesApp21DialogsViewController")
 @interface DialogsViewController : UITableViewController <QMChatConnectionDelegate, QMAuthServiceDelegate, QMChatServiceDelegate, IncomingCallViewControllerDelegate, QBRTCClientDelegate, QBCoreDelegate>
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified lblDate;
 @property (nonatomic) NSInteger counterCall;
 @property (nonatomic, readonly, strong) AppDelegate * _Nonnull appDelegate;
 @property (nonatomic, readonly) NSInteger selectedUserType;

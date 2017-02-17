@@ -7,24 +7,25 @@ provides-member:
 - ["C11DiabetesApp19DialogTableViewCell", ""]
 provides-dynamic-lookup:
 - "awakeFromNib"
+- "unreadMessageCounterLabel"
+- "setSelected"
+- "lblDate"
+- "doctorNameDialog"
+- "dialogID"
+- "setHighlighted"
 - "dialogTypeImage"
 - "dialogName"
-- "dialogID"
-- "setSelected"
-- "setHighlighted"
 - "unreadMessageCounterHolder"
-- "doctorNameDialog"
 - "dialogLastMessage"
-- "unreadMessageCounterLabel"
 depends-top-level:
-- "DialogTableViewCell"
 - "UITableViewCell"
-- "AssignmentPrecedence"
 - "UIImageView"
 - "UILabel"
 - "UIView"
-- "Bool"
 - "StringLiteralType"
+- "DialogTableViewCell"
+- "AssignmentPrecedence"
+- "Bool"
 depends-member:
 - ["Ps9AnyObject", "awakeFromNib"]
 - !private ["Ps9AnyObject", "backgroundColor"]
@@ -36,6 +37,7 @@ depends-member:
 - ["Ps9AnyObject", "doctorNameDialog"]
 - ["Ps9AnyObject", "init"]
 - !private ["Ps9AnyObject", "layer"]
+- ["Ps9AnyObject", "lblDate"]
 - ["Ps9AnyObject", "setHighlighted"]
 - ["Ps9AnyObject", "setSelected"]
 - ["Ps9AnyObject", "unreadMessageCounterHolder"]
@@ -53,6 +55,7 @@ depends-member:
 - ["PSo15CALayerDelegate", "doctorNameDialog"]
 - !private ["PSo15CALayerDelegate", "init"]
 - !private ["PSo15CALayerDelegate", "layer"]
+- ["PSo15CALayerDelegate", "lblDate"]
 - ["PSo15CALayerDelegate", "setHighlighted"]
 - ["PSo15CALayerDelegate", "setSelected"]
 - ["PSo15CALayerDelegate", "unreadMessageCounterHolder"]
@@ -70,6 +73,7 @@ depends-member:
 - ["Ps7CVarArg", "doctorNameDialog"]
 - ["Ps7CVarArg", "init"]
 - !private ["Ps7CVarArg", "layer"]
+- ["Ps7CVarArg", "lblDate"]
 - ["Ps7CVarArg", "setHighlighted"]
 - ["Ps7CVarArg", "setSelected"]
 - ["Ps7CVarArg", "unreadMessageCounterHolder"]
@@ -86,6 +90,7 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "doctorNameDialog"]
 - ["Ps28CustomDebugStringConvertible", "init"]
 - !private ["Ps28CustomDebugStringConvertible", "layer"]
+- ["Ps28CustomDebugStringConvertible", "lblDate"]
 - ["Ps28CustomDebugStringConvertible", "setHighlighted"]
 - ["Ps28CustomDebugStringConvertible", "setSelected"]
 - ["Ps28CustomDebugStringConvertible", "unreadMessageCounterHolder"]
@@ -103,6 +108,7 @@ depends-member:
 - ["Ps23CustomStringConvertible", "doctorNameDialog"]
 - ["Ps23CustomStringConvertible", "init"]
 - !private ["Ps23CustomStringConvertible", "layer"]
+- ["Ps23CustomStringConvertible", "lblDate"]
 - ["Ps23CustomStringConvertible", "setHighlighted"]
 - ["Ps23CustomStringConvertible", "setSelected"]
 - ["Ps23CustomStringConvertible", "unreadMessageCounterHolder"]
@@ -120,6 +126,7 @@ depends-member:
 - ["C11DiabetesApp19DialogTableViewCell", "dialogTypeImage"]
 - ["C11DiabetesApp19DialogTableViewCell", "doctorNameDialog"]
 - ["C11DiabetesApp19DialogTableViewCell", "init"]
+- ["C11DiabetesApp19DialogTableViewCell", "lblDate"]
 - ["C11DiabetesApp19DialogTableViewCell", "setHighlighted"]
 - ["C11DiabetesApp19DialogTableViewCell", "setSelected"]
 - ["C11DiabetesApp19DialogTableViewCell", "unreadMessageCounterHolder"]
@@ -134,6 +141,7 @@ depends-member:
 - ["Ps9Equatable", "doctorNameDialog"]
 - ["Ps9Equatable", "init"]
 - !private ["Ps9Equatable", "layer"]
+- ["Ps9Equatable", "lblDate"]
 - ["Ps9Equatable", "setHighlighted"]
 - ["Ps9Equatable", "setSelected"]
 - ["Ps9Equatable", "unreadMessageCounterHolder"]
@@ -153,6 +161,7 @@ depends-member:
 - ["Ps8Hashable", "doctorNameDialog"]
 - ["Ps8Hashable", "init"]
 - !private ["Ps8Hashable", "layer"]
+- ["Ps8Hashable", "lblDate"]
 - ["Ps8Hashable", "setHighlighted"]
 - ["Ps8Hashable", "setSelected"]
 - ["Ps8Hashable", "unreadMessageCounterHolder"]
@@ -172,6 +181,7 @@ depends-member:
 - ["PSo8NSCoding", "doctorNameDialog"]
 - ["PSo8NSCoding", "init"]
 - !private ["PSo8NSCoding", "layer"]
+- ["PSo8NSCoding", "lblDate"]
 - ["PSo8NSCoding", "setHighlighted"]
 - ["PSo8NSCoding", "setSelected"]
 - ["PSo8NSCoding", "unreadMessageCounterHolder"]
@@ -193,6 +203,7 @@ depends-member:
 - ["CSo8NSObject", "doctorNameDialog"]
 - ["CSo8NSObject", "init"]
 - !private ["CSo8NSObject", "layer"]
+- ["CSo8NSObject", "lblDate"]
 - ["CSo8NSObject", "setHighlighted"]
 - ["CSo8NSObject", "setSelected"]
 - ["CSo8NSObject", "unreadMessageCounterHolder"]
@@ -207,6 +218,7 @@ depends-member:
 - ["PSo16NSObjectProtocol", "doctorNameDialog"]
 - ["PSo16NSObjectProtocol", "init"]
 - !private ["PSo16NSObjectProtocol", "layer"]
+- ["PSo16NSObjectProtocol", "lblDate"]
 - ["PSo16NSObjectProtocol", "setHighlighted"]
 - ["PSo16NSObjectProtocol", "setSelected"]
 - ["PSo16NSObjectProtocol", "unreadMessageCounterHolder"]
@@ -228,6 +240,7 @@ depends-member:
 - ["PSo29UIAccessibilityIdentification", "doctorNameDialog"]
 - !private ["PSo29UIAccessibilityIdentification", "init"]
 - !private ["PSo29UIAccessibilityIdentification", "layer"]
+- ["PSo29UIAccessibilityIdentification", "lblDate"]
 - ["PSo29UIAccessibilityIdentification", "setHighlighted"]
 - ["PSo29UIAccessibilityIdentification", "setSelected"]
 - ["PSo29UIAccessibilityIdentification", "unreadMessageCounterHolder"]
@@ -242,6 +255,7 @@ depends-member:
 - ["PSo12UIAppearance", "doctorNameDialog"]
 - !private ["PSo12UIAppearance", "init"]
 - !private ["PSo12UIAppearance", "layer"]
+- ["PSo12UIAppearance", "lblDate"]
 - ["PSo12UIAppearance", "setHighlighted"]
 - ["PSo12UIAppearance", "setSelected"]
 - ["PSo12UIAppearance", "unreadMessageCounterHolder"]
@@ -256,6 +270,7 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "doctorNameDialog"]
 - !private ["PSo21UIAppearanceContainer", "init"]
 - !private ["PSo21UIAppearanceContainer", "layer"]
+- ["PSo21UIAppearanceContainer", "lblDate"]
 - ["PSo21UIAppearanceContainer", "setHighlighted"]
 - ["PSo21UIAppearanceContainer", "setSelected"]
 - ["PSo21UIAppearanceContainer", "unreadMessageCounterHolder"]
@@ -270,6 +285,7 @@ depends-member:
 - ["PSo17UICoordinateSpace", "doctorNameDialog"]
 - !private ["PSo17UICoordinateSpace", "init"]
 - !private ["PSo17UICoordinateSpace", "layer"]
+- ["PSo17UICoordinateSpace", "lblDate"]
 - ["PSo17UICoordinateSpace", "setHighlighted"]
 - ["PSo17UICoordinateSpace", "setSelected"]
 - ["PSo17UICoordinateSpace", "unreadMessageCounterHolder"]
@@ -284,6 +300,7 @@ depends-member:
 - ["PSo13UIDynamicItem", "doctorNameDialog"]
 - !private ["PSo13UIDynamicItem", "init"]
 - !private ["PSo13UIDynamicItem", "layer"]
+- ["PSo13UIDynamicItem", "lblDate"]
 - ["PSo13UIDynamicItem", "setHighlighted"]
 - ["PSo13UIDynamicItem", "setSelected"]
 - ["PSo13UIDynamicItem", "unreadMessageCounterHolder"]
@@ -298,6 +315,7 @@ depends-member:
 - ["PSo18UIFocusEnvironment", "doctorNameDialog"]
 - !private ["PSo18UIFocusEnvironment", "init"]
 - !private ["PSo18UIFocusEnvironment", "layer"]
+- ["PSo18UIFocusEnvironment", "lblDate"]
 - ["PSo18UIFocusEnvironment", "setHighlighted"]
 - ["PSo18UIFocusEnvironment", "setSelected"]
 - ["PSo18UIFocusEnvironment", "unreadMessageCounterHolder"]
@@ -312,6 +330,7 @@ depends-member:
 - ["PSo11UIFocusItem", "doctorNameDialog"]
 - !private ["PSo11UIFocusItem", "init"]
 - !private ["PSo11UIFocusItem", "layer"]
+- ["PSo11UIFocusItem", "lblDate"]
 - ["PSo11UIFocusItem", "setHighlighted"]
 - ["PSo11UIFocusItem", "setSelected"]
 - ["PSo11UIFocusItem", "unreadMessageCounterHolder"]
@@ -324,6 +343,7 @@ depends-member:
 - ["PSo27UIGestureRecognizerDelegate", "dialogTypeImage"]
 - ["PSo27UIGestureRecognizerDelegate", "doctorNameDialog"]
 - !private ["PSo27UIGestureRecognizerDelegate", "init"]
+- ["PSo27UIGestureRecognizerDelegate", "lblDate"]
 - ["PSo27UIGestureRecognizerDelegate", "setHighlighted"]
 - ["PSo27UIGestureRecognizerDelegate", "setSelected"]
 - ["PSo27UIGestureRecognizerDelegate", "unreadMessageCounterHolder"]
@@ -342,6 +362,7 @@ depends-member:
 - ["CSo11UIResponder", "doctorNameDialog"]
 - ["CSo11UIResponder", "init"]
 - !private ["CSo11UIResponder", "layer"]
+- ["CSo11UIResponder", "lblDate"]
 - ["CSo11UIResponder", "setHighlighted"]
 - ["CSo11UIResponder", "setSelected"]
 - ["CSo11UIResponder", "unreadMessageCounterHolder"]
@@ -355,6 +376,7 @@ depends-member:
 - ["PSo30UIResponderStandardEditActions", "doctorNameDialog"]
 - !private ["PSo30UIResponderStandardEditActions", "init"]
 - !private ["PSo30UIResponderStandardEditActions", "layer"]
+- ["PSo30UIResponderStandardEditActions", "lblDate"]
 - ["PSo30UIResponderStandardEditActions", "setHighlighted"]
 - ["PSo30UIResponderStandardEditActions", "setSelected"]
 - ["PSo30UIResponderStandardEditActions", "unreadMessageCounterHolder"]
@@ -372,6 +394,7 @@ depends-member:
 - ["CSo15UITableViewCell", "dialogTypeImage"]
 - ["CSo15UITableViewCell", "doctorNameDialog"]
 - ["CSo15UITableViewCell", "init"]
+- ["CSo15UITableViewCell", "lblDate"]
 - ["CSo15UITableViewCell", "setHighlighted"]
 - ["CSo15UITableViewCell", "setSelected"]
 - ["CSo15UITableViewCell", "unreadMessageCounterHolder"]
@@ -387,6 +410,7 @@ depends-member:
 - ["PSo18UITraitEnvironment", "doctorNameDialog"]
 - !private ["PSo18UITraitEnvironment", "init"]
 - !private ["PSo18UITraitEnvironment", "layer"]
+- ["PSo18UITraitEnvironment", "lblDate"]
 - ["PSo18UITraitEnvironment", "setHighlighted"]
 - ["PSo18UITraitEnvironment", "setSelected"]
 - ["PSo18UITraitEnvironment", "unreadMessageCounterHolder"]
@@ -405,6 +429,7 @@ depends-member:
 - ["CSo6UIView", "doctorNameDialog"]
 - ["CSo6UIView", "init"]
 - !private ["CSo6UIView", "layer"]
+- ["CSo6UIView", "lblDate"]
 - ["CSo6UIView", "setHighlighted"]
 - ["CSo6UIView", "setSelected"]
 - ["CSo6UIView", "unreadMessageCounterHolder"]
@@ -419,6 +444,7 @@ depends-member:
 - ["Ps37_DefaultCustomPlaygroundQuickLookable", "doctorNameDialog"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "init"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "layer"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", "lblDate"]
 - ["Ps37_DefaultCustomPlaygroundQuickLookable", "setHighlighted"]
 - ["Ps37_DefaultCustomPlaygroundQuickLookable", "setSelected"]
 - ["Ps37_DefaultCustomPlaygroundQuickLookable", "unreadMessageCounterHolder"]
@@ -439,6 +465,7 @@ depends-member:
 - ["Ps9_Hashable", "doctorNameDialog"]
 - ["Ps9_Hashable", "init"]
 - !private ["Ps9_Hashable", "layer"]
+- ["Ps9_Hashable", "lblDate"]
 - ["Ps9_Hashable", "setHighlighted"]
 - ["Ps9_Hashable", "setSelected"]
 - ["Ps9_Hashable", "unreadMessageCounterHolder"]
@@ -853,4 +880,4 @@ depends-external:
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController-umbrella.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Modules/module.modulemap"
-interface-hash: "bee2349018ff8a38a49cec154ebc539b"
+interface-hash: "fcbfd8de77e6729f25a089349807d3f9"

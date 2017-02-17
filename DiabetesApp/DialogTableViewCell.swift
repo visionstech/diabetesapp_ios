@@ -12,6 +12,7 @@ class DialogTableViewCell: UITableViewCell {
     
 //    @IBOutlet private weak var colorMarker: CornerView!
     
+    @IBOutlet weak var lblDate: UILabel!
     @IBOutlet weak var dialogTypeImage: UIImageView!
     
     @IBOutlet weak var dialogName: UILabel!

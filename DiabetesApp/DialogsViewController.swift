@@ -13,6 +13,19 @@ import Quickblox
 import Alamofire
 import SDWebImage
 
+
+
+var recentMessageTimeDateFormatter: DateFormatter {
+    struct Static {
+        static let instance : DateFormatter = {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "HH:mm"
+            return formatter
+        }()
+    }
+    
+    return Static.instance
+}
 class DialogTableViewCellModel: NSObject {
     
     var detailTextLabelText: String = ""
@@ -84,6 +97,7 @@ class DialogTableViewCellModel: NSObject {
 //            
 //                let data = record! as Array<QBCOCustomObject>
 //            
+        
 //                let recipientTypes = data[0].fields?.value(forKey: "recipientTypes") as! [String]
 //                let recipientIDs = data[0].fields?.value(forKey: "recipientIDs") as! [String]
 //                var selectedPatientID : String = ""
@@ -142,6 +156,7 @@ class DialogTableViewCellModel: NSObject {
 
 class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCoreDelegate, QMChatConnectionDelegate, QMAuthServiceDelegate, QBRTCClientDelegate, IncomingCallViewControllerDelegate  {
 
+    @IBOutlet weak var lblDate: UILabel!
     
     private var didEnterBackgroundDate: NSDate?
     private var observer: NSObjectProtocol?
@@ -578,7 +593,11 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
         cell.tag = indexPath.row
         cell.dialogID = chatDialog.id!
         
+        
+        
+        
         let cellModel = DialogTableViewCellModel(dialog: chatDialog)
+    
         
         let customParams: NSMutableDictionary = NSMutableDictionary()
         customParams["chat_id"] = chatDialog.id
@@ -695,7 +714,29 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
         cell.dialogLastMessage?.text = chatDialog.lastMessageText
         cell.unreadMessageCounterLabel.text = cellModel.unreadMessagesCounterLabelText
         cell.unreadMessageCounterHolder.isHidden = cellModel.unreadMessagesCounterHiden
-      
+        
+    if  chatDialog.lastMessageDate != nil {
+        let date =  chatDialog.lastMessageDate! as Date
+        let calendar = Calendar.current
+        
+        
+        
+        let year = calendar.component(.year, from: date)
+        let month = calendar.component(.month, from: date)
+        let day = calendar.component(.day, from: date)
+        let hh = calendar.component(.hour, from: date)
+        let min = calendar.component(.minute, from: date)
+        let sec = calendar.component(.second, from: date)
+        let cal =  Calendar.current
+        
+        
+        let date1 = cal.date(from: DateComponents(year: year, month:  month, day: day, hour: hh, minute: min, second : sec))!
+        
+        let timeOffset1 = date1.relativeTime
+       
+ 
+        cell.lblDate.text = timeOffset1
+        }
         
         return cell
     }
@@ -1058,5 +1099,57 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
 //        
 //    }
      //MARK:- getReadCount
+}
+
+extension Date {
+    func years(from date: Date) -> Int {
+        return Calendar.current.dateComponents([.year], from: date, to: self).year ?? 0
+    }
+    func months(from date: Date) -> Int {
+        return Calendar.current.dateComponents([.month], from: date, to: self).month ?? 0
+    }
+    func weeks(from date: Date) -> Int {
+        return Calendar.current.dateComponents([.weekOfYear], from: date, to: self).weekOfYear ?? 0
+    }
+    func days(from date: Date) -> Int {
+        return Calendar.current.dateComponents([.day], from: date, to: self).day ?? 0
+    }
+    func hours(from date: Date) -> Int {
+        return Calendar.current.dateComponents([.hour], from: date, to: self).hour ?? 0
+    }
+    func minutes(from date: Date) -> Int {
+        return Calendar.current.dateComponents([.minute], from: date, to: self).minute ?? 0
+    }
+    func seconds(from date: Date) -> Int {
+        return Calendar.current.dateComponents([.second], from: date, to: self).second ?? 0
+    }
+    
+    var relativeTime: String {
+        let now = Date()
+        if now.years(from: self)   > 0 {
+            return now.years(from: self).description  + " year"  + { return now.years(from: self)   > 1 ? "s" : "" }() + " ago"
+        }
+        if now.months(from: self)  > 0 {
+            return now.months(from: self).description + " month" + { return now.months(from: self)  > 1 ? "s" : "" }() + " ago"
+        }
+        if now.weeks(from:self)   > 0 {
+            return now.weeks(from: self).description  + " week"  + { return now.weeks(from: self)   > 1 ? "s" : "" }() + " ago"
+        }
+        if now.days(from: self)    > 0 {
+            if now.days(from:self) == 1 { return "Yesterday" }
+            return now.days(from: self).description + " days ago"
+        }
+        if now.hours(from: self)   > 0 {
+            return "\(now.hours(from: self)) hour"     + { return now.hours(from: self)   > 1 ? "s" : "" }() + " ago"
+        }
+        if now.minutes(from: self) > 0 {
+            return "\(now.minutes(from: self)) minute" + { return now.minutes(from: self) > 1 ? "s" : "" }() + " ago"
+        }
+        if now.seconds(from: self) > 0 {
+            if now.seconds(from: self) < 15 { return "Just now"  }
+            return "\(now.seconds(from: self)) second" + { return now.seconds(from: self) > 1 ? "s" : "" }() + " ago"
+        }
+        return ""
+    }
 }
 
