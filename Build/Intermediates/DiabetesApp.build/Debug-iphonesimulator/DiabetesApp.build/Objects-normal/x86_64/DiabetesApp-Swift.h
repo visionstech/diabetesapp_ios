@@ -842,6 +842,7 @@ SWIFT_CLASS("_TtC11DiabetesApp21DialogsViewController")
 @property (nonatomic, readonly) NSInteger selectedUserType;
 @property (nonatomic, strong) NSTimer * _Nonnull requestTimer;
 @property (nonatomic, strong) NSTimer * _Nonnull myTimer;
+@property (nonatomic, strong) NSTimer * _Nonnull dialogTimer;
 - (void)awakeFromNib;
 - (void)runTimedCode;
 - (void)viewDidAppear:(BOOL)animated;

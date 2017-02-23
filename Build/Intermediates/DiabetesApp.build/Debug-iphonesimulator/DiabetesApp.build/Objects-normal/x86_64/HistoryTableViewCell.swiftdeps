@@ -8,16 +8,16 @@ provides-member:
 provides-dynamic-lookup:
 - "commentLabel"
 - "awakeFromNib"
-- "setSelected"
-- "readingLbl"
-- "conditionLbl"
 - "timeLbl"
+- "conditionLbl"
+- "readingLbl"
+- "setSelected"
 - "dateLbl"
 depends-top-level:
-- "HistoryTableViewCell"
-- "UILabel"
-- "Bool"
 - "UITableViewCell"
+- "Bool"
+- "UILabel"
+- "HistoryTableViewCell"
 depends-member:
 - ["Ps9AnyObject", "awakeFromNib"]
 - ["Ps9AnyObject", "commentLabel"]

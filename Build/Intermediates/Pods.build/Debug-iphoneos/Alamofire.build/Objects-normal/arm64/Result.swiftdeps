@@ -7,15 +7,15 @@ provides-member:
 - ["O9Alamofire6Result", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "CustomDebugStringConvertible"
-- "Error"
-- "Result"
-- "Bool"
 - !private "BooleanLiteralType"
+- "Error"
+- !private "StringLiteralType"
+- "Bool"
+- !private "!"
+- "CustomDebugStringConvertible"
+- "Result"
 - "String"
 - "CustomStringConvertible"
-- !private "!"
-- !private "StringLiteralType"
 depends-member:
 - !private ["Ps9AnyObject", "init"]
 - ["Sb", "deinit"]
@@ -148,8 +148,8 @@ depends-nominal:
 depends-dynamic-lookup:
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Target Support Files/Alamofire/Alamofire-umbrella.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Build/Intermediates/Pods.build/Debug-iphoneos/Alamofire.build/unextended-module.modulemap"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Target Support Files/Alamofire/Alamofire-umbrella.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Intermediates/Pods.build/Debug-iphoneos/Alamofire.build/unextended-module.modulemap"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"

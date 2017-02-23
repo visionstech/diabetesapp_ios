@@ -6,23 +6,23 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp11CarePlanObj", ""]
 provides-dynamic-lookup:
+- "isNew"
+- "name"
+- "condition"
 - "isEdit"
 - "carePlanImageURL"
+- "dosage"
 - "strImageURL"
-- "condition"
 - "type"
-- "name"
-- "isNew"
 - "id"
 - "nameAr"
-- "dosage"
 depends-top-level:
-- "CarePlanObj"
+- "NSObject"
 - "Int"
 - "String"
 - "Bool"
 - "UIImage"
-- "NSObject"
+- "CarePlanObj"
 depends-member:
 - ["Ps9AnyObject", "Bool"]
 - ["Ps9AnyObject", "Int"]

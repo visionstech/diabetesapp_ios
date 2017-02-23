@@ -6,23 +6,23 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp20RequestTableViewCell", ""]
 provides-dynamic-lookup:
+- "lbPatientName"
+- "userImageView"
+- "setSelected"
+- "lblTime"
+- "lblRequestStatus"
 - "lblEducator"
 - "awakeFromNib"
 - "patientTitleLabel"
-- "setSelected"
-- "lbPatientName"
-- "lblTime"
-- "userImageView"
 - "lblDoctorEductor"
-- "lblRequestStatus"
 depends-top-level:
-- "RequestTableViewCell"
-- "AssignmentPrecedence"
-- "UILabel"
 - "UIImageView"
-- "Bool"
+- "UILabel"
 - "UITableViewCell"
 - !private "StringLiteralType"
+- "RequestTableViewCell"
+- "Bool"
+- "AssignmentPrecedence"
 depends-member:
 - ["Ps9AnyObject", "awakeFromNib"]
 - !private ["Ps9AnyObject", "init"]

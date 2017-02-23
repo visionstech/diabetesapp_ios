@@ -11,14 +11,14 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "NotificationService"
-- !private "Void"
-- !private "ServicesManager"
-- !private "!"
-- "AssignmentPrecedence"
-- "QBChatDialog"
+- "NotificationServiceDelegate"
 - !private "!="
 - "String"
-- "NotificationServiceDelegate"
+- !private "Void"
+- "AssignmentPrecedence"
+- !private "!"
+- "QBChatDialog"
+- !private "ServicesManager"
 depends-member:
 - !private ["Ps9AnyObject", "ServicesManager"]
 - !private ["Ps9AnyObject", "chatService"]

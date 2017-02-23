@@ -2,7 +2,6 @@ dependencies: \
   /Users/IPHONE/Deepak/baljeet/diabetesapp_ios/DiabetesApp/MZFormSheetPresentationController/MZFormSheetPresentationViewControllerInteractiveAnimator.m \
   /Users/IPHONE/Deepak/baljeet/diabetesapp_ios/DiabetesApp/MZFormSheetPresentationController/MZFormSheetPresentationViewControllerInteractiveAnimator.h \
   /Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Google/Headers/module.modulemap \
-  /Users/IPHONE/Downloads/diabetesapp_ios-master/Pods/Google/Headers/module.modulemap \
   /Users/IPHONE/Deepak/baljeet/diabetesapp_ios/DiabetesApp/MZFormSheetPresentationController/MZFormSheetPresentationViewControllerInteractiveTransitioning.h \
   /Users/IPHONE/Deepak/baljeet/diabetesapp_ios/DiabetesApp/MZFormSheetPresentationController/MZFormSheetPresentationController.h \
   /Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/MZAppearance/MZAppearance.framework/Modules/module.modulemap \

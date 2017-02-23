@@ -6,137 +6,146 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp19ChartViewController", ""]
 provides-dynamic-lookup:
+- "standardDeviationView"
+- "pickerViewContainer"
+- "noOfDays"
+- "label"
+- "lowerRangeArray"
+- "setBottomLabels"
+- "conditionTitle"
+- "didReceiveMemoryWarning"
+- "arrowImg"
+- "medianLabel"
+- "numberOfComponents"
+- "setUI"
+- "hyperLbl"
+- "viewDidLoad"
+- "dataArray"
+- "noHistoryAvailableLabel"
+- "resetUICondition"
+- "IQRLabel"
+- "getChartHistoryData"
+- "conditionTxtFld"
+- "drawChartCondition"
 - "conditionBtn_Clicked"
 - "okBtn_Clicked"
-- "selectedConditionIndex"
-- "viewDidAppear"
-- "lowerRangeArray"
-- "cancelBtn_Clicked"
-- "medianLabel"
-- "pickerViewContainer"
-- "resetUI"
-- "viewDidDisappear"
-- "addNotifications"
-- "noOfDays"
-- "standardDeviationView"
-- "numberOfComponents"
-- "pickerView"
-- "pickerView"
-- "pickerView"
-- "readingsView"
-- "setUI"
-- "conditionView"
-- "chartViewNotification"
-- "pickerDoneButton"
-- "arrowImg"
-- "glucoseView"
-- "chartView"
-- "noOfDaysNotification"
-- "drawChart"
-- "pickerViewInner"
-- "hyperLbl"
-- "IQRLabel"
-- "label"
 - "formInterval"
-- "higherRangeArray"
-- "conditionTxtFld"
-- "getChartHistoryData"
+- "viewDidAppear"
 - "pickerCancelButton"
-- "resetUICondition"
-- "drawChartCondition"
-- "hyposLbl"
-- "conditionTitle"
-- "dataArray"
-- "setBottomLabels"
-- "viewDidLoad"
-- "getChartConditionData"
+- "drawChart"
+- "resetUI"
+- "higherRangeArray"
+- "pickerView"
+- "pickerView"
+- "pickerView"
 - "chartConditionsArray"
-- "didReceiveMemoryWarning"
-- "noHistoryAvailableLabel"
+- "cancelBtn_Clicked"
+- "readingsView"
+- "hyposLbl"
+- "conditionView"
+- "pickerDoneButton"
+- "glucoseView"
+- "viewDidDisappear"
+- "noOfDaysNotification"
+- "addNotifications"
+- "pickerViewInner"
+- "getChartConditionData"
+- "chartViewNotification"
+- "chartView"
+- "selectedConditionIndex"
 depends-top-level:
-- "StringLiteralType"
-- !private "JSONEncoding"
-- "Array"
-- !private "+="
-- "UIView"
-- "UIViewController"
-- "UIPickerViewDelegate"
-- !private "%"
-- !private "ChartAxisValueString"
-- "UIPickerViewDataSource"
-- "UILabel"
-- !private "userDefaults"
-- !private "UIColor"
-- "Chart"
-- !private "ChartLayer"
-- !private "ChartGuideLinesDottedLayer"
-- !private "UIImage"
-- !private "TrendlineGenerator"
-- !private "BooleanLiteralType"
-- !private "UIApplication"
-- !private "UIVisualEffectView"
-- !private ">="
-- !private "UIFont"
-- !private "Parameters"
-- !private "NSDictionary"
+- "Bool"
+- !private "print"
+- !private "CGSize"
+- !private "ChartAxisValueDouble"
 - !private "ChartLineModel"
-- !private "ChartGuideLinesDottedLayerSettings"
-- "Int"
-- "ChartViewController"
-- !private ">"
-- "NSArray"
-- !private "Double"
-- !private "MyExampleModelDataType"
-- !private "Colors"
-- "CGFloat"
-- !private "UIUserInterfaceLayoutDirection"
+- !private "ChartLabelSettings"
+- !private "&&"
 - !private "kChartViewScreenName"
 - !private "+"
-- !private "ChartAxisModel"
-- "UIButton"
-- !private "ExamplesDefaults"
-- "Bool"
-- !private "UserDefaults"
-- !private "kButtonRadius"
-- "String"
-- !private "Notifications"
-- "GTInterval"
-- !private "conditionsArray"
-- !private "print"
-- !private "ChartAxisValueDouble"
-- !private "-"
-- !private "Alamofire"
-- !private "ChartPointsLineLayer"
-- "UITextField"
-- !private "ChartAxisLabel"
-- "UnicodeScalarType"
-- !private "conditionsArrayEng"
-- !private "stride"
+- "ChartViewController"
 - !private "/"
-- !private "<"
-- !private "!="
-- "UIPickerView"
-- !private "ChartCoordsSpaceLeftBottomSingleAxis"
-- !private "ApiMethods"
-- "UIImageView"
-- "NSMutableArray"
-- "TernaryPrecedence"
-- !private "Shape"
-- "CastingPrecedence"
-- !private "Dictionary"
-- !private "..<"
-- !private "ChartLabelSettings"
-- !private "=="
-- "AssignmentPrecedence"
-- !private "CGSize"
-- !private "NotificationCenter"
-- !private "UIBlurEffect"
-- !private "ChartPoint"
+- !private "UIVisualEffectView"
+- !private "UIImage"
 - !private "baseUrl"
-- "NSNotification"
+- !private "MyExampleModelDataType"
+- !private "UIUserInterfaceLayoutDirection"
+- "TernaryPrecedence"
+- "UITextField"
+- !private "ApiMethods"
+- !private "!="
+- !private "ChartAxisLayer"
+- !private "ChartPointsScatterCirclesLayer"
+- !private "Shape"
+- "UIButton"
+- "NSMutableArray"
+- !private "Parameters"
+- "String"
+- !private ">="
+- "GTInterval"
+- "UILabel"
 - !private "GoogleAnalyticManagerApi"
+- !private "conditionsArrayEng"
+- !private "NotificationCenter"
+- "CastingPrecedence"
+- !private "..<"
+- "AssignmentPrecedence"
+- !private "=="
+- !private "TrendlineGenerator"
+- !private "JSONEncoding"
+- !private "ChartPointsScatterTrianglesLayer"
+- "StringLiteralType"
+- !private "Notifications"
+- "UnicodeScalarType"
+- "Chart"
+- !private "<"
+- "Array"
+- !private "+="
+- !private "ChartPointsScatterCrossesLayer"
+- !private "Dictionary"
+- !private "%"
+- !private "Colors"
+- !private "conditionsArray"
+- !private "ChartAxisModel"
+- !private "ChartPoint"
+- !private "Alamofire"
+- !private "UIBlurEffect"
+- !private "ChartAxisLabel"
+- !private "kButtonRadius"
+- !private "-"
+- !private "BooleanLiteralType"
+- !private "UserDefaults"
+- !private "NSDictionary"
+- !private "ExamplesDefaults"
+- "CGFloat"
+- !private "ChartGuideLinesDottedLayer"
+- "UIPickerViewDelegate"
+- "UIImageView"
+- "UIView"
+- !private "UIApplication"
+- "NSArray"
+- "Int"
+- !private "UIColor"
+- !private ">"
+- !private "ChartLayer"
+- !private "ChartPointsScatterSquaresLayer"
+- !private "ChartGuideLinesDottedLayerSettings"
+- !private "stride"
+- !private "CGRect"
+- !private "ChartPointsLineLayer"
+- !private "userDefaults"
+- !private "ChartAxisValueString"
+- !private "ChartCoordsSpaceLeftBottomSingleAxis"
+- "UIPickerView"
+- "UIViewController"
+- !private "UIFont"
+- "NSNotification"
+- "UIPickerViewDataSource"
+- !private "Double"
 depends-member:
+- !private ["Ps16AbsoluteValuable", "IntegerLiteralType"]
 - !private ["Ps16AbsoluteValuable", "Stride"]
+- !private ["Ps16AbsoluteValuable", "_DisabledRangeIndex"]
 - !private ["Ps16AbsoluteValuable", "init"]
 - !private ["Ps9AnyObject", "Alamofire"]
 - !private ["Ps9AnyObject", "ApiMethods"]
@@ -154,6 +163,10 @@ depends-member:
 - !private ["Ps9AnyObject", "ChartLineModel"]
 - !private ["Ps9AnyObject", "ChartPoint"]
 - !private ["Ps9AnyObject", "ChartPointsLineLayer"]
+- !private ["Ps9AnyObject", "ChartPointsScatterCirclesLayer"]
+- !private ["Ps9AnyObject", "ChartPointsScatterCrossesLayer"]
+- !private ["Ps9AnyObject", "ChartPointsScatterSquaresLayer"]
+- !private ["Ps9AnyObject", "ChartPointsScatterTrianglesLayer"]
 - !private ["Ps9AnyObject", "Colors"]
 - !private ["Ps9AnyObject", "Double"]
 - ["Ps9AnyObject", "Element"]
@@ -184,6 +197,7 @@ depends-member:
 - ["Ps9AnyObject", "addNotifications"]
 - !private ["Ps9AnyObject", "addObserver"]
 - !private ["Ps9AnyObject", "addSubview"]
+- !private ["Ps9AnyObject", "allKeys"]
 - !private ["Ps9AnyObject", "alpha"]
 - !private ["Ps9AnyObject", "animate"]
 - ["Ps9AnyObject", "arrowImg"]
@@ -195,8 +209,10 @@ depends-member:
 - !private ["Ps9AnyObject", "borderWidth"]
 - !private ["Ps9AnyObject", "bounds"]
 - ["Ps9AnyObject", "cancelBtn_Clicked"]
-- !private ["Ps9AnyObject", "chart"]
+- !private ["Ps9AnyObject", "cgColor"]
+- ["Ps9AnyObject", "chart"]
 - ["Ps9AnyObject", "chartConditionsArray"]
+- !private ["Ps9AnyObject", "chartInnerFrame"]
 - ["Ps9AnyObject", "chartView"]
 - ["Ps9AnyObject", "chartViewNotification"]
 - !private ["Ps9AnyObject", "components"]
@@ -208,11 +224,14 @@ depends-member:
 - !private ["Ps9AnyObject", "conditionsArrayEng"]
 - !private ["Ps9AnyObject", "cornerRadius"]
 - !private ["Ps9AnyObject", "count"]
+- !private ["Ps9AnyObject", "darkGray"]
 - ["Ps9AnyObject", "dataArray"]
 - !private ["Ps9AnyObject", "default"]
+- !private ["Ps9AnyObject", "defaultVertical"]
 - ["Ps9AnyObject", "didReceiveMemoryWarning"]
 - ["Ps9AnyObject", "drawChart"]
 - ["Ps9AnyObject", "drawChartCondition"]
+- !private ["Ps9AnyObject", "end"]
 - !private ["Ps9AnyObject", "endEditing"]
 - !private ["Ps9AnyObject", "enumerated"]
 - ["Ps9AnyObject", "formInterval"]
@@ -228,12 +247,15 @@ depends-member:
 - !private ["Ps9AnyObject", "index"]
 - ["Ps9AnyObject", "init"]
 - !private ["Ps9AnyObject", "insertSubview"]
+- !private ["Ps9AnyObject", "intervalAsSeconds"]
 - !private ["Ps9AnyObject", "intervalWithNowAsStartDate"]
 - !private ["Ps9AnyObject", "isHidden"]
 - !private ["Ps9AnyObject", "kButtonRadius"]
 - !private ["Ps9AnyObject", "kChartViewScreenName"]
 - ["Ps9AnyObject", "label"]
 - !private ["Ps9AnyObject", "layer"]
+- !private ["Ps9AnyObject", "length"]
+- !private ["Ps9AnyObject", "lightGray"]
 - !private ["Ps9AnyObject", "localized"]
 - ["Ps9AnyObject", "lowerRangeArray"]
 - !private ["Ps9AnyObject", "masksToBounds"]
@@ -258,6 +280,7 @@ depends-member:
 - !private ["Ps9AnyObject", "removeObserver"]
 - ["Ps9AnyObject", "resetUI"]
 - ["Ps9AnyObject", "resetUICondition"]
+- !private ["Ps9AnyObject", "responseJSON"]
 - !private ["Ps9AnyObject", "selectRow"]
 - ["Ps9AnyObject", "selectedConditionIndex"]
 - !private ["Ps9AnyObject", "selectedRow"]
@@ -279,7 +302,7 @@ depends-member:
 - !private ["Ps9AnyObject", "text"]
 - !private ["Ps9AnyObject", "textAlignment"]
 - !private ["Ps9AnyObject", "textColor"]
-- !private ["Ps9AnyObject", "toLayers"]
+- ["Ps9AnyObject", "toLayers"]
 - !private ["Ps9AnyObject", "userDefaults"]
 - !private ["Ps9AnyObject", "userInterfaceLayoutDirection"]
 - !private ["Ps9AnyObject", "value"]
@@ -288,9 +311,12 @@ depends-member:
 - ["Ps9AnyObject", "viewDidDisappear"]
 - ["Ps9AnyObject", "viewDidLoad"]
 - !private ["Ps9AnyObject", "white"]
+- !private ["Ps9AnyObject", "xAxis"]
+- !private ["Ps9AnyObject", "yAxis"]
 - ["Ps9AnyObject", ""]
 - !private ["V11DiabetesApp10ApiMethods", "getChartConditionData"]
 - !private ["V11DiabetesApp10ApiMethods", "getglucoseDaysConditionChart"]
+- !private ["Sa", "Element"]
 - !private ["Sa", "Index"]
 - !private ["Sa", "IndexDistance"]
 - !private ["Sa", "Iterator"]
@@ -300,7 +326,9 @@ depends-member:
 - !private ["Sa", "count"]
 - ["Sa", "deinit"]
 - !private ["Sa", "enumerated"]
+- !private ["Sa", "first"]
 - !private ["Sa", "forEach"]
+- !private ["Sa", "map"]
 - !private ["Sa", "max"]
 - !private ["Sa", "remove"]
 - !private ["Sa", "sorted"]
@@ -308,6 +336,7 @@ depends-member:
 - !private ["Vs10ArraySlice", "Iterator"]
 - !private ["Vs10ArraySlice", "_Element"]
 - !private ["Vs10ArraySlice", "deinit"]
+- !private ["Ps23BidirectionalCollection", "Element"]
 - !private ["Ps23BidirectionalCollection", "Index"]
 - !private ["Ps23BidirectionalCollection", "IndexDistance"]
 - !private ["Ps23BidirectionalCollection", "Indices"]
@@ -317,11 +346,14 @@ depends-member:
 - !private ["Ps23BidirectionalCollection", "append"]
 - !private ["Ps23BidirectionalCollection", "count"]
 - !private ["Ps23BidirectionalCollection", "enumerated"]
+- !private ["Ps23BidirectionalCollection", "first"]
 - !private ["Ps23BidirectionalCollection", "forEach"]
+- !private ["Ps23BidirectionalCollection", "map"]
 - !private ["Ps23BidirectionalCollection", "max"]
 - !private ["Ps23BidirectionalCollection", "remove"]
 - !private ["Ps23BidirectionalCollection", "sorted"]
 - !private ["Ps23BidirectionalCollection", "subscript"]
+- !private ["Ps22BidirectionalIndexable", "Element"]
 - !private ["Ps22BidirectionalIndexable", "Index"]
 - !private ["Ps22BidirectionalIndexable", "IndexDistance"]
 - !private ["Ps22BidirectionalIndexable", "Indices"]
@@ -331,7 +363,9 @@ depends-member:
 - !private ["Ps22BidirectionalIndexable", "append"]
 - !private ["Ps22BidirectionalIndexable", "count"]
 - !private ["Ps22BidirectionalIndexable", "enumerated"]
+- !private ["Ps22BidirectionalIndexable", "first"]
 - !private ["Ps22BidirectionalIndexable", "forEach"]
+- !private ["Ps22BidirectionalIndexable", "map"]
 - !private ["Ps22BidirectionalIndexable", "max"]
 - !private ["Ps22BidirectionalIndexable", "remove"]
 - !private ["Ps22BidirectionalIndexable", "sorted"]
@@ -342,7 +376,9 @@ depends-member:
 - !private ["Vs18BidirectionalSlice", "Iterator"]
 - !private ["Vs18BidirectionalSlice", "SubSequence"]
 - !private ["Vs18BidirectionalSlice", "_Element"]
+- !private ["Ps19BinaryFloatingPoint", "IntegerLiteralType"]
 - !private ["Ps19BinaryFloatingPoint", "Stride"]
+- !private ["Ps19BinaryFloatingPoint", "_DisabledRangeIndex"]
 - !private ["Ps19BinaryFloatingPoint", "init"]
 - !private ["Ps17BitwiseOperations", "IntegerLiteralType"]
 - !private ["Ps17BitwiseOperations", "Stride"]
@@ -380,6 +416,7 @@ depends-member:
 - !private ["PSo13CAMediaTiming", "borderWidth"]
 - !private ["PSo13CAMediaTiming", "cornerRadius"]
 - !private ["PSo13CAMediaTiming", "masksToBounds"]
+- ["CSo7CGColor", "deinit"]
 - !private ["V12CoreGraphics7CGFloat", "Stride"]
 - ["V12CoreGraphics7CGFloat", "deinit"]
 - !private ["V12CoreGraphics7CGFloat", "init"]
@@ -402,6 +439,10 @@ depends-member:
 - !private ["Ps7CVarArg", "ChartLineModel"]
 - !private ["Ps7CVarArg", "ChartPoint"]
 - !private ["Ps7CVarArg", "ChartPointsLineLayer"]
+- !private ["Ps7CVarArg", "ChartPointsScatterCirclesLayer"]
+- !private ["Ps7CVarArg", "ChartPointsScatterCrossesLayer"]
+- !private ["Ps7CVarArg", "ChartPointsScatterSquaresLayer"]
+- !private ["Ps7CVarArg", "ChartPointsScatterTrianglesLayer"]
 - !private ["Ps7CVarArg", "Colors"]
 - !private ["Ps7CVarArg", "Double"]
 - ["Ps7CVarArg", "Element"]
@@ -414,6 +455,7 @@ depends-member:
 - !private ["Ps7CVarArg", "IntegerLiteralType"]
 - !private ["Ps7CVarArg", "Iterator"]
 - !private ["Ps7CVarArg", "JSONEncoding"]
+- !private ["Ps7CVarArg", "Key"]
 - ["Ps7CVarArg", "NSMutableArray"]
 - !private ["Ps7CVarArg", "NSNotification"]
 - !private ["Ps7CVarArg", "Name"]
@@ -433,12 +475,14 @@ depends-member:
 - !private ["Ps7CVarArg", "UIView"]
 - !private ["Ps7CVarArg", "UIVisualEffectView"]
 - !private ["Ps7CVarArg", "UserDefaults"]
+- !private ["Ps7CVarArg", "Value"]
 - !private ["Ps7CVarArg", "_DisabledRangeIndex"]
 - !private ["Ps7CVarArg", "_Element"]
 - !private ["Ps7CVarArg", "add"]
 - ["Ps7CVarArg", "addNotifications"]
 - !private ["Ps7CVarArg", "addObserver"]
 - !private ["Ps7CVarArg", "addSubview"]
+- !private ["Ps7CVarArg", "allKeys"]
 - !private ["Ps7CVarArg", "alpha"]
 - !private ["Ps7CVarArg", "animate"]
 - !private ["Ps7CVarArg", "append"]
@@ -451,7 +495,8 @@ depends-member:
 - !private ["Ps7CVarArg", "borderWidth"]
 - !private ["Ps7CVarArg", "bounds"]
 - ["Ps7CVarArg", "cancelBtn_Clicked"]
-- !private ["Ps7CVarArg", "chart"]
+- !private ["Ps7CVarArg", "cgColor"]
+- ["Ps7CVarArg", "chart"]
 - ["Ps7CVarArg", "chartConditionsArray"]
 - ["Ps7CVarArg", "chartView"]
 - ["Ps7CVarArg", "chartViewNotification"]
@@ -464,13 +509,16 @@ depends-member:
 - !private ["Ps7CVarArg", "conditionsArrayEng"]
 - !private ["Ps7CVarArg", "cornerRadius"]
 - !private ["Ps7CVarArg", "count"]
+- !private ["Ps7CVarArg", "darkGray"]
 - ["Ps7CVarArg", "dataArray"]
 - !private ["Ps7CVarArg", "default"]
 - ["Ps7CVarArg", "didReceiveMemoryWarning"]
 - ["Ps7CVarArg", "drawChart"]
 - ["Ps7CVarArg", "drawChartCondition"]
+- !private ["Ps7CVarArg", "end"]
 - !private ["Ps7CVarArg", "endEditing"]
 - !private ["Ps7CVarArg", "enumerated"]
+- !private ["Ps7CVarArg", "first"]
 - !private ["Ps7CVarArg", "forEach"]
 - ["Ps7CVarArg", "formInterval"]
 - !private ["Ps7CVarArg", "frame"]
@@ -486,14 +534,18 @@ depends-member:
 - !private ["Ps7CVarArg", "index"]
 - ["Ps7CVarArg", "init"]
 - !private ["Ps7CVarArg", "insertSubview"]
+- !private ["Ps7CVarArg", "intervalAsSeconds"]
 - !private ["Ps7CVarArg", "intervalWithNowAsStartDate"]
 - !private ["Ps7CVarArg", "isHidden"]
 - !private ["Ps7CVarArg", "kButtonRadius"]
 - !private ["Ps7CVarArg", "kChartViewScreenName"]
 - ["Ps7CVarArg", "label"]
 - !private ["Ps7CVarArg", "layer"]
+- !private ["Ps7CVarArg", "length"]
+- !private ["Ps7CVarArg", "lightGray"]
 - !private ["Ps7CVarArg", "localized"]
 - ["Ps7CVarArg", "lowerRangeArray"]
+- !private ["Ps7CVarArg", "map"]
 - !private ["Ps7CVarArg", "masksToBounds"]
 - !private ["Ps7CVarArg", "max"]
 - ["Ps7CVarArg", "medianLabel"]
@@ -540,7 +592,7 @@ depends-member:
 - !private ["Ps7CVarArg", "text"]
 - !private ["Ps7CVarArg", "textAlignment"]
 - !private ["Ps7CVarArg", "textColor"]
-- !private ["Ps7CVarArg", "toLayers"]
+- ["Ps7CVarArg", "toLayers"]
 - !private ["Ps7CVarArg", "userDefaults"]
 - !private ["Ps7CVarArg", "userInterfaceLayoutDirection"]
 - !private ["Ps7CVarArg", "value"]
@@ -552,14 +604,59 @@ depends-member:
 - ["Ps7CVarArg", ""]
 - !private ["Vs9Character", "deinit"]
 - !private ["V10Foundation12CharacterSet", "deinit"]
+- ["C11SwiftCharts5Chart", "deinit"]
+- !private ["C11SwiftCharts5Chart", "init"]
+- !private ["C11SwiftCharts5Chart", "view"]
+- ["C11SwiftCharts14ChartAxisLabel", "deinit"]
+- !private ["C11SwiftCharts14ChartAxisLabel", "init"]
+- ["P11SwiftCharts14ChartAxisLayer", "deinit"]
+- ["C11SwiftCharts14ChartAxisModel", "deinit"]
+- !private ["C11SwiftCharts14ChartAxisModel", "init"]
+- !private ["C11SwiftCharts20ChartAxisValueDouble", "deinit"]
+- !private ["C11SwiftCharts20ChartAxisValueDouble", "init"]
+- !private ["C11SwiftCharts20ChartAxisValueString", "deinit"]
+- !private ["C11SwiftCharts20ChartAxisValueString", "init"]
+- !private ["C11SwiftCharts36ChartCoordsSpaceLeftBottomSingleAxis", "chartInnerFrame"]
+- ["C11SwiftCharts36ChartCoordsSpaceLeftBottomSingleAxis", "deinit"]
+- !private ["C11SwiftCharts36ChartCoordsSpaceLeftBottomSingleAxis", "init"]
+- !private ["C11SwiftCharts36ChartCoordsSpaceLeftBottomSingleAxis", "xAxis"]
+- !private ["C11SwiftCharts36ChartCoordsSpaceLeftBottomSingleAxis", "yAxis"]
+- ["C11SwiftCharts34ChartGuideLinesDottedLayerSettings", "deinit"]
+- !private ["C11SwiftCharts34ChartGuideLinesDottedLayerSettings", "init"]
+- ["C11SwiftCharts27ChartGuideLinesDottedLayer_", "deinit"]
+- !private ["C11SwiftCharts27ChartGuideLinesDottedLayer_", "init"]
+- !private ["C11SwiftCharts28ChartGuideLinesLayerAbstract", "init"]
+- !private ["C11SwiftCharts18ChartLabelSettings", "defaultVertical"]
+- ["C11SwiftCharts18ChartLabelSettings", "deinit"]
+- !private ["C11SwiftCharts18ChartLabelSettings", "init"]
+- !private ["P11SwiftCharts10ChartLayer", "init"]
+- ["V11SwiftCharts14ChartLineModel", "deinit"]
+- !private ["V11SwiftCharts14ChartLineModel", "init"]
+- !private ["C11SwiftCharts10ChartPoint", "deinit"]
+- !private ["C11SwiftCharts10ChartPoint", "init"]
+- ["C11SwiftCharts20ChartPointsLineLayer", "deinit"]
+- !private ["C11SwiftCharts20ChartPointsLineLayer", "init"]
+- !private ["C11SwiftCharts30ChartPointsScatterCirclesLayer", "deinit"]
+- !private ["C11SwiftCharts30ChartPointsScatterCirclesLayer", "init"]
+- !private ["C11SwiftCharts30ChartPointsScatterCrossesLayer", "deinit"]
+- !private ["C11SwiftCharts30ChartPointsScatterCrossesLayer", "init"]
+- !private ["C11SwiftCharts23ChartPointsScatterLayer", "init"]
+- !private ["C11SwiftCharts30ChartPointsScatterSquaresLayer", "deinit"]
+- !private ["C11SwiftCharts30ChartPointsScatterSquaresLayer", "init"]
+- !private ["C11SwiftCharts32ChartPointsScatterTrianglesLayer", "deinit"]
+- !private ["C11SwiftCharts32ChartPointsScatterTrianglesLayer", "init"]
+- ["C11SwiftCharts13ChartSettings", "deinit"]
+- ["C11SwiftCharts9ChartView", "deinit"]
 - !private ["C11DiabetesApp19ChartViewController", "Alamofire"]
 - !private ["C11DiabetesApp19ChartViewController", "ApiMethods"]
 - !private ["C11DiabetesApp19ChartViewController", "Array"]
 - ["C11DiabetesApp19ChartViewController", "Bool"]
 - ["C11DiabetesApp19ChartViewController", "CGFloat"]
+- !private ["C11DiabetesApp19ChartViewController", "CGRect"]
 - !private ["C11DiabetesApp19ChartViewController", "CGSize"]
 - ["C11DiabetesApp19ChartViewController", "Chart"]
 - !private ["C11DiabetesApp19ChartViewController", "ChartAxisLabel"]
+- !private ["C11DiabetesApp19ChartViewController", "ChartAxisLayer"]
 - !private ["C11DiabetesApp19ChartViewController", "ChartAxisModel"]
 - !private ["C11DiabetesApp19ChartViewController", "ChartAxisValueDouble"]
 - !private ["C11DiabetesApp19ChartViewController", "ChartAxisValueString"]
@@ -571,6 +668,10 @@ depends-member:
 - !private ["C11DiabetesApp19ChartViewController", "ChartLineModel"]
 - !private ["C11DiabetesApp19ChartViewController", "ChartPoint"]
 - !private ["C11DiabetesApp19ChartViewController", "ChartPointsLineLayer"]
+- !private ["C11DiabetesApp19ChartViewController", "ChartPointsScatterCirclesLayer"]
+- !private ["C11DiabetesApp19ChartViewController", "ChartPointsScatterCrossesLayer"]
+- !private ["C11DiabetesApp19ChartViewController", "ChartPointsScatterSquaresLayer"]
+- !private ["C11DiabetesApp19ChartViewController", "ChartPointsScatterTrianglesLayer"]
 - !private ["C11DiabetesApp19ChartViewController", "Colors"]
 - !private ["C11DiabetesApp19ChartViewController", "Dictionary"]
 - !private ["C11DiabetesApp19ChartViewController", "Double"]
@@ -666,29 +767,37 @@ depends-member:
 - ["C11DiabetesApp19ChartViewController", "viewDidDisappear"]
 - ["C11DiabetesApp19ChartViewController", "viewDidLoad"]
 - !private ["Vs11ClosedRange", "deinit"]
+- !private ["Ps10Collection", "Element"]
 - !private ["Ps10Collection", "Index"]
 - !private ["Ps10Collection", "IndexDistance"]
 - !private ["Ps10Collection", "Indices"]
 - !private ["Ps10Collection", "Iterator"]
+- !private ["Ps10Collection", "Key"]
 - !private ["Ps10Collection", "SubSequence"]
+- !private ["Ps10Collection", "Value"]
 - !private ["Ps10Collection", "_Element"]
 - !private ["Ps10Collection", "append"]
 - !private ["Ps10Collection", "count"]
 - !private ["Ps10Collection", "enumerated"]
+- !private ["Ps10Collection", "first"]
 - !private ["Ps10Collection", "forEach"]
+- !private ["Ps10Collection", "map"]
 - !private ["Ps10Collection", "max"]
 - !private ["Ps10Collection", "remove"]
 - !private ["Ps10Collection", "sorted"]
 - !private ["Ps10Collection", "subscript"]
+- !private ["V11DiabetesApp6Colors", "DHTabBarGreen"]
 - !private ["V11DiabetesApp6Colors", "PrimaryColor"]
 - !private ["V11DiabetesApp6Colors", "chartHyperHypoColor"]
 - !private ["V11DiabetesApp6Colors", "chartNormalColor"]
+- !private ["V11DiabetesApp6Colors", "outgoingMsgColor"]
 - !private ["Ps10Comparable", "IntegerLiteralType"]
 - !private ["Ps10Comparable", "Stride"]
 - !private ["Ps10Comparable", "_DisabledRangeIndex"]
 - !private ["Ps10Comparable", "components"]
 - !private ["Ps10Comparable", "hashValue"]
 - ["Ps10Comparable", "init"]
+- !private ["Ps10Comparable", "length"]
 - !private ["Ps10Comparable", "localized"]
 - !private ["Vs20CountableClosedRange", "deinit"]
 - !private ["Vs14CountableRange", "Iterator"]
@@ -710,6 +819,10 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "ChartLineModel"]
 - !private ["Ps28CustomDebugStringConvertible", "ChartPoint"]
 - !private ["Ps28CustomDebugStringConvertible", "ChartPointsLineLayer"]
+- !private ["Ps28CustomDebugStringConvertible", "ChartPointsScatterCirclesLayer"]
+- !private ["Ps28CustomDebugStringConvertible", "ChartPointsScatterCrossesLayer"]
+- !private ["Ps28CustomDebugStringConvertible", "ChartPointsScatterSquaresLayer"]
+- !private ["Ps28CustomDebugStringConvertible", "ChartPointsScatterTrianglesLayer"]
 - !private ["Ps28CustomDebugStringConvertible", "Colors"]
 - !private ["Ps28CustomDebugStringConvertible", "Double"]
 - ["Ps28CustomDebugStringConvertible", "Element"]
@@ -719,13 +832,16 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "IQRLabel"]
 - !private ["Ps28CustomDebugStringConvertible", "Index"]
 - !private ["Ps28CustomDebugStringConvertible", "IndexDistance"]
+- !private ["Ps28CustomDebugStringConvertible", "IntegerLiteralType"]
 - !private ["Ps28CustomDebugStringConvertible", "Iterator"]
 - !private ["Ps28CustomDebugStringConvertible", "JSONEncoding"]
+- !private ["Ps28CustomDebugStringConvertible", "Key"]
 - ["Ps28CustomDebugStringConvertible", "NSMutableArray"]
 - !private ["Ps28CustomDebugStringConvertible", "NSNotification"]
 - !private ["Ps28CustomDebugStringConvertible", "Name"]
 - !private ["Ps28CustomDebugStringConvertible", "NotificationCenter"]
 - !private ["Ps28CustomDebugStringConvertible", "Notifications"]
+- !private ["Ps28CustomDebugStringConvertible", "Stride"]
 - !private ["Ps28CustomDebugStringConvertible", "String"]
 - !private ["Ps28CustomDebugStringConvertible", "SubSequence"]
 - !private ["Ps28CustomDebugStringConvertible", "TrendlineGenerator"]
@@ -739,11 +855,14 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "UIView"]
 - !private ["Ps28CustomDebugStringConvertible", "UIVisualEffectView"]
 - !private ["Ps28CustomDebugStringConvertible", "UserDefaults"]
+- !private ["Ps28CustomDebugStringConvertible", "Value"]
+- !private ["Ps28CustomDebugStringConvertible", "_DisabledRangeIndex"]
 - !private ["Ps28CustomDebugStringConvertible", "_Element"]
 - !private ["Ps28CustomDebugStringConvertible", "add"]
 - ["Ps28CustomDebugStringConvertible", "addNotifications"]
 - !private ["Ps28CustomDebugStringConvertible", "addObserver"]
 - !private ["Ps28CustomDebugStringConvertible", "addSubview"]
+- !private ["Ps28CustomDebugStringConvertible", "allKeys"]
 - !private ["Ps28CustomDebugStringConvertible", "alpha"]
 - !private ["Ps28CustomDebugStringConvertible", "animate"]
 - !private ["Ps28CustomDebugStringConvertible", "append"]
@@ -756,7 +875,8 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "borderWidth"]
 - !private ["Ps28CustomDebugStringConvertible", "bounds"]
 - ["Ps28CustomDebugStringConvertible", "cancelBtn_Clicked"]
-- !private ["Ps28CustomDebugStringConvertible", "chart"]
+- !private ["Ps28CustomDebugStringConvertible", "cgColor"]
+- ["Ps28CustomDebugStringConvertible", "chart"]
 - ["Ps28CustomDebugStringConvertible", "chartConditionsArray"]
 - ["Ps28CustomDebugStringConvertible", "chartView"]
 - ["Ps28CustomDebugStringConvertible", "chartViewNotification"]
@@ -769,13 +889,17 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "conditionsArrayEng"]
 - !private ["Ps28CustomDebugStringConvertible", "cornerRadius"]
 - !private ["Ps28CustomDebugStringConvertible", "count"]
+- !private ["Ps28CustomDebugStringConvertible", "darkGray"]
 - ["Ps28CustomDebugStringConvertible", "dataArray"]
 - !private ["Ps28CustomDebugStringConvertible", "default"]
 - ["Ps28CustomDebugStringConvertible", "didReceiveMemoryWarning"]
 - ["Ps28CustomDebugStringConvertible", "drawChart"]
 - ["Ps28CustomDebugStringConvertible", "drawChartCondition"]
+- !private ["Ps28CustomDebugStringConvertible", "end"]
 - !private ["Ps28CustomDebugStringConvertible", "endEditing"]
 - !private ["Ps28CustomDebugStringConvertible", "enumerated"]
+- !private ["Ps28CustomDebugStringConvertible", "failure"]
+- !private ["Ps28CustomDebugStringConvertible", "first"]
 - !private ["Ps28CustomDebugStringConvertible", "forEach"]
 - ["Ps28CustomDebugStringConvertible", "formInterval"]
 - !private ["Ps28CustomDebugStringConvertible", "frame"]
@@ -790,14 +914,18 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "index"]
 - ["Ps28CustomDebugStringConvertible", "init"]
 - !private ["Ps28CustomDebugStringConvertible", "insertSubview"]
+- !private ["Ps28CustomDebugStringConvertible", "intervalAsSeconds"]
 - !private ["Ps28CustomDebugStringConvertible", "intervalWithNowAsStartDate"]
 - !private ["Ps28CustomDebugStringConvertible", "isHidden"]
 - !private ["Ps28CustomDebugStringConvertible", "kButtonRadius"]
 - !private ["Ps28CustomDebugStringConvertible", "kChartViewScreenName"]
 - ["Ps28CustomDebugStringConvertible", "label"]
 - !private ["Ps28CustomDebugStringConvertible", "layer"]
+- !private ["Ps28CustomDebugStringConvertible", "length"]
+- !private ["Ps28CustomDebugStringConvertible", "lightGray"]
 - !private ["Ps28CustomDebugStringConvertible", "localized"]
 - ["Ps28CustomDebugStringConvertible", "lowerRangeArray"]
+- !private ["Ps28CustomDebugStringConvertible", "map"]
 - !private ["Ps28CustomDebugStringConvertible", "masksToBounds"]
 - !private ["Ps28CustomDebugStringConvertible", "max"]
 - ["Ps28CustomDebugStringConvertible", "medianLabel"]
@@ -822,6 +950,8 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "removeObserver"]
 - ["Ps28CustomDebugStringConvertible", "resetUI"]
 - ["Ps28CustomDebugStringConvertible", "resetUICondition"]
+- !private ["Ps28CustomDebugStringConvertible", "responseJSON"]
+- !private ["Ps28CustomDebugStringConvertible", "result"]
 - !private ["Ps28CustomDebugStringConvertible", "selectRow"]
 - ["Ps28CustomDebugStringConvertible", "selectedConditionIndex"]
 - !private ["Ps28CustomDebugStringConvertible", "selectedRow"]
@@ -841,10 +971,11 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "string"]
 - !private ["Ps28CustomDebugStringConvertible", "subscript"]
 - !private ["Ps28CustomDebugStringConvertible", "subviews"]
+- !private ["Ps28CustomDebugStringConvertible", "success"]
 - !private ["Ps28CustomDebugStringConvertible", "text"]
 - !private ["Ps28CustomDebugStringConvertible", "textAlignment"]
 - !private ["Ps28CustomDebugStringConvertible", "textColor"]
-- !private ["Ps28CustomDebugStringConvertible", "toLayers"]
+- ["Ps28CustomDebugStringConvertible", "toLayers"]
 - !private ["Ps28CustomDebugStringConvertible", "userDefaults"]
 - !private ["Ps28CustomDebugStringConvertible", "userInterfaceLayoutDirection"]
 - !private ["Ps28CustomDebugStringConvertible", "value"]
@@ -861,32 +992,41 @@ depends-member:
 - !private ["Ps29CustomPlaygroundQuickLookable", "components"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "hashValue"]
 - ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "length"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "localized"]
 - ["Ps17CustomReflectable", "Element"]
 - !private ["Ps17CustomReflectable", "Index"]
 - !private ["Ps17CustomReflectable", "IndexDistance"]
 - !private ["Ps17CustomReflectable", "IntegerLiteralType"]
 - !private ["Ps17CustomReflectable", "Iterator"]
+- !private ["Ps17CustomReflectable", "Key"]
 - !private ["Ps17CustomReflectable", "Stride"]
 - !private ["Ps17CustomReflectable", "SubSequence"]
+- !private ["Ps17CustomReflectable", "Value"]
 - !private ["Ps17CustomReflectable", "_DisabledRangeIndex"]
 - !private ["Ps17CustomReflectable", "_Element"]
 - !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
 - !private ["Ps17CustomReflectable", "add"]
+- !private ["Ps17CustomReflectable", "allKeys"]
 - !private ["Ps17CustomReflectable", "append"]
 - !private ["Ps17CustomReflectable", "components"]
 - !private ["Ps17CustomReflectable", "count"]
 - !private ["Ps17CustomReflectable", "enumerated"]
+- !private ["Ps17CustomReflectable", "first"]
 - !private ["Ps17CustomReflectable", "forEach"]
 - !private ["Ps17CustomReflectable", "hashValue"]
 - !private ["Ps17CustomReflectable", "index"]
 - ["Ps17CustomReflectable", "init"]
+- !private ["Ps17CustomReflectable", "length"]
 - !private ["Ps17CustomReflectable", "localized"]
+- !private ["Ps17CustomReflectable", "map"]
 - !private ["Ps17CustomReflectable", "max"]
+- !private ["Ps17CustomReflectable", "object"]
 - !private ["Ps17CustomReflectable", "remove"]
 - !private ["Ps17CustomReflectable", "removeAllObjects"]
 - !private ["Ps17CustomReflectable", "sorted"]
 - !private ["Ps17CustomReflectable", "subscript"]
+- !private ["Ps17CustomReflectable", "value"]
 - !private ["Ps23CustomStringConvertible", "Alamofire"]
 - !private ["Ps23CustomStringConvertible", "ApiMethods"]
 - !private ["Ps23CustomStringConvertible", "CGFloat"]
@@ -903,6 +1043,10 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "ChartLineModel"]
 - !private ["Ps23CustomStringConvertible", "ChartPoint"]
 - !private ["Ps23CustomStringConvertible", "ChartPointsLineLayer"]
+- !private ["Ps23CustomStringConvertible", "ChartPointsScatterCirclesLayer"]
+- !private ["Ps23CustomStringConvertible", "ChartPointsScatterCrossesLayer"]
+- !private ["Ps23CustomStringConvertible", "ChartPointsScatterSquaresLayer"]
+- !private ["Ps23CustomStringConvertible", "ChartPointsScatterTrianglesLayer"]
 - !private ["Ps23CustomStringConvertible", "Colors"]
 - !private ["Ps23CustomStringConvertible", "Double"]
 - ["Ps23CustomStringConvertible", "Element"]
@@ -915,6 +1059,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "IntegerLiteralType"]
 - !private ["Ps23CustomStringConvertible", "Iterator"]
 - !private ["Ps23CustomStringConvertible", "JSONEncoding"]
+- !private ["Ps23CustomStringConvertible", "Key"]
 - ["Ps23CustomStringConvertible", "NSMutableArray"]
 - !private ["Ps23CustomStringConvertible", "NSNotification"]
 - !private ["Ps23CustomStringConvertible", "Name"]
@@ -934,6 +1079,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "UIView"]
 - !private ["Ps23CustomStringConvertible", "UIVisualEffectView"]
 - !private ["Ps23CustomStringConvertible", "UserDefaults"]
+- !private ["Ps23CustomStringConvertible", "Value"]
 - !private ["Ps23CustomStringConvertible", "_DisabledRangeIndex"]
 - !private ["Ps23CustomStringConvertible", "_Element"]
 - !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
@@ -941,6 +1087,7 @@ depends-member:
 - ["Ps23CustomStringConvertible", "addNotifications"]
 - !private ["Ps23CustomStringConvertible", "addObserver"]
 - !private ["Ps23CustomStringConvertible", "addSubview"]
+- !private ["Ps23CustomStringConvertible", "allKeys"]
 - !private ["Ps23CustomStringConvertible", "alpha"]
 - !private ["Ps23CustomStringConvertible", "animate"]
 - !private ["Ps23CustomStringConvertible", "append"]
@@ -953,7 +1100,8 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "borderWidth"]
 - !private ["Ps23CustomStringConvertible", "bounds"]
 - ["Ps23CustomStringConvertible", "cancelBtn_Clicked"]
-- !private ["Ps23CustomStringConvertible", "chart"]
+- !private ["Ps23CustomStringConvertible", "cgColor"]
+- ["Ps23CustomStringConvertible", "chart"]
 - ["Ps23CustomStringConvertible", "chartConditionsArray"]
 - ["Ps23CustomStringConvertible", "chartView"]
 - ["Ps23CustomStringConvertible", "chartViewNotification"]
@@ -966,13 +1114,17 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "conditionsArrayEng"]
 - !private ["Ps23CustomStringConvertible", "cornerRadius"]
 - !private ["Ps23CustomStringConvertible", "count"]
+- !private ["Ps23CustomStringConvertible", "darkGray"]
 - ["Ps23CustomStringConvertible", "dataArray"]
 - !private ["Ps23CustomStringConvertible", "default"]
 - ["Ps23CustomStringConvertible", "didReceiveMemoryWarning"]
 - ["Ps23CustomStringConvertible", "drawChart"]
 - ["Ps23CustomStringConvertible", "drawChartCondition"]
+- !private ["Ps23CustomStringConvertible", "end"]
 - !private ["Ps23CustomStringConvertible", "endEditing"]
 - !private ["Ps23CustomStringConvertible", "enumerated"]
+- !private ["Ps23CustomStringConvertible", "failure"]
+- !private ["Ps23CustomStringConvertible", "first"]
 - !private ["Ps23CustomStringConvertible", "forEach"]
 - ["Ps23CustomStringConvertible", "formInterval"]
 - !private ["Ps23CustomStringConvertible", "frame"]
@@ -988,14 +1140,18 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "index"]
 - ["Ps23CustomStringConvertible", "init"]
 - !private ["Ps23CustomStringConvertible", "insertSubview"]
+- !private ["Ps23CustomStringConvertible", "intervalAsSeconds"]
 - !private ["Ps23CustomStringConvertible", "intervalWithNowAsStartDate"]
 - !private ["Ps23CustomStringConvertible", "isHidden"]
 - !private ["Ps23CustomStringConvertible", "kButtonRadius"]
 - !private ["Ps23CustomStringConvertible", "kChartViewScreenName"]
 - ["Ps23CustomStringConvertible", "label"]
 - !private ["Ps23CustomStringConvertible", "layer"]
+- !private ["Ps23CustomStringConvertible", "length"]
+- !private ["Ps23CustomStringConvertible", "lightGray"]
 - !private ["Ps23CustomStringConvertible", "localized"]
 - ["Ps23CustomStringConvertible", "lowerRangeArray"]
+- !private ["Ps23CustomStringConvertible", "map"]
 - !private ["Ps23CustomStringConvertible", "masksToBounds"]
 - !private ["Ps23CustomStringConvertible", "max"]
 - ["Ps23CustomStringConvertible", "medianLabel"]
@@ -1020,6 +1176,8 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "removeObserver"]
 - ["Ps23CustomStringConvertible", "resetUI"]
 - ["Ps23CustomStringConvertible", "resetUICondition"]
+- !private ["Ps23CustomStringConvertible", "responseJSON"]
+- !private ["Ps23CustomStringConvertible", "result"]
 - !private ["Ps23CustomStringConvertible", "selectRow"]
 - ["Ps23CustomStringConvertible", "selectedConditionIndex"]
 - !private ["Ps23CustomStringConvertible", "selectedRow"]
@@ -1039,10 +1197,11 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "string"]
 - !private ["Ps23CustomStringConvertible", "subscript"]
 - !private ["Ps23CustomStringConvertible", "subviews"]
+- !private ["Ps23CustomStringConvertible", "success"]
 - !private ["Ps23CustomStringConvertible", "text"]
 - !private ["Ps23CustomStringConvertible", "textAlignment"]
 - !private ["Ps23CustomStringConvertible", "textColor"]
-- !private ["Ps23CustomStringConvertible", "toLayers"]
+- ["Ps23CustomStringConvertible", "toLayers"]
 - !private ["Ps23CustomStringConvertible", "userDefaults"]
 - !private ["Ps23CustomStringConvertible", "userInterfaceLayoutDirection"]
 - !private ["Ps23CustomStringConvertible", "value"]
@@ -1052,6 +1211,10 @@ depends-member:
 - ["Ps23CustomStringConvertible", "viewDidLoad"]
 - !private ["Ps23CustomStringConvertible", "white"]
 - ["Ps23CustomStringConvertible", ""]
+- ["C9Alamofire11DataRequest", "deinit"]
+- !private ["C9Alamofire11DataRequest", "responseJSON"]
+- !private ["V9Alamofire12DataResponse", "deinit"]
+- !private ["V9Alamofire12DataResponse", "result"]
 - !private ["Vs27DefaultBidirectionalIndices", "Index"]
 - !private ["Vs27DefaultBidirectionalIndices", "Iterator"]
 - !private ["Vs27DefaultBidirectionalIndices", "SubSequence"]
@@ -1062,8 +1225,23 @@ depends-member:
 - !private ["Vs26DefaultRandomAccessIndices", "Iterator"]
 - !private ["Vs26DefaultRandomAccessIndices", "SubSequence"]
 - !private ["Vs26DefaultRandomAccessIndices", "_Element"]
+- !private ["Vs10Dictionary", "Index"]
+- !private ["Vs10Dictionary", "Iterator"]
+- !private ["Vs10Dictionary", "Key"]
+- !private ["Vs10Dictionary", "SubSequence"]
+- !private ["Vs10Dictionary", "Value"]
+- ["Vs10Dictionary", "deinit"]
+- !private ["Vs10Dictionary", "map"]
+- !private ["Vs10Dictionary", "subscript"]
+- !private ["Vs18DictionaryIterator", "Element"]
+- !private ["Sd", "IntegerLiteralType"]
+- !private ["Sd", "Stride"]
+- !private ["Sd", "_DisabledRangeIndex"]
 - ["Sd", "deinit"]
 - !private ["Sd", "init"]
+- !private ["Vs18EnumeratedIterator", "Element"]
+- !private ["Vs18EnumeratedSequence", "Iterator"]
+- ["Vs18EnumeratedSequence", "deinit"]
 - !private ["Vs18EnumeratedSequence", "map"]
 - !private ["Ps9Equatable", "Alamofire"]
 - !private ["Ps9Equatable", "ApiMethods"]
@@ -1081,6 +1259,10 @@ depends-member:
 - !private ["Ps9Equatable", "ChartLineModel"]
 - !private ["Ps9Equatable", "ChartPoint"]
 - !private ["Ps9Equatable", "ChartPointsLineLayer"]
+- !private ["Ps9Equatable", "ChartPointsScatterCirclesLayer"]
+- !private ["Ps9Equatable", "ChartPointsScatterCrossesLayer"]
+- !private ["Ps9Equatable", "ChartPointsScatterSquaresLayer"]
+- !private ["Ps9Equatable", "ChartPointsScatterTrianglesLayer"]
 - !private ["Ps9Equatable", "Colors"]
 - !private ["Ps9Equatable", "Double"]
 - ["Ps9Equatable", "Element"]
@@ -1118,6 +1300,7 @@ depends-member:
 - ["Ps9Equatable", "addNotifications"]
 - !private ["Ps9Equatable", "addObserver"]
 - !private ["Ps9Equatable", "addSubview"]
+- !private ["Ps9Equatable", "allKeys"]
 - !private ["Ps9Equatable", "alpha"]
 - !private ["Ps9Equatable", "animate"]
 - ["Ps9Equatable", "arrowImg"]
@@ -1129,7 +1312,8 @@ depends-member:
 - !private ["Ps9Equatable", "borderWidth"]
 - !private ["Ps9Equatable", "bounds"]
 - ["Ps9Equatable", "cancelBtn_Clicked"]
-- !private ["Ps9Equatable", "chart"]
+- !private ["Ps9Equatable", "cgColor"]
+- ["Ps9Equatable", "chart"]
 - ["Ps9Equatable", "chartConditionsArray"]
 - ["Ps9Equatable", "chartView"]
 - ["Ps9Equatable", "chartViewNotification"]
@@ -1145,11 +1329,13 @@ depends-member:
 - !private ["Ps9Equatable", "count"]
 - !private ["Ps9Equatable", "cross"]
 - !private ["Ps9Equatable", "dark"]
+- !private ["Ps9Equatable", "darkGray"]
 - ["Ps9Equatable", "dataArray"]
 - !private ["Ps9Equatable", "default"]
 - ["Ps9Equatable", "didReceiveMemoryWarning"]
 - ["Ps9Equatable", "drawChart"]
 - ["Ps9Equatable", "drawChartCondition"]
+- !private ["Ps9Equatable", "end"]
 - !private ["Ps9Equatable", "endEditing"]
 - !private ["Ps9Equatable", "enumerated"]
 - !private ["Ps9Equatable", "flexibleHeight"]
@@ -1168,6 +1354,7 @@ depends-member:
 - !private ["Ps9Equatable", "index"]
 - ["Ps9Equatable", "init"]
 - !private ["Ps9Equatable", "insertSubview"]
+- !private ["Ps9Equatable", "intervalAsSeconds"]
 - !private ["Ps9Equatable", "intervalWithNowAsStartDate"]
 - !private ["Ps9Equatable", "isHidden"]
 - !private ["Ps9Equatable", "kButtonRadius"]
@@ -1175,6 +1362,8 @@ depends-member:
 - ["Ps9Equatable", "label"]
 - !private ["Ps9Equatable", "layer"]
 - !private ["Ps9Equatable", "left"]
+- !private ["Ps9Equatable", "length"]
+- !private ["Ps9Equatable", "lightGray"]
 - !private ["Ps9Equatable", "localized"]
 - ["Ps9Equatable", "lowerRangeArray"]
 - !private ["Ps9Equatable", "masksToBounds"]
@@ -1192,6 +1381,7 @@ depends-member:
 - ["Ps9Equatable", "pickerView"]
 - ["Ps9Equatable", "pickerViewContainer"]
 - ["Ps9Equatable", "pickerViewInner"]
+- !private ["Ps9Equatable", "post"]
 - !private ["Ps9Equatable", "print"]
 - ["Ps9Equatable", "readingsView"]
 - !private ["Ps9Equatable", "red"]
@@ -1224,7 +1414,7 @@ depends-member:
 - !private ["Ps9Equatable", "text"]
 - !private ["Ps9Equatable", "textAlignment"]
 - !private ["Ps9Equatable", "textColor"]
-- !private ["Ps9Equatable", "toLayers"]
+- ["Ps9Equatable", "toLayers"]
 - !private ["Ps9Equatable", "triangle"]
 - !private ["Ps9Equatable", "type0"]
 - !private ["Ps9Equatable", "type1"]
@@ -1241,7 +1431,10 @@ depends-member:
 - ["Ps9Equatable", "viewDidLoad"]
 - !private ["Ps9Equatable", "white"]
 - ["Ps9Equatable", ""]
+- !private ["Ps5Error", "deinit"]
+- !private ["Ps5Error", "localizedDescription"]
 - !private ["V11DiabetesApp16ExamplesDefaults", "chartFrame"]
+- !private ["V11DiabetesApp16ExamplesDefaults", "chartSettings"]
 - ["Ps25ExpressibleByArrayLiteral", "Element"]
 - !private ["Ps25ExpressibleByArrayLiteral", "Index"]
 - !private ["Ps25ExpressibleByArrayLiteral", "IndexDistance"]
@@ -1252,11 +1445,13 @@ depends-member:
 - !private ["Ps25ExpressibleByArrayLiteral", "append"]
 - !private ["Ps25ExpressibleByArrayLiteral", "count"]
 - !private ["Ps25ExpressibleByArrayLiteral", "enumerated"]
+- !private ["Ps25ExpressibleByArrayLiteral", "first"]
 - !private ["Ps25ExpressibleByArrayLiteral", "flexibleHeight"]
 - !private ["Ps25ExpressibleByArrayLiteral", "flexibleWidth"]
 - !private ["Ps25ExpressibleByArrayLiteral", "forEach"]
 - !private ["Ps25ExpressibleByArrayLiteral", "index"]
 - ["Ps25ExpressibleByArrayLiteral", "init"]
+- !private ["Ps25ExpressibleByArrayLiteral", "map"]
 - !private ["Ps25ExpressibleByArrayLiteral", "max"]
 - !private ["Ps25ExpressibleByArrayLiteral", "normal"]
 - !private ["Ps25ExpressibleByArrayLiteral", "remove"]
@@ -1264,11 +1459,23 @@ depends-member:
 - !private ["Ps25ExpressibleByArrayLiteral", "sorted"]
 - !private ["Ps25ExpressibleByArrayLiteral", "subscript"]
 - !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "Index"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "Iterator"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "Key"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "SubSequence"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "Value"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "allKeys"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "map"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "object"]
 - !private ["Ps30ExpressibleByDictionaryLiteral", "subscript"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "value"]
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "components"]
 - ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "length"]
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "localized"]
+- !private ["Ps25ExpressibleByFloatLiteral", "IntegerLiteralType"]
 - !private ["Ps25ExpressibleByFloatLiteral", "Stride"]
+- !private ["Ps25ExpressibleByFloatLiteral", "_DisabledRangeIndex"]
 - !private ["Ps25ExpressibleByFloatLiteral", "init"]
 - !private ["Ps27ExpressibleByIntegerLiteral", "IntegerLiteralType"]
 - !private ["Ps27ExpressibleByIntegerLiteral", "Stride"]
@@ -1277,22 +1484,31 @@ depends-member:
 - !private ["Ps27ExpressibleByIntegerLiteral", "init"]
 - !private ["Ps32ExpressibleByStringInterpolation", "components"]
 - ["Ps32ExpressibleByStringInterpolation", "init"]
+- !private ["Ps32ExpressibleByStringInterpolation", "length"]
 - !private ["Ps32ExpressibleByStringInterpolation", "localized"]
 - !private ["Ps26ExpressibleByStringLiteral", "components"]
 - ["Ps26ExpressibleByStringLiteral", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "length"]
 - !private ["Ps26ExpressibleByStringLiteral", "localized"]
 - !private ["Ps33ExpressibleByUnicodeScalarLiteral", "components"]
 - ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "length"]
 - !private ["Ps33ExpressibleByUnicodeScalarLiteral", "localized"]
-- !private ["Sf", "deinit"]
+- ["Sf", "deinit"]
+- !private ["Ps13FloatingPoint", "IntegerLiteralType"]
 - !private ["Ps13FloatingPoint", "Stride"]
+- !private ["Ps13FloatingPoint", "_DisabledRangeIndex"]
 - !private ["Ps13FloatingPoint", "init"]
 - ["C11DiabetesApp10GTInterval", "deinit"]
+- !private ["C11DiabetesApp10GTInterval", "end"]
+- !private ["C11DiabetesApp10GTInterval", "intervalAsSeconds"]
 - !private ["C11DiabetesApp10GTInterval", "intervalWithNowAsStartDate"]
 - ["C11DiabetesApp24GoogleAnalyticManagerApi", "deinit"]
 - !private ["C11DiabetesApp24GoogleAnalyticManagerApi", "sendAnalyticsEventWithCategory"]
 - !private ["C11DiabetesApp24GoogleAnalyticManagerApi", "sharedInstance"]
 - !private ["C11DiabetesApp24GoogleAnalyticManagerApi", "startScreenSessionWithName"]
+- ["O9Alamofire10HTTPMethod", "deinit"]
+- !private ["O9Alamofire10HTTPMethod", "post"]
 - !private ["Ps8Hashable", "Alamofire"]
 - !private ["Ps8Hashable", "ApiMethods"]
 - !private ["Ps8Hashable", "CGFloat"]
@@ -1309,6 +1525,10 @@ depends-member:
 - !private ["Ps8Hashable", "ChartLineModel"]
 - !private ["Ps8Hashable", "ChartPoint"]
 - !private ["Ps8Hashable", "ChartPointsLineLayer"]
+- !private ["Ps8Hashable", "ChartPointsScatterCirclesLayer"]
+- !private ["Ps8Hashable", "ChartPointsScatterCrossesLayer"]
+- !private ["Ps8Hashable", "ChartPointsScatterSquaresLayer"]
+- !private ["Ps8Hashable", "ChartPointsScatterTrianglesLayer"]
 - !private ["Ps8Hashable", "Colors"]
 - !private ["Ps8Hashable", "Double"]
 - ["Ps8Hashable", "Element"]
@@ -1345,6 +1565,7 @@ depends-member:
 - ["Ps8Hashable", "addNotifications"]
 - !private ["Ps8Hashable", "addObserver"]
 - !private ["Ps8Hashable", "addSubview"]
+- !private ["Ps8Hashable", "allKeys"]
 - !private ["Ps8Hashable", "alpha"]
 - !private ["Ps8Hashable", "animate"]
 - ["Ps8Hashable", "arrowImg"]
@@ -1356,7 +1577,8 @@ depends-member:
 - !private ["Ps8Hashable", "borderWidth"]
 - !private ["Ps8Hashable", "bounds"]
 - ["Ps8Hashable", "cancelBtn_Clicked"]
-- !private ["Ps8Hashable", "chart"]
+- !private ["Ps8Hashable", "cgColor"]
+- ["Ps8Hashable", "chart"]
 - ["Ps8Hashable", "chartConditionsArray"]
 - ["Ps8Hashable", "chartView"]
 - ["Ps8Hashable", "chartViewNotification"]
@@ -1372,11 +1594,13 @@ depends-member:
 - !private ["Ps8Hashable", "count"]
 - !private ["Ps8Hashable", "cross"]
 - !private ["Ps8Hashable", "dark"]
+- !private ["Ps8Hashable", "darkGray"]
 - ["Ps8Hashable", "dataArray"]
 - !private ["Ps8Hashable", "default"]
 - ["Ps8Hashable", "didReceiveMemoryWarning"]
 - ["Ps8Hashable", "drawChart"]
 - ["Ps8Hashable", "drawChartCondition"]
+- !private ["Ps8Hashable", "end"]
 - !private ["Ps8Hashable", "endEditing"]
 - !private ["Ps8Hashable", "enumerated"]
 - ["Ps8Hashable", "formInterval"]
@@ -1393,6 +1617,7 @@ depends-member:
 - !private ["Ps8Hashable", "index"]
 - ["Ps8Hashable", "init"]
 - !private ["Ps8Hashable", "insertSubview"]
+- !private ["Ps8Hashable", "intervalAsSeconds"]
 - !private ["Ps8Hashable", "intervalWithNowAsStartDate"]
 - !private ["Ps8Hashable", "isHidden"]
 - !private ["Ps8Hashable", "kButtonRadius"]
@@ -1400,6 +1625,8 @@ depends-member:
 - ["Ps8Hashable", "label"]
 - !private ["Ps8Hashable", "layer"]
 - !private ["Ps8Hashable", "left"]
+- !private ["Ps8Hashable", "length"]
+- !private ["Ps8Hashable", "lightGray"]
 - !private ["Ps8Hashable", "localized"]
 - ["Ps8Hashable", "lowerRangeArray"]
 - !private ["Ps8Hashable", "masksToBounds"]
@@ -1416,6 +1643,7 @@ depends-member:
 - ["Ps8Hashable", "pickerView"]
 - ["Ps8Hashable", "pickerViewContainer"]
 - ["Ps8Hashable", "pickerViewInner"]
+- !private ["Ps8Hashable", "post"]
 - !private ["Ps8Hashable", "print"]
 - ["Ps8Hashable", "readingsView"]
 - !private ["Ps8Hashable", "red"]
@@ -1448,7 +1676,7 @@ depends-member:
 - !private ["Ps8Hashable", "text"]
 - !private ["Ps8Hashable", "textAlignment"]
 - !private ["Ps8Hashable", "textColor"]
-- !private ["Ps8Hashable", "toLayers"]
+- ["Ps8Hashable", "toLayers"]
 - !private ["Ps8Hashable", "triangle"]
 - !private ["Ps8Hashable", "type0"]
 - !private ["Ps8Hashable", "type1"]
@@ -1466,30 +1694,40 @@ depends-member:
 - !private ["Ps8Hashable", "white"]
 - ["Ps8Hashable", ""]
 - ["SQ", "deinit"]
+- !private ["Ps9Indexable", "Element"]
 - !private ["Ps9Indexable", "Index"]
 - !private ["Ps9Indexable", "IndexDistance"]
 - !private ["Ps9Indexable", "Indices"]
 - !private ["Ps9Indexable", "Iterator"]
+- !private ["Ps9Indexable", "Key"]
 - !private ["Ps9Indexable", "SubSequence"]
+- !private ["Ps9Indexable", "Value"]
 - !private ["Ps9Indexable", "_Element"]
 - !private ["Ps9Indexable", "append"]
 - !private ["Ps9Indexable", "count"]
 - !private ["Ps9Indexable", "enumerated"]
+- !private ["Ps9Indexable", "first"]
 - !private ["Ps9Indexable", "forEach"]
+- !private ["Ps9Indexable", "map"]
 - !private ["Ps9Indexable", "max"]
 - !private ["Ps9Indexable", "remove"]
 - !private ["Ps9Indexable", "sorted"]
 - !private ["Ps9Indexable", "subscript"]
+- !private ["Ps13IndexableBase", "Element"]
 - !private ["Ps13IndexableBase", "Index"]
 - !private ["Ps13IndexableBase", "IndexDistance"]
 - !private ["Ps13IndexableBase", "Indices"]
 - !private ["Ps13IndexableBase", "Iterator"]
+- !private ["Ps13IndexableBase", "Key"]
 - !private ["Ps13IndexableBase", "SubSequence"]
+- !private ["Ps13IndexableBase", "Value"]
 - !private ["Ps13IndexableBase", "_Element"]
 - !private ["Ps13IndexableBase", "append"]
 - !private ["Ps13IndexableBase", "count"]
 - !private ["Ps13IndexableBase", "enumerated"]
+- !private ["Ps13IndexableBase", "first"]
 - !private ["Ps13IndexableBase", "forEach"]
+- !private ["Ps13IndexableBase", "map"]
 - !private ["Ps13IndexableBase", "max"]
 - !private ["Ps13IndexableBase", "remove"]
 - !private ["Ps13IndexableBase", "sorted"]
@@ -1513,9 +1751,15 @@ depends-member:
 - !private ["Ps17IntegerArithmetic", "_DisabledRangeIndex"]
 - !private ["Ps17IntegerArithmetic", "hashValue"]
 - !private ["Ps16IteratorProtocol", "Element"]
+- !private ["V9Alamofire12JSONEncoding", "default"]
+- ["V9Alamofire12JSONEncoding", "deinit"]
+- !private ["Ps25LosslessStringConvertible", "IntegerLiteralType"]
+- !private ["Ps25LosslessStringConvertible", "Stride"]
+- !private ["Ps25LosslessStringConvertible", "_DisabledRangeIndex"]
 - !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
 - !private ["Ps25LosslessStringConvertible", "components"]
 - ["Ps25LosslessStringConvertible", "init"]
+- !private ["Ps25LosslessStringConvertible", "length"]
 - !private ["Ps25LosslessStringConvertible", "localized"]
 - !private ["Ps10MirrorPath", "IntegerLiteralType"]
 - !private ["Ps10MirrorPath", "Stride"]
@@ -1523,7 +1767,9 @@ depends-member:
 - !private ["Ps10MirrorPath", "components"]
 - !private ["Ps10MirrorPath", "hashValue"]
 - ["Ps10MirrorPath", "init"]
+- !private ["Ps10MirrorPath", "length"]
 - !private ["Ps10MirrorPath", "localized"]
+- !private ["Ps17MutableCollection", "Element"]
 - !private ["Ps17MutableCollection", "Index"]
 - !private ["Ps17MutableCollection", "IndexDistance"]
 - !private ["Ps17MutableCollection", "Iterator"]
@@ -1532,11 +1778,14 @@ depends-member:
 - !private ["Ps17MutableCollection", "append"]
 - !private ["Ps17MutableCollection", "count"]
 - !private ["Ps17MutableCollection", "enumerated"]
+- !private ["Ps17MutableCollection", "first"]
 - !private ["Ps17MutableCollection", "forEach"]
+- !private ["Ps17MutableCollection", "map"]
 - !private ["Ps17MutableCollection", "max"]
 - !private ["Ps17MutableCollection", "remove"]
 - !private ["Ps17MutableCollection", "sorted"]
 - !private ["Ps17MutableCollection", "subscript"]
+- !private ["Ps16MutableIndexable", "Element"]
 - !private ["Ps16MutableIndexable", "Index"]
 - !private ["Ps16MutableIndexable", "IndexDistance"]
 - !private ["Ps16MutableIndexable", "Iterator"]
@@ -1545,7 +1794,9 @@ depends-member:
 - !private ["Ps16MutableIndexable", "append"]
 - !private ["Ps16MutableIndexable", "count"]
 - !private ["Ps16MutableIndexable", "enumerated"]
+- !private ["Ps16MutableIndexable", "first"]
 - !private ["Ps16MutableIndexable", "forEach"]
+- !private ["Ps16MutableIndexable", "map"]
 - !private ["Ps16MutableIndexable", "max"]
 - !private ["Ps16MutableIndexable", "remove"]
 - !private ["Ps16MutableIndexable", "sorted"]
@@ -1578,6 +1829,10 @@ depends-member:
 - !private ["PSo8NSCoding", "ChartLineModel"]
 - !private ["PSo8NSCoding", "ChartPoint"]
 - !private ["PSo8NSCoding", "ChartPointsLineLayer"]
+- !private ["PSo8NSCoding", "ChartPointsScatterCirclesLayer"]
+- !private ["PSo8NSCoding", "ChartPointsScatterCrossesLayer"]
+- !private ["PSo8NSCoding", "ChartPointsScatterSquaresLayer"]
+- !private ["PSo8NSCoding", "ChartPointsScatterTrianglesLayer"]
 - !private ["PSo8NSCoding", "Colors"]
 - !private ["PSo8NSCoding", "Double"]
 - ["PSo8NSCoding", "Element"]
@@ -1607,6 +1862,7 @@ depends-member:
 - !private ["PSo8NSCoding", "add"]
 - ["PSo8NSCoding", "addNotifications"]
 - !private ["PSo8NSCoding", "addSubview"]
+- !private ["PSo8NSCoding", "allKeys"]
 - !private ["PSo8NSCoding", "alpha"]
 - !private ["PSo8NSCoding", "animate"]
 - ["PSo8NSCoding", "arrowImg"]
@@ -1618,7 +1874,8 @@ depends-member:
 - !private ["PSo8NSCoding", "borderWidth"]
 - !private ["PSo8NSCoding", "bounds"]
 - ["PSo8NSCoding", "cancelBtn_Clicked"]
-- !private ["PSo8NSCoding", "chart"]
+- !private ["PSo8NSCoding", "cgColor"]
+- ["PSo8NSCoding", "chart"]
 - ["PSo8NSCoding", "chartConditionsArray"]
 - ["PSo8NSCoding", "chartView"]
 - ["PSo8NSCoding", "chartViewNotification"]
@@ -1631,6 +1888,7 @@ depends-member:
 - !private ["PSo8NSCoding", "conditionsArrayEng"]
 - !private ["PSo8NSCoding", "cornerRadius"]
 - !private ["PSo8NSCoding", "count"]
+- !private ["PSo8NSCoding", "darkGray"]
 - ["PSo8NSCoding", "dataArray"]
 - ["PSo8NSCoding", "didReceiveMemoryWarning"]
 - ["PSo8NSCoding", "drawChart"]
@@ -1655,6 +1913,8 @@ depends-member:
 - !private ["PSo8NSCoding", "kChartViewScreenName"]
 - ["PSo8NSCoding", "label"]
 - !private ["PSo8NSCoding", "layer"]
+- !private ["PSo8NSCoding", "length"]
+- !private ["PSo8NSCoding", "lightGray"]
 - !private ["PSo8NSCoding", "localized"]
 - ["PSo8NSCoding", "lowerRangeArray"]
 - !private ["PSo8NSCoding", "masksToBounds"]
@@ -1692,7 +1952,7 @@ depends-member:
 - !private ["PSo8NSCoding", "text"]
 - !private ["PSo8NSCoding", "textAlignment"]
 - !private ["PSo8NSCoding", "textColor"]
-- !private ["PSo8NSCoding", "toLayers"]
+- ["PSo8NSCoding", "toLayers"]
 - !private ["PSo8NSCoding", "userDefaults"]
 - !private ["PSo8NSCoding", "value"]
 - !private ["PSo8NSCoding", "view"]
@@ -1705,13 +1965,18 @@ depends-member:
 - !private ["PSo9NSCopying", "Iterator"]
 - !private ["PSo9NSCopying", "Name"]
 - !private ["PSo9NSCopying", "add"]
+- !private ["PSo9NSCopying", "allKeys"]
 - !private ["PSo9NSCopying", "black"]
+- !private ["PSo9NSCopying", "cgColor"]
 - !private ["PSo9NSCopying", "components"]
 - !private ["PSo9NSCopying", "count"]
+- !private ["PSo9NSCopying", "darkGray"]
 - !private ["PSo9NSCopying", "deinit"]
 - !private ["PSo9NSCopying", "enumerated"]
 - !private ["PSo9NSCopying", "index"]
 - ["PSo9NSCopying", "init"]
+- !private ["PSo9NSCopying", "length"]
+- !private ["PSo9NSCopying", "lightGray"]
 - !private ["PSo9NSCopying", "localized"]
 - !private ["PSo9NSCopying", "object"]
 - !private ["PSo9NSCopying", "red"]
@@ -1719,8 +1984,11 @@ depends-member:
 - !private ["PSo9NSCopying", "subscript"]
 - !private ["PSo9NSCopying", "value"]
 - !private ["PSo9NSCopying", "white"]
+- !private ["CSo12NSDictionary", "allKeys"]
 - ["CSo12NSDictionary", "deinit"]
+- !private ["CSo12NSDictionary", "object"]
 - !private ["CSo12NSDictionary", "subscript"]
+- !private ["CSo12NSDictionary", "value"]
 - !private ["PSo26NSExtensionRequestHandling", "Alamofire"]
 - !private ["PSo26NSExtensionRequestHandling", "ApiMethods"]
 - !private ["PSo26NSExtensionRequestHandling", "CGFloat"]
@@ -1737,6 +2005,10 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "ChartLineModel"]
 - !private ["PSo26NSExtensionRequestHandling", "ChartPoint"]
 - !private ["PSo26NSExtensionRequestHandling", "ChartPointsLineLayer"]
+- !private ["PSo26NSExtensionRequestHandling", "ChartPointsScatterCirclesLayer"]
+- !private ["PSo26NSExtensionRequestHandling", "ChartPointsScatterCrossesLayer"]
+- !private ["PSo26NSExtensionRequestHandling", "ChartPointsScatterSquaresLayer"]
+- !private ["PSo26NSExtensionRequestHandling", "ChartPointsScatterTrianglesLayer"]
 - !private ["PSo26NSExtensionRequestHandling", "Colors"]
 - !private ["PSo26NSExtensionRequestHandling", "Double"]
 - !private ["PSo26NSExtensionRequestHandling", "ExamplesDefaults"]
@@ -1764,7 +2036,7 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "arrowImg"]
 - !private ["PSo26NSExtensionRequestHandling", "baseUrl"]
 - ["PSo26NSExtensionRequestHandling", "cancelBtn_Clicked"]
-- !private ["PSo26NSExtensionRequestHandling", "chart"]
+- ["PSo26NSExtensionRequestHandling", "chart"]
 - ["PSo26NSExtensionRequestHandling", "chartConditionsArray"]
 - ["PSo26NSExtensionRequestHandling", "chartView"]
 - ["PSo26NSExtensionRequestHandling", "chartViewNotification"]
@@ -1813,7 +2085,7 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "showOverlay"]
 - ["PSo26NSExtensionRequestHandling", "standardDeviationView"]
 - !private ["PSo26NSExtensionRequestHandling", "stride"]
-- !private ["PSo26NSExtensionRequestHandling", "toLayers"]
+- ["PSo26NSExtensionRequestHandling", "toLayers"]
 - !private ["PSo26NSExtensionRequestHandling", "userDefaults"]
 - !private ["PSo26NSExtensionRequestHandling", "view"]
 - ["PSo26NSExtensionRequestHandling", "viewDidAppear"]
@@ -1823,14 +2095,20 @@ depends-member:
 - ["PSo17NSFastEnumeration", "Element"]
 - !private ["PSo17NSFastEnumeration", "Iterator"]
 - !private ["PSo17NSFastEnumeration", "add"]
+- !private ["PSo17NSFastEnumeration", "allKeys"]
 - !private ["PSo17NSFastEnumeration", "count"]
 - !private ["PSo17NSFastEnumeration", "enumerated"]
 - !private ["PSo17NSFastEnumeration", "index"]
 - ["PSo17NSFastEnumeration", "init"]
+- !private ["PSo17NSFastEnumeration", "object"]
 - !private ["PSo17NSFastEnumeration", "removeAllObjects"]
 - !private ["PSo17NSFastEnumeration", "subscript"]
+- !private ["PSo17NSFastEnumeration", "value"]
 - !private ["C10Foundation25NSFastEnumerationIterator", "Element"]
+- !private ["PSo20NSFetchRequestResult", "allKeys"]
+- !private ["PSo20NSFetchRequestResult", "object"]
 - !private ["PSo20NSFetchRequestResult", "subscript"]
+- !private ["PSo20NSFetchRequestResult", "value"]
 - !private ["CSo14NSMutableArray", "Iterator"]
 - !private ["CSo14NSMutableArray", "add"]
 - !private ["CSo14NSMutableArray", "count"]
@@ -1840,26 +2118,33 @@ depends-member:
 - ["PSo16NSMutableCopying", "Element"]
 - !private ["PSo16NSMutableCopying", "Iterator"]
 - !private ["PSo16NSMutableCopying", "add"]
+- !private ["PSo16NSMutableCopying", "allKeys"]
 - !private ["PSo16NSMutableCopying", "components"]
 - !private ["PSo16NSMutableCopying", "count"]
 - !private ["PSo16NSMutableCopying", "enumerated"]
 - !private ["PSo16NSMutableCopying", "index"]
 - ["PSo16NSMutableCopying", "init"]
+- !private ["PSo16NSMutableCopying", "length"]
 - !private ["PSo16NSMutableCopying", "localized"]
+- !private ["PSo16NSMutableCopying", "object"]
 - !private ["PSo16NSMutableCopying", "removeAllObjects"]
 - !private ["PSo16NSMutableCopying", "subscript"]
+- !private ["PSo16NSMutableCopying", "value"]
 - !private ["CSo14NSNotification", "Name"]
 - ["CSo14NSNotification", "deinit"]
 - !private ["CSo14NSNotification", "object"]
 - !private ["CSo14NSNotification", "value"]
+- !private ["CSo8NSNumber", "deinit"]
 - !private ["CSo8NSObject", "Alamofire"]
 - !private ["CSo8NSObject", "ApiMethods"]
 - !private ["CSo8NSObject", "Array"]
 - ["CSo8NSObject", "Bool"]
 - ["CSo8NSObject", "CGFloat"]
+- !private ["CSo8NSObject", "CGRect"]
 - !private ["CSo8NSObject", "CGSize"]
 - ["CSo8NSObject", "Chart"]
 - !private ["CSo8NSObject", "ChartAxisLabel"]
+- !private ["CSo8NSObject", "ChartAxisLayer"]
 - !private ["CSo8NSObject", "ChartAxisModel"]
 - !private ["CSo8NSObject", "ChartAxisValueDouble"]
 - !private ["CSo8NSObject", "ChartAxisValueString"]
@@ -1871,6 +2156,10 @@ depends-member:
 - !private ["CSo8NSObject", "ChartLineModel"]
 - !private ["CSo8NSObject", "ChartPoint"]
 - !private ["CSo8NSObject", "ChartPointsLineLayer"]
+- !private ["CSo8NSObject", "ChartPointsScatterCirclesLayer"]
+- !private ["CSo8NSObject", "ChartPointsScatterCrossesLayer"]
+- !private ["CSo8NSObject", "ChartPointsScatterSquaresLayer"]
+- !private ["CSo8NSObject", "ChartPointsScatterTrianglesLayer"]
 - !private ["CSo8NSObject", "Colors"]
 - !private ["CSo8NSObject", "Dictionary"]
 - !private ["CSo8NSObject", "Double"]
@@ -1912,6 +2201,7 @@ depends-member:
 - ["CSo8NSObject", "addNotifications"]
 - !private ["CSo8NSObject", "addObserver"]
 - !private ["CSo8NSObject", "addSubview"]
+- !private ["CSo8NSObject", "allKeys"]
 - !private ["CSo8NSObject", "alpha"]
 - !private ["CSo8NSObject", "animate"]
 - ["CSo8NSObject", "arrowImg"]
@@ -1923,7 +2213,8 @@ depends-member:
 - !private ["CSo8NSObject", "borderWidth"]
 - !private ["CSo8NSObject", "bounds"]
 - ["CSo8NSObject", "cancelBtn_Clicked"]
-- !private ["CSo8NSObject", "chart"]
+- !private ["CSo8NSObject", "cgColor"]
+- ["CSo8NSObject", "chart"]
 - ["CSo8NSObject", "chartConditionsArray"]
 - ["CSo8NSObject", "chartView"]
 - ["CSo8NSObject", "chartViewNotification"]
@@ -1936,11 +2227,13 @@ depends-member:
 - !private ["CSo8NSObject", "conditionsArrayEng"]
 - !private ["CSo8NSObject", "cornerRadius"]
 - !private ["CSo8NSObject", "count"]
+- !private ["CSo8NSObject", "darkGray"]
 - ["CSo8NSObject", "dataArray"]
 - !private ["CSo8NSObject", "default"]
 - ["CSo8NSObject", "didReceiveMemoryWarning"]
 - ["CSo8NSObject", "drawChart"]
 - ["CSo8NSObject", "drawChartCondition"]
+- !private ["CSo8NSObject", "end"]
 - !private ["CSo8NSObject", "endEditing"]
 - !private ["CSo8NSObject", "enumerated"]
 - ["CSo8NSObject", "formInterval"]
@@ -1956,12 +2249,15 @@ depends-member:
 - !private ["CSo8NSObject", "index"]
 - ["CSo8NSObject", "init"]
 - !private ["CSo8NSObject", "insertSubview"]
+- !private ["CSo8NSObject", "intervalAsSeconds"]
 - !private ["CSo8NSObject", "intervalWithNowAsStartDate"]
 - !private ["CSo8NSObject", "isHidden"]
 - !private ["CSo8NSObject", "kButtonRadius"]
 - !private ["CSo8NSObject", "kChartViewScreenName"]
 - ["CSo8NSObject", "label"]
 - !private ["CSo8NSObject", "layer"]
+- !private ["CSo8NSObject", "length"]
+- !private ["CSo8NSObject", "lightGray"]
 - !private ["CSo8NSObject", "localized"]
 - ["CSo8NSObject", "lowerRangeArray"]
 - !private ["CSo8NSObject", "masksToBounds"]
@@ -2007,7 +2303,7 @@ depends-member:
 - !private ["CSo8NSObject", "text"]
 - !private ["CSo8NSObject", "textAlignment"]
 - !private ["CSo8NSObject", "textColor"]
-- !private ["CSo8NSObject", "toLayers"]
+- ["CSo8NSObject", "toLayers"]
 - !private ["CSo8NSObject", "userDefaults"]
 - !private ["CSo8NSObject", "userInterfaceLayoutDirection"]
 - !private ["CSo8NSObject", "value"]
@@ -2032,6 +2328,10 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "ChartLineModel"]
 - !private ["PSo16NSObjectProtocol", "ChartPoint"]
 - !private ["PSo16NSObjectProtocol", "ChartPointsLineLayer"]
+- !private ["PSo16NSObjectProtocol", "ChartPointsScatterCirclesLayer"]
+- !private ["PSo16NSObjectProtocol", "ChartPointsScatterCrossesLayer"]
+- !private ["PSo16NSObjectProtocol", "ChartPointsScatterSquaresLayer"]
+- !private ["PSo16NSObjectProtocol", "ChartPointsScatterTrianglesLayer"]
 - !private ["PSo16NSObjectProtocol", "Colors"]
 - !private ["PSo16NSObjectProtocol", "Double"]
 - ["PSo16NSObjectProtocol", "Element"]
@@ -2062,6 +2362,7 @@ depends-member:
 - ["PSo16NSObjectProtocol", "addNotifications"]
 - !private ["PSo16NSObjectProtocol", "addObserver"]
 - !private ["PSo16NSObjectProtocol", "addSubview"]
+- !private ["PSo16NSObjectProtocol", "allKeys"]
 - !private ["PSo16NSObjectProtocol", "alpha"]
 - !private ["PSo16NSObjectProtocol", "animate"]
 - ["PSo16NSObjectProtocol", "arrowImg"]
@@ -2073,7 +2374,8 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "borderWidth"]
 - !private ["PSo16NSObjectProtocol", "bounds"]
 - ["PSo16NSObjectProtocol", "cancelBtn_Clicked"]
-- !private ["PSo16NSObjectProtocol", "chart"]
+- !private ["PSo16NSObjectProtocol", "cgColor"]
+- ["PSo16NSObjectProtocol", "chart"]
 - ["PSo16NSObjectProtocol", "chartConditionsArray"]
 - ["PSo16NSObjectProtocol", "chartView"]
 - ["PSo16NSObjectProtocol", "chartViewNotification"]
@@ -2086,11 +2388,13 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "conditionsArrayEng"]
 - !private ["PSo16NSObjectProtocol", "cornerRadius"]
 - !private ["PSo16NSObjectProtocol", "count"]
+- !private ["PSo16NSObjectProtocol", "darkGray"]
 - ["PSo16NSObjectProtocol", "dataArray"]
 - !private ["PSo16NSObjectProtocol", "default"]
 - ["PSo16NSObjectProtocol", "didReceiveMemoryWarning"]
 - ["PSo16NSObjectProtocol", "drawChart"]
 - ["PSo16NSObjectProtocol", "drawChartCondition"]
+- !private ["PSo16NSObjectProtocol", "end"]
 - !private ["PSo16NSObjectProtocol", "endEditing"]
 - !private ["PSo16NSObjectProtocol", "enumerated"]
 - ["PSo16NSObjectProtocol", "formInterval"]
@@ -2106,12 +2410,15 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "index"]
 - ["PSo16NSObjectProtocol", "init"]
 - !private ["PSo16NSObjectProtocol", "insertSubview"]
+- !private ["PSo16NSObjectProtocol", "intervalAsSeconds"]
 - !private ["PSo16NSObjectProtocol", "intervalWithNowAsStartDate"]
 - !private ["PSo16NSObjectProtocol", "isHidden"]
 - !private ["PSo16NSObjectProtocol", "kButtonRadius"]
 - !private ["PSo16NSObjectProtocol", "kChartViewScreenName"]
 - ["PSo16NSObjectProtocol", "label"]
 - !private ["PSo16NSObjectProtocol", "layer"]
+- !private ["PSo16NSObjectProtocol", "length"]
+- !private ["PSo16NSObjectProtocol", "lightGray"]
 - !private ["PSo16NSObjectProtocol", "localized"]
 - ["PSo16NSObjectProtocol", "lowerRangeArray"]
 - !private ["PSo16NSObjectProtocol", "masksToBounds"]
@@ -2157,7 +2464,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "text"]
 - !private ["PSo16NSObjectProtocol", "textAlignment"]
 - !private ["PSo16NSObjectProtocol", "textColor"]
-- !private ["PSo16NSObjectProtocol", "toLayers"]
+- ["PSo16NSObjectProtocol", "toLayers"]
 - !private ["PSo16NSObjectProtocol", "userDefaults"]
 - !private ["PSo16NSObjectProtocol", "userInterfaceLayoutDirection"]
 - !private ["PSo16NSObjectProtocol", "value"]
@@ -2170,21 +2477,29 @@ depends-member:
 - ["PSo14NSSecureCoding", "Element"]
 - !private ["PSo14NSSecureCoding", "Iterator"]
 - !private ["PSo14NSSecureCoding", "add"]
+- !private ["PSo14NSSecureCoding", "allKeys"]
 - !private ["PSo14NSSecureCoding", "autoresizingMask"]
 - !private ["PSo14NSSecureCoding", "black"]
+- !private ["PSo14NSSecureCoding", "cgColor"]
 - !private ["PSo14NSSecureCoding", "components"]
 - !private ["PSo14NSSecureCoding", "count"]
+- !private ["PSo14NSSecureCoding", "darkGray"]
 - !private ["PSo14NSSecureCoding", "enumerated"]
 - !private ["PSo14NSSecureCoding", "frame"]
 - !private ["PSo14NSSecureCoding", "index"]
 - ["PSo14NSSecureCoding", "init"]
+- !private ["PSo14NSSecureCoding", "length"]
+- !private ["PSo14NSSecureCoding", "lightGray"]
 - !private ["PSo14NSSecureCoding", "localized"]
+- !private ["PSo14NSSecureCoding", "object"]
 - !private ["PSo14NSSecureCoding", "red"]
 - !private ["PSo14NSSecureCoding", "removeAllObjects"]
 - !private ["PSo14NSSecureCoding", "subscript"]
+- !private ["PSo14NSSecureCoding", "value"]
 - !private ["PSo14NSSecureCoding", "white"]
 - !private ["CSo8NSString", "components"]
 - ["CSo8NSString", "init"]
+- !private ["CSo8NSString", "length"]
 - !private ["CSo8NSString", "localized"]
 - ["OSC15NSTextAlignment", "deinit"]
 - !private ["OSC15NSTextAlignment", "left"]
@@ -2202,6 +2517,8 @@ depends-member:
 - !private ["Ps9OptionSet", "flexibleWidth"]
 - !private ["Ps9OptionSet", "normal"]
 - ["Sq", "deinit"]
+- !private ["P9Alamofire17ParameterEncoding", "default"]
+- !private ["Ps22RandomAccessCollection", "Element"]
 - !private ["Ps22RandomAccessCollection", "Index"]
 - !private ["Ps22RandomAccessCollection", "IndexDistance"]
 - !private ["Ps22RandomAccessCollection", "Indices"]
@@ -2211,11 +2528,14 @@ depends-member:
 - !private ["Ps22RandomAccessCollection", "append"]
 - !private ["Ps22RandomAccessCollection", "count"]
 - !private ["Ps22RandomAccessCollection", "enumerated"]
+- !private ["Ps22RandomAccessCollection", "first"]
 - !private ["Ps22RandomAccessCollection", "forEach"]
+- !private ["Ps22RandomAccessCollection", "map"]
 - !private ["Ps22RandomAccessCollection", "max"]
 - !private ["Ps22RandomAccessCollection", "remove"]
 - !private ["Ps22RandomAccessCollection", "sorted"]
 - !private ["Ps22RandomAccessCollection", "subscript"]
+- !private ["Ps21RandomAccessIndexable", "Element"]
 - !private ["Ps21RandomAccessIndexable", "Index"]
 - !private ["Ps21RandomAccessIndexable", "IndexDistance"]
 - !private ["Ps21RandomAccessIndexable", "Indices"]
@@ -2225,7 +2545,9 @@ depends-member:
 - !private ["Ps21RandomAccessIndexable", "append"]
 - !private ["Ps21RandomAccessIndexable", "count"]
 - !private ["Ps21RandomAccessIndexable", "enumerated"]
+- !private ["Ps21RandomAccessIndexable", "first"]
 - !private ["Ps21RandomAccessIndexable", "forEach"]
+- !private ["Ps21RandomAccessIndexable", "map"]
 - !private ["Ps21RandomAccessIndexable", "max"]
 - !private ["Ps21RandomAccessIndexable", "remove"]
 - !private ["Ps21RandomAccessIndexable", "sorted"]
@@ -2238,6 +2560,7 @@ depends-member:
 - !private ["Vs17RandomAccessSlice", "_Element"]
 - !private ["Vs5Range", "Iterator"]
 - !private ["Vs5Range", "deinit"]
+- !private ["Ps26RangeReplaceableCollection", "Element"]
 - !private ["Ps26RangeReplaceableCollection", "Index"]
 - !private ["Ps26RangeReplaceableCollection", "IndexDistance"]
 - !private ["Ps26RangeReplaceableCollection", "Iterator"]
@@ -2246,11 +2569,14 @@ depends-member:
 - !private ["Ps26RangeReplaceableCollection", "append"]
 - !private ["Ps26RangeReplaceableCollection", "count"]
 - !private ["Ps26RangeReplaceableCollection", "enumerated"]
+- !private ["Ps26RangeReplaceableCollection", "first"]
 - !private ["Ps26RangeReplaceableCollection", "forEach"]
+- !private ["Ps26RangeReplaceableCollection", "map"]
 - !private ["Ps26RangeReplaceableCollection", "max"]
 - !private ["Ps26RangeReplaceableCollection", "remove"]
 - !private ["Ps26RangeReplaceableCollection", "sorted"]
 - !private ["Ps26RangeReplaceableCollection", "subscript"]
+- !private ["Ps25RangeReplaceableIndexable", "Element"]
 - !private ["Ps25RangeReplaceableIndexable", "Index"]
 - !private ["Ps25RangeReplaceableIndexable", "IndexDistance"]
 - !private ["Ps25RangeReplaceableIndexable", "Iterator"]
@@ -2259,7 +2585,9 @@ depends-member:
 - !private ["Ps25RangeReplaceableIndexable", "append"]
 - !private ["Ps25RangeReplaceableIndexable", "count"]
 - !private ["Ps25RangeReplaceableIndexable", "enumerated"]
+- !private ["Ps25RangeReplaceableIndexable", "first"]
 - !private ["Ps25RangeReplaceableIndexable", "forEach"]
+- !private ["Ps25RangeReplaceableIndexable", "map"]
 - !private ["Ps25RangeReplaceableIndexable", "max"]
 - !private ["Ps25RangeReplaceableIndexable", "remove"]
 - !private ["Ps25RangeReplaceableIndexable", "sorted"]
@@ -2272,29 +2600,42 @@ depends-member:
 - !private ["Ps16RawRepresentable", "init"]
 - !private ["Ps16RawRepresentable", "left"]
 - !private ["Ps16RawRepresentable", "normal"]
+- !private ["Ps16RawRepresentable", "post"]
 - !private ["Ps16RawRepresentable", "right"]
 - !private ["Ps16RawRepresentable", "rightToLeft"]
+- !private ["C9Alamofire7Request", "responseJSON"]
+- !private ["P9Alamofire8Response", "result"]
+- !private ["O9Alamofire6Result", "deinit"]
+- !private ["O9Alamofire6Result", "failure"]
+- !private ["O9Alamofire6Result", "success"]
+- !private ["O9Alamofire6Result", "value"]
 - ["V10ObjectiveC8Selector", "deinit"]
 - ["Ps8Sequence", "Element"]
 - !private ["Ps8Sequence", "Index"]
 - !private ["Ps8Sequence", "IndexDistance"]
 - !private ["Ps8Sequence", "Indices"]
 - !private ["Ps8Sequence", "Iterator"]
+- !private ["Ps8Sequence", "Key"]
 - !private ["Ps8Sequence", "SubSequence"]
+- !private ["Ps8Sequence", "Value"]
 - !private ["Ps8Sequence", "_Element"]
 - !private ["Ps8Sequence", "add"]
+- !private ["Ps8Sequence", "allKeys"]
 - !private ["Ps8Sequence", "append"]
 - !private ["Ps8Sequence", "count"]
 - !private ["Ps8Sequence", "enumerated"]
+- !private ["Ps8Sequence", "first"]
 - !private ["Ps8Sequence", "forEach"]
 - !private ["Ps8Sequence", "index"]
 - ["Ps8Sequence", "init"]
 - !private ["Ps8Sequence", "map"]
 - !private ["Ps8Sequence", "max"]
+- !private ["Ps8Sequence", "object"]
 - !private ["Ps8Sequence", "remove"]
 - !private ["Ps8Sequence", "removeAllObjects"]
 - !private ["Ps8Sequence", "sorted"]
 - !private ["Ps8Sequence", "subscript"]
+- !private ["Ps8Sequence", "value"]
 - !private ["Ps10SetAlgebra", "Element"]
 - !private ["Ps10SetAlgebra", "flexibleHeight"]
 - !private ["Ps10SetAlgebra", "flexibleWidth"]
@@ -2312,6 +2653,10 @@ depends-member:
 - !private ["Vs5Slice", "Iterator"]
 - !private ["Vs5Slice", "SubSequence"]
 - !private ["Vs5Slice", "_Element"]
+- !private ["Vs13StrideThrough", "Iterator"]
+- ["Vs13StrideThrough", "deinit"]
+- !private ["Vs13StrideThrough", "map"]
+- !private ["Vs21StrideThroughIterator", "Element"]
 - !private ["Ps10Strideable", "IntegerLiteralType"]
 - !private ["Ps10Strideable", "Stride"]
 - !private ["Ps10Strideable", "_DisabledRangeIndex"]
@@ -2320,13 +2665,17 @@ depends-member:
 - !private ["SS", "components"]
 - ["SS", "deinit"]
 - ["SS", "init"]
+- !private ["SS", "length"]
 - !private ["SS", "localized"]
 - !private ["Ps16TextOutputStream", "components"]
 - ["Ps16TextOutputStream", "init"]
+- !private ["Ps16TextOutputStream", "length"]
 - !private ["Ps16TextOutputStream", "localized"]
 - !private ["Ps20TextOutputStreamable", "components"]
 - ["Ps20TextOutputStreamable", "init"]
+- !private ["Ps20TextOutputStreamable", "length"]
 - !private ["Ps20TextOutputStreamable", "localized"]
+- !private ["V11SwiftCharts18TrendlineGenerator", "trendline"]
 - !private ["PSo29UIAccessibilityIdentification", "addSubview"]
 - !private ["PSo29UIAccessibilityIdentification", "alpha"]
 - !private ["PSo29UIAccessibilityIdentification", "animate"]
@@ -2385,6 +2734,10 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "ChartLineModel"]
 - !private ["PSo21UIAppearanceContainer", "ChartPoint"]
 - !private ["PSo21UIAppearanceContainer", "ChartPointsLineLayer"]
+- !private ["PSo21UIAppearanceContainer", "ChartPointsScatterCirclesLayer"]
+- !private ["PSo21UIAppearanceContainer", "ChartPointsScatterCrossesLayer"]
+- !private ["PSo21UIAppearanceContainer", "ChartPointsScatterSquaresLayer"]
+- !private ["PSo21UIAppearanceContainer", "ChartPointsScatterTrianglesLayer"]
 - !private ["PSo21UIAppearanceContainer", "Colors"]
 - !private ["PSo21UIAppearanceContainer", "Double"]
 - !private ["PSo21UIAppearanceContainer", "ExamplesDefaults"]
@@ -2418,7 +2771,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "baseUrl"]
 - !private ["PSo21UIAppearanceContainer", "bounds"]
 - ["PSo21UIAppearanceContainer", "cancelBtn_Clicked"]
-- !private ["PSo21UIAppearanceContainer", "chart"]
+- ["PSo21UIAppearanceContainer", "chart"]
 - ["PSo21UIAppearanceContainer", "chartConditionsArray"]
 - ["PSo21UIAppearanceContainer", "chartView"]
 - ["PSo21UIAppearanceContainer", "chartViewNotification"]
@@ -2481,7 +2834,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "text"]
 - !private ["PSo21UIAppearanceContainer", "textAlignment"]
 - !private ["PSo21UIAppearanceContainer", "textColor"]
-- !private ["PSo21UIAppearanceContainer", "toLayers"]
+- ["PSo21UIAppearanceContainer", "toLayers"]
 - !private ["PSo21UIAppearanceContainer", "userDefaults"]
 - !private ["PSo21UIAppearanceContainer", "view"]
 - ["PSo21UIAppearanceContainer", "viewDidAppear"]
@@ -2497,7 +2850,10 @@ depends-member:
 - ["OSC17UIBlurEffectStyle", "deinit"]
 - !private ["CSo8UIButton", "setTitle"]
 - !private ["CSo7UIColor", "black"]
+- !private ["CSo7UIColor", "cgColor"]
+- !private ["CSo7UIColor", "darkGray"]
 - ["CSo7UIColor", "deinit"]
+- !private ["CSo7UIColor", "lightGray"]
 - !private ["CSo7UIColor", "red"]
 - !private ["CSo7UIColor", "white"]
 - !private ["PSo18UIContentContainer", "Alamofire"]
@@ -2516,6 +2872,10 @@ depends-member:
 - !private ["PSo18UIContentContainer", "ChartLineModel"]
 - !private ["PSo18UIContentContainer", "ChartPoint"]
 - !private ["PSo18UIContentContainer", "ChartPointsLineLayer"]
+- !private ["PSo18UIContentContainer", "ChartPointsScatterCirclesLayer"]
+- !private ["PSo18UIContentContainer", "ChartPointsScatterCrossesLayer"]
+- !private ["PSo18UIContentContainer", "ChartPointsScatterSquaresLayer"]
+- !private ["PSo18UIContentContainer", "ChartPointsScatterTrianglesLayer"]
 - !private ["PSo18UIContentContainer", "Colors"]
 - !private ["PSo18UIContentContainer", "Double"]
 - !private ["PSo18UIContentContainer", "ExamplesDefaults"]
@@ -2543,7 +2903,7 @@ depends-member:
 - ["PSo18UIContentContainer", "arrowImg"]
 - !private ["PSo18UIContentContainer", "baseUrl"]
 - ["PSo18UIContentContainer", "cancelBtn_Clicked"]
-- !private ["PSo18UIContentContainer", "chart"]
+- ["PSo18UIContentContainer", "chart"]
 - ["PSo18UIContentContainer", "chartConditionsArray"]
 - ["PSo18UIContentContainer", "chartView"]
 - ["PSo18UIContentContainer", "chartViewNotification"]
@@ -2592,7 +2952,7 @@ depends-member:
 - ["PSo18UIContentContainer", "showOverlay"]
 - ["PSo18UIContentContainer", "standardDeviationView"]
 - !private ["PSo18UIContentContainer", "stride"]
-- !private ["PSo18UIContentContainer", "toLayers"]
+- ["PSo18UIContentContainer", "toLayers"]
 - !private ["PSo18UIContentContainer", "userDefaults"]
 - !private ["PSo18UIContentContainer", "view"]
 - ["PSo18UIContentContainer", "viewDidAppear"]
@@ -2669,6 +3029,10 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "ChartLineModel"]
 - !private ["PSo18UIFocusEnvironment", "ChartPoint"]
 - !private ["PSo18UIFocusEnvironment", "ChartPointsLineLayer"]
+- !private ["PSo18UIFocusEnvironment", "ChartPointsScatterCirclesLayer"]
+- !private ["PSo18UIFocusEnvironment", "ChartPointsScatterCrossesLayer"]
+- !private ["PSo18UIFocusEnvironment", "ChartPointsScatterSquaresLayer"]
+- !private ["PSo18UIFocusEnvironment", "ChartPointsScatterTrianglesLayer"]
 - !private ["PSo18UIFocusEnvironment", "Colors"]
 - !private ["PSo18UIFocusEnvironment", "Double"]
 - !private ["PSo18UIFocusEnvironment", "ExamplesDefaults"]
@@ -2702,7 +3066,7 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "baseUrl"]
 - !private ["PSo18UIFocusEnvironment", "bounds"]
 - ["PSo18UIFocusEnvironment", "cancelBtn_Clicked"]
-- !private ["PSo18UIFocusEnvironment", "chart"]
+- ["PSo18UIFocusEnvironment", "chart"]
 - ["PSo18UIFocusEnvironment", "chartConditionsArray"]
 - ["PSo18UIFocusEnvironment", "chartView"]
 - ["PSo18UIFocusEnvironment", "chartViewNotification"]
@@ -2765,7 +3129,7 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "text"]
 - !private ["PSo18UIFocusEnvironment", "textAlignment"]
 - !private ["PSo18UIFocusEnvironment", "textColor"]
-- !private ["PSo18UIFocusEnvironment", "toLayers"]
+- ["PSo18UIFocusEnvironment", "toLayers"]
 - !private ["PSo18UIFocusEnvironment", "userDefaults"]
 - !private ["PSo18UIFocusEnvironment", "view"]
 - ["PSo18UIFocusEnvironment", "viewDidAppear"]
@@ -2793,6 +3157,8 @@ depends-member:
 - !private ["PSo11UIFocusItem", "text"]
 - !private ["PSo11UIFocusItem", "textAlignment"]
 - !private ["PSo11UIFocusItem", "textColor"]
+- ["CSo6UIFont", "deinit"]
+- !private ["CSo6UIFont", "init"]
 - !private ["CSo7UIImage", "init"]
 - !private ["CSo11UIImageView", "image"]
 - !private ["PSo10UIKeyInput", "text"]
@@ -2822,6 +3188,10 @@ depends-member:
 - !private ["PSo22UIPickerViewDataSource", "ChartLineModel"]
 - !private ["PSo22UIPickerViewDataSource", "ChartPoint"]
 - !private ["PSo22UIPickerViewDataSource", "ChartPointsLineLayer"]
+- !private ["PSo22UIPickerViewDataSource", "ChartPointsScatterCirclesLayer"]
+- !private ["PSo22UIPickerViewDataSource", "ChartPointsScatterCrossesLayer"]
+- !private ["PSo22UIPickerViewDataSource", "ChartPointsScatterSquaresLayer"]
+- !private ["PSo22UIPickerViewDataSource", "ChartPointsScatterTrianglesLayer"]
 - !private ["PSo22UIPickerViewDataSource", "Colors"]
 - !private ["PSo22UIPickerViewDataSource", "Double"]
 - !private ["PSo22UIPickerViewDataSource", "ExamplesDefaults"]
@@ -2881,6 +3251,8 @@ depends-member:
 - !private ["PSo22UIPickerViewDataSource", "pickerViewInner"]
 - !private ["PSo22UIPickerViewDataSource", "print"]
 - !private ["PSo22UIPickerViewDataSource", "readingsView"]
+- !private ["PSo22UIPickerViewDataSource", "resetUI"]
+- !private ["PSo22UIPickerViewDataSource", "resetUICondition"]
 - !private ["PSo22UIPickerViewDataSource", "selectedConditionIndex"]
 - !private ["PSo22UIPickerViewDataSource", "setBottomLabels"]
 - !private ["PSo22UIPickerViewDataSource", "setUI"]
@@ -2906,6 +3278,10 @@ depends-member:
 - !private ["PSo20UIPickerViewDelegate", "ChartLineModel"]
 - !private ["PSo20UIPickerViewDelegate", "ChartPoint"]
 - !private ["PSo20UIPickerViewDelegate", "ChartPointsLineLayer"]
+- !private ["PSo20UIPickerViewDelegate", "ChartPointsScatterCirclesLayer"]
+- !private ["PSo20UIPickerViewDelegate", "ChartPointsScatterCrossesLayer"]
+- !private ["PSo20UIPickerViewDelegate", "ChartPointsScatterSquaresLayer"]
+- !private ["PSo20UIPickerViewDelegate", "ChartPointsScatterTrianglesLayer"]
 - !private ["PSo20UIPickerViewDelegate", "Colors"]
 - !private ["PSo20UIPickerViewDelegate", "Double"]
 - !private ["PSo20UIPickerViewDelegate", "ExamplesDefaults"]
@@ -2965,6 +3341,8 @@ depends-member:
 - !private ["PSo20UIPickerViewDelegate", "pickerViewInner"]
 - !private ["PSo20UIPickerViewDelegate", "print"]
 - !private ["PSo20UIPickerViewDelegate", "readingsView"]
+- !private ["PSo20UIPickerViewDelegate", "resetUI"]
+- !private ["PSo20UIPickerViewDelegate", "resetUICondition"]
 - !private ["PSo20UIPickerViewDelegate", "selectedConditionIndex"]
 - !private ["PSo20UIPickerViewDelegate", "setBottomLabels"]
 - !private ["PSo20UIPickerViewDelegate", "setUI"]
@@ -2979,9 +3357,11 @@ depends-member:
 - !private ["CSo11UIResponder", "Array"]
 - ["CSo11UIResponder", "Bool"]
 - ["CSo11UIResponder", "CGFloat"]
+- !private ["CSo11UIResponder", "CGRect"]
 - !private ["CSo11UIResponder", "CGSize"]
 - ["CSo11UIResponder", "Chart"]
 - !private ["CSo11UIResponder", "ChartAxisLabel"]
+- !private ["CSo11UIResponder", "ChartAxisLayer"]
 - !private ["CSo11UIResponder", "ChartAxisModel"]
 - !private ["CSo11UIResponder", "ChartAxisValueDouble"]
 - !private ["CSo11UIResponder", "ChartAxisValueString"]
@@ -2993,6 +3373,10 @@ depends-member:
 - !private ["CSo11UIResponder", "ChartLineModel"]
 - !private ["CSo11UIResponder", "ChartPoint"]
 - !private ["CSo11UIResponder", "ChartPointsLineLayer"]
+- !private ["CSo11UIResponder", "ChartPointsScatterCirclesLayer"]
+- !private ["CSo11UIResponder", "ChartPointsScatterCrossesLayer"]
+- !private ["CSo11UIResponder", "ChartPointsScatterSquaresLayer"]
+- !private ["CSo11UIResponder", "ChartPointsScatterTrianglesLayer"]
 - !private ["CSo11UIResponder", "Colors"]
 - !private ["CSo11UIResponder", "Dictionary"]
 - !private ["CSo11UIResponder", "Double"]
@@ -3037,7 +3421,7 @@ depends-member:
 - !private ["CSo11UIResponder", "baseUrl"]
 - !private ["CSo11UIResponder", "bounds"]
 - ["CSo11UIResponder", "cancelBtn_Clicked"]
-- !private ["CSo11UIResponder", "chart"]
+- ["CSo11UIResponder", "chart"]
 - ["CSo11UIResponder", "chartConditionsArray"]
 - ["CSo11UIResponder", "chartView"]
 - ["CSo11UIResponder", "chartViewNotification"]
@@ -3101,7 +3485,7 @@ depends-member:
 - !private ["CSo11UIResponder", "text"]
 - !private ["CSo11UIResponder", "textAlignment"]
 - !private ["CSo11UIResponder", "textColor"]
-- !private ["CSo11UIResponder", "toLayers"]
+- ["CSo11UIResponder", "toLayers"]
 - !private ["CSo11UIResponder", "userDefaults"]
 - !private ["CSo11UIResponder", "userInterfaceLayoutDirection"]
 - !private ["CSo11UIResponder", "view"]
@@ -3124,6 +3508,10 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "ChartLineModel"]
 - !private ["PSo30UIResponderStandardEditActions", "ChartPoint"]
 - !private ["PSo30UIResponderStandardEditActions", "ChartPointsLineLayer"]
+- !private ["PSo30UIResponderStandardEditActions", "ChartPointsScatterCirclesLayer"]
+- !private ["PSo30UIResponderStandardEditActions", "ChartPointsScatterCrossesLayer"]
+- !private ["PSo30UIResponderStandardEditActions", "ChartPointsScatterSquaresLayer"]
+- !private ["PSo30UIResponderStandardEditActions", "ChartPointsScatterTrianglesLayer"]
 - !private ["PSo30UIResponderStandardEditActions", "Colors"]
 - !private ["PSo30UIResponderStandardEditActions", "Double"]
 - !private ["PSo30UIResponderStandardEditActions", "ExamplesDefaults"]
@@ -3157,7 +3545,7 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "baseUrl"]
 - !private ["PSo30UIResponderStandardEditActions", "bounds"]
 - ["PSo30UIResponderStandardEditActions", "cancelBtn_Clicked"]
-- !private ["PSo30UIResponderStandardEditActions", "chart"]
+- ["PSo30UIResponderStandardEditActions", "chart"]
 - ["PSo30UIResponderStandardEditActions", "chartConditionsArray"]
 - ["PSo30UIResponderStandardEditActions", "chartView"]
 - ["PSo30UIResponderStandardEditActions", "chartViewNotification"]
@@ -3221,7 +3609,7 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "text"]
 - !private ["PSo30UIResponderStandardEditActions", "textAlignment"]
 - !private ["PSo30UIResponderStandardEditActions", "textColor"]
-- !private ["PSo30UIResponderStandardEditActions", "toLayers"]
+- ["PSo30UIResponderStandardEditActions", "toLayers"]
 - !private ["PSo30UIResponderStandardEditActions", "userDefaults"]
 - !private ["PSo30UIResponderStandardEditActions", "userInterfaceLayoutDirection"]
 - !private ["PSo30UIResponderStandardEditActions", "view"]
@@ -3245,6 +3633,10 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "ChartLineModel"]
 - !private ["PSo16UIStateRestoring", "ChartPoint"]
 - !private ["PSo16UIStateRestoring", "ChartPointsLineLayer"]
+- !private ["PSo16UIStateRestoring", "ChartPointsScatterCirclesLayer"]
+- !private ["PSo16UIStateRestoring", "ChartPointsScatterCrossesLayer"]
+- !private ["PSo16UIStateRestoring", "ChartPointsScatterSquaresLayer"]
+- !private ["PSo16UIStateRestoring", "ChartPointsScatterTrianglesLayer"]
 - !private ["PSo16UIStateRestoring", "Colors"]
 - !private ["PSo16UIStateRestoring", "Double"]
 - !private ["PSo16UIStateRestoring", "ExamplesDefaults"]
@@ -3272,7 +3664,7 @@ depends-member:
 - ["PSo16UIStateRestoring", "arrowImg"]
 - !private ["PSo16UIStateRestoring", "baseUrl"]
 - ["PSo16UIStateRestoring", "cancelBtn_Clicked"]
-- !private ["PSo16UIStateRestoring", "chart"]
+- ["PSo16UIStateRestoring", "chart"]
 - ["PSo16UIStateRestoring", "chartConditionsArray"]
 - ["PSo16UIStateRestoring", "chartView"]
 - ["PSo16UIStateRestoring", "chartViewNotification"]
@@ -3321,7 +3713,7 @@ depends-member:
 - ["PSo16UIStateRestoring", "showOverlay"]
 - ["PSo16UIStateRestoring", "standardDeviationView"]
 - !private ["PSo16UIStateRestoring", "stride"]
-- !private ["PSo16UIStateRestoring", "toLayers"]
+- ["PSo16UIStateRestoring", "toLayers"]
 - !private ["PSo16UIStateRestoring", "userDefaults"]
 - !private ["PSo16UIStateRestoring", "view"]
 - ["PSo16UIStateRestoring", "viewDidAppear"]
@@ -3350,6 +3742,10 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "ChartLineModel"]
 - !private ["PSo18UITraitEnvironment", "ChartPoint"]
 - !private ["PSo18UITraitEnvironment", "ChartPointsLineLayer"]
+- !private ["PSo18UITraitEnvironment", "ChartPointsScatterCirclesLayer"]
+- !private ["PSo18UITraitEnvironment", "ChartPointsScatterCrossesLayer"]
+- !private ["PSo18UITraitEnvironment", "ChartPointsScatterSquaresLayer"]
+- !private ["PSo18UITraitEnvironment", "ChartPointsScatterTrianglesLayer"]
 - !private ["PSo18UITraitEnvironment", "Colors"]
 - !private ["PSo18UITraitEnvironment", "Double"]
 - !private ["PSo18UITraitEnvironment", "ExamplesDefaults"]
@@ -3383,7 +3779,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "baseUrl"]
 - !private ["PSo18UITraitEnvironment", "bounds"]
 - ["PSo18UITraitEnvironment", "cancelBtn_Clicked"]
-- !private ["PSo18UITraitEnvironment", "chart"]
+- ["PSo18UITraitEnvironment", "chart"]
 - ["PSo18UITraitEnvironment", "chartConditionsArray"]
 - ["PSo18UITraitEnvironment", "chartView"]
 - ["PSo18UITraitEnvironment", "chartViewNotification"]
@@ -3446,7 +3842,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "text"]
 - !private ["PSo18UITraitEnvironment", "textAlignment"]
 - !private ["PSo18UITraitEnvironment", "textColor"]
-- !private ["PSo18UITraitEnvironment", "toLayers"]
+- ["PSo18UITraitEnvironment", "toLayers"]
 - !private ["PSo18UITraitEnvironment", "userDefaults"]
 - !private ["PSo18UITraitEnvironment", "view"]
 - ["PSo18UITraitEnvironment", "viewDidAppear"]
@@ -3487,9 +3883,11 @@ depends-member:
 - !private ["CSo16UIViewController", "Array"]
 - ["CSo16UIViewController", "Bool"]
 - ["CSo16UIViewController", "CGFloat"]
+- !private ["CSo16UIViewController", "CGRect"]
 - !private ["CSo16UIViewController", "CGSize"]
 - ["CSo16UIViewController", "Chart"]
 - !private ["CSo16UIViewController", "ChartAxisLabel"]
+- !private ["CSo16UIViewController", "ChartAxisLayer"]
 - !private ["CSo16UIViewController", "ChartAxisModel"]
 - !private ["CSo16UIViewController", "ChartAxisValueDouble"]
 - !private ["CSo16UIViewController", "ChartAxisValueString"]
@@ -3501,6 +3899,10 @@ depends-member:
 - !private ["CSo16UIViewController", "ChartLineModel"]
 - !private ["CSo16UIViewController", "ChartPoint"]
 - !private ["CSo16UIViewController", "ChartPointsLineLayer"]
+- !private ["CSo16UIViewController", "ChartPointsScatterCirclesLayer"]
+- !private ["CSo16UIViewController", "ChartPointsScatterCrossesLayer"]
+- !private ["CSo16UIViewController", "ChartPointsScatterSquaresLayer"]
+- !private ["CSo16UIViewController", "ChartPointsScatterTrianglesLayer"]
 - !private ["CSo16UIViewController", "Colors"]
 - !private ["CSo16UIViewController", "Dictionary"]
 - !private ["CSo16UIViewController", "Double"]
@@ -3539,7 +3941,7 @@ depends-member:
 - ["CSo16UIViewController", "arrowImg"]
 - !private ["CSo16UIViewController", "baseUrl"]
 - ["CSo16UIViewController", "cancelBtn_Clicked"]
-- !private ["CSo16UIViewController", "chart"]
+- ["CSo16UIViewController", "chart"]
 - ["CSo16UIViewController", "chartConditionsArray"]
 - ["CSo16UIViewController", "chartView"]
 - ["CSo16UIViewController", "chartViewNotification"]
@@ -3589,7 +3991,7 @@ depends-member:
 - ["CSo16UIViewController", "showOverlay"]
 - ["CSo16UIViewController", "standardDeviationView"]
 - !private ["CSo16UIViewController", "stride"]
-- !private ["CSo16UIViewController", "toLayers"]
+- ["CSo16UIViewController", "toLayers"]
 - !private ["CSo16UIViewController", "userDefaults"]
 - !private ["CSo16UIViewController", "view"]
 - ["CSo16UIViewController", "viewDidAppear"]
@@ -3606,6 +4008,11 @@ depends-member:
 - !private ["Vs6UInt32", "deinit"]
 - !private ["Vs6UInt64", "deinit"]
 - !private ["Vs5UInt8", "deinit"]
+- !private ["P9Alamofire14URLConvertible", "components"]
+- !private ["P9Alamofire14URLConvertible", "deinit"]
+- ["P9Alamofire14URLConvertible", "init"]
+- !private ["P9Alamofire14URLConvertible", "length"]
+- !private ["P9Alamofire14URLConvertible", "localized"]
 - !private ["Sc", "deinit"]
 - !private ["Sp", "deinit"]
 - !private ["SP", "deinit"]
@@ -3613,6 +4020,7 @@ depends-member:
 - !private ["CSo12UserDefaults", "setValue"]
 - !private ["CSo12UserDefaults", "standard"]
 - !private ["CSo12UserDefaults", "string"]
+- !private ["Ps14_ArrayProtocol", "Element"]
 - !private ["Ps14_ArrayProtocol", "Index"]
 - !private ["Ps14_ArrayProtocol", "IndexDistance"]
 - !private ["Ps14_ArrayProtocol", "Iterator"]
@@ -3621,14 +4029,20 @@ depends-member:
 - !private ["Ps14_ArrayProtocol", "append"]
 - !private ["Ps14_ArrayProtocol", "count"]
 - !private ["Ps14_ArrayProtocol", "enumerated"]
+- !private ["Ps14_ArrayProtocol", "first"]
 - !private ["Ps14_ArrayProtocol", "forEach"]
+- !private ["Ps14_ArrayProtocol", "map"]
 - !private ["Ps14_ArrayProtocol", "max"]
 - !private ["Ps14_ArrayProtocol", "remove"]
 - !private ["Ps14_ArrayProtocol", "sorted"]
 - !private ["Ps14_ArrayProtocol", "subscript"]
+- !private ["Ps15_CVarArgAligned", "IntegerLiteralType"]
 - !private ["Ps15_CVarArgAligned", "Stride"]
+- !private ["Ps15_CVarArgAligned", "_DisabledRangeIndex"]
 - !private ["Ps15_CVarArgAligned", "init"]
+- !private ["Ps22_CVarArgPassedAsDouble", "IntegerLiteralType"]
 - !private ["Ps22_CVarArgPassedAsDouble", "Stride"]
+- !private ["Ps22_CVarArgPassedAsDouble", "_DisabledRangeIndex"]
 - !private ["Ps22_CVarArgPassedAsDouble", "init"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "addSubview"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "alpha"]
@@ -3651,6 +4065,7 @@ depends-member:
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "text"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "textAlignment"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "textColor"]
+- !private ["Ps24_DestructorSafeContainer", "Element"]
 - !private ["Ps24_DestructorSafeContainer", "Index"]
 - !private ["Ps24_DestructorSafeContainer", "IndexDistance"]
 - !private ["Ps24_DestructorSafeContainer", "Iterator"]
@@ -3659,7 +4074,9 @@ depends-member:
 - !private ["Ps24_DestructorSafeContainer", "append"]
 - !private ["Ps24_DestructorSafeContainer", "count"]
 - !private ["Ps24_DestructorSafeContainer", "enumerated"]
+- !private ["Ps24_DestructorSafeContainer", "first"]
 - !private ["Ps24_DestructorSafeContainer", "forEach"]
+- !private ["Ps24_DestructorSafeContainer", "map"]
 - !private ["Ps24_DestructorSafeContainer", "max"]
 - !private ["Ps24_DestructorSafeContainer", "remove"]
 - !private ["Ps24_DestructorSafeContainer", "sorted"]
@@ -3667,7 +4084,11 @@ depends-member:
 - !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
 - !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "components"]
 - ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "length"]
 - !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "localized"]
+- !private ["Ps33_ExpressibleByBuiltinFloatLiteral", "IntegerLiteralType"]
+- !private ["Ps33_ExpressibleByBuiltinFloatLiteral", "Stride"]
+- !private ["Ps33_ExpressibleByBuiltinFloatLiteral", "_DisabledRangeIndex"]
 - !private ["Ps33_ExpressibleByBuiltinFloatLiteral", "init"]
 - !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "IntegerLiteralType"]
 - !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "Stride"]
@@ -3676,20 +4097,27 @@ depends-member:
 - !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "init"]
 - !private ["Ps34_ExpressibleByBuiltinStringLiteral", "components"]
 - ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "length"]
 - !private ["Ps34_ExpressibleByBuiltinStringLiteral", "localized"]
 - !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "components"]
 - ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "length"]
 - !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "localized"]
 - !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "components"]
 - ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "length"]
 - !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "localized"]
 - !private ["Ps26_ExpressibleByColorLiteral", "black"]
+- !private ["Ps26_ExpressibleByColorLiteral", "cgColor"]
+- !private ["Ps26_ExpressibleByColorLiteral", "darkGray"]
+- !private ["Ps26_ExpressibleByColorLiteral", "lightGray"]
 - !private ["Ps26_ExpressibleByColorLiteral", "red"]
 - !private ["Ps26_ExpressibleByColorLiteral", "white"]
 - !private ["Ps26_ExpressibleByImageLiteral", "init"]
 - !private ["Ps35_HasCustomAnyHashableRepresentation", "Name"]
 - !private ["Ps35_HasCustomAnyHashableRepresentation", "components"]
 - ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "length"]
 - !private ["Ps35_HasCustomAnyHashableRepresentation", "localized"]
 - !private ["Ps35_HasCustomAnyHashableRepresentation", "object"]
 - !private ["Ps35_HasCustomAnyHashableRepresentation", "value"]
@@ -3709,6 +4137,10 @@ depends-member:
 - !private ["Ps9_Hashable", "ChartLineModel"]
 - !private ["Ps9_Hashable", "ChartPoint"]
 - !private ["Ps9_Hashable", "ChartPointsLineLayer"]
+- !private ["Ps9_Hashable", "ChartPointsScatterCirclesLayer"]
+- !private ["Ps9_Hashable", "ChartPointsScatterCrossesLayer"]
+- !private ["Ps9_Hashable", "ChartPointsScatterSquaresLayer"]
+- !private ["Ps9_Hashable", "ChartPointsScatterTrianglesLayer"]
 - !private ["Ps9_Hashable", "Colors"]
 - !private ["Ps9_Hashable", "Double"]
 - ["Ps9_Hashable", "Element"]
@@ -3745,6 +4177,7 @@ depends-member:
 - ["Ps9_Hashable", "addNotifications"]
 - !private ["Ps9_Hashable", "addObserver"]
 - !private ["Ps9_Hashable", "addSubview"]
+- !private ["Ps9_Hashable", "allKeys"]
 - !private ["Ps9_Hashable", "alpha"]
 - !private ["Ps9_Hashable", "animate"]
 - ["Ps9_Hashable", "arrowImg"]
@@ -3756,7 +4189,8 @@ depends-member:
 - !private ["Ps9_Hashable", "borderWidth"]
 - !private ["Ps9_Hashable", "bounds"]
 - ["Ps9_Hashable", "cancelBtn_Clicked"]
-- !private ["Ps9_Hashable", "chart"]
+- !private ["Ps9_Hashable", "cgColor"]
+- ["Ps9_Hashable", "chart"]
 - ["Ps9_Hashable", "chartConditionsArray"]
 - ["Ps9_Hashable", "chartView"]
 - ["Ps9_Hashable", "chartViewNotification"]
@@ -3772,11 +4206,13 @@ depends-member:
 - !private ["Ps9_Hashable", "count"]
 - !private ["Ps9_Hashable", "cross"]
 - !private ["Ps9_Hashable", "dark"]
+- !private ["Ps9_Hashable", "darkGray"]
 - ["Ps9_Hashable", "dataArray"]
 - !private ["Ps9_Hashable", "default"]
 - ["Ps9_Hashable", "didReceiveMemoryWarning"]
 - ["Ps9_Hashable", "drawChart"]
 - ["Ps9_Hashable", "drawChartCondition"]
+- !private ["Ps9_Hashable", "end"]
 - !private ["Ps9_Hashable", "endEditing"]
 - !private ["Ps9_Hashable", "enumerated"]
 - ["Ps9_Hashable", "formInterval"]
@@ -3793,6 +4229,7 @@ depends-member:
 - !private ["Ps9_Hashable", "index"]
 - ["Ps9_Hashable", "init"]
 - !private ["Ps9_Hashable", "insertSubview"]
+- !private ["Ps9_Hashable", "intervalAsSeconds"]
 - !private ["Ps9_Hashable", "intervalWithNowAsStartDate"]
 - !private ["Ps9_Hashable", "isHidden"]
 - !private ["Ps9_Hashable", "kButtonRadius"]
@@ -3800,6 +4237,8 @@ depends-member:
 - ["Ps9_Hashable", "label"]
 - !private ["Ps9_Hashable", "layer"]
 - !private ["Ps9_Hashable", "left"]
+- !private ["Ps9_Hashable", "length"]
+- !private ["Ps9_Hashable", "lightGray"]
 - !private ["Ps9_Hashable", "localized"]
 - ["Ps9_Hashable", "lowerRangeArray"]
 - !private ["Ps9_Hashable", "masksToBounds"]
@@ -3816,6 +4255,7 @@ depends-member:
 - ["Ps9_Hashable", "pickerView"]
 - ["Ps9_Hashable", "pickerViewContainer"]
 - ["Ps9_Hashable", "pickerViewInner"]
+- !private ["Ps9_Hashable", "post"]
 - !private ["Ps9_Hashable", "print"]
 - ["Ps9_Hashable", "readingsView"]
 - !private ["Ps9_Hashable", "red"]
@@ -3848,7 +4288,7 @@ depends-member:
 - !private ["Ps9_Hashable", "text"]
 - !private ["Ps9_Hashable", "textAlignment"]
 - !private ["Ps9_Hashable", "textColor"]
-- !private ["Ps9_Hashable", "toLayers"]
+- ["Ps9_Hashable", "toLayers"]
 - !private ["Ps9_Hashable", "triangle"]
 - !private ["Ps9_Hashable", "type0"]
 - !private ["Ps9_Hashable", "type1"]
@@ -3877,12 +4317,15 @@ depends-member:
 - !private ["Ps18_IntegerArithmetic", "Stride"]
 - !private ["Ps18_IntegerArithmetic", "_DisabledRangeIndex"]
 - !private ["Ps18_IntegerArithmetic", "hashValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "Element"]
 - !private ["Ps21_ObjectiveCBridgeable", "Index"]
 - !private ["Ps21_ObjectiveCBridgeable", "IndexDistance"]
 - !private ["Ps21_ObjectiveCBridgeable", "IntegerLiteralType"]
 - !private ["Ps21_ObjectiveCBridgeable", "Iterator"]
+- !private ["Ps21_ObjectiveCBridgeable", "Key"]
 - !private ["Ps21_ObjectiveCBridgeable", "Stride"]
 - !private ["Ps21_ObjectiveCBridgeable", "SubSequence"]
+- !private ["Ps21_ObjectiveCBridgeable", "Value"]
 - !private ["Ps21_ObjectiveCBridgeable", "_DisabledRangeIndex"]
 - !private ["Ps21_ObjectiveCBridgeable", "_Element"]
 - !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
@@ -3890,10 +4333,13 @@ depends-member:
 - !private ["Ps21_ObjectiveCBridgeable", "components"]
 - !private ["Ps21_ObjectiveCBridgeable", "count"]
 - !private ["Ps21_ObjectiveCBridgeable", "enumerated"]
+- !private ["Ps21_ObjectiveCBridgeable", "first"]
 - !private ["Ps21_ObjectiveCBridgeable", "forEach"]
 - !private ["Ps21_ObjectiveCBridgeable", "hashValue"]
 - ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Ps21_ObjectiveCBridgeable", "length"]
 - !private ["Ps21_ObjectiveCBridgeable", "localized"]
+- !private ["Ps21_ObjectiveCBridgeable", "map"]
 - !private ["Ps21_ObjectiveCBridgeable", "max"]
 - !private ["Ps21_ObjectiveCBridgeable", "remove"]
 - !private ["Ps21_ObjectiveCBridgeable", "sorted"]
@@ -3926,12 +4372,35 @@ depends-nominal:
 - "CSo7CALayer"
 - "PSo15CALayerDelegate"
 - !private "PSo13CAMediaTiming"
+- "CSo7CGColor"
 - "V12CoreGraphics7CGFloat"
 - "VSC6CGRect"
 - !private "VSC6CGSize"
 - "Ps7CVarArg"
 - !private "Vs9Character"
 - !private "V10Foundation12CharacterSet"
+- "C11SwiftCharts5Chart"
+- "C11SwiftCharts14ChartAxisLabel"
+- "P11SwiftCharts14ChartAxisLayer"
+- "C11SwiftCharts14ChartAxisModel"
+- !private "C11SwiftCharts20ChartAxisValueDouble"
+- !private "C11SwiftCharts20ChartAxisValueString"
+- "C11SwiftCharts36ChartCoordsSpaceLeftBottomSingleAxis"
+- "C11SwiftCharts34ChartGuideLinesDottedLayerSettings"
+- "C11SwiftCharts27ChartGuideLinesDottedLayer_"
+- !private "C11SwiftCharts28ChartGuideLinesLayerAbstract"
+- "C11SwiftCharts18ChartLabelSettings"
+- !private "P11SwiftCharts10ChartLayer"
+- "V11SwiftCharts14ChartLineModel"
+- !private "C11SwiftCharts10ChartPoint"
+- "C11SwiftCharts20ChartPointsLineLayer"
+- !private "C11SwiftCharts30ChartPointsScatterCirclesLayer"
+- !private "C11SwiftCharts30ChartPointsScatterCrossesLayer"
+- !private "C11SwiftCharts23ChartPointsScatterLayer"
+- !private "C11SwiftCharts30ChartPointsScatterSquaresLayer"
+- !private "C11SwiftCharts32ChartPointsScatterTrianglesLayer"
+- "C11SwiftCharts13ChartSettings"
+- "C11SwiftCharts9ChartView"
 - "C11DiabetesApp19ChartViewController"
 - !private "Vs11ClosedRange"
 - !private "Ps10Collection"
@@ -3943,11 +4412,17 @@ depends-nominal:
 - "Ps29CustomPlaygroundQuickLookable"
 - "Ps17CustomReflectable"
 - "Ps23CustomStringConvertible"
+- "C9Alamofire11DataRequest"
+- !private "V9Alamofire12DataResponse"
 - !private "Vs27DefaultBidirectionalIndices"
 - !private "Vs26DefaultRandomAccessIndices"
+- "Vs10Dictionary"
+- !private "Vs18DictionaryIterator"
 - "Sd"
-- !private "Vs18EnumeratedSequence"
+- !private "Vs18EnumeratedIterator"
+- "Vs18EnumeratedSequence"
 - "Ps9Equatable"
+- !private "Ps5Error"
 - !private "V11DiabetesApp16ExamplesDefaults"
 - "Ps25ExpressibleByArrayLiteral"
 - !private "Ps27ExpressibleByBooleanLiteral"
@@ -3958,10 +4433,11 @@ depends-nominal:
 - "Ps32ExpressibleByStringInterpolation"
 - "Ps26ExpressibleByStringLiteral"
 - "Ps33ExpressibleByUnicodeScalarLiteral"
-- !private "Sf"
+- "Sf"
 - !private "Ps13FloatingPoint"
 - "C11DiabetesApp10GTInterval"
 - "C11DiabetesApp24GoogleAnalyticManagerApi"
+- "O9Alamofire10HTTPMethod"
 - "Ps8Hashable"
 - "SQ"
 - !private "Ps9Indexable"
@@ -3975,6 +4451,7 @@ depends-nominal:
 - !private "Ps7Integer"
 - !private "Ps17IntegerArithmetic"
 - !private "Ps16IteratorProtocol"
+- "V9Alamofire12JSONEncoding"
 - "Ps25LosslessStringConvertible"
 - "Ps10MirrorPath"
 - !private "Ps17MutableCollection"
@@ -3992,6 +4469,7 @@ depends-nominal:
 - "CSo14NSMutableArray"
 - "PSo16NSMutableCopying"
 - "CSo14NSNotification"
+- !private "CSo8NSNumber"
 - "CSo8NSObject"
 - "PSo16NSObjectProtocol"
 - "PSo14NSSecureCoding"
@@ -4002,6 +4480,7 @@ depends-nominal:
 - !private "V11DiabetesApp13Notifications"
 - !private "Ps9OptionSet"
 - "Sq"
+- !private "P9Alamofire17ParameterEncoding"
 - !private "Ps22RandomAccessCollection"
 - !private "Ps21RandomAccessIndexable"
 - !private "Vs17RandomAccessSlice"
@@ -4009,16 +4488,22 @@ depends-nominal:
 - !private "Ps26RangeReplaceableCollection"
 - !private "Ps25RangeReplaceableIndexable"
 - !private "Ps16RawRepresentable"
+- !private "C9Alamofire7Request"
+- !private "P9Alamofire8Response"
+- !private "O9Alamofire6Result"
 - "V10ObjectiveC8Selector"
 - "Ps8Sequence"
 - !private "Ps10SetAlgebra"
 - !private "Ps13SignedInteger"
 - !private "Ps12SignedNumber"
 - !private "Vs5Slice"
+- "Vs13StrideThrough"
+- !private "Vs21StrideThroughIterator"
 - !private "Ps10Strideable"
 - "SS"
 - "Ps16TextOutputStream"
 - "Ps20TextOutputStreamable"
+- !private "V11SwiftCharts18TrendlineGenerator"
 - "PSo29UIAccessibilityIdentification"
 - "PSo12UIAppearance"
 - "PSo21UIAppearanceContainer"
@@ -4035,6 +4520,7 @@ depends-nominal:
 - "PSo13UIDynamicItem"
 - "PSo18UIFocusEnvironment"
 - "PSo11UIFocusItem"
+- "CSo6UIFont"
 - !private "CSo7UIImage"
 - !private "CSo11UIImageView"
 - !private "PSo10UIKeyInput"
@@ -4060,6 +4546,7 @@ depends-nominal:
 - !private "Vs6UInt32"
 - !private "Vs6UInt64"
 - !private "Vs5UInt8"
+- "P9Alamofire14URLConvertible"
 - !private "Sc"
 - !private "Sp"
 - !private "SP"
@@ -4092,83 +4579,82 @@ depends-nominal:
 depends-dynamic-lookup:
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/DiabetesApp/DiabetesApp-Bridging-Header.h"
-- "/Users/IPHONE/Deepak/svn_new/diabetesapp/Pods/Google/Headers/module.modulemap"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBMulticastDelegate.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBRequest+QBChat.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBChat.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBChatHeader.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBRequest+QBContent.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBCBlobObjectAccess.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBContentEnums.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBCBlob.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBContentHeader.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBCOFileUploadInfo.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBCOFile.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBCustomObjectsConsts.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBRequest+QBCustomObjects.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBCOCustomObject.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBCustomObjectsEnums.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBCOPermissions.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBCustomObjectsHeader.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBRequest+QBPushNotifications.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBMSubscription.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBMEvent.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBMPushMessageBase.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBMPushMessage.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBMPushToken.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBPushNotificationsEnums.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBPushNotificationsConsts.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBPushNotificationsDefinitions.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBPushNotificationsHeader.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBUpdateUserParameters.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBRequest+QBUsers.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBUUser.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBUsersHeader.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBRequest+QBLocation.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBLGeoDataFilter.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBLGeoData.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBLPlace.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBLocationStructs.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBLocationEnums.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBLocationDefinitions.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBLocationHeader.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBRequest+QBAuth.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBAuthHeader.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBError.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBResponse.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBRequestStatus.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBRequest.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBConnection.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBGeneralResponsePage.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBResponsePage.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBASession.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBSession.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBCore.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBChatAttachment.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBPrivacyList.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBPrivacyItem.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBChatDialog.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBContactListItem.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBContactList.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBChatMessage.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBChatBusiness.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/ChatDelegates.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/ChatEnums.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBChatDefinitions.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBChatClasses.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/ChatServiceFramework.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBLogger.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBSettings.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBGeneric.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBNullability.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Google/Headers/module.modulemap"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBCEntity.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBCoreModels.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/QBCoreBusiness.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/BaseServiceFramework.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Headers/Quickblox.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/QuickBlox/Quickblox.framework/Modules/module.modulemap"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/DiabetesApp/DiabetesApp-Bridging-Header.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Google/Headers/module.modulemap"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBMulticastDelegate.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBRequest+QBChat.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBChat.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBChatHeader.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBRequest+QBContent.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBCBlobObjectAccess.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBContentEnums.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBCBlob.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBContentHeader.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBCOFileUploadInfo.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBCOFile.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBCustomObjectsConsts.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBRequest+QBCustomObjects.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBCOCustomObject.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBCustomObjectsEnums.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBCOPermissions.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBCustomObjectsHeader.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBRequest+QBPushNotifications.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBMSubscription.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBMEvent.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBMPushMessageBase.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBMPushMessage.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBMPushToken.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBPushNotificationsEnums.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBPushNotificationsConsts.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBPushNotificationsDefinitions.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBPushNotificationsHeader.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBUpdateUserParameters.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBRequest+QBUsers.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBUUser.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBUsersHeader.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBRequest+QBLocation.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBLGeoDataFilter.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBLGeoData.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBLPlace.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBLocationStructs.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBLocationEnums.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBLocationDefinitions.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBLocationHeader.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBRequest+QBAuth.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBAuthHeader.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBError.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBResponse.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBRequestStatus.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBRequest.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBConnection.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBGeneralResponsePage.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBResponsePage.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBASession.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBSession.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBCore.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBChatAttachment.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBPrivacyList.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBPrivacyItem.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBChatDialog.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBContactListItem.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBContactList.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBChatMessage.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBChatBusiness.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/ChatDelegates.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/ChatEnums.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBChatDefinitions.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBChatClasses.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/ChatServiceFramework.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBLogger.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBSettings.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBGeneric.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBNullability.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBCEntity.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBCoreModels.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/QBCoreBusiness.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/BaseServiceFramework.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Headers/Quickblox.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/QuickBlox/Quickblox.framework/Modules/module.modulemap"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.swiftmodule"
@@ -4179,74 +4665,265 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreAudio.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreLocation.swiftmodule"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/DiabetesApp/QMMessageNotificationManager/QMMessageNotification.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/DiabetesApp/MPGNotification/MPGNotification.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/DiabetesApp/QMMessageNotificationManager/QMMessageNotification.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/DiabetesApp/MPGNotification/MPGNotification.h"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/DiabetesApp/QMMessageNotificationManager/QMMessageNotificationManager.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QuickbloxWebRTC.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCEAGLRenderer.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCVideoRenderer.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCFrameConverter.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCTypes.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCICEServer.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCAudioTrack.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCMediaStreamTrack.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCClient.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCClientDelegate.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCConfig.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCLocalAudioTrack.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCLocalVideoTrack.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCMediaStream.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCRemoteVideoView.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCSession.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCVideoCapture.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCVideoFrame.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCVideoTrack.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCSampleBufferRenderer.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCSampleBufferView.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCSoundRouter.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCTimer.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCVideoFormat.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/RTCI420Frame.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/RTCVideoRenderer.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCCameraCapture.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCMediaStreamConfiguration.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCBitrateTracker.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCStatsReport.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/DiabetesApp/ViewControllers/CallViewController/CallViewController.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/DiabetesApp/ViewControllers/IncomingCallViewController/IncomingCallViewController.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/DiabetesApp/AVPermisions/QBAVCallPermissions.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/DiabetesApp/Core/QBCore.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/DiabetesApp/MZFormSheetPresentationController/MZFormSheetPresentationController.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/DiabetesApp/MZFormSheetPresentationController/MZTransition.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/DiabetesApp/MZFormSheetPresentationController/MZFormSheetPresentationViewControllerSegue.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/DiabetesApp/MZFormSheetPresentationController/MZFormSheetPresentationViewController.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/DiabetesApp/MZFormSheetPresentationController/MZFormSheetPresentationViewControllerAnimatedTransitioning.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/DiabetesApp/MZFormSheetPresentationController/MZFormSheetPresentationViewControllerInteractiveTransitioning.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/DiabetesApp/MZFormSheetPresentationController/MZFormSheetPresentationContentSizing.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Headers/Public/Google/Google/Analytics.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Google/Frameworks/GGLCore.framework/Headers/GMRConfiguration.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Google/Frameworks/GGLCore.framework/Headers/GGLErrorCode.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Google/Frameworks/GGLCore.framework/Headers/GGLContext.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Google/Frameworks/GGLCore.framework/Headers/GGLConfiguration.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Google/Frameworks/GGLCore.framework/Headers/GGLCore.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Google/Frameworks/GGLCore.framework/Modules/module.modulemap"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Google/Frameworks/GGLAnalytics.framework/Headers/GGLContext+Analytics.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Google/Frameworks/GGLAnalytics.framework/Headers/GGLAnalytics.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Google/Frameworks/GGLAnalytics.framework/Modules/module.modulemap"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Headers/Public/GoogleAnalytics/GAI.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Headers/Public/GoogleAnalytics/GAILogger.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Headers/Public/GoogleAnalytics/GAITrackedViewController.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Headers/Public/GoogleAnalytics/GAITracker.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Headers/Public/GoogleAnalytics/GAIDictionaryBuilder.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Headers/Public/GoogleAnalytics/GAIEcommerceProduct.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Headers/Public/GoogleAnalytics/GAIEcommerceProductAction.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Headers/Public/GoogleAnalytics/GAIEcommercePromotion.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Headers/Public/GoogleAnalytics/GAIEcommerceFields.h"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Pods/Headers/Public/GoogleAnalytics/GAIFields.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/DiabetesApp/QMMessageNotificationManager/QMMessageNotificationManager.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QuickbloxWebRTC.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCEAGLRenderer.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCVideoRenderer.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCFrameConverter.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCTypes.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCICEServer.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCAudioTrack.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCMediaStreamTrack.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCClient.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCClientDelegate.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCConfig.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCLocalAudioTrack.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCLocalVideoTrack.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCMediaStream.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCRemoteVideoView.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCSession.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCVideoCapture.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCVideoFrame.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCVideoTrack.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCSampleBufferRenderer.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCSampleBufferView.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCSoundRouter.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCTimer.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCVideoFormat.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/RTCI420Frame.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/RTCVideoRenderer.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCCameraCapture.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCMediaStreamConfiguration.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCBitrateTracker.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Quickblox-WebRTC/QuickbloxWebRTC.framework/Headers/QBRTCStatsReport.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/DiabetesApp/ViewControllers/CallViewController/CallViewController.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/DiabetesApp/ViewControllers/IncomingCallViewController/IncomingCallViewController.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/DiabetesApp/AVPermisions/QBAVCallPermissions.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/DiabetesApp/Core/QBCore.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/DiabetesApp/MZFormSheetPresentationController/MZFormSheetPresentationController.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/MZAppearance/MZAppearance.framework/Headers/NSInvocation+Copy.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/MZAppearance/MZAppearance.framework/Headers/MZAppearance.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/MZAppearance/MZAppearance.framework/Headers/MZAppearance-umbrella.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/MZAppearance/MZAppearance.framework/Modules/module.modulemap"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/DiabetesApp/MZFormSheetPresentationController/MZTransition.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/DiabetesApp/MZFormSheetPresentationController/MZFormSheetPresentationViewControllerSegue.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/DiabetesApp/MZFormSheetPresentationController/MZFormSheetPresentationViewController.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/DiabetesApp/MZFormSheetPresentationController/MZFormSheetPresentationViewControllerAnimatedTransitioning.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/DiabetesApp/MZFormSheetPresentationController/MZFormSheetPresentationViewControllerInteractiveTransitioning.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/DiabetesApp/MZFormSheetPresentationController/MZFormSheetPresentationContentSizing.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Headers/Public/Google/Google/Analytics.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Google/Frameworks/GGLCore.framework/Headers/GMRConfiguration.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Google/Frameworks/GGLCore.framework/Headers/GGLErrorCode.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Google/Frameworks/GGLCore.framework/Headers/GGLContext.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Google/Frameworks/GGLCore.framework/Headers/GGLConfiguration.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Google/Frameworks/GGLCore.framework/Headers/GGLCore.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Google/Frameworks/GGLCore.framework/Modules/module.modulemap"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Google/Frameworks/GGLAnalytics.framework/Headers/GGLContext+Analytics.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Google/Frameworks/GGLAnalytics.framework/Headers/GGLAnalytics.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Google/Frameworks/GGLAnalytics.framework/Modules/module.modulemap"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Headers/Public/GoogleAnalytics/GAI.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Headers/Public/GoogleAnalytics/GAILogger.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Headers/Public/GoogleAnalytics/GAITrackedViewController.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Headers/Public/GoogleAnalytics/GAITracker.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Headers/Public/GoogleAnalytics/GAIDictionaryBuilder.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Headers/Public/GoogleAnalytics/GAIEcommerceProduct.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Headers/Public/GoogleAnalytics/GAIEcommerceProductAction.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Headers/Public/GoogleAnalytics/GAIEcommercePromotion.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Headers/Public/GoogleAnalytics/GAIEcommerceFields.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Headers/Public/GoogleAnalytics/GAIFields.h"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Build/Products/Debug-iphoneos/Alamofire/Alamofire.framework/Modules/Alamofire.swiftmodule/arm64.swiftmodule"
-- "/Users/IPHONE/Deepak/baljeet/Baljit Code/ViralDiabetes_SourceTree 2/Build/Products/Debug-iphoneos/SwiftCharts/SwiftCharts.framework/Modules/SwiftCharts.swiftmodule/arm64.swiftmodule"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Alamofire/Alamofire.framework/Modules/Alamofire.swiftmodule/arm64.swiftmodule"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Alamofire/Alamofire.framework/Headers/Alamofire-Swift.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Alamofire/Alamofire.framework/Headers/Alamofire-umbrella.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Alamofire/Alamofire.framework/Modules/module.modulemap"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework/Headers/UIImage+WebP.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework/Headers/UIView+WebCacheOperation.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework/Headers/UIImageView+WebCache.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework/Headers/UIImageView+HighlightedWebCache.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework/Headers/UIImage+MultiFormat.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework/Headers/UIImage+GIF.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework/Headers/UIButton+WebCache.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework/Headers/SDWebImagePrefetcher.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework/Headers/SDWebImageManager.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework/Headers/SDWebImageDownloaderOperation.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework/Headers/SDWebImageOperation.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework/Headers/SDWebImageDownloader.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework/Headers/SDWebImageDecoder.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework/Headers/SDWebImageCompat.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework/Headers/SDImageCache.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework/Headers/NSData+ImageContentType.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework/Headers/SDWebImage-umbrella.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SDWebImage/SDWebImage.framework/Modules/module.modulemap"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SwiftCharts/SwiftCharts.framework/Modules/SwiftCharts.swiftmodule/arm64.swiftmodule"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SwiftCharts/SwiftCharts.framework/Headers/SwiftCharts-Swift.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SwiftCharts/SwiftCharts.framework/Headers/SwiftCharts-umbrella.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SwiftCharts/SwiftCharts.framework/Modules/module.modulemap"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework/Headers/SVRadialGradientLayer.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework/Headers/SVProgressHUD.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework/Headers/SVProgressAnimatedView.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework/Headers/SVIndefiniteAnimatedView.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework/Headers/SVProgressHUD-umbrella.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework/Modules/module.modulemap"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreData.swiftmodule"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/Bolts.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFTaskCompletionSource.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFTask.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFTask+Exceptions.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFExecutor.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFCancellationTokenSource.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFCancellationTokenRegistration.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFCancellationToken.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFWebViewAppLinkResolver.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFURL.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFMeasurementEvent.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFAppLinkTarget.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFAppLinkReturnToRefererView.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFAppLinkReturnToRefererController.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFAppLinkResolving.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFAppLinkNavigation.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFAppLink.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/Bolts-umbrella.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Modules/module.modulemap"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMUsersModelIncludes.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/_CDUser.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/CDUser.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMSLog.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMUsersService.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMUsersCache.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMServices.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMServicesManager.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMDeferredQueueMemoryStorage.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMDeferredAction.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDRecordStack+Private.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDRecordLogging.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDRecord+Actions.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDMigrationManager.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSDictionary+QMCDRecordAdditions.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSPersistentStore+QMCDRecordPrivate.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QBUUser+CustomData.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMUsersMemoryStorage.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMContactListService.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMContactListMemoryStorage.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMContactListCache.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCLModelIncludes.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/_CDContactListItem.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/CDContactListItem.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMMessagesMemoryStorage.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMDialogsMemoryStorage.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMChatService.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMChatConstants.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMChatAttachmentService.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMChatTypes.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QBChatMessage+QMCustomParameters.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QBChatAttachment+QMCustomData.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDRecordShorthand.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSFetchedResultsController+QMCDFetching.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSManagedObject+QMCDFetching.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSError+QMCDRecordErrorHandling.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSEntityDescription+QMCDDataImport.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSRelationshipDescription+QMCDDataImport.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSAttributeDescription+QMCDDataImport.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSString+QMCDDataImport.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSObject+QMCDDataImport.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSNumber+QMCDDataImport.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSManagedObject+QMCDDataImport.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDImportFunctions.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSManagedObjectModel+QMCDRecord.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSPersistentStoreCoordinator+QMCDInMemoryStoreAdditions.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSPersistentStoreCoordinator+QMCDManualMigrations.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSPersistentStoreCoordinator+QMCDAutoMigrations.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSPersistentStore+QMCDRecord.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSPersistentStoreCoordinator+QMCDRecord.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSManagedObjectContext+QMCDObserving.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSManagedObject+QMCDAggregation.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSManagedObject+QMCDFinders.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSManagedObject+QMCDRequests.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDRecordDeprecated.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDRecordMOGeneratorProtocol.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSManagedObject+QMCDRecord.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSArray+QMCDRecord.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/ManuallyMigratingQMCDRecordStack.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/AutoMigratingWithSourceAndTargetModelQMCDRecordStack.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/AutoMigratingQMCDRecordStack.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/InMemoryQMCDRecordStack.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/ClassicWithBackgroundCoordinatorSQLiteQMCDRecordStack.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/ClassicSQLiteQMCDRecordStack.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/SQLiteWithSavingContextQMCDRecordStack.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/SQLiteQMCDRecordStack.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSManagedObjectContext+QMCDSaves.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/NSManagedObjectContext+QMCDRecord.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDRecordStack+Actions.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDRecordStack.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDRecord+VersionInformation.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDRecord+Setup.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDRecord+Options.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDRecordInternal.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCDRecord.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMDBStorage.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMChatCache.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMCCModelIncludes.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/_CDMessage.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/CDMessage.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/_CDDialog.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/CDDialog.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/_CDAttachment.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/CDAttachment.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMDeferredQueueManager.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMServiceManagerProtocol.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMMemoryStorageProtocol.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMBaseService.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMAuthService.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Headers/QMServices-umbrella.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMServices/QMServices.framework/Modules/module.modulemap"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/TTTAttributedLabel/TTTAttributedLabel.framework/Headers/TTTAttributedLabel.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/TTTAttributedLabel/TTTAttributedLabel.framework/Headers/TTTAttributedLabel-umbrella.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/TTTAttributedLabel/TTTAttributedLabel.framework/Modules/module.modulemap"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMKVOView.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMHeaderCollectionReusableView.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMCollectionViewFlowLayoutInvalidationContext.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMImageLoader.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMDateUtils.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatResources.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatSection.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatLocationSnapshotter.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/NSDate+ChatDataSource.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/UIView+QM.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/UIImageView+QMLocationSnapshot.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/UIImage+QM.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/UIImage+Cropper.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/UIColor+QM.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/NSString+QM.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QBChatMessage+QBDateDivider.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatDataSource.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatLocationOutgoingCell.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatLocationCell.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMBaseChatLocationCell.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatLocationIncomingCell.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatAttachmentOutgoingCell.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatAttachmentCell.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatAttachmentIncomingCell.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatNotificationCell.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatOutgoingCell.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatIncomingCell.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatContactRequestCell.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatSectionManager.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMPlaceHolderTextView.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMToolbarContentView.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMInputToolbar.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatActionsHandler.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMImageView.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatCellLayoutAttributes.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatContainerView.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatCell.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatCollectionViewDelegateFlowLayout.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatCollectionViewDataSource.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatCollectionViewFlowLayout.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatCollectionView.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController-umbrella.h"
+- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphoneos/QMChatViewController/QMChatViewController.framework/Modules/module.modulemap"
 interface-hash: "edb5e106b5774cdf6c96f35de8e3a8c9"

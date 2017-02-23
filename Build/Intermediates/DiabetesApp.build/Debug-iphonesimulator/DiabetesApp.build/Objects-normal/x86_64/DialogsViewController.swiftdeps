@@ -19,47 +19,52 @@ provides-member:
 - ["V10Foundation4Date", "seconds"]
 - ["V10Foundation4Date", "relativeTime"]
 provides-dynamic-lookup:
-- "createLogoutButton"
-- "unreadMessagesCounterHiden"
-- "selectedUserType"
-- "myTimer"
-- "GroupAction"
-- "viewWillAppear"
-- "counterCall"
-- "didReceiveNewSession"
-- "runTimedCode"
-- "numberOfSections"
-- "chatServiceChatDidConnect"
-- "logoutAction"
-- "requestTimer"
-- "incomingCallViewControllerAccept"
-- "setNavBarUI"
-- "chatServiceChatDidAccidentallyDisconnect"
-- "dialogIcon"
-- "chatServiceChatDidReconnect"
-- "updateCounter"
-- "getDialogs"
 - "chatServiceChatDidFail"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
-- "tableView"
+- "getImage"
+- "sessionDidClose"
+- "incomingCallViewControllerReject"
+- "runTimedCode"
+- "appDelegate"
+- "dialogTimer"
+- "dialogIcon"
+- "viewWillDisappear"
+- "reloadTableViewIfNeeded"
+- "myTimer"
 - "detailTextLabelText"
+- "awakeFromNib"
+- "counterCall"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "tableView"
+- "GroupAction"
+- "prepare"
+- "getRequestBadgeCounter"
+- "updateCounter"
+- "unreadMessagesCounterLabelText"
+- "requestTimer"
+- "createLogoutButton"
+- "numberOfSections"
+- "getDialogs"
+- "incomingCallViewControllerAccept"
+- "getReadCount"
+- "textLabelText"
+- "chatServiceChatDidReconnect"
+- "viewWillAppear"
+- "setNavBarUI"
+- "didEnterBackgroundNotification"
+- "chatServiceChatDidConnect"
+- "unreadMessagesCounterHiden"
+- "didReceiveNewSession"
+- "logoutAction"
 - "viewDidAppear"
 - "lblDate"
-- "getReadCount"
-- "getRequestBadgeCounter"
+- "selectedUserType"
 - "dialogs"
-- "reloadTableViewIfNeeded"
-- "prepare"
-- "unreadMessagesCounterLabelText"
-- "getImage"
-- "awakeFromNib"
-- "didEnterBackgroundNotification"
-- "sessionDidClose"
+- "chatServiceChatDidAccidentallyDisconnect"
 - "chatService"
 - "chatService"
 - "chatService"
@@ -68,120 +73,116 @@ provides-dynamic-lookup:
 - "chatService"
 - "chatService"
 - "chatService"
-- "appDelegate"
-- "textLabelText"
-- "viewWillDisappear"
-- "incomingCallViewControllerReject"
 depends-top-level:
-- !private "=="
 - !private "QBCOCustomObject"
-- "DialogsViewController"
-- !private "JSONEncoding"
+- "QMChatConnectionDelegate"
 - !private "tabCounter"
-- !private "Alamofire"
-- !private "NSDictionary"
-- !private "SDWebImageManager"
-- !private "kDialogsPageLimit"
-- "AppDelegate"
-- !private "QBRTCSoundRouter"
-- !private "QBChat"
-- "IncomingCallViewControllerDelegate"
-- !private "kDialogsScreenName"
-- !private "UIColor"
-- !private "CallViewController"
+- "QMAuthServiceDelegate"
 - "userDefaults"
-- "DialogTableViewCellModel"
-- "IncomingCallViewController"
-- !private "UnsafeMutablePointer"
-- "UILabel"
-- !private "??"
-- !private "ObjCBool"
-- !private "UInt"
-- "UIImage"
-- !private "AlertView"
-- "UserDefaults"
-- !private "NSNotification"
-- !private "ViewIdentifiers"
-- !private "print"
-- "Date"
-- !private "NSMutableDictionary"
-- "UnicodeScalarType"
-- !private "SDWebImageOptions"
-- "UITableViewCell"
-- "UITableViewController"
-- !private "ContactListViewController"
-- "UITableViewCellEditingStyle"
-- !private "QBChatDialogType"
-- "Void"
-- "QBChatDialog"
-- !private "Array"
-- !private "Parameters"
-- !private "Calendar"
-- "UITableView"
-- !private "<"
-- !private "URL"
-- !private "UIView"
-- "QBRTCSession"
-- !private "SVProgressHUDMaskType"
-- !private ">"
-- "UIApplication"
-- "QBRTCClientDelegate"
-- "NSDate"
-- !private "QBRTCClient"
-- !private "/"
-- "Bool"
-- !private "&&"
-- !private "NSURL"
-- "DateFormatter"
-- "QBCoreDelegate"
-- "recentMessageTimeDateFormatter"
-- !private "SVProgressHUD"
-- "String"
-- !private "!="
-- !private "requestTabBarItem"
-- "UIBarButtonItem"
-- "NSObjectProtocol"
-- !private "NSMutableArray"
-- !private ">="
-- !private "NotificationCenter"
-- "DialogTableViewCell"
 - "CGFloat"
-- "Error"
-- "Timer"
-- !private "OperationQueue"
-- !private "+"
-- !private "QBResponse"
-- !private "Set"
-- !private "Dictionary"
-- "QBChatMessage"
-- !private "NSNumber"
-- !private "ServicesManager"
-- !private "ApiMethods"
-- "NSObject"
+- "DialogTableViewCellModel"
+- "UITableViewCell"
+- "AppDelegate"
+- !private "UnsafeMutablePointer"
+- "QMChatServiceDelegate"
+- "UserDefaults"
+- !private "DateComponents"
+- !private "print"
+- !private "requestTabBarItem"
+- "DialogsViewController"
+- "UITableViewCellEditingStyle"
+- !private "/"
+- "UITableView"
+- !private "UIView"
+- !private "UIUserInterfaceLayoutDirection"
+- !private "SDWebImageOptions"
+- !private "??"
+- !private "UInt"
+- "UIApplication"
+- !private "Parameters"
 - !private "ChatViewController"
 - "AnyHashable"
-- "StringLiteralType"
-- !private "DateComponents"
-- "BooleanLiteralType"
-- !private "GoogleAnalyticManagerApi"
-- !private "baseUrl"
-- "Int"
-- !private "QBRequest"
-- "QMChatService"
-- !private "userType"
-- !private "QBUUser"
-- "QMAuthServiceDelegate"
-- !private "UIUserInterfaceLayoutDirection"
-- !private "UIBarButtonItemStyle"
-- "QMChatConnectionDelegate"
-- "UIStoryboardSegue"
 - "TernaryPrecedence"
-- "IndexPath"
-- !private "UtilityClass"
-- "CastingPrecedence"
-- !private "!"
+- !private "QBResponse"
+- "IncomingCallViewControllerDelegate"
+- "UIStoryboardSegue"
 - "AssignmentPrecedence"
-- "QMChatServiceDelegate"
+- "DialogTableViewCell"
+- !private "=="
+- !private "AlertView"
+- !private "CallViewController"
+- "CastingPrecedence"
+- !private "QBUUser"
+- !private "Array"
+- "Timer"
+- !private "SVProgressHUD"
+- "IncomingCallViewController"
+- !private ">"
+- !private "QBRequest"
+- !private "QBRTCSoundRouter"
+- !private "NSURL"
+- !private "UIColor"
+- "StringLiteralType"
+- !private ">="
+- "Bool"
+- "recentMessageTimeDateFormatter"
+- "Error"
+- !private "ContactListViewController"
+- !private "NSMutableArray"
+- !private "UtilityClass"
+- "UIImage"
+- !private "<"
+- "BooleanLiteralType"
+- !private "URL"
+- !private "+"
+- "DateFormatter"
+- !private "NSNotification"
+- "IndexPath"
+- !private "QBRTCClient"
+- "QBRTCClientDelegate"
+- !private "&&"
+- "QBRTCSession"
+- !private "NSMutableDictionary"
+- "UnicodeScalarType"
+- "NSDate"
+- "QMChatService"
+- "NSObjectProtocol"
+- !private "Set"
+- "String"
+- "Void"
+- !private "NotificationCenter"
+- !private "NSNumber"
+- "QBChatDialog"
+- !private "ServicesManager"
+- !private "!="
+- !private "QBChatDialogType"
+- !private "ApiMethods"
+- !private "NSDictionary"
+- !private "ViewIdentifiers"
+- "Date"
+- "UIBarButtonItem"
+- !private "!"
+- "NSObject"
+- !private "baseUrl"
+- !private "OperationQueue"
+- !private "kDialogsPageLimit"
+- !private "QBChat"
+- !private "Alamofire"
+- !private "JSONEncoding"
+- "UITableViewController"
+- !private "SDWebImageManager"
+- "QBCoreDelegate"
+- !private "userType"
+- !private "GoogleAnalyticManagerApi"
+- !private "Dictionary"
+- "UILabel"
+- !private "UIBarButtonItemStyle"
+- "QBChatMessage"
+- !private "ObjCBool"
+- !private "SVProgressHUDMaskType"
+- !private "Calendar"
+- !private "kDialogsScreenName"
+- "Int"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "Stride"]
 - !private ["Ps16AbsoluteValuable", "init"]
@@ -275,6 +276,7 @@ depends-member:
 - ["Ps9AnyObject", "dialogIcon"]
 - !private ["Ps9AnyObject", "dialogLastMessage"]
 - !private ["Ps9AnyObject", "dialogName"]
+- ["Ps9AnyObject", "dialogTimer"]
 - !private ["Ps9AnyObject", "dialogTypeImage"]
 - ["Ps9AnyObject", "dialogs"]
 - !private ["Ps9AnyObject", "dialogsMemoryStorage"]
@@ -621,6 +623,7 @@ depends-member:
 - ["Ps7CVarArg", "dialogIcon"]
 - !private ["Ps7CVarArg", "dialogLastMessage"]
 - !private ["Ps7CVarArg", "dialogName"]
+- ["Ps7CVarArg", "dialogTimer"]
 - !private ["Ps7CVarArg", "dialogTypeImage"]
 - ["Ps7CVarArg", "dialogs"]
 - !private ["Ps7CVarArg", "dialogsMemoryStorage"]
@@ -931,6 +934,7 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "dialogIcon"]
 - !private ["Ps28CustomDebugStringConvertible", "dialogLastMessage"]
 - !private ["Ps28CustomDebugStringConvertible", "dialogName"]
+- ["Ps28CustomDebugStringConvertible", "dialogTimer"]
 - !private ["Ps28CustomDebugStringConvertible", "dialogTypeImage"]
 - ["Ps28CustomDebugStringConvertible", "dialogs"]
 - !private ["Ps28CustomDebugStringConvertible", "dialogsMemoryStorage"]
@@ -1275,6 +1279,7 @@ depends-member:
 - ["Ps23CustomStringConvertible", "dialogIcon"]
 - !private ["Ps23CustomStringConvertible", "dialogLastMessage"]
 - !private ["Ps23CustomStringConvertible", "dialogName"]
+- ["Ps23CustomStringConvertible", "dialogTimer"]
 - !private ["Ps23CustomStringConvertible", "dialogTypeImage"]
 - ["Ps23CustomStringConvertible", "dialogs"]
 - !private ["Ps23CustomStringConvertible", "dialogsMemoryStorage"]
@@ -1595,6 +1600,7 @@ depends-member:
 - ["C11DiabetesApp21DialogsViewController", "counterCall"]
 - ["C11DiabetesApp21DialogsViewController", "createLogoutButton"]
 - ["C11DiabetesApp21DialogsViewController", "deinit"]
+- ["C11DiabetesApp21DialogsViewController", "dialogTimer"]
 - ["C11DiabetesApp21DialogsViewController", "dialogs"]
 - !private ["C11DiabetesApp21DialogsViewController", "didEnterBackgroundDate"]
 - ["C11DiabetesApp21DialogsViewController", "didEnterBackgroundNotification"]
@@ -1754,6 +1760,7 @@ depends-member:
 - ["Ps9Equatable", "dialogIcon"]
 - !private ["Ps9Equatable", "dialogLastMessage"]
 - !private ["Ps9Equatable", "dialogName"]
+- ["Ps9Equatable", "dialogTimer"]
 - !private ["Ps9Equatable", "dialogTypeImage"]
 - ["Ps9Equatable", "dialogs"]
 - !private ["Ps9Equatable", "dialogsMemoryStorage"]
@@ -2092,6 +2099,7 @@ depends-member:
 - ["Ps8Hashable", "dialogIcon"]
 - !private ["Ps8Hashable", "dialogLastMessage"]
 - !private ["Ps8Hashable", "dialogName"]
+- ["Ps8Hashable", "dialogTimer"]
 - !private ["Ps8Hashable", "dialogTypeImage"]
 - ["Ps8Hashable", "dialogs"]
 - !private ["Ps8Hashable", "dialogsMemoryStorage"]
@@ -2315,6 +2323,7 @@ depends-member:
 - ["PSo34IncomingCallViewControllerDelegate", "core"]
 - ["PSo34IncomingCallViewControllerDelegate", "coreDidLogin"]
 - ["PSo34IncomingCallViewControllerDelegate", "coreDidLogout"]
+- !private ["PSo34IncomingCallViewControllerDelegate", "dialogTimer"]
 - !private ["PSo34IncomingCallViewControllerDelegate", "dialogs"]
 - !private ["PSo34IncomingCallViewControllerDelegate", "didEnterBackgroundDate"]
 - !private ["PSo34IncomingCallViewControllerDelegate", "didEnterBackgroundNotification"]
@@ -2545,6 +2554,7 @@ depends-member:
 - !private ["PSo8NSCoding", "dialogID"]
 - !private ["PSo8NSCoding", "dialogLastMessage"]
 - !private ["PSo8NSCoding", "dialogName"]
+- ["PSo8NSCoding", "dialogTimer"]
 - !private ["PSo8NSCoding", "dialogTypeImage"]
 - ["PSo8NSCoding", "dialogs"]
 - ["PSo8NSCoding", "didEnterBackgroundDate"]
@@ -2729,6 +2739,7 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "currentUser"]
 - !private ["PSo26NSExtensionRequestHandling", "delegate"]
 - !private ["PSo26NSExtensionRequestHandling", "dialog"]
+- ["PSo26NSExtensionRequestHandling", "dialogTimer"]
 - ["PSo26NSExtensionRequestHandling", "dialogs"]
 - ["PSo26NSExtensionRequestHandling", "didEnterBackgroundDate"]
 - ["PSo26NSExtensionRequestHandling", "didEnterBackgroundNotification"]
@@ -2922,6 +2933,7 @@ depends-member:
 - ["CSo8NSObject", "dialogIcon"]
 - !private ["CSo8NSObject", "dialogLastMessage"]
 - !private ["CSo8NSObject", "dialogName"]
+- ["CSo8NSObject", "dialogTimer"]
 - !private ["CSo8NSObject", "dialogTypeImage"]
 - ["CSo8NSObject", "dialogs"]
 - !private ["CSo8NSObject", "dialogsMemoryStorage"]
@@ -3147,6 +3159,7 @@ depends-member:
 - ["PSo16NSObjectProtocol", "dialogIcon"]
 - !private ["PSo16NSObjectProtocol", "dialogLastMessage"]
 - !private ["PSo16NSObjectProtocol", "dialogName"]
+- ["PSo16NSObjectProtocol", "dialogTimer"]
 - !private ["PSo16NSObjectProtocol", "dialogTypeImage"]
 - ["PSo16NSObjectProtocol", "dialogs"]
 - !private ["PSo16NSObjectProtocol", "dialogsMemoryStorage"]
@@ -3399,6 +3412,7 @@ depends-member:
 - ["PSo14QBCoreDelegate", "core"]
 - ["PSo14QBCoreDelegate", "coreDidLogin"]
 - ["PSo14QBCoreDelegate", "coreDidLogout"]
+- !private ["PSo14QBCoreDelegate", "dialogTimer"]
 - !private ["PSo14QBCoreDelegate", "dialogs"]
 - !private ["PSo14QBCoreDelegate", "didEnterBackgroundDate"]
 - !private ["PSo14QBCoreDelegate", "didEnterBackgroundNotification"]
@@ -3494,6 +3508,7 @@ depends-member:
 - ["PSo19QBRTCClientDelegate", "core"]
 - ["PSo19QBRTCClientDelegate", "coreDidLogin"]
 - ["PSo19QBRTCClientDelegate", "coreDidLogout"]
+- !private ["PSo19QBRTCClientDelegate", "dialogTimer"]
 - !private ["PSo19QBRTCClientDelegate", "dialogs"]
 - !private ["PSo19QBRTCClientDelegate", "didEnterBackgroundDate"]
 - !private ["PSo19QBRTCClientDelegate", "didEnterBackgroundNotification"]
@@ -3604,6 +3619,7 @@ depends-member:
 - ["PSo21QMAuthServiceDelegate", "core"]
 - ["PSo21QMAuthServiceDelegate", "coreDidLogin"]
 - ["PSo21QMAuthServiceDelegate", "coreDidLogout"]
+- !private ["PSo21QMAuthServiceDelegate", "dialogTimer"]
 - !private ["PSo21QMAuthServiceDelegate", "dialogs"]
 - !private ["PSo21QMAuthServiceDelegate", "didEnterBackgroundDate"]
 - !private ["PSo21QMAuthServiceDelegate", "didEnterBackgroundNotification"]
@@ -3715,6 +3731,7 @@ depends-member:
 - ["PSo24QMChatConnectionDelegate", "coreDidLogout"]
 - !private ["PSo24QMChatConnectionDelegate", "currentUser"]
 - !private ["PSo24QMChatConnectionDelegate", "dialog"]
+- !private ["PSo24QMChatConnectionDelegate", "dialogTimer"]
 - !private ["PSo24QMChatConnectionDelegate", "dialogs"]
 - !private ["PSo24QMChatConnectionDelegate", "didEnterBackgroundDate"]
 - !private ["PSo24QMChatConnectionDelegate", "didEnterBackgroundNotification"]
@@ -3832,6 +3849,7 @@ depends-member:
 - ["PSo21QMChatServiceDelegate", "coreDidLogout"]
 - !private ["PSo21QMChatServiceDelegate", "currentUser"]
 - !private ["PSo21QMChatServiceDelegate", "dialog"]
+- !private ["PSo21QMChatServiceDelegate", "dialogTimer"]
 - !private ["PSo21QMChatServiceDelegate", "dialogs"]
 - !private ["PSo21QMChatServiceDelegate", "didEnterBackgroundDate"]
 - !private ["PSo21QMChatServiceDelegate", "didEnterBackgroundNotification"]
@@ -4264,6 +4282,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "dialogID"]
 - !private ["PSo21UIAppearanceContainer", "dialogLastMessage"]
 - !private ["PSo21UIAppearanceContainer", "dialogName"]
+- ["PSo21UIAppearanceContainer", "dialogTimer"]
 - !private ["PSo21UIAppearanceContainer", "dialogTypeImage"]
 - ["PSo21UIAppearanceContainer", "dialogs"]
 - ["PSo21UIAppearanceContainer", "didEnterBackgroundDate"]
@@ -4419,6 +4438,7 @@ depends-member:
 - !private ["PSo18UIContentContainer", "currentUser"]
 - !private ["PSo18UIContentContainer", "delegate"]
 - !private ["PSo18UIContentContainer", "dialog"]
+- ["PSo18UIContentContainer", "dialogTimer"]
 - ["PSo18UIContentContainer", "dialogs"]
 - ["PSo18UIContentContainer", "didEnterBackgroundDate"]
 - ["PSo18UIContentContainer", "didEnterBackgroundNotification"]
@@ -4603,6 +4623,7 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "dialogID"]
 - !private ["PSo18UIFocusEnvironment", "dialogLastMessage"]
 - !private ["PSo18UIFocusEnvironment", "dialogName"]
+- ["PSo18UIFocusEnvironment", "dialogTimer"]
 - !private ["PSo18UIFocusEnvironment", "dialogTypeImage"]
 - ["PSo18UIFocusEnvironment", "dialogs"]
 - ["PSo18UIFocusEnvironment", "didEnterBackgroundDate"]
@@ -4839,6 +4860,7 @@ depends-member:
 - !private ["CSo11UIResponder", "dialogID"]
 - !private ["CSo11UIResponder", "dialogLastMessage"]
 - !private ["CSo11UIResponder", "dialogName"]
+- ["CSo11UIResponder", "dialogTimer"]
 - !private ["CSo11UIResponder", "dialogTypeImage"]
 - ["CSo11UIResponder", "dialogs"]
 - ["CSo11UIResponder", "didEnterBackgroundDate"]
@@ -4982,6 +5004,7 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "dialogID"]
 - !private ["PSo30UIResponderStandardEditActions", "dialogLastMessage"]
 - !private ["PSo30UIResponderStandardEditActions", "dialogName"]
+- ["PSo30UIResponderStandardEditActions", "dialogTimer"]
 - !private ["PSo30UIResponderStandardEditActions", "dialogTypeImage"]
 - ["PSo30UIResponderStandardEditActions", "dialogs"]
 - ["PSo30UIResponderStandardEditActions", "didEnterBackgroundDate"]
@@ -5120,6 +5143,7 @@ depends-member:
 - ["PSo20UIScrollViewDelegate", "counterCall"]
 - ["PSo20UIScrollViewDelegate", "createLogoutButton"]
 - !private ["PSo20UIScrollViewDelegate", "dialog"]
+- ["PSo20UIScrollViewDelegate", "dialogTimer"]
 - ["PSo20UIScrollViewDelegate", "dialogs"]
 - ["PSo20UIScrollViewDelegate", "didEnterBackgroundDate"]
 - ["PSo20UIScrollViewDelegate", "didEnterBackgroundNotification"]
@@ -5228,6 +5252,7 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "currentUser"]
 - !private ["PSo16UIStateRestoring", "delegate"]
 - !private ["PSo16UIStateRestoring", "dialog"]
+- ["PSo16UIStateRestoring", "dialogTimer"]
 - ["PSo16UIStateRestoring", "dialogs"]
 - ["PSo16UIStateRestoring", "didEnterBackgroundDate"]
 - ["PSo16UIStateRestoring", "didEnterBackgroundNotification"]
@@ -5414,6 +5439,7 @@ depends-member:
 - ["CSo21UITableViewController", "counterCall"]
 - ["CSo21UITableViewController", "createLogoutButton"]
 - ["CSo21UITableViewController", "deinit"]
+- ["CSo21UITableViewController", "dialogTimer"]
 - ["CSo21UITableViewController", "dialogs"]
 - ["CSo21UITableViewController", "didEnterBackgroundDate"]
 - ["CSo21UITableViewController", "didEnterBackgroundNotification"]
@@ -5517,6 +5543,7 @@ depends-member:
 - ["PSo21UITableViewDataSource", "coreDidLogout"]
 - ["PSo21UITableViewDataSource", "counterCall"]
 - ["PSo21UITableViewDataSource", "createLogoutButton"]
+- ["PSo21UITableViewDataSource", "dialogTimer"]
 - ["PSo21UITableViewDataSource", "dialogs"]
 - ["PSo21UITableViewDataSource", "didEnterBackgroundDate"]
 - ["PSo21UITableViewDataSource", "didEnterBackgroundNotification"]
@@ -5622,6 +5649,7 @@ depends-member:
 - ["PSo19UITableViewDelegate", "coreDidLogout"]
 - ["PSo19UITableViewDelegate", "counterCall"]
 - ["PSo19UITableViewDelegate", "createLogoutButton"]
+- ["PSo19UITableViewDelegate", "dialogTimer"]
 - ["PSo19UITableViewDelegate", "dialogs"]
 - ["PSo19UITableViewDelegate", "didEnterBackgroundDate"]
 - ["PSo19UITableViewDelegate", "didEnterBackgroundNotification"]
@@ -5742,6 +5770,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "dialogID"]
 - !private ["PSo18UITraitEnvironment", "dialogLastMessage"]
 - !private ["PSo18UITraitEnvironment", "dialogName"]
+- ["PSo18UITraitEnvironment", "dialogTimer"]
 - !private ["PSo18UITraitEnvironment", "dialogTypeImage"]
 - ["PSo18UITraitEnvironment", "dialogs"]
 - ["PSo18UITraitEnvironment", "didEnterBackgroundDate"]
@@ -5942,6 +5971,7 @@ depends-member:
 - ["CSo16UIViewController", "deinit"]
 - !private ["CSo16UIViewController", "delegate"]
 - !private ["CSo16UIViewController", "dialog"]
+- ["CSo16UIViewController", "dialogTimer"]
 - ["CSo16UIViewController", "dialogs"]
 - ["CSo16UIViewController", "didEnterBackgroundDate"]
 - ["CSo16UIViewController", "didEnterBackgroundNotification"]
@@ -6234,6 +6264,7 @@ depends-member:
 - ["Ps9_Hashable", "dialogIcon"]
 - !private ["Ps9_Hashable", "dialogLastMessage"]
 - !private ["Ps9_Hashable", "dialogName"]
+- ["Ps9_Hashable", "dialogTimer"]
 - !private ["Ps9_Hashable", "dialogTypeImage"]
 - ["Ps9_Hashable", "dialogs"]
 - !private ["Ps9_Hashable", "dialogsMemoryStorage"]
@@ -7134,4 +7165,4 @@ depends-external:
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Headers/QMChatViewController-umbrella.h"
 - "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Products/Debug-iphonesimulator/QMChatViewController/QMChatViewController.framework/Modules/module.modulemap"
-interface-hash: "8c6e85dc1468fa979459c8a0bd230f8d"
+interface-hash: "6afb7e40526e97931c95ab82e16d1ac4"

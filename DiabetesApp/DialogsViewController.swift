@@ -166,7 +166,7 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
     //var session : QBRTCSession? = nil
      var requestTimer  =  Timer()
      var myTimer  =  Timer()
-    
+      var dialogTimer  =  Timer()
     
     
     // MARK: - ViewController overrides
@@ -209,9 +209,10 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
             self.requestTimer == nil
         }
         
-    self .getRequestBadgeCounter()
+       self .getRequestBadgeCounter()
         
        self.requestTimer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.getRequestBadgeCounter), userInfo: nil, repeats: true)
+        
     }
     
     func runTimedCode()  {
@@ -224,6 +225,8 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        self.dialogTimer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.getDialogs), userInfo: nil, repeats: true)
+
         
         //--------Google Analytics Start-----
         GoogleAnalyticManagerApi.sharedInstance.startScreenSessionWithName(screenName: kDialogsScreenName)
@@ -242,6 +245,7 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
         
         if appDelegate.session != nil {
             appDelegate.session = nil
+            self.dialogTimer.invalidate()
         }
         
     }

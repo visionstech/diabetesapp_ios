@@ -6,17 +6,17 @@ provides-nominal:
 provides-member:
 - ["C11DiabetesApp30CarePlanFrequencyTableViewCell", ""]
 provides-dynamic-lookup:
-- "goalLbl"
-- "numberLbl"
 - "awakeFromNib"
-- "setSelected"
-- "conditionLbl"
+- "goalLbl"
 - "mainView"
+- "conditionLbl"
+- "setSelected"
+- "numberLbl"
 depends-top-level:
 - "UITableViewCell"
 - "UILabel"
-- "CarePlanFrequencyTableViewCell"
 - "UIView"
+- "CarePlanFrequencyTableViewCell"
 - "Bool"
 depends-member:
 - ["Ps9AnyObject", "awakeFromNib"]
