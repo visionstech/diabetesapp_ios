@@ -840,12 +840,15 @@ SWIFT_CLASS("_TtC11DiabetesApp21DialogsViewController")
 @property (nonatomic) NSInteger counterCall;
 @property (nonatomic, readonly, strong) AppDelegate * _Nonnull appDelegate;
 @property (nonatomic, readonly) NSInteger selectedUserType;
-@property (nonatomic, strong) NSTimer * _Nonnull requestTimer;
-@property (nonatomic, strong) NSTimer * _Nonnull myTimer;
-@property (nonatomic, strong) NSTimer * _Nonnull dialogTimer;
+@property (nonatomic, strong) NSTimer * _Nullable requestTimer;
+@property (nonatomic, strong) NSTimer * _Nullable myTimer;
+@property (nonatomic, strong) NSTimer * _Nullable dialogTimer;
 - (void)awakeFromNib;
 - (void)runTimedCode;
+- (void)startTimer;
+- (void)stopTimer;
 - (void)viewDidAppear:(BOOL)animated;
+- (void)viewDidDisappear:(BOOL)animated;
 - (void)viewWillAppear:(BOOL)animated;
 - (void)viewWillDisappear:(BOOL)animated;
 - (void)getRequestBadgeCounter;

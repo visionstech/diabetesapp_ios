@@ -164,9 +164,9 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let selectedUserType: Int = Int(UserDefaults.standard.integer(forKey: userDefaults.loggedInUserType))
     //var session : QBRTCSession? = nil
-     var requestTimer  =  Timer()
-     var myTimer  =  Timer()
-      var dialogTimer  =  Timer()
+    var requestTimer  :  Timer?
+    var myTimer  :  Timer?
+    var dialogTimer : Timer?
     
     
     // MARK: - ViewController overrides
@@ -205,8 +205,8 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
         
         tableView.tableFooterView = UIView()
         if self.requestTimer != nil {
-            self.requestTimer .invalidate()
-            self.requestTimer == nil
+            self.requestTimer? .invalidate()
+            self.requestTimer = nil
         }
         
        self .getRequestBadgeCounter()
@@ -220,17 +220,37 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
         }
         else {
             SVProgressHUD.dismiss()
-            myTimer.invalidate()
+            myTimer?.invalidate()
+        }
+    }
+    
+    func startTimer()
+    {
+        if dialogTimer == nil {
+            self.dialogTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.getDialogs), userInfo: nil, repeats: true)
+        }
+    }
+    
+    func stopTimer()
+    {
+        if dialogTimer != nil {
+            dialogTimer?.invalidate()
+            self.dialogTimer = nil
         }
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.dialogTimer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.getDialogs), userInfo: nil, repeats: true)
-
+        if (QBChat.instance().isConnected && ServicesManager.instance().isAuthorized()) {
+                  startTimer()
+        }
         
         //--------Google Analytics Start-----
         GoogleAnalyticManagerApi.sharedInstance.startScreenSessionWithName(screenName: kDialogsScreenName)
         //--------Google Analytics Finish-----
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -245,7 +265,7 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
         
         if appDelegate.session != nil {
             appDelegate.session = nil
-            self.dialogTimer.invalidate()
+           
         }
         
     }
@@ -431,8 +451,12 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
     // MARK: - Notification handling
     
     func didEnterBackgroundNotification() {
+        
         self.didEnterBackgroundDate = NSDate()
+        stopTimer()
+        
     }
+    
     
     // MARK: - Actions
     func createLogoutButton() -> UIBarButtonItem {
