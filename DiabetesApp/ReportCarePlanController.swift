@@ -17,7 +17,7 @@ class ReportCarePlanController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet var pickerViewContainer: UIView!
     @IBOutlet weak var tblView: UITableView!
-    
+      @IBOutlet weak var vmHeader: UIView!
     @IBOutlet weak var btnOkFreqPicker: UIButton!
     @IBOutlet weak var btnCancelFreqPicker: UIButton!
     @IBOutlet weak var btnOkPicker: UIButton!
@@ -27,10 +27,25 @@ class ReportCarePlanController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var pickerViewInner: UIView!
     @IBOutlet weak var noReadingsAvailable: UILabel!
     @IBOutlet weak var takereadingsLabel: UILabel!
+    
+    @IBOutlet weak var frequencyLbl: UILabel!
+    @IBOutlet weak var timingHeaderLabel: UILabel!
+    
+    @IBOutlet weak var goalHeaderLabel: UILabel!
+    
     var reportUSer = String()
     var selectedIndex = Int()
     var selectedIndexPath = Int()
     var array = NSMutableArray()
+    var repoReadArray = NSMutableArray()
+    var arrayCopy = NSArray()
+
+    var newReadingAddedTemp = NSArray()
+    var editedReadTempArray = NSArray()
+    var readingDeletedTemp = NSArray()
+
+    
+    var updateArray = NSMutableArray()
     var currentEditReadingArray = NSMutableArray()
     
     var objCarePlanFrequencyObj = CarePlanFrequencyObj()
@@ -45,19 +60,30 @@ class ReportCarePlanController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tblView.backgroundColor = UIColor.clear
+     //   tblView.backgroundColor = UIColor.clear
         // Do any additional setup after loading the view.
         
         //TableView Round corner and Border set
-        tblView.layer.cornerRadius = kButtonRadius
-        tblView.layer.masksToBounds = true
+//        tblView.layer.cornerRadius = kButtonRadius
+//        tblView.layer.masksToBounds = true
+//        tblView.layer.borderColor = Colors.PrimaryColor.cgColor
+//        tblView.layer.borderWidth = 1.0
+        
         tblView.layer.borderColor = Colors.PrimaryColor.cgColor
         tblView.layer.borderWidth = 1.0
+        tblView.layer.masksToBounds = true
         
+        
+        tblView.tableHeaderView =  UIView(frame: .zero)
         tblView.tableFooterView =  UIView(frame: .zero)
+        
         
         self.automaticallyAdjustsScrollViewInsets = true
 
+                timingHeaderLabel.text = "CONDITION".localized
+                goalHeaderLabel.text = "Goal".localized
+                frequencyLbl.text = "Frequency".localized
+        
         // Do any additional setup after loading the view.
         
     }
@@ -66,26 +92,16 @@ class ReportCarePlanController: UIViewController, UITableViewDelegate, UITableVi
         super.viewDidAppear(animated)
         addNotifications()
         
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        
-        
-        if !UserDefaults.standard.bool(forKey: "groupChat") {
-            if selectedUserType == userType.doctor {
-                getDoctorReadingsData()
-            }
-            else{
-                getReadingsData()
-            }
+        if !UserDefaults.standard.bool(forKey: "groupChat")  {
+            doctorReportAPI()
         }
         else {
-            if selectedUserType == userType.doctor {
-                getDoctorSingleData()
-            }
-            else{
-                getReadingsData()
-            }
+            getReadingsData()
         }
+        //}
+    }
+    override func viewWillAppear(_ animated: Bool) {
+       
     }
     
     //func viewDidAppear() {
@@ -107,16 +123,27 @@ class ReportCarePlanController: UIViewController, UITableViewDelegate, UITableVi
     func resetUI() {
         
         tblView.isHidden = false
-
-        /*if self.array.count > 0 {
-            tblView.isHidden = false
-             noReadingsAvailable.isHidden = true
+        noReadingsAvailable.isHidden = true
+        
+    
+        if(array.count > 0)
+        {
+            vmHeader.setHeight(height: 40)
+             self.tblView.isHidden = false
+       
         }
-        else {
-            
-            tblView.isHidden = true
-            noReadingsAvailable.isHidden = false
-        }*/
+        else
+        {
+              vmHeader.setHeight(height: 0)
+             self.tblView.isHidden = true
+        }
+        
+        let maskPath = UIBezierPath(roundedRect: vmHeader.bounds, byRoundingCorners: ([.topLeft, .topRight]), cornerRadii: CGSize(width: CGFloat(kButtonRadius), height: CGFloat(kButtonRadius)))
+        let maskLayer = CAShapeLayer()
+        maskLayer.frame = self.view.bounds
+        maskLayer.path = maskPath.cgPath
+        vmHeader.layer.mask = maskLayer
+        
     }
     
     func addNotifications(){
@@ -275,6 +302,158 @@ class ReportCarePlanController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     // MARK: - Api Methods
+    
+    func doctorReportAPI() {
+        
+        SVProgressHUD.show(withStatus: "SA_STR_LOADING".localized, maskType: SVProgressHUDMaskType.clear)
+        let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)! as String
+        let taskID: String = UserDefaults.standard.string(forKey: userDefaults.taskID)!
+        
+        let parameters: Parameters = [
+            "taskid": taskID,
+            "patientid": patientsID,
+            "numDaysBack": "0",
+            "condition": "All conditions"
+        ]
+        
+        print(parameters)
+        
+        SVProgressHUD.show(withStatus: "SA_STR_LOADING".localized, maskType: SVProgressHUDMaskType.clear)
+        
+        Alamofire.request("\(baseUrl)\(ApiMethods.getDoctorRequestReport)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+            
+            print("Validation Successful ")
+            
+            switch response.result {
+                
+            case .success:
+                self.array = NSMutableArray()
+                self.repoReadArray = NSMutableArray()
+                SVProgressHUD.dismiss()
+                if let JSON: NSDictionary = response.result.value! as? NSDictionary {
+                    
+                    
+                    // let jsonNewArr : NSMutableArray = NSMutableArray(array:JSON.object(forKey: "updatedMedication") as! NSArray)
+                    let jsonArrRead : NSMutableArray = NSMutableArray(array:JSON.object(forKey: "readingsTime") as! NSArray)
+                    
+                    let jsonArrUpdatedRead : NSMutableArray = NSMutableArray(array:JSON.object(forKey: "updatedReading") as! NSArray)
+                    let jsonArrNewRead : NSMutableArray = NSMutableArray(array:JSON.object(forKey: "newReading") as! NSArray)
+                    let jsonArrDeleteNewRead : NSMutableArray = NSMutableArray(array:JSON.object(forKey: "deletedReading") as! NSArray)
+                    
+                    //aaa
+                    
+                                      
+                    if jsonArrRead.count > 0 {
+                        self.array.removeAllObjects()
+                        for data in jsonArrRead {
+                            let dict: NSDictionary = data as! NSDictionary
+                            let obj = CarePlanFrequencyObj()
+                            obj.id = dict.value(forKey: "_id") as! String
+                            obj.goal = dict.value(forKey: "goal") as! String
+                            obj.time = dict.value(forKey: "time") as! String
+                            obj.frequency = dict.value(forKey: "frequency") as! String
+                            
+                            self.repoReadArray.add(dict)
+                            self.array.add(obj)
+                        }
+                    }
+                    
+                    //Update current medication if educator updated
+                    if jsonArrUpdatedRead.count > 0 {
+                        for data1 in jsonArrUpdatedRead{
+                            
+                            let dict: NSDictionary = data1 as! NSDictionary
+                            let obj = CarePlanFrequencyObj()
+                            obj.id = dict.value(forKey: "id") as! String
+                            obj.frequency = dict.value(forKey: "frequency") as! String
+                            obj.time = dict.value(forKey: "time") as! String
+                            obj.goal = dict.value(forKey: "goal") as! String
+                            
+                            
+                            
+                            for i in 0..<self.array.count {
+                                let objCarPlan = (self.array[i] as? CarePlanFrequencyObj)!
+                                if(objCarPlan.id ==  obj.id )
+                                {
+                                    self.repoReadArray.replaceObject(at: i, with: dict)
+                                    self.array.replaceObject(at: i, with: obj)
+                                    break
+                                }
+                            }
+                        }
+                        
+                    }
+                    
+                    //Add new medication if educator added
+                    if jsonArrNewRead.count > 0 {
+                        
+                        for data in jsonArrNewRead {
+                            let dict: NSDictionary = data as! NSDictionary
+                            let obj = CarePlanFrequencyObj()
+                            if (dict.value(forKey: "_id") == nil)
+                            {
+                                obj.id = dict.value(forKey: "id") as! String
+                            }
+                            else
+                            {
+                                obj.id = dict.value(forKey: "_id") as! String
+                            }
+                            obj.frequency = dict.value(forKey: "frequency") as! String
+                            obj.goal = dict.value(forKey: "goal") as! String
+                            obj.time = dict.value(forKey: "time") as! String
+                            
+                            self.array.add(obj)
+                            self.repoReadArray.add(dict)
+                        }
+                    }
+                    
+                    //Delete Medication Data From the cashe
+                    
+                    for data1 in jsonArrDeleteNewRead{
+                        let dict: NSDictionary = data1 as! NSDictionary
+                        let obj = CarePlanFrequencyObj()
+                        obj.id = dict.value(forKey: "id") as! String
+                        for i in 0..<self.array.count {
+                            let objCarPlan = (self.array[i] as? CarePlanFrequencyObj)!
+                            if(objCarPlan.id ==  obj.id )
+                            {
+                                self.array.remove(objCarPlan)
+                                self.repoReadArray.removeObject(at: i)
+                                break
+                            }
+                        }
+                    }
+                    
+                    if  UserDefaults.standard.bool(forKey: "CurrentReadEditBool") {
+                        self.addDefaultValueReading()
+                    }
+                    
+                    UserDefaults.standard.setValue(self.repoReadArray, forKey: "repoReadiArray")
+                    UserDefaults.standard.synchronize()
+                    
+                    
+                    self.arrayCopy = self.array.mutableCopy() as! NSArray
+                    self.tblView.reloadData()
+                    self.tblView.layoutIfNeeded()
+                    self.resetUI()
+                }
+                
+                break
+            case .failure:
+                print("failure")
+                self.array = NSMutableArray()
+                self.tblView.reloadData()
+                self.tblView.layoutIfNeeded()
+                self.resetUI()
+                SVProgressHUD.showError(withStatus: response.result.error?.localizedDescription)
+                break
+                
+            }
+        }
+        
+        
+    }
+    
     func getReadingsData() {
         
         if  UserDefaults.standard.string(forKey: userDefaults.selectedPatientID) != nil {
@@ -302,41 +481,122 @@ class ReportCarePlanController: UIViewController, UITableViewDelegate, UITableVi
                     
                     if let JSON: NSDictionary = response.result.value! as? NSDictionary {
                        
+                       /* if let JSON: NSArray = response.result.value as? NSArray {
+                            self.array.removeAllObjects()
+                            for data in JSON {
+                                let dict: NSDictionary = data as! NSDictionary
+                                let obj1 = CarePlanReadingObj()
+                                obj1.id = dict.value(forKey: "_id") as! String
+                                let goalStr: String = dict.value(forKey: "goal") as! String
+                                obj1.goal = goalStr.replacingOccurrences(of: "Between ", with: "")
+                                obj1.time = dict.value(forKey: "time") as! String
+                                obj1.frequency = dict.value(forKey: "frequency") as! String
+                              
+                                self.array.add(obj1)
+                            }
+                            print(self.array)
+                        }*/
+                        
                         let arr  = NSMutableArray(array: JSON.object(forKey: "readingsTime")as! NSArray)
                         self.array.removeAllObjects()
-                       // for time in frequnecyArray {
-                            let mainDict: NSMutableDictionary = NSMutableDictionary()
-                            mainDict.setValue(String(describing: time), forKey: "frequency")
-                            let itemsArray: NSMutableArray = NSMutableArray()
-                            for data in arr {
-                                let dict: NSDictionary = data as! NSDictionary
-                                let obj = CarePlanReadingObj()
-                                obj.id = dict.value(forKey: "_id") as! String
-                                // Between
-                                let goalStr: String = dict.value(forKey: "goal") as! String
-                                obj.goal = goalStr.replacingOccurrences(of: "Between ", with: "")
-                                //obj.goal = dict.value(forKey: "goal") as! String
-                                obj.time = dict.value(forKey: "time") as! String
-                                obj.frequency = dict.value(forKey: "frequency") as! String
-                               
-                               // if String(describing: time) == obj.frequency {
-                                    itemsArray.add(obj)
-                                //}
-                            }
+                        for data in arr {
+                            let dict: NSDictionary = data as! NSDictionary
+                            let obj = CarePlanFrequencyObj()
+                            obj.id = dict.value(forKey: "_id") as! String
+                            let goalStr: String = dict.value(forKey: "goal") as! String
+                            obj.goal = goalStr.replacingOccurrences(of: "Between ", with: "")
+                            obj.time = dict.value(forKey: "time") as! String
+                            obj.frequency = dict.value(forKey: "frequency") as! String
                             
-                            if itemsArray.count > 0{
-                                //                                for i : Int in 0 ..< itemsArray.count {
-                                mainDict.setObject(itemsArray, forKey: "data" as NSCopying)
-                                self.array.add(mainDict)
-                                // }
-                            }
-                            
-                       // }
+                            self.array.add(obj)
+                        }
                         
-                        print(self.array)
+                        
+                        let arrNew = UserDefaults.standard.array(forKey: "currentAddReadingArray")! as [Any] as NSArray
+                        self.newReadingAddedTemp = NSMutableArray(array: arrNew)
+                        
+                        let arrDelete = UserDefaults.standard.array(forKey: "currentDeleteReadingArray")! as [Any] as NSArray
+                        self.readingDeletedTemp = NSMutableArray(array: arrDelete)
+                        
+                        let arrEdit = UserDefaults.standard.array(forKey: "currentEditReadingCareArray")! as [Any] as NSArray
+                        self.editedReadTempArray = NSMutableArray(array: arrEdit)
+                        
+                        
+                        
+                        //   if UserDefaults.standard.bool(forKey: "CurrentReadEditBool") {
+                        
+                        // if editedReadTemp.count > 0{
+                        for data in self.editedReadTempArray{
+                            let dict: NSDictionary = data as! NSDictionary
+                            let obj = CarePlanFrequencyObj()
+                            obj.id = dict.value(forKey: "id") as! String
+                            obj.goal = dict.value(forKey: "goal") as! String
+                            obj.time = dict.value(forKey: "time") as! String
+                            obj.frequency = dict.value(forKey: "frequency") as! String
+                            
+                            for i in 0..<self.array.count{
+                                let obj1 : CarePlanFrequencyObj = self.array[i] as! CarePlanFrequencyObj
+                                
+                                //let obj1 = CarePlanFrequencyObj()
+                                
+                                if obj1.id == obj.id{
+                                    
+                                    obj1.id = obj.id
+                                    obj1.goal = obj.goal
+                                    obj1.time = obj.time
+                                    obj1.frequency = obj.frequency
+                                    
+                                    self.array.replaceObject(at: i, with: obj1)
+                                    break
+                                }
+                                
+                            }
+                        }
+                        // }
+                        // if newReadingAddedTemp.count > 0
+                        //{
+                        for data1 in self.newReadingAddedTemp {
+                            let dict: NSDictionary = data1 as! NSDictionary
+                            let obj = CarePlanFrequencyObj()
+                            obj.id = ""
+                            let goalStr: String = dict.value(forKey: "goal") as! String
+                            obj.goal = goalStr.replacingOccurrences(of: "Between ", with: "")
+                            obj.time = dict.value(forKey: "time") as! String
+                            obj.frequency = dict.value(forKey: "frequency") as! String
+                            
+                            self.array.add(obj)
+                        }
+                        //}
+                        
+                        // if readingDeletedTemp.count > 0{
+                        for data2 in self.readingDeletedTemp{
+                            let dict: NSDictionary = data2 as! NSDictionary
+                            let obj = CarePlanFrequencyObj()
+                            obj.id = dict.value(forKey: "id") as! String
+                            
+                            for i in 0..<self.array.count{
+                                let obj1 : CarePlanFrequencyObj = self.array[i] as! CarePlanFrequencyObj
+                                
+                                //let obj1 = CarePlanFrequencyObj()
+                                
+                                if obj1.id == obj.id{
+                                    
+                                    self.array.removeObject(at: i)
+                                    break
+                                }
+                                
+                            }
+                        }
+                        // }
+                        //  }
+                        
                     }
+                    self.arrayCopy = self.array.mutableCopy() as! NSArray
+                    
                     self.tblView.reloadData()
+                    self.tblView.layoutIfNeeded()
                     self.resetUI()
+
                     
                     break
                     
@@ -376,36 +636,17 @@ class ReportCarePlanController: UIViewController, UITableViewDelegate, UITableVi
                         print(JSON)
                         let arr  = NSMutableArray(array: JSON.object(forKey: "readingsTime")as! NSArray)
                         self.array.removeAllObjects()
-                       // for time in frequnecyArray {
-                            let mainDict: NSMutableDictionary = NSMutableDictionary()
-                            mainDict.setValue(String(describing: time), forKey: "frequency")
-                            let itemsArray: NSMutableArray = NSMutableArray()
-                            for data in arr {
-                                let dict: NSDictionary = data as! NSDictionary
-                                let obj = CarePlanReadingObj()
-                                obj.id = dict.value(forKey: "_id") as! String
-                                // Between
-                                let goalStr: String = dict.value(forKey: "goal") as! String
-                                obj.goal = goalStr.replacingOccurrences(of: "Between ", with: "")
-                                //obj.goal = dict.value(forKey: "goal") as! String
-                                obj.time = dict.value(forKey: "time") as! String
-                                obj.frequency = dict.value(forKey: "frequency") as! String
-                                print("Readings time")
-                                print(String(describing: time))
-                                print(obj.frequency)
-                               // if String(describing: time) == obj.frequency {
-                                    itemsArray.add(obj)
-                                //}
-                            }
+                        for data in arr {
+                            let dict: NSDictionary = data as! NSDictionary
+                            let obj = CarePlanReadingObj()
+                            obj.id = dict.value(forKey: "_id") as! String
+                            let goalStr: String = dict.value(forKey: "goal") as! String
+                            obj.goal = goalStr.replacingOccurrences(of: "Between ", with: "")
+                            obj.time = dict.value(forKey: "time") as! String
+                            obj.frequency = dict.value(forKey: "frequency") as! String
                             
-                            if itemsArray.count > 0{
-                                //                                for i : Int in 0 ..< itemsArray.count {
-                                mainDict.setObject(itemsArray, forKey: "data" as NSCopying)
-                                self.array.add(mainDict)
-                                // }
-                            }
-                            
-                        //}
+                            self.array.add(obj)
+                        }
                         
                         print(self.array)
                     }
@@ -454,34 +695,17 @@ class ReportCarePlanController: UIViewController, UITableViewDelegate, UITableVi
                         print(JSON)
                         let arr  = NSMutableArray(array: JSON.object(forKey: "readingsTime")as! NSArray)
                         self.array.removeAllObjects()
-                        //for time in frequnecyArray {
-                            let mainDict: NSMutableDictionary = NSMutableDictionary()
-                            mainDict.setValue(String(describing: time), forKey: "frequency")
-                            let itemsArray: NSMutableArray = NSMutableArray()
-                            for data in arr {
-                                let dict: NSDictionary = data as! NSDictionary
-                                let obj = CarePlanReadingObj()
-                                obj.id = dict.value(forKey: "_id") as! String
-                                // Between
-                                let goalStr: String = dict.value(forKey: "goal") as! String
-                                obj.goal = goalStr.replacingOccurrences(of: "Between ", with: "")
-                                //obj.goal = dict.value(forKey: "goal") as! String
-                                obj.time = dict.value(forKey: "time") as! String
-                                obj.frequency = dict.value(forKey: "frequency") as! String
-                                print( obj.frequency)
-                               // if String(describing: time) == obj.frequency {
-                                    itemsArray.add(obj)
-                                //}
-                            }
+                        for data in arr {
+                            let dict: NSDictionary = data as! NSDictionary
+                            let obj = CarePlanReadingObj()
+                            obj.id = dict.value(forKey: "_id") as! String
+                            let goalStr: String = dict.value(forKey: "goal") as! String
+                            obj.goal = goalStr.replacingOccurrences(of: "Between ", with: "")
+                            obj.time = dict.value(forKey: "time") as! String
+                            obj.frequency = dict.value(forKey: "frequency") as! String
                             
-                            if itemsArray.count > 0{
-                                //                                for i : Int in 0 ..< itemsArray.count {
-                                mainDict.setObject(itemsArray, forKey: "data" as NSCopying)
-                                self.array.add(mainDict)
-                                // }
-                            }
-                            
-                       // }
+                            self.array.add(obj)
+                        }
                         
                         print(self.array)
                     }
@@ -502,6 +726,74 @@ class ReportCarePlanController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
+    func addDefaultValueReading(){
+        
+        let arrEdit : NSArray = UserDefaults.standard.array(forKey: "currentEditReadingCareArray")! as [Any] as NSArray
+        let jsonArrUpdatedRead = NSMutableArray(array: arrEdit)
+        //Update current medication if educator updated
+        if jsonArrUpdatedRead.count > 0 {
+            for data1 in jsonArrUpdatedRead{
+                
+                let dict: NSDictionary = data1 as! NSDictionary
+                let obj = CarePlanFrequencyObj()
+                obj.id = dict.value(forKey: "id") as! String
+                obj.frequency = dict.value(forKey: "frequency") as! String
+                obj.time = dict.value(forKey: "time") as! String
+                obj.goal = dict.value(forKey: "goal") as! String
+                
+                
+                
+                for i in 0..<self.array.count {
+                    let objCarPlan = (self.array[i] as? CarePlanFrequencyObj)!
+                    if(objCarPlan.id ==  obj.id )
+                    {
+                        self.array.replaceObject(at: i, with: obj)
+                        self.repoReadArray.replaceObject(at: i, with: dict)
+                        break
+                    }
+                }
+            }
+            
+        }
+        
+        let arrNew : NSArray = UserDefaults.standard.array(forKey: "currentAddReadingArray")! as [Any] as NSArray
+        let jsonArrNewRead = NSMutableArray(array: arrNew)
+        //Add new medication if educator added
+        if jsonArrNewRead.count > 0 {
+            
+            for data in jsonArrNewRead {
+                let dict: NSDictionary = data as! NSDictionary
+                let obj = CarePlanFrequencyObj()
+                //  obj.id = dict.value(forKey: "_id") as! String
+                obj.frequency = dict.value(forKey: "frequency") as! String
+                obj.goal = dict.value(forKey: "goal") as! String
+                obj.time = dict.value(forKey: "time") as! String
+                
+                self.array.add(obj)
+                self.repoReadArray.add(dict)
+            }
+        }
+        
+        //Delete Medication Data From the cashe
+        
+        let arrDelete : NSArray = UserDefaults.standard.array(forKey: "currentDeleteReadingArray")! as [Any] as NSArray
+        let jsonArrDeleteNewRead = NSMutableArray(array: arrDelete)
+        
+        for data1 in jsonArrDeleteNewRead{
+            let dict: NSDictionary = data1 as! NSDictionary
+            let obj = CarePlanFrequencyObj()
+            obj.id = dict.value(forKey: "id") as! String
+            for i in 0..<self.array.count {
+                let objCarPlan = (self.array[i] as? CarePlanFrequencyObj)!
+                if(objCarPlan.id ==  obj.id )
+                {
+                    self.array.remove(objCarPlan)
+                    self.repoReadArray.removeObject(at: i)
+                    break
+                }
+            }
+        }
+    }
     
     func parentCellFor(view: UIView) -> UITableViewCell {
         if (view.superview == nil){
@@ -517,51 +809,31 @@ class ReportCarePlanController: UIViewController, UITableViewDelegate, UITableVi
     //MARK: - TableView Delegate Methods
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let mainDict: NSMutableDictionary = array[section] as! NSMutableDictionary
-        let itemsArray: NSMutableArray = mainDict.object(forKey: "data") as! NSMutableArray
-        
-        return itemsArray.count
-        //return itemsArray.count
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-      //  print("Array count")
-       // print(array.count)
         return array.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let mainDict: NSMutableDictionary = array[indexPath.section] as! NSMutableDictionary
-        
-        
-        let itemsArray: NSMutableArray = mainDict.object(forKey: "data") as! NSMutableArray
-        
-
-        let tempArray : NSArray = UserDefaults.standard.array(forKey: "updateReadingCareArray")! as [Any] as NSArray
-
-        
-        
-        //print("Bool vaue for readings")
-        //print(UserDefaults.standard.bool(forKey: "CurrentReadEditBool"))
-        
-        
+       /* var isUpdate = Bool()
+        if UserDefaults.standard.bool(forKey: "NewReadEditBool") {
+            isUpdate = true
+        }
+        else
+        {
+          isUpdate = false
+        }*/
+       
         let cell : ReportCarePlanReadingViewCell = tableView.dequeueReusableCell(withIdentifier: "readingsCell")! as! ReportCarePlanReadingViewCell
         cell.selectionStyle = .none
         cell.tag = indexPath.row
-        cell.btnEdit.tag = indexPath.row
-        cell.btnFreq.tag = indexPath.row
-        cell.btnTiming.tag = indexPath.row
-        cell.txtGoal.tag = indexPath.row
-        
-        
-        let selectedUserType: Int = Int(UserDefaults.standard.integer(forKey: userDefaults.loggedInUserType))
-        
-        
-        if let obj: CarePlanReadingObj = itemsArray[indexPath.row] as? CarePlanReadingObj {
+     
+         if let obj: CarePlanFrequencyObj = array [indexPath.row] as? CarePlanFrequencyObj {
             cell.goalLbl.text = obj.goal
-            cell.txtGoal.text = obj.goal
             cell.conditionLbl.text = obj.time
+            
+            cell.goalLbl.backgroundColor = Colors.DHConditionBg
+            cell.conditionLbl.backgroundColor = Colors.DHConditionBg
+            cell.frequencyLbl.backgroundColor = Colors.DHConditionBg
             
             let valFreq = obj.frequency.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).lowercased()
             if valFreq == "once a week"{
@@ -579,36 +851,6 @@ class ReportCarePlanController: UIViewController, UITableViewDelegate, UITableVi
             else if valFreq == "twice daily"{
                 cell.frequencyLbl.text = "2/Daily"
             }
-            
-            cell.txtGoal.delegate = self
-            cell.txtGoal.isHidden = true
-            cell.btnEdit.isHidden = true
-            cell.btnTiming.isHidden = true
-           // cell.btnFreq.addTarget(self, action: #selector(btnFreq_Clicked(_:)), for: .touchUpInside)
-            //cell.btnTiming.addTarget(self, action: #selector(btnTiming_Clicked(_:)), for: .touchUpInside)
-            /*if(obj.isEdit)
-            {
-                cell.btnTiming.isHidden = false
-                cell.btnFreq.isHidden = false
-                cell.txtGoal.isHidden = false
-            }
-            else
-            {
-                cell.btnTiming.isHidden = true
-                cell.btnFreq.isHidden = true
-                cell.txtGoal.isHidden = true
-            }
-            
-            if(selectedUserType == userType.patient)
-            {
-                cell.btnEdit.isHidden = true
-                cell.btnTiming.isHidden = true
-                cell.btnFreq.isHidden = true
-                cell.txtGoal.isHidden = true
-            }
-            else{
-                cell.btnEdit.isHidden = false
-            }*/
         }
         return cell;
     }
@@ -744,7 +986,7 @@ class ReportCarePlanController: UIViewController, UITableViewDelegate, UITableVi
         return 50
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 45
+        return 0
     }
     
     override func viewDidLayoutSubviews() {
@@ -766,18 +1008,28 @@ class ReportCarePlanController: UIViewController, UITableViewDelegate, UITableVi
         }
         do {
             cell.separatorInset = UIEdgeInsets.zero
-            
             cell.layoutMargins = UIEdgeInsets.zero
-            
-            var frame = self.tblView.frame
-            frame.size.height = self.tblView.contentSize.height
-            self.tblView.frame = frame
-        }     catch let exception {
+
+        }  catch let exception {
             print("Exception Occure in LeadDetailViewController willDisplayCell: \(exception)")
-        }
+        } 
     }
 
-    
+    func roundCorners() {
+        let bounds = tblView.bounds
+        let maskPath = UIBezierPath(roundedRect: bounds, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii:CGSize(width: 10.0, height: 10.0)  )
+         let maskLayer = CAShapeLayer()
+        maskLayer.frame = bounds
+        maskLayer.path = maskPath.cgPath
+        tblView.layer.mask = maskLayer
+         let frameLayer = CAShapeLayer()
+        frameLayer.frame = bounds
+        frameLayer.path = maskPath.cgPath
+        frameLayer.lineWidth = 2.0
+        frameLayer.strokeColor = Colors.PrimaryColor.cgColor
+        frameLayer.fillColor = nil
+        tblView.layer.addSublayer(frameLayer)
+    }
     //MARK:- PickerView Delegate Methods
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return conditionsArray.count

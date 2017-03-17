@@ -26,7 +26,7 @@ let kQBDialingTimeInterval :TimeInterval = 5.0
 var dictMedicationList : NSMutableArray = NSMutableArray()
 var dictMedicationName:[String] = []
 
-let kTrackingId = "UA-42963155-2"
+let kTrackingId = "UA-92605308-1"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,NotificationServiceDelegate {

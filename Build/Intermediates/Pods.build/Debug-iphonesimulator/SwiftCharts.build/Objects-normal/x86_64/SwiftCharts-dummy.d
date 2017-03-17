@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Target\ Support\ Files/SwiftCharts/SwiftCharts-dummy.m \
-  /Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Target\ Support\ Files/SwiftCharts/SwiftCharts-prefix.pch
+  /Users/IPHONE/Deepak/svn_new/BaljitCode/diabetesapp/DiabetesVision/Pods/Target\ Support\ Files/SwiftCharts/SwiftCharts-dummy.m \
+  /Users/IPHONE/Deepak/svn_new/BaljitCode/diabetesapp/DiabetesVision/Pods/Target\ Support\ Files/SwiftCharts/SwiftCharts-prefix.pch

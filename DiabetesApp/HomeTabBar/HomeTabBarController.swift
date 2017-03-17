@@ -19,7 +19,7 @@ class HomeTabBarController: UITabBarController {
         self.navigationItem.hidesBackButton = true
         
         currentLocale = NSLocale.current.languageCode!
-           self .getReadCount()
+          // self .getReadCount()
         setupTabbar()
          self.tabBar.items?.last?.badgeValue = tabCounter
         if(Int(tabCounter)==0)

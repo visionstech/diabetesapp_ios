@@ -18,8 +18,9 @@ var requestTabBarItem = UITabBarItem()
 
 // Base Url
 
-let baseUrl: String = "http://54.244.176.114:3000/"
-//let baseUrl: String = "http://54.212.229.198:3000/"
+//let baseUrl: String = "http://54.244.176.114:3000/"
+//let baseUrl: String = "http://localhost:3000/"
+let baseUrl: String = "http://54.212.229.198:3000/"
 
 
 let conditionsArray : NSArray = ["All conditions".localized,"Fasting".localized, "After Breakfast".localized, "Before Lunch".localized, "After Lunch".localized, "Before Dinner".localized, "After Dinner".localized, "Bedtime".localized]
@@ -85,6 +86,9 @@ struct ViewIdentifiers{
     static let editMedicationViewController = "EditMedicationView"
     static let patientInfoViewController    = "PatientInfoView"
     static let requestViewController        = "RequestListView"
+    static let GroupInfoViewController      = "GroupInfoView"
+
+    
     
 }
 
@@ -158,6 +162,10 @@ struct ApiMethods{
     static let canceleMeds = "cancelDeleteMeds"
     static let getRequestCount = "getRequestCount"
     static let updateReadBy = "requestUpdateEducator"
+    static let saveDoctorChanges = "saveDoctorChanges"
+    static let addcareplanReadings = "addcareplanReadings"
+     static let deletecareplanReadings = "deletecareplanReadings"
+    
 }
 
 // MARK: - GeneralLabels
@@ -187,6 +195,7 @@ struct Notifications {
     static let addMedication    = "AddMedicationNotification"
     static let noOfDays         = "NoOfDaysNotification"
     static let addNewMedication    = "AddNewMedicationNotification"
+    static let addNewReading    = "AddNewReadingNotification"
     
     static let ReportListHistoryView = "ReportListHistoryView"
     static let ReportChartHistoryView = "ReportChartHistoryView"
@@ -228,14 +237,19 @@ struct Colors{
     static let DHTabBarWhiteTint = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 0.7)
     static let ChatTextColor = UIColor(red: 60.0/255.0, green: 60.0/255.0, blue: 59.0/255.0, alpha: 1.0)
     
+    static let approveButtonGreen = UIColor(red:75.0/255.0, green: 156.0/255.0, blue: 0.0/255.0, alpha: 1.0)
+    
     static let PrimaryColor = UIColor(red: 0.0/255.0, green: 60.0/255.0, blue: 79.0/255.0, alpha: 1.0)
-    static let PrimaryColorAlpha = UIColor(red: 0.0/255.0, green: 60.0/255.0, blue: 79.0/255.0, alpha: 0.7)
+    static let PrimaryColorAlpha = UIColor(red: 0.0/255.0, green: 60.0/255.0, blue: 79.0/255.0, alpha: 0.6)
     
     static let chartHyperHypoColor = UIColor(red: 227.0/255.0, green: 5.0/255.0, blue: 28.0/255.0, alpha: 1.0)
     static let chartNormalColor = UIColor(red: 162.0/255.0, green: 197.0/255.0, blue: 22.0/255.0, alpha: 1.0)
     static let placeHolderColor = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 0.6)
+    static let DefaultplaceHolderColor = UIColor(red: 191.0/255.0, green: 191.0/255.0, blue: 191.0/255.0, alpha: 1.0)
     
+    static let chatBackGroundColor = UIColor(red: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 0.6)
 }
+
 
 // MARK: - Fonts
 struct Fonts {

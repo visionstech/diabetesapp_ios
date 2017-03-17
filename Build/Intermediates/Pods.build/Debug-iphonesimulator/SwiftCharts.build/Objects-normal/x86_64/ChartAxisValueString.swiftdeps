@@ -8,12 +8,12 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "StringLiteralType"
-- !private "Double"
-- "String"
-- "ChartAxisValueString"
-- "ChartAxisValue"
-- "Int"
 - "ChartLabelSettings"
+- "String"
+- !private "Double"
+- "Int"
+- "ChartAxisValue"
+- "ChartAxisValueString"
 - "AssignmentPrecedence"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "init"]
@@ -158,8 +158,8 @@ depends-nominal:
 depends-dynamic-lookup:
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
-- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Target Support Files/SwiftCharts/SwiftCharts-umbrella.h"
-- "/Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Build/Intermediates/Pods.build/Debug-iphonesimulator/SwiftCharts.build/unextended-module.modulemap"
+- "/Users/IPHONE/Deepak/svn_new/BaljitCode/diabetesapp/DiabetesVision/Pods/Target Support Files/SwiftCharts/SwiftCharts-umbrella.h"
+- "/Users/IPHONE/Deepak/svn_new/BaljitCode/diabetesapp/DiabetesVision/Build/Intermediates/Pods.build/Debug-iphonesimulator/SwiftCharts.build/unextended-module.modulemap"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"

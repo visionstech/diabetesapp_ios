@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -51,8 +51,16 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="carePlan_condition" translatesAutoresizingMaskIntoConstraints="NO" id="XtW-zf-mW0">
+                                        <rect key="frame" x="142" y="25" width="20" height="20"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="12" id="lLf-s6-4cX"/>
+                                            <constraint firstAttribute="width" constant="14" id="tdw-kS-wWE"/>
+                                        </constraints>
+                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message Text" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwl-pf-rea" customClass="TTTAttributedLabel">
-                                        <rect key="frame" x="0.0" y="21" width="162" height="24"/>
+                                        <rect key="frame" x="0.0" y="21" width="142" height="24"/>
                                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -73,11 +81,13 @@
                                 <constraints>
                                     <constraint firstItem="h8u-4h-IEt" firstAttribute="leading" secondItem="UGA-Lo-mbI" secondAttribute="leading" priority="750" identifier="outgCellTopLabelLeading" id="2hL-wa-XL0"/>
                                     <constraint firstItem="KM3-Oj-tba" firstAttribute="top" secondItem="gwl-pf-rea" secondAttribute="bottom" id="BQZ-mi-zJi"/>
-                                    <constraint firstAttribute="trailing" secondItem="gwl-pf-rea" secondAttribute="trailing" identifier="outgCellMessageTextLabelTrailing" id="C4J-58-vtD"/>
                                     <constraint firstAttribute="trailing" secondItem="KM3-Oj-tba" secondAttribute="trailing" id="Cnr-Ch-k1c"/>
                                     <constraint firstItem="h8u-4h-IEt" firstAttribute="top" secondItem="UGA-Lo-mbI" secondAttribute="top" id="E1C-0z-mfn"/>
                                     <constraint firstAttribute="trailing" secondItem="h8u-4h-IEt" secondAttribute="trailing" identifier="outgCellTopLabelTrailing" id="KrN-Zw-ZY1"/>
+                                    <constraint firstAttribute="trailing" secondItem="XtW-zf-mW0" secondAttribute="trailing" id="MG7-q8-p3E"/>
+                                    <constraint firstAttribute="trailing" secondItem="gwl-pf-rea" secondAttribute="trailing" constant="20" id="Ode-gu-rlY"/>
                                     <constraint firstAttribute="bottom" secondItem="KM3-Oj-tba" secondAttribute="bottom" identifier="outgCellBottomLabelBottom" id="Qq4-nq-W8i"/>
+                                    <constraint firstItem="KM3-Oj-tba" firstAttribute="top" secondItem="XtW-zf-mW0" secondAttribute="bottom" id="S4Q-hV-Sd9"/>
                                     <constraint firstItem="KM3-Oj-tba" firstAttribute="leading" secondItem="UGA-Lo-mbI" secondAttribute="leading" id="UGl-WW-1AM"/>
                                     <constraint firstItem="gwl-pf-rea" firstAttribute="top" secondItem="h8u-4h-IEt" secondAttribute="bottom" id="mbp-Hv-6Tq"/>
                                     <constraint firstItem="gwl-pf-rea" firstAttribute="leading" secondItem="UGA-Lo-mbI" secondAttribute="leading" identifier="outgCellMessageTextLabelLeading" id="x6U-gp-Ps7"/>
@@ -132,6 +142,7 @@
                 <outlet property="messageContainerLeftInsetConstraint" destination="mRm-gl-BUZ" id="Ydv-Yj-jUS"/>
                 <outlet property="messageContainerRightInsetConstraint" destination="UcN-qd-Nxu" id="8Mn-ym-bz2"/>
                 <outlet property="messageContainerTopInsetConstraint" destination="Oep-MV-D9j" id="3nI-aa-1UH"/>
+                <outlet property="messageStatusImageView" destination="XtW-zf-mW0" id="Lge-04-qMC"/>
                 <outlet property="textView" destination="gwl-pf-rea" id="y5I-qm-hyU"/>
                 <outlet property="textViewBottomLabelVerticalSpaceConstraint" destination="BQZ-mi-zJi" id="dBa-7K-cFG"/>
                 <outlet property="topLabel" destination="h8u-4h-IEt" id="hdo-Lk-tvT"/>
@@ -141,4 +152,7 @@
             <point key="canvasLocation" x="256.5" y="369"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="carePlan_condition" width="23" height="23"/>
+    </resources>
 </document>

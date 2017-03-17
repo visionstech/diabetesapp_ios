@@ -44,6 +44,10 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     
     var formInterval: GTInterval!
     
+    private enum DHReadingState {
+        case low, normal, high
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -454,6 +458,47 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
 //        }
 //    }
     
+    private func checkIfOutOfRange(entryValue: Int, condition: String) -> DHReadingState {
+        
+        let trimmedCondition = condition.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        
+        switch trimmedCondition {
+        case "Before Meal", "Snacks", "Before Breakfast", "Before Lunch", "Before Dinner", "Fasting":
+            if entryValue < 80 {
+                return .low
+            }
+            else if entryValue > 130 {
+                return .high
+            }
+            else {
+                return .normal
+            }
+        case "After Meal", "After Breakfast", "After Lunch", "After Dinner", "Bedtime":
+            if entryValue > 180 {
+                return .high
+            }
+            else if entryValue < 70 {
+                return .low
+            }
+            else {
+                return .normal
+            }
+        case "Before Exercise", "After Exercise", "Exercise":
+            if entryValue < 130 {
+                return .low
+            }
+            else if entryValue > 180 {
+                return .high
+            }
+            else {
+                return .normal
+            }
+        default:
+            return .normal
+        }
+    }
+
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        
@@ -501,6 +546,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
             obj = cellArray[indexPath.row] as! NSDictionary
         }
         
+        
         let cell: HistoryTableViewCell = tableView.dequeueReusableCell(withIdentifier: "historyCell")! as! HistoryTableViewCell
         
         if(isToday && isAll || !isToday && isAll)
@@ -508,17 +554,9 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
             
             cell.readingLbl.text = "\(obj.value(forKey: "reading")!) mg/dl"
             
-            if (obj.value(forKey: "reading") as? Int)! > 180{
-                cell.readingLbl.textColor = UIColor(red: 238.0/255.0, green: 130.0/255.0, blue: 238.0/255.0, alpha: 1.0)
-            }
-            else if (obj.value(forKey: "reading") as? Int)! < 70{
-                cell.readingLbl.textColor = Colors.DHPinkRed
-            }
-            else{
-                cell.readingLbl.textColor = Colors.PrimaryColor
-            }
             
             var conditionString = String(describing: obj.value(forKey: "condition")!)
+            
             
             var tempString : [String] = conditionString.components(separatedBy: " ")
             if tempString[0] == "Pre"
@@ -530,25 +568,41 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
                 conditionString = "After "+tempString[1]
             }
             
-
+            let conditionIndex : Int = conditionsArrayEng.index(of: conditionString)
+            let conditionEng : String = conditionsArrayEng[conditionIndex] as! String
+            
+            let readingInt = (obj.value(forKey: "reading") as? Int)!
+            let readingState = checkIfOutOfRange(entryValue: readingInt, condition: conditionEng)
+            
+            if readingState == .high{
+                cell.readingLbl.textColor = UIColor(red: 84.0/255.0, green: 22.0/255.0, blue: 180.0/255.0, alpha: 1.0)
+            }
+            else if readingState == .low{
+                cell.readingLbl.textColor = Colors.DHPinkRed
+            }
+            else{
+                cell.readingLbl.textColor = Colors.PrimaryColor
+            }
+            
+            
             var outStr : String = ""
             
-           /* if currentLocale == "en"
-            {
-                let inFormatter = DateFormatter()
-                inFormatter.locale = NSLocale(localeIdentifier: "en") as Locale!
-                inFormatter.dateFormat = "hh:mm a"
-                
-                let outFormatter = DateFormatter()
-                outFormatter.locale = NSLocale(localeIdentifier: "en") as Locale!
-                outFormatter.dateFormat = "HH:mm"
-                
-                let date = inFormatter.date(from: String(describing: obj.value(forKey: "readingtime")!))
-                outStr = outFormatter.string(from: date!)
-            }
-            else{*/
-                outStr = String(describing: obj.value(forKey: "readingtime")!)
-           // }
+            /* if currentLocale == "en"
+             {
+             let inFormatter = DateFormatter()
+             inFormatter.locale = NSLocale(localeIdentifier: "en") as Locale!
+             inFormatter.dateFormat = "hh:mm a"
+             
+             let outFormatter = DateFormatter()
+             outFormatter.locale = NSLocale(localeIdentifier: "en") as Locale!
+             outFormatter.dateFormat = "HH:mm"
+             
+             let date = inFormatter.date(from: String(describing: obj.value(forKey: "readingtime")!))
+             outStr = outFormatter.string(from: date!)
+             }
+             else{*/
+            outStr = String(describing: obj.value(forKey: "readingtime")!)
+            // }
             
             let index = conditionsArrayEng.index(of: conditionString)
             if(index != -1)
@@ -558,78 +612,85 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
             else{
                 cell.dateLbl.text = String(describing: obj.value(forKey: "condition")!)
             }
-           
-           
+            
+            
             // cell.dateLbl.text = String(describing: obj.value(forKey: "condition")!)
             cell.conditionLbl.text = outStr
             cell.conditionLbl.textColor = Colors.PrimaryColor
             cell.commentLabel.text = String(describing: obj.value(forKey: "comment")!)
-//            cell.selectionStyle = .default
-
+            //            cell.selectionStyle = .default
+            
         }
         else{
             cell.readingLbl.text = "\(obj.value(forKey: "reading")!) mg/dl"
             
-            if (obj.value(forKey: "reading") as? Int)! > 180{
-                 cell.readingLbl.textColor = UIColor(red: 238.0/255.0, green: 130.0/255.0, blue: 238.0/255.0, alpha: 1.0)
+            /* if (obj.value(forKey: "reading") as? Int)! > 180{
+             cell.readingLbl.textColor = UIColor(red: 84.0/255.0, green: 22.0/255.0, blue: 180.0/255.0, alpha: 1.0)
+             }
+             else if (obj.value(forKey: "reading") as? Int)! < 70{
+             cell.readingLbl.textColor = Colors.DHPinkRed
+             }
+             else{
+             cell.readingLbl.textColor = Colors.PrimaryColor
+             }*/
+            
+            
+            
+            
+            let conditionIndex : Int = conditionsArray.index(of: conditionTxtFld.text)
+            let conditionEng : String = conditionsArrayEng[conditionIndex] as! String
+            
+            let readingInt = (obj.value(forKey: "reading") as? Int)!
+            let readingState = checkIfOutOfRange(entryValue: readingInt, condition: conditionEng)
+            
+            if readingState == .high{
+                cell.readingLbl.textColor = UIColor(red: 84.0/255.0, green: 22.0/255.0, blue: 180.0/255.0, alpha: 1.0)
             }
-            else if (obj.value(forKey: "reading") as? Int)! < 70{
+            else if readingState == .low{
                 cell.readingLbl.textColor = Colors.DHPinkRed
             }
             else{
                 cell.readingLbl.textColor = Colors.PrimaryColor
             }
             
-            var conditionString = String(describing: obj.value(forKey: "condition")!)
-            
-            var tempString : [String] = conditionString.components(separatedBy: " ")
-            if tempString[0] == "Pre"
-            {
-                conditionString = "Before "+tempString[1]
-            }
-            else if tempString[0] == "Post"
-            {
-                conditionString = "After "+tempString[1]
-            }
-            let index = conditionsArrayEng.index(of: conditionString)
             
             var outStrCondition : String = ""
             var outStrReadingTime : String = ""
-           /* if currentLocale == "ar"
-            {
-                let inFormatter = DateFormatter()
-                inFormatter.locale = NSLocale(localeIdentifier: "en") as Locale!
-                inFormatter.dateFormat = "hh:mm a"
-                
-                let outFormatter = DateFormatter()
-                outFormatter.locale = NSLocale(localeIdentifier: "en") as Locale!
-                outFormatter.dateFormat = "HH:mm"
-                
-                var date = inFormatter.date(from: String(describing: obj.value(forKey: "condition")!))
-                outStrCondition = outFormatter.string(from: date!)
-                
-                //for reading time with date and day of the week
-                inFormatter.dateFormat = "d EEEE"
-                outFormatter.dateFormat = "d EEEE"
-                
-                let tempString : String = String(describing: obj.value(forKey: "readingtime")!)
-                let tempSplits : [String] = tempString.components(separatedBy: " ")
-                let result : String = tempSplits[0]+" "+tempSplits[2]
-                let reading = inFormatter.date(from: result)
-                
-                outStrReadingTime = outFormatter.string(from: reading!)
-                
-            }
-            else{*/
-                outStrCondition = String(describing: obj.value(forKey: "condition")!)
-                
-                let tempStringRead : String = String(describing: obj.value(forKey: "readingtime")!)
-                let tempSplits : [String] = tempStringRead.components(separatedBy: " ")
-                let result : String = tempSplits[0]+tempSplits[1]+" "+tempSplits[2]
-                outStrReadingTime = result
-          //  }
+            /* if currentLocale == "ar"
+             {
+             let inFormatter = DateFormatter()
+             inFormatter.locale = NSLocale(localeIdentifier: "en") as Locale!
+             inFormatter.dateFormat = "hh:mm a"
+             
+             let outFormatter = DateFormatter()
+             outFormatter.locale = NSLocale(localeIdentifier: "en") as Locale!
+             outFormatter.dateFormat = "HH:mm"
+             
+             var date = inFormatter.date(from: String(describing: obj.value(forKey: "condition")!))
+             outStrCondition = outFormatter.string(from: date!)
+             
+             //for reading time with date and day of the week
+             inFormatter.dateFormat = "d EEEE"
+             outFormatter.dateFormat = "d EEEE"
+             
+             let tempString : String = String(describing: obj.value(forKey: "readingtime")!)
+             let tempSplits : [String] = tempString.components(separatedBy: " ")
+             let result : String = tempSplits[0]+" "+tempSplits[2]
+             let reading = inFormatter.date(from: result)
+             
+             outStrReadingTime = outFormatter.string(from: reading!)
+             
+             }
+             else{*/
+            outStrCondition = String(describing: obj.value(forKey: "condition")!)
             
-            cell.dateLbl.text = outStrReadingTime
+            let tempStringRead : String = String(describing: obj.value(forKey: "readingtime")!)
+            /*let tempSplits : [String] = tempStringRead.components(separatedBy: " ")
+             let result : String = tempStringRead
+             outStrReadingTime = result*/
+            //  }
+            
+            cell.dateLbl.text = tempStringRead
             cell.dateLbl.textColor = Colors.PrimaryColor
             cell.conditionLbl.text = outStrCondition
             cell.conditionLbl.textColor = Colors.PrimaryColor
@@ -638,11 +699,11 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         let clearView = UIView()
         clearView.backgroundColor = UIColor.clear // Whatever color you like
         UITableViewCell.appearance().selectedBackgroundView = clearView
-       // cell.selectionStyle = .none
+        // cell.selectionStyle = .none
         
-//        cell.readingLbl.text = "\(obj.value(forKey: "reading")!) mg/dl"
-//        cell.dateLbl.text = String(describing: obj.value(forKey: "created")!)
-//        cell.conditionLbl.text = String(describing: obj.value(forKey: "condition")!)
+        //        cell.readingLbl.text = "\(obj.value(forKey: "reading")!) mg/dl"
+        //        cell.dateLbl.text = String(describing: obj.value(forKey: "created")!)
+        //        cell.conditionLbl.text = String(describing: obj.value(forKey: "condition")!)
         return cell
         
     }

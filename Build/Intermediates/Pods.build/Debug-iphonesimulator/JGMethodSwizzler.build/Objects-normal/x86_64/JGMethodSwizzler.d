@@ -1,4 +1,4 @@
 dependencies: \
-  /Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/JGMethodSwizzler/JGMethodSwizzler/JGMethodSwizzler.m \
-  /Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Target\ Support\ Files/JGMethodSwizzler/JGMethodSwizzler-prefix.pch \
-  /Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/JGMethodSwizzler/JGMethodSwizzler/JGMethodSwizzler.h
+  /Users/IPHONE/Deepak/svn_new/BaljitCode/diabetesapp/DiabetesVision/Pods/JGMethodSwizzler/JGMethodSwizzler/JGMethodSwizzler.m \
+  /Users/IPHONE/Deepak/svn_new/BaljitCode/diabetesapp/DiabetesVision/Pods/Target\ Support\ Files/JGMethodSwizzler/JGMethodSwizzler-prefix.pch \
+  /Users/IPHONE/Deepak/svn_new/BaljitCode/diabetesapp/DiabetesVision/Pods/JGMethodSwizzler/JGMethodSwizzler/JGMethodSwizzler.h

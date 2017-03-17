@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -41,8 +41,15 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aUM-zm-5ky" userLabel="Message Container">
                                 <rect key="frame" x="4" y="4" width="165" height="175"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="if9-TD-cBQ">
+                                        <rect key="frame" x="150" y="139" width="15" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="15" id="Srw-wl-gnj"/>
+                                            <constraint firstAttribute="width" constant="15" id="ypE-HO-aCw"/>
+                                        </constraints>
+                                    </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tve-03-DKT">
-                                        <rect key="frame" x="0.0" y="21" width="165" height="133"/>
+                                        <rect key="frame" x="0.0" y="21" width="148" height="133"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nickname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="diF-ca-yd3" customClass="TTTAttributedLabel">
                                         <rect key="frame" x="0.0" y="0.0" width="165" height="21"/>
@@ -78,9 +85,12 @@
                                     <constraint firstAttribute="centerX" secondItem="W2c-d1-FIr" secondAttribute="centerX" id="9FQ-Is-V1I"/>
                                     <constraint firstAttribute="trailing" secondItem="35y-FC-UxN" secondAttribute="trailing" id="AoC-SQ-Y4a"/>
                                     <constraint firstItem="Tve-03-DKT" firstAttribute="leading" secondItem="aUM-zm-5ky" secondAttribute="leading" id="Cu1-jT-1tl"/>
+                                    <constraint firstItem="35y-FC-UxN" firstAttribute="top" secondItem="if9-TD-cBQ" secondAttribute="bottom" id="D2a-89-oHr"/>
+                                    <constraint firstAttribute="trailing" secondItem="if9-TD-cBQ" secondAttribute="trailing" id="Ho7-m3-XH4"/>
                                     <constraint firstItem="35y-FC-UxN" firstAttribute="top" secondItem="Tve-03-DKT" secondAttribute="bottom" id="QGP-lp-lfN"/>
+                                    <constraint firstAttribute="trailing" secondItem="Tve-03-DKT" secondAttribute="trailing" constant="17" id="Sh8-5l-Xcv"/>
                                     <constraint firstItem="35y-FC-UxN" firstAttribute="leading" secondItem="aUM-zm-5ky" secondAttribute="leading" id="Xda-1O-jom"/>
-                                    <constraint firstAttribute="trailing" secondItem="Tve-03-DKT" secondAttribute="trailing" id="nJl-Te-LvY"/>
+                                    <constraint firstItem="if9-TD-cBQ" firstAttribute="leading" secondItem="Tve-03-DKT" secondAttribute="trailing" constant="2" id="q4Q-na-wro"/>
                                     <constraint firstAttribute="bottom" secondItem="35y-FC-UxN" secondAttribute="bottom" id="qjn-WF-jgP"/>
                                     <constraint firstAttribute="centerY" secondItem="W2c-d1-FIr" secondAttribute="centerY" id="rwv-1O-YvD"/>
                                     <constraint firstAttribute="trailing" secondItem="diF-ca-yd3" secondAttribute="trailing" id="sf6-RH-gfz"/>
@@ -131,9 +141,9 @@
                 <outlet property="bottomLabel" destination="35y-FC-UxN" id="wAh-Ld-TGX"/>
                 <outlet property="bottomLabelHeightConstraint" destination="mVx-dl-W2y" id="nLD-ma-XSJ"/>
                 <outlet property="constAttachmentImgViewLeading" destination="Cu1-jT-1tl" id="XxH-0B-uby"/>
-                <outlet property="constAttachmentImgViewTraling" destination="nJl-Te-LvY" id="wCc-Bq-dvE"/>
                 <outlet property="containerView" destination="mlp-Ig-WT7" id="k8m-rd-Dhd"/>
                 <outlet property="containerWidthConstraint" destination="jtP-rm-saS" id="9Rs-pi-upC"/>
+                <outlet property="imageStatusImageView" destination="if9-TD-cBQ" id="2LA-Vk-WLe"/>
                 <outlet property="messageContainer" destination="aUM-zm-5ky" id="rie-RC-nhS"/>
                 <outlet property="messageContainerBottomInsetConstraint" destination="5Sz-rW-mKf" id="DmH-WT-ifj"/>
                 <outlet property="messageContainerLeftInsetConstraint" destination="hqh-sL-9vc" id="Qnp-A7-Ke0"/>

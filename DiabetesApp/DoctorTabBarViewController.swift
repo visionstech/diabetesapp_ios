@@ -15,13 +15,16 @@ class DoctorTabBarViewController: UITabBarController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-           self .getReadCount()
+        self.getReadCount()
         setupTabBar()
-        self.tabBar.items?.first?.badgeValue = tabCounter
+        self.tabBar.items?.last?.badgeValue = tabCounter
         if(Int(tabCounter)==0)
         {
-            self.tabBar.items?.first?.badgeValue = nil
+            self.tabBar.items?.last?.badgeValue = nil
         }
+        
+       // self.tabBarController?.selectedIndex = 1;
+        
           currentLocale = NSLocale.current.languageCode!
         // Do any additional setup after loading the view.
     }
@@ -31,14 +34,13 @@ class DoctorTabBarViewController: UITabBarController {
         // Dispose of any resources that can be recreated.
     }
     
-    
     private func setupTabBar() {
         guard let tabBarItems = tabBar.items else { return }
         tabBar.tintColor = Colors.DHTabBarGreen
         tabBar.barTintColor = Colors.DHTabBarWhiteTint
         tabBar.alpha = 1.0
         
-        for (index, tabBarItem) in tabBarItems.enumerated() {
+        for (_, tabBarItem) in tabBarItems.enumerated() {
             
             if(currentLocale == "ar"){
                 tabBarItem.setTitleTextAttributes([NSFontAttributeName: UIFont.systemFont(ofSize: 11, weight: UIFontWeightBold), NSForegroundColorAttributeName:Colors.DHTabBarItemUnselected], for: .normal)
@@ -48,8 +50,8 @@ class DoctorTabBarViewController: UITabBarController {
             else{
                 tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: Colors.DHTabBarGreen], for: .selected)
                 tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: Colors.DHTabBarItemUnselected], for: .normal)
+                
             }
-            
             
             
             
@@ -82,10 +84,10 @@ class DoctorTabBarViewController: UITabBarController {
                     {
                         let result_string = "\(result_number)"
                         
-                        self.tabBar.items?.first?.badgeValue = result_string
+                        self.tabBar.items?.last?.badgeValue = result_string
                         if(Int(tabCounter)==0)
                         {
-                            self.tabBar.items?.first?.badgeValue = nil
+                            self.tabBar.items?.last?.badgeValue = nil
                         }
                     }
                 }

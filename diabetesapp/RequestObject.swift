@@ -21,5 +21,7 @@ class RequestObject: NSObject {
     
     var taskid = String()
     var patientid = String()
+    var iseducatorin = Bool()
+    var didDoctorComment = Bool()
     
 }

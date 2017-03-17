@@ -51,7 +51,7 @@ class RequestViewController: UIViewController,UITableViewDelegate,UITableViewDat
         self.title = "\("Requests".localized)"
         self.tabBarController?.title = "\("Requests".localized)"
         self.tabBarController?.navigationItem.title = "\("Requests".localized)"
-       // self.parent?.navigationItem.leftBarButtonItem = nil
+        //self.parent?.navigationItem.leftBarButtonItem = nil
         self.parent?.navigationItem.rightBarButtonItems = nil
         self.parent?.navigationItem.hidesBackButton = true
         
@@ -103,7 +103,59 @@ class RequestViewController: UIViewController,UITableViewDelegate,UITableViewDat
         cell.lbPatientName.text = obj.patientName
         
         cell.lblTime.text = obj.time
-        cell.lblRequestStatus.text = obj.status
+        
+        if obj.status == "Accepted".localized{
+            cell.lblRequestStatus.text = obj.status
+            cell.lblRequestStatus.textColor = Colors.approveButtonGreen
+            
+        }
+        else if obj.status == "Declined".localized{
+            cell.lblRequestStatus.text = obj.status
+            cell.lblRequestStatus.textColor = UIColor.red
+            
+        }
+        else if obj.status == "Single Report".localized{
+            cell.lblRequestStatus.text = obj.status
+            cell.lblRequestStatus.textColor = Colors.PrimaryColor
+        }
+        else {
+            cell.lblRequestStatus.text = obj.status
+            cell.lblRequestStatus.textColor = Colors.PrimaryColor
+        }
+
+        
+        if selectedUserType == userType.doctor
+        {
+            if obj.status == "Accepted".localized{
+                cell.backgroundColor = nil
+            }
+            else if obj.status == "Declined".localized{
+                cell.backgroundColor = nil
+            }
+            else if obj.status == "Single Report".localized{
+                cell.backgroundColor = nil
+            }
+            else {
+                cell.backgroundColor = UIColor(red: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 1.0)
+            }
+        }
+        else if selectedUserType == userType.educator{
+           /* if obj.iseducatorin == false{
+                cell.backgroundColor = UIColor(red: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 1.0)
+            }
+            else{
+                cell.backgroundColor = nil
+            }*/
+            
+            if obj.didDoctorComment == true{
+                cell.backgroundColor = UIColor(red: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 1.0)
+            }
+            else{
+                cell.backgroundColor = nil
+            }
+            
+            
+        }
         
         cell.accessoryType = .disclosureIndicator
         cell.selectionStyle = .none
@@ -190,7 +242,7 @@ class RequestViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 switch response.result {
                     
                 case .success:
-                        if let JSON: NSDictionary = response.result.value! as? NSDictionary{
+                    if let JSON: NSDictionary = response.result.value! as? NSDictionary{
                         self.requestListArray .removeAllObjects()
                             print("JSON \(JSON)")
                             //for data in JSON {
@@ -216,55 +268,116 @@ class RequestViewController: UIViewController,UITableViewDelegate,UITableViewDat
                             {
                                 reloadTable = false
                             }
-
+                            
                             for data in jsonArray {
                                 let dict: NSDictionary = data as! NSDictionary
                                 let requestObj = RequestObject()
                                 requestObj.date = dict.value(forKey: "date") as! String
                                 if self.selectedUserType == userType.doctor {
-                                    requestObj.educatorName = dict.value(forKey: "educatorName") as! String
+                                    if let tempName = dict.value(forKey: "educatorName"){
+                                         requestObj.educatorName = dict.value(forKey: "educatorName") as! String
+                                    }
+                                   
                                 }
                                 else if self.selectedUserType == userType.educator {
-                                    requestObj.doctorName = dict.value(forKey: "doctorName") as! String
+                                    if let tempDrName = dict.value(forKey: "doctorName"){
+                                        requestObj.doctorName = dict.value(forKey: "doctorName") as! String
+                                    }
                                 }
-                                requestObj.patientName = dict.value(forKey: "patientName") as! String
+                                
+                                if let tempPatName = dict.value(forKey: "patientName"){
+                                    requestObj.patientName =  tempPatName as! String
+
+                                }
+                                else{
+                                    requestObj.patientName = ""
+                                }
+                                
                                 requestObj.taskid = dict.value(forKey: "taskid") as! String
                                 requestObj.time =   dict.value(forKey: "time") as! String
                                 requestObj.status =   dict.value(forKey: "status") as! String
                                 requestObj.patientid = (dict.value(forKey: "patientid") as? String)!
                                 
+                                if self.selectedUserType == userType.educator{
+                                    requestObj.didDoctorComment = dict.value(forKey: "commentAddedByDoctor") as! Bool
+                                }
+                                /*if let doctorCommented = {
+                                    
+                                }*/
+
+                                
+                                var readByArray : [String] = []
+                                if let readByArrayCheck = dict.value(forKey: "readByArray"){
+                                    
+                                   // if readByArray.contains(null)
+                                    //if readByArrayCheck
+                                    readByArray = readByArrayCheck as! [String]
+                                }
+                                print("Read By Array")
+                                print(readByArray)
+                                
                                 if self.selectedUserType == userType.doctor{
+                                    requestObj.iseducatorin = true
                                     var status = dict.value(forKey: "status") as! String
 
                                     if status == "Pending"{
                                         status = "Pending".localized
                                         unreadCounter = unreadCounter + 1
+                                        self.requestListArray.add(requestObj)
                                     }
                                     else if status == "Accepted"{
                                         status = "Accepted".localized
                                     }
                                     else if status == "Declined"{
                                         status = "Declined".localized
-                                       
                                     }
+                                    else
+                                    {
+                                        status = "Single Report".localized
+                                        //unreadCounter = unreadCounter + 1
+                                        self.requestListArray.add(requestObj)
+                                    }
+                                   
                                 }
                                     
                                 else if self.selectedUserType == userType.educator{
-                                    if let readENUM = dict.value(forKey: "readBy"){
-                                       let readENUMstr = readENUM as! String
-                                        if readENUMstr.lowercased() == "DOCTOR".lowercased(){
+                                    let currentUserID : String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserID)!
+                                    
+                                    if readByArray.count >= 0
+                                    {
+                                        if !readByArray.contains(currentUserID){
                                             unreadCounter = unreadCounter + 1
+                                            requestObj.iseducatorin = false
                                         }
+                                        else{
+                                            requestObj.iseducatorin = true
+                                        }
+                                        self.requestListArray.add(requestObj)
                                     }
+                                   
                                     
                                     
                                 }
                                 
                                 self.selectedPatientID = dict.value(forKey: "patientid") as! String
-                                self.requestListArray.add(requestObj)
+                                //self.requestListArray.add(requestObj)
                             }
+                            
+                        
+//                            self.requestListArray.sort({$0.status.compare($1.status) == .orderedAscending})
+
+//                             let requestListArraySorted = self.requestListArray.sorted(by: {($0 as AnyObject).status.compare(($1 as AnyObject).status) == .orderedAscending})
+//                            print (requestListArraySorted)
+                            
                         }
+                                        
+                                        
                         //if reloadTable{   // reload only if something new
+                                        
+                                        let requestListArraySorted : NSArray = self.requestListArray.sorted(by: {($0 as! RequestObject).status.compare(($1 as! RequestObject).status) == .orderedAscending}) as NSArray
+                                        self.requestListArray.removeAllObjects()
+                                        self.requestListArray = NSMutableArray(array:requestListArraySorted)
+                           // let sortedMovies = requestListArray.sort { $0.status < $1.status }
                             self.tableView.reloadData()
                         //}
                         
@@ -280,7 +393,7 @@ class RequestViewController: UIViewController,UITableViewDelegate,UITableViewDat
                     break
                 case .failure:
                     //                    SVProgressHUD.showError(withStatus:response.result.error?.localizedDescription )
-                    print("failure\(response.description)")
+                    print("failure")
                     
                     break
                     
@@ -288,7 +401,6 @@ class RequestViewController: UIViewController,UITableViewDelegate,UITableViewDat
             }
         
     }
-    
     /*
      // MARK: - Navigation
      

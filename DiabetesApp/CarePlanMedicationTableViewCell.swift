@@ -65,53 +65,31 @@ class CarePlanMedicationTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
         mainView.layer.cornerRadius = 8
         mainView.layer.borderColor = Colors.DHAddConditionBg.cgColor
         mainView.layer.borderWidth = 1.5
-        
+     
         // Left margins
         setleftpadding(textfield: dosageTxtFld)
         if medicineNameTxtFld != nil {
             setleftpadding(textfield: medicineNameTxtFld)
+            
+            medicineNameTxtFld.startVisible = true
+            // Set data source
+            medicineNameTxtFld.filterStrings(dictMedicationName)
+            
+            //medicineNameTxtFld.backgroundColor = Colors.DHTabBarGreen
+            medicineNameTxtFld.attributedPlaceholder = NSAttributedString(string: "Enter Medicine Name",
+                                                                          attributes: [NSForegroundColorAttributeName: UIColor.white])
         }
-        
-  
-        
-//        if editBtn != nil{
-//          //  editBtn.setTitle("Edit".localized,for: .normal)
-//            //saveBtn.setTitle("Save".localized,for: .normal)
-//           // editBtn.setTitle("Edit".localized,for: .highlighted)
-//        }
-//        
-//        if saveBtn != nil{
-//            saveBtn.setTitle("Save".localized,for: .normal)
-//            //  editBtn.setTitle("Edit".localized,for: .highlighted)
-//            saveBtn.setTitle("Save".localized,for: .highlighted)
-//        }
-        //editBtn.setTitle("Edit".localized,for: .normal)
-       // saveBtn.setTitle("Save".localized,for: .normal)
-      //  editBtn.setTitle("Edit".localized,for: .highlighted)
-      //  saveBtn.setTitle("Save".localized,for: .highlighted)
-
-        // Shadow on view
-//        mainView.layer.shadowColor = UIColor.black.cgColor
-//        mainView.layer.shadowOpacity = 0.5
-//        mainView.layer.shadowOffset = CGSize.zero
-//        mainView.layer.shadowRadius = 3
-        
-        medicineNameTxtFld.startVisible = true
-        // Set data source
-        medicineNameTxtFld.filterStrings(dictMedicationName)
-        
-        //medicineNameTxtFld.backgroundColor = Colors.DHTabBarGreen
-        medicineNameTxtFld.attributedPlaceholder = NSAttributedString(string: "Enter Medicine Name",
-                                                                      attributes: [NSForegroundColorAttributeName: UIColor.white])
-        
-        
     }
 
-    
+//    override func draw(_ rect: CGRect) {
+//        mainView.layer.cornerRadius = 8
+//        mainView.layer.borderColor = Colors.DHAddConditionBg.cgColor
+//        mainView.layer.borderWidth = 1.5
+//        
+//    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

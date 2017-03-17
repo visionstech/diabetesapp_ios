@@ -42,10 +42,22 @@ struct Account: KeychainGenericPasswordType {
     }
 }
 
+
+extension UIView {
+    func roundCorners(corners:UIRectCorner, radius: CGFloat) {
+        let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        self.layer.mask = mask
+    }
+}
+
+
 class LoginViewController: UIViewController, QBCoreDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var usernameTextFieldView: UIView!
     
+    @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var passwordTextFieldView: UIView!
@@ -70,8 +82,8 @@ class LoginViewController: UIViewController, QBCoreDelegate, UITextFieldDelegate
         
         usernameTxtFld.delegate = self
         passwordTxtFld.delegate = self
-        
-      //  let token = UserDefaults.standard.value(forKey: userDefaults.deviceToken) as! String!
+       
+             //  let token = UserDefaults.standard.value(forKey: userDefaults.deviceToken) as! String!
        // print("Token in view did load")
         
         configureAppearance()
@@ -83,6 +95,10 @@ class LoginViewController: UIViewController, QBCoreDelegate, UITextFieldDelegate
     override func viewDidAppear(_ animated: Bool) {
         //--------Google Analytics Start-----
         GoogleAnalyticManagerApi.sharedInstance.startScreenSessionWithName(screenName: kLoginScreenName)
+        
+        usernameTextFieldView.roundCorners(corners: [.topLeft, .topRight], radius: kButtonRadius)
+        passwordTextFieldView.roundCorners(corners: [.bottomLeft, .bottomRight], radius: kButtonRadius)
+        
         //--------Google Analytics Finish-----
     }
     
@@ -107,8 +123,9 @@ class LoginViewController: UIViewController, QBCoreDelegate, UITextFieldDelegate
         showActivityIndicator(false)
         
         //Set title
-        titleLabel.text = "Diabetes App"
-        
+        titleLabel.text = "Guiding you to the healthy side"
+        logoImage.image = UIImage(named:"logo_login")
+        logoImage.contentMode = .scaleAspectFit
         //Add gradient background
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = view.bounds
@@ -118,23 +135,29 @@ class LoginViewController: UIViewController, QBCoreDelegate, UITextFieldDelegate
         
         gradientLayer.colors = [color1, color2]
         
-        view.layer.insertSublayer(gradientLayer, at: 0)
+        //view.layer.insertSublayer(gradientLayer, at: 0)
         
         //Text Field
-        usernameTxtFld.layer.cornerRadius = kButtonRadius
-        passwordTxtFld.layer.cornerRadius = kButtonRadius
-       /* usernameTxtFld.layer.borderWidth = 2.0
-        usernameTxtFld.layer.borderColor = Colors.DHLoginButtonGreen.cgColor
-        passwordTxtFld.layer.borderWidth = 2.0
-        passwordTxtFld.layer.borderColor = Colors.DHLoginButtonGreen.cgColor*/
+        //usernameTextFieldView.layer.cornerRadius = kButtonRadius
+        //passwordTextFieldView.layer.cornerRadius = kButtonRadius
+        //usernameTextFieldView.layer.borderWidth = 2.0
         
-        usernameTxtFld.attributedPlaceholder = NSAttributedString(string: "ENTER_USERNAME".localized, attributes: [NSForegroundColorAttributeName : UIColor.black.withAlphaComponent(0.5)])
-        passwordTxtFld.attributedPlaceholder = NSAttributedString(string: "ENTER_PASSWORD".localized, attributes: [NSForegroundColorAttributeName : UIColor.black.withAlphaComponent(0.5)])
+
+
+       // usernameTextFieldView.layer.borderColor = Colors.DHLoginButtonGreen.cgColor
+        //passwordTextFieldView.layer.borderWidth = 2.0
+        //passwordTextFieldView.layer.borderColor = Colors.DHLoginButtonGreen.cgColor
+        
+        usernameTxtFld.returnKeyType = UIReturnKeyType.next
+        passwordTxtFld.returnKeyType = UIReturnKeyType.go
+        
+        usernameTxtFld.attributedPlaceholder = NSAttributedString(string: "ENTER_USERNAME".localized, attributes: [NSForegroundColorAttributeName : Colors.PrimaryColor])
+        passwordTxtFld.attributedPlaceholder = NSAttributedString(string: "ENTER_PASSWORD".localized, attributes: [NSForegroundColorAttributeName : Colors.PrimaryColor])
         
         //Login Button
         loginButton.layer.cornerRadius = kButtonRadius
         loginButton.layer.borderWidth = 2.0
-        loginButton.layer.borderColor = Colors.DHLoginButtonGreen.cgColor
+        loginButton.layer.borderColor = UIColor.white.cgColor
         loginButton.setTitle("LOGIN".localized, for: .normal)
         
         forgotPasswordButton.setTitle("Forgot Password?".localized, for: .normal)
@@ -164,7 +187,7 @@ class LoginViewController: UIViewController, QBCoreDelegate, UITextFieldDelegate
                 let selectedUser = QBUUser()
                 selectedUser.email = UserDefaults.standard.value(forKey: userDefaults.loggedInUserEmail) as! String!
                 selectedUser.password = UserDefaults.standard.value(forKey: userDefaults.loggedInUserPassword) as! String!
-                self .getReadCount()
+               // self .getReadCount()
                 GoogleAnalyticManagerApi.sharedInstance.setuserId(userId: selectedUser.email!)
                 GoogleAnalyticManagerApi.sharedInstance.setclientId(clientId: selectedUser.email!)
                 GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "Default Login", action:"Login" , label:"Login From Default credential")
@@ -203,7 +226,7 @@ class LoginViewController: UIViewController, QBCoreDelegate, UITextFieldDelegate
                     let appDelegate = UIApplication.shared.delegate as! AppDelegate
                     appDelegate.currentUser = user! as QBUUser
                     self.navigateToNextScreen()
-                      self .getReadCount()
+                     // self .getReadCount()
                     GoogleAnalyticManagerApi.sharedInstance.setuserId(userId: UserDefaults.standard.value(forKey: userDefaults.loggedInUserEmail) as! String!)
                     GoogleAnalyticManagerApi.sharedInstance.setclientId(clientId: UserDefaults.standard.value(forKey: userDefaults.loggedInUserEmail) as! String!)
                     GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "Default Login", action:"Login" , label:"Login From Default credential")
@@ -234,9 +257,12 @@ class LoginViewController: UIViewController, QBCoreDelegate, UITextFieldDelegate
             self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
             // self.navigationController?.pushViewController(viewController, animated: true)
             
-            
             let tabBarController: DoctorTabBarViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.doctorTabBarViewController) as! DoctorTabBarViewController
-            requestTabBarItem  =  (tabBarController.tabBar.items?[1])!
+            requestTabBarItem  =  (tabBarController.tabBar.items?[0])!
+          
+            //Default selected tab bar inbox
+            tabBarController.selectedViewController = tabBarController.viewControllers?[1]
+            
             self.navigationController?.pushViewController(tabBarController, animated: true)
             
         }
@@ -269,7 +295,11 @@ class LoginViewController: UIViewController, QBCoreDelegate, UITextFieldDelegate
     }
     
     @IBAction func LoginBtn_Click(_ sender: Any) {
+        loginUser()
         
+    }
+    
+    func loginUser(){
         self.view.endEditing(true)
         
         let username = usernameTxtFld.text!.trimmingCharacters(in: CharacterSet.whitespaces)
@@ -279,23 +309,14 @@ class LoginViewController: UIViewController, QBCoreDelegate, UITextFieldDelegate
         
         
         if username.isEmpty || password.isEmpty {
-//            self.present(UtilityClass.displayAlertMessage(message: "Username and password required.", title: "Error"), animated: true, completion: nil)
+            //            self.present(UtilityClass.displayAlertMessage(message: "Username and password required.", title: "Error"), animated: true, completion: nil)
             self.present(UtilityClass.displayAlertMessage(message: "Username and password required".localized, title: "SA_STR_ERROR".localized), animated: true, completion: nil)
             
         }
         else {
-//            if segmentUserType.selectedSegmentIndex == 0 {
-//                selectedUserType =  userType.doctor
-//            }
-//            else if segmentUserType.selectedSegmentIndex == 1 {
-//                
-//                selectedUserType =  userType.patient
-//            }
-//            else if segmentUserType.selectedSegmentIndex == 2 {
-//                selectedUserType = userType.educator
-//            }
+            
             SVProgressHUD.show(withStatus: "SA_STR_LOGGING_IN_AS".localized, maskType: SVProgressHUDMaskType.clear)
-
+            
             var token : String = ""
             if let tokenTemp = UserDefaults.standard.value(forKey: userDefaults.deviceToken){
                 token = tokenTemp as! String
@@ -305,7 +326,7 @@ class LoginViewController: UIViewController, QBCoreDelegate, UITextFieldDelegate
             let parameters: Parameters = [
                 "username": username,
                 "password": password,
-//                "typeid" : selectedUserType
+                //                "typeid" : selectedUserType
                 "devicetoken" : "",
                 "deviceType" : "iOS"
             ]
@@ -328,16 +349,16 @@ class LoginViewController: UIViewController, QBCoreDelegate, UITextFieldDelegate
                             SVProgressHUD.dismiss()
                         }
                         else{
-                                
                             
-//                        print("JSON: \(JSON)")
+                            
+                            //                        print("JSON: \(JSON)")
                             let chatID: String = JSON.value(forKey:"chatid") as! String
                             let email: String = JSON.value(forKey: "email") as! String!
                             let id: String = JSON.value(forKey: "_id") as! String!
                             let type: String = JSON.value(forKey:"type") as! String!
                             let fullname: String = JSON.value(forKey:"fullname") as! String!
                             let token: String = JSON.value(forKey:"token") as! String!
-                        
+                            
                             if type == "Doctor" {
                                 self.selectedUserType =  userType.doctor
                             }
@@ -350,7 +371,7 @@ class LoginViewController: UIViewController, QBCoreDelegate, UITextFieldDelegate
                             // Still pending : Store JSONWebToken and NSDate for lastupdate in keyring
                             var account = Account(name: id)
                             var tDate = ""
-                          
+                            
                             do {
                                 try account.fetchFromKeychain()
                                 
@@ -374,7 +395,7 @@ class LoginViewController: UIViewController, QBCoreDelegate, UITextFieldDelegate
                             
                             // Quickblox SIgn Up
                             if chatID.length == 0 {
-                            
+                                
                                 let newUser = QBUUser()
                                 newUser.email = email
                                 newUser.password = email
@@ -387,36 +408,36 @@ class LoginViewController: UIViewController, QBCoreDelegate, UITextFieldDelegate
                                 GoogleAnalyticManagerApi.sharedInstance.setclientId(clientId: email)
                                 
                                 QBRequest.signUp(newUser, successBlock: { (response, user) in
-                                
+                                    
                                     let dictParam: Parameters = [
                                         "userid": JSON.value(forKey: "_id") as! String!,
                                         "chatid": email,
                                         "typeid" : self.selectedUserType
                                     ]
                                     Alamofire.request("\(baseUrl)\(ApiMethods.updatePatient)", method: .post, parameters: dictParam, encoding: JSONEncoding.default).response { response in
-                                    // QuickBlox Login
+                                        // QuickBlox Login
                                         self.loginToQuickBlox(login: email, username: username, userID: id, fullname:fullname)
-                                    
+                                        
                                     }
-                                //
-                                //                                            Alamofire.request("\(baseUrl)\(ApiMethods.updatePatient)?userid=\(email)&chatid=\(username)&typeid=\(self.selectedUserType)").responseJSON(completionHandler: { (response) in
-                                //
-                                //                                                                                          })
-                                
+                                    //
+                                    //                                            Alamofire.request("\(baseUrl)\(ApiMethods.updatePatient)?userid=\(email)&chatid=\(username)&typeid=\(self.selectedUserType)").responseJSON(completionHandler: { (response) in
+                                    //
+                                    //                                                                                          })
+                                    
                                 }, errorBlock: { (error) in
                                     print(error)
                                     self.present(UtilityClass.displayAlertMessage(message: "Login error related to quickblox".localized, title: "SA_STR_ERROR".localized), animated: true, completion: nil)
                                     SVProgressHUD.dismiss()
                                 })
                             }
-                            
-                            // Quickblox Login
+                                
+                                // Quickblox Login
                             else {
                                 print("In here going to login now")
                                 self.loginToQuickBlox(login: email, username: username, userID: id, fullname: fullname)
                             }
                         }
-                    
+                        
                     }
                     
                 case .failure(let error):
@@ -430,9 +451,8 @@ class LoginViewController: UIViewController, QBCoreDelegate, UITextFieldDelegate
                 }
             }
         }
-        
+
     }
-    
     func loginToQuickBlox(login: String, username: String, userID: String, fullname: String) {
         
         let selectedUser = QBUUser()
@@ -544,8 +564,29 @@ class LoginViewController: UIViewController, QBCoreDelegate, UITextFieldDelegate
     //MARK: - TextField Delegate Methods
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        
+        if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
+            
+            // self.navigationItem.leftBarButtonItems = [optionsBtnBar,ReportBarButton]
+            usernameTxtFld.textAlignment = .right
+            usernameTxtFld.textAlignment = .right
+        }
+        else {
+            
+            // self.navigationItem.rightBarButtonItems = [optionsBtnBar,ReportBarButton]
+            usernameTxtFld.textAlignment = .left
+            usernameTxtFld.textAlignment = .left
+            
+        }
+
         if textField == usernameTxtFld {
             passwordTxtFld.becomeFirstResponder()
+            
+        }
+        
+        if textField == passwordTxtFld {
+            loginUser()
+            
         }
         return true
     }

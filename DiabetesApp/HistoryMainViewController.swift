@@ -137,13 +137,14 @@ class HistoryMainViewController: UIViewController {
             }
         }
         
-        
         if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
-            topBackView = UIView(frame: CGRect(x: self.view.frame.size.width - 80, y: 0, width: 75, height: 40))
-            topBackView.backgroundColor = UIColor(patternImage: UIImage(named: "topbackArbic")!)
-          //  let userImgView: UIImageView = UIImageView(frame: CGRect(x: 5 , y: 3, width: 34, height: 34))
-           // userImgView.image = UIImage(named: "user.png")
-            //topBackView.addSubview(userImgView)
+            
+            topBackView = UIView(frame: CGRect(x: self.view.frame.size.width - 90, y: 0, width: 85, height: 40))
+            let backImg : UIImageView = UIImageView(frame:CGRect( x: 45, y: 8, width: 40, height: 25))
+            backImg.image = UIImage(named:"topbackArbic")
+            topBackView.addSubview(backImg)
+        
+           // let userImgView: UIImageView = UIImageView(frame: CGRect(x: 0 , y: 3, width: 34, height: 34))
             
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(BackBtn_Click))
             topBackView.addGestureRecognizer(tapGesture)
@@ -151,17 +152,18 @@ class HistoryMainViewController: UIViewController {
             
             self.tabBarController?.navigationController?.navigationBar.addSubview(topBackView)
             self.navigationController?.navigationBar.addSubview(topBackView)
+    
             
             
         }
-        else {
+        else
+        {
             
-            topBackView = UIView(frame: CGRect(x: 0, y: 0, width: 74, height: 40))
-            topBackView.backgroundColor = UIColor(patternImage: UIImage(named: "topBackBtn")!)
-          //  let userImgView: UIImageView = UIImageView(frame: CGRect(x: 35, y: 3, width: 34, height: 34))
-           // userImgView.image = UIImage(named: "user.png")
-            //topBackView.addSubview(userImgView)
-            
+            topBackView = UIView(frame: CGRect(x: 0, y: 0, width: 84, height: 40))
+            let backImg : UIImageView = UIImageView(frame:CGRect( x: 0, y: 8, width: 40, height: 25))
+            backImg.image = UIImage(named:"topBackBtn")
+            topBackView.addSubview(backImg)
+    
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(BackBtn_Click))
             topBackView.addGestureRecognizer(tapGesture)
             topBackView.isUserInteractionEnabled = true
@@ -196,7 +198,7 @@ class HistoryMainViewController: UIViewController {
                                               
                                                 
                                                 if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
-                                                    let userImgView: UIImageView = UIImageView(frame: CGRect(x: 5 , y: 3, width: 34, height: 34))
+                                                    let userImgView: UIImageView = UIImageView(frame: CGRect(x: 0 , y: 3, width: 34, height: 34))
                                                    
                                                     userImgView.layer.cornerRadius = userImgView.frame.size.width / 2;
                                                     userImgView.clipsToBounds = true;
@@ -208,7 +210,7 @@ class HistoryMainViewController: UIViewController {
                                                 }
                                                 else {
                                                     
-                                                    let userImgView: UIImageView = UIImageView(frame: CGRect(x: 35, y: 3, width: 34, height: 34))
+                                                    let userImgView: UIImageView = UIImageView(frame: CGRect(x: 50, y: 3, width: 34, height: 34))
                                                     userImgView.layer.cornerRadius = userImgView.frame.size.width / 2;
                                                     userImgView.clipsToBounds = true;
                                                     
@@ -217,6 +219,29 @@ class HistoryMainViewController: UIViewController {
                                                     
                                                 }
                                               
+                                            }
+                                            else{
+                                                if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
+                                                    let userImgView: UIImageView = UIImageView(frame: CGRect(x: 0 , y: 3, width: 34, height: 34))
+                                                    
+                                                    userImgView.layer.cornerRadius = userImgView.frame.size.width / 2;
+                                                    userImgView.clipsToBounds = true;
+                                                    
+                                                    userImgView.image = UIImage(named:"placeholder.png")
+                                                    self?.topBackView.addSubview(userImgView)
+                                                    
+                                                    
+                                                }
+                                                else {
+                                                    
+                                                    let userImgView: UIImageView = UIImageView(frame: CGRect(x: 50, y: 3, width: 34, height: 34))
+                                                    userImgView.layer.cornerRadius = userImgView.frame.size.width / 2;
+                                                    userImgView.clipsToBounds = true;
+                                                    
+                                                    userImgView.image = UIImage(named:"placeholder.png")
+                                                    self?.topBackView.addSubview(userImgView)
+                                                    
+                                                }
                                             }
                     })
                     print(imagePath)

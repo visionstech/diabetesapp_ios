@@ -11,6 +11,14 @@ import Alamofire
 import Foundation
 import SVProgressHUD
 
+
+extension String {
+    func removingWhitespaces() -> String {
+        return components(separatedBy: .whitespaces).joined()
+    }
+}
+
+
 class GIntakeViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
     
@@ -37,6 +45,7 @@ class GIntakeViewController: UIViewController, UITextFieldDelegate, UIPickerView
     @IBOutlet weak var dateInputOKButton: UIButton!
     
     
+    @IBOutlet weak var inputConfirmationGlucoseRangeLabel: UILabel!
     @IBOutlet weak var inputConfirmationCancelButton: UIButton!
     @IBOutlet weak var inputConfirmationView: UIView!
     @IBOutlet weak var inputConfirmationContainerView: UIView!
@@ -75,6 +84,12 @@ class GIntakeViewController: UIViewController, UITextFieldDelegate, UIPickerView
     var topBackView:UIView = UIView()
     var currentLocale : String = ""
     var fromDoneButton : Bool = false
+    
+    var dictReadingList : [String] = []
+    var dictReadingName:[String] = []
+
+    
+    
     var KeyboardTapGesture : UITapGestureRecognizer = UITapGestureRecognizer()
     private enum DHReadingState {
         case low, normal, high
@@ -271,6 +286,7 @@ class GIntakeViewController: UIViewController, UITextFieldDelegate, UIPickerView
                 conditionSegmentedControl.isEnabled = true
                 conditionSegmentedControl.isUserInteractionEnabled = true
                 conditionSegmentedControl.alpha = 1.0
+                conditionSegmentedControl.selectedSegmentIndex = UISegmentedControlNoSegment
 
                // view.removeGestureRecognizer(sender)
             }
@@ -281,29 +297,14 @@ class GIntakeViewController: UIViewController, UITextFieldDelegate, UIPickerView
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         dateInputPicker.date = Date()
+        lastSelectedDate = Date()
         configureAppearance()
+        getReadingsList()
         
        //Get indexes for fasting and bedtime
         fastingIndex = mealArrayEng.index(of: "Fasting")
         bedtimeIndex = mealArrayEng.index(of: "Bedtime")
         breakfastIndex = mealArrayEng.index(of: "Breakfast")
-    }
-    
-    func createCustomTopView() {
-        
-        topBackView = UIView(frame: CGRect(x: 0, y: 0, width: 74, height: 40))
-        topBackView.backgroundColor = UIColor(patternImage: UIImage(named: "topBackBtn")!)
-        let userImgView: UIImageView = UIImageView(frame: CGRect(x: 35, y: 3, width: 34, height: 34))
-       // userImgView.image = UIImage(named: "user.png")
-        // topBackView.addSubview(userImgView)
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(BackBtn_Click))
-        topBackView.addGestureRecognizer(tapGesture)
-        topBackView.isUserInteractionEnabled = true
-        
-        self.tabBarController?.navigationController?.navigationBar.addSubview(topBackView)
-        self.navigationController?.navigationBar.addSubview(topBackView)
-        
         
     }
     
@@ -340,7 +341,9 @@ class GIntakeViewController: UIViewController, UITextFieldDelegate, UIPickerView
         enterGlucoseLabel.text  = "ENTER_YOUR_GLUCOSE".localized
         //conditionLabel.text     = "CHOOSE_TIMING".localized
         enterGlucoseTextField.text = "EG".localized + " 120mg/dl"
-        enterGlucoseTextField.textColor = Colors.PrimaryColor
+        enterGlucoseTextField.textColor = Colors.PrimaryColorAlpha
+        //enterGlucoseTextField.attributedPlaceholder = NSAttributedString(string: enterGlucoseTextField.text!,
+                                                            //       attributes: [NSForegroundColorAttributeName: Colors.PrimaryColorAlpha] )
         // enterGlucoseTextField.layer.borderWidth = 1.5
         
         updateSelectedDate(Date())
@@ -412,10 +415,65 @@ class GIntakeViewController: UIViewController, UITextFieldDelegate, UIPickerView
         inputConfirmationView.insertSubview(confirmationBlurEffectView, belowSubview: inputConfirmationContainerView)
     }
     
+    private func getReadingsList(){
+    
+        let selectedPatientID : String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+        let parameters: Parameters = [
+            "userid": selectedPatientID,
+        ]
+
+        Alamofire.request("http://54.244.176.114:3000/getPatReadings", method: .post,  parameters: parameters, encoding: JSONEncoding.default).responseJSON { (response) in
+                switch response.result {
+                    case .success:
+                        
+                        if let JSON: NSDictionary = response.result.value as! NSDictionary? {
+                            print (JSON)
+                            
+                            if let readingsList: NSArray = JSON.value(forKey:"readingsTime") as? NSArray {
+                                //                    self.array = NSMutableArray()
+                                self.dictReadingName.removeAll()
+                                self.dictReadingList.removeAll()
+                                for data in readingsList {
+                                    let dict: NSDictionary = data as! NSDictionary
+                                    var tempCondition : String = dict.value(forKey: "time") as! String
+                                    var condition : String = ""
+                                    var tempString : [String] = tempCondition.components(separatedBy: " ")
+                                    if(tempString[0] == "Before")
+                                    {
+                                        condition = "Pre "+tempString[1]
+                                    }
+                                    else if(tempString[0] == "After")
+                                    {
+                                        condition = "Post "+tempString[1]
+
+                                    }
+                                    else{
+                                        condition = tempCondition
+                                    }
+                                    
+                                    self.dictReadingName.append(condition)
+                                    self.dictReadingList.append(dict.value(forKey: "goal") as! String)
+                                    //let obj = medicationObj()
+                                    //obj.medicineName = dict.value(forKey: "medicineName") as! String
+                                    //obj.medicineImage = dict.value(forKey: "medicineImage") as! String
+                                    //obj.type = dict.value(forKey: "type") as! String
+                                    //dictMedicationList.add(obj)
+                                    //dictMedicationName.append(dict.value(forKey: "medicineName") as! String)
+                                }
+                            }
+                        }
+                        
+                    break
+                    case .failure:
+                    break
+                }
+            }
+    }
+    
     func invalidReadingEntered(){
         
         enterGlucoseTextFieldView.backgroundColor = Colors.DHLightGray
-        enterGlucoseTextField.textColor = Colors.PrimaryColor
+        enterGlucoseTextField.textColor = Colors.PrimaryColorAlpha
         enterGlucoseTextField.text = "EG".localized + " 120 mg/dl"
         
         mealPickerView.isUserInteractionEnabled = false
@@ -654,6 +712,8 @@ class GIntakeViewController: UIViewController, UITextFieldDelegate, UIPickerView
                 conditionSegmentedControl.isUserInteractionEnabled = true
                 conditionSegmentedControl.isEnabled = true
                 conditionSegmentedControl.alpha = 1.0
+                conditionSegmentedControl.selectedSegmentIndex = UISegmentedControlNoSegment
+                
             }
         }
         
@@ -805,7 +865,40 @@ class GIntakeViewController: UIViewController, UITextFieldDelegate, UIPickerView
     
     private func checkIfOutOfRange(entryValue: Int, condition: String) -> DHReadingState {
         
+        var minLimit : Int = 0
+        var maxLimit : Int = 0
+        
         let trimmedCondition = condition.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        
+        if let readingLimitIndex = dictReadingName.index(of: trimmedCondition){
+        
+            if readingLimitIndex < dictReadingList.count{
+                var limitString : String = dictReadingList[readingLimitIndex]
+            
+                limitString = limitString.removingWhitespaces()
+                let limitsArray : [String] = limitString.components(separatedBy: "-")
+            
+                if let minDummy = Int(limitsArray[0]){
+                    minLimit = Int(limitsArray[0])! as Int
+                }
+            
+                if let maxDummy = Int(limitsArray[1]){
+                    maxLimit = Int(limitsArray[1])! as Int
+                }
+            
+                if entryValue < minLimit{
+                    return .low
+                }
+                else if entryValue > maxLimit{
+                    return .high
+                }
+                else
+                {
+                    return .normal
+                }
+            }
+        }
+        
         
         switch trimmedCondition {
         case "Pre Meal", "Snacks", "Pre Breakfast", "Pre Lunch", "Pre Dinner", "Fasting":
@@ -844,12 +937,26 @@ class GIntakeViewController: UIViewController, UITextFieldDelegate, UIPickerView
     }
     
     private func getNormalRange(condition: String) -> String {
+        
+        if let readingLimitIndex = dictReadingName.index(of: condition){
+            
+            if readingLimitIndex < dictReadingList.count{
+                var limitString : String = dictReadingList[readingLimitIndex]
+                
+                limitString = limitString.removingWhitespaces()
+                let limitsArray : [String] = limitString.components(separatedBy: "-")
+                
+                return "Normal Range ".localized + limitsArray[0] + " to ".localized + limitsArray[1]
+               
+            }
+        }
+        
         switch condition {
-        case "Before Meal", "Snacks", "Before Breakfast", "Before Lunch", "Before Dinner":
+        case "Pre Meal", "Snacks", "Pre Breakfast", "Pre Lunch", "Pre Dinner":
             return "Normal Range: 70 to 130".localized
-        case "2 hours after Meal", "2 hours after Breakfast", "2 hours after Lunch", "2 hours after Dinner":
+        case "Post Meal", "Post Breakfast", "Post Lunch", "Post Dinner", "Bedtime":
             return "Normal Range: Under 180".localized
-        case "Before Exercise", "2 hours after Exercise", "Exercise":
+        case "Pre Exercise", "Post Exercise", "Exercise":
             return "Normal Range: 130 to 180".localized
         case "Fasting":
             return "Normal Range: 80 to 130".localized
@@ -881,23 +988,31 @@ class GIntakeViewController: UIViewController, UITextFieldDelegate, UIPickerView
                 inputConfirmationHeightConstraint.constant = inputConfirmationHeightBig
                 inputConfirmationTitleLabel.text = "Out of Range".localized
                 inputConfirmationGlucoseLabel.textColor = Colors.DHPinkRed
+                inputConfirmationGlucoseRangeLabel.textColor = Colors.DHPinkRed
+                inputConfirmationGlucoseRangeLabel.text = "(low)".localized
                 inputConfirmationDescriptionLabel.text = "Comments?".localized
-               // inputConfirmationDescriptionLabel.text = "The value you have entered is out of the normal (lower) range for \(condition) condition. Please specify a reason:"
+                // inputConfirmationDescriptionLabel.text = "The value you have entered is out of the normal (lower) range for \(condition) condition. Please specify a reason:"
             }
             else if readingState == .high {
                 inputConfirmationWarningLabel.text = getNormalRange(condition: condition)
-                inputConfirmationGlucoseLabel.textColor = UIColor.orange
+                inputConfirmationWarningLabel.textColor = Colors.DHPinkRed
                 inputConfirmationHeightConstraint.constant = inputConfirmationHeightBig
                 inputConfirmationTitleLabel.text = "Out of Range".localized
+                inputConfirmationGlucoseLabel.textColor = Colors.DHPinkRed
+                inputConfirmationGlucoseRangeLabel.textColor = Colors.DHPinkRed
+                inputConfirmationGlucoseRangeLabel.text = "(high)".localized
+
                 inputConfirmationDescriptionLabel.text = "Comments?".localized
-               // inputConfirmationDescriptionLabel.text = "The value you have entered is out of the normal (higher) range for \(condition) condition. Please specify a reason:"
+                // inputConfirmationDescriptionLabel.text = "The value you have entered is out of the normal (higher) range for \(condition) condition. Please specify a reason:"
             }
             else  {
                 inputConfirmationWarningLabel.text = ""
                 inputConfirmationGlucoseLabel.textColor = Colors.DHIntakeGreen //57C5B8
                 inputConfirmationHeightConstraint.constant = inputConfirmationHeightSmall
                 inputConfirmationTitleLabel.text = "Confirmation".localized
-               // inputConfirmationDescriptionLabel.text = "Are you sure you want to add this G-Intake value to your reading history?"
+                inputConfirmationGlucoseRangeLabel.text = ""
+
+                inputConfirmationDescriptionLabel.text = nil
             }
             
             inputConfirmationGlucoseLabel.text = glucoseEntry + " mg/dl"
@@ -947,6 +1062,8 @@ class GIntakeViewController: UIViewController, UITextFieldDelegate, UIPickerView
     
     @IBAction func dateInputCancelTap(_ sender: Any) {
         selectedDate = lastSelectedDate
+        print("Last selected date")
+        print(lastSelectedDate)
         dateInputPicker.date = lastSelectedDate
         hideOverlay(overlayView: dateInputView)
     }

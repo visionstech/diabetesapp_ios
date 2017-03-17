@@ -19,7 +19,7 @@ open class LineChart: UIView {
     */
     fileprivate class Helpers {
         
-        /**
+        /**s
         * Convert hex color to UIColor
         */
         fileprivate class func UIColorFromHex(_ hex: Int) -> UIColor {

@@ -106,6 +106,9 @@ typedef struct QMChatLayoutModel QMChatCellLayoutModel;
  *  its frame, nor should you remove this view from the cell or remove any of its subviews.
  *  Doing so could result in unexpected behavior.
  */
+@property (weak, nonatomic) IBOutlet UIImageView *messageStatusImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *imageStatusImageView;
+
 @property (weak, nonatomic, readonly) QMChatContainerView *containerView;
 @property (weak, nonatomic, readonly) UIView *messageContainer;
 

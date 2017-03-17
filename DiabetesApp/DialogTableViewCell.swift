@@ -12,7 +12,6 @@ class DialogTableViewCell: UITableViewCell {
     
 //    @IBOutlet private weak var colorMarker: CornerView!
     
-    @IBOutlet weak var lblDate: UILabel!
     @IBOutlet weak var dialogTypeImage: UIImageView!
     
     @IBOutlet weak var dialogName: UILabel!
@@ -22,6 +21,7 @@ class DialogTableViewCell: UITableViewCell {
     @IBOutlet weak var doctorNameDialog: UILabel!
     @IBOutlet weak var unreadMessageCounterHolder: UIView!
     
+    @IBOutlet weak var lblDate: UILabel!
     @IBOutlet weak var unreadMessageCounterLabel: UILabel!
 //    @IBOutlet weak var dialogLastMessage: UILabel!
 //    @IBOutlet weak var dialogName: UILabel!

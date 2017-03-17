@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Target\ Support\ Files/GoogleToolboxForMac/GoogleToolboxForMac-dummy.m \
-  /Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Target\ Support\ Files/GoogleToolboxForMac/GoogleToolboxForMac-prefix.pch
+  /Users/IPHONE/Deepak/svn_new/BaljitCode/diabetesapp/DiabetesVision/Pods/Target\ Support\ Files/GoogleToolboxForMac/GoogleToolboxForMac-dummy.m \
+  /Users/IPHONE/Deepak/svn_new/BaljitCode/diabetesapp/DiabetesVision/Pods/Target\ Support\ Files/GoogleToolboxForMac/GoogleToolboxForMac-prefix.pch

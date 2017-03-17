@@ -1,4 +1,4 @@
-//
+ //
 //  DialogsTableViewController.swift
 //  sample-chat-swift
 //
@@ -13,8 +13,6 @@ import Quickblox
 import Alamofire
 import SDWebImage
 
-
-
 var recentMessageTimeDateFormatter: DateFormatter {
     struct Static {
         static let instance : DateFormatter = {
@@ -26,6 +24,7 @@ var recentMessageTimeDateFormatter: DateFormatter {
     
     return Static.instance
 }
+
 class DialogTableViewCellModel: NSObject {
     
     var detailTextLabelText: String = ""
@@ -72,15 +71,15 @@ class DialogTableViewCellModel: NSObject {
             
             var trimmedUnreadMessageCount : String
             
-            if dialog.unreadMessagesCount > 99 {
-                trimmedUnreadMessageCount = "99+"
-            } else {
-                trimmedUnreadMessageCount = String(format: "%d", dialog.unreadMessagesCount)
-            }
+           // if dialog.unreadMessagesCount > 99 {
+           //     trimmedUnreadMessageCount = String(format: "%d", dialog.unreadMessagesCount)
+           // } else {
+            trimmedUnreadMessageCount = String(format: "%d", dialog.unreadMessagesCount)
+           // }
             
             self.unreadMessagesCounterLabelText = trimmedUnreadMessageCount
             self.unreadMessagesCounterHiden = false
-            
+           
         }
         else {
             
@@ -97,7 +96,6 @@ class DialogTableViewCellModel: NSObject {
 //            
 //                let data = record! as Array<QBCOCustomObject>
 //            
-        
 //                let recipientTypes = data[0].fields?.value(forKey: "recipientTypes") as! [String]
 //                let recipientIDs = data[0].fields?.value(forKey: "recipientIDs") as! [String]
 //                var selectedPatientID : String = ""
@@ -156,7 +154,6 @@ class DialogTableViewCellModel: NSObject {
 
 class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCoreDelegate, QMChatConnectionDelegate, QMAuthServiceDelegate, QBRTCClientDelegate, IncomingCallViewControllerDelegate  {
 
-    @IBOutlet weak var lblDate: UILabel!
     
     private var didEnterBackgroundDate: NSDate?
     private var observer: NSObjectProtocol?
@@ -167,6 +164,7 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
     var requestTimer  :  Timer?
     var myTimer  :  Timer?
     var dialogTimer : Timer?
+    
     
     
     // MARK: - ViewController overrides
@@ -182,11 +180,11 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
         ServicesManager.instance().authService.add(self)
         
         self.observer = NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationDidBecomeActive, object: nil, queue: OperationQueue.main) { (notification) -> Void in
-            
+             self.startRequestTimer()
             if !QBChat.instance().isConnected {
                
                 QBChat.instance().forceReconnect()
-                
+               
                // SVProgressHUD.show(withStatus: "SA_STR_CONNECTING_TO_CHAT".localized, maskType: SVProgressHUDMaskType.clear)
                 self.myTimer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.runTimedCode), userInfo: nil, repeats: true)
             }
@@ -204,15 +202,18 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
         QBRTCClient.instance().add(self)
         
         tableView.tableFooterView = UIView()
-        if self.requestTimer != nil {
-            self.requestTimer? .invalidate()
-            self.requestTimer = nil
+        /*if self.requestTimer != nil {
+          //  self.requestTimer .invalidate()
+          //  self.requestTimer == nil
+        }*/
+        
+        if selectedUserType == userType.doctor || selectedUserType == userType.educator
+        {
+            self.getRequestBadgeCounter()
+            
+           
+            //self.requestTimer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.getRequestBadgeCounter), userInfo: nil, repeats: true)
         }
-        
-       self .getRequestBadgeCounter()
-        
-       self.requestTimer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.getRequestBadgeCounter), userInfo: nil, repeats: true)
-        
     }
     
     func runTimedCode()  {
@@ -224,33 +225,16 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
         }
     }
     
-    func startTimer()
-    {
-        if dialogTimer == nil {
-            self.dialogTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.getDialogs), userInfo: nil, repeats: true)
-        }
-    }
-    
-    func stopTimer()
-    {
-        if dialogTimer != nil {
-            dialogTimer?.invalidate()
-            self.dialogTimer = nil
-        }
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
-        if (QBChat.instance().isConnected && ServicesManager.instance().isAuthorized()) {
-                  startTimer()
-        }
         
+        if (QBChat.instance().isConnected && ServicesManager.instance().isAuthorized()) {
+            startTimer()
+            startRequestTimer()
+        }
+      //  self.dialogTimer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.getDialogs), userInfo: nil, repeats: true)
         //--------Google Analytics Start-----
         GoogleAnalyticManagerApi.sharedInstance.startScreenSessionWithName(screenName: kDialogsScreenName)
         //--------Google Analytics Finish-----
-    }
-    override func viewDidDisappear(_ animated: Bool) {
-        
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -258,14 +242,15 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
        // let appleArray = UserDefaults.standard.value(forKey: "AppleLanguages") as! NSArray
         setNavBarUI()
         self.tableView.reloadData()
-       
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         
         if appDelegate.session != nil {
             appDelegate.session = nil
-           
+           // self.requestTimer?.invalidate()
+          //  self.dialogTimer.invalidate()
         }
         
     }
@@ -280,7 +265,6 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
         let parameters: Parameters = [
             "userid": loggedInUserID,
             "usertype": selectedUserType
-            
         ]
         
         Alamofire.request("\(baseUrl)\(ApiMethods.getRequestCount)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
@@ -294,18 +278,13 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
                 if let JSON: NSDictionary = response.result.value! as? NSDictionary {
                     
                     let badgeCounter =  String(JSON.value(forKey: "requestCount") as! Int)
-                    print("Badge counter")
-                    print(badgeCounter)
+                    
                     if badgeCounter == "0" {
                         requestTabBarItem.badgeValue = nil
                     }
                     else{
                         requestTabBarItem.badgeValue = String(badgeCounter)
                     }
-                    
-                    
-                    
-                    
                 }
                 
                 break
@@ -336,6 +315,35 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
         }
     }
     
+    func startTimer()
+    {
+        if dialogTimer == nil {
+            self.dialogTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.getDialogs), userInfo: nil, repeats: true)
+        }
+    }
+    
+    func stopTimer()
+    {
+        if dialogTimer != nil {
+            dialogTimer?.invalidate()
+            dialogTimer = nil
+        }
+    }
+    
+    func startRequestTimer()
+    {
+        if requestTimer == nil {
+            self.requestTimer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.getRequestBadgeCounter), userInfo: nil, repeats: true)
+        }
+    }
+    
+    func stopRequestTimer()
+    {
+        if requestTimer != nil {
+            requestTimer?.invalidate()
+            requestTimer = nil
+        }
+    }
     
     func setNavBarUI(){
         
@@ -451,12 +459,10 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
     // MARK: - Notification handling
     
     func didEnterBackgroundNotification() {
-        
         self.didEnterBackgroundDate = NSDate()
         stopTimer()
-        
+        stopRequestTimer()
     }
-    
     
     // MARK: - Actions
     func createLogoutButton() -> UIBarButtonItem {
@@ -478,12 +484,16 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
         
         if !QBChat.instance().isConnected {
 
-            SVProgressHUD.showError(withStatus: "Error")
+            SVProgressHUD.show(withStatus: "SA_STR_LOGOUTING".localized, maskType: SVProgressHUDMaskType.clear)
+            SVProgressHUD.dismiss()
             return
         }
         
-       // SVProgressHUD.show(withStatus: "SA_STR_LOGOUTING".localized, maskType: SVProgressHUDMaskType.clear)
-        
+        SVProgressHUD.show(withStatus: "SA_STR_LOGOUTING".localized, maskType: SVProgressHUDMaskType.clear)
+      //  self.requestTimer?.invalidate()
+       // self.dialogTimer.invalidate()
+        stopRequestTimer()
+        stopTimer()
         ServicesManager.instance().lastActivityDate = nil
         
         ServicesManager.instance().logoutUserWithCompletion { [weak self] (boolValue) -> () in
@@ -515,6 +525,7 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
                 UserDefaults.standard.set("", forKey: userDefaults.recipientIDArray)
                 UserDefaults.standard.setValue("", forKey: userDefaults.loggedInUserFullname)
                 UserDefaults.standard.setValue("", forKey: userDefaults.loggedInUserType)
+                
                
                 UserDefaults.standard.synchronize()
                  GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "Logout", action:"Logout Button Clicked" , label:"Successfull logout")
@@ -533,8 +544,7 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
     }
 	
     // MARK: - DataSource Action
-	
-    func getDialogs() {
+	func getDialogs() {
 		//self.getReadCount()
         if let lastActivityDate = ServicesManager.instance().lastActivityDate {
 			
@@ -615,17 +625,12 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
         
         cell.isExclusiveTouch = true
         cell.contentView.isExclusiveTouch = true
-        cell.backgroundColor = UIColor.white
         cell.accessoryType = .disclosureIndicator
         
         cell.tag = indexPath.row
         cell.dialogID = chatDialog.id!
         
-        
-        
-        
         let cellModel = DialogTableViewCellModel(dialog: chatDialog)
-    
         
         let customParams: NSMutableDictionary = NSMutableDictionary()
         customParams["chat_id"] = chatDialog.id
@@ -649,8 +654,12 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
                     //var databaseToCheck = ""
                     var selectedPatientID : String = ""
             
-                    if(typeUser == userType.doctor){
+                    if(typeUser == userType.doctor && (recipientTypes.contains("educator"))){
                        // databaseToCheck = "Patient"
+                        selectedPatientID = (recipientIDs[(recipientTypes.index(of: "educator"))!])
+                    }
+                    else  if(typeUser == userType.doctor){
+                        // databaseToCheck = "Patient"
                         selectedPatientID = (recipientIDs[(recipientTypes.index(of: "patient"))!])
                     }
                     else if(typeUser == userType.patient && (recipientTypes.contains("doctor")))
@@ -676,16 +685,41 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
                     // TODO generalize this URL to the new public ip
                     let imagePath = "http://54.212.229.198:3000/upload/" + selectedPatientID + "image.jpg"
                     let manager:SDWebImageManager = SDWebImageManager.shared()
-            
+                  
+                    
+                    let isImageCached : Bool = manager.cachedImageExists(for: NSURL(string: imagePath) as URL!)
+                   // print("Is cached:")
+                   // print(isImageCached)
+                    
+                   // print("Image string")
+                   // print(NSURL(string: imagePath))
+                   // manager.cacheKey(for: <#T##URL!#>)
+                    //manager.
                     //cell.dialogTypeImage.image =   UIImage(named:"user.png")!
-                    manager.downloadImage(with: NSURL(string: imagePath) as URL!,
+                  /*  if isImageCached
+                    {
+                        let imageCacheKey : String = manager.cacheKey(for: NSURL(string: imagePath) as URL!)
+                        cell.dialogTypeImage.layer.cornerRadius =
+                            cell.dialogTypeImage.frame.size.width/2
+                        
+                        cell.dialogTypeImage.clipsToBounds = true
+                        print("From cache")
+                        print(imageCacheKey)
+                        
+                        cell.dialogTypeImage.image = manager.imageCache.imageFromMemoryCache(forKey: imageCacheKey)
+                    }
+                    else{*/
+                       // print("In here with URL:")
+                       // print(imagePath)
+                        manager.downloadImage(with: NSURL(string: imagePath) as URL!,
                                   options: SDWebImageOptions.highPriority,
                                   progress: nil,
                                   completed: {[weak self] (image, error, cached, finished, url) in
                                     if (error == nil && (image != nil) && finished) {
                                         
                                         //cell.
-                                        
+                                       // print("Cached")
+                                        //print(cached)
                                         cell.dialogTypeImage.layer.cornerRadius =
                                             cell.dialogTypeImage.frame.size.width/2
                                         
@@ -694,7 +728,17 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
                                         cell.dialogTypeImage.image = image
                                         
                                     }
-                            })
+                                    else{
+                                        
+                                        cell.dialogTypeImage.layer.cornerRadius =
+                                            cell.dialogTypeImage.frame.size.width/2
+                                        
+                                        cell.dialogTypeImage.clipsToBounds = true
+                                        
+                                        cell.dialogTypeImage.image = UIImage(named:"placeholder.png")
+                                    }
+                                })
+                  //  }
                 }
 
             
@@ -742,28 +786,54 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
         cell.dialogLastMessage?.text = chatDialog.lastMessageText
         cell.unreadMessageCounterLabel.text = cellModel.unreadMessagesCounterLabelText
         cell.unreadMessageCounterHolder.isHidden = cellModel.unreadMessagesCounterHiden
+        updateCounter()
+        if(cellModel.unreadMessagesCounterLabelText != nil)
+        {
+            if (Int(cellModel.unreadMessagesCounterLabelText!)! > 0) {
+                cell.backgroundColor = Colors.chatBackGroundColor
+            }
+            else
+            {
+                cell.backgroundColor =  UIColor.white
+            }
+        }
+        else
+        {
+            cell.backgroundColor =  UIColor.white
+        }
         
-    if  chatDialog.lastMessageDate != nil {
-        let date =  chatDialog.lastMessageDate! as Date
-        let calendar = Calendar.current
         
-        
-        
-        let year = calendar.component(.year, from: date)
-        let month = calendar.component(.month, from: date)
-        let day = calendar.component(.day, from: date)
-        let hh = calendar.component(.hour, from: date)
-        let min = calendar.component(.minute, from: date)
-        let sec = calendar.component(.second, from: date)
-        let cal =  Calendar.current
-        
-        
-        let date1 = cal.date(from: DateComponents(year: year, month:  month, day: day, hour: hh, minute: min, second : sec))!
-        
-        let timeOffset1 = date1.relativeTime
-       
- 
-        cell.lblDate.text = timeOffset1
+        if  chatDialog.lastMessageDate != nil {
+            let date =  chatDialog.lastMessageDate! as Date
+            let calendar = Calendar.current
+            
+            
+            
+            let year = calendar.component(.year, from: date)
+            let month = calendar.component(.month, from: date)
+            let day = calendar.component(.day, from: date)
+            let hh = calendar.component(.hour, from: date)
+            let min = calendar.component(.minute, from: date)
+            let sec = calendar.component(.second, from: date)
+            let cal =  Calendar.current
+            
+            
+            let date1 = cal.date(from: DateComponents(year: year, month:  month, day: day, hour: hh, minute: min, second : sec))!
+            
+            let timeOffset1 = date1.relativeTime
+            
+            
+            if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
+                
+                // self.navigationItem.leftBarButtonItems = [optionsBtnBar,ReportBarButton]
+                cell.lblDate.textAlignment = .left
+            }
+            else {
+                
+                // self.navigationItem.rightBarButtonItems = [optionsBtnBar,ReportBarButton]
+                 cell.lblDate.textAlignment = .right
+            }
+            cell.lblDate.text = timeOffset1
         }
         
         return cell
@@ -827,8 +897,8 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-         tableView.isUserInteractionEnabled = false
-       
+        tableView.isUserInteractionEnabled = false
+        
         tableView.deselectRow(at: indexPath, animated: true)
         
                if (ServicesManager.instance().isProcessingLogOut!) {
@@ -863,7 +933,7 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
             
                 UserDefaults.standard.setValue(data[0].fields?.value(forKey: "HCNumber"), forKey: userDefaults.selectedPatientHCNumber)
             
-                let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+               // let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
 //            print(patientsID)
             
                 //Google Analytic
@@ -875,7 +945,7 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
                 self.present(UtilityClass.displayAlertMessage(message: "Something is wrong with this chat", title: "SA_STR_ERROR".localized), animated: true, completion: nil)
                 //Google Analytic
                 GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "QMChat", action:"Select Dialog For chat" , label:"Something is wrong with this chat")
-                 tableView.isUserInteractionEnabled = true
+                tableView.isUserInteractionEnabled = true
                 SVProgressHUD.dismiss()
             }
         }) { (responce: QBResponse?) in
@@ -964,30 +1034,33 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
                 
                 if(cellModel.unreadMessagesCounterLabelText != nil)
                 {
-                    totalCount = totalCount + Int(cellModel.unreadMessagesCounterLabelText!)!
+                    //totalCount = totalCount + Int(cellModel.unreadMessagesCounterLabelText!)!
+                    totalCount = totalCount + 1
                 }
             }
         }
         
         tabCounter = String(totalCount)
-        //Set Unread Count Based on User type
-        //        let selectedUserType: Int = Int(UserDefaults.standard.integer(forKey: userDefaults.loggedInUserType))
+       
+        
         if(self.tabBarController?.tabBar.items?.count == 2)
         {
             
-            self.tabBarController?.tabBar.items?.first?.badgeValue = tabCounter
-            if(Int(tabCounter)==0)
-            {
-                self.tabBarController?.tabBar.items?.first?.badgeValue = nil
-            }
-        }
-        else
-        {
             self.tabBarController?.tabBar.items?.last?.badgeValue = tabCounter
             if(Int(tabCounter)==0)
             {
                 self.tabBarController?.tabBar.items?.last?.badgeValue = nil
             }
+        }
+        else
+        {
+           // if selectedUserType != userType.patient{
+                self.tabBarController?.tabBar.items?.last?.badgeValue = tabCounter
+                if(Int(tabCounter)==0)
+                {
+                    self.tabBarController?.tabBar.items?.last?.badgeValue = nil
+                }
+           // }
         }
     }
     // MARK: - QMChatServiceDelegate
@@ -1010,7 +1083,7 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
         self.reloadTableViewIfNeeded()
     }
     
-    func chatService(_ chatService: QMChatService, didDeleteChatDialogWithIDFromMemoryStorage chatDialogID: String) {
+    func chatService(_ chatService: QMChatService, didDeleteChatDialogWithIDFromMemoryStorage chatDialogID: String){
         
         self.reloadTableViewIfNeeded()
     }
@@ -1094,10 +1167,10 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
                         if(self.tabBarController?.tabBar.items?.count == 2)
                         {
                             
-                            self.tabBarController?.tabBar.items?.first?.badgeValue = tabCounter
+                            self.tabBarController?.tabBar.items?.last?.badgeValue = tabCounter
                             if(Int(tabCounter)==0)
                             {
-                                self.tabBarController?.tabBar.items?.first?.badgeValue = nil
+                                self.tabBarController?.tabBar.items?.last?.badgeValue = nil
                             }
                         }
                         else
@@ -1129,6 +1202,7 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
      //MARK:- getReadCount
 }
 
+
 extension Date {
     func years(from date: Date) -> Int {
         return Calendar.current.dateComponents([.year], from: date, to: self).year ?? 0
@@ -1155,29 +1229,30 @@ extension Date {
     var relativeTime: String {
         let now = Date()
         if now.years(from: self)   > 0 {
-            return now.years(from: self).description  + " year"  + { return now.years(from: self)   > 1 ? "s" : "" }() + " ago"
+            return now.years(from: self).description  + " year".localized  + { return now.years(from: self)   > 1 ? "s" : "" }() + " ago".localized
         }
         if now.months(from: self)  > 0 {
-            return now.months(from: self).description + " month" + { return now.months(from: self)  > 1 ? "s" : "" }() + " ago"
+            return now.months(from: self).description + " month".localized + { return now.months(from: self)  > 1 ? "s" : "" }() + " ago".localized
         }
         if now.weeks(from:self)   > 0 {
-            return now.weeks(from: self).description  + " week"  + { return now.weeks(from: self)   > 1 ? "s" : "" }() + " ago"
+            return now.weeks(from: self).description  + " week".localized  + { return now.weeks(from: self)   > 1 ? "s" : "" }() + " ago".localized
         }
         if now.days(from: self)    > 0 {
-            if now.days(from:self) == 1 { return "Yesterday" }
-            return now.days(from: self).description + " days ago"
+            if now.days(from:self) == 1 { return "Yesterday".localized }
+            return now.days(from: self).description + " days ago".localized
         }
         if now.hours(from: self)   > 0 {
-            return "\(now.hours(from: self)) hour"     + { return now.hours(from: self)   > 1 ? "s" : "" }() + " ago"
+            return "\(now.hours(from: self))" + " hour".localized     + { return now.hours(from: self)   > 1 ? "s" : "" }() + " ago".localized
         }
         if now.minutes(from: self) > 0 {
-            return "\(now.minutes(from: self)) minute" + { return now.minutes(from: self) > 1 ? "s" : "" }() + " ago"
+            return "\(now.minutes(from: self))" + " minute".localized + { return now.minutes(from: self) > 1 ? "s" : "" }() + " ago"
         }
         if now.seconds(from: self) > 0 {
-            if now.seconds(from: self) < 15 { return "Just now"  }
-            return "\(now.seconds(from: self)) second" + { return now.seconds(from: self) > 1 ? "s" : "" }() + " ago"
+            if now.seconds(from: self) < 15 { return "Just now".localized  }
+            return "\(now.seconds(from: self))" + " second".localized + { return now.seconds(from: self) > 1 ? "s" : "" }() + " ago".localized
         }
         return ""
     }
 }
+
 

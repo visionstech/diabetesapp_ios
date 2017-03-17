@@ -17,12 +17,12 @@ class CarePlanReadingHeaderTableViewCell: UITableViewCell {
     @IBOutlet weak var timingHeaderLabel: UILabel!
     
     @IBOutlet weak var goalHeaderLabel: UILabel!
-     @IBOutlet weak var btnEdit: UIButton!
+    @IBOutlet weak var btnEdit: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.setUI(view: headerView)
+       // self.setUI(view: headerView)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -42,11 +42,7 @@ class CarePlanReadingHeaderTableViewCell: UITableViewCell {
 //        view.layer.shadowOpacity = 0.5
 //        view.layer.shadowOffset = CGSize.zero
 //        view.layer.shadowRadius = 3
-        
-        timingHeaderLabel.text = "CONDITION".localized
-        goalHeaderLabel.text = "Goal".localized
-        frequencyLbl.text = "Frequency".localized
-        
+
     }
 
 }

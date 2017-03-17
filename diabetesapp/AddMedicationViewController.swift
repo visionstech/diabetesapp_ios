@@ -26,6 +26,9 @@ class AddMedicationViewController: UIViewController, UITableViewDelegate, UITabl
     var selectedIndex : NSIndexPath = NSIndexPath()
     var formInterval: GTInterval!
     var addMedArray = NSMutableArray()
+    var addNewMedArray = NSMutableArray()
+    
+    let loggedInUserID : String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserID)!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -130,7 +133,7 @@ class AddMedicationViewController: UIViewController, UITableViewDelegate, UITabl
                 self.navigationItem.rightBarButtonItem = nil
             }
         }
-        createCustomTopView()
+        //createCustomTopView()
     }
     
     // MARK: - Custom Top View
@@ -148,6 +151,15 @@ class AddMedicationViewController: UIViewController, UITableViewDelegate, UITabl
         
         self.tabBarController?.navigationController?.navigationBar.addSubview(topBackView)
         self.navigationController?.navigationBar.addSubview(topBackView)
+    }
+    
+    //MARK: - Helpers
+    private func showAlert(title: String, message: String) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     // MARK: - IBAction Methods
@@ -205,39 +217,39 @@ class AddMedicationViewController: UIViewController, UITableViewDelegate, UITabl
         let index: Int = (sender as AnyObject).tag
         
         if let obj: CarePlanObj = array[index] as? CarePlanObj {
-            if(obj.name .isEmpty)
+            if(obj.name.isEmpty)
             {
-                self.present(UtilityClass.displayAlertMessage(message: "Please enter the missing fields", title: "SA_STR_ERROR".localized), animated: true, completion: nil)
+                showAlert(title: "Data missing", message: "Please input medicine name".localized)
                 //Google Analytic
-                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "Add Medication", action:"Add Medication" , label:"Please enter the missing fields")
-                SVProgressHUD.dismiss()
+                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "Care Plan", action:"Edit Medication" , label:"Please input medicine name")
+                //SVProgressHUD.dismiss()
             }
-            else if (obj.condition.count  < 1)
+            else if (obj.condition.count < 1)
             {
-                self.present(UtilityClass.displayAlertMessage(message: "Please enter the missing fields", title: "SA_STR_ERROR".localized), animated: true, completion: nil)
+                showAlert(title: "Data missing", message: "Please input atleast one condition".localized)
                 //Google Analytic
-                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "Add Medication", action:"Add Medication" , label:"Please enter the missing fields")
-                SVProgressHUD.dismiss()
+                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "Care Plan", action:"Edit Medication" , label:"Please input atleast one condition")
+                // SVProgressHUD.dismiss()
             }
             else if(obj.dosage.count < 1)
             {
-                self.present(UtilityClass.displayAlertMessage(message: "Please enter the missing fields", title: "SA_STR_ERROR".localized), animated: true, completion: nil)
+                showAlert(title: "Data missing", message: "Please input atleast one dosage value".localized)
                 //Google Analytic
-                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "Add Medication", action:"Add Medication" , label:"Please enter the missing fields")
-                SVProgressHUD.dismiss()
+                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "Care Plan", action:"Edit Medication" , label:"Please input atleast one dosage value")
+                // SVProgressHUD.dismiss()
             }
             else if obj.dosage.contains(0) {
-                self.present(UtilityClass.displayAlertMessage(message: "Please enter the missing fields", title: "SA_STR_ERROR".localized), animated: true, completion: nil)
+                showAlert(title: "Data missing", message: "Dosage value should be more than 0".localized)
                 //Google Analytic
-                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "Add Medication", action:"Add Medication" , label:"Please enter the missing fields")
-                SVProgressHUD.dismiss()
+                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "Care Plan", action:"Edit Medication" , label:"Dosage value should be more than 0")
+                // SVProgressHUD.dismiss()
             }
             else if (obj.condition.contains(""))
             {
-                self.present(UtilityClass.displayAlertMessage(message: "Please enter the missing fields", title: "SA_STR_ERROR".localized), animated: true, completion: nil)
+                showAlert(title: "Data missing", message: "Please input atleast one condition value".localized)
                 //Google Analytic
-                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "Add Medication", action:"Add Medication" , label:"Please enter the missing fields")
-                SVProgressHUD.dismiss()
+                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "Care Plan", action:"Edit Medication" , label:"Please input atleast one condition value")
+                //SVProgressHUD.dismiss()
             }
             else
             {
@@ -259,7 +271,41 @@ class AddMedicationViewController: UIViewController, UITableViewDelegate, UITabl
                 }
                 else
                 {
-                    self.addcareplanData(careObj: obj)
+                    if  UserDefaults.standard.bool(forKey: "MedEditBool") {
+                        let loggedInUserName: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserFullname)!
+                        let arr : NSArray = UserDefaults.standard.array(forKey: "currentAddNewMedicationArray")! as [Any] as NSArray
+                        
+                        addNewMedArray = NSMutableArray(array: arr)
+                        let mainDict: NSMutableDictionary = NSMutableDictionary()
+                        mainDict.setValue(obj.id, forKey: "id")
+                        mainDict.setValue(obj.name, forKey: "name")
+                        mainDict.setValue(loggedInUserID, forKey: "updatedBy")
+                        mainDict.setValue(loggedInUserName, forKey: "updatedByName")
+                        let addTiming = NSMutableArray()
+                        for i in 0..<obj.dosage.count {
+                          let mainDictTiming: NSMutableDictionary = NSMutableDictionary()
+                            mainDictTiming.setValue(obj.dosage[i], forKey: "dosage")
+                            mainDictTiming.setValue(obj.condition[i] ,  forKey:"condition")
+                            addTiming.add(mainDictTiming)
+                        }
+                        
+                        mainDict.setValue(addTiming, forKey: "timing")
+                        mainDict.setValue(obj.type, forKey: "type")
+                        mainDict.setValue(addNewMedArray.count+1, forKey:"medindex")
+                        
+                        addNewMedArray.add(mainDict)
+                        
+                        UserDefaults.standard.setValue(addNewMedArray, forKey: "currentAddNewMedicationArray")
+                        UserDefaults.standard.synchronize()
+                        
+                        self.dismiss(animated:true)
+                        
+                        showAlert(title: "Medication", message: "Medication saved in intermediate state. Will be updated on the patient's side whenthe doctor approves".localized)
+                    
+                    }
+                    else{
+                        self.addcareplanData(careObj: obj)
+                    }
                 }
             }
         }
@@ -278,7 +324,7 @@ class AddMedicationViewController: UIViewController, UITableViewDelegate, UITabl
             if let obj: CarePlanObj = array[indexPath.row] as? CarePlanObj {
                 if(obj.dosage.count<=1)
                 {
-                    self.present(UtilityClass.displayAlertMessage(message: "Medication must have atlease one condition and one dosage", title: "SA_STR_ERROR".localized), animated: true, completion: nil)
+                    showAlert(title: "Data missing", message: "Please input atleast one condition value".localized)
                     //Google Analytic
                     GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "Add Medication", action:"Add Medication" , label:"Medication must have atlease one condition and one dosage")
                     SVProgressHUD.dismiss()
@@ -335,6 +381,9 @@ class AddMedicationViewController: UIViewController, UITableViewDelegate, UITabl
             cell.medicineNameTxtFld.backgroundColor = Colors.DHAddConditionBg
             cell.medicineNameTxtFld.layer.cornerRadius = 8.0
             
+            cell.medicineNameTxtFld.attributedPlaceholder = NSAttributedString(string: "SA_STR_ENTER_MEDICATION".localized,
+                                                                    attributes: [NSForegroundColorAttributeName: Colors.DefaultplaceHolderColor])
+            
             cell.medImg.layer.borderColor = Colors.DHAddConditionBg.cgColor
             cell.medImg.layer.borderWidth = 1.0
             cell.medImg.layer.cornerRadius = 8.0
@@ -366,18 +415,16 @@ class AddMedicationViewController: UIViewController, UITableViewDelegate, UITabl
                     if selectedUserType != userType.patient && obj.isEdit {
                         dosageTxtFld = UITextField(frame: CGRect(x: CGFloat(cell.btnConditionDelete.frame.size.width), y: CGFloat(cell.dosageTxtFld.frame.origin.y), width:  CGFloat(((vwWidth*40)/100) ), height: CGFloat(cell.dosageTxtFld.frame.size.height)))
                         
-                        imgConditionBg = UIImageView(frame: CGRect(x: CGFloat((dosageTxtFld.frame.origin.x + dosageTxtFld.frame.size.width)-10), y: CGFloat(cell.imgCarBg.frame.origin.y), width: CGFloat((vwWidth*50)/100), height: CGFloat(cell.imgCarBg.frame.size.height)))
-                        imgConditionBg.transform = CGAffineTransform(rotationAngle: (180.0 * CGFloat(M_PI)) / 180.0)
-                        conditionNameLbl = UILabel(frame: CGRect(x: CGFloat(imgConditionBg.frame.origin.x+10), y: CGFloat(cell.conditionNameLbl.frame.origin.y), width: CGFloat((vwWidth*45)/100), height: CGFloat(cell.conditionNameLbl.frame.size.height)))
+                        imgConditionBg = UIImageView(frame: CGRect(x: CGFloat((dosageTxtFld.frame.origin.x + dosageTxtFld.frame.size.width)+2), y: CGFloat(cell.imgCarBg.frame.origin.y), width: CGFloat((vwWidth*46)/100), height: CGFloat(cell.imgCarBg.frame.size.height)))
+                        conditionNameLbl = UILabel(frame: CGRect(x: CGFloat(imgConditionBg.frame.origin.x+2), y: CGFloat(cell.conditionNameLbl.frame.origin.y), width: CGFloat((vwWidth*43)/100), height: CGFloat(cell.conditionNameLbl.frame.size.height)))
                         
                         
-                        conditionTxtFld = UITextField(frame: CGRect(x: CGFloat(conditionNameLbl.frame.origin.x), y: CGFloat(cell.conditionNameLbl.frame.origin.y), width: CGFloat((vwWidth*45)/100), height: CGFloat(cell.conditionNameLbl.frame.size.height)))
+                        conditionTxtFld = UITextField(frame: CGRect(x: CGFloat(conditionNameLbl.frame.origin.x), y: CGFloat(cell.conditionNameLbl.frame.origin.y), width: CGFloat((vwWidth*43)/100), height: CGFloat(cell.conditionNameLbl.frame.size.height)))
                     }
                     else
                     {
                         dosageTxtFld = UITextField(frame: CGRect(x: CGFloat(0), y: CGFloat(cell.dosageTxtFld.frame.origin.y), width:  CGFloat((vwWidth*40)/100), height: CGFloat(cell.dosageTxtFld.frame.size.height)))
                         imgConditionBg = UIImageView(frame: CGRect(x: CGFloat((dosageTxtFld.frame.origin.x + dosageTxtFld.frame.size.width)-10), y: CGFloat(cell.imgCarBg.frame.origin.y), width: CGFloat((vwWidth*60)/100), height: CGFloat(cell.imgCarBg.frame.size.height)))
-                        imgConditionBg.transform = CGAffineTransform(rotationAngle: (180.0 * CGFloat(M_PI)) / 180.0)
                         conditionNameLbl = UILabel(frame: CGRect(x: CGFloat(imgConditionBg.frame.origin.x+10), y: CGFloat(cell.conditionNameLbl.frame.origin.y), width: CGFloat((vwWidth*50)/100), height: CGFloat(cell.conditionNameLbl.frame.size.height)))
                         
                         conditionTxtFld = UITextField(frame: CGRect(x: CGFloat(conditionNameLbl.frame.origin.x), y: CGFloat(cell.conditionNameLbl.frame.origin.y), width: CGFloat((vwWidth*50)/100), height: CGFloat(cell.conditionNameLbl.frame.size.height)))
@@ -391,19 +438,25 @@ class AddMedicationViewController: UIViewController, UITableViewDelegate, UITabl
                     dosageTxtFld = UITextField(frame: CGRect(x: CGFloat(imgConditionBg.frame.size.width-10)+12, y: CGFloat(cell.dosageTxtFld.frame.origin.y), width:  CGFloat(((vwWidth*40)/100) - Double(cell.btnConditionDelete.frame.size.width)), height: CGFloat(cell.dosageTxtFld.frame.size.height)))
                     
                     conditionTxtFld = UITextField(frame: CGRect(x: CGFloat(cell.conditionNameLbl.frame.origin.x), y: CGFloat(cell.conditionTxtFld.frame.origin.y), width: CGFloat((vwWidth*50)/100), height: CGFloat(cell.conditionTxtFld.frame.size.height)))
-                    
                 }
                 
                 imgConditionBg.backgroundColor = Colors.DHAddConditionBg
                 imgConditionBg.clipsToBounds = true
-                let maskPath = UIBezierPath(roundedRect: imgConditionBg.bounds, byRoundingCorners: ([.topLeft, .bottomLeft]), cornerRadii: CGSize(width: CGFloat(10.0), height: CGFloat(10.0)))
+                let maskPath : UIBezierPath
+                if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
+                    maskPath = UIBezierPath(roundedRect: imgConditionBg.bounds, byRoundingCorners: ([.topRight, .bottomRight]), cornerRadii: CGSize(width: CGFloat(kButtonRadius), height: CGFloat(kButtonRadius)))
+                    
+                }
+                else
+                {
+                    maskPath = UIBezierPath(roundedRect: imgConditionBg.bounds, byRoundingCorners: ([.topLeft, .bottomLeft]), cornerRadii: CGSize(width: CGFloat(kButtonRadius), height: CGFloat(kButtonRadius)))
+                }
+                
                 let maskLayer = CAShapeLayer()
                 maskLayer.frame = self.view.bounds
                 maskLayer.path = maskPath.cgPath
                 imgConditionBg.layer.mask = maskLayer
-//                let vwWidth = Double(vwDetail.frame.size.width)
-                
-                
+
                 //Set Left Side condition Text Lable
 
                 conditionNameLbl.font = UIFont(name:cell.conditionNameLbl.font.fontName, size: 13)
@@ -432,7 +485,14 @@ class AddMedicationViewController: UIViewController, UITableViewDelegate, UITabl
                 dosageTxtFld.backgroundColor = Colors.DHAddConditionBg
                 dosageTxtFld.delegate = self
                 dosageTxtFld.tag = indexDosage
-                let maskPath1 = UIBezierPath(roundedRect: dosageTxtFld.bounds, byRoundingCorners: ([.topRight, .bottomRight]), cornerRadii: CGSize(width: CGFloat(10.0), height: CGFloat(10.0)))
+                let maskPath1 : UIBezierPath
+                if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
+                    maskPath1 = UIBezierPath(roundedRect: dosageTxtFld.bounds, byRoundingCorners: ([.topLeft, .bottomLeft]), cornerRadii: CGSize(width: CGFloat(kButtonRadius), height: CGFloat(kButtonRadius)))
+                }
+                else
+                {
+                    maskPath1 = UIBezierPath(roundedRect: dosageTxtFld.bounds, byRoundingCorners: ([.topRight, .bottomRight]), cornerRadii: CGSize(width: CGFloat(kButtonRadius), height: CGFloat(kButtonRadius)))
+                }
                 let maskLayer1 = CAShapeLayer()
                 maskLayer1.frame = self.view.bounds
                 maskLayer1.path = maskPath1.cgPath
@@ -443,7 +503,7 @@ class AddMedicationViewController: UIViewController, UITableViewDelegate, UITabl
                 
                 if(dosageTxtFld.text?.length == 0)
                 {
-                    dosageTxtFld.attributedPlaceholder = NSAttributedString(string: "Dose",
+                    dosageTxtFld.attributedPlaceholder = NSAttributedString(string: "SA_STR_ENTER_DOSE".localized,
                                                                             attributes: [NSForegroundColorAttributeName: Colors.placeHolderColor])
                 }
                 else
@@ -466,7 +526,7 @@ class AddMedicationViewController: UIViewController, UITableViewDelegate, UITabl
                  conditionTxtFld.backgroundColor = UIColor.clear
                 if(obj.condition[indexDosage].length == 0)
                 {
-                    conditionTxtFld.attributedPlaceholder = NSAttributedString(string: "Timing",
+                    conditionTxtFld.attributedPlaceholder = NSAttributedString(string: "SA_STR_ENTER_Timing".localized,
                                                                                attributes: [NSForegroundColorAttributeName: Colors.placeHolderColor] )
                 }
                 else
@@ -742,13 +802,17 @@ class AddMedicationViewController: UIViewController, UITableViewDelegate, UITabl
     func addcareplanData(careObj : CarePlanObj)
     {
         let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+        let loggedInUserName: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserFullname)!
         let parameters: Parameters = [
             "userID": patientsID,
             "medname": careObj.name,
             "mednameAr" : "",
             "arrayCondition" : careObj.condition,
             "arrayDosage" : careObj.dosage,
-            "medType": careObj.type
+            "medType": careObj.type,
+            "updatedBy":loggedInUserID,
+            "updatedByName":loggedInUserName
+            
         ]
         
         SVProgressHUD.show(withStatus: "SA_STR_LOADING".localized, maskType: SVProgressHUDMaskType.clear)
@@ -766,8 +830,7 @@ class AddMedicationViewController: UIViewController, UITableViewDelegate, UITabl
                 
                 
                 GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.addcareplan) Calling", action:"Success -Add Care Plan Data" , label:"Add Care Plan Data added Successfully", value : self.formInterval.intervalAsSeconds())
-                print("Checking mededitbool")
-                print(UserDefaults.standard.bool(forKey: "MedEditBool"))
+                
                   if let JSON: NSDictionary = response.result.value as! NSDictionary? {
                     if  UserDefaults.standard.bool(forKey: "MedEditBool") {
                         let arr : NSArray = UserDefaults.standard.array(forKey: "currentAddMedicationArray")! as [Any] as NSArray
@@ -778,8 +841,8 @@ class AddMedicationViewController: UIViewController, UITableViewDelegate, UITabl
                        
                         UserDefaults.standard.setValue(self.addMedArray, forKey: "currentAddMedicationArray")
                         UserDefaults.standard.synchronize()
-                       // print("Checking here")
-                        //print(UserDefaults.standard.array(forKey: "currentAddMedicationArray")!)
+                        print("Checking here")
+                        print(UserDefaults.standard.array(forKey: "currentAddMedicationArray")!)
                     }
                     
                     

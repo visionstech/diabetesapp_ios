@@ -14,5 +14,6 @@ class CarePlanReadingObj: NSObject {
     var time      = String()
     var frequency = String()
     var goal      = String()
-
+    var updatedBy = String()
+    var tempIndex = Int()
 }

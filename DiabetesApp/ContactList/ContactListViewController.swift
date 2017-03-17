@@ -23,7 +23,13 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
     var isGroupMode : Bool = false
     var formInterval: GTInterval!
     
+    var patientSelectedList = NSMutableArray()
+    var doctorSelectedList = NSMutableArray()
+    var educatorSelectedList = NSMutableArray()
+    
     let selectedUserType: Int = Int(UserDefaults.standard.integer(forKey: userDefaults.loggedInUserType))
+    let loggedInUserID: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserID)!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -117,6 +123,7 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
             usersArray.append(selectedPatient.chatid)
             recipientIDArray.append(selectedPatient.patient_id)
             recipientNameArray.append(selectedPatient.full_name)
+            patientSelectedList.add(selectedPatient)
         }
         
         
@@ -127,7 +134,7 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
         //In group chat; the doctor names goes second to maintain consistency. Because when a group is created; it'll be difficult to check who created the group when we are getting the doctor's name during patient chat
         let loggedInUserName: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserFullname)!
         recipientNameArray.append(loggedInUserName)
-        
+        recipientIDArray.append(loggedInUserID)
         
         for obj in educatorsList {
             
@@ -136,19 +143,43 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
             if educatrObj.chatid != "" {
                 usersArray.append(educatrObj.chatid)
                 recipientNameArray.append(educatrObj.full_name)
+                recipientIDArray.append(educatrObj.patient_id)
+                educatorSelectedList.add(educatrObj)
             }
         }
-        let loggedInUserID: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserID)!
+        //let loggedInUserID: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserID)!
         
-        recipientIDArray.append(loggedInUserID)
+        //recipientIDArray.append(loggedInUserID)
         
-        
-        self.createChat(name: selectedPatient.full_name.trimmingCharacters(in: CharacterSet.whitespaces), usersArray: usersArray, isGroup: true, patientID: selectedPatient.patient_id, HCNumber: patienthcNumber, recipientIDArray: recipientIDArray, recipientNames: recipientNameArray, completion: { (response, chatDialog) in
+        _ = AlertViewWithTextField(title: "SA_STR_ENTER_CHAT_NAME".localized, message: nil, showOver:self, didClickOk: { (text) -> Void in
             
-            UserDefaults.standard.setValue(selectedPatient.patient_id, forKey: userDefaults.selectedPatientID)
-            self.naviagteToChatScreen(dialog: chatDialog!)
-        })
+            let chatName = text!.trimmingCharacters(in: CharacterSet.whitespaces)
+            
+            
+            if chatName.isEmpty {
+               // chatName = self.nameForGroupChatWithUsers(users: usersArray)
+            }
+            
+          //  self.createChat(name: chatName, users: users, completion: completion)
+            
+            self.createChat(name:chatName, usersArray: usersArray, isGroup: true, patientID: selectedPatient.patient_id, HCNumber: patienthcNumber, recipientIDArray: recipientIDArray, recipientNames: recipientNameArray, completion: { (response, chatDialog) in
+                
+                UserDefaults.standard.setValue(selectedPatient.patient_id, forKey: userDefaults.selectedPatientID)
+                self.naviagteToChatScreen(dialog: chatDialog!)
+            })
+            
+        }){ () -> Void in
+           // self.checkCreateChatButtonState()
+        }
         
+        
+    }
+    
+    func nameForGroupChatWithUsers(users:[QBUUser]) -> String {
+        
+        let chatName = ServicesManager.instance().currentUser()!.login! + "_" + users.map({ $0.login ?? $0.email! }).joined(separator: ", ").replacingOccurrences(of: "@", with: "", options: String.CompareOptions.literal, range: nil)
+        
+        return chatName
     }
     
     //MARK:- Api Methods
@@ -196,15 +227,16 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
         
         for obj in patientList {
             
-            if (obj as AnyObject).isSelected == "1" {
+            if (obj as! ContactObj).isSelected == "1" {
                 
                 
-                selectesUsers.append((obj as AnyObject).chatid as String)
-                patientName = (obj as AnyObject).full_name.trimmingCharacters(in: CharacterSet.whitespaces)
-                patientid = (obj as AnyObject).patient_id
-                patienthcNumber = (obj as AnyObject).HCNumber
-                recipientIDArray.append((obj as AnyObject).patient_id as String)
-                recipientNameArray.append((obj as AnyObject).full_name as String)
+                selectesUsers.append((obj as! ContactObj).chatid as String)
+                patientName = (obj as! ContactObj).full_name.trimmingCharacters(in: CharacterSet.whitespaces)
+                patientid = (obj as! ContactObj).patient_id
+                patienthcNumber = (obj as! ContactObj).HCNumber
+                recipientIDArray.append((obj as! ContactObj).patient_id as String)
+                recipientNameArray.append((obj as! ContactObj).full_name as String)
+                patientSelectedList.add(obj)
                 // recipientIDArray.add(patientid)
                 break
             }
@@ -214,21 +246,30 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
         // get selected Doctor
         for docObj in doctorList {
             
-            if (docObj as AnyObject).isSelected == "1" {
+            if (docObj as! ContactObj).isSelected == "1" {
                 
-                doctorid = (docObj as AnyObject).patient_id
-                selectesUsers.append((docObj as AnyObject).chatid as String)
-                recipientIDArray.append((docObj as AnyObject).patient_id as String)
-                recipientNameArray.append((docObj as AnyObject).full_name as String)
+                doctorid = (docObj as! ContactObj).patient_id
+                selectesUsers.append((docObj as! ContactObj).chatid as String)
+                recipientIDArray.append((docObj as! ContactObj).patient_id as String)
+                recipientNameArray.append((docObj as! ContactObj).full_name as String)
+                doctorSelectedList.add(docObj)
                 break
             }
         }
         
         // No user selected
-        if selectesUsers.count < 2 {
+        if selectesUsers.count < 1 {
             GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "Error", action:"Create Group For Doctor" , label:"You need to select one patient and one doctor")
             
             _ = AlertView(title: "SA_STR_ERROR".localized, message: "You need to select one patient and one doctor".localized, cancelButtonTitle: "SA_STR_OK".localized, otherButtonTitle: [""], didClick: { (buttonIndex) in
+            })
+            return
+        }
+        
+        if doctorSelectedList.count > 1 {
+            GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "Error", action:"Create Group For Doctor" , label:"You can select only one doctor")
+            
+            _ = AlertView(title: "SA_STR_ERROR".localized, message: "You can select only one doctor".localized, cancelButtonTitle: "SA_STR_OK".localized, otherButtonTitle: [""], didClick: { (buttonIndex) in
             })
             return
         }
@@ -237,11 +278,39 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
         let loggedInUserName: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserFullname)!
         recipientNameArray.append(loggedInUserName)
         
-        self.createChat(name: patientName, usersArray: selectesUsers, isGroup: true, patientID: patientid, HCNumber: patienthcNumber, recipientIDArray: recipientIDArray, recipientNames: recipientNameArray, completion: { (response, chatDialog) in
-            //            print("Now creating")
-            UserDefaults.standard.setValue(patientid, forKey: userDefaults.selectedPatientID)
-            self.naviagteToChatScreen(dialog: chatDialog!)
-        })
+        if selectesUsers.count > 1
+        {
+            
+            _ = AlertViewWithTextField(title: "SA_STR_ENTER_CHAT_NAME".localized, message: nil, showOver:self, didClickOk: { (text) -> Void in
+                
+                let chatName = text!.trimmingCharacters(in: CharacterSet.whitespaces)
+                
+                
+                if chatName.isEmpty {
+                    // chatName = self.nameForGroupChatWithUsers(users: usersArray)
+                }
+                
+                //  self.createChat(name: chatName, users: users, completion: completion)
+                
+                self.createChat(name: chatName, usersArray: selectesUsers, isGroup: true, patientID: patientid, HCNumber: patienthcNumber, recipientIDArray: recipientIDArray, recipientNames: recipientNameArray, completion: { (response, chatDialog) in
+                    //            print("Now creating")
+                    UserDefaults.standard.setValue(patientid, forKey: userDefaults.selectedPatientID)
+                    self.naviagteToChatScreen(dialog: chatDialog!)
+                })
+
+                
+            }){ () -> Void in
+                // self.checkCreateChatButtonState()
+            }
+                    }
+        else if selectesUsers.count == 1{
+            self.createChat(name: patientName, usersArray: selectesUsers, isGroup: false, patientID: patientid, HCNumber: patienthcNumber, recipientIDArray: recipientIDArray, recipientNames: recipientNameArray, completion: { (response, chatDialog) in
+                //            print("Now creating")
+                UserDefaults.standard.setValue(patientid, forKey: userDefaults.selectedPatientID)
+                self.naviagteToChatScreen(dialog: chatDialog!)
+            })
+        }
+        
         
     }
     
@@ -262,7 +331,7 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
             if isGroup == false {
                 // Creating private chat.
                 var tempArray : [String] = []
-                
+                var tempIDArray : [String] = []
                 ServicesManager.instance().chatService.createPrivateChatDialog(withOpponent: (users?.first!)!, completion: { (response, chatDialog) in
                     let object = QBCOCustomObject()
                     object.className = "Patient"
@@ -272,24 +341,47 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
                     
                     print("Doctor count")
                     print(self.doctorList.count)
-                    if(self.doctorList.count>0)
+                    if(self.doctorSelectedList.count>0)
                     {
                         
-                        tempArray = ["doctor"]
+                        if self.selectedUserType == userType.educator
+                        {
+                            tempArray = ["doctor", "educator"]
+                            tempIDArray.append(recipientIDArray[0])
+                            tempIDArray.append(self.loggedInUserID)
+                            //recipientIDArray.append(loggedInUserID)
+                        }
+                       // tempArray = ["doctor"]
                         object.fields?.setObject(tempArray, forKey: "recipientTypes" as NSCopying)
-                        object.fields?.setObject(recipientIDArray, forKey: "recipientIDs" as NSCopying)
+                        object.fields?.setObject(tempIDArray, forKey: "recipientIDs" as NSCopying)
                     }
-                    else if(self.educatorsList.count>0)
+                    else if(self.educatorSelectedList.count>0)
                     {
                         tempArray = ["educator"]
                         object.fields?.setObject(tempArray, forKey: "recipientTypes" as NSCopying)
                         object.fields?.setObject(recipientIDArray, forKey: "recipientIDs" as NSCopying)
                     }
-                    else if(self.patientList.count>0)
+                    else if(self.patientSelectedList.count>0)
                     {
-                        tempArray = ["patient"]
+                        if self.selectedUserType == userType.educator
+                        {
+                            tempArray = ["patient", "educator"]
+                           // recipientIDArray.append(loggedInUserID)
+                            tempIDArray.append(recipientIDArray[0])
+                            tempIDArray.append(self.loggedInUserID)
+                        }
+                        else if self.selectedUserType == userType.doctor{
+                            tempArray = ["patient", "doctor"]
+                            //recipientIDArray.append(loggedInUserID)
+                            tempIDArray.append(recipientIDArray[0])
+                            tempIDArray.append(self.loggedInUserID)
+                        }
+                        else {
+                            tempArray = ["patient"]
+                        }
+
                         object.fields?.setObject(tempArray, forKey: "recipientTypes" as NSCopying)
-                        object.fields?.setObject(recipientIDArray, forKey: "recipientIDs" as NSCopying)
+                        object.fields?.setObject(tempIDArray, forKey: "recipientIDs" as NSCopying)
                     }
                     
                     object.fields?.setObject(recipientNames, forKey: "recipientNames" as NSCopying)
@@ -302,7 +394,7 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
                     
                     
                     UserDefaults.standard.set(tempArray, forKey: userDefaults.recipientTypesArray)
-                    UserDefaults.standard.set(recipientIDArray, forKey: userDefaults.recipientIDArray)
+                    UserDefaults.standard.set(tempIDArray, forKey: userDefaults.recipientIDArray)
                     
                     
                     
@@ -343,39 +435,64 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
                         return
                     }
                     var tempArray: [String] = []
-                    
+                    var tempIDArray : [String] = []
                     let object = QBCOCustomObject()
                     object.className = "Patient"
                     object.fields?.setObject(patientID, forKey: "patient_id" as NSCopying)
                     object.fields?.setObject(chatDialog?.id as Any, forKey: "chat_id" as NSCopying)
                     object.fields?.setObject(HCNumber, forKey: "HCNumber" as NSCopying)
                     
-                    if((self?.doctorList.count)! > 0 && (self?.educatorsList.count)! > 0)
+                    if((self?.doctorSelectedList.count)! > 0 && (self?.educatorSelectedList.count)! > 0)
                     {
                         tempArray = ["doctor", "educator"]
                         
                         object.fields?.setObject(tempArray, forKey: "recipientTypes" as NSCopying)
                         object.fields?.setObject(recipientIDArray, forKey: "recipientIDs" as NSCopying)
+                        UserDefaults.standard.set(recipientIDArray, forKey: userDefaults.recipientIDArray)
                     }
-                    else if((self?.doctorList.count)! > 0 && (self?.patientList.count)! > 0)
+                    else if((self?.doctorSelectedList.count)! > 0 && (self?.patientSelectedList.count)! > 0)
+                    {
+                        //tempArray = ["patient", "doctor"]
+                        
+                        if self?.selectedUserType == userType.educator
+                        {
+                            tempArray = ["patient", "doctor", "educator"]
+                            // recipientIDArray.append(loggedInUserID)
+                            
+                            if recipientIDArray.count > 1
+                            {
+                                tempIDArray.append(recipientIDArray[0])
+                                tempIDArray.append(recipientIDArray[1])
+                                tempIDArray.append((self?.loggedInUserID)!)
+                            }
+                            else if recipientIDArray.count > 0 && recipientIDArray.count < 2{
+                                tempIDArray.append(recipientIDArray[0])
+                               
+                                tempIDArray.append((self?.loggedInUserID)!)
+                            }
+                        }
+                        
+                        object.fields?.setObject(tempArray, forKey: "recipientTypes" as NSCopying)
+                        object.fields?.setObject(tempIDArray, forKey: "recipientIDs" as NSCopying)
+                        UserDefaults.standard.set(tempIDArray, forKey: userDefaults.recipientIDArray)
+                    }
+                    else if((self?.educatorSelectedList.count)! > 0 && (self?.patientSelectedList.count)! > 0)
                     {
                         tempArray = ["patient", "doctor"]
                         
-                        object.fields?.setObject(tempArray, forKey: "recipientTypes" as NSCopying)
-                        object.fields?.setObject(recipientIDArray, forKey: "recipientIDs" as NSCopying)
-                    }
-                    else if((self?.educatorsList.count)! > 0 && (self?.patientList.count)! > 0)
-                    {
-                        tempArray = ["patient", "doctor"]
+                        for index in 0..<(self?.educatorSelectedList.count)!{
+                            tempArray.append("educator")
+                        }
                         
                         object.fields?.setObject(tempArray, forKey: "recipientTypes" as NSCopying)
                         object.fields?.setObject(recipientIDArray, forKey: "recipientIDs" as NSCopying)
+                        UserDefaults.standard.set(recipientIDArray, forKey: userDefaults.recipientIDArray)
                     }
                     
                     
                     object.fields?.setObject(recipientNames, forKey: "recipientNames" as NSCopying)
                     UserDefaults.standard.set(tempArray, forKey: userDefaults.recipientTypesArray)
-                    UserDefaults.standard.set(recipientIDArray, forKey: userDefaults.recipientIDArray)
+                  
                     
                     
                     QBRequest.createObject(object, successBlock: nil, errorBlock: nil)
@@ -477,6 +594,16 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
                                         }
                                         
                                     }
+                                    else{
+                                        if let userNameImg: UIImageView = cell.contentView.viewWithTag(2) as? UIImageView {
+                                        userNameImg.layer.cornerRadius =
+                                            userNameImg.frame.size.width/2
+                                        
+                                        userNameImg.clipsToBounds = true
+                                        
+                                        userNameImg.image = UIImage(named:"placeholder.png")
+                                        }
+                                    }
             })
         }
         if isGroupMode == true {
@@ -556,26 +683,26 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
             }
                 //  educator
             else {
-                var usersArray = Array<String>()
-                if obj.chatid != "" {
-                    usersArray.append(obj.chatid)
-                    
-                    recipientIDArray.append(obj.patient_id)
-                    if(obj.HCNumber.isEmpty == false){
-                        patienthcNumber = obj.HCNumber
-                    }
-                    
-                }
-                
-                //The last index will be the name of the logged in user
-                let loggedInUserName: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserFullname)!
-                recipientNameArray.append(loggedInUserName)
-                
-                self.createChat(name:  obj.full_name, usersArray: usersArray, isGroup: false, patientID: obj.patient_id, HCNumber: patienthcNumber, recipientIDArray: recipientIDArray, recipientNames: recipientNameArray, completion: { (response, chatDialog) in
-                    
-                    UserDefaults.standard.setValue(obj.patient_id, forKey: userDefaults.selectedPatientID)
-                    self.naviagteToChatScreen(dialog: chatDialog!)
-                })
+//                var usersArray = Array<String>()
+//                if obj.chatid != "" {
+//                    usersArray.append(obj.chatid)
+//                    
+//                    recipientIDArray.append(obj.patient_id)
+//                    if(obj.HCNumber.isEmpty == false){
+//                        patienthcNumber = obj.HCNumber
+//                    }
+//                    
+//                }
+//                
+//                //The last index will be the name of the logged in user
+//                let loggedInUserName: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserFullname)!
+//                recipientNameArray.append(loggedInUserName)
+//                
+//                self.createChat(name:  obj.full_name, usersArray: usersArray, isGroup: false, patientID: obj.patient_id, HCNumber: patienthcNumber, recipientIDArray: recipientIDArray, recipientNames: recipientNameArray, completion: { (response, chatDialog) in
+//                    
+//                    UserDefaults.standard.setValue(obj.patient_id, forKey: userDefaults.selectedPatientID)
+//                    self.naviagteToChatScreen(dialog: chatDialog!)
+//                })
                 
             }
             

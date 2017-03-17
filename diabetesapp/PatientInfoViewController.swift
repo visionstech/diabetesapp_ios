@@ -30,7 +30,7 @@ class InfoCell: UITableViewCell {
     
 }
 
-class PatientInfoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class PatientInfoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UIScrollViewDelegate {
     
       
     
@@ -38,7 +38,7 @@ class PatientInfoViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var infoTable: UITableView!
     @IBOutlet weak var infoImageView: UIImageView!
     let bioData: [String]               = ["Name".localized, "HC#".localized, "Sex".localized, "Age".localized, "BMI".localized];
-    let diseaseDetail: [String]         = ["Diabetec".localized, "Duration".localized, "Cholestrol".localized, "HbA1c", "Other diseases".localized];
+    var diseaseDetail: [String]         = []
     let sectionNum_bioData: Int         = 0;
     let sectionNum_diseaseDetail: Int   = 1;
     let numberOfSections: Int           = 2;
@@ -55,7 +55,7 @@ class PatientInfoViewController: UIViewController, UITableViewDelegate, UITableV
     var topBackView:UIView = UIView()
     var formInterval: GTInterval!
     var currentLocale: String = ""
-    
+    var newImageView : UIImageView = UIImageView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,21 +89,85 @@ class PatientInfoViewController: UIViewController, UITableViewDelegate, UITableV
             case .success:
                 
                 if let JSON: NSDictionary = response.result.value as! NSDictionary? {
+                    
                     self.bioDataValues.append(JSON.value(forKey:"name") as! String)
                     self.bioDataValues.append(JSON.value(forKey:"HCNumber") as! String)
                     self.bioDataValues.append(JSON.value(forKey:"sex") as! String)
                     self.bioDataValues.append(JSON.value(forKey:"age") as! String)
                     self.bioDataValues.append(JSON.value(forKey:"bmi") as! String)
-//                    self.bioDataValues.append(JSON.value(forKey:"height") as! String)
-                    //                    self.bioDataValues.append(JSON.value(forKey:"doctors") as! String)
-                    //                    self.bioDataValues.append(JSON.value(forKey:"educators") as! String)
+                
+                   
                     
+                    let stringDuration : String = JSON.value(forKey:"duration") as! String
+                    var stringDurationSplit : [String] = stringDuration.components(separatedBy: " ")
+                    var newDurationString : String = ""
+                    if stringDuration.length<1  {
+                         newDurationString = "-"
+                    }
+                    else if stringDurationSplit.count > 2
+                    {
+                        if stringDurationSplit[0] != "1" && stringDurationSplit[2] != "1"
+                        {
+                        newDurationString = stringDurationSplit[0] + " years ".localized + stringDurationSplit[2] + " months".localized
+                        }
+                        else if stringDurationSplit[0] == "1" && stringDurationSplit[2] != "1"
+                        {
+                            newDurationString = stringDurationSplit[0] + " year ".localized + stringDurationSplit[2] + " months".localized
+                        }
+                        else if stringDurationSplit[0] != "1" && stringDurationSplit[2] == "1"
+                        {
+                            newDurationString = stringDurationSplit[0] + " years ".localized + stringDurationSplit[2] + " month".localized
+                        }
+                        else if stringDurationSplit[0] == "1" && stringDurationSplit[2] == "1"
+                        {
+                            newDurationString = stringDurationSplit[0] + " year ".localized + stringDurationSplit[2] + " month".localized
+                        }
+                    }
+                    else{
+                            if stringDurationSplit[0] != "1"
+                            {
+                                newDurationString = stringDurationSplit[0] + " years ".localized
+                            }
+                            else if stringDurationSplit[0] == "1"
+                            {
+                                newDurationString = stringDurationSplit[0] + " year ".localized
+                            }
+                        // newDurationString = stringDurationSplit[0] + " years".localized
+                    }
+                    
+                    let gender = JSON.value(forKey:"sex") as! String
+                    
+                    if let deliveryDate = JSON.value(forKey:"deliveryDate"){
+                    
+                    }
+                    if gender.lowercased() == "female"{
+                        if let deliveryDate = JSON.value(forKey:"deliveryDate"){
+                            self.diseaseDetail =  ["Gestation Period".localized, "Diabetec".localized, "Duration".localized, "Ultrasound".localized, "HbA1c", "Other diseases".localized];
+                            self.diseaseDataValues.append(deliveryDate as! String)
+                        }
+                        else{
+                            self.diseaseDetail =  ["Diabetec".localized, "Duration".localized, "Cholestrol".localized, "HbA1c", "Other diseases".localized];
+                        }
+                    }
+                    else{
+                        self.diseaseDetail =  ["Diabetec".localized, "Duration".localized, "Cholestrol".localized, "HbA1c", "Other diseases".localized];
+                    }
                     self.diseaseDataValues.append(JSON.value(forKey:"diabetic") as! String)
-                    self.diseaseDataValues.append(JSON.value(forKey:"duration") as! String)
-                    self.diseaseDataValues.append(JSON.value(forKey:"cholestrol") as! String)
+                    self.diseaseDataValues.append(newDurationString)
+                    if let cholestrol = JSON.value(forKey:"cholestrol"){
+                        self.diseaseDataValues.append(JSON.value(forKey:"cholestrol") as! String)
+                    }
+                    else if let ultrasound = JSON.value(forKey:"ultrasound"){
+                        
+                        self.diseaseDataValues.append(JSON.value(forKey:"ultrasound") as! String)
+                    }
+                    
                     self.diseaseDataValues.append(JSON.value(forKey:"hba1c") as! String)
+                    
+                    
                     self.diseaseDataValues.append(JSON.value(forKey:"other_diseases") as! String)
-                     GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.getUserProfile) Calling", action:"Success - Web API Calling" , label:"get User Profile", value : self.formInterval.intervalAsSeconds())
+                    
+                    GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.getUserProfile) Calling", action:"Success - Web API Calling" , label:"get User Profile", value : self.formInterval.intervalAsSeconds())
                     
                     Alamofire.request("http://54.212.229.198:3000/showImage?id="+self.selectedPatientID+"&type=Patient", method: .get, encoding: JSONEncoding.default).responseJSON { (response) in
                         
@@ -124,6 +188,9 @@ class PatientInfoViewController: UIViewController, UITableViewDelegate, UITableV
                                                     if (error == nil && (image != nil) && finished) {
                                                         // do something with image
                                                         self?.infoImageView.image=image
+                                                    }
+                                                    else{
+                                                        self?.infoImageView.image = UIImage(named:"placeholder.png")
                                                     }
                             })
                             
@@ -172,15 +239,28 @@ class PatientInfoViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func imageTapped(_ sender: UITapGestureRecognizer) {
+        let scrollV:UIScrollView = UIScrollView()
+        scrollV.frame = self.view.frame
+        scrollV.minimumZoomScale=1.0
+        scrollV.maximumZoomScale=6.0
+        scrollV.bounces=false
+        scrollV.delegate=self;
+        self.view.addSubview(scrollV)
+        
         let imageView = sender.view as! UIImageView
-        let newImageView = UIImageView(image: imageView.image)
-        newImageView.frame = self.view.frame
+        newImageView = UIImageView(image: imageView.image)
+        newImageView.frame = scrollV.frame
         newImageView.backgroundColor = .black
-        newImageView.contentMode = .scaleAspectFit
+        newImageView.contentMode =  .scaleAspectFit
         newImageView.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
         newImageView.addGestureRecognizer(tap)
-        self.view.addSubview(newImageView)
+        scrollV.addSubview(newImageView)
+    }
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView?
+    {
+        return newImageView
     }
     
     func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
@@ -200,14 +280,45 @@ class PatientInfoViewController: UIViewController, UITableViewDelegate, UITableV
     // MARK: - Custom Top View
     func createCustomTopView() {
         
-        topBackView = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 40))
-        topBackView.backgroundColor = UIColor(patternImage: UIImage(named: "topBackBtn")!)
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(BackBtn_Click))
-        topBackView.addGestureRecognizer(tapGesture)
-        topBackView.isUserInteractionEnabled = true
-        
-        self.tabBarController?.navigationController?.navigationBar.addSubview(topBackView)
-        self.navigationController?.navigationBar.addSubview(topBackView)
+        if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
+            topBackView = UIView(frame: CGRect(x: self.view.frame.size.width - 90, y: 0, width: 75, height: 40))
+            //            topBackView.backgroundColor = UIColor(patternImage: UIImage(named: "topbackArbic")!)
+            let backImg : UIImageView = UIImageView(frame:CGRect( x: 45, y: 8, width: 40, height: 25))
+            backImg.image = UIImage(named:"topbackArbic")
+            topBackView.addSubview(backImg)
+            
+            let userImgView: UIImageView = UIImageView(frame: CGRect(x: 2 , y: 3, width: 34, height: 34))
+            //userImgView.image = UIImage(named: "user.png")
+            topBackView.addSubview(userImgView)
+            
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(BackBtn_Click))
+            topBackView.addGestureRecognizer(tapGesture)
+            topBackView.isUserInteractionEnabled = true
+            
+            self.tabBarController?.navigationController?.navigationBar.addSubview(topBackView)
+            self.navigationController?.navigationBar.addSubview(topBackView)
+            
+            
+        }
+        else {
+            
+            topBackView = UIView(frame: CGRect(x: 0, y: 0, width: 84, height: 40))
+            //            topBackView.backgroundColor = UIColor(patternImage: UIImage(named: "topBackBtn")!)
+            let backImg : UIImageView = UIImageView(frame:CGRect( x: 2, y: 8, width: 40, height: 25))
+            backImg.image = UIImage(named:"topBackBtn")
+            topBackView.addSubview(backImg)
+            
+         //   let userImgView: UIImageView = UIImageView(frame: CGRect(x: 40, y: 3, width: 34, height: 34))
+            //userImgView.image = UIImage(named: "user.png")
+           // topBackView.addSubview(userImgView)
+            
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(BackBtn_Click))
+            topBackView.addGestureRecognizer(tapGesture)
+            topBackView.isUserInteractionEnabled = true
+            
+            self.tabBarController?.navigationController?.navigationBar.addSubview(topBackView)
+            self.navigationController?.navigationBar.addSubview(topBackView)
+        }
     }
     
     // MARK: - Custom Methods

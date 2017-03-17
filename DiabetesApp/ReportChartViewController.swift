@@ -28,6 +28,16 @@ class ReportChartViewController: UIViewController, UIPickerViewDelegate, UIPicke
     @IBOutlet weak var IQRView: UIView!
     @IBOutlet weak var hyperLabel: UILabel!
     
+    @IBOutlet weak var legendView: UIView!
+    @IBOutlet weak var blueLabel: UILabel!
+    @IBOutlet weak var greenLabel: UILabel!
+    @IBOutlet weak var medianLegend: UILabel!
+
+    @IBOutlet weak var aboveLegend: UILabel!
+    @IBOutlet weak var normalLegend: UILabel!
+    @IBOutlet weak var redLabel: UILabel!
+    
+    
     @IBOutlet weak var IQRLabel: UILabel!
     @IBOutlet weak var hyposLabel: UILabel!
     
@@ -64,6 +74,8 @@ class ReportChartViewController: UIViewController, UIPickerViewDelegate, UIPicke
     var lineChart: LineChart!
     var noOfDays = "0"
     var selectedConditionIndex : Int = 0
+    var minLimit : Int = 0
+    var maxLimit : Int = 0
     
     //    let chartConditionsArray : NSArray = ["Fasting", "Snacks", "Exercise","Pre Breakfast", "Post Breakfast", "Pre Lunch", "Post Lunch", "Pre Dinner", "Post Dinner", "Bedtime"]
     let chartConditionsArray : NSArray = ["", "F", "PoB", "PrL", "PoL", "PrD", "PoD", "B"]
@@ -77,6 +89,10 @@ class ReportChartViewController: UIViewController, UIPickerViewDelegate, UIPicke
         conditionTitle.text = "CONDITION".localized
         conditionTxtFld.text = conditionsArray[0] as! String
         noHistoryAvailableLabel.text = "No Readings Available".localized
+        aboveLegend.text = "Above Target".localized
+        normalLegend.text = "In Range".localized
+        medianLegend.text = "Median".localized
+
         if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
             conditionTxtFld.textAlignment = .left
             arrowImg.image = UIImage(named:"readinghistoryBack")
@@ -118,27 +134,32 @@ class ReportChartViewController: UIViewController, UIPickerViewDelegate, UIPicke
         if self.dataArray.count > 0 {
             self.chartView.isHidden = false
             self.readingsView.isHidden = false
-            noHistoryAvailableLabel.isHidden = true
             self.drawChartCondition(dateArray: dateArray)
+            self.legendView.isHidden = false
+            noHistoryAvailableLabel.isHidden = true
         }
         else {
             self.chartView.isHidden = true
             self.readingsView.isHidden = true
+            self.legendView.isHidden = true
             noHistoryAvailableLabel.isHidden = false
         }
     }
+    
     
     func resetUI(){
         if self.dataArray.count > 0 {
             self.chartView.isHidden = false
             self.readingsView.isHidden = false
             noHistoryAvailableLabel.isHidden = true
+            self.legendView.isHidden = false
             self.drawChart()
         }
         else {
             self.chartView.isHidden = true
-            noHistoryAvailableLabel.isHidden = false
             self.readingsView.isHidden = true
+            self.legendView.isHidden = true
+            noHistoryAvailableLabel.isHidden = false
         }
     }
     
@@ -287,8 +308,9 @@ class ReportChartViewController: UIViewController, UIPickerViewDelegate, UIPicke
                         //                    print("JSON")
                         // print(JSON)
                         let mainArray: NSArray = NSMutableArray(array: JSON.object(forKey: "objectArray") as! NSArray)
-                        let dateArray: NSArray = NSMutableArray(array: JSON.object(forKey: "dateArray") as! NSArray)
-                     
+                        var dateArray: NSArray = NSMutableArray(array: JSON.object(forKey: "dateArray") as! NSArray)
+                        self.minLimit = JSON.object(forKey: "minLimit") as! Int
+                        self.maxLimit = JSON.object(forKey: "maxLimit") as! Int
                        
                         if mainArray.count > 0 {
                             for dict in mainArray {
@@ -301,8 +323,15 @@ class ReportChartViewController: UIViewController, UIPickerViewDelegate, UIPicke
                                     //  print("Readings Array")
                                     // print(readingsArray)
                                     var data: [CGFloat] = []
-                                    for i in 0..<dateArray.count {
+                                    
+                                    //QUICK HACK TO SKIP 0 INDEX FOR X-COORDINATE
+                                    for j in 0..<(dateArray.count+1)
+                                    {
                                         data.append(0)
+                                    }
+                                    
+                                    for i in 0..<dateArray.count {
+                                       // data.append(0)
                                         
                                         for dict in readingsArray {
                                             
@@ -310,7 +339,7 @@ class ReportChartViewController: UIViewController, UIPickerViewDelegate, UIPicke
                                             let conditionIndex: Int = ob.value(forKey: "dateIndex")! as! Int
                                             
                                             if conditionIndex != -1 && i == conditionIndex {
-                                                data[i] = ob.value(forKey: "reading")! as! CGFloat
+                                                data[i+1] = ob.value(forKey: "reading")! as! CGFloat
                                                 //commeented the break so that we can select the last value for a given index
                                                 //                                            break
                                             }
@@ -322,6 +351,13 @@ class ReportChartViewController: UIViewController, UIPickerViewDelegate, UIPicke
                             }
                             print("Data Array")
                             print(self.dataArray)
+                            
+                            //QUICK HACK TO SKIP 0 INDEX FOR X-COORDINATE
+                            var tempArray : NSMutableArray = []
+                            tempArray.add("")
+                            tempArray.addObjects(from: (dateArray as! NSArray) as! [Any])
+                            dateArray = tempArray as! NSArray
+                            
                             self.resetUICondition(dateArray: dateArray)
                             //self.resetUI()
                         }
@@ -945,6 +981,19 @@ class ReportChartViewController: UIViewController, UIPickerViewDelegate, UIPicke
         readingsView.layer.borderColor = Colors.PrimaryColor.cgColor
         readingsView.layer.masksToBounds = true
         
+        legendView.layer.cornerRadius = kButtonRadius
+        legendView.layer.borderWidth = 1
+        legendView.layer.borderColor = Colors.PrimaryColor.cgColor
+        legendView.layer.masksToBounds = true
+        
+        
+        redLabel.layer.cornerRadius = 5
+        redLabel.layer.masksToBounds = true
+        blueLabel.layer.cornerRadius = 5
+        blueLabel.layer.masksToBounds = true
+        greenLabel.layer.cornerRadius = 5
+        greenLabel.layer.masksToBounds = true
+        
         
         addNotifications()
     }
@@ -985,8 +1034,8 @@ class ReportChartViewController: UIViewController, UIPickerViewDelegate, UIPicke
             dataMedianArray.add(tempArray)
         }
         
-        medianMaxData.append((Double(0),Double(180)))
-        medianMinData.append((Double(0),Double(80)))
+        medianMaxData.append((Double(0),Double(maxLimit)))
+        medianMinData.append((Double(0),Double(minLimit)))
         
         for dataM in dataMedianArray
         {
@@ -1015,8 +1064,8 @@ class ReportChartViewController: UIViewController, UIPickerViewDelegate, UIPicke
                 {
                     medianLineData.append((Double(medianIndex),Double(median)))
                 }
-                medianMaxData.append((Double(medianIndex),Double(180)))
-                medianMinData.append((Double(medianIndex),Double(80)))
+                medianMaxData.append((Double(medianIndex),Double(maxLimit)))
+                medianMinData.append((Double(medianIndex),Double(minLimit)))
                 medianIndex += 1
                 
             }
@@ -1028,8 +1077,8 @@ class ReportChartViewController: UIViewController, UIPickerViewDelegate, UIPicke
                     medianLineData.append((Double(medianIndex),Double(dataSorted[0])))
                     
                 }
-                medianMaxData.append((Double(medianIndex),Double(180)))
-                medianMinData.append((Double(medianIndex),Double(80)))
+                medianMaxData.append((Double(medianIndex),Double(maxLimit)))
+                medianMinData.append((Double(medianIndex),Double(minLimit)))
                 medianIndex += 1
                 
             }
@@ -1048,11 +1097,11 @@ class ReportChartViewController: UIViewController, UIPickerViewDelegate, UIPicke
             for i in 0..<dataAr.count{
                 if(dataAr[i] != 0.0)
                 {
-                    if(dataAr[i] < 70.2)
+                    if(dataAr[i] < CGFloat(minLimit))
                     {
                         models.append((Double(i),Double(dataAr[i]), .type4))
                     }
-                    else if(dataAr[i] > 180.0)
+                    else if(dataAr[i] > CGFloat(maxLimit))
                     {
                         models.append((Double(i),Double(dataAr[i]), .type4))
                     }
@@ -1077,7 +1126,7 @@ class ReportChartViewController: UIViewController, UIPickerViewDelegate, UIPicke
         var maxVal = (maxMedian?.y)! + roundVal
         maxVal = maxVal >= 180 ? maxVal : 200
         //        maxVal = maxVal + 50
-        maxVal = 320
+        maxVal = 400
         
         let labelSettings = ChartLabelSettings(font:UIFont(name: "Helvetica", size: 12)!)
         
@@ -1272,7 +1321,7 @@ class ReportChartViewController: UIViewController, UIPickerViewDelegate, UIPicke
         var maxVal = (maxMedian?.y)! + roundVal
         maxVal = maxVal >= 180 ? maxVal : 200
         //        maxVal = maxVal + 50
-        maxVal = 320
+        maxVal = 400
         
         let labelSettings = ChartLabelSettings(font:UIFont(name: "Helvetica", size: 12)!)
         

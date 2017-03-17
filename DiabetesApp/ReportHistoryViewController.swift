@@ -929,12 +929,12 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
                 outStrCondition = String(describing: obj.value(forKey: "condition")!)
                 
                 let tempStringRead : String = String(describing: obj.value(forKey: "readingtime")!)
-                let tempSplits : [String] = tempStringRead.components(separatedBy: " ")
-                let result : String = tempSplits[0]+tempSplits[1]+" "+tempSplits[2]
-                outStrReadingTime = result
+               /* let tempSplits : [String] = tempStringRead.components(separatedBy: " ")
+                let result : String = tempStringRead
+                outStrReadingTime = result*/
                 //  }
                 
-                cell.dateLbl.text = outStrReadingTime
+                cell.dateLbl.text = tempStringRead
                 cell.dateLbl.textColor = Colors.PrimaryColor
                 cell.conditionLbl.text = outStrCondition
                 cell.conditionLbl.textColor = Colors.PrimaryColor

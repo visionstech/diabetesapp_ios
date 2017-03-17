@@ -22,8 +22,8 @@ extension UIViewController {
         view.endEditing(true)
     }
 }
-
-class ReportViewController: UIViewController , UITableViewDataSource, UITableViewDelegate , UITextFieldDelegate,UITextViewDelegate {
+var keyboardModifier: CGFloat = 0
+class ReportViewController: UIViewController , UITableViewDataSource, UITableViewDelegate , UITextFieldDelegate, UITextViewDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
     //@IBOutlet weak var scrollView: TPKeyboardAvoidingScrollView!
@@ -47,7 +47,6 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
     @IBOutlet weak var commentsByEducatorHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var chartViewContainer: UIView!
     @IBOutlet weak var medicationView: UIView!
-    @IBOutlet weak var medicationTbl: UITableView!
     @IBOutlet weak var currentMedicationsLabel: UILabel!
     @IBOutlet weak var currentMedEdit: UIButton!
     
@@ -64,7 +63,6 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
     
     @IBOutlet weak var newReadingViewContainer: UIView!
     
-    @IBOutlet weak var AcceptDeclineViewHeight: NSLayoutConstraint!
     @IBOutlet weak var newReadingEditView: UIView!
     @IBOutlet weak var currentReadingContainerHeight: NSLayoutConstraint!
     
@@ -77,9 +75,13 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
     @IBOutlet weak var educatorActionView: UIView!
     @IBOutlet weak var readingScheduleHeightConstraint: NSLayoutConstraint!
     
+     @IBOutlet weak var currentMedicationsLabelHeightConstraint: NSLayoutConstraint!
+    
+    
+    
     @IBOutlet weak var actionLabel: UILabel!
     
-    
+   // @IBOutlet weak var actionSegmentControl: UISegmentedControl!
     
     @IBOutlet weak var commentEducatorLabel: UILabel!
     @IBOutlet weak var doctorActionView: UIView!
@@ -88,6 +90,7 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
     @IBOutlet weak var educatorViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var educatorActionViewHeight: NSLayoutConstraint!
     @IBOutlet weak var doctorActionViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var commentEducatorLabelHeight: NSLayoutConstraint!
     @IBOutlet weak var doctorCommentTextView: UITextView!
     @IBOutlet weak var declineLabel: UIButton!
     @IBOutlet weak var approveLabel: UIButton!
@@ -96,14 +99,19 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
     @IBOutlet weak var sendRequestLabel: UIButton!
     @IBOutlet weak var educatorCommentTxtViw: UITextView!
     
+    @IBOutlet weak var vwMedicationContainer: UIView!
+    @IBOutlet weak var vwMedicationContainerHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var vwMedicationContainerTopConstraint: NSLayoutConstraint!
+    
     var sections = Int()
     var editButton: UIButton!
     var approveTextView = UITextView()
-  
+    
     var topBackView:UIView = UIView()
     var summaryArray = NSArray()
     var summaryTxtArray = NSMutableArray()
     var medicationArray = NSMutableArray()
+    var readingArr = NSMutableArray()
     var newMedicationArray = NSMutableArray()
     var currentMedEditBool = Bool()
     var currentReadEditBool = Bool()
@@ -112,18 +120,24 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
     //var editCurrentMedArray = NSMutableArray()
     //var editCurrentMedDict = NSDictionary()
     var addCurrentMedArray = NSArray()
+    var addNewCurrentMedArray = NSArray()
+    var deleteNewCurrentMedArray = NSArray()
     var editMedArray = NSMutableArray()
-    @IBOutlet weak var lblCommentByEducatorHeight: NSLayoutConstraint!
     var editCurrentMedArray = NSArray()
-    var editCurrentReadArray = NSArray()
+   // var editCurrentReadArray = NSArray()
     var oldCurrentMedArray = NSMutableArray()
+    
+    var editCurrentReadArray = NSArray()
+    var addNewCurrentReadArray = NSArray()
+    var deleteNewCurrentReadArray = NSArray()
+
    // let selectedUserType: Int = Int(UserDefaults.standard.integer(forKey: userDefaults.loggedInUserType))
     var selectedUserType: Int = Int(UserDefaults.standard.integer(forKey: userDefaults.loggedInUserType))
     
     //var taskID = String()
     var reportUser = String()
     var totalBadgeCounter =  Int()
-    
+    var newImageView : UIImageView = UIImageView()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -133,18 +147,16 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
       //  print(taskID)
-        
-        UserDefaults.standard.setValue(NSArray(), forKey: "currentEditMedicationArray")
-        UserDefaults.standard.setValue(NSArray(), forKey: "currentAddMedicationArray")
-        UserDefaults.standard.setValue(NSArray(), forKey: "currentEditReadingCareArray")
-        UserDefaults.standard.setValue(NSArray(), forKey: "updateReadingCareArray")
-        
-        UserDefaults.standard.synchronize()
-        
+        self.setDefaultValue()
         self.hideKeyboardWhenTappedAround()
         self.addDoneButtonOnKeyboard()
+        
+       //Keyboard Appear and disappear
+        NotificationCenter.default.addObserver(self, selector: #selector(ReportViewController.keyboardWillAppear(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ReportViewController.keyboardWillDisappear(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
         newReadingViewContainer.isHidden = true
-        educatorCommentTxtViw.text = "Please add comments to justify your decision"
+        educatorCommentTxtViw.text = "Please add comments to justify your decision".localized
         educatorCommentTxtViw.textColor = UIColor.lightGray
         
         approveLabel.setTitle("Approve".localized, for: .normal)
@@ -169,97 +181,116 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
         currentMedEdit.setTitle("Edit".localized, for: .normal)
         currentMedicationsLabel.layer.cornerRadius = kButtonRadius
         currentMedicationsLabel.layer.masksToBounds = true
+        
+        
+        if selectedUserType == userType.doctor{
+            commentEducatorLabel.text = "  "+"Comments By Educator".localized
+            commentEducatorLabel.layer.cornerRadius = kButtonRadius
+            commentEducatorLabel.layer.masksToBounds = true
+        }
+        else{
+            commentEducatorLabel.text = "  "+"Comments By Doctor".localized
+            commentEducatorLabel.layer.cornerRadius = kButtonRadius
+            commentEducatorLabel.layer.masksToBounds = true
+        }
 
 //        actionLabel.text = "  "+"Action".localized
 //        actionLabel.layer.cornerRadius = kButtonRadius
 //        actionLabel.layer.masksToBounds = true
         
-//         if !UserDefaults.standard.bool(forKey: "groupChat")  {
-//            if selectedUserType == userType.doctor {
-//                sections = 1
-//                summaryArray = ["Patient".localized,"Educator".localized,"HC#".localized,"Diabetes".localized]
-//                doctorReportAPI()
-//                educatorActionViewHeight.constant = 0
-//                let rect = CGRect(x: 0, y: 0, width: 100, height: educatorActionViewHeight.constant)
-//                educatorActionView.frame = rect
-//                educatorActionView.isHidden = true
-//                //newReadingViewContainer.isHidden = false
-//                newReadingViewContainer.isHidden = true
-//                self.currentMedEdit.isHidden = false
-//                self.readNewEdit.isHidden = false
-//                self.currentReadEdit.isHidden = false
-//                self.readNewEdit.isHidden = false
-//                lbl.isHidden = false
-//                
-//            }
-//            else {
-//                sections = 1
-//                doctorSingleReportAPI()
-//                summaryArray = ["Patient".localized,"Doctor".localized,"HC#".localized,"Diabetes".localized]
-//                doctorActionViewHeight.constant = 0
+         if !UserDefaults.standard.bool(forKey: "groupChat")  {
+            if selectedUserType == userType.doctor {
+                sections = 1
+                
+               
+                
+                summaryArray = ["Patient".localized,"Educator".localized,"HC#".localized,"Diabetes".localized]
+                //doctorReportAPI()
+                educatorActionViewHeight.constant = 0
+                let rect = CGRect(x: 0, y: 0, width: 100, height: 0)
+                educatorActionView.frame = rect
+                educatorActionView.isHidden = true
+                newReadingViewContainer.isHidden = true
+                self.currentMedEdit.isHidden = false
+                self.readNewEdit.isHidden = false
+                self.currentReadEdit.isHidden = false
+                self.readNewEdit.isHidden = false
+                lbl.isHidden = false
+                
+            }
+            else {
+                sections = 1
+               // doctorSingleReportAPI()
+                summaryArray = ["Patient".localized,"Doctor".localized,"HC#".localized,"Diabetes".localized]
+                doctorActionViewHeight.constant =  commentsByEducatorHeightConstraint.constant + doctorCommentTextView.frame.origin.y
 //                let rect = CGRect(x: 0, y: 0, width: 100, height: doctorActionViewHeight.constant)
 //                doctorActionView.frame = rect
-//                doctorActionView.isHidden = true
-//                let rect1 = CGRect(x: 0, y: 0, width: 100, height: educatorActionViewHeight.constant)
-//                educatorActionView.frame = rect1
-//                educatorActionView.isHidden = true
-//                newReadingViewContainer.isHidden = true
-//                self.currentMedEdit.isHidden = false
-//                self.readNewEdit.isHidden = true
-//                self.currentReadEdit.isHidden = false
-//                self.readNewEdit.isHidden = true
-//                lbl.isHidden = true
-//                
-//                updateReadByEducator()
-//                
-//            }
-//            
-//        }
-//        else {
-//            
-//            if selectedUserType == userType.doctor {
-//                sections = 1
-//                doctorSingleReportAPI()
-//                //doctorCommentTextView.isHidden = true
-//               
-//                
-//                approveLabel.setTitle("Save Changes".localized, for: .normal)
-//                declineLabel.setTitle("Cancel".localized, for: .normal)
-//                commentsByEducatorHeightConstraint.constant = 0
-//                commentEducatorLabel.isHidden = true
-//                summaryArray = ["Patient".localized,"Doctor".localized,"HC#".localized,"Diabetes".localized]
-//                educatorActionViewHeight.constant = 0
-//                let rect = CGRect(x: 0, y: 0, width: 100, height: educatorActionViewHeight.constant)
-//                educatorActionView.frame = rect
-//                educatorActionView.isHidden = true
-//               // newReadingViewContainer.isHidden = true
-//                self.currentMedEdit.isHidden = false
-//                self.readNewEdit.isHidden = true
-//                self.currentReadEdit.isHidden = false
-//                //self.readNewEdit.isHidden = true
-//                lbl.isHidden = true
-//            }
-//            else {
-//                sections = 1
-//                getEducatorReportAPI()
-//                summaryArray = ["Patient".localized,"Doctor".localized,"HC#".localized,"Diabetes".localized]
-//                doctorActionViewHeight.constant = 0
-//                let rect = CGRect(x: 0, y: 0, width: 100, height: doctorActionViewHeight.constant)
-//                doctorActionView.frame = rect
-//                doctorActionView.isHidden = true
-//               
-//                newReadingViewContainer.isHidden = true
-//                self.currentMedEdit.isHidden = false
-//                self.readNewEdit.isHidden = true
-//                self.currentReadEdit.isHidden = false
-//                self.readNewEdit.isHidden = true
-//                lbl.isHidden = true
-//                
-//                
-//            }
-//            
-//            
-//        }
+                doctorActionView.isHidden = false
+                let rect1 = CGRect(x: 0, y: 0, width: 100, height: educatorActionViewHeight.constant)
+                educatorActionView.frame = rect1
+                educatorActionView.isHidden = true
+                newReadingViewContainer.isHidden = true
+                self.currentMedEdit.isHidden = true
+                self.readNewEdit.isHidden = true
+                self.currentReadEdit.isHidden = true
+                self.readNewEdit.isHidden = true
+                lbl.isHidden = true
+                
+                updateReadByEducator()
+                
+            }
+            
+        }
+        else {
+            
+            if selectedUserType == userType.doctor {
+                sections = 1
+               // doctorSingleReportAPI()
+               // doctorCommentTextView.isHidden = true
+                
+                approveLabel.isEnabled = false
+                approveLabel.alpha = 0.25
+                
+                approveLabel.setTitle("Save Changes".localized, for: .normal)
+                declineLabel.setTitle(("Cancel".uppercased()).localized, for: .normal)
+               
+                doctorCommentTextView.isHidden = true
+                commentEducatorLabelHeight.constant = 0
+                commentsByEducatorHeightConstraint.constant = 0
+                educatorActionViewHeight.constant = 0
+                commentEducatorLabel.isHidden = true
+                summaryArray = ["Patient".localized,"Doctor".localized,"HC#".localized,"Diabetes".localized]
+                let rect1 = CGRect(x: 0, y: 0, width: 100, height: educatorActionViewHeight.constant)
+                educatorActionView.frame = rect1
+                educatorActionView.isHidden = true
+                doctorActionViewHeight.constant = 161
+                
+                self.currentMedEdit.isHidden = false
+                self.readNewEdit.isHidden = true
+                self.currentReadEdit.isHidden = false
+                lbl.isHidden = true
+            }
+            else {
+                sections = 1
+               // getEducatorReportAPI()
+                summaryArray = ["Patient".localized,"Doctor".localized,"HC#".localized,"Diabetes".localized]
+                doctorActionViewHeight.constant = 0
+                let rect = CGRect(x: 0, y: 0, width: 100, height: doctorActionViewHeight.constant)
+                doctorActionView.frame = rect
+                doctorActionView.isHidden = true
+                
+                newReadingViewContainer.isHidden = true
+                self.currentMedEdit.isHidden = false
+                self.readNewEdit.isHidden = true
+                self.currentReadEdit.isHidden = false
+                self.readNewEdit.isHidden = true
+                lbl.isHidden = true
+                
+                
+            }
+            
+            
+        }
         
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notifications.readingView), object: nil)
         self.view.setNeedsLayout()
@@ -294,9 +325,7 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
         sendRequestLabel.layer.masksToBounds = true
         //currentMedicationsLabel.backgroundColor = Colors.DHTabBarItemUnselected
         //currentReadingTitleLabel.backgroundColor = Colors.DHTabBarItemUnselected
-        
-        medicationTbl.backgroundColor = UIColor.clear
-        
+       
         segmentControl.setTitleTextAttributes([NSFontAttributeName: Fonts.noOfDaysFont, NSForegroundColorAttributeName:Colors.PrimaryColor], for: .normal)
         segmentControl.setTitleTextAttributes([NSFontAttributeName: Fonts.noOfDaysFont, NSForegroundColorAttributeName:UIColor.white], for: .selected)
         segmentControl.setTitle("TODAY".localized, forSegmentAt: 0)
@@ -346,15 +375,28 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
                                     self?.patientImage.isUserInteractionEnabled = true
                                     
                                 }
+                                else{
+                                    self?.patientImage.layer.cornerRadius =
+                                        (self?.patientImage.frame.size.width)!/2
+                                    
+                                    self?.patientImage.clipsToBounds = true
+                                    
+                                    self?.patientImage.image = UIImage(named:"placeholder.png")
+                                    
+                                    let tapGestureImage = UITapGestureRecognizer(target: self, action: #selector(self?.imageTapped))
+                                    self?.patientImage.addGestureRecognizer(tapGestureImage)
+                                    self?.patientImage.isUserInteractionEnabled = true
+                                }
         })
-        
     }
     
     func updateReadByEducator(){
         
         let taskID: String = UserDefaults.standard.string(forKey: userDefaults.taskID)!
+        let educatorID: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserID)!
         let parameters: Parameters = [
-            "taskid": taskID ]
+            "taskid": taskID,
+            "userid":educatorID]
 
         
         Alamofire.request("\(baseUrl)\(ApiMethods.updateReadBy)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
@@ -380,15 +422,13 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
     
     func addDoneButtonOnKeyboard()
     {
-        
-        
         let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 50))
         toolBar.barStyle = UIBarStyle.default
         toolBar.items = [
             UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil),
             UIBarButtonItem(title: "DONE".localized, style: UIBarButtonItemStyle.plain, target: self, action: #selector(doneButtonAction))]
         toolBar.sizeToFit()
-        
+       
         self.educatorCommentTxtViw.inputAccessoryView = toolBar
         
     }
@@ -402,16 +442,28 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
     
     
     func imageTapped(_ sender: UITapGestureRecognizer) {
+        let scrollV:UIScrollView = UIScrollView()
+        scrollV.frame = self.view.frame
+        scrollV.minimumZoomScale=1.0
+        scrollV.maximumZoomScale=6.0
+        scrollV.bounces=false
+        scrollV.delegate=self;
+        self.view.addSubview(scrollV)
         
         let imageView = sender.view as! UIImageView
-        let newImageView = UIImageView(image: imageView.image)
-        newImageView.frame = self.view.frame
+        newImageView = UIImageView(image: imageView.image)
+        newImageView.frame = scrollV.frame
         newImageView.backgroundColor = .black
-        newImageView.contentMode = .scaleAspectFit
+        newImageView.contentMode =  .scaleAspectFit
         newImageView.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
         newImageView.addGestureRecognizer(tap)
-        self.view.addSubview(newImageView)
+        scrollV.addSubview(newImageView)
+    }
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView?
+    {
+        return newImageView
     }
     
     func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
@@ -427,6 +479,7 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
     
     override func viewWillDisappear(_ animated: Bool) {
         topBackView.removeFromSuperview()
+        //setDefaultValue()
     }
     
     
@@ -435,18 +488,50 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
         oldCurrentMedArray.removeAllObjects()
         let defaults = UserDefaults.standard
         editCurrentMedArray = defaults.array(forKey: "currentEditMedicationArray")! as [Any] as NSArray
+       // editCurrentReadArray = defaults.array(forKey: "currentEditReadingCareArray")! as [Any] as NSArray
+        addNewCurrentMedArray = defaults.array(forKey: "currentAddNewMedicationArray")! as [Any] as NSArray
+        deleteNewCurrentMedArray = defaults.array(forKey: "currentDeleteMedicationArray")! as [Any] as NSArray
+        print("delted medication")
+        print(deleteNewCurrentMedArray.count)
+        
         editCurrentReadArray = defaults.array(forKey: "currentEditReadingCareArray")! as [Any] as NSArray
-       // addCurrentMedArray = defaults.array(forKey: "currentAddMedicationArray")! as [Any] as NSArray
+        addNewCurrentReadArray = defaults.array(forKey: "currentAddReadingArray")! as [Any] as NSArray
+        deleteNewCurrentReadArray = defaults.array(forKey: "currentDeleteReadingArray")! as [Any] as NSArray
+        
+        if UserDefaults.standard.bool(forKey: "groupChat")  {
+            if selectedUserType == userType.doctor{
+                if editCurrentMedArray.count > 0 || editCurrentReadArray.count > 0 || addNewCurrentMedArray.count > 0 ||
+                     deleteNewCurrentMedArray.count > 0 || deleteNewCurrentReadArray.count > 0 || addNewCurrentReadArray.count > 0
+                {
+                    approveLabel.isEnabled = true
+                    approveLabel.alpha = 1.0
+                }
+            }
+        }
+        addCurrentMedArray = defaults.array(forKey: "currentAddMedicationArray")! as [Any] as NSArray
         UserDefaults.standard.set(NSArray(), forKey: "updateReadingCareArray")
-        UserDefaults.standard.set(false, forKey:"CurrentReadEditBool")
-        UserDefaults.standard.set(NSArray(), forKey:"currentEditReadingArray")
-        UserDefaults.standard.set(NSArray(), forKey:"currentAddMedicationArray")
-        UserDefaults.standard.set(false, forKey: "NewReadEditBool")
-        UserDefaults.standard.set(false, forKey: "MedEditBool")
+        
+//        if UserDefaults.standard.bool(forKey: "CurrentReadEditBool") {
+//            
+//        currentReadingContainerHeight.constant   = CGFloat(((editCurrentReadArray.count * 50) + 130)) ;
+//        newReadingContainerHeight.constant = 0.0
+//        newRedEditConstraint.constant = 0.0
+//        readingScheduleHeightConstraint.constant = CGFloat(((editCurrentReadArray.count * 50) + 130)) ;
+//        self.doctorActionView.setY(y: readingScheduleView.frame.origin.y + readingScheduleHeightConstraint.constant)
+//        scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: doctorActionView.frame.origin.y + doctorActionView.frame.size.height)
+//        print( doctorActionView.frame.origin.y)
+//        }
+        
+//UserDefaults.standard.set(false, forKey:"CurrentReadEditBool")
+        //UserDefaults.standard.set(NSArray(), forKey:"currentEditReadingArray")
+        //below one is when the doctor adds a new med. the med needs to be deleted if the doctor presses cancel.
+        //this happens only when the doctor goes thrugh  group chat
+        //UserDefaults.standard.set(NSArray(), forKey:"currentAddMedicationArray")
+        //below one is when the educator adds a new array. this will be saved with the task
+      //  UserDefaults.standard.setValue(NSArray(), forKey: "currentAddNewMedicationArray")
         UserDefaults.standard.synchronize()
         
         setNavBarUI()
-        
         
         if !UserDefaults.standard.bool(forKey: "groupChat")  {
             if selectedUserType == userType.doctor {
@@ -468,38 +553,32 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
             }
             else {
                 sections = 1
-                doctorSingleReportAPI()
+                doctorReportAPI()
                 summaryArray = ["Patient".localized,"Doctor".localized,"HC#".localized,"Diabetes".localized]
-                doctorActionViewHeight.constant = 0
-                let rect = CGRect(x: 0, y: 0, width: 100, height: doctorActionViewHeight.constant)
-                doctorActionView.frame = rect
-                doctorActionView.isHidden = true
+                doctorActionViewHeight.constant =  commentsByEducatorHeightConstraint.constant + doctorCommentTextView.frame.origin.y
+//                let rect = CGRect(x: 0, y: 0, width: 100, height: doctorActionViewHeight.constant)
+//                doctorActionView.frame = rect
+                doctorActionView.isHidden = false
                 let rect1 = CGRect(x: 0, y: 0, width: 100, height: educatorActionViewHeight.constant)
                 educatorActionView.frame = rect1
                 educatorActionView.isHidden = true
                 newReadingViewContainer.isHidden = true
-                self.currentMedEdit.isHidden = false
+                self.currentMedEdit.isHidden = true
                 self.readNewEdit.isHidden = true
-                self.currentReadEdit.isHidden = false
+                self.currentReadEdit.isHidden = true
                 self.readNewEdit.isHidden = true
                 lbl.isHidden = true
                 
             }
-            
         }
         else {
             
             if selectedUserType == userType.doctor {
                 sections = 1
                 doctorSingleReportAPI()
-               // doctorCommentTextView.isHidden = true
-               
+                doctorCommentTextView.isHidden = true
                 
-             
-                
-                approveLabel.setTitle("Save Changes".localized, for: .normal)
-                declineLabel.setTitle("Cancel".localized, for: .normal)
-                
+                commentsByEducatorHeightConstraint.constant = 0
                 commentEducatorLabel.isHidden = true
                 summaryArray = ["Patient".localized,"Doctor".localized,"HC#".localized,"Diabetes".localized]
                 educatorActionViewHeight.constant = 0
@@ -528,11 +607,7 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
                 self.currentReadEdit.isHidden = false
                 self.readNewEdit.isHidden = true
                 lbl.isHidden = true
-                
-                
             }
-            
-            
         }
         
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notifications.readingView), object: nil)
@@ -545,68 +620,80 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
         editEducatorReportAPI()
         
     }
+    func setDefaultValue()
+    {
+        UserDefaults.standard.setValue(NSArray(), forKey: "currentEditMedicationArray")
+        UserDefaults.standard.setValue(NSArray(), forKey: "currentAddNewMedicationArray")
+        UserDefaults.standard.setValue(NSArray(), forKey: "currentDeleteMedicationArray")
+        UserDefaults.standard.setValue(NSArray(), forKey: "currentAddMedicationArray")
+        UserDefaults.standard.setValue(NSArray(), forKey: "updateReadingCareArray")
+        UserDefaults.standard.setValue(NSArray(), forKey: "repoMediArray")
+        UserDefaults.standard.setValue(NSArray(), forKey: "repoReadiArray")
+        
+        UserDefaults.standard.setValue(NSArray(), forKey: "currentDeleteReadingArray")
+        UserDefaults.standard.setValue(NSArray(), forKey: "currentAddReadingArray")
+        UserDefaults.standard.setValue(NSArray(), forKey: "currentEditReadingCareArray")
+        UserDefaults.standard.set(false, forKey: "NewReadEditBool")
+        UserDefaults.standard.set(false, forKey: "MedEditBool")
+        UserDefaults.standard.set(false, forKey: "CurrentReadEditBool")
+        UserDefaults.standard.synchronize()
+    }
+    // MARK: - Keyboard Modifier 
+    func keyboardWillAppear(notification: NSNotification) {
+    
+        keyboardResize(notification: notification)
+        scrollToBottom()
+    }
+    
+    func keyboardWillDisappear(notification: NSNotification) {
+
+        keyboardResize(notification: notification)
+    }
+    
+    func keyboardResize(notification: NSNotification) {
+        UIView.animate(withDuration: 0.5, animations: { () -> Void in
+            let userInfo = notification.userInfo!
+            let keyboardEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+            let keyboardBeginFrame = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+            let kbFrameEnd = self.view.convert(keyboardEndFrame, to: nil)
+            let kbFrameBegin = self.view.convert(keyboardBeginFrame, to: nil)
+            
+            keyboardModifier = kbFrameBegin.origin.y - kbFrameEnd.origin.y
+            
+            self.scrollView.frame.size.height -= keyboardModifier
+        })
+    }
+    
+    func scrollToBottom() {
+        let bottomOffset = CGPoint(x: 0, y: scrollView.contentSize.height - scrollView.bounds.size.height)
+        scrollView.setContentOffset(bottomOffset, animated: false)
+    }
     
     // MARK: - IBAction Methods
     @IBAction func currentMedEditActon(_ sender: UIButton) {
-        
-        
         
         currentMedEditBool = true
         UserDefaults.standard.set(true, forKey:"MedEditBool")
         UserDefaults.standard.synchronize()
         let carePlanViewController: CarePlanMainViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.carePlanViewController) as! CarePlanMainViewController
+        
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         self.navigationItem.hidesBackButton = true
         self.navigationController?.pushViewController(carePlanViewController, animated: true)
-        
-        //            currentMedEdit.setTitle("Done", for: .normal)
-        
-        
-        
-        //        }
-        //        else {
-        //            currentMedEditBool = false
-        //            self.view.endEditing(true)
-        //            currentMedEdit.setTitle("Edit", for: .normal)
-        //        }
-        //        print("editCurrentMedArray\(editCurrentMedArray)")
-        //        print("oldCurrentMedArray\(oldCurrentMedArray)")
-        //        medicationTbl.reloadData()
     }
     
     @IBAction func currentReadEditAction(_ sender: UIButton) {
         
         currentReadEditBool = true
         UserDefaults.standard.set(true, forKey:"CurrentReadEditBool")
+        UserDefaults.standard.set(true, forKey: "NewReadEditBool")
         UserDefaults.standard.synchronize()
+        
         let carePlanViewController: CarePlanMainViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.carePlanViewController) as! CarePlanMainViewController
         carePlanViewController.currentReadEditBool = true
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         self.navigationItem.hidesBackButton = true
         self.navigationController?.pushViewController(carePlanViewController, animated: true)
-        
-//        let defaults = UserDefaults.standard
-//        
-//        if currentReadEdit.titleLabel!.text == "Edit" {
-//            UserDefaults.standard.set(true, forKey: "CurrentReadEditBool")
-//            print("Now it is true")
-//            currentReadEdit.setTitle("Done", for: .normal)
-//        }
-//        else {
-//            UserDefaults.standard.set(false, forKey: "CurrentReadEditBool")
-//           // let defaults = UserDefaults.standard
-//            editCurrentReadArray = defaults.array(forKey: "currentEditReadingArray")! as [Any] as NSArray
-//           //print("readArray\(editCurrentReadArray)")
-//            print("Now it is false")
-//            currentReadEdit.setTitle("Edit", for: .normal)
-//        }
-//        
-//        NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notifications.readingView), object: nil)
-//        editCurrentReadArray = defaults.array(forKey: "currentEditReadingArray")! as [Any] as NSArray
-//        UserDefaults.standard.synchronize()
-        
-        //     add(asChildViewController:reportCarePlanController )
-        
     }
     
     @IBAction func readNewEditAction(_ sender: UIButton) {
@@ -668,36 +755,47 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
     
     //MARK: - Approve & Decline Button Methods
     
+    
     @IBAction func declineBtn_Click(_ sender: Any) {
         
-        let alertController = UIAlertController(title: "\n\n\n\n\n\n", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
-        
-        let margin:CGFloat = 8.0
-        let rect = CGRect(x: margin, y: margin, width: alertController.view.bounds.size.width - margin * 4.0, height:100.0)
-        //let rect = 100.0//CGRect(margin, margin, alertController.view.bounds.size.width - margin * 4.0, 100.0)
-        approveTextView = UITextView(frame: rect)
-        
-        approveTextView.backgroundColor = UIColor.clear
-        approveTextView.font = UIFont(name: "Helvetica", size: 15)
-        approveTextView.textColor = UIColor.lightGray
-        approveTextView.text  = "Please add comments to justify your decision"
-        approveTextView.delegate = self
         
         
-        //  customView.backgroundColor = UIColor.greenColor()
-        alertController.view.addSubview(approveTextView)
+        // let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
         
-        let somethingAction = UIAlertAction(title: "Send", style: UIAlertActionStyle.default, handler: {(alert: UIAlertAction!) in print("something")
-            print(self.approveTextView.text)
-            SVProgressHUD.show(withStatus: "SA_STR_LOADING".localized, maskType: SVProgressHUDMaskType.clear)
-            // let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+       
+        
+        if self.declineLabel.titleLabel!.text != "Cancel".localized
+        {   //"\(baseUrl)\(ApiMethods.doctorDecline)"
             
             let taskID: String = UserDefaults.standard.string(forKey: userDefaults.taskID)!
             let parameters: Parameters = [
-                "taskid": taskID ]
+                "taskid": taskID,
+                "comment" : self.approveTextView.text]
             
-            if self.declineLabel.titleLabel!.text != "Cancel".localized
-            {   //"\(baseUrl)\(ApiMethods.doctorDecline)"
+            let alertController = UIAlertController(title: "\n\n\n\n\n\n", message: nil, preferredStyle: UIAlertControllerStyle.alert)
+            
+            let margin:CGFloat = 8.0
+            let rect = CGRect(x: margin, y: margin, width: alertController.view.bounds.size.width - margin * 4.0, height:100.0)
+            //let rect = 100.0//CGRect(margin, margin, alertController.view.bounds.size.width - margin * 4.0, 100.0)
+            approveTextView = UITextView(frame: rect)
+            
+            approveTextView.backgroundColor = UIColor.clear
+            approveTextView.font = Fonts.NavBarBtnFont
+            approveTextView.textColor = UIColor.lightGray
+            // approveTextView.lineB
+            approveTextView.text  = "Please add comments to justify your decision".localized
+            approveTextView.delegate = self
+            approveTextView.clipsToBounds = true
+            
+            
+            //  customView.backgroundColor = UIColor.greenColor()
+            alertController.view.addSubview(approveTextView)
+            
+            let somethingAction = UIAlertAction(title: "Send", style: UIAlertActionStyle.default, handler: {(alert: UIAlertAction!) in print("something")
+                print(self.approveTextView.text)
+                
+                SVProgressHUD.show(withStatus: "SA_STR_LOADING".localized, maskType: SVProgressHUDMaskType.clear)
+                
                 Alamofire.request("\(baseUrl)\(ApiMethods.doctorDecline)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
                     
                     print("Validation Successful ")
@@ -715,6 +813,14 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
                                 let alert = UIAlertController(title:"Message".localized, message: "Request Decline. Please inform the educator using group chat".localized, preferredStyle: UIAlertControllerStyle.alert)
                                 alert.addAction(UIAlertAction(title: "Ok".localized, style: UIAlertActionStyle.default, handler: { (UIAlertAction)in
                                     //self.popToViewController()
+                                    
+                                    UserDefaults.standard.set(false, forKey:"NewReadEditBool")
+                                    UserDefaults.standard.set(false, forKey:"MedEditBool")
+                                    UserDefaults.standard.set(false, forKey:"CurrentReadEditBool")
+                                    UserDefaults.standard.synchronize()
+
+                                    
+                                    
                                     self.navigationController?.popViewController(animated: true)
                                 }) )
                                 self.present(alert, animated: true, completion: nil)
@@ -741,91 +847,31 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
                         
                     }
                 }
-            }
-            else{
                 
-                //let arr : NSArray = UserDefaults.standard.array(forKey: "currentAddMedicationArray")! as [Any] as NSArray
-                let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
-                
-                let declineParams: Parameters = [
-                    "MedArraylength": self.addCurrentMedArray.count ,
-                    "patientID":patientsID,
-                    "comment" : self.approveTextView.text]
-                
-                Alamofire.request("\(baseUrl)\(ApiMethods.canceleMeds)", method: .post, parameters: declineParams, encoding: JSONEncoding.default).responseJSON { response in
-                    
-                    print("Validation Successful ")
-                    
-                    switch response.result {
-                        
-                    case .success:
-                        
-                        SVProgressHUD.dismiss()
-                        if let JSON: NSDictionary = response.result.value! as? NSDictionary {
-                            SVProgressHUD.dismiss()
-                            self.navigationController?.popViewController(animated: true)
-                        }
-                        break
-                        
-                    case .failure:
-                        print("failure")
-                        SVProgressHUD.showError(withStatus:response.result.error?.localizedDescription )
-                        break
-                        
-                    }
-                }
-                
-                
-                
-            }
-        
-        })
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: {(alert: UIAlertAction!) in print("cancel")})
-        
-        alertController.addAction(somethingAction)
-        alertController.addAction(cancelAction)
-        
-        self.present(alertController, animated: true, completion:{})
-        
-    }
-    
-    @IBAction func approveBtn_Click(_ sender: Any) {
-        
-        
-        let alertController = UIAlertController(title: "\n\n\n\n\n\n", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
-        
-        let margin:CGFloat = 8.0
-         let rect = CGRect(x: margin, y: margin, width: alertController.view.bounds.size.width - margin * 4.0, height:100.0)
-        //let rect = 100.0//CGRect(margin, margin, alertController.view.bounds.size.width - margin * 4.0, 100.0)
-         approveTextView = UITextView(frame: rect)
-        
-        approveTextView.backgroundColor = UIColor.clear
-        approveTextView.font = UIFont(name: "Helvetica", size: 15)
-        approveTextView.textColor = UIColor.lightGray
-        approveTextView.text  = "Please add comments to justify your decision"
-        approveTextView.delegate = self
-        
-        
-        //  customView.backgroundColor = UIColor.greenColor()
-        alertController.view.addSubview(approveTextView)
-        
-        let somethingAction = UIAlertAction(title: "Send", style: UIAlertActionStyle.default, handler: {(alert: UIAlertAction!) in print("something")
+            })
+            let cancelAction = UIAlertAction(title: "Cancel".localized, style: UIAlertActionStyle.cancel, handler: {(alert: UIAlertAction!) in print("cancel")})
             
-            print(self.approveTextView.text)
-            SVProgressHUD.show(withStatus: "SA_STR_LOADING".localized, maskType: SVProgressHUDMaskType.clear)
-            let taskID: String = UserDefaults.standard.string(forKey: userDefaults.taskID)!
-            // let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
-            let parameters: Parameters = [
-                "taskid": taskID,
-                "editMedArray": self.editCurrentMedArray,
-                "editReadArray":self.editCurrentReadArray,
+            alertController.addAction(somethingAction)
+            alertController.addAction(cancelAction)
+            
+            self.present(alertController, animated: true, completion:{})
+        }
+        else{
+            
+            //let arr : NSArray = UserDefaults.standard.array(forKey: "currentAddMedicationArray")! as [Any] as NSArray
+            
+            
+            
+            let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+            
+            let declineParams: Parameters = [
+                "MedArraylength": self.addCurrentMedArray.count ,
+                "patientID":patientsID,
                 "comment" : self.approveTextView.text]
             
-            //"\(baseUrl)\(ApiMethods.doctorApprove)"
-            Alamofire.request("\(baseUrl)\(ApiMethods.doctorApprove)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+            Alamofire.request("\(baseUrl)\(ApiMethods.canceleMeds)", method: .post, parameters: declineParams, encoding: JSONEncoding.default).responseJSON { response in
                 
-                print("Validation Successful")
+                print("Validation Successful ")
                 
                 switch response.result {
                     
@@ -835,31 +881,15 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
                     if let JSON: NSDictionary = response.result.value! as? NSDictionary {
                         SVProgressHUD.dismiss()
                         
-                        let status : String = JSON.value(forKey: "message") as! String
-                        if status == "Success" {
-                            let alert = UIAlertController(title:"Message".localized, message: "Report Approved. Please inform the respective educator through group chat.".localized, preferredStyle: UIAlertControllerStyle.alert)
-                            alert.addAction(UIAlertAction(title: "Ok".localized, style: UIAlertActionStyle.default, handler: { (UIAlertAction)in
-                                // self.popToViewController()
-                                self.navigationController?.popViewController(animated: true)
-                                
-                            }) )
-                            self.present(alert, animated: true, completion: nil)
-                        }
-                        else {
-                            self.present(UtilityClass.displayAlertMessage(message:status, title: "Message".localized), animated: true, completion: nil)
-                        }
-                        
-                        if let badgeCounter = (UserDefaults.standard.value(forKey: userDefaults.totalBadgeCounter) as! String?){
-                            let NewCounter = Int(badgeCounter )
-                            let StringCounter = String(NewCounter! - 1 )
-                            
-                            UserDefaults.standard.set((StringCounter as! String), forKey:userDefaults.totalBadgeCounter)
-                            
-                        }
-                        
+                        UserDefaults.standard.set(false, forKey:"NewReadEditBool")
+                        UserDefaults.standard.set(false, forKey:"MedEditBool")
+                        UserDefaults.standard.set(false, forKey:"CurrentReadEditBool")
+                        UserDefaults.standard.synchronize()
+                        self.setDefaultValue()
+                        self.navigationController?.popViewController(animated: true)
                     }
-                    
                     break
+                    
                 case .failure:
                     print("failure")
                     SVProgressHUD.showError(withStatus:response.result.error?.localizedDescription )
@@ -869,20 +899,191 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
             }
             
             
+            
+            
+            /*  let cancelAction = UIAlertAction(title: "Cancel".localized, style: UIAlertActionStyle.cancel, handler: {(alert: UIAlertAction!) in print("cancel")})
+             
+             alertController.addAction(somethingAction)
+             alertController.addAction(cancelAction)
+             
+             self.present(alertController, animated: true, completion:{})*/
+        }
+        
+        
+        
+    }
+    
+    @IBAction func approveBtn_Click(_ sender: Any) {
+        
+        let alertController = UIAlertController(title: "\n\n\n\n\n\n", message: nil, preferredStyle: UIAlertControllerStyle.alert)
+        
+        let margin:CGFloat = 8.0
+        let rect = CGRect(x: margin, y: margin, width: alertController.view.bounds.size.width - margin * 4.0, height:100.0)
+        //let rect = 100.0//CGRect(margin, margin, alertController.view.bounds.size.width - margin * 4.0, 100.0)
+        approveTextView = UITextView(frame: rect)
+        
+        approveTextView.backgroundColor = UIColor.clear
+        approveTextView.font = Fonts.NavBarBtnFont
+        approveTextView.textColor = UIColor.lightGray
+        approveTextView.text  = "Please add comments to justify your decision".localized
+        approveTextView.delegate = self
+        
+        
+        //  customView.backgroundColor = UIColor.greenColor()
+        alertController.view.addSubview(approveTextView)
+        
+        let somethingAction = UIAlertAction(title: "Send".localized, style: UIAlertActionStyle.default, handler: {(alert: UIAlertAction!) in print("something")
+            
+            print(self.approveTextView.text)
+            
+            SVProgressHUD.show(withStatus: "SA_STR_LOADING".localized, maskType: SVProgressHUDMaskType.clear)
+            
+            // let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+            
+            
+            if self.approveLabel.titleLabel?.text?.lowercased() == "save changes".localized{
+                let selectedPatient: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+                let doctorID: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserID)!
+                let parameters: Parameters = [
+                    "patientid": selectedPatient,
+                    "doctorid": doctorID,
+                    "editMedArray": self.editCurrentMedArray,
+                    "editReadArray":self.editCurrentReadArray,
+                    "newmedadd": self.addNewCurrentMedArray,
+                    "deletedmeds" : self.deleteNewCurrentMedArray,
+                    "newreadarray":self.addNewCurrentReadArray,
+                    "readdeleted":self.deleteNewCurrentReadArray,
+                    "comment" : self.approveTextView.text]
+
+                //"\(baseUrl)\(ApiMethods.saveDoctorChanges)"
+                Alamofire.request("\(baseUrl)\(ApiMethods.saveDoctorChanges)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+                    
+                    switch response.result {
+                        
+                    case .success:
+                        print("Validation Successful")
+                        SVProgressHUD.dismiss()
+                        if let JSON: NSDictionary = response.result.value! as? NSDictionary {
+                            SVProgressHUD.dismiss()
+                            
+                            let status : String = JSON.value(forKey: "message") as! String
+                            if status == "Success" {
+                                let alert = UIAlertController(title:"Message".localized, message: "Changes saved. Please inform the patient through group chat".localized, preferredStyle: UIAlertControllerStyle.alert)
+                                alert.addAction(UIAlertAction(title: "Ok".localized, style: UIAlertActionStyle.default, handler: { (UIAlertAction)in
+                                    // self.popToViewController()
+                                    
+                                    UserDefaults.standard.set(false, forKey:"NewReadEditBool")
+                                    UserDefaults.standard.set(false, forKey:"MedEditBool")
+                                    UserDefaults.standard.set(false, forKey:"CurrentReadEditBool")
+                                    UserDefaults.standard.synchronize()
+                                    self.setDefaultValue()
+                                    self.navigationController?.popViewController(animated: true)
+                                    
+                                }) )
+                                self.present(alert, animated: true, completion: nil)
+                            }
+                            else {
+                                self.present(UtilityClass.displayAlertMessage(message:status, title: "Message".localized), animated: true, completion: nil)
+                            }
+                            
+                            if let badgeCounter = (UserDefaults.standard.value(forKey: userDefaults.totalBadgeCounter) as! String?){
+                                let NewCounter = Int(badgeCounter )
+                                let StringCounter = String(NewCounter! - 1 )
+                                
+                                UserDefaults.standard.set((StringCounter as! String), forKey:userDefaults.totalBadgeCounter)
+                                
+                            }
+                            
+                        }
+                        
+                        break
+                    case .failure:
+                        print("failure")
+                        SVProgressHUD.showError(withStatus:response.result.error?.localizedDescription )
+                        break
+                        
+                    }
+                    
+                }
+                
+            }
+            else{
+                
+                let taskID: String = UserDefaults.standard.string(forKey: userDefaults.taskID)!
+                let parameters: Parameters = [
+                    "taskid": taskID,
+                    "editMedArray": self.editCurrentMedArray,
+                    "editReadArray":self.editCurrentReadArray,
+                    "deletedmeds" : self.deleteNewCurrentMedArray,
+                    "newmedadd": self.addNewCurrentMedArray,
+                    "newreadarray":self.addNewCurrentReadArray,
+                    "readdeleted":self.deleteNewCurrentReadArray,
+                    "comment" : self.approveTextView.text]
+                
+                //"\(baseUrl)\(ApiMethods.doctorApprove)"
+                
+                
+                Alamofire.request("\(baseUrl)\(ApiMethods.doctorApprove)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+                    
+                    
+                    
+                    switch response.result {
+                        
+                    case .success:
+                        print("Validation Successful")
+                        SVProgressHUD.dismiss()
+                        if let JSON: NSDictionary = response.result.value! as? NSDictionary {
+                            SVProgressHUD.dismiss()
+                            
+                            let status : String = JSON.value(forKey: "message") as! String
+                            if status == "Success" {
+                                let alert = UIAlertController(title:"Message".localized, message: "Report Approved. Please inform the respective educator through group chat.".localized, preferredStyle: UIAlertControllerStyle.alert)
+                                alert.addAction(UIAlertAction(title: "Ok".localized, style: UIAlertActionStyle.default, handler: { (UIAlertAction)in
+                                    // self.popToViewController()
+                                    
+                                    UserDefaults.standard.set(false, forKey:"NewReadEditBool")
+                                    UserDefaults.standard.set(false, forKey:"MedEditBool")
+                                    UserDefaults.standard.set(false, forKey:"CurrentReadEditBool")
+                                    UserDefaults.standard.synchronize()
+
+                                     self.setDefaultValue()
+                                    self.navigationController?.popViewController(animated: true)
+                                    
+                                }) )
+                                self.present(alert, animated: true, completion: nil)
+                            }
+                            else {
+                                self.present(UtilityClass.displayAlertMessage(message:status, title: "Message".localized), animated: true, completion: nil)
+                            }
+                            
+                            if let badgeCounter = (UserDefaults.standard.value(forKey: userDefaults.totalBadgeCounter) as! String?){
+                                let NewCounter = Int(badgeCounter )
+                                let StringCounter = String(NewCounter! - 1 )
+                                
+                                UserDefaults.standard.set((StringCounter as! String), forKey:userDefaults.totalBadgeCounter)
+                                
+                            }
+                            
+                        }
+                        
+                        break
+                    case .failure:
+                        print("failure")
+                        SVProgressHUD.showError(withStatus:response.result.error?.localizedDescription )
+                        break
+                        
+                    }
+                }
+            }
         })
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: {(alert: UIAlertAction!) in print("cancel")})
+        let cancelAction = UIAlertAction(title: "Cancel".localized, style: UIAlertActionStyle.cancel, handler: {(alert: UIAlertAction!) in print("cancel")})
         
         alertController.addAction(somethingAction)
         alertController.addAction(cancelAction)
         
         self.present(alertController, animated: true, completion:{})
         
-        
-        
-        
-     
-
     }
     
     //MARK: - SegmentControl Methods
@@ -1012,222 +1213,70 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
         
         if approveTextView.textColor == UIColor.lightGray {
             approveTextView.text = nil
-            approveTextView.textColor = UIColor.darkGray
+            educatorCommentTxtViw.textColor = UIColor.darkGray
         }
     }
     func textViewDidEndEditing(_ textView: UITextView) {
         if educatorCommentTxtViw.text.isEmpty {
-            educatorCommentTxtViw.text = "Please add comments to justify your decision".localized
+            educatorCommentTxtViw.text = nil
             educatorCommentTxtViw.textColor = UIColor.lightGray
         }
         
-        if approveTextView.text.isEmpty {
-            approveTextView.text = "Please add comments to justify your decision".localized
+        if  approveTextView.text.isEmpty {
+            approveTextView.text = nil
             approveTextView.textColor = UIColor.lightGray
         }
-
     }
     
     // MARK: - TableView Delegates
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if tableView == summaryTbl {
             return summaryTxtArray.count
-        }
-        else {
-            if section == 1{
-                return newMedicationArray.count
-            }else {
-                return medicationArray.count
-            }
-        }
-        
-        
-        
-        
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if tableView == summaryTbl {
             return 40
-        }
-        else {
-            return 63
-        }
-        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        
-        if tableView == summaryTbl {
             return 1
-        }
-        else {
-            return sections
-        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        
-        if tableView == summaryTbl {
             let cell: SummartTableViewCell = tableView.dequeueReusableCell(withIdentifier: "Summ", for:indexPath) as! SummartTableViewCell
             cell.nameTxtLbl.text = summaryArray.object(at: indexPath.row) as? String
             cell.ansTxtLbl.text  = summaryTxtArray.object(at: indexPath.row) as? String
            // cell.layer.backgroundColor = UIColor.clear.cgColor
             cell.backgroundColor = UIColor.clear
-            cell.layer.borderColor = UIColor.clear.cgColor
-            cell.layer.cornerRadius = kButtonRadius
-            cell.layer.borderWidth = 10
-            cell.layer.masksToBounds = true
+            cell.vwCelllBg.layer.borderColor = UIColor.clear.cgColor
+            cell.vwCelllBg.layer.cornerRadius = kButtonRadius
+            cell.vwCelllBg.layer.borderWidth = 10
+            cell.vwCelllBg.layer.masksToBounds = true
            
             return cell
-        }
-        else {
-            
-            let cell: ReportMedicationTableViewCell = tableView.dequeueReusableCell(withIdentifier: "MedicationCell", for:indexPath) as! ReportMedicationTableViewCell
-            
-            
-            //            if selectedUserType == userType.doctor {
-            //                if currentMedEditBool {
-            //
-            //                if indexPath.section == 0 {
-            //                    cell.dosageTxtFld.isUserInteractionEnabled = false
-            //                }
-            //                else {
-            //                     cell.dosageTxtFld.isUserInteractionEnabled = true
-            //                }
-            //                }
-            //                else {
-            //
-            //                    if indexPath.section == 0 {
-            //                        cell.dosageTxtFld.isUserInteractionEnabled = false
-            //                    }
-            //                    else {
-            //                        cell.dosageTxtFld.isUserInteractionEnabled = false
-            //                    }
-            //
-            //                }
-            //
-            //            }
-            //            else {
-            //
-            //                if currentMedEditBool {
-            //                if indexPath.section == 0 {
-            //                    cell.dosageTxtFld.isUserInteractionEnabled = true
-            //                }
-            //                else {
-            //                    cell.dosageTxtFld.isUserInteractionEnabled = false
-            //                }
-            //                }
-            //                else {
-            //                    if indexPath.section == 0 {
-            //                        cell.dosageTxtFld.isUserInteractionEnabled = false
-            //                    }
-            //                    else {
-            //                        cell.dosageTxtFld.isUserInteractionEnabled = false
-            //                    }
-            //
-            //
-            //                }
-            //
-            //            }
-            cell.selectionStyle = .none
-            //                    cell.dosageTxtFld.delegate = self
-            //                    cell.dosageTxtFld.keyboardType = UIKeyboardType.numberPad
-            
-            if indexPath.section == 0 {
-                if let obj: CarePlanObj = medicationArray[indexPath.row] as? CarePlanObj {
-                    cell.medNameLbl.text = obj.name.capitalized
-                    
-                    /* this is the dosage to be added */
-                   // let dosageStr  = obj.dosage
-                    //                    cell.dosageTxtFld.text = dosageStr
-                    //                    cell.dosageTxtFld.tag = indexPath.row
-                    
-                }
-            }
-            else {
-                if let obj: CarePlanObj = newMedicationArray[indexPath.row] as? CarePlanObj {
-                    cell.medNameLbl.text = obj.name.capitalized
-                     /* this is the dosage to be added */
-                    //let dosageStr : String = obj.dosage
-                    //                    cell.dosageTxtFld.tag = indexPath.row
-                    //                    cell.dosageTxtFld.text = dosageStr
-                    
-                }
-                
-            }
-            
-            return cell
-            
-        }
-        
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if tableView == summaryTbl {
             return 0
-        }
-        else {
-            if section == 1{
-                return 50
-            }
-            else {
-                return 0
-            }
-        }
-        
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if tableView == summaryTbl {
             return nil
-        }
-        else {
-            if section == 1 {
-                let headerView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 45))
-                headerView.backgroundColor = UIColor.blue
-                let lbl: UILabel = UILabel(frame: CGRect(x: 20, y: 5, width: tableView.frame.size.width-80, height: 35))
-                editButton = UIButton(frame: CGRect(x:tableView.frame.size.width-80, y: 5, width: 80, height: 35))
-                if currentMedEditBool  {
-                    editButton.setTitle("Done", for:.normal)
-                }
-                else {
-                    editButton.setTitle("Edit", for:.normal)
-                }
-                //        editButton.setTitle("Edit", for:.normal)
-                editButton.titleLabel?.textColor = UIColor.white
-                editButton.addTarget(self, action: #selector(ReportViewController.newMedEditActon(_:)), for: .touchUpInside)
-                
-                lbl.text = "New Medication"
-                lbl.textColor = UIColor.white
-                lbl.font = Fonts.HistoryHeaderFont
-                headerView.addSubview(editButton)
-                headerView.addSubview(lbl)
-                headerView.tag = section
-                
-                return headerView
-            }
-            else {
-                return nil
-            }
-        }
     }
     
     // MARK: - Custom Top View
     func createCustomTopView() {
         
         if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
-            topBackView = UIView(frame: CGRect(x: self.view.frame.size.width - 80, y: 0, width: 80, height: 40))
-//            topBackView.backgroundColor = UIColor(patternImage: UIImage(named: "topbackArbic")!)
+            
+             topBackView = UIView(frame: CGRect(x: self.view.frame.size.width - 90, y: 0, width: 85, height: 40))
             let backImg : UIImageView = UIImageView(frame:CGRect( x: 45, y: 8, width: 40, height: 25))
             backImg.image = UIImage(named:"topbackArbic")
             topBackView.addSubview(backImg)
-
-            let userImgView: UIImageView = UIImageView(frame: CGRect(x: 0 , y: 3, width: 34, height: 34))
+            
+           // let userImgView: UIImageView = UIImageView(frame: CGRect(x: 0 , y: 3, width: 34, height: 34))
             //userImgView.image = UIImage(named: "user.png")
-            topBackView.addSubview(userImgView)
+           // topBackView.addSubview(userImgView)
             
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(BackBtn_Click))
             topBackView.addGestureRecognizer(tapGesture)
@@ -1240,15 +1289,15 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
         }
         else {
             
-            topBackView = UIView(frame: CGRect(x: 0, y: 0, width: 80, height: 40))
-//            topBackView.backgroundColor = UIColor(patternImage: UIImage(named: "topBackBtn")!)
+            topBackView = UIView(frame: CGRect(x: 0, y: 0, width: 84, height: 40))
+        
             let backImg : UIImageView = UIImageView(frame:CGRect( x: 0, y: 8, width: 40, height: 25))
             backImg.image = UIImage(named:"topBackBtn")
             topBackView.addSubview(backImg)
-
-            let userImgView: UIImageView = UIImageView(frame: CGRect(x: 45, y: 3, width: 34, height: 34))
-            //userImgView.image = UIImage(named: "user.png")
-            topBackView.addSubview(userImgView)
+            
+           // let userImgView: UIImageView = UIImageView(frame: CGRect(x: 40, y: 3, width: 34, height: 34))
+           
+           // topBackView.addSubview(userImgView)
             
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(BackBtn_Click))
             topBackView.addGestureRecognizer(tapGesture)
@@ -1262,9 +1311,9 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
     // MARK: - Custom Methods
     func setNavBarUI(){
         
-        self.title = "\("READING_HISTORY".localized)"
-        self.tabBarController?.title = "\("READING_HISTORY".localized)"
-        self.tabBarController?.navigationItem.title = "\("READING_HISTORY".localized)"
+        self.title = "\("PATIENT REPORT".localized)"
+        self.tabBarController?.title = "\("PATIENT REPORT".localized)"
+        self.tabBarController?.navigationItem.title = "\("PATIENT REPORT".localized)"
         self.navigationItem.leftBarButtonItem = nil
         self.navigationItem.rightBarButtonItems = nil
         self.tabBarController?.navigationItem.leftBarButtonItem = nil
@@ -1277,18 +1326,6 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
         
     }
     
-    func newMedEditActon(_ sender: UIButton) {
-        if editButton.titleLabel!.text == "Edit".localized {
-            currentMedEditBool = true
-            editButton.setTitle("Done".localized, for: .normal)
-        }
-        else {
-            currentMedEditBool = false
-            editButton.setTitle("Edit".localized, for: .normal)
-        }
-        medicationTbl.reloadData()
-    }
-    
     func getSelectedNoOfDays() -> String {
         
         
@@ -1298,19 +1335,16 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
             return "0"
         case HistoryDays.days_7:
             
-            return "7"
+            return "6"
         case HistoryDays.days_14:
             
-            return "14"
+            return "13"
         case HistoryDays.days_30:
             
-            return "30"
+            return "29"
         default:
             return ""
         }
-        
-        
-        
         
     }
     
@@ -1326,7 +1360,13 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
     }
     
     func BackBtn_Click(){
+      //  UserDefaults.standard.set(false, forKey:"NewReadEditBool")
+      //  UserDefaults.standard.set(false, forKey:"MedEditBool")
+      //  UserDefaults.standard.set(false, forKey:"CurrentReadEditBool")
+      //  UserDefaults.standard.synchronize()
+        setDefaultValue()
         self.navigationController?.popViewController(animated: true)
+       
     }
     
     func getEducatorReportAPI()  {
@@ -1352,6 +1392,7 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
             case .success:
                 
                 self.medicationArray = NSMutableArray()
+                self.readingArr = NSMutableArray()
                 if let JSON: NSDictionary = response.result.value! as? NSDictionary {
                     self.summaryTxtArray.removeAllObjects()
                     //print("JSON \(JSON)")
@@ -1360,7 +1401,8 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
                     if self.selectedUserType == userType.doctor{
                         self.summaryTxtArray.add(JSON.object(forKey: "educatorName") as! String)}
                     else{
-                        self.summaryTxtArray.add(JSON.object(forKey: "dcotorsName") as! String)}
+                        self.summaryTxtArray.add(JSON.object(forKey: "dcotorsName") as! String)
+                    }
                     self.summaryTxtArray.add(JSON.object(forKey: "HCNumber") as! String)
                     self.summaryTxtArray.add(JSON.object(forKey: "diabetes") as! String)
                     self.summaryTbl.reloadData()
@@ -1369,18 +1411,47 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
                     print(jsonArr.count)
                     let objectArray : NSDictionary = NSDictionary(dictionary: JSON.object(forKey: "glucoseReadings") as! NSDictionary)
                     let glucoseReadingArr: NSArray = NSMutableArray(array: objectArray.object(forKey: "objectArray") as! NSArray)
-                    let readingArr : NSMutableArray = NSMutableArray(array:JSON.object(forKey: "readingsTime") as! NSArray)
-                    print(readingArr.count)
+                    //let readingArr : NSMutableArray = NSMutableArray(array:JSON.object(forKey: "readingsTime") as! NSArray)
+                    //print(readingArr.count)
+                    
                     for data in jsonArr {
                         let dict: NSDictionary = data as! NSDictionary
                         let obj = CarePlanObj()
                         obj.id = dict.value(forKey: "_id") as! String
                         obj.name = dict.value(forKey: "name") as! String
+                        
+                        if let timingArray: NSArray = dict.value(forKey: "timing") as? NSArray{
+                            for timing in timingArray{
+                                let tempDict: NSDictionary = timing as! NSDictionary
+                                obj.dosage.append(tempDict.value(forKey:"dosage") as! Int)
+                                obj.condition.append(tempDict.value(forKey:"condition") as! String)
+                            }
+                        }
+                        
                         self.medicationArray.add(obj)
                     }
                     
-                    self.dynamicEducatorViewLayout(medArrCount:jsonArr.count, readingArrcount: readingArr.count , glucoseReadingCount:glucoseReadingArr.count)
-                    self.medicationTbl.reloadData()
+                    self.addDefaultValue()
+                    
+                    let jsonArrRead : NSMutableArray = NSMutableArray(array:JSON.object(forKey: "readingsTime") as! NSArray)
+                    
+                    
+                    for data in jsonArrRead {
+                        let dict: NSDictionary = data as! NSDictionary
+                        let obj = CarePlanFrequencyObj()
+                        obj.id = dict.value(forKey: "_id") as! String
+                        obj.goal = dict.value(forKey: "goal") as! String
+                        obj.time = dict.value(forKey: "time") as! String
+                        obj.frequency = dict.value(forKey: "frequency") as! String
+                        
+                        self.readingArr.add(obj)
+                    }
+                    
+                    
+                    self.addDefaultValueReading()
+                    
+                    self.dynamicEducatorViewLayout(medArrCount:(self.medicationArray.count), readingArrcount: self.readingArr.count , glucoseReadingCount:glucoseReadingArr.count)
+                //    self.medicationTbl.reloadData()
                     SVProgressHUD.dismiss()
                 }
                 
@@ -1423,6 +1494,7 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
                 
             case .success:
                 self.medicationArray = NSMutableArray()
+                self.readingArr = NSMutableArray()
                 SVProgressHUD.dismiss()
                 if let JSON: NSDictionary = response.result.value! as? NSDictionary {
                     self.summaryTxtArray.removeAllObjects()
@@ -1446,14 +1518,38 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
                         reportStatus = true
                     }*/
                     self.summaryTxtArray.add(JSON.object(forKey: "name") as! String)
-                    self.summaryTxtArray.add(JSON.object(forKey: "educatorsName") as! String)
+                    
+                    if let tempEduName = JSON.object(forKey: "educatorsName"){
+                         self.summaryTxtArray.add(tempEduName as! String)
+                    }
+                    else
+                    {
+                         self.summaryTxtArray.add("")
+                    }
+                   
                     self.summaryTxtArray.add(JSON.object(forKey: "HCNumber") as! String)
                     self.summaryTxtArray.add(JSON.object(forKey: "diabetes") as! String)
                     self.summaryTbl.reloadData()
                     UserDefaults.standard.setValue(JSON.object(forKey: "patientID") as! String, forKey: userDefaults.selectedPatientID);
-                    let arr : NSArray = JSON.object(forKey: "educatorComment") as! NSArray
-                    self.doctorCommentTextView.text = arr.object(at: 0) as! String
+                    
+                   
+                    var comment : String = "";
+                    
+                    if self.selectedUserType == userType.doctor{
+                        let arr : NSArray = JSON.object(forKey: "educatorComment") as! NSArray
+                        comment = arr.object(at: 0) as! String
+                    }
+                    else if self.selectedUserType == userType.educator{
+                        let arr : NSArray = JSON.object(forKey: "commentsByDoctor") as! NSArray
+                        comment = arr.object(at: 0) as! String
+                    }
+                    
+                    self.doctorCommentTextView.text = comment
                     let jsonArr : NSMutableArray = NSMutableArray(array:JSON.object(forKey: "medication") as! NSArray)
+                    let jsonArrNewMed : NSMutableArray = NSMutableArray(array:JSON.object(forKey: "newMedication") as! NSArray)
+                    let jsonArrUpdateMed : NSMutableArray = NSMutableArray(array:JSON.object(forKey: "updatedMedication") as! NSArray)
+                    let jsonArrDeleteNewMed : NSMutableArray = NSMutableArray(array:JSON.object(forKey: "deletedMedication") as! NSArray)
+                    
                     
                     if reportStatus{
                         self.approveLabel.isHidden = true
@@ -1467,26 +1563,208 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
                             let obj = CarePlanObj()
                             obj.id = dict.value(forKey: "_id") as! String
                             obj.name = dict.value(forKey: "name") as! String
+                            if let timingArray: NSArray = dict.value(forKey: "timing") as? NSArray{
+                                for timing in timingArray{
+                                    let tempDict: NSDictionary = timing as! NSDictionary
+                                    obj.dosage.append(tempDict.value(forKey:"dosage") as! Int)
+                                    obj.condition.append(tempDict.value(forKey:"condition") as! String)
+                                }
+                            }
                             self.medicationArray.add(obj)
                         }
                     }
                     
+                    //Update current medication if educator updated
+                    if jsonArrUpdateMed.count > 0 {
+                        for data1 in jsonArrUpdateMed{
+                            
+                            let dict: NSDictionary = data1 as! NSDictionary
+                            let obj = CarePlanObj()
+                            obj.id = dict.value(forKey: "id") as! String
+                            obj.name = dict.value(forKey: "name") as! String
+                            if let medtype = dict.value(forKey: "type"){
+                                obj.type =  medtype as! String
+                            }
+                            else{
+                                obj.type =  ""
+                            }
+                            obj.isNew = false
+                            obj.isEdit = false
+                            
+                            for data in dictMedicationList {
+                                if let medication = data as? medicationObj {
+                                    if(medication.medicineName == obj.name)
+                                    {
+                                        let imagePath = "http://54.212.229.198:3000/upload/" + medication.medicineImage
+                                        obj.strImageURL = imagePath
+                                        
+                                    }
+                                }
+                            }
+                            if let timingArray: NSArray = dict.value(forKey: "timing") as? NSArray{
+                                for timing in timingArray{
+                                    let tempDict: NSDictionary = timing as! NSDictionary
+                                    obj.dosage.append(tempDict.value(forKey:"dosage") as! Int)
+                                    obj.condition.append(tempDict.value(forKey:"condition") as! String)
+                                }
+                            }
+                            for i in 0..<self.medicationArray.count {
+                                let objCarPlan = (self.medicationArray[i] as? CarePlanObj)!
+                                if(objCarPlan.id ==  obj.id )
+                                {
+                                    self.medicationArray.replaceObject(at: i, with: obj)
+                                    break
+                                }
+                            }
+                        }
+                        
+                    }
+                    
+                    //Add new medication if educator added
+                    if jsonArrNewMed.count > 0 {
+                        for data in jsonArrNewMed {
+                            let dict: NSDictionary = data as! NSDictionary
+                            let obj = CarePlanObj()
+                            if (dict.value(forKey: "_id") == nil)
+                            {
+                                obj.id = dict.value(forKey: "id") as! String
+                            }
+                            else
+                            {
+                                obj.id = dict.value(forKey: "_id") as! String
+                            }
+                            obj.name = dict.value(forKey: "name") as! String
+                            if let timingArray: NSArray = dict.value(forKey: "timing") as? NSArray{
+                                for timing in timingArray{
+                                    let tempDict: NSDictionary = timing as! NSDictionary
+                                    obj.dosage.append(tempDict.value(forKey:"dosage") as! Int)
+                                    obj.condition.append(tempDict.value(forKey:"condition") as! String)
+                                }
+                            }
+                            self.medicationArray.add(obj)
+                        }
+                    }
+                    
+                    //Delete Medication Data From the cashe
+              
+                    for data1 in jsonArrDeleteNewMed{
+                        let dict: NSDictionary = data1 as! NSDictionary
+                        let obj = CarePlanObj()
+                        obj.id = dict.value(forKey: "id") as! String
+                        for i in 0..<self.medicationArray.count {
+                            let objCarPlan = (self.medicationArray[i] as? CarePlanObj)!
+                            if(objCarPlan.id ==  obj.id )
+                            {
+                                self.medicationArray.remove(objCarPlan)
+                                break
+                            }
+                        }
+                    }
+                    
+                    
                    // let jsonNewArr : NSMutableArray = NSMutableArray(array:JSON.object(forKey: "updatedMedication") as! NSArray)
-                    let readingArr : NSMutableArray = NSMutableArray(array:JSON.object(forKey: "readingsTime") as! NSArray)
+                    //let readingArr : NSMutableArray = NSMutableArray(array:JSON.object(forKey: "readingsTime") as! NSArray)
                     
                     let updateReadingArr : NSMutableArray = NSMutableArray(array:JSON.object(forKey: "updatedReading") as! NSArray)
+                    
+                    
+                    let jsonArrRead : NSMutableArray = NSMutableArray(array:JSON.object(forKey: "readingsTime") as! NSArray)
+                    
+                    let jsonArrUpdatedRead : NSMutableArray = NSMutableArray(array:JSON.object(forKey: "updatedReading") as! NSArray)
+                    let jsonArrNewRead : NSMutableArray = NSMutableArray(array:JSON.object(forKey: "newReading") as! NSArray)
+                    var jsonArrDeleteNewRead : NSMutableArray = NSMutableArray(array:JSON.object(forKey: "deletedReading") as! NSArray)
+                    
+                    if jsonArrRead.count > 0 {
+                        self.readingArr.removeAllObjects()
+                        for data in jsonArrRead {
+                            let dict: NSDictionary = data as! NSDictionary
+                            let obj = CarePlanFrequencyObj()
+                            obj.id = dict.value(forKey: "_id") as! String
+                            obj.goal = dict.value(forKey: "goal") as! String
+                            obj.time = dict.value(forKey: "time") as! String
+                            obj.frequency = dict.value(forKey: "frequency") as! String
+                            
+                            self.readingArr.add(obj)
+                        }
+                    }
+                    
+                    //Update current medication if educator updated
+                    if jsonArrUpdatedRead.count > 0 {
+                        for data1 in jsonArrUpdatedRead{
+                            
+                            let dict: NSDictionary = data1 as! NSDictionary
+                            let obj = CarePlanFrequencyObj()
+                            obj.id = dict.value(forKey: "id") as! String
+                            obj.frequency = dict.value(forKey: "frequency") as! String
+                            obj.time = dict.value(forKey: "time") as! String
+                            obj.goal = dict.value(forKey: "goal") as! String
+                            
+                            
+                            
+                            for i in 0..<self.readingArr.count {
+                                let objCarPlan = (self.readingArr[i] as? CarePlanFrequencyObj)!
+                                if(objCarPlan.id == obj.id )
+                                {
+                                    self.readingArr.replaceObject(at: i, with: obj)
+                                    break
+                                }
+                            }
+                        }
+                        
+                    }
+                    
+                    //Add new medication if educator added
+                    if jsonArrNewRead.count > 0 {
+                        
+                        for data in jsonArrNewRead {
+                            let dict: NSDictionary = data as! NSDictionary
+                            let obj = CarePlanFrequencyObj()
+                            if (dict.value(forKey: "_id") == nil)
+                            {
+                                obj.id = dict.value(forKey: "id") as! String
+                            }
+                            else
+                            {
+                                obj.id = dict.value(forKey: "_id") as! String
+                            }
+                            obj.frequency = dict.value(forKey: "frequency") as! String
+                            obj.goal = dict.value(forKey: "goal") as! String
+                            obj.time = dict.value(forKey: "time") as! String
+                            
+                            self.readingArr.add(obj)
+                        }
+                    }
+                    
+                    //Delete Medication Data From the cashe
+                    
+                    for data1 in jsonArrDeleteNewRead{
+                        let dict: NSDictionary = data1 as! NSDictionary
+                        let obj = CarePlanFrequencyObj()
+                        obj.id = dict.value(forKey: "id") as! String
+                        for i in 0..<self.readingArr.count {
+                            let objCarPlan = (self.readingArr[i] as? CarePlanFrequencyObj)!
+                            if(objCarPlan.id ==  obj.id )
+                            {
+                                self.readingArr.remove(objCarPlan)
+                                break
+                            }
+                        }
+                    }
                     
                     
                     if updateReadingArr.count == 0 {
                         self.sections = 1
                     }
-                    
+                
                     let objectArray : NSDictionary = NSDictionary(dictionary: JSON.object(forKey: "glucoseReadings") as! NSDictionary)
                     let glucoseReadingArr: NSArray = NSMutableArray(array: objectArray.object(forKey: "objectArray") as! NSArray)
                     
+                    self.addDefaultValue()
+                    self.addDefaultValueReading()
+                    
                     print(jsonArr.count)
-                    self.dynamicDoctorViewLayout(medArrCount:jsonArr.count, readingArrcount:readingArr.count , updateReadingCount: updateReadingArr.count , glucoseReadingCount: glucoseReadingArr.count)
-                    self.medicationTbl.reloadData()
+                    self.dynamicDoctorViewLayout(medArrCount:(self.medicationArray.count), readingArrcount:self.readingArr.count , updateReadingCount: updateReadingArr.count , glucoseReadingCount: glucoseReadingArr.count)
+                 //   self.medicationTbl.reloadData()
                     
                     
                 }
@@ -1495,6 +1773,7 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
             case .failure:
                 print("failure")
                 self.medicationArray = NSMutableArray()
+                self.readingArr = NSMutableArray()
                  SVProgressHUD.showError(withStatus: response.result.error?.localizedDescription)
                 break
                 
@@ -1525,6 +1804,7 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
             case .success:
                 
                 self.medicationArray = NSMutableArray()
+                self.readingArr = NSMutableArray()
                 if let JSON: NSDictionary = response.result.value! as? NSDictionary {
                     self.summaryTxtArray.removeAllObjects()
                     self.summaryTxtArray.add(JSON.object(forKey: "patientName") as! String)
@@ -1537,19 +1817,44 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
                     print(jsonArr.count)
                     let objectArray : NSDictionary = NSDictionary(dictionary: JSON.object(forKey: "glucoseReadings") as! NSDictionary)
                     let glucoseReadingArr: NSArray = NSMutableArray(array: objectArray.object(forKey: "objectArray") as! NSArray)
-                    let readingArr : NSMutableArray = NSMutableArray(array:JSON.object(forKey: "readingsTime") as! NSArray)
-                    print(readingArr.count)
+                    //let readingArr : NSMutableArray = NSMutableArray(array:JSON.object(forKey: "readingsTime") as! NSArray)
+                    print(self.readingArr.count)
                     for data in jsonArr {
                         let dict: NSDictionary = data as! NSDictionary
                         let obj = CarePlanObj()
                         obj.id = dict.value(forKey: "_id") as! String
                         obj.name = dict.value(forKey: "name") as! String
+                        if let timingArray: NSArray = dict.value(forKey: "timing") as? NSArray{
+                            for timing in timingArray{
+                                let tempDict: NSDictionary = timing as! NSDictionary
+                                obj.dosage.append(tempDict.value(forKey:"dosage") as! Int)
+                                obj.condition.append(tempDict.value(forKey:"condition") as! String)
+                            }
+                        }
                      
                         self.medicationArray.add(obj)
                     }
                     
-                    self.dynamicEducatorDoctorViewLayout(medArrCount:jsonArr.count, readingArrcount: readingArr.count, glucoseReadingCount:glucoseReadingArr.count)
-                    self.medicationTbl.reloadData()
+                    self.addDefaultValue()
+                    
+                    let jsonArrRead : NSMutableArray = NSMutableArray(array:JSON.object(forKey: "readingsTime") as! NSArray)
+                    
+                    
+                    for data in jsonArrRead {
+                        let dict: NSDictionary = data as! NSDictionary
+                        let obj = CarePlanFrequencyObj()
+                        obj.id = dict.value(forKey: "_id") as! String
+                        obj.goal = dict.value(forKey: "goal") as! String
+                        obj.time = dict.value(forKey: "time") as! String
+                        obj.frequency = dict.value(forKey: "frequency") as! String
+                        
+                        self.readingArr.add(obj)
+                    }
+                    
+                    self.addDefaultValueReading()
+
+                    self.dynamicEducatorDoctorViewLayout(medArrCount:(self.medicationArray.count), readingArrcount: self.readingArr.count, glucoseReadingCount:glucoseReadingArr.count)
+                   // self.medicationTbl.reloadData()
                     SVProgressHUD.dismiss()
                 }
                 
@@ -1586,13 +1891,13 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
             
             
             
-            var actionSegment = String()
-//            if actionSegmentControl.selectedSegmentIndex == 0 {
-//                actionSegment = "No Change".localized
-//            }
-//            else {
-//                actionSegment = "Changes made".localized
-//            }
+           // var actionSegment = String()
+           /* if actionSegmentControl.selectedSegmentIndex == 0 {
+                actionSegment = "No Change".localized
+            }
+            else {
+                actionSegment = "Changes made".localized
+            }*/
             
             let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
             let educatorID = UserDefaults.standard.string(forKey: userDefaults.loggedInUserID)! as String
@@ -1619,14 +1924,18 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
                 "isApproved": false,
                 "isDeclined" :false,
                 "updatedmeds" : editCurrentMedArray,
+                "deletedmeds" : deleteNewCurrentMedArray,
+                "newmedadd": addNewCurrentMedArray,
                 "updatedread" : editCurrentReadArray,
+                "newreadarray":addNewCurrentReadArray,
+                "readdeleted":deleteNewCurrentReadArray,
                 "comment" : educatorCommentTxtViw.text,
-                "action":actionSegment,
+                // "action":actionSegment,
                 "hcNumber": "",
                 "hba":"",
                 "badgeCounter": totalBadgeCounter
             ]
-            
+           // \(baseUrl)\(ApiMethods.saveEducatorReport)
             Alamofire.request("\(baseUrl)\(ApiMethods.saveEducatorReport)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
            
                 
@@ -1640,6 +1949,10 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
                     UserDefaults.standard.setValue(NSArray(), forKey: "currentEditMedicationArray")
                     UserDefaults.standard.setValue(NSArray(), forKey: "currentAddMedicationArray")
                     UserDefaults.standard.setValue(NSArray(), forKey: "updateReadingCareArray")
+                    UserDefaults.standard.setValue(NSArray(), forKey: "currentAddNewMedicationArray")
+                    UserDefaults.standard.setValue(NSArray(), forKey: "currentDeleteReadingArray")
+                    UserDefaults.standard.setValue(NSArray(), forKey: "currentAddReadingArray")
+                    UserDefaults.standard.setValue(NSArray(), forKey: "currentEditReadingCareArray")
                     UserDefaults.standard.synchronize()
 
                     if let JSON: NSDictionary = response.result.value! as? NSDictionary {
@@ -1680,42 +1993,229 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
         self.navigationController?.popViewController(animated: true)
     }
     
+    
+    func addDefaultValueReading(){
+        
+        let arrEdit : NSArray = UserDefaults.standard.array(forKey: "currentEditReadingCareArray")! as [Any] as NSArray
+        let jsonArrUpdatedRead = NSMutableArray(array: arrEdit)
+        //Update current medication if educator updated
+        if jsonArrUpdatedRead.count > 0 {
+            for data1 in jsonArrUpdatedRead{
+                
+                let dict: NSDictionary = data1 as! NSDictionary
+                let obj = CarePlanFrequencyObj()
+                obj.id = dict.value(forKey: "id") as! String
+                obj.frequency = dict.value(forKey: "frequency") as! String
+                obj.time = dict.value(forKey: "time") as! String
+                obj.goal = dict.value(forKey: "goal") as! String
+                
+                
+                
+                for i in 0..<self.readingArr.count {
+                    let objCarPlan = (self.readingArr[i] as? CarePlanFrequencyObj)!
+                    if(objCarPlan.id ==  obj.id )
+                    {
+                        self.readingArr.replaceObject(at: i, with: obj)
+                        break
+                    }
+                }
+            }
+            
+        }
+        
+        let arrNew : NSArray = UserDefaults.standard.array(forKey: "currentAddReadingArray")! as [Any] as NSArray
+        let jsonArrNewRead = NSMutableArray(array: arrNew)
+        //Add new medication if educator added
+        if jsonArrNewRead.count > 0 {
+            
+            for data in jsonArrNewRead {
+                let dict: NSDictionary = data as! NSDictionary
+                let obj = CarePlanFrequencyObj()
+                //  obj.id = dict.value(forKey: "_id") as! String
+                obj.frequency = dict.value(forKey: "frequency") as! String
+                obj.goal = dict.value(forKey: "goal") as! String
+                obj.time = dict.value(forKey: "time") as! String
+                
+                self.readingArr.add(obj)
+            }
+        }
+        
+        //Delete Medication Data From the cashe
+        
+        let arrDelete : NSArray = UserDefaults.standard.array(forKey: "currentDeleteReadingArray")! as [Any] as NSArray
+        let jsonArrDeleteNewRead = NSMutableArray(array: arrDelete)
+        
+        for data1 in jsonArrDeleteNewRead{
+            let dict: NSDictionary = data1 as! NSDictionary
+            let obj = CarePlanFrequencyObj()
+            obj.id = dict.value(forKey: "id") as! String
+            for i in 0..<self.readingArr.count {
+                let objCarPlan = (self.readingArr[i] as? CarePlanFrequencyObj)!
+                if(objCarPlan.id ==  obj.id )
+                {
+                    self.readingArr.remove(objCarPlan)
+                    break
+                }
+            }
+        }
+    }
+    
+    
+    func addDefaultValue ()
+    {
+        //Update Edited Objects
+        let arrEdit : NSArray = UserDefaults.standard.array(forKey: "currentEditMedicationArray")! as [Any] as NSArray
+        let editMedArray = NSMutableArray(array: arrEdit)
+        for data1 in editMedArray{
+            
+            let dict: NSDictionary = data1 as! NSDictionary
+            let obj = CarePlanObj()
+            obj.id = dict.value(forKey: "id") as! String
+            obj.name = dict.value(forKey: "name") as! String
+            if let medtype = dict.value(forKey: "type"){
+                obj.type =  medtype as! String
+            }
+            else{
+                obj.type =  ""
+            }
+            obj.isNew = false
+            obj.isEdit = false
+            
+            for data in dictMedicationList {
+                if let medication = data as? medicationObj {
+                    if(medication.medicineName == obj.name)
+                    {
+                        let imagePath = "http://54.212.229.198:3000/upload/" + medication.medicineImage
+                        obj.strImageURL = imagePath
+                        
+                    }
+                }
+            }
+            if let timingArray: NSArray = dict.value(forKey: "timing") as? NSArray{
+                for timing in timingArray{
+                    let tempDict: NSDictionary = timing as! NSDictionary
+                    obj.dosage.append(tempDict.value(forKey:"dosage") as! Int)
+                    obj.condition.append(tempDict.value(forKey:"condition") as! String)
+                }
+            }
+            for i in 0..<self.medicationArray.count {
+                let objCarPlan = (self.medicationArray[i] as? CarePlanObj)!
+                if(objCarPlan.id ==  obj.id )
+                {
+                    self.medicationArray.replaceObject(at: i, with: obj)
+                    break
+                }
+            }
+        }
+        
+        //Add Medication Data From the cache
+        let tempAddArray : NSArray = UserDefaults.standard.array(forKey: "currentAddNewMedicationArray")! as [Any] as NSArray
+        let addMedArray = NSMutableArray(array: tempAddArray)
+        
+        for data1 in addMedArray{
+            let dict: NSDictionary = data1 as! NSDictionary
+            let obj = CarePlanObj()
+            obj.id = dict.value(forKey: "id") as! String
+            obj.name = dict.value(forKey: "name") as! String
+            if let medtype = dict.value(forKey: "type"){
+                obj.type =  medtype as! String
+            }
+            else{
+                obj.type =  ""
+            }
+            obj.isNew = false
+            obj.isEdit = false
+            
+            for data in dictMedicationList {
+                if let medication = data as? medicationObj {
+                    if(medication.medicineName == obj.name)
+                    {
+                        let imagePath = "http://54.212.229.198:3000/upload/" + medication.medicineImage
+                        obj.strImageURL = imagePath
+                        
+                    }
+                }
+            }
+            if let timingArray: NSArray = dict.value(forKey: "timing") as? NSArray{
+                for timing in timingArray{
+                    let tempDict: NSDictionary = timing as! NSDictionary
+                    obj.dosage.append(tempDict.value(forKey:"dosage") as! Int)
+                    obj.condition.append(tempDict.value(forKey:"condition") as! String)
+                }
+            }
+            self.medicationArray.add(obj)
+        }
+        
+        //Delete Medication Data From the cache
+        let tempDeleteArray : NSArray = UserDefaults.standard.array(forKey: "currentDeleteMedicationArray")! as [Any] as NSArray
+        let deleteMedArray = NSMutableArray(array: tempDeleteArray)
+        for data1 in deleteMedArray{
+            let dict: NSDictionary = data1 as! NSDictionary
+            let obj = CarePlanObj()
+            obj.id = dict.value(forKey: "id") as! String
+            for i in 0..<self.medicationArray.count {
+                let objCarPlan = (self.medicationArray[i] as? CarePlanObj)!
+                if(objCarPlan.id ==  obj.id )
+                {
+                    self.medicationArray.remove(objCarPlan)
+                    break
+                }
+            }
+        }
+    }
+    func calculateMedHeight() -> CGFloat
+    {
+        var medHeight = 0
+        for i in 0..<self.medicationArray.count {
+            if let obj: CarePlanObj = self.medicationArray[i] as? CarePlanObj {
+                let addHeight = (obj.dosage.count-1) * 45
+                medHeight = Int(CGFloat(medHeight) +  CGFloat(105 + addHeight))
+            }
+            else
+            {
+                medHeight = medHeight +  105
+            }
+        }
+        
+        return CGFloat(medHeight)
+    }
      // MARK: - Dynamic  Constraints Methods
     func dynamicEducatorDoctorViewLayout(medArrCount : Int , readingArrcount: Int , glucoseReadingCount : Int)
     {
         //        glucoseReadingLayoutConstraint.constant = CGFloat((glucoseReadingCount * 60) + 200)
         //        self.medicationView.setY(y:glucoseReadingView.frame.origin.y + glucoseReadingLayoutConstraint.constant)
         if medArrCount > 0 {
-            self.medicationViewHeight.constant = CGFloat((medArrCount * 63) + 49)
+            self.medicationViewHeight.constant = CGFloat(self.calculateMedHeight() + 49)
+            self.vwMedicationContainerHeightConstraint.constant = CGFloat(self.calculateMedHeight())
+            self.currentMedicationsLabelHeightConstraint.constant = 35
+            self.vwMedicationContainerTopConstraint.constant = 1
         }
         else {
-            self.medicationViewHeight.constant = 0.0
+            self.medicationViewHeight.constant = self.currentMedicationsLabelHeightConstraint.constant + self.currentMedicationsLabel.frame.origin.y
+             self.currentMedicationsLabelHeightConstraint.constant = 35
+               self.vwMedicationContainerHeightConstraint.constant = 0
         }
+        self.vwMedicationContainer.updateConstraintsIfNeeded()
         if readingArrcount > 0{
             self.readingScheduleView.setY(y: self.medicationView.frame.origin.y +  self.medicationViewHeight.constant)
-            currentReadingContainerHeight.constant   = CGFloat((readingArrcount * 55)) ;
+            currentReadingContainerHeight.constant   = CGFloat(((readingArrcount * 50) + 130))
             newReadingContainerHeight.constant = 0.0
             newRedEditConstraint.constant = 0.0
-            readingScheduleHeightConstraint.constant = currentReadingContainerHeight.constant + 95
+            readingScheduleHeightConstraint.constant = CGFloat(((readingArrcount * 50) + 130))
         }
         else {
+            
             self.readingScheduleView.setY(y: self.medicationView.frame.origin.y +  self.medicationViewHeight.constant)
-            currentReadingContainerHeight.constant   = 0.0 ;
+            currentReadingContainerHeight.constant   = self.currentReadingTitleLabel.frame.height + self.currentReadingTitleLabel.frame.origin.y
             newReadingContainerHeight.constant = 0.0
             newRedEditConstraint.constant = 0.0
-            readingScheduleHeightConstraint.constant = 0.0 ;
+            readingScheduleHeightConstraint.constant = self.currentReadingTitleLabel.frame.height + self.currentReadingTitleLabel.frame.origin.y
             
         }
-       
         educatorViewHeightConstraint.constant = 0.0
-        commentsByEducatorHeightConstraint.constant = 0
-        lblCommentByEducatorHeight.constant = 0
-        doctorActionView.frame.size.height = AcceptDeclineViewHeight.constant
-        let rect = CGRect(x: doctorActionView.frame.origin.x, y: doctorActionView.frame.origin.y, width: doctorActionView.frame.size.width, height: doctorActionView.frame.size.height)
-        doctorActionView.frame = rect
-        print(rect)
+        
         self.doctorActionView.setY(y: readingScheduleView.frame.origin.y + readingScheduleHeightConstraint.constant)
-        scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: doctorActionView.frame.origin.y + doctorActionView.frame.size.height+10)
+        scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: doctorActionView.frame.origin.y + doctorActionView.frame.size.height)
         print( doctorActionView.frame.origin.y)
     }
     
@@ -1724,25 +2224,31 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
         //        glucoseReadingLayoutConstraint.constant = CGFloat((glucoseReadingCount * 60) + 200)
         //        self.medicationView.setY(y:glucoseReadingView.frame.origin.y + glucoseReadingLayoutConstraint.constant)
         if medArrCount > 0 {
-            self.medicationViewHeight.constant = CGFloat((medArrCount * 63) + 49)
+            self.medicationViewHeight.constant = CGFloat(self.calculateMedHeight() + 49)
+            self.vwMedicationContainerHeightConstraint.constant = CGFloat(self.calculateMedHeight())
+            self.currentMedicationsLabelHeightConstraint.constant = 35
+            self.vwMedicationContainerTopConstraint.constant = 1
         }
         else {
-            self.medicationViewHeight.constant = 0.0
+           self.medicationViewHeight.constant = self.currentMedicationsLabelHeightConstraint.constant + self.currentMedicationsLabel.frame.origin.y
+                self.currentMedicationsLabelHeightConstraint.constant = 35
+               self.vwMedicationContainerHeightConstraint.constant = 0
         }
+        self.vwMedicationContainer.updateConstraintsIfNeeded()
+        
         if readingArrcount > 0{
             self.readingScheduleView.setY(y: self.medicationView.frame.origin.y +  self.medicationViewHeight.constant)
-            currentReadingContainerHeight.constant   = CGFloat((readingArrcount * 55)) ;
+            currentReadingContainerHeight.constant   = CGFloat(((readingArrcount * 50) + 130)) ;
             newReadingContainerHeight.constant = 0.0
             newRedEditConstraint.constant = 0.0
-            readingScheduleHeightConstraint.constant = currentReadingContainerHeight.constant + 95
-
+            readingScheduleHeightConstraint.constant = CGFloat(((readingArrcount * 50) + 130)) ;
         }
         else {
             self.readingScheduleView.setY(y: self.medicationView.frame.origin.y +  self.medicationViewHeight.constant)
-            currentReadingContainerHeight.constant   = 0.0 ;
+            currentReadingContainerHeight.constant   = self.currentReadingTitleLabel.frame.height + self.currentReadingTitleLabel.frame.origin.y ;
             newReadingContainerHeight.constant = 0.0
             newRedEditConstraint.constant = 0.0
-            readingScheduleHeightConstraint.constant = 0.0 ;
+            readingScheduleHeightConstraint.constant = self.currentReadingTitleLabel.frame.height + self.currentReadingTitleLabel.frame.origin.y ;
             
         }
         
@@ -1755,34 +2261,43 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
     func dynamicDoctorViewLayout(medArrCount : Int , readingArrcount: Int , updateReadingCount : Int, glucoseReadingCount : Int)
     {
         if medArrCount > 0 {
-            self.medicationViewHeight.constant = CGFloat((medArrCount * 63) + 49)
+            self.medicationViewHeight.constant = CGFloat(self.calculateMedHeight() + 49)
+            self.vwMedicationContainerHeightConstraint.constant = CGFloat(self.calculateMedHeight())
+            self.currentMedicationsLabelHeightConstraint.constant = 35
+            self.vwMedicationContainerTopConstraint.constant = 1
         }
         else {
-            self.medicationViewHeight.constant = 0.0
+              self.medicationViewHeight.constant = self.currentMedicationsLabelHeightConstraint.constant + self.currentMedicationsLabel.frame.origin.y
+             self.currentMedicationsLabelHeightConstraint.constant = 35
+            self.vwMedicationContainerHeightConstraint.constant = 0
         }
+        self.vwMedicationContainer.updateConstraintsIfNeeded()
         self.readingScheduleView.setY(y: self.medicationView.frame.origin.y +  self.medicationViewHeight.constant)
         if readingArrcount == 0 {
-            currentReadingContainerHeight.constant   = 0.0
+
+            currentReadingContainerHeight.constant   = self.currentReadingTitleLabel.frame.height + self.currentReadingTitleLabel.frame.origin.y ;
+            newReadingContainerHeight.constant = 0.0
+            newRedEditConstraint.constant = 0.0
+            readingScheduleHeightConstraint.constant = self.currentReadingTitleLabel.frame.height + self.currentReadingTitleLabel.frame.origin.y ;
             
         }
-        else  if updateReadingCount == 0 {
-            
-            newReadingContainerHeight.constant = 0.0
-            newRedEditConstraint.constant = 0.0        }
-            
         else  {
             
-            currentReadingContainerHeight.constant   = CGFloat((readingArrcount * 160) + 50) ;
-            newReadingContainerHeight.constant = CGFloat((updateReadingCount * 160)) ;
-            
-            
+            currentReadingContainerHeight.constant   = CGFloat(((readingArrcount * 50) + 130)) ;
+            newReadingContainerHeight.constant = 0.0
+            newRedEditConstraint.constant = 0.0
+            readingScheduleHeightConstraint.constant = CGFloat(((readingArrcount * 50) + 130)) ;
         }
+        //Hide newReadingContainerHeight right now
+//        readingScheduleHeightConstraint.constant = self.currentReadingContainerHeight.constant 
         
-        readingScheduleHeightConstraint.constant = self.currentReadingContainerHeight.constant + newReadingContainerHeight.constant
+//        readingScheduleHeightConstraint.constant = self.currentReadingContainerHeight.constant + newReadingContainerHeight.constant
+       
         educatorViewHeightConstraint.constant = 0.0
+        
         self.doctorActionView.setY(y: readingScheduleView.frame.origin.y + readingScheduleHeightConstraint.constant)
         scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: doctorActionView.frame.origin.y + doctorActionView.frame.size.height)
-        print( educatorActionView.frame.origin.y)
+        print( doctorActionView.frame.origin.y)
         
     }
     

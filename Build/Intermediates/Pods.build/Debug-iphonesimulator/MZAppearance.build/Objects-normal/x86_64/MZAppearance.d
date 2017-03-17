@@ -1,4 +1,4 @@
 dependencies: \
-  /Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/MZAppearance/MZAppearance/MZAppearance.m \
-  /Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/Target\ Support\ Files/MZAppearance/MZAppearance-prefix.pch \
-  /Users/IPHONE/Deepak/baljeet/diabetesapp_ios/Pods/MZAppearance/MZAppearance/MZAppearance.h
+  /Users/IPHONE/Deepak/svn_new/BaljitCode/diabetesapp/DiabetesVision/Pods/MZAppearance/MZAppearance/MZAppearance.m \
+  /Users/IPHONE/Deepak/svn_new/BaljitCode/diabetesapp/DiabetesVision/Pods/Target\ Support\ Files/MZAppearance/MZAppearance-prefix.pch \
+  /Users/IPHONE/Deepak/svn_new/BaljitCode/diabetesapp/DiabetesVision/Pods/MZAppearance/MZAppearance/MZAppearance.h

@@ -32,6 +32,16 @@ class ChartViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var chartView: UIView!
     @IBOutlet weak var readingsView: UIView!
     
+    @IBOutlet weak var aboveLegend: UILabel!
+    
+    @IBOutlet weak var medianLegend: UILabel!
+    @IBOutlet weak var normalLegend: UILabel!
+    @IBOutlet weak var redLabel: UILabel!
+    @IBOutlet weak var blueLabel: UILabel!
+    @IBOutlet weak var greenLabel: UILabel!
+    @IBOutlet weak var legendView: UIView!
+    
+    
     @IBOutlet weak var IQRLabel: UILabel!
    
     @IBOutlet weak var noHistoryAvailableLabel: UILabel!
@@ -50,6 +60,8 @@ class ChartViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     var label = UILabel()
     var noOfDays = "0"
     var selectedConditionIndex : Int = 0
+    var minLimit : Int = 0
+    var maxLimit : Int = 0
     
     @IBOutlet weak var pickerDoneButton: UIButton!
     @IBOutlet weak var pickerCancelButton: UIButton!
@@ -73,6 +85,10 @@ class ChartViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         conditionTxtFld.text = conditionsArray[0] as! String
         conditionTitle.text = "CONDITION".localized
         selectedConditionIndex = 0
+        
+        aboveLegend.text = "Above Target".localized
+        normalLegend.text = "In Range".localized
+        medianLegend.text = "Median".localized
         
         if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
             conditionTxtFld.textAlignment = .left
@@ -106,35 +122,40 @@ class ChartViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         // Dispose of any resources that can be recreated.
     }
     
+    
     func resetUICondition(dateArray: NSArray){
         if self.dataArray.count > 0 {
             self.chartView.isHidden = false
             self.readingsView.isHidden = false
             self.drawChartCondition(dateArray: dateArray)
-            
+            self.legendView.isHidden = false
             noHistoryAvailableLabel.isHidden = true
         }
         else {
             self.chartView.isHidden = true
             self.readingsView.isHidden = true
+            self.legendView.isHidden = true
             noHistoryAvailableLabel.isHidden = false
         }
     }
-
+    
     
     func resetUI(){
         if self.dataArray.count > 0 {
             self.chartView.isHidden = false
             self.readingsView.isHidden = false
             noHistoryAvailableLabel.isHidden = true
+            self.legendView.isHidden = false
             self.drawChart()
         }
         else {
             self.chartView.isHidden = true
             self.readingsView.isHidden = true
+            self.legendView.isHidden = true
             noHistoryAvailableLabel.isHidden = false
         }
     }
+
    
     //MARK: - Private Overlay Function 
     private func showOverlay(overlayView: UIView) {
@@ -285,7 +306,9 @@ class ChartViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                         //                    print("JSON")
                         // print(JSON)
                         let mainArray: NSArray = NSMutableArray(array: JSON.object(forKey: "objectArray") as! NSArray)
-                        let dateArray: NSArray = NSMutableArray(array: JSON.object(forKey: "dateArray") as! NSArray)
+                        var dateArray: NSArray = NSMutableArray(array: JSON.object(forKey: "dateArray") as! NSArray)
+                        self.minLimit = JSON.object(forKey: "minLimit") as! Int
+                        self.maxLimit = JSON.object(forKey: "maxLimit") as! Int
                         //self.hba1cValue = JSON.object(forKey: "hba1cValue") as! CGFloat
                         //self.hba1cDate = JSON.object(forKey: "hba1cCreated") as! String
                         
@@ -301,8 +324,13 @@ class ChartViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                                     //  print("Readings Array")
                                     // print(readingsArray)
                                     var data: [CGFloat] = []
-                                    for i in 0..<dateArray.count {
+                                      //QUICK HACK TO SKIP 0 INDEX FOR X-COORDINATE
+                                    for j in 0..<(dateArray.count+1)
+                                    {
                                         data.append(0)
+                                    }
+                                    for i in 0..<(dateArray.count+1) {
+                                        //data.append(0)
                                         
                                         for dict in readingsArray {
                                             
@@ -310,7 +338,7 @@ class ChartViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                                             let conditionIndex: Int = ob.value(forKey: "dateIndex")! as! Int
                                             
                                             if conditionIndex != -1 && i == conditionIndex {
-                                                data[i] = ob.value(forKey: "reading")! as! CGFloat
+                                                data[i+1] = ob.value(forKey: "reading")! as! CGFloat
                                                 //commeented the break so that we can select the last value for a given index
                                                 //                                            break
                                             }
@@ -322,6 +350,12 @@ class ChartViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                             }
                             print("Data Array")
                             print(self.dataArray)
+                            //QUICK HACK TO SKIP 0 INDEX FOR X-COORDINATE
+                            var tempArray : NSMutableArray = []
+                            tempArray.add("")
+                            tempArray.addObjects(from: (dateArray as! NSArray) as! [Any])
+                            dateArray = tempArray as! NSArray
+                           // dateArray.adding("")
                             self.resetUICondition(dateArray: dateArray)
                             //self.resetUI()
                         }
@@ -603,6 +637,19 @@ class ChartViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         readingsView.layer.borderColor = Colors.PrimaryColor.cgColor
         readingsView.layer.masksToBounds = true
         
+        legendView.layer.cornerRadius = kButtonRadius
+        legendView.layer.borderWidth = 1
+        legendView.layer.borderColor = Colors.PrimaryColor.cgColor
+        legendView.layer.masksToBounds = true
+        
+        
+        redLabel.layer.cornerRadius = 5
+        redLabel.layer.masksToBounds = true
+        blueLabel.layer.cornerRadius = 5
+        blueLabel.layer.masksToBounds = true
+        greenLabel.layer.cornerRadius = 5
+        greenLabel.layer.masksToBounds = true
+        
         addNotifications()
     }
     
@@ -725,8 +772,8 @@ class ChartViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             dataMedianArray.add(tempArray)
         }
         
-        medianMaxData.append((Double(0),Double(180)))
-        medianMinData.append((Double(0),Double(80)))
+        medianMaxData.append((Double(0),Double(maxLimit)))
+        medianMinData.append((Double(0),Double(minLimit)))
         
         for dataM in dataMedianArray
         {
@@ -755,8 +802,8 @@ class ChartViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                 {
                     medianLineData.append((Double(medianIndex),Double(median)))
                 }
-                medianMaxData.append((Double(medianIndex),Double(180)))
-                medianMinData.append((Double(medianIndex),Double(80)))
+                medianMaxData.append((Double(medianIndex),Double(maxLimit)))
+                medianMinData.append((Double(medianIndex),Double(minLimit)))
                 medianIndex += 1
                 
             }
@@ -768,8 +815,8 @@ class ChartViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                     medianLineData.append((Double(medianIndex),Double(dataSorted[0])))
                     
                 }
-                medianMaxData.append((Double(medianIndex),Double(180)))
-                medianMinData.append((Double(medianIndex),Double(80)))
+                medianMaxData.append((Double(medianIndex),Double(maxLimit)))
+                medianMinData.append((Double(medianIndex),Double(minLimit)))
                 medianIndex += 1
                 
             }
@@ -792,11 +839,11 @@ class ChartViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             for i in 0..<dataAr.count{
                 if(dataAr[i] != 0.0)
                 {
-                    if(dataAr[i] < 70.2)
+                    if(dataAr[i] < CGFloat(minLimit))
                     {
                         models.append((Double(i),Double(dataAr[i]), .type4))
                     }
-                    else if(dataAr[i] > 180.0)
+                    else if(dataAr[i] > CGFloat(maxLimit))
                     {
                         models.append((Double(i),Double(dataAr[i]), .type4))
                     }
@@ -817,7 +864,7 @@ class ChartViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         var maxVal = (maxMedian?.y)! + roundVal
         maxVal = maxVal >= 180 ? maxVal : 200
         //        maxVal = maxVal + 50
-        maxVal = 320
+        maxVal = 400
         
         let labelSettings = ChartLabelSettings(font:UIFont(name: "Helvetica", size: 12)!)
         
@@ -844,7 +891,7 @@ class ChartViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         let scatterLayers = self.toLayers(models, layerSpecifications: layerSpecifications, xAxis: xAxis, yAxis: yAxis, chartInnerFrame: innerFrame)
         
         //set guide lines
-        let guidelinesLayerSettings = ChartGuideLinesDottedLayerSettings(linesColor: UIColor.lightGray, linesWidth: 1.5)
+        let guidelinesLayerSettings = ChartGuideLinesDottedLayerSettings(linesColor: UIColor(red: 214.0/255.0, green: 214.0/255.0, blue: 214.0/255.0, alpha: 1.0), linesWidth: 1.5)
         let guidelinesLayer = ChartGuideLinesDottedLayer(xAxis: xAxis, yAxis: yAxis, innerFrame: innerFrame, settings: guidelinesLayerSettings)
         
         //        print("Median Line Data")
@@ -1014,7 +1061,7 @@ class ChartViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         var maxVal = (maxMedian?.y)! + roundVal
         maxVal = maxVal >= 180 ? maxVal : 200
 //        maxVal = maxVal + 50
-        maxVal = 320
+        maxVal = 400
         
         let labelSettings = ChartLabelSettings(font:UIFont(name: "Helvetica", size: 12)!)
         
@@ -1043,7 +1090,7 @@ class ChartViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         let scatterLayers = self.toLayers(models, layerSpecifications: layerSpecifications, xAxis: xAxis, yAxis: yAxis, chartInnerFrame: innerFrame)
         
         //set guide lines
-        let guidelinesLayerSettings = ChartGuideLinesDottedLayerSettings(linesColor: UIColor.darkGray, linesWidth: 1.5)
+        let guidelinesLayerSettings = ChartGuideLinesDottedLayerSettings(linesColor: UIColor(red: 214.0/255.0, green: 214.0/255.0, blue: 214.0/255.0, alpha: 1.0), linesWidth: 1.5)
         let guidelinesLayer = ChartGuideLinesDottedLayer(xAxis: xAxis, yAxis: yAxis, innerFrame: innerFrame, settings: guidelinesLayerSettings)
         
 //        print("Median Line Data")

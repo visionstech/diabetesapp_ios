@@ -15,4 +15,8 @@ class CarePlanFrequencyObj: NSObject {
     var frequency = String()
     var goal      = String()
     var isEdit    = Bool()
+    var updatedBy = String()
+    var tempIndex = Int()
+    var wasUpdated = Bool()
+    var updatedDate = String()
 }
