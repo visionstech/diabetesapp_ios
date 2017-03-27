@@ -16,7 +16,7 @@ class CarePlanMedicationTableViewCell: UITableViewCell {
     @IBOutlet weak var medNameLbl: UILabel!
     
     @IBOutlet weak var medicineNameTxtFld: AutocompleteSearchTextField!
-    
+    @IBOutlet weak var csDeleteLeadingSpace: NSLayoutConstraint!
     @IBOutlet weak var vwDetail: UIView!
     @IBOutlet weak var imgCarBg: UIImageView!
     @IBOutlet weak var conditionNameLbl: UILabel!
@@ -24,6 +24,7 @@ class CarePlanMedicationTableViewCell: UITableViewCell {
    
     @IBOutlet weak var btnConditionDelete: UIButton!
     @IBOutlet weak var dosageTxtFld: UITextField!
+    @IBOutlet weak var condTxtFld: UITextField!
     @IBOutlet weak var addMedicationView: UIView!
     @IBOutlet weak var editBtn: UIButton!
     @IBOutlet weak var deleteBtn: UIButton!
@@ -65,10 +66,6 @@ class CarePlanMedicationTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        mainView.layer.cornerRadius = 8
-        mainView.layer.borderColor = Colors.DHAddConditionBg.cgColor
-        mainView.layer.borderWidth = 1.5
-     
         // Left margins
         setleftpadding(textfield: dosageTxtFld)
         if medicineNameTxtFld != nil {
@@ -84,12 +81,6 @@ class CarePlanMedicationTableViewCell: UITableViewCell {
         }
     }
 
-//    override func draw(_ rect: CGRect) {
-//        mainView.layer.cornerRadius = 8
-//        mainView.layer.borderColor = Colors.DHAddConditionBg.cgColor
-//        mainView.layer.borderWidth = 1.5
-//        
-//    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

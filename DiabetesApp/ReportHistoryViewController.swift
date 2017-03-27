@@ -92,7 +92,7 @@ class ReportHistoryViewController: UIViewController, UITableViewDataSource, UITa
     override func viewDidAppear(_ animated: Bool) {
         selectedConditionIndex = 0
        // getDoctorSingleReadingHistory(condition: conditionsArray[0] as! String)
-        noOfDays = "0"
+        noOfDays = "13"
         conditionTxtFld.text = conditionsArray[0] as! String
         resetUI()
         

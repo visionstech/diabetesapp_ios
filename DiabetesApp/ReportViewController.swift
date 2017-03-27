@@ -31,6 +31,7 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
     @IBOutlet weak var patientImage: UIImageView!
     @IBOutlet weak var summaryTextLabel: UILabel!
     
+    @IBOutlet weak var summaryView: UIView!
     @IBOutlet weak var summaryTbl: UITableView!
     @IBOutlet weak var glucoseReadingView: UIView!
     
@@ -103,6 +104,22 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
     @IBOutlet weak var vwMedicationContainerHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var vwMedicationContainerTopConstraint: NSLayoutConstraint!
     
+    //Summary Top Constraint
+    @IBOutlet weak var csSummaryViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var csSummaryHeaderHeight: NSLayoutConstraint!
+    @IBOutlet weak var btnSummarayOpen: UIButton!
+    
+    //Glucose Top Constraint
+    @IBOutlet weak var csGlucoseViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var csGlucoseHeaderHeight: NSLayoutConstraint!
+    @IBOutlet weak var btnGlucoseOpen: UIButton!
+    
+    //Medication Top Constraint
+    @IBOutlet weak var btnMedicationOpen: UIButton!
+    
+    //Reading Top Constraint
+    @IBOutlet weak var btnReadingOpen: UIButton!
+    
     var sections = Int()
     var editButton: UIButton!
     var approveTextView = UITextView()
@@ -139,6 +156,9 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
     var totalBadgeCounter =  Int()
     var newImageView : UIImageView = UIImageView()
     
+    var medicationHeight =  Int()
+    var readingViewHeight =  Int()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setNavBarUI()
@@ -151,9 +171,18 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
         self.hideKeyboardWhenTappedAround()
         self.addDoneButtonOnKeyboard()
         
+        if selectedUserType == userType.doctor && !UserDefaults.standard.bool(forKey: "groupChat"){
+            btnSummarayOpen.isSelected = false
+        }
+        
        //Keyboard Appear and disappear
         NotificationCenter.default.addObserver(self, selector: #selector(ReportViewController.keyboardWillAppear(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(ReportViewController.keyboardWillDisappear(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(ReportViewController.MedicationHeight(notification:)), name: NSNotification.Name(rawValue: "MedicationHeightReportView"), object: nil)
+         NotificationCenter.default.addObserver(self, selector: #selector(ReportViewController.readingHeight(notification:)), name: NSNotification.Name(rawValue: "ReadingHeightReportView"), object: nil)
+        
+        
         
         newReadingViewContainer.isHidden = true
         educatorCommentTxtViw.text = "Please add comments to justify your decision".localized
@@ -252,7 +281,7 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
                 approveLabel.alpha = 0.25
                 
                 approveLabel.setTitle("Save Changes".localized, for: .normal)
-                declineLabel.setTitle(("Cancel".uppercased()).localized, for: .normal)
+                declineLabel.setTitle("REPORT_CANCEL".localized, for: .normal)
                
                 doctorCommentTextView.isHidden = true
                 commentEducatorLabelHeight.constant = 0
@@ -336,7 +365,7 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
         segmentControl.layer.borderColor = Colors.PrimaryColor.cgColor
         segmentControl.layer.borderWidth = 1
         segmentControl.layer.masksToBounds = true
-        
+        segmentControl.selectedSegmentIndex = 2
         
         readingTypeSegmentControl.setTitle("List View".localized, forSegmentAt: 0)
         readingTypeSegmentControl.setTitle("Chart View".localized, forSegmentAt: 1)
@@ -484,7 +513,7 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
     
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        setBackgroundColor()
         oldCurrentMedArray.removeAllObjects()
         let defaults = UserDefaults.standard
         editCurrentMedArray = defaults.array(forKey: "currentEditMedicationArray")! as [Any] as NSArray
@@ -497,7 +526,7 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
         editCurrentReadArray = defaults.array(forKey: "currentEditReadingCareArray")! as [Any] as NSArray
         addNewCurrentReadArray = defaults.array(forKey: "currentAddReadingArray")! as [Any] as NSArray
         deleteNewCurrentReadArray = defaults.array(forKey: "currentDeleteReadingArray")! as [Any] as NSArray
-        
+        //segmentControl.selectedSegmentIndex = 2
         if UserDefaults.standard.bool(forKey: "groupChat")  {
             if selectedUserType == userType.doctor{
                 if editCurrentMedArray.count > 0 || editCurrentReadArray.count > 0 || addNewCurrentMedArray.count > 0 ||
@@ -628,7 +657,9 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
         UserDefaults.standard.setValue(NSArray(), forKey: "currentAddMedicationArray")
         UserDefaults.standard.setValue(NSArray(), forKey: "updateReadingCareArray")
         UserDefaults.standard.setValue(NSArray(), forKey: "repoMediArray")
+        UserDefaults.standard.setValue(NSArray(), forKey: "repoOldMediArray")
         UserDefaults.standard.setValue(NSArray(), forKey: "repoReadiArray")
+        UserDefaults.standard.setValue(NSArray(), forKey: "repoOldReadiArray")
         
         UserDefaults.standard.setValue(NSArray(), forKey: "currentDeleteReadingArray")
         UserDefaults.standard.setValue(NSArray(), forKey: "currentAddReadingArray")
@@ -649,6 +680,26 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
 
         keyboardResize(notification: notification)
     }
+    func MedicationHeight(notification: NSNotification) {
+        
+        guard let userInfo = notification.userInfo,
+        let height  = userInfo["height"] as? CGFloat else{
+            return
+        }
+        
+        self.medicationHeight =  Int(CGFloat(height + 49))
+        self.setViewExpanable()
+    }
+    func readingHeight(notification: NSNotification) {
+        
+        guard let userInfo = notification.userInfo,
+            let height  = userInfo["height"] as? CGFloat else{
+                return
+        }
+        
+        self.readingViewHeight =  Int(CGFloat(height + 49))
+        self.setViewExpanable()
+    }
     
     func keyboardResize(notification: NSNotification) {
         UIView.animate(withDuration: 0.5, animations: { () -> Void in
@@ -668,15 +719,185 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
         let bottomOffset = CGPoint(x: 0, y: scrollView.contentSize.height - scrollView.bounds.size.height)
         scrollView.setContentOffset(bottomOffset, animated: false)
     }
+    // MARK: - SetExpanable View
+    func setViewExpanable()
+    {
+        UIView.animate(withDuration: 0.5, animations: { () -> Void in
+            if(self.btnSummarayOpen.isSelected)
+            {
+                self.csSummaryViewHeight.constant = 216
+            }
+            else
+            {
+                self.csSummaryViewHeight.constant = 42
+            }
+            self.glucoseReadingView.setY(y: self.csSummaryViewHeight.constant + self.summaryView.frame.origin.y)
+            if(self.btnGlucoseOpen.isSelected)
+            {
+                self.glucoseReadingLayoutConstraint.constant = 660
+            }
+            else
+            {
+                self.glucoseReadingLayoutConstraint.constant = 42
+            }
+            self.medicationView.setY(y: self.glucoseReadingLayoutConstraint.constant + self.glucoseReadingView.frame.origin.y)
+            if(self.btnMedicationOpen.isSelected)
+            {
+                self.medicationViewHeight.constant = CGFloat(self.medicationHeight)
+            }
+            else
+            {
+                self.medicationViewHeight.constant = 44
+            }
+            self.readingScheduleView.setY(y: self.medicationViewHeight.constant + self.medicationView.frame.origin.y
+            )
+            
+            if(self.btnReadingOpen.isSelected)
+            {
+                self.currentReadingContainerHeight.constant = CGFloat(self.readingViewHeight + 10)
+                self.readingScheduleHeightConstraint.constant = CGFloat(self.readingViewHeight  + 10)
+           
+            }
+            else
+            {
+                self.readingScheduleHeightConstraint.constant = 44
+                 self.currentReadingContainerHeight.constant =  44
+            }
+            
+            if !UserDefaults.standard.bool(forKey: "groupChat")  {
+                self.educatorViewHeightConstraint.constant = 0.0
+                
+                self.doctorActionView.setY(y: self.readingScheduleView.frame.origin.y + self.readingScheduleHeightConstraint.constant + 10)
+                self.scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: self.doctorActionView.frame.origin.y + self.doctorActionView.frame.size.height + 15)
+                print( self.doctorActionView.frame.origin.y)
+            }
+            else
+            {
+                if self.selectedUserType == userType.doctor {
+                    self.educatorViewHeightConstraint.constant = 0.0
+                    
+                    self.doctorActionView.setY(y: self.readingScheduleView.frame.origin.y + self.readingScheduleHeightConstraint.constant + 10)
+                    self.scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: self.doctorActionView.frame.origin.y + self.doctorActionView.frame.size.height + 15)
+                    print( self.doctorActionView.frame.origin.y)
+                }
+                else
+                {
+                    self.educatorActionView.setY(y: self.readingScheduleView.frame.origin.y + self.readingScheduleHeightConstraint.constant + 10)
+                    
+                    self.scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: self.educatorActionView.frame.origin.y + self.educatorActionView.frame.size.height + 15)
+                }
+            }
+          
+            
+        })
+    }
+    func setBackgroundColor()
+    {
+        if(self.btnSummarayOpen.isSelected)
+        {
+            self.summaryTextLabel.backgroundColor = Colors.DHTabBarGreen
+        }
+        else
+        {
+            self.summaryTextLabel.backgroundColor =  Colors.PrimaryColor
+        }
+        
+        if(self.btnGlucoseOpen.isSelected)
+        {
+            self.glucoseReadingLabel.backgroundColor = Colors.DHTabBarGreen
+        }
+        else
+        {
+             self.glucoseReadingLabel.backgroundColor =  Colors.PrimaryColor
+        }
+        
+        if(self.btnMedicationOpen.isSelected)
+        {
+           self.currentMedicationsLabel.backgroundColor = Colors.DHTabBarGreen
+        }
+        else
+        {
+             self.currentMedicationsLabel.backgroundColor =  Colors.PrimaryColor
+        }
+        
+        if(self.btnReadingOpen.isSelected)
+        {
+            self.currentReadingTitleLabel.backgroundColor = Colors.DHTabBarGreen
+        }
+        else
+        {
+            self.currentReadingTitleLabel.backgroundColor =  Colors.PrimaryColor
+        }
+        
+    }
     
     // MARK: - IBAction Methods
+    @IBAction func btnSummarayOpen_Clicked(_ sender: Any) {
+        let btn = sender as! UIButton
+        if(btn.isSelected)
+        {
+            btn.isSelected = false
+            
+        }
+        else
+        {
+            btn.isSelected = true
+        }
+        setViewExpanable()
+        setBackgroundColor()
+    }
+    @IBAction func btnGlucoseOpen_Clicked(_ sender: Any) {
+       let btn = sender as! UIButton
+        if(btn.isSelected)
+        {
+            btn.isSelected = false
+            
+        }
+        else
+        {
+          btn.isSelected = true
+        }
+        setViewExpanable()
+        setBackgroundColor()
+    }
+    
+    @IBAction func btnMedicationOpen_Clicked(_ sender: Any) {
+        let btn = sender as! UIButton
+        if(btn.isSelected)
+        {
+            btn.isSelected = false
+            
+        }
+        else
+        {
+            btn.isSelected = true
+        }
+        setViewExpanable()
+        setBackgroundColor()
+    }
+    @IBAction func btnReadingOpen_Clicked(_ sender: Any) {
+        let btn = sender as! UIButton
+        if(btn.isSelected)
+        {
+            btn.isSelected = false
+            
+        }
+        else
+        {
+            btn.isSelected = true
+        }
+        setViewExpanable()
+        setBackgroundColor()
+    }
+    
     @IBAction func currentMedEditActon(_ sender: UIButton) {
         
         currentMedEditBool = true
         UserDefaults.standard.set(true, forKey:"MedEditBool")
         UserDefaults.standard.synchronize()
         let carePlanViewController: CarePlanMainViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.carePlanViewController) as! CarePlanMainViewController
-        
+        carePlanViewController.currentMedEditBool = true
+        carePlanViewController.currentReadEditBool = false
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         self.navigationItem.hidesBackButton = true
         self.navigationController?.pushViewController(carePlanViewController, animated: true)
@@ -690,6 +911,7 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
         UserDefaults.standard.synchronize()
         
         let carePlanViewController: CarePlanMainViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.carePlanViewController) as! CarePlanMainViewController
+        carePlanViewController.currentMedEditBool = false
         carePlanViewController.currentReadEditBool = true
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         self.navigationItem.hidesBackButton = true
@@ -761,16 +983,11 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
         
         
         // let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
-        
-       
-        
-        if self.declineLabel.titleLabel!.text != "Cancel".localized
+        //print(self.declineLabel.titleLabel!.text)
+        if self.declineLabel.titleLabel!.text != "REPORT_CANCEL".localized
         {   //"\(baseUrl)\(ApiMethods.doctorDecline)"
-            
+           
             let taskID: String = UserDefaults.standard.string(forKey: userDefaults.taskID)!
-            let parameters: Parameters = [
-                "taskid": taskID,
-                "comment" : self.approveTextView.text]
             
             let alertController = UIAlertController(title: "\n\n\n\n\n\n", message: nil, preferredStyle: UIAlertControllerStyle.alert)
             
@@ -795,6 +1012,21 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
                 print(self.approveTextView.text)
                 
                 SVProgressHUD.show(withStatus: "SA_STR_LOADING".localized, maskType: SVProgressHUDMaskType.clear)
+                
+                var commentFromDoctor: String = ""
+                if self.approveTextView.text == "Any comment".localized
+                {
+                    commentFromDoctor = ""
+                }
+                else{
+                    commentFromDoctor = self.approveTextView.text
+                }
+            
+                
+                let parameters: Parameters = [
+                    "taskid": taskID,
+                    "comment" : commentFromDoctor]
+
                 
                 Alamofire.request("\(baseUrl)\(ApiMethods.doctorDecline)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
                     
@@ -864,10 +1096,20 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
             
             let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
             
+            var commentFromDoctor: String = ""
+            if self.approveTextView.text == "Any comment".localized
+            {
+                commentFromDoctor = ""
+            }
+            else{
+                commentFromDoctor = self.approveTextView.text
+            }
+
+            
             let declineParams: Parameters = [
                 "MedArraylength": self.addCurrentMedArray.count ,
                 "patientID":patientsID,
-                "comment" : self.approveTextView.text]
+                "comment" : commentFromDoctor]
             
             Alamofire.request("\(baseUrl)\(ApiMethods.canceleMeds)", method: .post, parameters: declineParams, encoding: JSONEncoding.default).responseJSON { response in
                 
@@ -925,12 +1167,13 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
         approveTextView.backgroundColor = UIColor.clear
         approveTextView.font = Fonts.NavBarBtnFont
         approveTextView.textColor = UIColor.lightGray
-        approveTextView.text  = "Please add comments to justify your decision".localized
+        approveTextView.text  = "Any comment".localized
         approveTextView.delegate = self
         
         
         //  customView.backgroundColor = UIColor.greenColor()
         alertController.view.addSubview(approveTextView)
+        
         
         let somethingAction = UIAlertAction(title: "Send".localized, style: UIAlertActionStyle.default, handler: {(alert: UIAlertAction!) in print("something")
             
@@ -944,6 +1187,16 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
             if self.approveLabel.titleLabel?.text?.lowercased() == "save changes".localized{
                 let selectedPatient: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
                 let doctorID: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserID)!
+                let doctorName: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserFullname)!
+                
+                var commentFromDoctor : String = "";
+                if self.approveTextView.text == "Any comment".localized
+                {
+                    commentFromDoctor = ""
+                }
+                else{
+                    commentFromDoctor = self.approveTextView.text
+                }
                 let parameters: Parameters = [
                     "patientid": selectedPatient,
                     "doctorid": doctorID,
@@ -953,7 +1206,8 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
                     "deletedmeds" : self.deleteNewCurrentMedArray,
                     "newreadarray":self.addNewCurrentReadArray,
                     "readdeleted":self.deleteNewCurrentReadArray,
-                    "comment" : self.approveTextView.text]
+                    "comment" : commentFromDoctor,
+                    "doctorname":doctorName]
 
                 //"\(baseUrl)\(ApiMethods.saveDoctorChanges)"
                 Alamofire.request("\(baseUrl)\(ApiMethods.saveDoctorChanges)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
@@ -1009,6 +1263,15 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
             }
             else{
                 
+                 var commentFromDoctor : String = "";
+                if self.approveTextView.text == "Any comment".localized
+                {
+                    commentFromDoctor = ""
+                }
+                else{
+                    commentFromDoctor = self.approveTextView.text
+                }
+                
                 let taskID: String = UserDefaults.standard.string(forKey: userDefaults.taskID)!
                 let parameters: Parameters = [
                     "taskid": taskID,
@@ -1018,7 +1281,7 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
                     "newmedadd": self.addNewCurrentMedArray,
                     "newreadarray":self.addNewCurrentReadArray,
                     "readdeleted":self.deleteNewCurrentReadArray,
-                    "comment" : self.approveTextView.text]
+                    "comment" : commentFromDoctor]
                 
                 //"\(baseUrl)\(ApiMethods.doctorApprove)"
                 
@@ -1545,7 +1808,7 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
                     }
                     
                     self.doctorCommentTextView.text = comment
-                    let jsonArr : NSMutableArray = NSMutableArray(array:JSON.object(forKey: "medication") as! NSArray)
+                    let jsonArr : NSMutableArray = NSMutableArray(array:JSON.object(forKey: "currentMedication") as! NSArray)
                     let jsonArrNewMed : NSMutableArray = NSMutableArray(array:JSON.object(forKey: "newMedication") as! NSArray)
                     let jsonArrUpdateMed : NSMutableArray = NSMutableArray(array:JSON.object(forKey: "updatedMedication") as! NSArray)
                     let jsonArrDeleteNewMed : NSMutableArray = NSMutableArray(array:JSON.object(forKey: "deletedMedication") as! NSArray)
@@ -1668,11 +1931,11 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
                     let updateReadingArr : NSMutableArray = NSMutableArray(array:JSON.object(forKey: "updatedReading") as! NSArray)
                     
                     
-                    let jsonArrRead : NSMutableArray = NSMutableArray(array:JSON.object(forKey: "readingsTime") as! NSArray)
+                    let jsonArrRead : NSMutableArray = NSMutableArray(array:JSON.object(forKey: "currentReading") as! NSArray)
                     
                     let jsonArrUpdatedRead : NSMutableArray = NSMutableArray(array:JSON.object(forKey: "updatedReading") as! NSArray)
                     let jsonArrNewRead : NSMutableArray = NSMutableArray(array:JSON.object(forKey: "newReading") as! NSArray)
-                    var jsonArrDeleteNewRead : NSMutableArray = NSMutableArray(array:JSON.object(forKey: "deletedReading") as! NSArray)
+                    let jsonArrDeleteNewRead : NSMutableArray = NSMutableArray(array:JSON.object(forKey: "deletedReading") as! NSArray)
                     
                     if jsonArrRead.count > 0 {
                         self.readingArr.removeAllObjects()
@@ -1879,25 +2142,11 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
             //Convert to Data
             
             SVProgressHUD.show(withStatus: "SA_STR_LOADING".localized, maskType: SVProgressHUDMaskType.clear)
-            let updateMedData = try JSONSerialization.data(withJSONObject: editCurrentMedArray, options: JSONSerialization.WritingOptions.prettyPrinted)
+            //let updateMedData = try JSONSerialization.data(withJSONObject: editCurrentMedArray, options: JSONSerialization.WritingOptions.prettyPrinted)
             //Convert back to string. Usually only do this for debugging
             //let updateMedJSONString : String  = String(data: updateMedData, encoding: String.Encoding.utf8)!
-            let updateReadData = try JSONSerialization.data(withJSONObject: editCurrentReadArray, options: JSONSerialization.WritingOptions.prettyPrinted)
+            //let updateReadData = try JSONSerialization.data(withJSONObject: editCurrentReadArray, options: JSONSerialization.WritingOptions.prettyPrinted)
             //Convert back to string. Usually only do this for debugging
-           // let updateReadJSONString : String  = String(data: updateReadData, encoding: String.Encoding.utf8)!
-            
-         //   print("MedJSONString\(updateMedJSONString)")
-          //  print("ReadJSONString\(updateReadJSONString)")
-            
-            
-            
-           // var actionSegment = String()
-           /* if actionSegmentControl.selectedSegmentIndex == 0 {
-                actionSegment = "No Change".localized
-            }
-            else {
-                actionSegment = "Changes made".localized
-            }*/
             
             let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
             let educatorID = UserDefaults.standard.string(forKey: userDefaults.loggedInUserID)! as String
@@ -1917,6 +2166,14 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
                 totalBadgeCounter = 0
             }
             
+            var commentFromEducator : String = ""
+            if educatorCommentTxtViw.text == "Please add comments to justify your decision".localized
+            {
+                commentFromEducator = ""
+            }
+            else{
+                commentFromEducator = educatorCommentTxtViw.text
+            }
             let parameters: Parameters = [
                 "patientid": patientsID,
                 "educatorid":educatorID,
@@ -1929,7 +2186,7 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
                 "updatedread" : editCurrentReadArray,
                 "newreadarray":addNewCurrentReadArray,
                 "readdeleted":deleteNewCurrentReadArray,
-                "comment" : educatorCommentTxtViw.text,
+                "comment" : commentFromEducator,
                 // "action":actionSegment,
                 "hcNumber": "",
                 "hba":"",
@@ -2182,122 +2439,87 @@ class ReportViewController: UIViewController , UITableViewDataSource, UITableVie
      // MARK: - Dynamic  Constraints Methods
     func dynamicEducatorDoctorViewLayout(medArrCount : Int , readingArrcount: Int , glucoseReadingCount : Int)
     {
-        //        glucoseReadingLayoutConstraint.constant = CGFloat((glucoseReadingCount * 60) + 200)
-        //        self.medicationView.setY(y:glucoseReadingView.frame.origin.y + glucoseReadingLayoutConstraint.constant)
         if medArrCount > 0 {
-            self.medicationViewHeight.constant = CGFloat(self.calculateMedHeight() + 49)
-            self.vwMedicationContainerHeightConstraint.constant = CGFloat(self.calculateMedHeight())
-            self.currentMedicationsLabelHeightConstraint.constant = 35
-            self.vwMedicationContainerTopConstraint.constant = 1
+            self.medicationHeight =  Int(CGFloat(self.calculateMedHeight() + 49))
         }
         else {
-            self.medicationViewHeight.constant = self.currentMedicationsLabelHeightConstraint.constant + self.currentMedicationsLabel.frame.origin.y
-             self.currentMedicationsLabelHeightConstraint.constant = 35
-               self.vwMedicationContainerHeightConstraint.constant = 0
+            self.medicationHeight =  49
         }
-        self.vwMedicationContainer.updateConstraintsIfNeeded()
+        
         if readingArrcount > 0{
-            self.readingScheduleView.setY(y: self.medicationView.frame.origin.y +  self.medicationViewHeight.constant)
-            currentReadingContainerHeight.constant   = CGFloat(((readingArrcount * 50) + 130))
+            self.readingViewHeight = ((readingArrcount * 50) + 140)
             newReadingContainerHeight.constant = 0.0
             newRedEditConstraint.constant = 0.0
-            readingScheduleHeightConstraint.constant = CGFloat(((readingArrcount * 50) + 130))
         }
         else {
-            
-            self.readingScheduleView.setY(y: self.medicationView.frame.origin.y +  self.medicationViewHeight.constant)
-            currentReadingContainerHeight.constant   = self.currentReadingTitleLabel.frame.height + self.currentReadingTitleLabel.frame.origin.y
+            self.readingViewHeight = 45
             newReadingContainerHeight.constant = 0.0
             newRedEditConstraint.constant = 0.0
-            readingScheduleHeightConstraint.constant = self.currentReadingTitleLabel.frame.height + self.currentReadingTitleLabel.frame.origin.y
-            
         }
+        
         educatorViewHeightConstraint.constant = 0.0
         
-        self.doctorActionView.setY(y: readingScheduleView.frame.origin.y + readingScheduleHeightConstraint.constant)
+        self.doctorActionView.setY(y: readingScheduleView.frame.origin.y + readingScheduleHeightConstraint.constant + 8)
         scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: doctorActionView.frame.origin.y + doctorActionView.frame.size.height)
         print( doctorActionView.frame.origin.y)
+        self.setViewExpanable()
     }
     
     func dynamicEducatorViewLayout(medArrCount : Int , readingArrcount: Int , glucoseReadingCount : Int)
     {
-        //        glucoseReadingLayoutConstraint.constant = CGFloat((glucoseReadingCount * 60) + 200)
-        //        self.medicationView.setY(y:glucoseReadingView.frame.origin.y + glucoseReadingLayoutConstraint.constant)
         if medArrCount > 0 {
-            self.medicationViewHeight.constant = CGFloat(self.calculateMedHeight() + 49)
-            self.vwMedicationContainerHeightConstraint.constant = CGFloat(self.calculateMedHeight())
-            self.currentMedicationsLabelHeightConstraint.constant = 35
-            self.vwMedicationContainerTopConstraint.constant = 1
+            self.medicationHeight =  Int(CGFloat(self.calculateMedHeight() + 49))
         }
         else {
-           self.medicationViewHeight.constant = self.currentMedicationsLabelHeightConstraint.constant + self.currentMedicationsLabel.frame.origin.y
-                self.currentMedicationsLabelHeightConstraint.constant = 35
-               self.vwMedicationContainerHeightConstraint.constant = 0
+             self.medicationHeight = 49
         }
         self.vwMedicationContainer.updateConstraintsIfNeeded()
         
         if readingArrcount > 0{
-            self.readingScheduleView.setY(y: self.medicationView.frame.origin.y +  self.medicationViewHeight.constant)
-            currentReadingContainerHeight.constant   = CGFloat(((readingArrcount * 50) + 130)) ;
+           
+            self.readingViewHeight = Int((readingArrcount * 50) + 140)
             newReadingContainerHeight.constant = 0.0
             newRedEditConstraint.constant = 0.0
-            readingScheduleHeightConstraint.constant = CGFloat(((readingArrcount * 50) + 130)) ;
         }
         else {
-            self.readingScheduleView.setY(y: self.medicationView.frame.origin.y +  self.medicationViewHeight.constant)
-            currentReadingContainerHeight.constant   = self.currentReadingTitleLabel.frame.height + self.currentReadingTitleLabel.frame.origin.y ;
+            self.readingViewHeight = 45
             newReadingContainerHeight.constant = 0.0
             newRedEditConstraint.constant = 0.0
-            readingScheduleHeightConstraint.constant = self.currentReadingTitleLabel.frame.height + self.currentReadingTitleLabel.frame.origin.y ;
-            
         }
         
-        self.educatorActionView.setY(y: readingScheduleView.frame.origin.y + readingScheduleHeightConstraint.constant)
+        self.educatorActionView.setY(y: readingScheduleView.frame.origin.y + readingScheduleHeightConstraint.constant + 10)
         scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: educatorActionView.frame.origin.y + educatorActionView.frame.size.height)
         print( educatorActionView.frame.origin.y)
+         self.setViewExpanable()
     }
     
     
     func dynamicDoctorViewLayout(medArrCount : Int , readingArrcount: Int , updateReadingCount : Int, glucoseReadingCount : Int)
     {
         if medArrCount > 0 {
-            self.medicationViewHeight.constant = CGFloat(self.calculateMedHeight() + 49)
-            self.vwMedicationContainerHeightConstraint.constant = CGFloat(self.calculateMedHeight())
-            self.currentMedicationsLabelHeightConstraint.constant = 35
-            self.vwMedicationContainerTopConstraint.constant = 1
+            self.medicationHeight =  Int(CGFloat(self.calculateMedHeight() + 49))
+        
         }
         else {
-              self.medicationViewHeight.constant = self.currentMedicationsLabelHeightConstraint.constant + self.currentMedicationsLabel.frame.origin.y
-             self.currentMedicationsLabelHeightConstraint.constant = 35
-            self.vwMedicationContainerHeightConstraint.constant = 0
+                 self.medicationHeight =  49
         }
-        self.vwMedicationContainer.updateConstraintsIfNeeded()
-        self.readingScheduleView.setY(y: self.medicationView.frame.origin.y +  self.medicationViewHeight.constant)
         if readingArrcount == 0 {
-
-            currentReadingContainerHeight.constant   = self.currentReadingTitleLabel.frame.height + self.currentReadingTitleLabel.frame.origin.y ;
+            self.readingViewHeight = 45
             newReadingContainerHeight.constant = 0.0
             newRedEditConstraint.constant = 0.0
-            readingScheduleHeightConstraint.constant = self.currentReadingTitleLabel.frame.height + self.currentReadingTitleLabel.frame.origin.y ;
-            
         }
         else  {
-            
-            currentReadingContainerHeight.constant   = CGFloat(((readingArrcount * 50) + 130)) ;
+            self.readingViewHeight = ((readingArrcount * 50) + 140)
             newReadingContainerHeight.constant = 0.0
             newRedEditConstraint.constant = 0.0
-            readingScheduleHeightConstraint.constant = CGFloat(((readingArrcount * 50) + 130)) ;
         }
-        //Hide newReadingContainerHeight right now
-//        readingScheduleHeightConstraint.constant = self.currentReadingContainerHeight.constant 
-        
-//        readingScheduleHeightConstraint.constant = self.currentReadingContainerHeight.constant + newReadingContainerHeight.constant
-       
+
         educatorViewHeightConstraint.constant = 0.0
         
-        self.doctorActionView.setY(y: readingScheduleView.frame.origin.y + readingScheduleHeightConstraint.constant)
+        self.doctorActionView.setY(y: readingScheduleView.frame.origin.y + readingScheduleHeightConstraint.constant + 8)
         scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: doctorActionView.frame.origin.y + doctorActionView.frame.size.height)
         print( doctorActionView.frame.origin.y)
+         self.setViewExpanable()
         
     }
     

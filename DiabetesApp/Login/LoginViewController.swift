@@ -259,7 +259,12 @@ class LoginViewController: UIViewController, QBCoreDelegate, UITextFieldDelegate
             
             let tabBarController: DoctorTabBarViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.doctorTabBarViewController) as! DoctorTabBarViewController
             requestTabBarItem  =  (tabBarController.tabBar.items?[0])!
-          
+
+            if selectedUserType == userType.patient{
+            let tabBarControllerPatient: HomeTabBarController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.tabBarViewController) as! HomeTabBarController
+            careplanTabBarItem  =  (tabBarControllerPatient.tabBar.items?[2])!
+            }
+
             //Default selected tab bar inbox
             tabBarController.selectedViewController = tabBarController.viewControllers?[1]
             
@@ -271,6 +276,7 @@ class LoginViewController: UIViewController, QBCoreDelegate, UITextFieldDelegate
             // TabBar
             self.navigationItem.hidesBackButton = true
             let tabBarController: HomeTabBarController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.tabBarViewController) as! HomeTabBarController
+            careplanTabBarItem  =  (tabBarController.tabBar.items?[2])!
             self.navigationController?.pushViewController(tabBarController, animated: true)
         }
         
@@ -504,6 +510,7 @@ class LoginViewController: UIViewController, QBCoreDelegate, UITextFieldDelegate
             
             self.present(UtilityClass.displayAlertMessage(message: "Login Error".localized, title: "SA_STR_ERROR".localized), animated: true, completion: nil)
             print("error \(error.data?.description)")
+           
            GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "QuickBlox Calling", action:"Fail - login To QuickBlox" , label:String(describing: error.data?.description), value : self.formInterval.intervalAsSeconds())
             SVProgressHUD.showError(withStatus: error.data?.description)
         })

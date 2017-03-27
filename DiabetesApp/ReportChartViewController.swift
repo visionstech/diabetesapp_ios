@@ -72,7 +72,7 @@ class ReportChartViewController: UIViewController, UIPickerViewDelegate, UIPicke
     var formInterval: GTInterval!
     var label = UILabel()
     var lineChart: LineChart!
-    var noOfDays = "0"
+    var noOfDays = "13"
     var selectedConditionIndex : Int = 0
     var minLimit : Int = 0
     var maxLimit : Int = 0

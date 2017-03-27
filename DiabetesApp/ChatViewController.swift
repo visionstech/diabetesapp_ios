@@ -38,6 +38,8 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let selectedUserType: Int = Int(UserDefaults.standard.integer(forKey: userDefaults.loggedInUserType))
     
+    var scrollV:UIScrollView = UIScrollView()
+    
     var dialog: QBChatDialog!
     var willResignActiveBlock: AnyObject?
     var attachmentCellsMap: NSMapTable<AnyObject, AnyObject>!
@@ -55,8 +57,9 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
     let recipientTypes = UserDefaults.standard.stringArray(forKey: userDefaults.recipientTypesArray)
     let recipientIDs = UserDefaults.standard.stringArray(forKey: userDefaults.recipientIDArray)
     
-    
+    var KeyboardTapGesture : UITapGestureRecognizer = UITapGestureRecognizer()
     var newImageView: UIImageView = UIImageView()
+    
     lazy var imagePickerViewController : UIImagePickerController = {
         let imagePickerViewController = UIImagePickerController()
         imagePickerViewController.delegate = self
@@ -70,6 +73,7 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         super.viewDidLoad()
        // assignbackground()
         //self.view.backgroundImage = UIImage(named: "viewBGImage")!
+        KeyboardTapGesture = UITapGestureRecognizer(target: self, action: #selector(ChatViewController.dismissKeyboard(_:)))
         print(self.dialog.occupantIDs!.count)
         for occupantsID in self.dialog.occupantIDs! {
             if Int(occupantsID) != Int(appDelegate.currentUser!.id) {
@@ -161,6 +165,7 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         let loggedInUserType : Int = Int(UserDefaults.standard.integer(forKey: userDefaults.loggedInUserType))
         
         
+       
         if((loggedInUserType == userType.doctor || loggedInUserType == userType.educator) && (recipientTypes?.contains("patient"))!)
         {
             let patientHC: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientHCNumber)!
@@ -189,7 +194,7 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         
         let ReportBarButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "option_report"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(reportClick))
         
-        let groupInfo: UIBarButtonItem = UIBarButtonItem(title: "GInfo", style: .plain, target: self, action: #selector(groupInfoClick))
+        //let groupInfo: UIBarButtonItem = UIBarButtonItem(title: "GInfo", style: .plain, target: self, action: #selector(groupInfoClick))
 //        self.navigationItem.rightBarButtonItems = nil
        
         if self.dialog.type == .private {
@@ -205,7 +210,7 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
                 //else {
                 if(selectedUserType == userType.educator && (recipientTypes?.contains("patient"))!)
                 {
-                    self.navigationItem.rightBarButtonItems = [groupInfo,optionsBtnBar,ReportBarButton]
+                    self.navigationItem.rightBarButtonItems = [optionsBtnBar,ReportBarButton]
                    
                 }
                 else{
@@ -228,7 +233,7 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
            // }
            // else {
                 
-                self.navigationItem.rightBarButtonItems = [groupInfo,optionsBtnBar,ReportBarButton]
+                self.navigationItem.rightBarButtonItems = [optionsBtnBar,ReportBarButton]
             //self.navigationItem.rightBarButtonItems = [optionsBtnBar]
            // }
             
@@ -264,8 +269,8 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
                         let content: String = JSON.value(forKey: "content") as! String!
                         
                         if(result == "Success"){
-                            self.title = content
-                            self.tabBarController?.navigationItem.title = content
+                            self.title = self.dialog.name//content
+                            self.tabBarController?.navigationItem.title = self.dialog.name//content
 
                         }
                         else{
@@ -368,6 +373,10 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         return ""
     }
     
+    func dismissKeyboard(_ sender: UIGestureRecognizer) {
+       //    super.textViewDidEndEditing(textView)
+        self.view.endEditing(true)
+    }
     // MARK: - Custom Top View
     func createCustomTopView() {
         
@@ -469,11 +478,46 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
     }
     
     func BackBtn_Click(){
-         topBackView.removeFromSuperview()
-        self.navigationController?.popViewController(animated: true)
+        topBackView.removeFromSuperview()
+        let isFromContactList : Bool = UserDefaults.standard.bool(forKey: "visitedContactList") as! Bool
+        
+        if isFromContactList
+        {
+            // self.navigationController?.popViewController(animated: true)
+            //self.navigationController?.popViewController(animated: true)
+            
+            let viewControllers: [UIViewController] =  self.navigationController!.viewControllers as [UIViewController]
+            self.navigationController!.popToViewController(viewControllers[1], animated: true)
+            
+        }
+        else{
+            self.navigationController?.popViewController(animated: true)
+        }
+        
     }
 
     func imageTapped(_ sender: UITapGestureRecognizer) {
+        
+        /*var vWidth = self.view.frame.width
+        var vHeight = self.view.frame.height
+        
+        var scrollImg: UIScrollView = UIScrollView()
+        scrollImg.delegate = self
+        scrollImg.frame = self.view.frame
+        scrollImg.backgroundColor = UIColor(red: 90, green: 90, blue: 90, alpha: 0.90)
+        scrollImg.alwaysBounceVertical = false
+        scrollImg.alwaysBounceHorizontal = false
+        scrollImg.showsVerticalScrollIndicator = true
+        scrollImg.flashScrollIndicators()
+        
+        scrollImg.minimumZoomScale = 1.0
+        scrollImg.maximumZoomScale = 10.0
+        
+        self.view.addSubview(scrollImg)
+        */
+        
+       // scrollImg.addSubview(imageView!)
+      
         let scrollV:UIScrollView = UIScrollView()
         scrollV.frame = self.view.frame
         scrollV.minimumZoomScale=1.0
@@ -487,6 +531,8 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
         newImageView.frame = scrollV.frame
         newImageView.backgroundColor = .black
         newImageView.contentMode =  .scaleAspectFit
+        //newImageView.layer.cornerRadius = 11.0
+       // newImageView.clipsToBounds = false
         newImageView.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
         newImageView.addGestureRecognizer(tap)
@@ -499,6 +545,7 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
     }
     
     func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
+        self.scrollV.removeFromSuperview()
         sender.view?.removeFromSuperview()
     }
     
@@ -727,12 +774,12 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
     
     func groupInfoClick() {
         
-        let groupViewController: GroupInfoViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.GroupInfoViewController) as! GroupInfoViewController
+      /*  let groupViewController: GroupInfoViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewIdentifiers.GroupInfoViewController) as! GroupInfoViewController
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         self.navigationItem.hidesBackButton = true
        groupViewController.userArray =  self.groupMembersArray
         groupViewController.UserGroupName = self.title!
-        self.navigationController?.pushViewController(groupViewController, animated: true)
+        self.navigationController?.pushViewController(groupViewController, animated: true)*/
 
     }
     
@@ -1048,23 +1095,38 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
                 
                 QMMessageNotificationManager.showNotification(withTitle: "SA_STR_ERROR".localized, subtitle: error?.localizedDescription, type: QMMessageNotificationType.warning)
             }
-           let pushMessage =  QBMPushMessage()
-            pushMessage.alertBody = self.dialog.name! + " : " + message.text!
             
-            QBRequest .sendPush(pushMessage, toUsers: String(self.dialog.userID), successBlock: { (response, event) in
-                print("Success")
-               // self.present(UtilityClass.displayAlertMessage(message: "Success", title: "Success"), animated: true, completion: nil)
-            }, errorBlock: { (error) in
-                print("Error")
-                print(error!)
-                //self.present(UtilityClass.displayAlertMessage(message: String(describing: error), title: "Error"), animated: true, completion: nil)
-            })
-//            QBRequest.sendPush(withText: message.text!, toUsers: String(self.dialog.userID) , successBlock: { (response, event) in
-//                print(response)
-//                
-//            }) { (error) in
-//                print(error!)
-//            }
+            if self.dialog.roomJID != nil {
+                let pushMessage =  QBMPushMessage()
+                
+                pushMessage.alertBody = self.dialog.name! + " : " + message.text!
+                
+                QBRequest .sendPush(pushMessage, toUsers: String(self.dialog.userID), successBlock: { (response, event) in
+                    print("Success")
+                    // self.present(UtilityClass.displayAlertMessage(message: "Success", title: "Success"), animated: true, completion: nil)
+                }, errorBlock: { (error) in
+                    print("Error")
+                    print(error!)
+                    //self.present(UtilityClass.displayAlertMessage(message: String(describing: error), title: "Error"), animated: true, completion: nil)
+                })
+            }
+            else {
+                let userName : String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserFullname)!
+                
+                let pushMessage =  QBMPushMessage()
+                
+                pushMessage.alertBody = userName + " : " + message.text!
+                
+                QBRequest .sendPush(pushMessage, toUsers: String(self.dialog.userID), successBlock: { (response, event) in
+                    print("Success")
+                    // self.present(UtilityClass.displayAlertMessage(message: "Success", title: "Success"), animated: true, completion: nil)
+                }, errorBlock: { (error) in
+                    print("Error")
+                    print(error!)
+                    //self.present(UtilityClass.displayAlertMessage(message: String(describing: error), title: "Error"), animated: true, completion: nil)
+                })
+            }
+            
         }
         
         self.finishSendingMessage(animated: true)
@@ -1160,8 +1222,26 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
                              readLogins.append(name)
                         }
                         else {
-                            let unknownUserLogin = "@\(readID)"
-                            readLogins.append(unknownUserLogin)
+                            let readsID = Int(readID)
+                            
+                           //QBRequest.user(withID: UInt(occupantsID)
+                            QBRequest.user(withID: UInt(readsID), successBlock: { (response, user) in
+                                
+                                if user != nil {
+                                    self.occupantUser = user!
+                                    let dict: NSMutableDictionary = NSMutableDictionary()
+                                    dict.setValue(user!.id, forKey: "id")
+                                    dict.setValue(user!.fullName, forKey: "login")
+                                    //self.groupMembersArray.add(dict)
+                                    let unknownUserLogin = "@\(dict.setValue(user!.fullName, forKey: "login"))"
+                                    readLogins.append(unknownUserLogin)
+                                    
+                                }
+                                
+                            }, errorBlock: { (error) in
+                            })
+                            
+                            
                         }
                         
                         continue
@@ -1197,8 +1277,26 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
                             deliveredLogins.append(name)
                         }
                         else {
-                            let unknownUserLogin = "@\(deliveredID)"
-                            deliveredLogins.append(unknownUserLogin)
+                           // let unknownUserLogin = "@\(deliveredID)"
+                            //deliveredLogins.append(unknownUserLogin)
+                            let deliveredsID = Int(deliveredID)
+                            QBRequest.user(withID: UInt(deliveredsID), successBlock: { (response, user) in
+                                
+                                if user != nil {
+                                    self.occupantUser = user!
+                                    let dict: NSMutableDictionary = NSMutableDictionary()
+                                    dict.setValue(user!.id, forKey: "id")
+                                    dict.setValue(user!.fullName, forKey: "login")
+                                    //self.groupMembersArray.add(dict)
+                                    let unknownUserLogin = "@\(dict.setValue(user!.fullName, forKey: "login"))"
+                                    deliveredLogins.append(unknownUserLogin)
+                                    
+                                }
+                                
+                            }, errorBlock: { (error) in
+                                print("Error:")
+                                print(error)
+                            })
                         }
                         
                         continue
@@ -1546,7 +1644,7 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
                         print("deliveredIDs")
                         let deliverdArray :[NSNumber] = (message?.readIDs)!
                         
-                        if deliverdArray.count > 1 {
+                        if deliverdArray.count == self.dialog.occupantIDs?.count {
                             print("delivered")
                             chatCell.imageStatusImageView.image =  UIImage(named: "doubletick")
                         }
@@ -1632,17 +1730,17 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
             
             chatCell.messageStatusImageView.contentMode = .scaleAspectFit
             let status: QMMessageStatus = self.queueManager().status(for: message!)
-            
+            print(self.dialog)
             
             switch status {
             case .sent:
                  chatCell.containerView?.bgColor = Colors.outgoingMsgColor
-                chatCell.containerView?.cornerRadius = 10
+                 chatCell.containerView?.cornerRadius = 10
                  if message?.readIDs != nil {
                     print("deliveredIDs")
                     let deliverdArray :[NSNumber] = (message?.readIDs)!
                     
-                    if deliverdArray.count > 1 {
+                    if deliverdArray.count == self.dialog.occupantIDs?.count {
                         print("delivered")
                         chatCell.messageStatusImageView.image =  UIImage(named: "doubletick")
                     }
@@ -1770,6 +1868,7 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
      */
     
     func chatCellDidTapContainer(_ cell: QMChatCell!) {
+         self.view.endEditing(true)
         let indexPath = self.collectionView?.indexPath(for: cell)
         
         guard let currentMessage = self.chatDataSource.message(for: indexPath) else {
@@ -1791,52 +1890,80 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
 //
        
         
+        
         self.collectionView?.collectionViewLayout.removeSizeFromCache(forItemID: currentMessage.id)
         self.collectionView?.performBatchUpdates(nil, completion: nil)
-        
-        if (currentMessage.attachments?.count)! > 0
+        if let _ = currentMessage.attachments
         {
-            
-            let attach = (currentMessage.attachments?.first!)! as QBChatAttachment
-            if(attach.type == "image")
+        if (currentMessage.attachments?.count)! > 0
             {
-                if let attachmentCell = cell as? QMChatAttachmentCell {
-                    if attachmentCell is QMChatAttachmentIncomingCell {
-                        if let attachmentCell = cell as? QMChatAttachmentIncomingCell {
+            
+                let attach = (currentMessage.attachments?.first!)! as QBChatAttachment
+                if(attach.type == "image")
+                {
+                    self.view.endEditing(true)
+                    if let attachmentCell = cell as? QMChatAttachmentCell {
+                        if attachmentCell is QMChatAttachmentIncomingCell {
+                            if let attachmentCell = cell as? QMChatAttachmentIncomingCell {
                             
-                            let newImageView = UIImageView(image: attachmentCell.attachmentImageView.image)
-                            newImageView.frame = self.view.frame
-                            newImageView.backgroundColor = .black
-                            newImageView.contentMode = .scaleAspectFit
-                            newImageView.isUserInteractionEnabled = true
-                            let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
-                            newImageView.addGestureRecognizer(tap)
-                            self.view.addSubview(newImageView)
+                                self.scrollV = UIScrollView()
+                                self.scrollV.frame = self.view.frame
+                                self.scrollV.minimumZoomScale=1.0
+                                self.scrollV.maximumZoomScale=6.0
+                                self.scrollV.bounces=false
+                                self.scrollV.delegate=self;
+                                self.view.addSubview(self.scrollV)
+                            
+                                newImageView = UIImageView(image: attachmentCell.attachmentImageView.image)
+                                newImageView.frame = self.scrollV.frame
+                                newImageView.backgroundColor = .black
+                                newImageView.contentMode =  .scaleAspectFit
+                            //newImageView.layer.cornerRadius = 11.0
+                            // newImageView.clipsToBounds = false
+                                newImageView.isUserInteractionEnabled = true
+                                let tap = UITapGestureRecognizer(target: self, action:  #selector(dismissFullscreenImage))
+                                newImageView.addGestureRecognizer(tap)
+                                self.scrollV.addSubview(newImageView)
+                            }
                         }
-                    }
-                    else if attachmentCell is QMChatAttachmentOutgoingCell {
-                        if let attachmentCell = cell as? QMChatAttachmentOutgoingCell {
+                        else if attachmentCell is QMChatAttachmentOutgoingCell {
+                            if let attachmentCell = cell as? QMChatAttachmentOutgoingCell {
                             
-                            let newImageView = UIImageView(image: attachmentCell.attachmentImageView.image)
-                            newImageView.frame = self.view.frame
-                            newImageView.backgroundColor = .black
-                            newImageView.contentMode = .scaleAspectFit
-                            newImageView.isUserInteractionEnabled = true
-                            let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
-                            newImageView.addGestureRecognizer(tap)
-                            self.view.addSubview(newImageView)
+                                self.scrollV = UIScrollView()
+                                self.scrollV.frame = self.view.frame
+                                self.scrollV.minimumZoomScale=1.0
+                                self.scrollV.maximumZoomScale=6.0
+                                self.scrollV.bounces=false
+                                self.scrollV.delegate=self;
+                                self.view.addSubview(scrollV)
+                            
+                                newImageView = UIImageView(image: attachmentCell.attachmentImageView.image)
+                                newImageView.frame = self.scrollV.frame
+                                newImageView.backgroundColor = .black
+                                newImageView.contentMode =  .scaleAspectFit
+                            //newImageView.layer.cornerRadius = 11.0
+                            // newImageView.clipsToBounds = false
+                                newImageView.isUserInteractionEnabled = true
+                                let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
+                                newImageView.addGestureRecognizer(tap)
+                                self.scrollV.addSubview(newImageView)
+                           
+                            }
                         }
                     }
                 }
-            }
             // throw an error, return from your function, whatever
             
+            //}
+          }
         }
         
         
     }
    
-    func chatCell(_ cell: QMChatCell!, didTapAtPosition position: CGPoint) {}
+    func chatCell(_ cell: QMChatCell!, didTapAtPosition position: CGPoint) {
+         self.view.endEditing(true)
+    }
     
     func chatCell(_ cell: QMChatCell!, didPerformAction action: Selector!, withSender sender: Any!) {}
     
@@ -1978,6 +2105,9 @@ class ChatViewController: QMChatViewController, QMChatServiceDelegate, UIActionS
     
     override func textViewDidChange(_ textView: UITextView) {
         super.textViewDidChange(textView)
+    }
+    override func textViewDidBeginEditing(_ textView: UITextView) {
+        view.addGestureRecognizer(KeyboardTapGesture)
     }
     
     override func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {

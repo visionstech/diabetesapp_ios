@@ -24,5 +24,6 @@
 
 #import <Google/Analytics.h>
 
+#import "FSCalendar.h"
 
 #endif /* Bridging_Header_h */

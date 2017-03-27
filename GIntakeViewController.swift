@@ -19,11 +19,12 @@ extension String {
 }
 
 
-class GIntakeViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+class GIntakeViewController: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate, FSCalendarDataSource, FSCalendarDelegate {
     
     
     @IBOutlet weak var dateContainerView: UIView!
     @IBOutlet weak var dateButton: UIButton!
+    @IBOutlet weak var calendar: FSCalendar!
     
     @IBOutlet weak var intakeContainerView: UIView!
     @IBOutlet weak var enterGlucoseLabel: UILabel!
@@ -65,6 +66,10 @@ class GIntakeViewController: UIViewController, UITextFieldDelegate, UIPickerView
     @IBOutlet weak var inputConfirmationCommentTextView: UITextView!
     @IBOutlet weak var inputConfirmationWarningLabel: UILabel!
     
+    @IBOutlet weak var lblDateMonth: UILabel!
+    
+     @IBOutlet weak var calendarHeightConstraint: NSLayoutConstraint!
+    
     private var mealArray = ["Fasting".localized, "Breakfast".localized, "Lunch".localized, "Dinner".localized, "Bedtime".localized]
     private var mealArrayEng = ["Fasting", "Breakfast", "Lunch", "Dinner", "Bedtime"]
     private var selectedMeal: String?
@@ -78,6 +83,12 @@ class GIntakeViewController: UIViewController, UITextFieldDelegate, UIPickerView
     private let inputConfirmationHeightSmall: CGFloat = 245.0
     private let inputConfirmationHeightBig: CGFloat = 330.0
     private let inputConfirmationBottomConstraintDefault: CGFloat = 154.0
+    
+    fileprivate lazy var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd"
+        return formatter
+    }()
     
     var selectedConditionIndex : Int = 0
     var lastSelectedDate = Date()
@@ -158,12 +169,47 @@ class GIntakeViewController: UIViewController, UITextFieldDelegate, UIPickerView
             conditionSegmentedControl.setTitleTextAttributes([ NSFontAttributeName: UIFont.systemFont(ofSize: 17, weight: UIFontWeightBold) ], for: .selected)
             
         }
+        
+        /*------------- Calander configuration ------------ */
+        self.calendar.select(Date())
+        self.calendar.scope = .week
+        
+        // For UITest
+        self.calendar.accessibilityIdentifier = "calendar"
+        
+        var calAppearance = FSCalendarAppearance()
+        calAppearance = self.calendar.appearance
+        self.calendar.appearance.weekdayFont = UIFont(name: "SFUIText-Regular", size: 12)
+        self.calendar.appearance.titleFont = UIFont(name: "SFUIDisplay-Bold", size: 16)
+        self.calendar.formatter.dateFormat = calAppearance.headerDateFormat
+        lblDateMonth.text = self.calendar.formatter.string(from: calendar.currentPage)
+        selectedDate = self.calendar.selectedDate!
+        print("\(self.calendar.formatter.string(from: calendar.currentPage))")
+      
+        
+        self.perform(#selector(reloadCal), with: nil, afterDelay: 0.1)
+        self.perform(#selector(reloadCal1), with: nil, afterDelay: 0.3)
     }
     
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-    
+    func reloadCal()
+    {
+        let curDate = self.calendar.currentPage
+        let myCalendar:NSCalendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier(rawValue: NSGregorianCalendar))!
+        
+        let PrevWeek = myCalendar.date(byAdding: NSCalendar.Unit.weekOfMonth, value: -1 , to: curDate, options: NSCalendar.Options(rawValue: 0))
+        self.calendar.setCurrentPage(PrevWeek!, animated: false)
+    }
+    func reloadCal1()
+    {
+        let curDate = self.calendar.currentPage
+        let myCalendar:NSCalendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier(rawValue: NSGregorianCalendar))!
+        
+        let PrevWeek = myCalendar.date(byAdding: NSCalendar.Unit.weekOfMonth, value: 1 , to: curDate, options: NSCalendar.Options(rawValue: 0))
+        self.calendar.setCurrentPage(PrevWeek!, animated: false)
+    }
     override func viewDidAppear(_ animated: Bool) {
         //--------Google Analytics Start-----
         GoogleAnalyticManagerApi.sharedInstance.startScreenSessionWithName(screenName: kGIntakeScreenName)
@@ -307,7 +353,34 @@ class GIntakeViewController: UIViewController, UITextFieldDelegate, UIPickerView
         breakfastIndex = mealArrayEng.index(of: "Breakfast")
         
     }
+    //MARK: - Calandar configuration 
+    func maximumDate(for calendar: FSCalendar) -> Date {
+        return Date()
+    }
     
+    func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
+        self.calendarHeightConstraint.constant = bounds.height
+        self.view.layoutIfNeeded()
+    }
+    
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        print("did select date \(self.dateFormatter.string(from: date))")
+        
+        let selectedDates = calendar.selectedDates.map({self.dateFormatter.string(from: $0)})
+        print("selected dates is \(selectedDates)")
+        if monthPosition == .next || monthPosition == .previous {
+            calendar.setCurrentPage(date, animated: true)
+        }
+        selectedDate = date
+    }
+    
+    func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
+        var calAppearance = FSCalendarAppearance()
+        calAppearance = self.calendar.appearance
+        self.calendar.formatter.dateFormat = calAppearance.headerDateFormat
+        lblDateMonth.text = self.calendar.formatter.string(from: calendar.currentPage)
+        print("\(self.calendar.formatter.string(from: calendar.currentPage))")
+    }
     //MARK: - Configure appearance
     private func configureAppearance() {
         intakeContainerView.layer.cornerRadius = kButtonRadius
@@ -583,6 +656,7 @@ class GIntakeViewController: UIViewController, UITextFieldDelegate, UIPickerView
         else {
             conditionSegmentedControl.isEnabled = true
             conditionSegmentedControl.alpha = 1.0
+            conditionSegmentedControl.selectedSegmentIndex = UISegmentedControlNoSegment
             conditionSegmentedControl.setEnabled(true, forSegmentAt: 1)
             conditionSegmentedControl.setEnabled(true, forSegmentAt: 0)
             doneButton.isEnabled = false
@@ -754,7 +828,7 @@ class GIntakeViewController: UIViewController, UITextFieldDelegate, UIPickerView
         string.append(NSAttributedString(string: "\(dateFormatter.string(from: date))", attributes: [NSForegroundColorAttributeName: Colors.PrimaryColor, NSFontAttributeName: UIFont.systemFont(ofSize: 14.0)]))
         string.append(NSAttributedString(string: " >", attributes: [NSForegroundColorAttributeName: Colors.DHDarkGray, NSFontAttributeName: UIFont.systemFont(ofSize: 14.0)]))
         
-        dateButton.setAttributedTitle(string, for: .normal)
+      //  dateButton.setAttributedTitle(string, for: .normal)
         inputConfirmationDateLabel.text = String(describing: string)
     }
     
@@ -1100,7 +1174,7 @@ class GIntakeViewController: UIViewController, UITextFieldDelegate, UIPickerView
     private func setupNavigationBar(title: String) {
         guard let navigationController = navigationController else { return }
         
-        navigationController.isNavigationBarHidden = false
+        navigationController.isNavigationBarHidden = true
         
         navigationItem.title = title.uppercased()
         

@@ -17,8 +17,10 @@ class CarePlanMainViewController: UIViewController {
     @IBOutlet weak var readingBtn: UIButton!
     @IBOutlet weak var medicationContainer: UIView!
     @IBOutlet weak var readingContainer: UIView!
-    
+    @IBOutlet weak var vwDrNotes: UIView!
     @IBOutlet weak var carePlanSegmentControl: UISegmentedControl!
+    
+    
     var addBtn = UIBarButtonItem()
     var topBackView:UIView = UIView()
     
@@ -53,6 +55,8 @@ class CarePlanMainViewController: UIViewController {
         carePlanSegmentControl.layer.borderWidth = 1
         carePlanSegmentControl.layer.masksToBounds = true
         
+        vwDrNotes.layer.cornerRadius = kButtonRadius
+        
 //        let pushMessage =  QBMPushMessage()
 //        pushMessage.alertBody =  "qeqds"
 //        //pushMessage.badge = 1
@@ -67,22 +71,24 @@ class CarePlanMainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
        setNavBarUI()
-        if  UserDefaults.standard.bool(forKey: "CurrentReadEditBool") {
+        if  UserDefaults.standard.bool(forKey: "CurrentReadEditBool") && currentReadEditBool {
             carePlanSegmentControl.selectedSegmentIndex = 1
             medicationContainer.isHidden = true
             readingContainer.isHidden = false
-            
             if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
                 self.navigationItem.leftBarButtonItem = nil
             }
             else {
                 self.navigationItem.rightBarButtonItem = nil
             }
-            
-            
-            
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notifications.readingView), object: nil)
             
+        }
+        else
+        {
+            carePlanSegmentControl.selectedSegmentIndex = 0
+            medicationContainer.isHidden = false
+            readingContainer.isHidden = true
         }
         
     }
@@ -215,10 +221,8 @@ class CarePlanMainViewController: UIViewController {
             case .success:
                 print("Validation Successful")
                 
-                let finalresult = response.result.value as! NSDictionary
                 if let JSON: NSDictionary = response.result.value as! NSDictionary?
                 {
-                    
                     
                     let imageName: String = JSON.value(forKey:"profileimage") as! String
                     

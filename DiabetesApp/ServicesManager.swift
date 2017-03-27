@@ -225,6 +225,7 @@ class ServicesManager: QMServicesManager {
         }) { (error) -> Void in
             
             print("Push notifications unsubscribe failed")
+            print(error)
             logoutGroup.leave()
         }
         

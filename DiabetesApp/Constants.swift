@@ -14,6 +14,7 @@ let kDialogsPageLimit:UInt = 100
 let kMessageContainerWidthPadding:CGFloat = 40.0
 
 var requestTabBarItem = UITabBarItem()
+var careplanTabBarItem = UITabBarItem()
 
 
 // Base Url
@@ -86,9 +87,6 @@ struct ViewIdentifiers{
     static let editMedicationViewController = "EditMedicationView"
     static let patientInfoViewController    = "PatientInfoView"
     static let requestViewController        = "RequestListView"
-    static let GroupInfoViewController      = "GroupInfoView"
-
-    
     
 }
 
@@ -205,6 +203,7 @@ struct Notifications {
     
     static let closeAddNewMedication    = "CloseAddNewMedicationNotification"
     static let selectMedicationNotification    = "SelectMedicationNotification"
+    static let editMedicationNotification    = "EditMedicationNotification"
     
     static let newReadingView   = "NewReadingView"
 }
@@ -216,6 +215,8 @@ struct Colors{
     static let outgoingMsgColor: UIColor = UIColor(red: 214.0/255.0, green: 225.0/255.0, blue: 244.0/255.0, alpha: 1)
     // static let outgoingMsgColor: UIColor = UIColor(red: 126.0/255.0, green: 213.0/255.0, blue: 217.0/255.0, alpha: 1)
     static let historyHeaderColor: UIColor = UIColor(red: 0.0/255.0, green: 156.0/255.0, blue: 190.0/255.0, alpha: 1.0)
+    static let oldMedicationTableBGColor: UIColor = UIColor(red: 163.0/255.0, green: 163.0/255.0, blue: 163.0/255.0, alpha: 1.0)
+      static let medicationConditionGrayColor: UIColor = UIColor(red: 125.0/255.0, green: 125.0/255.0, blue: 125.0/255.0, alpha: 1.0)
     
     static let chatHeaderColor: UIColor = UIColor(red: 241.0/255.0, green: 241.0/255.0, blue: 241.0/255.0, alpha: 1)
     

@@ -136,7 +136,7 @@ class RequestViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 cell.backgroundColor = nil
             }
             else {
-                cell.backgroundColor = UIColor(red: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 1.0)
+                cell.backgroundColor = UIColor(red: 240.0/255.0, green: 248.0/255.0, blue: 255.0/255.0, alpha: 1.0)
             }
         }
         else if selectedUserType == userType.educator{
@@ -146,9 +146,9 @@ class RequestViewController: UIViewController,UITableViewDelegate,UITableViewDat
             else{
                 cell.backgroundColor = nil
             }*/
-            
-            if obj.didDoctorComment == true{
-                cell.backgroundColor = UIColor(red: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 1.0)
+           
+            if obj.didDoctorComment == true && obj.iseducatorin{
+                cell.backgroundColor = UIColor(red: 240.0/255.0, green: 248.0/255.0, blue: 255.0/255.0, alpha: 1.0)
             }
             else{
                 cell.backgroundColor = nil

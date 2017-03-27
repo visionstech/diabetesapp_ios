@@ -24,7 +24,38 @@ class CarePlanObj: NSObject {
     var tempIndex = Int()
     var wasUpdated = Bool()
     var updatedDate = String()
+    var dosageNew = [Bool]()
+    var medNew = Bool()
+    var deletedCondition = [String]()
+    var deletedDosage = [Int]()
+    var timingID = [String]()
     
+//    init(id: String, dosage: [Int], condition: [String],name: String,nameAr: String,isNew: Bool,carePlanImageURL: UIImage,isEdit: Bool,strImageURL: String,type: String,updatedBy: String,tempIndex: Int,wasUpdated: Bool,updatedDate: String,dosageNew: [Bool],medNew: Bool,deletedCondition: [String],deletedDosage: [Int],timingID: [String]) {
+//        self.id = id
+//        self.dosage = dosage
+//        self.condition = condition
+//         self.name = name
+//         self.nameAr = nameAr
+//         self.isNew = isNew
+//         self.carePlanImageURL = carePlanImageURL
+//         self.isEdit = isEdit
+//         self.strImageURL = strImageURL
+//         self.type = type
+//         self.updatedBy = updatedBy
+//         self.tempIndex = tempIndex
+//         self.wasUpdated = wasUpdated
+//         self.updatedDate = updatedDate
+//        self.dosageNew = dosageNew
+//        self.medNew = medNew
+//        self.deletedCondition = deletedCondition
+//        self.deletedDosage = deletedDosage
+//          self.timingID = timingID
+//    }
+    
+//    func copy(with zone: NSZone? = nil) -> Any {
+//        let copy = CarePlanObj(id: self.id, dosage: self.dosage, condition: self.condition , name: self.name, nameAr: self.nameAr, isNew: self.isNew, carePlanImageURL: self.carePlanImageURL, isEdit: self.isEdit, strImageURL: self.strImageURL, type:  self.type , updatedBy: self.updatedBy, tempIndex: self.tempIndex, wasUpdated: self.wasUpdated , updatedDate: self.updatedDate, dosageNew: self.dosageNew, medNew: self.medNew , deletedCondition: self.deletedCondition, deletedDosage: self.deletedDosage, timingID:  self.timingID)
+//        return copy
+//    }
     
 //    func encodeWithCoder(encoder: NSCoder) {
 //        encoder.encode(id, forKey: "id")

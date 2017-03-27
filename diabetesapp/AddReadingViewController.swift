@@ -27,6 +27,12 @@ class AddReadingViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var btnCancelFreqPicker: UIButton!
     @IBOutlet weak var btnOkFreqPicker: UIButton!
     
+    var editReadArray = NSMutableArray()
+    var tempReadArray = NSMutableArray()
+ 
+    
+    var isEditReading : Bool = false
+    
     var formInterval: GTInterval!
     var objCarePlanFrequencyObj = CarePlanFrequencyObj()
     let loggedInUserID : String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserID)!
@@ -54,8 +60,14 @@ class AddReadingViewController: UIViewController, UITableViewDelegate, UITableVi
         
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         pickerViewContainer.insertSubview(blurEffectView, belowSubview: pickerViewInner)
+       
         
     }
+    
+    func dismissPopup() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -118,6 +130,20 @@ class AddReadingViewController: UIViewController, UITableViewDelegate, UITableVi
         self.pickerTimingView.tag = 1
         self.btnOkPicker.tag = 1
         self.btnCancelPicker.tag = 1
+        
+        if(self.isEditReading)
+        {
+            let index = conditionsArrayEng.index(of: self.objCarePlanFrequencyObj.time.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines))
+            if(index <= conditionsArrayEng.count)
+            {
+                pickerTimingView.selectRow(index, inComponent: 0, animated: true)
+            }
+            else
+            {
+                pickerTimingView.selectRow(0, inComponent: 0, animated: true)
+            }
+        }
+        
         showOverlay(overlayView: pickerViewContainer)
     }
     
@@ -143,12 +169,23 @@ class AddReadingViewController: UIViewController, UITableViewDelegate, UITableVi
         self.pickerFreqView.tag = 1
         self.btnOkFreqPicker.tag = 1
         self.btnCancelFreqPicker.tag = 1
-        
+        if(self.isEditReading)
+        {
+            let index = frequnecyArray.index(of: self.objCarePlanFrequencyObj.frequency.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines))
+            if(index <= frequnecyArray.count)
+            {
+                pickerFreqView.selectRow(index, inComponent: 0, animated: true)
+            }
+            else
+            {
+                pickerFreqView.selectRow(0, inComponent: 0, animated: true)
+            }
+        }
         showOverlay(overlayView: pickerViewContainer)
     }
     
     @IBAction func btnSaveReading_Clicked(_ sender: Any) {
-        
+          self.view.endEditing(true)
         let cell = self.tblView.cellForRow(at: NSIndexPath(row: 0, section: 0) as IndexPath) as! AddReadingCell
         self.objCarePlanFrequencyObj.goal = cell.txtGoal.text!
         
@@ -175,35 +212,118 @@ class AddReadingViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         else
         {
-            if UserDefaults.standard.bool(forKey: "CurrentReadEditBool") {
-                let arr : NSArray = UserDefaults.standard.array(forKey: "currentAddReadingArray")! as [Any] as NSArray
-                newReadArray = NSMutableArray(array: arr)
-                
-                let mainDict: NSMutableDictionary = NSMutableDictionary()
-                let loggedInUserName: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserFullname)!
-                mainDict.setValue(self.objCarePlanFrequencyObj.id, forKey: "id")
-                mainDict.setValue(self.objCarePlanFrequencyObj.frequency, forKey: "frequency")
-                mainDict.setValue(self.objCarePlanFrequencyObj.time, forKey: "time")
-                mainDict.setValue(self.objCarePlanFrequencyObj.goal, forKey: "goal")
-                mainDict.setValue(loggedInUserID, forKey: "updatedBy")
-                mainDict.setValue(loggedInUserName, forKey: "updatedByName")
-                mainDict.setValue(newReadArray.count+1, forKey:"readindex")
-                newReadArray.add(mainDict)
-                
-                UserDefaults.standard.setValue(newReadArray, forKey: "currentAddReadingArray")
-                UserDefaults.standard.synchronize()
-                
-                self.dismiss(animated: true, completion: {
-                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notifications.addNewReading), object: nil)
-                })
-                
-            }
-            else{
-                self.addnewreading()
-            }
+                if(self.isEditReading)
+                {
+                    if UserDefaults.standard.bool(forKey: "CurrentReadEditBool") {
+                        self.objCarePlanFrequencyObj.isEdit = false
+                       
+                        
+                        let arr : NSArray = UserDefaults.standard.array(forKey: "currentEditReadingCareArray")! as [Any] as NSArray
+                        editReadArray = NSMutableArray(array: arr)
+                        let loggedInUserName: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserFullname)!
+                        let mainDict: NSMutableDictionary = NSMutableDictionary()
+                        mainDict.setValue(self.objCarePlanFrequencyObj.id, forKey: "id")
+                        mainDict.setValue(self.objCarePlanFrequencyObj.frequency, forKey: "frequency")
+                        mainDict.setValue(self.objCarePlanFrequencyObj.time, forKey: "time")
+                        mainDict.setValue(self.objCarePlanFrequencyObj.goal, forKey: "goal")
+                        mainDict.setValue(loggedInUserID, forKey: "updatedBy")
+                        mainDict.setValue(loggedInUserName, forKey: "updatedByName")
+
+                        
+                        if editReadArray.count > 0 {
+                            for i in 0..<self.editReadArray.count {
+                                let id: String = (editReadArray.object(at:i) as AnyObject).value(forKey: "id") as! String
+                                print(id)
+                                if id == self.objCarePlanFrequencyObj.id {
+                                    editReadArray.replaceObject(at:i, with: mainDict)
+                                    UserDefaults.standard.setValue(editReadArray, forKey: "currentEditReadingCareArray")
+                                    UserDefaults.standard.synchronize()
+                                    break
+                                }
+                            }
+                            editReadArray.add(mainDict)
+                        }
+                        else {
+                            editReadArray.add(mainDict)
+                        }
+                        
+                        if tempReadArray.count >= newReadArray.count{
+                            let first = tempReadArray.count - newReadArray.count
+                            let finalArray = NSMutableArray();
+                            for i in first..<(first+newReadArray.count){
+                                finalArray.add(tempReadArray[i])
+                            }
+                            print("Final array")
+                            print(finalArray)
+                            UserDefaults.standard.set(finalArray, forKey: "updateReadingCareArray")
+                            UserDefaults.standard.synchronize()
+                            
+                        }
+                        // Update tempReadingCareArray when Edit Reading while update on report
+                        //  ---- Start ----
+                        
+                        let myTempReadingData = NSMutableArray()
+                        for i in 0..<self.newReadArray.count {
+                            let objCarPlan = (newReadArray[i] as? CarePlanFrequencyObj)!
+                            let loggedInUserName: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserFullname)!
+                            let mainDictEdit: NSMutableDictionary = NSMutableDictionary()
+                            mainDictEdit.setValue(objCarPlan.id, forKey: "id")
+                            mainDictEdit.setValue(objCarPlan.frequency, forKey: "frequency")
+                            mainDictEdit.setValue(objCarPlan.time, forKey: "time")
+                            mainDictEdit.setValue(objCarPlan.goal, forKey: "goal")
+                            mainDict.setValue(loggedInUserID, forKey: "updatedBy")
+                            mainDict.setValue(loggedInUserName, forKey: "updatedByName")
+                            myTempReadingData.add(mainDictEdit)
+                            
+                        }
+                        
+                        UserDefaults.standard.setValue(myTempReadingData, forKey: "tempReadingCareArray")
+                        UserDefaults.standard.setValue(editReadArray, forKey: "currentEditReadingCareArray")
+                        UserDefaults.standard.synchronize()
+                        
+                        self.dismiss(animated: true, completion: {
+                            NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notifications.addNewReading), object: nil)
+                        })
+                        //  ---- End ----
+                    }
+                    else
+                    {
+
+                    self.updatecareplanData()
+                    }
+                }
+                else
+                {
+                    if UserDefaults.standard.bool(forKey: "CurrentReadEditBool") {
+                        let arr : NSArray = UserDefaults.standard.array(forKey: "currentAddReadingArray")! as [Any] as NSArray
+                        newReadArray = NSMutableArray(array: arr)
+                        
+                        let mainDict: NSMutableDictionary = NSMutableDictionary()
+                        let loggedInUserName: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserFullname)!
+                        mainDict.setValue(self.objCarePlanFrequencyObj.id, forKey: "id")
+                        mainDict.setValue(self.objCarePlanFrequencyObj.frequency, forKey: "frequency")
+                        mainDict.setValue(self.objCarePlanFrequencyObj.time, forKey: "time")
+                        mainDict.setValue(self.objCarePlanFrequencyObj.goal, forKey: "goal")
+                        mainDict.setValue(loggedInUserID, forKey: "updatedBy")
+                        mainDict.setValue(loggedInUserName, forKey: "updatedByName")
+                        mainDict.setValue(newReadArray.count+1, forKey:"readindex")
+                        newReadArray.add(mainDict)
+                        
+                        UserDefaults.standard.setValue(newReadArray, forKey: "currentAddReadingArray")
+                        UserDefaults.standard.synchronize()
+                        
+                        self.dismiss(animated: true, completion: {
+                            NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notifications.addNewReading), object: nil)
+                        })
+                    }
+                    else{
+                    self.addnewreading()
+                    }
+                }
         }
     }
     @IBAction func btnCloseReading_Clicked(_ sender: Any) {
+          self.view.endEditing(true)
             self.dismiss(animated: true, completion: nil)
     }
     @IBAction func cancelFreqBtn_Clicked(_ sender: Any) {
@@ -238,6 +358,7 @@ class AddReadingViewController: UIViewController, UITableViewDelegate, UITableVi
         
     }
     @IBAction func cancelBtn_Clicked(_ sender: Any){
+          self.view.endEditing(true)
         hideOverlay(overlayView: pickerViewContainer)
     }
 
@@ -250,6 +371,11 @@ class AddReadingViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.txtTiming.text = conditionsArray[pickerTimingView.selectedRow(inComponent: 0)] as? String
         
         hideOverlay(overlayView: pickerViewContainer)
+    }
+    
+    @IBAction func btnDelete_Clicked(_ sender: Any) {
+          self.view.endEditing(true)
+        self.deleteReading()
     }
     // MARK: - Editable TableView TextField
     func textField(_ textField: UITextField,
@@ -325,6 +451,20 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     cell.txtFrequency.attributedPlaceholder = NSAttributedString(string: "SA_STR_ENTER_FREQUNECY".localized,
                                                             attributes: [NSForegroundColorAttributeName: Colors.DefaultplaceHolderColor])
     
+    if(self.isEditReading)
+    {
+        cell.txtGoal.text = self.objCarePlanFrequencyObj.goal
+        cell.txtTiming.text = self.objCarePlanFrequencyObj.time
+        cell.txtFrequency.text = self.objCarePlanFrequencyObj.frequency
+        cell.deleteVW.isHidden = false
+    }
+    else
+    {
+        cell.txtGoal.text = ""
+        cell.txtTiming.text = ""
+        cell.txtFrequency.text = ""
+        cell.deleteVW.isHidden = true
+    }
     
     if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
     cell.txtGoal.textAlignment = .right
@@ -350,6 +490,108 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
             return 210
     }
     // MARK: - web service calling
+    func deleteReading() {
+        
+        let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+        let loggedInUserName: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserFullname)!
+        let parameters: Parameters = [
+            "userid": patientsID,
+            "readingid" : self.objCarePlanFrequencyObj.id,
+            "updatedBy":loggedInUserID,
+            "updatedByName":loggedInUserName
+        ]
+        self.formInterval = GTInterval.intervalWithNowAsStartDate()
+        SVProgressHUD.show(withStatus: "SA_STR_DELETE_READING".localized)
+        //"\(baseUrl)\(ApiMethods.deletecareplanReadings)"
+        
+        Alamofire.request("\(baseUrl)\(ApiMethods.deletecareplanReadings)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+            self.formInterval.end()
+            if let JSON: NSDictionary = response.result.value as! NSDictionary? {
+                if JSON["result"] != nil {
+                    self.present(UtilityClass.displayAlertMessage(message: JSON.value(forKey:"message") as! String, title: "SA_STR_ERROR".localized), animated: true, completion: nil)
+                    
+                    GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.deletecareplan) Reading Calling", action:"Fail - Web API Calling" , label:JSON.value(forKey:"message") as! String, value : self.formInterval.intervalAsSeconds())
+                    
+                    SVProgressHUD.dismiss()
+                }
+                else
+                {
+                    switch response.result
+                    {
+                    case .success:
+                        SVProgressHUD.dismiss()
+                        SVProgressHUD.showSuccess(withStatus: "Deleted Successfully".localized, maskType: SVProgressHUDMaskType.clear)
+                        //Google Analytic
+                        GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.deletecareplan) Calling", action:"Success - Delete care Plan Reading" , label:"Care Plan Data Deleted Successfully", value : self.formInterval.intervalAsSeconds())
+                        
+                        self.dismiss(animated: true, completion: {
+                            NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notifications.addNewReading), object: nil )
+                        })
+                        print("Validation Successful")
+                        break
+                    case .failure(let error):
+                        print("failure")
+                        var strError = ""
+                        if(error.localizedDescription.length>0)
+                        {
+                            strError = error.localizedDescription
+                        }
+                        GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.deletecareplan) Calling", action:"Fail - Web API Calling Reading" , label:String(describing: strError), value : self.formInterval.intervalAsSeconds())
+                        SVProgressHUD.dismiss()
+                        break
+                        
+                    }
+                }
+            }
+        }
+    }
+    
+    func updatecareplanData()
+    {
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
+        let loggedInUserName: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserFullname)!
+        let parameters: Parameters = [
+            "readingid": self.objCarePlanFrequencyObj.id,
+            "userid": patientsID,
+            "readingFreq" : self.objCarePlanFrequencyObj.frequency,
+            "readingTime" : self.objCarePlanFrequencyObj.time,
+            "readingGoal" : self.objCarePlanFrequencyObj.goal,
+            "updatedBy" : loggedInUserID,
+            "updatedByName":loggedInUserName
+        ]
+        self.formInterval = GTInterval.intervalWithNowAsStartDate()
+       SVProgressHUD.show(withStatus: "SA_STR_LOADING".localized, maskType: SVProgressHUDMaskType.clear)
+        
+        //"\(baseUrl)\(ApiMethods.updatecareplanReadings)"
+        Alamofire.request("\(baseUrl)\(ApiMethods.updatecareplanReadings)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+            self.formInterval.end()
+            
+            switch response.result {
+            case .success:
+                 SVProgressHUD.dismiss()
+                SVProgressHUD.showSuccess(withStatus: "Updated Successfully".localized, maskType: SVProgressHUDMaskType.clear)
+                //Google Analytic
+                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.updatecareplanReadings) Calling", action:"Success -Update care Plan" , label:"Care Plan Data Updated Successfully", value : self.formInterval.intervalAsSeconds())
+                
+                self.dismiss(animated: true, completion: {
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notifications.addNewReading), object: nil)
+                })
+                break
+            case .failure(let error):
+                print("failure")
+                var strError = ""
+                if(error.localizedDescription.length>0)
+                {
+                    strError = error.localizedDescription
+                }
+                GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "\(ApiMethods.updatecareplanReadings) Calling", action:"Fail - Web API Calling" , label:String(describing: strError), value : self.formInterval.intervalAsSeconds())
+                SVProgressHUD.dismiss()
+                break
+                
+            }
+        }
+    }
     func addnewreading()
     {
         let patientsID: String = UserDefaults.standard.string(forKey: userDefaults.selectedPatientID)!
@@ -367,6 +609,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         
         SVProgressHUD.show(withStatus: "SA_STR_LOADING".localized, maskType: SVProgressHUDMaskType.clear)
         self.formInterval = GTInterval.intervalWithNowAsStartDate()
+        UIApplication.shared.beginIgnoringInteractionEvents()
         
         //"\(baseUrl)\(ApiMethods.addcareplanReadings)"
         Alamofire.request("\(baseUrl)\(ApiMethods.addcareplanReadings)", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
@@ -384,7 +627,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
                 SVProgressHUD.showSuccess(withStatus: "Reading Added", maskType: SVProgressHUDMaskType.clear)
                 
                 self.dismiss(animated: true, completion: {
-                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notifications.addNewReading), object: nil)
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notifications.addNewReading), object: nil )
                 })
                 
                 break

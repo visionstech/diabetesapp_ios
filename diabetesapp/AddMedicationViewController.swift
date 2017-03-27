@@ -298,13 +298,18 @@ class AddMedicationViewController: UIViewController, UITableViewDelegate, UITabl
                         UserDefaults.standard.setValue(addNewMedArray, forKey: "currentAddNewMedicationArray")
                         UserDefaults.standard.synchronize()
                         
-                        self.dismiss(animated:true)
+                        
+                        self.dismiss(animated: true, completion: {
+                            NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notifications.addNewMedication), object: nil)
+                        })
                         
                         showAlert(title: "Medication", message: "Medication saved in intermediate state. Will be updated on the patient's side whenthe doctor approves".localized)
                     
                     }
                     else{
+                        
                         self.addcareplanData(careObj: obj)
+                        
                     }
                 }
             }
@@ -366,7 +371,7 @@ class AddMedicationViewController: UIViewController, UITableViewDelegate, UITabl
         
         cell.selectionStyle = .none
         cell.tag = indexPath.row
-        cell.btnAdd.tag = indexPath.row
+      //  cell.btnAdd.tag = indexPath.row
         cell.medImgBtn.tag = indexPath.row
         cell.saveBtn.tag = indexPath.row
         
@@ -404,7 +409,7 @@ class AddMedicationViewController: UIViewController, UITableViewDelegate, UITabl
             cell.addMedicationView.subviews.forEach({ $0.removeFromSuperview() })
             vwDetailY = 0
             for dosage in obj.dosage{
-                let vwDetailNew = UIView(frame: CGRect(x: CGFloat(0), y: CGFloat(vwDetailY), width: CGFloat(bounds-(cell.medImgView.frame.width+45)), height: CGFloat(vwDetailHeight)))
+                let vwDetailNew = UIView(frame: CGRect(x: CGFloat(0), y: CGFloat(vwDetailY), width: CGFloat(bounds-(45)), height: CGFloat(vwDetailHeight)))
                 
                 vwDetailNew.subviews.forEach({ $0.removeFromSuperview() })
                 vwDetailNew.backgroundColor = UIColor.white
@@ -413,31 +418,31 @@ class AddMedicationViewController: UIViewController, UITableViewDelegate, UITabl
                 let vwWidth = Double(vwDetailNew.frame.size.width)
                 if UIApplication.shared.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.rightToLeft {
                     if selectedUserType != userType.patient && obj.isEdit {
-                        dosageTxtFld = UITextField(frame: CGRect(x: CGFloat(cell.btnConditionDelete.frame.size.width), y: CGFloat(cell.dosageTxtFld.frame.origin.y), width:  CGFloat(((vwWidth*40)/100) ), height: CGFloat(cell.dosageTxtFld.frame.size.height)))
+                        dosageTxtFld = UITextField(frame: CGRect(x: CGFloat(cell.btnConditionDelete.frame.size.width), y: CGFloat(cell.dosageTxtFld.frame.origin.y), width:  CGFloat(((vwWidth*40)/100) ), height: CGFloat(35)))
                         
-                        imgConditionBg = UIImageView(frame: CGRect(x: CGFloat((dosageTxtFld.frame.origin.x + dosageTxtFld.frame.size.width)+2), y: CGFloat(cell.imgCarBg.frame.origin.y), width: CGFloat((vwWidth*46)/100), height: CGFloat(cell.imgCarBg.frame.size.height)))
-                        conditionNameLbl = UILabel(frame: CGRect(x: CGFloat(imgConditionBg.frame.origin.x+2), y: CGFloat(cell.conditionNameLbl.frame.origin.y), width: CGFloat((vwWidth*43)/100), height: CGFloat(cell.conditionNameLbl.frame.size.height)))
+                        imgConditionBg = UIImageView(frame: CGRect(x: CGFloat((dosageTxtFld.frame.origin.x + dosageTxtFld.frame.size.width)+2), y: CGFloat(cell.imgCarBg.frame.origin.y), width: CGFloat((vwWidth*46)/100), height: CGFloat(35)))
+                        conditionNameLbl = UILabel(frame: CGRect(x: CGFloat(imgConditionBg.frame.origin.x+2), y: CGFloat(cell.conditionNameLbl.frame.origin.y), width: CGFloat((vwWidth*43)/100), height: CGFloat(35)))
                         
                         
-                        conditionTxtFld = UITextField(frame: CGRect(x: CGFloat(conditionNameLbl.frame.origin.x), y: CGFloat(cell.conditionNameLbl.frame.origin.y), width: CGFloat((vwWidth*43)/100), height: CGFloat(cell.conditionNameLbl.frame.size.height)))
+                        conditionTxtFld = UITextField(frame: CGRect(x: CGFloat(conditionNameLbl.frame.origin.x), y: CGFloat(cell.conditionNameLbl.frame.origin.y), width: CGFloat((vwWidth*43)/100), height: CGFloat(35)))
                     }
                     else
                     {
-                        dosageTxtFld = UITextField(frame: CGRect(x: CGFloat(0), y: CGFloat(cell.dosageTxtFld.frame.origin.y), width:  CGFloat((vwWidth*40)/100), height: CGFloat(cell.dosageTxtFld.frame.size.height)))
-                        imgConditionBg = UIImageView(frame: CGRect(x: CGFloat((dosageTxtFld.frame.origin.x + dosageTxtFld.frame.size.width)-10), y: CGFloat(cell.imgCarBg.frame.origin.y), width: CGFloat((vwWidth*60)/100), height: CGFloat(cell.imgCarBg.frame.size.height)))
-                        conditionNameLbl = UILabel(frame: CGRect(x: CGFloat(imgConditionBg.frame.origin.x+10), y: CGFloat(cell.conditionNameLbl.frame.origin.y), width: CGFloat((vwWidth*50)/100), height: CGFloat(cell.conditionNameLbl.frame.size.height)))
+                        dosageTxtFld = UITextField(frame: CGRect(x: CGFloat(0), y: CGFloat(cell.dosageTxtFld.frame.origin.y), width:  CGFloat((vwWidth*40)/100), height: CGFloat(35)))
+                        imgConditionBg = UIImageView(frame: CGRect(x: CGFloat((dosageTxtFld.frame.origin.x + dosageTxtFld.frame.size.width)-10), y: CGFloat(cell.imgCarBg.frame.origin.y), width: CGFloat((vwWidth*60)/100), height: CGFloat(35)))
+                        conditionNameLbl = UILabel(frame: CGRect(x: CGFloat(imgConditionBg.frame.origin.x+10), y: CGFloat(cell.conditionNameLbl.frame.origin.y), width: CGFloat((vwWidth*50)/100), height: CGFloat(35)))
                         
-                        conditionTxtFld = UITextField(frame: CGRect(x: CGFloat(conditionNameLbl.frame.origin.x), y: CGFloat(cell.conditionNameLbl.frame.origin.y), width: CGFloat((vwWidth*50)/100), height: CGFloat(cell.conditionNameLbl.frame.size.height)))
+                        conditionTxtFld = UITextField(frame: CGRect(x: CGFloat(conditionNameLbl.frame.origin.x), y: CGFloat(cell.conditionNameLbl.frame.origin.y), width: CGFloat((vwWidth*50)/100), height: CGFloat(35)))
                     }
                 }
                 else
                 {
-                    imgConditionBg = UIImageView(frame: CGRect(x: CGFloat(cell.imgCarBg.frame.origin.x), y: CGFloat(cell.imgCarBg.frame.origin.y), width: CGFloat((vwWidth*56)/100), height: CGFloat(cell.imgCarBg.frame.size.height)))
-                    conditionNameLbl = UILabel(frame: CGRect(x: CGFloat(cell.conditionNameLbl.frame.origin.x), y: CGFloat(cell.conditionNameLbl.frame.origin.y), width: CGFloat((vwWidth*50)/100), height: CGFloat(cell.conditionNameLbl.frame.size.height)))
+                    imgConditionBg = UIImageView(frame: CGRect(x: CGFloat(cell.imgCarBg.frame.origin.x), y: CGFloat(cell.imgCarBg.frame.origin.y), width: CGFloat((vwWidth*56)/100), height: CGFloat(35)))
+                    conditionNameLbl = UILabel(frame: CGRect(x: CGFloat(cell.conditionNameLbl.frame.origin.x), y: CGFloat(cell.conditionNameLbl.frame.origin.y), width: CGFloat((vwWidth*50)/100), height: CGFloat(35)))
                     
-                    dosageTxtFld = UITextField(frame: CGRect(x: CGFloat(imgConditionBg.frame.size.width-10)+12, y: CGFloat(cell.dosageTxtFld.frame.origin.y), width:  CGFloat(((vwWidth*40)/100) - Double(cell.btnConditionDelete.frame.size.width)), height: CGFloat(cell.dosageTxtFld.frame.size.height)))
+                    dosageTxtFld = UITextField(frame: CGRect(x: CGFloat(imgConditionBg.frame.size.width-10)+12, y: CGFloat(cell.dosageTxtFld.frame.origin.y), width:  CGFloat(((vwWidth*40)/100) - Double(cell.btnConditionDelete.frame.size.width)), height: CGFloat(35)))
                     
-                    conditionTxtFld = UITextField(frame: CGRect(x: CGFloat(cell.conditionNameLbl.frame.origin.x), y: CGFloat(cell.conditionTxtFld.frame.origin.y), width: CGFloat((vwWidth*50)/100), height: CGFloat(cell.conditionTxtFld.frame.size.height)))
+                    conditionTxtFld = UITextField(frame: CGRect(x: CGFloat(cell.conditionNameLbl.frame.origin.x), y: CGFloat(cell.conditionTxtFld.frame.origin.y), width: CGFloat((vwWidth*50)/100), height: CGFloat(35)))
                 }
                 
                 imgConditionBg.backgroundColor = Colors.DHAddConditionBg
@@ -595,7 +600,7 @@ class AddMedicationViewController: UIViewController, UITableViewDelegate, UITabl
             if(obj.dosage.count>=3)
             {
                 let addHeight = (obj.dosage.count-2) * 45
-                return CGFloat(200 + addHeight)
+                return CGFloat(210 + addHeight)
             }
             else
             {
@@ -814,7 +819,7 @@ class AddMedicationViewController: UIViewController, UITableViewDelegate, UITabl
             "updatedByName":loggedInUserName
             
         ]
-        
+        UIApplication.shared.beginIgnoringInteractionEvents()
         SVProgressHUD.show(withStatus: "SA_STR_LOADING".localized, maskType: SVProgressHUDMaskType.clear)
         self.formInterval = GTInterval.intervalWithNowAsStartDate()
         

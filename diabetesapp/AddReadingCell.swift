@@ -14,7 +14,8 @@ class AddReadingCell: UITableViewCell {
     @IBOutlet weak var txtTiming: UITextField!
     @IBOutlet weak var txtFrequency: UITextField!
     @IBOutlet weak var txtGoal: UITextField!
-    
+    @IBOutlet weak var deleteBtn: UIButton!
+    @IBOutlet weak var deleteVW: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -175,7 +175,8 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
        // self.navigationItem.title = ServicesManager.instance().currentUser()?.login!
        
         setNavBarUI()
-        
+        UserDefaults.standard.set(false,forKey:"visitedContactList")
+        UserDefaults.standard.synchronize()
         ServicesManager.instance().chatService.addDelegate(self)
         ServicesManager.instance().authService.add(self)
         
@@ -477,6 +478,8 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
         viewController.isGroupMode = (sender.tag == 0 ? true : false)
         self.tabBarController?.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         viewController.hidesBottomBarWhenPushed = true
+        UserDefaults.standard.set(true,forKey:"visitedContactList")
+        UserDefaults.standard.synchronize()
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
@@ -525,6 +528,8 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
                 UserDefaults.standard.set("", forKey: userDefaults.recipientIDArray)
                 UserDefaults.standard.setValue("", forKey: userDefaults.loggedInUserFullname)
                 UserDefaults.standard.setValue("", forKey: userDefaults.loggedInUserType)
+                UserDefaults.standard.set(false,forKey:"visitedContactList")
+               
                 
                
                 UserDefaults.standard.synchronize()
@@ -654,13 +659,13 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
                     //var databaseToCheck = ""
                     var selectedPatientID : String = ""
             
-                    if(typeUser == userType.doctor && (recipientTypes.contains("educator"))){
+                    if(typeUser == userType.doctor && (recipientTypes.contains("patient"))){
                        // databaseToCheck = "Patient"
-                        selectedPatientID = (recipientIDs[(recipientTypes.index(of: "educator"))!])
-                    }
-                    else  if(typeUser == userType.doctor){
-                        // databaseToCheck = "Patient"
                         selectedPatientID = (recipientIDs[(recipientTypes.index(of: "patient"))!])
+                    }
+                    else if(typeUser == userType.doctor && (recipientTypes.contains("educator"))){
+                       // databaseToCheck = "Educator"
+                        selectedPatientID = (recipientIDs[(recipientTypes.index(of: "educator"))!])
                     }
                     else if(typeUser == userType.patient && (recipientTypes.contains("doctor")))
                     {
@@ -751,7 +756,7 @@ class DialogsViewController: UITableViewController, QMChatServiceDelegate, QBCor
                     {
                         if(recipientNames.count >= 2)
                         {
-                            cell.dialogName?.text = recipientNames[1]
+                            cell.dialogName?.text = cellModel.textLabelText//recipientNames[1]
                             SVProgressHUD.dismiss()
                         }
                         else{

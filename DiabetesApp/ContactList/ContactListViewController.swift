@@ -23,6 +23,7 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
     var isGroupMode : Bool = false
     var formInterval: GTInterval!
     
+    @IBOutlet weak var doneButton: UIBarButtonItem!
     var patientSelectedList = NSMutableArray()
     var doctorSelectedList = NSMutableArray()
     var educatorSelectedList = NSMutableArray()
@@ -33,11 +34,12 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationItem.rightBarButtonItem?.isEnabled = true
+       // doneButton.isEnabled = true
         if selectedUserType == userType.doctor {
             
             getDoctorPatients()
-            //            getDoctorEducators()
+            getDoctorEducators()
         }
         else if selectedUserType == userType.educator {
             getEducatorDoctors()
@@ -164,12 +166,14 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
             
             self.createChat(name:chatName, usersArray: usersArray, isGroup: true, patientID: selectedPatient.patient_id, HCNumber: patienthcNumber, recipientIDArray: recipientIDArray, recipientNames: recipientNameArray, completion: { (response, chatDialog) in
                 
+                
                 UserDefaults.standard.setValue(selectedPatient.patient_id, forKey: userDefaults.selectedPatientID)
                 self.naviagteToChatScreen(dialog: chatDialog!)
             })
             
         }){ () -> Void in
            // self.checkCreateChatButtonState()
+            
         }
         
         
@@ -220,11 +224,13 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
         var patientid : String = ""
         var patienthcNumber : String = ""
         var doctorid : String = ""
+        var educatorid : String = ""
         var recipientIDArray : [String] = []
         var recipientNameArray : [String] = []
         // get selected Patient
         
-        
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
+        //doneButton.isEnabled = false
         for obj in patientList {
             
             if (obj as! ContactObj).isSelected == "1" {
@@ -257,20 +263,44 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
             }
         }
         
+        for eduObj in educatorsList {
+            
+            if (eduObj as! ContactObj).isSelected == "1" {
+                
+                educatorid = (eduObj as! ContactObj).patient_id
+                selectesUsers.append((eduObj as! ContactObj).chatid as String)
+                recipientIDArray.append((eduObj as! ContactObj).patient_id as String)
+                recipientNameArray.append((eduObj as! ContactObj).full_name as String)
+                educatorSelectedList.add(eduObj)
+                break
+            }
+        }
+        
         // No user selected
         if selectesUsers.count < 1 {
-            GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "Error", action:"Create Group For Doctor" , label:"You need to select one patient and one doctor")
+            GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "Error", action:"Create Group For Doctor" , label:"You need to select atleast one user")
             
-            _ = AlertView(title: "SA_STR_ERROR".localized, message: "You need to select one patient and one doctor".localized, cancelButtonTitle: "SA_STR_OK".localized, otherButtonTitle: [""], didClick: { (buttonIndex) in
-            })
+            let alert  = UIAlertController(title: "Error", message: "You need to select atleast one user".localized,preferredStyle: UIAlertControllerStyle.alert)
+            
+            // add an action (button)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            
+            // show the alert
+            self.present(alert, animated: true, completion: nil)
             return
         }
         
         if doctorSelectedList.count > 1 {
-            GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "Error", action:"Create Group For Doctor" , label:"You can select only one doctor")
+            GoogleAnalyticManagerApi.sharedInstance.sendAnalyticsEventWithCategory(category: "Error", action:"Create Group For Doctor" , label:"You need to select atleast one user")
             
-            _ = AlertView(title: "SA_STR_ERROR".localized, message: "You can select only one doctor".localized, cancelButtonTitle: "SA_STR_OK".localized, otherButtonTitle: [""], didClick: { (buttonIndex) in
-            })
+            let alert  = UIAlertController(title: "Error", message: "You need to select atleast one user".localized,preferredStyle: UIAlertControllerStyle.alert)
+            
+            // add an action (button)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            
+            // show the alert
+            self.present(alert, animated: true, completion: nil)
+
             return
         }
         
@@ -294,8 +324,11 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
                 
                 self.createChat(name: chatName, usersArray: selectesUsers, isGroup: true, patientID: patientid, HCNumber: patienthcNumber, recipientIDArray: recipientIDArray, recipientNames: recipientNameArray, completion: { (response, chatDialog) in
                     //            print("Now creating")
-                    UserDefaults.standard.setValue(patientid, forKey: userDefaults.selectedPatientID)
-                    self.naviagteToChatScreen(dialog: chatDialog!)
+                    
+                   // if response != nil{
+                        UserDefaults.standard.setValue(patientid, forKey: userDefaults.selectedPatientID)
+                        self.naviagteToChatScreen(dialog: chatDialog!)
+                    //}
                 })
 
                 
@@ -306,8 +339,11 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
         else if selectesUsers.count == 1{
             self.createChat(name: patientName, usersArray: selectesUsers, isGroup: false, patientID: patientid, HCNumber: patienthcNumber, recipientIDArray: recipientIDArray, recipientNames: recipientNameArray, completion: { (response, chatDialog) in
                 //            print("Now creating")
-                UserDefaults.standard.setValue(patientid, forKey: userDefaults.selectedPatientID)
-                self.naviagteToChatScreen(dialog: chatDialog!)
+                
+                //if response != nil{
+                    UserDefaults.standard.setValue(patientid, forKey: userDefaults.selectedPatientID)
+                    self.naviagteToChatScreen(dialog: chatDialog!)
+                //}
             })
         }
         
@@ -357,9 +393,15 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
                     }
                     else if(self.educatorSelectedList.count>0)
                     {
-                        tempArray = ["educator"]
+                        if self.selectedUserType == userType.doctor
+                        {
+                            tempArray = ["educator", "doctor"]
+                            tempIDArray.append(recipientIDArray[0])
+                            tempIDArray.append(self.loggedInUserID)
+                            //recipientIDArray.append(loggedInUserID)
+                        }
                         object.fields?.setObject(tempArray, forKey: "recipientTypes" as NSCopying)
-                        object.fields?.setObject(recipientIDArray, forKey: "recipientIDs" as NSCopying)
+                        object.fields?.setObject(tempIDArray, forKey: "recipientIDs" as NSCopying)
                     }
                     else if(self.patientSelectedList.count>0)
                     {
@@ -405,7 +447,7 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
                         guard updatedDialog != nil else {
                             return
                         }
-                        completion(response, updatedDialog)
+                       // completion(response, updatedDialog)
                     }, errorBlock: { (error) in
                         print("Error")
                     })
@@ -524,12 +566,13 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
     
     //MARK:- TableView Delegate Methods
     func numberOfSections(in tableView: UITableView) -> Int {
-        if selectedUserType == userType.educator {
-            return 2
-        }
-        else {
-            return 1
-        }
+//        if selectedUserType == userType.educator  {
+//            return 2
+//        }
+//        else {
+//            return 1
+//        }
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -543,8 +586,15 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
                 return doctorList.count
             }
         }
+        
+            
         else {
+            
+            if section == 0 {
             return patientList.count
+            }else {
+                return educatorsList.count
+            }
         }
         
     }
@@ -563,7 +613,15 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
             
         }
         else {
-            obj = patientList[indexPath.row] as! ContactObj
+            if indexPath.section == 0 {
+                obj = patientList[indexPath.row] as! ContactObj
+            }
+            else {
+                obj = educatorsList[indexPath.row] as! ContactObj
+            }
+
+            
+            
         }
         
         
@@ -614,6 +672,7 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
                 cell.accessoryType = .none
             }
         }
+        cell.selectionStyle = .none
         
         return cell
     }
@@ -644,9 +703,15 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
             }
         }
         else {
-            
+             if indexPath.section == 0 {
             obj = patientList[indexPath.row] as! ContactObj
+                
             recipientNameArray.append(obj.full_name)
+             } else {
+                obj = educatorsList[indexPath.row] as! ContactObj
+                
+                recipientNameArray.append(obj.full_name)
+            }
         }
         
         // group chat
@@ -665,8 +730,38 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
             
             if selectedUserType == userType.doctor
             {
+                if indexPath.section == 1 {
+                                var usersArray = Array<String>()
+                                if obj.chatid != "" {
+                                       usersArray.append(obj.chatid)
+                                        educatorSelectedList.add(obj)
+                                        recipientIDArray.append(obj.patient_id)
+                                        //recipientNameArray.append(obj.full_name)
+                                        if(obj.HCNumber.isEmpty == false){
+                                            patienthcNumber = obj.HCNumber
+                                        }
+                    
+                                    }
+                    
+                                    //The last index will be the name of the logged in user
+                                    let loggedInUserName: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserFullname)!
+                                    recipientNameArray.append(loggedInUserName)
+                    
+                    
+                                   self.createChat(name:  obj.full_name, usersArray: usersArray, isGroup: false, patientID: obj.patient_id, HCNumber: patienthcNumber, recipientIDArray: recipientIDArray, recipientNames: recipientNameArray, completion: { (response, chatDialog) in
+                                    
+                                        //if response != nil
+                                        //{
+                                            UserDefaults.standard.setValue(obj.patient_id, forKey: userDefaults.selectedPatientID)
+                                            self.naviagteToChatScreen(dialog: chatDialog!)
+                                        //}
+                                    })
+
+                    
+                }else{
                 getPatientEducators(patientID: obj.patient_id) { (result) -> Void in
                     if(result){
+                        
                         self.createGroupForDoctor(selectedPatient: obj)
                     }
                     else
@@ -681,28 +776,9 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
                 }
                 
             }
+            }
                 //  educator
             else {
-//                var usersArray = Array<String>()
-//                if obj.chatid != "" {
-//                    usersArray.append(obj.chatid)
-//                    
-//                    recipientIDArray.append(obj.patient_id)
-//                    if(obj.HCNumber.isEmpty == false){
-//                        patienthcNumber = obj.HCNumber
-//                    }
-//                    
-//                }
-//                
-//                //The last index will be the name of the logged in user
-//                let loggedInUserName: String = UserDefaults.standard.string(forKey: userDefaults.loggedInUserFullname)!
-//                recipientNameArray.append(loggedInUserName)
-//                
-//                self.createChat(name:  obj.full_name, usersArray: usersArray, isGroup: false, patientID: obj.patient_id, HCNumber: patienthcNumber, recipientIDArray: recipientIDArray, recipientNames: recipientNameArray, completion: { (response, chatDialog) in
-//                    
-//                    UserDefaults.standard.setValue(obj.patient_id, forKey: userDefaults.selectedPatientID)
-//                    self.naviagteToChatScreen(dialog: chatDialog!)
-//                })
                 
             }
             
@@ -737,7 +813,12 @@ class ContactListViewController: UIViewController, UITableViewDelegate, UITableV
             }
         }
         else {
-            return "Patients".localized
+            if section == 0 {
+                return "Start group chat with patient".localized
+            }
+            else {
+                return "Start direct chat with educator".localized
+            }
         }
         
     }
